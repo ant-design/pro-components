@@ -1,4 +1,5 @@
 import { setAlpha } from '../useStyle';
+import type { AliasToken } from 'antd/es/theme/interface';
 
 export type BaseLayoutDesignToken = {
   hashId: string;
@@ -100,7 +101,7 @@ export type LayoutDesignToken = BaseLayoutDesignToken;
 
 export const getLayoutDesignToken: (
   baseDesignTokens: DeepPartial<LayoutDesignToken>,
-  antdToken: Record<string, any>,
+  antdToken: AliasToken,
 ) => LayoutDesignToken = (designTokens, antdToken) => {
   const finalDesignTokens = { ...designTokens };
   const defaultColorBgHeader = setAlpha(antdToken.colorBgElevated, 0.6);

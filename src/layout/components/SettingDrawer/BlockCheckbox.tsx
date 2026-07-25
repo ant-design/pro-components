@@ -1,7 +1,7 @@
 import { CheckOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 import { clsx } from 'clsx';
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 export type BlockCheckboxProps = {
   value: string;
@@ -26,7 +26,7 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
 }) => {
   const baseClassName = `${prefixCls}-block-checkbox`;
   const dom = useMemo(() => {
-    const domList = (list || []).map((item) => (
+    return (list || []).map((item) => (
       <Tooltip title={item.title} key={item.key}>
         <div
           className={clsx(
@@ -51,7 +51,6 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
         </div>
       </Tooltip>
     ));
-    return domList;
   }, [value, list?.length, onChange]);
   return <div className={clsx(baseClassName, hashId)}>{dom}</div>;
 };

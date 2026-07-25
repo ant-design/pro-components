@@ -274,8 +274,7 @@ const ConfigProviderContainer: React.FC<{
    * @type {string}
    * @example .ant-pro
    */
-
-  const proComponentsCls = prefixCls
+  const proComponentsCls: string = prefixCls
     ? `.${prefixCls}`
     : `.${getPrefixCls()}-pro`;
 
@@ -344,7 +343,7 @@ const ConfigProviderContainer: React.FC<{
     }
     if (proProvide.hashed === false) return '';
     //Fix issue with hashId code
-    if (isNeedOpenHash() === false) {
+    if (!isNeedOpenHash()) {
       return '';
     } else if (tokenContext.hashId) {
       return tokenContext.hashId;

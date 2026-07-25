@@ -1,5 +1,5 @@
 ﻿import { Spin } from 'antd';
-import { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import type {
   ProHelpDataSource,
   ProHelpDataSourceChildren,
@@ -10,6 +10,7 @@ import { RenderContentPanel } from './RenderContentPanel';
 /**
  * 异步加载内容的面板组件
  * @param item 指向当前面板的 ProHelpDataSource
+ * @param onInit 内容面板初始化回调，透出容器 DOM 引用
  */
 export const AsyncContentPanel: React.FC<{
   item: ProHelpDataSource<any>['children'][number];
