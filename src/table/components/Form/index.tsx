@@ -79,6 +79,7 @@ const FormSearch = <T, U>(props: BaseFormProps<T, U> & { ghost?: boolean }) => {
       return;
     }
     runSubmit();
+    return true;
   });
 
   const onResetHandler = useRefFunction((value: Partial<U>) => {
