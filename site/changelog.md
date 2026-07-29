@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.1.14-6] - 2026-07-29
+
+### 🐛 问题修复
+
+- ProTable
+  - 🐞 修复提交的搜索字段未同步写入 URL 的问题，现已与 `syncToUrl` 行为对齐 [#9665](https://github.com/ant-design/pro-components/issues/9665) [#9674](https://github.com/ant-design/pro-components/pull/9674) [@pingfan](https://github.com/pingfan)
+
+### ✅ 测试
+
+- ✅ 新增 `syncToUrl` 搜索字段同步的回归测试，校验表单提交后 URL 参数正确更新
+
 ## [3.1.14-5] - 2026-07-24
 
 ### 🐛 问题修复

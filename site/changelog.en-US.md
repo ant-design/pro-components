@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.1.14-6] - 2026-07-29
+
+### 🐛 Bug Fixes
+
+- ProTable
+  - 🐞 Fix submitted search fields not being written to the URL, now aligned with `syncToUrl` behavior [#9665](https://github.com/ant-design/pro-components/issues/9665) [#9674](https://github.com/ant-design/pro-components/pull/9674) [@pingfan](https://github.com/pingfan)
+
+### ✅ Tests
+
+- ✅ Add `syncToUrl` search-field regression test to verify URL parameters update correctly after form submission
+
 ## [3.1.14-5] - 2026-07-24
 
 ### 🐛 Bug Fixes
