@@ -149,6 +149,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         minWidth: 0,
         color: token.colorText,
         fontSize: token.fontSize,
+        fontWeight: token.fontWeightStrong,
         lineHeight: token.lineHeight,
       },
       [`${token.proComponentsCls}-list-item-meta-description`]: {
@@ -500,6 +501,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           marginInlineEnd: 0,
           wordBreak: 'break-word',
           cursor: 'pointer',
+          fontWeight: token.fontWeightStrong,
           '&-editable': {
             paddingBlock: token.paddingSM,
           },
