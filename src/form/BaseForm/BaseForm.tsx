@@ -693,7 +693,12 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
 
   if (request && initialDataLoading) {
     return (
-        <Skeleton />
+      <Skeleton
+      active
+      title={false}
+      paragraph={{ rows: 5 }}
+      className={`${prefixCls}-body-skeleton`}
+    />
     );
   }
 
