@@ -1,6 +1,12 @@
 import type { ProFormInstance } from '@ant-design/pro-components';
 import { ProFormSelect, ProTable } from '@ant-design/pro-components';
-import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import type { FormInstance, RefSelectProps } from 'antd';
 import { Input, Select } from 'antd';
 import dayjs from 'dayjs';
@@ -461,23 +467,18 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    expect(html.baseElement.querySelector('.ant-select')).toBeTruthy();
+    const select = html.getByRole('combobox');
     expect(renderConfigs.length).toBeGreaterThan(0);
     expect(renderConfigs.every((config) => !('formItemRender' in config))).toBe(
       true,
     );
 
     act(() => {
-      fireEvent.mouseDown(html.baseElement.querySelector('.ant-select')!);
+      fireEvent.mouseDown(select);
     });
-    const courseOption = Array.from(
-      document.body.querySelectorAll<HTMLElement>(
-        '.ant-select-item-option-content',
-      ),
-    ).find((item) => item.textContent === 'Course');
-    expect(courseOption).toBeTruthy();
+    const courseOption = screen.getByText('Course');
     act(() => {
-      fireEvent.click(courseOption!);
+      fireEvent.click(courseOption);
     });
     expect(formRef.current?.getFieldValue('type')).toEqual(['course']);
     html.unmount();
@@ -520,17 +521,13 @@ describe('BasicTable Search', () => {
       />,
     );
 
+    const select = html.getByRole('combobox');
     act(() => {
-      fireEvent.mouseDown(html.baseElement.querySelector('.ant-select')!);
+      fireEvent.mouseDown(select);
     });
-    const openOption = Array.from(
-      document.body.querySelectorAll<HTMLElement>(
-        '.ant-select-item-option-content',
-      ),
-    ).find((item) => item.textContent === 'Open');
-    expect(openOption).toBeTruthy();
+    const openOption = screen.getByText('Open');
     act(() => {
-      fireEvent.click(openOption!);
+      fireEvent.click(openOption);
     });
     expect(formRef.current?.getFieldValue('status')).toBe('open');
     html.unmount();
