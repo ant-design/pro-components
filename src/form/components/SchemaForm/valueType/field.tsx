@@ -41,7 +41,12 @@ export const field: ProSchemaRenderValueTypeFunction<any, any> = (
 
   const formItemRender = item?.formItemRender
     ? (_: any, config: any) => {
-        const renderConfig = omitUndefined({ ...config, onChange: undefined });
+        const renderConfig = omitUndefined({
+          ...config,
+          onChange: undefined,
+          // Avoid forwarding this internal callback into nested ProForm fields.
+          formItemRender: undefined,
+        });
         return item?.formItemRender?.(
           {
             type,

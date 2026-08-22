@@ -1,8 +1,8 @@
 import type { ProFormInstance } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import { ProFormSelect, ProTable } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
-import type { FormInstance } from 'antd';
-import { Input } from 'antd';
+import type { FormInstance, RefSelectProps } from 'antd';
+import { Input, Select } from 'antd';
 import dayjs from 'dayjs';
 import React, { act, createRef } from 'react';
 import {
@@ -431,6 +431,108 @@ describe('BasicTable Search', () => {
       expect(fn).toHaveBeenCalledWith('12');
     });
 
+    html.unmount();
+  });
+
+  it('does not loop when formItemRender config is spread into ProFormSelect', () => {
+    const formRef: React.MutableRefObject<ProFormInstance | undefined> = {
+      current: undefined,
+    };
+    const renderConfigs: object[] = [];
+    const html = render(
+      <ProTable
+        formRef={formRef}
+        columns={[
+          {
+            title: 'Type',
+            dataIndex: 'type',
+            valueType: 'select',
+            valueEnum: {
+              course: { text: 'Course' },
+              test: { text: 'Test' },
+            },
+            formItemRender: (_, config) => {
+              renderConfigs.push(config);
+              return <ProFormSelect {...config} mode="multiple" />;
+            },
+          },
+        ]}
+        dataSource={[]}
+      />,
+    );
+
+    expect(html.baseElement.querySelector('.ant-select')).toBeTruthy();
+    expect(renderConfigs.length).toBeGreaterThan(0);
+    expect(renderConfigs.every((config) => !('formItemRender' in config))).toBe(
+      true,
+    );
+
+    act(() => {
+      fireEvent.mouseDown(html.baseElement.querySelector('.ant-select')!);
+    });
+    const courseOption = Array.from(
+      document.body.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content',
+      ),
+    ).find((item) => item.textContent === 'Course');
+    expect(courseOption).toBeTruthy();
+    act(() => {
+      fireEvent.click(courseOption!);
+    });
+    expect(formRef.current?.getFieldValue('type')).toEqual(['course']);
+    html.unmount();
+  });
+
+  it('keeps antd Select controlled when formItemRender config is spread', () => {
+    const formRef: React.MutableRefObject<ProFormInstance | undefined> = {
+      current: undefined,
+    };
+    const CustomSelect = React.forwardRef<
+      RefSelectProps,
+      Pick<React.ComponentProps<typeof Select>, 'onChange' | 'value'>
+    >(({ onChange, value }, ref) => (
+      <Select
+        ref={ref}
+        value={value}
+        onChange={onChange}
+        options={[
+          { label: 'Open', value: 'open' },
+          { label: 'Closed', value: 'closed' },
+        ]}
+      />
+    ));
+    CustomSelect.displayName = 'CustomSelect';
+    const html = render(
+      <ProTable
+        formRef={formRef}
+        columns={[
+          {
+            title: 'Status',
+            dataIndex: 'status',
+            valueType: 'select',
+            formItemRender: (
+              _,
+              { type: _type, defaultRender: _defaultRender, ...rest },
+            ) => <CustomSelect {...rest} />,
+          },
+        ]}
+        dataSource={[]}
+      />,
+    );
+
+    act(() => {
+      fireEvent.mouseDown(html.baseElement.querySelector('.ant-select')!);
+    });
+    const openOption = Array.from(
+      document.body.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content',
+      ),
+    ).find((item) => item.textContent === 'Open');
+    expect(openOption).toBeTruthy();
+    act(() => {
+      fireEvent.click(openOption!);
+    });
+    expect(formRef.current?.getFieldValue('status')).toBe('open');
     html.unmount();
   });
 
