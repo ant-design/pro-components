@@ -1180,6 +1180,81 @@ describe('Table ColumnSetting', () => {
     await waitForWaitTime(1000);
   });
 
+  it('🎏 columnSetting drag should preserve fixed state for array dataIndex', async () => {
+    const onChange = vi.fn();
+    const html = render(
+      <ProTable
+        size="small"
+        columnsState={{ onChange }}
+        columns={[
+          {
+            title: 'Nested name',
+            dataIndex: ['test', 'name'],
+            fixed: 'left',
+          },
+          {
+            title: 'Created at',
+            dataIndex: 'createdAt',
+          },
+          {
+            title: 'Updated at',
+            dataIndex: 'updatedAt',
+          },
+        ]}
+        dataSource={[
+          {
+            key: 1,
+            test: { name: 'ProComponents' },
+          },
+        ]}
+        rowKey="key"
+      />,
+    );
+
+    await waitForWaitTime(200);
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLDivElement>(
+          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
+        )
+        ?.click();
+    });
+    await waitForWaitTime(300);
+
+    const nodes = html.baseElement.querySelectorAll<HTMLDivElement>(
+      '.ant-tree-treenode > .ant-tree-node-content-wrapper',
+    );
+    act(() => {
+      fireDragEvent(nodes[1], 'dragStart', {
+        clientX: 500,
+        clientY: 500,
+      });
+    });
+    await waitForWaitTime(200);
+    act(() => {
+      fireDragEvent(nodes[2], 'dragEnter', {
+        clientX: 400,
+        clientY: 600,
+      });
+    });
+    await waitForWaitTime(200);
+    act(() => {
+      fireDragEvent(nodes[2], 'dragOver', {
+        clientX: 400,
+        clientY: 600,
+      });
+    });
+    await waitForWaitTime(200);
+    act(() => {
+      fireEvent.drop(nodes[2]);
+    });
+
+    await waitFor(() => expect(onChange).toHaveBeenCalled());
+    const lastColumnsState = (onChange.mock as any).lastCall[0];
+    expect(lastColumnsState['test-name']).toMatchObject({ fixed: 'left' });
+    expect(lastColumnsState['test,name']).toBeUndefined();
+  });
+
   it('🎏 columnSetting support hideInSetting', async () => {
     const html = render(
       <ProTable
