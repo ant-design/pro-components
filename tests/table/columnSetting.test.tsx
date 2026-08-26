@@ -1,4 +1,4 @@
-import { ProTable } from '@ant-design/pro-components';
+import { ProTable, type ColumnsState } from '@ant-design/pro-components';
 import {
   cleanup,
   createEvent,
@@ -1181,7 +1181,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 columnSetting drag should preserve fixed state for array dataIndex', async () => {
-    const onChange = vi.fn();
+    const onChange = vi.fn<(map: Record<string, ColumnsState>) => void>();
     const html = render(
       <ProTable
         size="small"
@@ -1250,7 +1250,7 @@ describe('Table ColumnSetting', () => {
     });
 
     await waitFor(() => expect(onChange).toHaveBeenCalled());
-    const lastColumnsState = (onChange.mock as any).lastCall[0];
+    const lastColumnsState = onChange.mock.lastCall![0];
     expect(lastColumnsState['test-name']).toMatchObject({ fixed: 'left' });
     expect(lastColumnsState['test,name']).toBeUndefined();
   });
