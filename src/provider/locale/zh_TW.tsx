@@ -2,8 +2,8 @@ import type { ProLocale } from './zh_CN';
 
 const zhTW: ProLocale = {
   moneySymbol: 'NT$',
-  deleteThisLine: '刪除此项',
-  copyThisLine: '複製此项',
+  deleteThisLine: '刪除此項',
+  copyThisLine: '複製此項',
   form: {
     lightFilter: {
       more: '更多篩選',

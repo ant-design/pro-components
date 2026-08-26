@@ -4,6 +4,7 @@ import {
   ProFormMoney,
   createIntl,
   useStyle,
+  zhTWIntl,
 } from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
@@ -62,5 +63,10 @@ describe('ProConfigProvider', () => {
     const input = container.querySelector('input#amount') as HTMLInputElement;
     expect(input).toBeTruthy();
     expect(input.value).toBe('!? 44.33');
+  });
+
+  it('uses Traditional Chinese glyphs for line actions', () => {
+    expect(zhTWIntl.getMessage('deleteThisLine', '')).toBe('刪除此項');
+    expect(zhTWIntl.getMessage('copyThisLine', '')).toBe('複製此項');
   });
 });
