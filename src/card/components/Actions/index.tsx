@@ -11,14 +11,21 @@ export type ProCardActionsProps = {
   prefixCls?: string;
   /** 操作按钮 */
   actions?: React.ReactNode[] | React.ReactNode;
+  /** 语义化 classNames.actions，透传到操作区根节点 */
+  className?: string;
+  /** 语义化 styles.actions，透传到操作区根节点 */
+  style?: React.CSSProperties;
 };
 
 const ProCardActions: React.FC<ProCardActionsProps> = (props) => {
-  const { actions, prefixCls } = props;
+  const { actions, prefixCls, className, style } = props;
   const { wrapSSR, hashId } = useStyle(prefixCls);
   if (Array.isArray(actions) && actions?.length) {
     return wrapSSR(
-      <ul className={clsx(`${prefixCls}-actions`, hashId)}>
+      <ul
+        className={clsx(`${prefixCls}-actions`, hashId, className)}
+        style={style}
+      >
         {actions.map((action, index) => (
           <li
             style={{ width: `${100 / actions.length}%`, padding: 0, margin: 0 }}
@@ -32,7 +39,12 @@ const ProCardActions: React.FC<ProCardActionsProps> = (props) => {
     );
   }
   return wrapSSR(
-    <ul className={clsx(`${prefixCls}-actions`, hashId)}>{actions}</ul>,
+    <ul
+      className={clsx(`${prefixCls}-actions`, hashId, className)}
+      style={style}
+    >
+      {actions}
+    </ul>,
   );
 };
 
