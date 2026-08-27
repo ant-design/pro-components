@@ -427,6 +427,34 @@ describe('descriptions', () => {
     wrapper.unmount();
   });
 
+  it('🐛 styles 属性应透传给 Descriptions 且保留内置默认 minWidth', async () => {
+    const html = render(
+      <ProDescriptions
+        title="标题"
+        dataSource={{ id: 'text' }}
+        columns={[{ title: '文本', dataIndex: 'id' }]}
+        styles={{
+          title: { color: '#ff4d4f' },
+          content: { color: '#1677ff' },
+        }}
+      />,
+    );
+
+    const titleEl = html.container.querySelector<HTMLElement>(
+      '.ant-descriptions-title',
+    );
+    const contentEl = html.container.querySelector<HTMLElement>(
+      '.ant-descriptions-item-content',
+    );
+
+    expect(titleEl).toBeTruthy();
+    // happy-dom 不做颜色标准化，保留原始十六进制值
+    expect(titleEl?.style.color).toBe('#ff4d4f');
+    expect(contentEl?.style.color).toBe('#1677ff');
+    // 内置的 content minWidth: 0 默认值不应被用户的 styles 覆盖丢失
+    expect(contentEl?.style.minWidth).toBe('0');
+  });
+
   it('🐛 copyable 复制 renderText 返回 JSX 时应使用原始值而非 [object Object]', async () => {
     const RAW_VALUE = '13800138000';
     const writeTextMock = vi.fn().mockResolvedValue(undefined);
