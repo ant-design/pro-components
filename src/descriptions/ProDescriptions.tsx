@@ -37,6 +37,7 @@ const ProDescriptions = <
     actionRef,
     onRequestError,
     emptyText: _emptyText,
+    styles,
     ...rest
   } = props;
 
@@ -169,11 +170,17 @@ const ProDescriptions = <
           <Descriptions
             className={className}
             {...rest}
-            styles={{
-              content: {
-                minWidth: 0,
-              },
-            }}
+            styles={
+              typeof styles === 'function'
+                ? styles
+                : {
+                    ...styles,
+                    content: {
+                      minWidth: 0,
+                      ...styles?.content,
+                    },
+                  }
+            }
             extra={
               options || rest.extra ? (
                 <Space>
