@@ -58,11 +58,11 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                         role="none"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
+                          aria-controls="rc-menu-uuid-:r10:-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           aria-expanded="true"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
+                          data-menu-id="rc-menu-uuid-:r10:-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
@@ -87,7 +87,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                         <ul
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
-                          id="rc-menu-uuid-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
+                          id="rc-menu-uuid-:r10:-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           role="menu"
                         >
                           <li
@@ -95,11 +95,11 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                             role="none"
                           >
                             <div
-                              aria-controls="rc-menu-uuid-/welcome-popup"
+                              aria-controls="rc-menu-uuid-:r10:-/welcome-popup"
                               aria-expanded="false"
                               aria-haspopup="true"
                               class="ant-menu-submenu-title"
-                              data-menu-id="rc-menu-uuid-/welcome"
+                              data-menu-id="rc-menu-uuid-:r10:-/welcome"
                               role="menuitem"
                               style="padding-left: 32px;"
                               tabindex="-1"

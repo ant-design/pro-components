@@ -3600,11 +3600,11 @@ describe('ProForm', () => {
       const clearButton =
         wrapper.baseElement.querySelector<HTMLElement>('.ant-select-clear');
       if (clearButton) {
-        fireEvent.mouseDown(clearButton);
+        fireEvent.click(clearButton);
       }
     });
 
-    expect(onChange).toHaveBeenCalledWith(undefined);
+    expect(onChange).toHaveBeenLastCalledWith(undefined);
     wrapper.unmount();
   });
 
