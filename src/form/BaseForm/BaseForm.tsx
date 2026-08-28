@@ -7,7 +7,7 @@ import {
   warning,
 } from '@rc-component/util';
 import type { FormInstance, FormItemProps, FormProps } from 'antd';
-import { ConfigProvider, Form, Spin } from 'antd';
+import { ConfigProvider, Form, Skeleton } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import { clsx } from 'clsx';
 import type dayjs from 'dayjs';
@@ -693,9 +693,12 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
 
   if (request && initialDataLoading) {
     return (
-      <div style={{ paddingTop: 50, paddingBottom: 50, textAlign: 'center' }}>
-        <Spin />
-      </div>
+      <Skeleton
+      active
+      title={false}
+      paragraph={{ rows: 5 }}
+      className={`${prefixCls}-body-skeleton`}
+    />
     );
   }
 
