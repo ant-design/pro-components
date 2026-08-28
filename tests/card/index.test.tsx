@@ -260,4 +260,24 @@ describe('Card', () => {
     expect(fn).toHaveBeenCalledWith('tab2');
     wrapper.unmount();
   });
+
+  it('🥩 classNames.actions and styles.actions applied to actions ul', async () => {
+    const wrapper = render(
+      <ProCard
+        title="操作区"
+        actions={[<a key="setting">设置</a>, <a key="edit">编辑</a>]}
+        classNames={{ actions: 'custom-actions-cls' }}
+        styles={{ actions: { marginTop: 10 } }}
+      >
+        内容
+      </ProCard>,
+    );
+    const actionsUl = wrapper.baseElement.querySelector<HTMLUListElement>(
+      '.ant-pro-card-actions',
+    );
+    expect(actionsUl).toBeTruthy();
+    expect(actionsUl?.className).toContain('custom-actions-cls');
+    expect(actionsUl?.style.marginTop).toBe('10px');
+    wrapper.unmount();
+  });
 });

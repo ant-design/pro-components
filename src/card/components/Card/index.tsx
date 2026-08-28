@@ -374,7 +374,12 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         </div>
       )}
       {actions ? (
-        <Actions actions={actions} prefixCls={prefixCls} />
+        <Actions
+          actions={actions}
+          prefixCls={prefixCls}
+          className={classNames?.actions}
+          style={mergedStyles.actions}
+        />
       ) : null}
     </div>,
   );
