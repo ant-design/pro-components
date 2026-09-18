@@ -14,6 +14,39 @@ afterEach(() => {
 });
 
 describe('PageContainer', () => {
+  it('🐞 keeps sticky content usable when Watermark is enabled', () => {
+    const { container } = render(
+      <PageContainer waterMarkProps={{ content: '测试环境' }}>
+        content
+      </PageContainer>,
+    );
+    expect(
+      (
+        container.querySelector(
+          '.ant-pro-grid-content-children > div',
+        ) as HTMLElement
+      ).style.overflow,
+    ).toBe('visible');
+  });
+
+  it('🐞 preserves an explicit Watermark overflow override', () => {
+    const { container } = render(
+      <PageContainer
+        waterMarkProps={{ content: '测试环境', style: { overflow: 'hidden' } }}
+      >
+        content
+      </PageContainer>,
+    );
+
+    expect(
+      (
+        container.querySelector(
+          '.ant-pro-grid-content-children > div',
+        ) as HTMLElement
+      ).style.overflow,
+    ).toBe('hidden');
+  });
+
   it('💄 base use', async () => {
     const wrapper = render(<PageContainer title="期贤" />);
     // 应正确渲染 title 文本

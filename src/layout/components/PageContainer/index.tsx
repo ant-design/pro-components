@@ -405,6 +405,11 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
       const waterMarkProps = {
         ...value.waterMarkProps,
         ...props.waterMarkProps,
+        style: {
+          overflow: 'visible',
+          ...value.waterMarkProps?.style,
+          ...props.waterMarkProps?.style,
+        },
       };
       return <Watermark {...waterMarkProps}>{dom}</Watermark>;
     }
