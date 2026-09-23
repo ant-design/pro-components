@@ -156,9 +156,16 @@ function renderDefaultOption<T>(
         key as 'fullScreen'
       ];
       if (optionItem) {
+        const optionContent =
+          key === 'density' ? (
+            optionItem.icon
+          ) : (
+            <Tooltip title={optionItem.text}>{optionItem.icon}</Tooltip>
+          );
+
         return (
           <span key={key} onClick={onClick}>
-            <Tooltip title={optionItem.text}>{optionItem.icon}</Tooltip>
+            {optionContent}
           </span>
         );
       }
