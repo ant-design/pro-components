@@ -49,6 +49,26 @@ describe('LightFilter', () => {
     expect(fieldLabel?.textContent).toContain('名称');
   });
 
+  it(' 🪕 should not render Form.Item label for customLightMode fields', async () => {
+    const { container } = render(
+      <LightFilter initialValues={{ sex: 'man' }}>
+        <LightFilter.select
+          name="sex"
+          label="性别"
+          valueEnum={{ man: '男', woman: '女' }}
+        />
+      </LightFilter>,
+    );
+
+    const fieldLabel = await waitFor(() => {
+      return container.querySelector('.ant-pro-core-field-label');
+    });
+    expect(fieldLabel?.textContent).toContain('性别');
+    // label 只由轻量控件自己渲染，Form.Item 不能再渲染一遍
+    expect(container.querySelector('.ant-form-item-label')).toBeFalsy();
+    expect(container.querySelectorAll('[title="性别"]')).toHaveLength(0);
+  });
+
   it(' 🪕 should support initialValues', async () => {
     const onValuesChange = vi.fn();
 
