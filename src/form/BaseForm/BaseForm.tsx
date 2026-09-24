@@ -7,7 +7,7 @@ import {
   warning,
 } from '@rc-component/util';
 import type { FormInstance, FormItemProps, FormProps } from 'antd';
-import { ConfigProvider, Form, Skeleton } from 'antd';
+import { ConfigProvider, Form, Spin } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import { clsx } from 'clsx';
 import type dayjs from 'dayjs';
@@ -100,6 +100,11 @@ export type CommonFormProps<
    * @name 表单按钮的 loading 状态
    */
   loading?: boolean;
+  /**
+   * @name 自定义 request 加载时的内容，默认显示 Spin
+   * @example loadingContent={<Skeleton active />}
+   */
+  loadingContent?: React.ReactNode;
   /**
    * @name 这是一个可选的属性(onLoadingChange)，它接受一个名为loading的参数，类型为boolean，表示加载状态是否改变。
    * 当loading状态发生变化时，将会调用一个函数，这个函数接受这个loading状态作为参数，并且没有返回值(void)。
@@ -506,6 +511,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     readonly,
     onLoadingChange,
     loading: propsLoading,
+    loadingContent,
     ...propRest
   } = props;
   const formRef = useRef<ProFormRef<any>>({} as any);
@@ -692,13 +698,12 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   }, [!initialData]);
 
   if (request && initialDataLoading) {
+    if (loadingContent !== undefined) return <>{loadingContent}</>;
+
     return (
-      <Skeleton
-      active
-      title={false}
-      paragraph={{ rows: 5 }}
-      className={`${prefixCls}-body-skeleton`}
-    />
+      <div style={{ paddingTop: 50, paddingBottom: 50, textAlign: 'center' }}>
+        <Spin />
+      </div>
     );
   }
 
