@@ -2932,28 +2932,30 @@ describe('EditorProTable', () => {
     ).toBeFalsy();
   });
 
-  it('keeps validation status with a custom formItemRender (#5942)', async () => {
+  it('keeps validation status with a custom formItemRender (#5942, #8348)', async () => {
     const editableFormRef = React.createRef<
       EditableFormInstance<DataSourceType>
     >();
     const wrapper = render(
-      <EditableProTable<DataSourceType>
-        editableFormRef={editableFormRef}
-        recordCreatorProps={false}
-        rowKey="id"
-        columns={[
-          {
-            title: '标题',
-            dataIndex: 'title',
-            formItemRender: () => <Input />,
-            formItemProps: {
-              rules: [{ required: true, message: '此项为必填项' }],
+      <ProForm initialValues={{ table: [{ id: 1, title: '' }] }}>
+        <EditableProTable<DataSourceType>
+          name="table"
+          editableFormRef={editableFormRef}
+          recordCreatorProps={false}
+          rowKey="id"
+          columns={[
+            {
+              title: '标题',
+              dataIndex: 'title',
+              formItemRender: () => <Input />,
+              formItemProps: {
+                rules: [{ required: true, message: '此项为必填项' }],
+              },
             },
-          },
-        ]}
-        value={[{ id: 1, title: '' }]}
-        editable={{ editableKeys: [1] }}
-      />,
+          ]}
+          editable={{ editableKeys: [1] }}
+        />
+      </ProForm>,
     );
 
     await expect(
