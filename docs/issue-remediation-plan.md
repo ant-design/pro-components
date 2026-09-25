@@ -2,17 +2,24 @@
 
 Snapshot date: 2026-09-25
 
-After the resolved/stale cleanup, the repository has 348 open issues. Of these,
-300 have no labels, 305 were created more than one year ago, 105 have no
-comments, only 6 were updated in the last 90 days, and only 2 were updated in
-the last 30 days. Title matching (categories overlap) finds 154 Form, 142
+After the resolved/stale cleanup, the repository had 348 open issues. Of these,
+300 had no labels, 305 were created more than one year ago, 105 had no
+comments, only 6 had been updated in the preceding 90 days, and only 2 in the
+preceding 30 days. Title matching (categories overlap) found 154 Form, 142
 Table, 61 Field, 40 EditableTable, 48 build/type/dependency, and 34 Layout
 reports. The remaining backlog therefore needs reproduction and consolidation
 before implementation, not another age-only closing pass.
 
+The labeling pass assigned component and disposition labels to all 300
+previously unlabeled issues. It also closed 17 issues labeled
+`Need to reproduce` that had already been inactive for more than one year.
+There are now 331 open issues and zero completely unlabeled issues. GitHub
+updates an issue's `updatedAt` timestamp when labels change, so the activity
+figures above are preserved as the pre-label baseline.
+
 ## Remaining 348: execution plan
 
-### Phase 0: restore triage signal (1–2 days)
+### Phase 0: restore triage signal (completed)
 
 1. Apply one primary component label to all 300 unlabeled issues: `form`,
    `table`, `editable`, `field`, `layout`, `build`, `docs`, or `question`.
@@ -24,8 +31,9 @@ before implementation, not another age-only closing pass.
    Reports against v2/antd 5 remain useful as regression hypotheses but are not
    automatically accepted as current defects.
 
-Exit criteria: every open issue has an owner component and disposition; the
-unlabeled count is zero.
+The 300-item unlabeled queue is complete. A follow-up normalization pass is
+still needed for 48 issues that already had legacy labels: 42 lack a component
+label and 6 lack a disposition label.
 
 ### Phase 1: correctness and page-freeze bugs (week 1)
 
