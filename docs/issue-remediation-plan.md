@@ -13,7 +13,8 @@ before implementation, not another age-only closing pass.
 The labeling pass assigned component and disposition labels to all 300
 previously unlabeled issues. It also closed 17 issues labeled
 `Need to reproduce` that had already been inactive for more than one year.
-There are now 331 open issues and zero completely unlabeled issues. GitHub
+After closing five confirmed duplicates, there are now 326 open issues and zero
+completely unlabeled issues. GitHub
 updates an issue's `updatedAt` timestamp when labels change, so the activity
 figures above are preserved as the pre-label baseline.
 
@@ -70,6 +71,10 @@ must be independently revertable.
 Canonical performance issue: keep #9264 and fold #9263, #9271, #9275, and
 #9612 into it after preserving their distinct scenarios. Keep #9424 and #9553
 as correctness constraints, not performance duplicates.
+
+Confirmed duplicate cleanup completed after triage: #8997 → #8946, #9263 →
+#9264, #9110/#9615 → #9044, and #9319 → #9321. The duplicate issues carry
+the repository's duplicate label and link to their canonical issue.
 
 Build a benchmark before changing render paths:
 
