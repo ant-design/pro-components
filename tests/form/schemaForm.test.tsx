@@ -176,7 +176,7 @@ describe('SchemaForm', () => {
     });
   });
 
-  it('😊 SchemaForm support shouldUpdate as true', async () => {
+  it('🐛 #9569 SchemaForm exposes changed values through onValuesChange', async () => {
     const fieldPropsFn = vi.fn();
     const formItemPropsFn = vi.fn();
     const formItemRenderFn = vi.fn();
@@ -226,7 +226,10 @@ describe('SchemaForm', () => {
       expect(formItemRenderFn).toHaveBeenCalledTimes(6);
       expect(fieldPropsFn).toHaveBeenCalledTimes(2);
       expect(formItemPropsFn).toHaveBeenCalledTimes(2);
-      expect(onValuesChangeFn).toHaveBeenCalled();
+      expect(onValuesChangeFn).toHaveBeenCalledWith(
+        { title: 'qixian' },
+        expect.objectContaining({ title: 'qixian' }),
+      );
     });
   });
 

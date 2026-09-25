@@ -7,13 +7,15 @@ atomId: BetaSchemaForm
 
 # Schema Form - JSON Form
 
-SchemaForm is a tool that generates forms based on JSON Schema. SchemaForm maps to different [form items](/components/schema) based on `valueType`.
+SchemaForm is a tool that generates forms based on JSON Schema. SchemaForm maps to different [form items](#schema-definition) based on `valueType`.
 
 > **Tips**: If you encounter performance issues or have higher performance requirements, please refer to the [High Performance Code Example](#high-performance-mode).
 
 ## API
 
 SchemaForm provides the same API as [ProForm](/components/form#proform) and adds some additional APIs. The following are the new APIs for SchemaForm.
+
+Use `onValuesChange(changedValues, allValues)` to observe form value changes; `onChange` is not the form value callback.
 
 | Property       | Type                                                                                            | Description                                                                                                                                                                                                                                                                                                       |
 | -------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
