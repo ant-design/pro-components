@@ -450,6 +450,23 @@ describe('List', () => {
     ).not.toBeChecked();
   });
 
+  it('🐛 #9248 applies selected style for numeric row keys', () => {
+    const { container } = reactRender(
+      <ProList
+        rowKey="id"
+        dataSource={[{ id: 101, name: 'Numeric key item' }]}
+        rowSelection={{}}
+        columns={[{ dataIndex: 'name', listSlot: 'title' }]}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('.ant-checkbox-input')!);
+
+    expect(container.querySelector('.ant-pro-list-row')).toHaveClass(
+      'ant-pro-list-row-selected',
+    );
+  });
+
   it('🚏 support pagination', async () => {
     const { container } = reactRender(<PaginationDemo />);
 
