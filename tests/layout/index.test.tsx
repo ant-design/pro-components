@@ -11,7 +11,7 @@ import {
   render,
   waitFor,
 } from '@testing-library/react';
-import { Button, ConfigProvider } from 'antd';
+import { Button, ConfigProvider, theme } from 'antd';
 import en_US from 'antd/lib/locale/en_US';
 import React, { useEffect, useState } from 'react';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
@@ -24,6 +24,34 @@ afterEach(() => {
 });
 
 describe('BasicLayout', () => {
+  it('🐛 #8743 preserves ConfigProvider cssVar theme through ProLayout', async () => {
+    const ThemeProbe = () => {
+      const { token } = theme.useToken();
+      return <span data-testid="theme-token">{token.colorPrimary}</span>;
+    };
+    const wrapper = render(
+      <ConfigProvider
+        theme={{
+          cssVar: { key: 'vite-theme' },
+          token: { colorPrimary: '#123456' },
+        }}
+      >
+        <ProLayout title="Vite theme">
+          <Button type="primary">themed button</Button>
+          <ThemeProbe />
+        </ProLayout>
+      </ConfigProvider>,
+    );
+
+    await wrapper.findByText('themed button');
+    await waitFor(() => {
+      expect(
+        wrapper.container.querySelector('.ant-layout')?.className,
+      ).toContain('vite-theme');
+      expect(wrapper.getByTestId('theme-token').textContent).toBe('#123456');
+    });
+  });
+
   beforeAll(() => {
     process.env.NODE_ENV = 'TEST';
     const matchMediaSpy = vi.spyOn(window, 'matchMedia');
