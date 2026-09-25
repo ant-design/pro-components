@@ -2130,4 +2130,18 @@ describe('Field', () => {
     });
     html.unmount();
   });
+
+  it(`🐴 light FieldSelect supports a null value after clearing`, () => {
+    expect(() =>
+      render(
+        <FieldSelect
+          light
+          mode="edit"
+          text=""
+          valueEnum={{ open: '未解决' }}
+          fieldProps={{ value: null as any, allowClear: true }}
+        />,
+      ),
+    ).not.toThrow();
+  });
 });
