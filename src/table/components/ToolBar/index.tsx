@@ -370,6 +370,9 @@ const isPropsEqual = <T,>(
   prev: ToolbarRenderProps<T>,
   next: ToolbarRenderProps<T>,
 ): boolean => {
+  if (Boolean(prev.searchNode) !== Boolean(next.searchNode)) {
+    return false;
+  }
   if (next.searchNode) {
     return false;
   }

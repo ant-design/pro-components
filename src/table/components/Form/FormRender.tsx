@@ -204,6 +204,7 @@ const FormRender = <T, U = any>({
       })}
     >
       <BetaSchemaForm<U>
+        key={competentName}
         layoutType={competentName}
         columns={columnsList}
         type={type}

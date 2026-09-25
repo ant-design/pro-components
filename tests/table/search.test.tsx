@@ -918,4 +918,52 @@ describe('BasicTable Search', () => {
       );
     });
   });
+
+  it('🎏 replaces the search form when filterType changes (#9613)', async () => {
+    const Demo = () => {
+      const [filterType, setFilterType] = React.useState<'query' | 'light'>(
+        'query',
+      );
+      return (
+        <>
+          <button
+            type="button"
+            onClick={() =>
+              setFilterType((type) => (type === 'query' ? 'light' : 'query'))
+            }
+          >
+            toggle
+          </button>
+          <ProTable
+            columns={[{ title: 'Name', dataIndex: 'name' }]}
+            dataSource={[]}
+            search={{ filterType }}
+            rowKey="key"
+          />
+        </>
+      );
+    };
+
+    const { container, getByText } = render(<Demo />);
+    expect(container.querySelectorAll('.ant-pro-query-filter')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-pro-form-light-filter')).toHaveLength(
+      0,
+    );
+
+    fireEvent.click(getByText('toggle'));
+    await waitFor(() => {
+      expect(container.querySelectorAll('.ant-pro-query-filter')).toHaveLength(0);
+      expect(
+        container.querySelectorAll('.ant-pro-form-light-filter'),
+      ).toHaveLength(1);
+    });
+
+    fireEvent.click(getByText('toggle'));
+    await waitFor(() => {
+      expect(container.querySelectorAll('.ant-pro-query-filter')).toHaveLength(1);
+      expect(
+        container.querySelectorAll('.ant-pro-form-light-filter'),
+      ).toHaveLength(0);
+    });
+  });
 });
