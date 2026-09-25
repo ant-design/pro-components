@@ -39,6 +39,7 @@ const LightFilterContainer: React.FC<{
   prefixCls: string;
   size?: SizeType;
   values: Record<string, any>;
+  initialValues?: Record<string, any>;
   onValuesChange: (values: Record<string, any>) => void;
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
@@ -59,6 +60,7 @@ const LightFilterContainer: React.FC<{
     onValuesChange,
     variant = 'borderless',
     values,
+    initialValues,
     footerRender,
     placement,
     popoverProps,
@@ -177,6 +179,7 @@ const LightFilterContainer: React.FC<{
               label={collapseLabelNode}
               footerRender={footerRender}
               footer={{
+                clearText: intl.getMessage('tableForm.reset', '重置'),
                 onConfirm: () => {
                   onValuesChange({
                     ...moreValues,
@@ -184,12 +187,16 @@ const LightFilterContainer: React.FC<{
                   setOpen(false);
                 },
                 onClear: () => {
-                  const clearValues = {} as Record<string, any>;
+                  const resetValues = {} as Record<string, any>;
                   collapseItems.forEach((child: any) => {
                     const { name } = child.props;
-                    clearValues[name] = undefined;
+                    resetValues[name] = initialValues?.[name];
                   });
-                  onValuesChange(clearValues);
+                  setMoreValues((currentValues) => ({
+                    ...currentValues,
+                    ...resetValues,
+                  }));
+                  onValuesChange(resetValues);
                 },
               }}
             >
@@ -301,6 +308,7 @@ function LightFilterComponent<T = Record<string, any>>(
             placement={placement}
             popoverProps={popoverProps}
             values={values || {}}
+            initialValues={initialValues}
             footerRender={footerRender}
             onValuesChange={(newValues: any) => {
               const newAllValues = {

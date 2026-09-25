@@ -11,6 +11,7 @@ type OnClick = (e?: React.MouseEvent) => void;
 export type DropdownFooterProps = {
   onClear?: OnClick;
   onConfirm?: OnClick;
+  clearText?: React.ReactNode;
   disabled?: boolean;
   footerRender?: LightFilterFooterRender;
   children?: React.ReactNode;
@@ -18,7 +19,7 @@ export type DropdownFooterProps = {
 
 const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
   const intl = useIntl();
-  const { onClear, onConfirm, disabled, footerRender } = props;
+  const { onClear, onConfirm, clearText, disabled, footerRender } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-dropdown-footer');
   const { wrapSSR, hashId } = useStyle(prefixCls);
@@ -38,7 +39,7 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
         e.stopPropagation();
       }}
     >
-      {intl.getMessage('form.lightFilter.clear', '清除')}
+      {clearText ?? intl.getMessage('form.lightFilter.clear', '清除')}
     </Button>,
     <Button
       key="confirm"

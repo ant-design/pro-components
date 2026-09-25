@@ -312,6 +312,49 @@ describe('LightFilter', () => {
     expect(dropdownLabel).toBeTruthy();
   });
 
+  it('🐛 #9499 resets collapse fields to their initial values', async () => {
+    const onValuesChange = vi.fn();
+    const { container, baseElement } = render(
+      <LightFilter
+        collapse
+        initialValues={{ name1: 'initial value' }}
+        onValuesChange={onValuesChange}
+      >
+        <ProFormText name="name1" label="名称" />
+      </LightFilter>,
+    );
+
+    fireEvent.click(
+      container.querySelector('.ant-pro-core-field-dropdown-label')!,
+    );
+    const input = await waitFor(() => {
+      const element = baseElement.querySelector<HTMLInputElement>(
+        '.ant-pro-core-field-dropdown-overlay input',
+      );
+      expect(element).toBeTruthy();
+      return element!;
+    });
+
+    fireEvent.change(input, { target: { value: 'changed value' } });
+    const resetButton = await waitFor(() => {
+      const element = baseElement.querySelector<HTMLButtonElement>(
+        '.ant-pro-core-dropdown-footer button',
+      );
+      expect(element).toBeTruthy();
+      return element!;
+    });
+    fireEvent.click(resetButton);
+
+    await waitFor(() => {
+      expect(baseElement.textContent).toContain('重置');
+      expect(input.value).toBe('initial value');
+      expect(onValuesChange).toHaveBeenLastCalledWith(
+        { name1: 'initial value' },
+        { name1: 'initial value' },
+      );
+    });
+  });
+
   it('🐛 #9649 keeps the collapse popover open while typing', async () => {
     const { container, baseElement } = render(
       <LightFilter
