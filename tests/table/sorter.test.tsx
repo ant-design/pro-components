@@ -14,6 +14,31 @@ afterEach(() => {
 });
 
 describe('BasicTable sorter', () => {
+  it('🐛 #9565 marks the active sort direction for theme coloring', async () => {
+    const { container } = render(
+      <ProTable<{ key: number; name: string }>
+        search={false}
+        options={false}
+        pagination={false}
+        rowKey="key"
+        columns={[{ title: 'Name', dataIndex: 'name', sorter: true }]}
+        dataSource={[{ key: 1, name: 'A' }]}
+      />,
+    );
+
+    const sorterUp = container.querySelector(
+      '.ant-table-column-sorter-up',
+    ) as HTMLElement;
+    await userEvent.click(sorterUp);
+
+    await waitFor(() => {
+      expect(sorterUp).toHaveClass('active');
+      expect(
+        container.querySelector('.ant-table-column-has-sorters'),
+      ).toHaveAttribute('aria-sort', 'ascending');
+    });
+  });
+
   it('🎏 should trigger onChange when using multiple column', async () => {
     const fn = vi.fn();
     const { container } = render(

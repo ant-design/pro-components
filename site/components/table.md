@@ -248,6 +248,8 @@ ref.current?.cancelEditable(rowKey);
 
 - **本地筛选**：同时配置 `filters` + `onFilter`（函数或 `true`）。
 - **本地排序**：将 `sorter` 设为比较函数，或 `{ compare }`。不要使用 `sorter: true`（这代表服务端排序）。
+
+排序后 Ant Design 会为当前方向添加 `.ant-table-column-sorter-up.active` 或 `.ant-table-column-sorter-down.active`，并在表头设置 `aria-sort`。如排序正常但颜色不变，请优先检查业务全局 CSS 是否覆盖 `.active`，以及 ConfigProvider 的主题 token。
   :::
 
 | 属性                                   | 描述                                                                                                                                             | 类型                                                                                                                | 默认值 |
