@@ -2742,4 +2742,51 @@ describe('EditorProTable', () => {
       ]),
     });
   });
+
+  it('📝 ProForm submit validates editable table fields', async () => {
+    const onFinish = vi.fn();
+    const onFinishFailed = vi.fn();
+    const requiredColumns: ProColumns<DataSourceType>[] = [
+      {
+        title: '标题',
+        dataIndex: 'title',
+        formItemProps: {
+          rules: [{ required: true, message: '此项为必填项' }],
+        },
+      },
+    ];
+
+    const wrapper = render(
+      <ProForm
+        initialValues={{ table: [{ id: 1, title: '' }] }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+      >
+        <EditableProTable<DataSourceType>
+          name="table"
+          recordCreatorProps={false}
+          rowKey="id"
+          columns={requiredColumns}
+          editable={{
+            type: 'multiple',
+            editableKeys: [1],
+          }}
+        />
+      </ProForm>,
+    );
+
+    fireEvent.click(await wrapper.findByText('提 交'));
+    await act(() => vi.runOnlyPendingTimers());
+
+    await waitFor(() => {
+      expect(onFinish).not.toHaveBeenCalled();
+      expect(onFinishFailed).toHaveBeenCalledWith(
+        expect.objectContaining({
+          errorFields: expect.arrayContaining([
+            expect.objectContaining({ name: ['table', '0', 'title'] }),
+          ]),
+        }),
+      );
+    });
+  });
 });
