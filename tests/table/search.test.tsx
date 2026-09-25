@@ -1,5 +1,5 @@
 import type { ProFormInstance } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import { ProFormSelect, ProTable } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
@@ -432,6 +432,43 @@ describe('BasicTable Search', () => {
     });
 
     html.unmount();
+  });
+
+  it('🎏 does not loop when formItemRender config is spread into ProFormSelect (#9676)', async () => {
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const html = render(
+      <ProTable
+        columns={[
+          {
+            title: 'Type',
+            dataIndex: 'type',
+            valueType: 'select',
+            valueEnum: {
+              course: { text: 'Course' },
+              test: { text: 'Test' },
+            },
+            formItemRender: (_, config) => (
+              <ProFormSelect {...config} mode="multiple" />
+            ),
+          },
+        ]}
+        dataSource={[]}
+      />,
+    );
+
+    await act(async () => {
+      await vi.runAllTimersAsync();
+    });
+
+    expect(html.baseElement.querySelector('.ant-select')).toBeTruthy();
+    expect(
+      errorSpy.mock.calls.some(([message]) =>
+        String(message).includes('Maximum update depth exceeded'),
+      ),
+    ).toBe(false);
+
+    errorSpy.mockRestore();
   });
 
   it('🎏 formItemRender support return false', async () => {
@@ -946,13 +983,15 @@ describe('BasicTable Search', () => {
 
     const { container, getByText } = render(<Demo />);
     expect(container.querySelectorAll('.ant-pro-query-filter')).toHaveLength(1);
-    expect(container.querySelectorAll('.ant-pro-form-light-filter')).toHaveLength(
-      0,
-    );
+    expect(
+      container.querySelectorAll('.ant-pro-form-light-filter'),
+    ).toHaveLength(0);
 
     fireEvent.click(getByText('toggle'));
     await waitFor(() => {
-      expect(container.querySelectorAll('.ant-pro-query-filter')).toHaveLength(0);
+      expect(container.querySelectorAll('.ant-pro-query-filter')).toHaveLength(
+        0,
+      );
       expect(
         container.querySelectorAll('.ant-pro-form-light-filter'),
       ).toHaveLength(1);
@@ -960,7 +999,9 @@ describe('BasicTable Search', () => {
 
     fireEvent.click(getByText('toggle'));
     await waitFor(() => {
-      expect(container.querySelectorAll('.ant-pro-query-filter')).toHaveLength(1);
+      expect(container.querySelectorAll('.ant-pro-query-filter')).toHaveLength(
+        1,
+      );
       expect(
         container.querySelectorAll('.ant-pro-form-light-filter'),
       ).toHaveLength(0);

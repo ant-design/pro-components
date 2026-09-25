@@ -41,7 +41,33 @@ export const field: ProSchemaRenderValueTypeFunction<any, any> = (
 
   const formItemRender = item?.formItemRender
     ? (_: any, config: any) => {
-        const renderConfig = omitUndefined({ ...config, onChange: undefined });
+        const renderConfig = {
+          ...omitUndefined({
+            ...config,
+            onChange: undefined,
+            // Do not hand the wrapper back to user-rendered ProForm fields.
+            // Spreading config into one of those fields would recursively call
+            // this same formItemRender forever (#9676).
+            formItemRender: undefined,
+          }),
+        };
+        // `defaultRender` and `type` are control metadata rather than field
+        // props. Keep direct/destructured access for compatibility, but make
+        // them non-enumerable so `{...config}` cannot feed a newly-created
+        // defaultRender function back into another ProForm field and trigger
+        // an update loop (#9676).
+        Object.defineProperties(renderConfig, {
+          defaultRender: {
+            configurable: true,
+            enumerable: false,
+            value: defaultRender,
+          },
+          type: {
+            configurable: true,
+            enumerable: false,
+            value: type,
+          },
+        });
         return item?.formItemRender?.(
           {
             type,
@@ -51,11 +77,7 @@ export const field: ProSchemaRenderValueTypeFunction<any, any> = (
             fieldProps: item.getFieldProps?.(),
             originProps: originItem,
           },
-          {
-            ...renderConfig,
-            defaultRender,
-            type,
-          },
+          renderConfig,
           formRef.current!,
         );
       }
