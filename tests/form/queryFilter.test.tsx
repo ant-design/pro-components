@@ -293,7 +293,7 @@ describe('QueryFilter', () => {
     );
     expect(
       wrapper2.container.querySelectorAll('.ant-row .ant-form-item-hidden'),
-    ).toHaveLength(1);
+    ).toHaveLength(0);
   });
 
   it('🕵️‍♀️ defaultColsNumber ignores conditionally omitted fields', () => {
@@ -372,7 +372,7 @@ describe('QueryFilter', () => {
     ).toHaveLength(0);
   });
 
-  it('🕵️‍♀️ colSize不全都是1，collapseRender应该存在', async () => {
+  it('🕵️‍♀️ colSize should not create collapse controls when all items fit', async () => {
     const { container } = render(
       <QueryFilter defaultColsNumber={4} defaultCollapsed={false}>
         <ProFormText
@@ -387,10 +387,10 @@ describe('QueryFilter', () => {
 
     expect(
       container.querySelectorAll('a.ant-pro-query-filter-collapse-button'),
-    ).toHaveLength(1);
+    ).toHaveLength(0);
   });
 
-  it('🕵️‍♀️ 表单首项独占一行，收起时应该只展示一项就行了', async () => {
+  it('🐛 #9293 first full-width item should respect defaultColsNumber', async () => {
     const { container } = render(
       <QueryFilter defaultCollapsed defaultColsNumber={4}>
         <ProFormText
@@ -411,7 +411,25 @@ describe('QueryFilter', () => {
 
     expect(
       container.querySelectorAll('.ant-row .ant-form-item-hidden'),
-    ).toHaveLength(7);
+    ).toHaveLength(4);
+    expect(container.querySelector('input#name')).toBeTruthy();
+  });
+
+  it('🐛 #9293 colSize should not consume defaultFormItemsNumber', () => {
+    const { container } = render(
+      <QueryFilter defaultCollapsed defaultFormItemsNumber={3}>
+        <ProFormText name="fullWidth" label="整行" colSize={4} />
+        <ProFormText name="second" label="第二项" />
+        <ProFormText name="third" label="第三项" />
+        <ProFormText name="fourth" label="第四项" />
+      </QueryFilter>,
+    );
+
+    expect(
+      container.querySelectorAll('.ant-row .ant-form-item-hidden'),
+    ).toHaveLength(1);
+    expect(container.querySelector('input#second')).toBeTruthy();
+    expect(container.querySelector('input#third')).toBeTruthy();
   });
 
   it('🕵️‍♀️ QueryFilter support ProForm.Group', async () => {

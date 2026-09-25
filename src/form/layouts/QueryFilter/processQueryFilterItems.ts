@@ -32,7 +32,7 @@ export type ProcessQueryFilterItemsResult = {
    * 若 totalSpan < 24 且 totalSize <= showLength，则不需要折叠按钮。
    */
   totalSpan: number;
-  /** 所有 colSize 之和（用于判断是否超出 showLength） */
+  /** 所有 colSize 之和（用于布局统计） */
   totalSize: number;
   /** currentSpan 对 24 取模后的余数，即最后一行已占用的 span */
   lastRowUsedSpan: number;
@@ -72,7 +72,7 @@ export const flatMapQueryFilterItems = (
  * - `processedList`：每个表单项是否隐藏、colSpan 是多少
  * - `submitterOffset`：提交按钮的 Col offset，使按钮对齐到末尾
  * - `totalSpan`：所有项累计占用的 span（含换行填充），用于判断是否显示折叠按钮
- * - `totalSize`：所有项的 colSize 之和，用于判断是否超出 showLength
+ * - `totalSize`：所有项的 colSize 之和，用于布局统计
  * - `lastRowUsedSpan`：最后一行已占用的 span，用于外部计算 offset
  */
 export function processQueryFilterItems({
@@ -87,7 +87,6 @@ export function processQueryFilterItems({
 
   let totalSpan = 0;
   let itemLength = 0;
-  let firstRowFull = false;
   let totalSize = 0;
   let currentSpan = 0;
 
@@ -101,20 +100,13 @@ export function processQueryFilterItems({
       totalSpan += colSpan;
       totalSize += colSize;
 
-      if (index === 0) {
-        firstRowFull =
-          colSpan === 24 &&
-          !(item as ReactElement<{ hidden: boolean }>)?.props?.hidden;
-      }
+      itemLength += 1;
 
       const hidden: boolean =
         (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
-        // 折叠时，超出 showLength 的项隐藏（第一项始终展示）
-        (collapsed &&
-          (firstRowFull || totalSize > showLength) &&
-          !!index);
-
-      itemLength += 1;
+        // defaultColsNumber/defaultFormItemsNumber describe item counts. A
+        // larger colSize affects layout, but must not consume extra items.
+        (collapsed && itemLength > showLength);
 
       const itemKey =
         (React.isValidElement(item) &&

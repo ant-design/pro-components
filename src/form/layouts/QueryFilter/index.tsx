@@ -347,7 +347,7 @@ const QueryFilterContent: React.FC<{
   }, [props, resetText, searchText, optionRender]);
 
   // 通过纯函数计算布局信息，消除组件渲染阶段的命令式 let 变量
-  const { processedList, totalSpan, totalSize, lastRowUsedSpan } =
+  const { processedList, lastRowUsedSpan } =
     processQueryFilterItems({
       items,
       spanSize,
@@ -398,7 +398,7 @@ const QueryFilterContent: React.FC<{
   const hiddenNum =
     showHiddenNum && processedList.filter((item) => item.hidden).length;
 
-  const needCollapseRender = totalSpan >= 24 && totalSize > showLength;
+  const needCollapseRender = processedList.length > showLength;
 
   const offset = calcSubmitterOffset(
     lastRowUsedSpan,
@@ -505,11 +505,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
       return defaultFormItemsNumber;
     }
     if (defaultColsNumber !== undefined) {
-      // 折叠为一行，需要处理多行的情况请使用 defaultFormItemsNumber
-      const oneRowControlsNumber = 24 / spanSize.span - 1;
-      return defaultColsNumber > oneRowControlsNumber
-        ? oneRowControlsNumber
-        : defaultColsNumber;
+      return defaultColsNumber;
     }
     return Math.max(1, 24 / spanSize.span - 1);
   }, [defaultColsNumber, defaultFormItemsNumber, spanSize.span]);
