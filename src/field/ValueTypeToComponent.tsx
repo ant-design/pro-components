@@ -88,6 +88,7 @@ const ValueTypeToComponentMap: Record<
         text={text}
         placeholder={placeholder}
         fieldProps={fieldProps}
+        precision={props.precision}
       />
     );
   }),
