@@ -118,6 +118,22 @@ Completed or classified:
 - #9292 needs comparison against the native antd Select behavior before any
   ProFormSelect-specific blur handling is added.
 
+## Oldest backlog sample (2020–2023)
+
+- #5497 was fixed by the existing disabled-column handling: bulk select and
+  deselect preserve `columnsState[*].disable`, and the tree disables that
+  checkbox. Add a direct regression assertion before closing if maintainers
+  want issue-linked coverage.
+- #6848 is a ProComponents 2.4.2 + antd 5 nested FormList/preserve report with
+  only an old external sandbox. It is data correctness related, so request a
+  self-contained current-version reproduction rather than auto-closing it.
+- #7312 is fixed in `9edb8ace5`.
+- #7670 was already fixed upstream by `8f08d3d809` and can be closed with that
+  commit reference.
+- #6336 (antd 5 theme customization) and #6432 (use antd Watermark) have been
+  overtaken by the current antd 6/token implementation and should be closed as
+  completed or obsolete after a documentation link is supplied.
+
 ## Backlog policy
 
 1. Never auto-close security, data-loss, or current official-demo regressions.
