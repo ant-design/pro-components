@@ -2920,6 +2920,81 @@ describe('EditorProTable', () => {
     );
   });
 
+  it('🐛 #9264 #9271 #9612 editing one named row does not rerender every editor', async () => {
+    const editorRenderCount = new Map<number, number>();
+    const rows = Array.from({ length: 30 }, (_, index) => ({
+      id: index + 1,
+      title: `row-${index + 1}`,
+    }));
+
+    const wrapper = render(
+      <ProForm initialValues={{ table: rows }}>
+        <EditableProTable<DataSourceType>
+          name="table"
+          recordCreatorProps={false}
+          rowKey="id"
+          columns={[
+            {
+              title: '标题',
+              dataIndex: 'title',
+              formItemRender: (_, config) => {
+                const rowId = Number(config.record?.id);
+                editorRenderCount.set(
+                  rowId,
+                  (editorRenderCount.get(rowId) || 0) + 1,
+                );
+                return <Input />;
+              },
+            },
+          ]}
+          editable={{
+            type: 'multiple',
+            editableKeys: rows.map((row) => row.id),
+          }}
+        />
+      </ProForm>,
+    );
+
+    await waitFor(() => {
+      expect(
+        wrapper.container.querySelectorAll('.ant-table-tbody input'),
+      ).toHaveLength(30);
+    });
+    editorRenderCount.clear();
+
+    const tableInputs = wrapper.container.querySelectorAll(
+      '.ant-table-tbody input',
+    );
+    fireEvent.change(tableInputs[0], { target: { value: 'changed' } });
+
+    await waitFor(() => {
+      expect((tableInputs[0] as HTMLInputElement).value).toBe('changed');
+    });
+    expect(editorRenderCount.get(30) || 0).toBe(0);
+  });
+
+  it('🐛 #9275 does not pass editor props to React.Fragment', async () => {
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        recordCreatorProps={false}
+        rowKey="id"
+        columns={[{ title: '标题', dataIndex: 'title' }]}
+        value={[{ id: 1, title: 'row-1' }]}
+        editable={{ type: 'multiple', editableKeys: [1] }}
+      />,
+    );
+
+    const input = await wrapper.findByDisplayValue('row-1');
+    fireEvent.change(input, { target: { value: 'changed' } });
+
+    const errors = errorSpy.mock.calls.flat().join(' ');
+    expect(errors).not.toMatch(
+      /Invalid prop `(autoFocus|onKeyDown)` supplied to `React\.Fragment`/,
+    );
+    errorSpy.mockRestore();
+  });
+
   it('🐛 #8085 saving one editable row only validates that row', async () => {
     const onSave = vi.fn(async () => true);
     const wrapper = render(

@@ -128,6 +128,33 @@ const EditableTableActionContext = React.createContext<
 /** Registers validation rules without mounting the full editor control. */
 const VirtualValidationControl: React.FC = () => null;
 
+function EditableTableValueChangeEffect<DataType>({
+  list,
+  initialValue,
+  onValuesChange,
+}: {
+  list?: DataType[];
+  initialValue: readonly DataType[];
+  onValuesChange?: (record: DataType, dataSource: DataType[]) => void;
+}) {
+  const preData = useRef<readonly DataType[]>(initialValue);
+
+  useEffect(() => {
+    if (!list || !Array.isArray(list)) {
+      preData.current = initialValue;
+      return;
+    }
+
+    const changeIndex = list.findIndex(
+      (item, index) => !isDeepEqualReact(item, preData.current[index]),
+    );
+    if (changeIndex !== -1) onValuesChange?.(list[changeIndex], list);
+    preData.current = list;
+  }, [initialValue, list, onValuesChange]);
+
+  return null;
+}
+
 /** 可编辑表格的按钮 */
 function RecordCreator<T = Record<string, any>>(
   props: RecordCreatorProps<T> & { children: React.JSX.Element },
@@ -341,9 +368,6 @@ function EditableTable<
     ...rest
   } = props;
 
-  const preData = useRef<readonly DataType[] | undefined>(undefined);
-  /** ProFormDependency render 回调写入最新 list，useEffect 读取并处理副作用 */
-  const latestFormListRef = useRef<DataType[] | null>(null);
   const actionRef = useRef<ActionType>();
   const formRef = useRef<ProFormInstance>();
   const form = Form.useFormInstance();
@@ -695,42 +719,6 @@ function EditableTable<
   ]);
 
   /**
-   * 处理 name 模式下表单内部编辑引起的 onValuesChange 副作用。
-   * ProFormDependency 的渲染回调是纯函数，仅把最新 list 写入 latestFormListRef；
-   * 此 effect 在每次渲染后读取 ref，完成真正的副作用（比较 + 回调触发 + preData 更新）。
-   * 这样在 React 严格模式 double-invoke 下也不会出现 preData 被更新两次导致
-   * changeIndex 找错位置的问题。
-   */
-  useEffect(() => {
-    if (!props.name) return;
-
-    const list = latestFormListRef.current;
-
-    // 初始化 preData（首次挂载时 preData 还没有值）
-    if (!preData.current) {
-      preData.current = value;
-      return;
-    }
-
-    if (!list || !Array.isArray(list)) {
-      preData.current = value;
-      return;
-    }
-
-    const changeIndex = list.findIndex((item, index) => {
-      return !isDeepEqualReact(item, preData.current?.[index]);
-    });
-
-    if (changeIndex !== -1) {
-      const changeItem = list[changeIndex];
-      props?.editable?.onValuesChange?.(changeItem, list);
-    }
-
-    // 必须在回调触发之后再更新 preData，保证对比基准正确
-    preData.current = list;
-  });
-
-  /**
    * 受控模式下同步表单值
    * 在受控模式下，即使正在编辑的行也要同步更新，因为数据由外部完全控制
    * 使用深度比较优化性能，避免频繁的序列化操作
@@ -954,24 +942,56 @@ function EditableTable<
           }}
         />
       </EditableTableActionContext.Provider>
-      {/* 模拟 onValuesChange - 用于 name 模式下监听表单内部编辑引起的值变化。
-           注意：渲染回调必须是纯函数（React 严格模式会 double-invoke）。
-           副作用（preData 更新、回调触发）统一放到 useEffect 中处理。 */}
+      {/* 只订阅 name 对应的表单分支；值变化时仅重绘轻量 observer，
+          避免将整张 EditableTable 作为 Form.Item 的受控子节点重绘。 */}
       {props.name ? (
         <ProFormDependency name={[props.name!]}>
           {(changeValue) => {
             const namePath = [props.name].flat(1) as string[];
             const list = get(changeValue, namePath) as DataType[] | undefined;
-            // 纯计算：派生出当前 list，通过 latestFormList ref 传给 useEffect
-            // 不在此处修改任何 ref 或触发任何回调
-            latestFormListRef.current = list ?? null;
-            return null;
+            return (
+              <EditableTableValueChangeEffect
+                list={list}
+                initialValue={value}
+                onValuesChange={props.editable?.onValuesChange}
+              />
+            );
           }}
         </ProFormDependency>
       ) : null}
     </>
   );
 }
+
+/**
+ * Keep Form.Item's aggregate field registration and layout without forwarding
+ * its changing `value`/`onChange` control props into the whole table. Each
+ * editable cell already owns its precise field path, so rerendering the table
+ * for every keystroke is both redundant and very expensive for large lists.
+ */
+const EditableTableFormItemControl = React.memo(
+  function EditableTableFormItemControl({
+    tableProps,
+    form,
+  }: {
+    tableProps: any;
+    form: ProFormInstance;
+  }) {
+    return (
+      <EditableTable
+        tableLayout="fixed"
+        scroll={{ x: 'max-content' }}
+        {...tableProps}
+        editable={{
+          ...tableProps.editable,
+          form,
+        }}
+      />
+    );
+  },
+  (prev, next) =>
+    prev.tableProps === next.tableProps && prev.form === next.form,
+);
 
 /**
  * 可以直接放到 Form 中的可编辑表格
@@ -1011,16 +1031,9 @@ function FieldEditableTable<
       {...props?.formItemProps}
       name={props.name}
     >
-      <EditableTable<DataType, Params, ValueType>
-        tableLayout="fixed"
-        scroll={{
-          x: 'max-content',
-        }}
-        {...props}
-        editable={{
-          ...props.editable,
-          form: form as ProFormInstance,
-        }}
+      <EditableTableFormItemControl
+        tableProps={props}
+        form={form as ProFormInstance}
       />
     </Form.Item>
   );
