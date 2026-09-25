@@ -362,7 +362,11 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
    */
   const { RowWrapper } = useGridHelpers({ grid, rowProps });
 
-  const getFormInstance = useRefFunction(() => formInstance);
+  // Always resolve the live instance. Containers such as Modal and Drawer can
+  // destroy and recreate their contents while keeping the public formRef. In
+  // that case, closing over `formInstance` leaves the formatting helpers bound
+  // to the already-destroyed form and makes them return an empty object.
+  const getFormInstance = useRefFunction(() => formInstanceRef.current);
 
   // 消除 formatValues useMemo 与 useImperativeHandle 里的重复实现，统一由 buildFormatValues 生成
   const formatValues = useMemo(
