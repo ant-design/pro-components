@@ -2,6 +2,7 @@ import type {
   ActionType,
   EditableFormInstance,
   ProColumns,
+  ProFormInstance,
 } from '@ant-design/pro-components';
 import {
   EditableProTable,
@@ -833,8 +834,10 @@ describe('EditorProTable', () => {
   });
 
   it('📝 EditableProTable add newLine when position=top', async () => {
+    const formRef = React.createRef<ProFormInstance>();
     const wrapper = render(
       <ProForm
+        formRef={formRef}
         initialValues={{
           table: defaultData,
         }}
@@ -842,7 +845,7 @@ describe('EditorProTable', () => {
         <EditableProTable<DataSourceType>
           recordCreatorProps={{
             id: 'new-button',
-            record: () => ({ id: Math.random() * 100000000 }),
+            record: () => ({ id: 'new-record' }),
             position: 'top',
           }}
           rowKey="id"
@@ -880,6 +883,26 @@ describe('EditorProTable', () => {
       )[0]?.value || '';
 
     expect(firstLineValue).toBe('');
+    fireEvent.change(
+      wrapper.container.querySelectorAll<HTMLInputElement>(
+        '.ant-table-tbody tr.ant-table-row td .ant-input',
+      )[0],
+      { target: { value: 'new title' } },
+    );
+    await act(() => vi.runOnlyPendingTimers());
+
+    const formRows = formRef.current?.getFieldValue('table') as
+      | DataSourceType[]
+      | undefined;
+    expect(formRows).toHaveLength(defaultData.length + 1);
+    expect(formRows?.find((row) => row.id === 'new-record')?.title).toBe(
+      'new title',
+    );
+    defaultData.forEach((originalRow) => {
+      expect(formRows?.find((row) => row.id === originalRow.id)?.title).toBe(
+        originalRow.title,
+      );
+    });
 
     wrapper.unmount();
   });
