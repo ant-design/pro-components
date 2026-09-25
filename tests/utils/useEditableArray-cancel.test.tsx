@@ -678,7 +678,7 @@ describe('useEditableArray - Cancel Operation', () => {
     });
   });
 
-  it('🐛 多行编辑依次点击取消时不应误删后续行', async () => {
+  it('🐛 #9092 多行编辑依次点击取消时不应误删后续行', async () => {
     const onDelete = vi.fn(async () => Promise.resolve());
     const onCancel = vi.fn(async () => Promise.resolve());
 
@@ -719,7 +719,7 @@ describe('useEditableArray - Cancel Operation', () => {
 
           <button
             data-testid="start-edit-1"
-            onClick={() => editableUtils.startEditable(1, dataSource[0])}
+            onClick={() => editableUtils.startEditable(1)}
           >
             Start Edit 1
           </button>
@@ -776,6 +776,10 @@ describe('useEditableArray - Cancel Operation', () => {
     await waitFor(() => {
       expect(wrapper.getByTestId('editable-keys').textContent).toBe('2');
       expect(onDelete).not.toHaveBeenCalled();
+      // #8951: startEditable 未显式传入 record 时，取消也不应把已有行当成新行删除。
+      expect(wrapper.getByTestId('data-source').textContent).toBe(
+        '1:test1,2:test2',
+      );
     });
 
     act(() => {
