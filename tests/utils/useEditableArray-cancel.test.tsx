@@ -795,4 +795,77 @@ describe('useEditableArray - Cancel Operation', () => {
       );
     });
   });
+
+  it('🐛 #9051 删除行时应清理 name 模式下的表单残值', async () => {
+    let formInstance: ReturnType<typeof Form.useForm>[0] | undefined;
+
+    const DeleteRowComponent: React.FC = () => {
+      const [form] = Form.useForm();
+      const [dataSource, setDataSource] = useState<TestRecordType[]>([
+        { id: 1, name: 'deleted-row', value: 'old-value' },
+      ]);
+      formInstance = form;
+
+      const editableUtils = useEditableArray<TestRecordType>({
+        dataSource,
+        setDataSource,
+        getRowKey: (record) => record.id,
+        childrenColumnName: undefined,
+        tableName: 'testTable',
+        form,
+      });
+      const actions = dataSource[0]
+        ? editableUtils.actionRender({ ...dataSource[0], index: 0 })
+        : [];
+
+      return (
+        <Form
+          form={form}
+          initialValues={{
+            testTable: {
+              1: { id: 1, name: 'deleted-row', value: 'old-value' },
+            },
+          }}
+        >
+          <button
+            data-testid="start-edit"
+            onClick={() => editableUtils.startEditable(1)}
+          >
+            Start Edit
+          </button>
+          <span data-testid="delete-action">{actions?.[1]}</span>
+          <div data-testid="data-source">{dataSource.length}</div>
+        </Form>
+      );
+    };
+
+    const wrapper = render(<DeleteRowComponent />);
+
+    act(() => {
+      fireEvent.click(wrapper.getByTestId('start-edit'));
+      vi.runAllTimers();
+    });
+
+    act(() => {
+      fireEvent.click(
+        within(wrapper.getByTestId('delete-action')).getByText('删除'),
+      );
+      vi.runAllTimers();
+    });
+
+    const confirm = wrapper.container.querySelector<HTMLElement>(
+      '.ant-popconfirm .ant-btn-primary',
+    );
+    expect(confirm).toBeTruthy();
+
+    await act(async () => {
+      fireEvent.click(confirm!);
+      await vi.runOnlyPendingTimersAsync();
+    });
+
+    await waitFor(() => {
+      expect(wrapper.getByTestId('data-source').textContent).toBe('0');
+      expect(formInstance?.getFieldValue(['testTable', '1'])).toBeUndefined();
+    });
+  });
 });

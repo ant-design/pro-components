@@ -1572,6 +1572,13 @@ export function useEditableArray<RecordType extends AnyObject>(
       }
       // 不传递 false时，重新form.setFieldsValue同一份静态数据，会导致该行始终处于不可编辑状态
       await cancelEditable(recordKey, false);
+      // name 模式下 cancelEditable 会先恢复编辑前的快照。删除行时必须再清掉
+      // 对应的表单路径，否则后续新增相同 key 的行会继承已删除行的旧值。
+      if (props.tableName) {
+        const form = resolveFormInstance();
+        const namePath = normalizeNamePath(props.tableName, recordKey);
+        form?.setFieldValue(namePath, undefined);
+      }
       props.setDataSource(editableRowByKey(actionProps, 'delete'));
       const recordKeyStr = recordKeyToString(recordKey)?.toString();
       if (recordKeyStr) {
