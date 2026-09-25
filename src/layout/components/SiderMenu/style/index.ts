@@ -17,7 +17,7 @@ export const proLayoutTitleHide = new Keyframes('antBadgeLoadingCircle', {
   },
 }) as any;
 
-const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
+export const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
   return {
     [`${token.proComponentsCls}-layout`]: {
       [`${token.antCls}-layout-sider${token.componentCls}`]: {
@@ -30,6 +30,24 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           position: 'relative',
           zIndex: 10,
           minHeight: '100%',
+        },
+        '&-scroll': {
+          scrollbarColor: `${token.colorFill} transparent`,
+          scrollbarWidth: 'thin',
+          '&::-webkit-scrollbar': {
+            width: 6,
+            height: 6,
+          },
+          '&::-webkit-scrollbar-track': {
+            background: 'transparent',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            backgroundColor: token.colorFill,
+            borderRadius: token.borderRadiusLG,
+          },
+          '&::-webkit-scrollbar-thumb:hover': {
+            backgroundColor: token.colorFillSecondary,
+          },
         },
         [`& ${token.antCls}-layout-sider-children`]: {
           position: 'relative',

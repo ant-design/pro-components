@@ -420,6 +420,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         </div>
       )}
       <div
+        className={clsx(`${baseClassName}-scroll`, hashId)}
         style={{
           flex: 1,
           overflowY: 'auto',
