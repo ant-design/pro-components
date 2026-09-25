@@ -16,7 +16,7 @@ import {
   render,
   waitFor,
 } from '@testing-library/react';
-import { InputNumber } from 'antd';
+import { Input, InputNumber } from 'antd';
 import crypto from 'crypto';
 import React from 'react';
 import {
@@ -2867,6 +2867,41 @@ describe('EditorProTable', () => {
       errorFields: expect.arrayContaining([
         expect.objectContaining({ name: ['1', 'title'] }),
       ]),
+    });
+  });
+
+  it('keeps validation status with a custom formItemRender (#5942)', async () => {
+    const editableFormRef = React.createRef<
+      EditableFormInstance<DataSourceType>
+    >();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        editableFormRef={editableFormRef}
+        recordCreatorProps={false}
+        rowKey="id"
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            formItemRender: () => <Input />,
+            formItemProps: {
+              rules: [{ required: true, message: '此项为必填项' }],
+            },
+          },
+        ]}
+        value={[{ id: 1, title: '' }]}
+        editable={{ editableKeys: [1] }}
+      />,
+    );
+
+    await expect(
+      editableFormRef.current!.validateFields([1]),
+    ).rejects.toBeTruthy();
+
+    await waitFor(() => {
+      expect(
+        wrapper.container.querySelector('.ant-input-status-error'),
+      ).toBeTruthy();
     });
   });
 
