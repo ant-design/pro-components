@@ -7,7 +7,7 @@ import {
 } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Button, Input } from 'antd';
+import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { act, useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -35,6 +35,20 @@ describe('Field', () => {
       html.baseElement.querySelector('.ant-input-number-input'),
     ).toBeTruthy();
     html.unmount();
+  });
+
+  it('🐛 #9192 date fields inherit variant from ConfigProvider', () => {
+    const html = render(
+      <ConfigProvider variant="filled">
+        <Field
+          valueType="date"
+          mode="edit"
+          fieldProps={{ value: dayjs('2026-09-26') }}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(html.baseElement.querySelector('.ant-picker-filled')).toBeTruthy();
   });
 
   it('🐴 money onchange values', async () => {
