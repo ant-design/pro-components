@@ -312,6 +312,41 @@ describe('LightFilter', () => {
     expect(dropdownLabel).toBeTruthy();
   });
 
+  it('🐛 #9649 keeps the collapse popover open while typing', async () => {
+    const { container, baseElement } = render(
+      <LightFilter
+        collapse
+        popoverProps={{ classNames: { root: 'collapse-input-popover' } }}
+      >
+        <ProFormText label="Code" name="code" />
+      </LightFilter>,
+    );
+
+    fireEvent.click(
+      container.querySelector('.ant-pro-core-field-dropdown-label')!,
+    );
+    const input = await waitFor(() => {
+      const element = baseElement.querySelector<HTMLInputElement>(
+        '.collapse-input-popover input',
+      );
+      expect(element).toBeTruthy();
+      return element;
+    });
+
+    fireEvent.change(input!, { target: { value: 'group-code' } });
+
+    await waitFor(() => {
+      const popover = baseElement.querySelector('.collapse-input-popover');
+      expect(popover).toBeTruthy();
+      expect(popover?.classList.contains('ant-popover-hidden')).toBe(false);
+      expect(
+        baseElement.querySelector<HTMLInputElement>(
+          '.collapse-input-popover input',
+        )?.value,
+      ).toBe('group-code');
+    });
+  });
+
   it(' 🪕 should support collapse mode with collapseLabel', async () => {
     const onValuesChange = vi.fn();
 

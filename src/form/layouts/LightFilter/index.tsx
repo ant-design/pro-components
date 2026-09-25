@@ -292,7 +292,6 @@ function LightFilterComponent<T = Record<string, any>>(
         });
         return (
           <LightFilterContainer
-            key={JSON.stringify(values || {})}
             prefixCls={prefixCls}
             items={filterItems}
             size={size}
