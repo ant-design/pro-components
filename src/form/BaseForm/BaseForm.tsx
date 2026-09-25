@@ -316,6 +316,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
       finalValues: Record<string, any>,
       extraUrlParams?: Record<string, any>,
     ) => void;
+    formatValue: (values: any, omit: boolean, parentKey?: NamePath) => any;
     transformKey: (values: any, omit: boolean, parentKey?: NamePath) => any;
   },
 ) {
@@ -326,6 +327,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     fieldProps,
     formItemProps,
     groupProps,
+    formatValue,
     transformKey,
     formRef: propsFormRef,
     onInit,
@@ -444,11 +446,11 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     [omitNil, transformKey, propsFormRef],
   );
   useEffect(() => {
-    const finalValues = transformKey(
+    const initialFormValues = formatValue(
       formInstanceRef.current?.getFieldsValue?.(true),
       omitNil,
     );
-    onInit?.(finalValues, {
+    onInit?.(initialFormValues, {
       ...formInstanceRef.current,
       ...formatValues,
     });
@@ -645,6 +647,19 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     },
   );
 
+  const formatValue = useRefFunction(
+    (values: any, paramsOmitNil: boolean, parentKey?: NamePath) => {
+      if (!values || typeof values !== 'object') return values;
+      return conversionMomentValue(
+        values,
+        dateFormatter,
+        fieldsValueType.current,
+        paramsOmitNil,
+        parentKey,
+      );
+    },
+  );
+
   const getPopupContainer = useMemo(() => {
     if (typeof window === 'undefined') return undefined;
     // 如果在 drawerForm 和  modalForm 里就渲染dom到父节点里
@@ -758,7 +773,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
             formKey: curFormKey.current,
             setFieldValueType: (
               name,
-              { valueType = 'text', dateFormat, transform },
+              { valueType = 'text', dateFormat, convertValue, transform },
             ) => {
               if (!Array.isArray(name)) return;
 
@@ -767,7 +782,14 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                 transformKeyRef.current = namePathSet(
                   transformKeyRef.current,
                   name,
-                  transform,
+                  convertValue
+                    ? (value: any, namePath: string[], allValues: any) =>
+                        transform(
+                          convertValue(value, namePath),
+                          namePath,
+                          allValues,
+                        )
+                    : transform,
                 );
               }
 
@@ -822,6 +844,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
               onFinish={onFinish}
             >
               <BaseFormComponents<T, U>
+                formatValue={formatValue}
                 transformKey={transformKey}
                 autoComplete="off"
                 loading={

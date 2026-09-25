@@ -358,6 +358,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     setFieldValueType(fieldValueTypeName, {
       valueType: valueType || 'text',
       dateFormat: dataFormat,
+      convertValue: rest.convertValue,
       transform,
     });
   }, [
@@ -366,6 +367,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     props.name,
     setFieldValueType,
     transform,
+    rest.convertValue,
     valueType,
   ]);
 

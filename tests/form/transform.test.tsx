@@ -1,5 +1,6 @@
 ﻿import { ProForm, ProFormText } from '@ant-design/pro-components';
 import { act, render } from '@testing-library/react';
+import { ProFormSelect } from '@ant-design/pro-components';
 import { describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
@@ -124,5 +125,38 @@ describe('ProForm transform (docs + regression tests)', () => {
     expect(calls.length).toBe(2);
     expect(calls[0]).toEqual({ name111: 'foo:1111' });
     expect(calls[1]).toEqual({ name111: 'foo:1111' });
+  });
+  it('converts initial values before transforming on submit (#8452)', async () => {
+    const onFinish = vi.fn();
+    const transform = vi.fn((value: string[]) => value.join('|'));
+    const formRef = { current: undefined as any };
+
+    render(
+      <ProForm
+        formRef={formRef}
+        initialValues={{ genes: 'FOXP2|GNB4' }}
+        onFinish={async (values) => onFinish(values)}
+      >
+        <ProFormSelect
+          name="genes"
+          mode="multiple"
+          convertValue={(value: string) => value.split('|')}
+          transform={transform}
+        />
+      </ProForm>,
+    );
+
+    expect(transform).not.toHaveBeenCalled();
+    await act(async () => {
+      formRef.current?.submit?.();
+    });
+    await waitForWaitTime(100);
+
+    expect(transform).toHaveBeenCalledWith(
+      ['FOXP2', 'GNB4'],
+      ['genes'],
+      expect.any(Object),
+    );
+    expect(onFinish).toHaveBeenCalledWith({ genes: 'FOXP2|GNB4' });
   });
 });
