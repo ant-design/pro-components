@@ -801,14 +801,19 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                 );
               }
 
-              fieldsValueType.current = namePathSet(
-                fieldsValueType.current,
-                name,
-                {
-                  valueType,
-                  dateFormat,
-                },
-              );
+              // formList is a container. Registering metadata at its path
+              // would overwrite the nested field metadata registered by its
+              // children (for example detailList.0.deliveryDate).
+              if (valueType !== 'formList') {
+                fieldsValueType.current = namePathSet(
+                  fieldsValueType.current,
+                  name,
+                  {
+                    valueType,
+                    dateFormat,
+                  },
+                );
+              }
             },
           }}
         >

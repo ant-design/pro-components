@@ -12,6 +12,7 @@ import {
 } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
+import dayjs from 'dayjs';
 import React, { act, createRef, useContext, useEffect } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
@@ -71,6 +72,41 @@ afterEach(() => {
 });
 
 describe('SchemaForm', () => {
+  it('formats date values inside a schema formList (#9663)', async () => {
+    const onFinish = vi.fn();
+    const wrapper = render(
+      <BetaSchemaForm
+        initialValues={{
+          detailList: [{ deliveryDate: dayjs('2026-07-14') }],
+        }}
+        onFinish={async (values) => onFinish(values)}
+        columns={[
+          {
+            title: '产品信息',
+            valueType: 'formList',
+            dataIndex: 'detailList',
+            columns: [
+              {
+                title: '交货日期',
+                dataIndex: 'deliveryDate',
+                valueType: 'date',
+                fieldProps: { format: 'YYYY-MM-DD' },
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+
+    fireEvent.click(await wrapper.findByText('提 交'));
+
+    await waitFor(() => {
+      expect(onFinish).toHaveBeenCalledWith({
+        detailList: [{ deliveryDate: '2026-07-14' }],
+      });
+    });
+  });
+
   it('😊 SchemaForm support columns', async () => {
     const { container } = render(<BetaSchemaForm columns={columns} />);
 
