@@ -13,9 +13,10 @@ import {
 } from '@testing-library/react';
 import { Button, ConfigProvider } from 'antd';
 import en_US from 'antd/lib/locale/en_US';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
+import { BaseMenu } from '../../src/layout/components/SiderMenu/BaseMenu';
 import { bigDefaultProps } from './defaultProps';
 
 afterEach(() => {
@@ -1705,6 +1706,100 @@ describe('BasicLayout', () => {
     expect(
       html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length,
     ).toBe(3);
+  });
+
+  it('opens all asynchronously loaded menus by default', async () => {
+    const Demo = () => {
+      const [menuData, setMenuData] = useState<any[]>([]);
+      useEffect(() => {
+        setMenuData([
+          {
+            path: '/project',
+            name: '项目',
+            children: [
+              {
+                path: '/project/workbench',
+                name: '工作台',
+              },
+              {
+                path: '/project/settings',
+                name: '设置',
+                children: [
+                  {
+                    path: '/project/settings/general',
+                    name: '通用设置',
+                  },
+                ],
+              },
+            ],
+          },
+        ]);
+      }, []);
+
+      return (
+        <ProLayout
+          location={{ pathname: '/project/workbench' }}
+          menu={{
+            defaultOpenAll: true,
+            ignoreFlatMenu: true,
+          }}
+          menuDataRender={() => menuData}
+        />
+      );
+    };
+
+    const html = render(<Demo />);
+
+    await waitFor(() => {
+      const sider = html.baseElement.querySelector('.ant-pro-sider');
+      const submenus = sider?.querySelectorAll(
+        'li.ant-menu-submenu',
+      );
+      const submenuCount = submenus?.length ?? 0;
+      expect(submenuCount).toBeGreaterThan(0);
+      expect(
+        sider?.querySelectorAll('li.ant-menu-submenu-open'),
+      ).toHaveLength(submenuCount);
+    });
+  });
+
+  it('updates defaultOpenAll when BaseMenu data arrives', async () => {
+    const TestBaseMenu = BaseMenu as React.ComponentType<any>;
+    const baseProps = {
+      prefixCls: 'ant-pro',
+      mode: 'inline',
+      layout: 'side',
+      collapsed: false,
+      matchMenuKeys: [],
+      menu: { defaultOpenAll: true, ignoreFlatMenu: true },
+    };
+    const html = render(<TestBaseMenu {...baseProps} menuData={[]} />);
+
+    html.rerender(
+      <TestBaseMenu
+        {...baseProps}
+        menuData={[
+          {
+            key: '/settings',
+            path: '/settings',
+            name: '设置',
+            children: [
+              {
+                key: '/settings/general',
+                path: '/settings/general',
+                name: '通用设置',
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelector('li.ant-menu-submenu'),
+      ).toHaveClass('ant-menu-submenu-open');
+    });
   });
 
   it('🥩 ProLayout support menu.ignoreFlatMenu', async () => {
