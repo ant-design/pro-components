@@ -69,6 +69,28 @@ describe('ProForm transform (docs + regression tests)', () => {
     });
   });
 
+  it('keeps a primitive transform at its nested name path (#5803)', async () => {
+    const fn = vi.fn();
+    const formRef = { current: undefined as any };
+
+    render(
+      <ProForm formRef={formRef} onFinish={async (values) => fn(values)}>
+        <ProFormText
+          name={['a', 'b', 'c']}
+          initialValue="xxxx"
+          transform={() => 'yyyy'}
+        />
+      </ProForm>,
+    );
+
+    await act(async () => {
+      formRef.current?.submit?.();
+    });
+    await waitForWaitTime(100);
+
+    expect(fn).toHaveBeenCalledWith({ a: { b: { c: 'yyyy' } } });
+  });
+
   it('expectation: transform should run on every submit even with initialValue (regression)', async () => {
     const calls: any[] = [];
     const formRef = { current: undefined as any };
