@@ -2985,6 +2985,41 @@ describe('ProForm', () => {
     await waitFor(() => expect(input.value).toBe('34'));
   });
 
+  it('🐛 #9222 matches request options by value as well as label', async () => {
+    const wrapper = render(
+      <ProFormSelect
+        name="user"
+        showSearch
+        request={async () => [
+          { label: '张三', value: 'zhangsan' },
+          { label: '李四', value: 'lisi' },
+        ]}
+      />,
+    );
+
+    fireEvent.mouseDown(wrapper.container.querySelector('.ant-select')!);
+    await waitFor(() => {
+      expect(
+        document.body.querySelectorAll(
+          '.ant-select-item.ant-select-item-option',
+        ),
+      ).toHaveLength(2);
+    });
+
+    const input = wrapper.container.querySelector<HTMLInputElement>(
+      '.ant-select-input',
+    )!;
+    fireEvent.change(input, { target: { value: 'zhangsan' } });
+
+    await waitFor(() => {
+      const options = document.body.querySelectorAll(
+        '.ant-select-item.ant-select-item-option',
+      );
+      expect(options).toHaveLength(1);
+      expect(options[0].textContent).toBe('张三');
+    });
+  });
+
   it('📦 Select support multiple and autoClearSearchValue: true', async () => {
     const onSearch = vi.fn();
     const onFinish = vi.fn();
