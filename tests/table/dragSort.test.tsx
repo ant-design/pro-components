@@ -1,5 +1,6 @@
 import { MenuOutlined } from '@ant-design/icons';
 import { DragSortTable } from '@ant-design/pro-components';
+import { DRAG_SORT_AUTO_SCROLL } from '../../src/table/utils/useDragSort';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { act } from 'react';
 import {
@@ -55,6 +56,10 @@ afterEach(() => {
 });
 
 describe('dragSort', () => {
+  it('🐛 #9255 disables page auto-scroll outside the drag container', () => {
+    expect(DRAG_SORT_AUTO_SCROLL).toBe(false);
+  });
+
   const originalOffsetHeight = Object.getOwnPropertyDescriptor(
     HTMLElement.prototype,
     offsetHeight,

@@ -1,7 +1,6 @@
 import type { DragEndEvent } from '@dnd-kit/core';
 import {
   DndContext,
-  MouseSensor,
   PointerSensor,
   rectIntersection,
   useSensor,
@@ -22,6 +21,9 @@ import { useRefFunction } from '../../utils';
 const SortableItemContextValue = createContext<{
   handle: React.ReactNode;
 }>({ handle: null });
+
+/** Prevent dnd-kit from scrolling the page after a pointer leaves the table. */
+export const DRAG_SORT_AUTO_SCROLL = false;
 
 /**
  * 拖拽排序表格的行，
@@ -124,7 +126,9 @@ const SortContainer = (p: any) => <tbody {...p} />;
 
 export function useDragSort<T>(props: UseDragSortOptions<T>) {
   const { dataSource = [], onDragSortEnd, DragHandle, dragSortKey } = props;
-  const sensors = useSensors(useSensor(PointerSensor), useSensor(MouseSensor));
+  // PointerSensor already handles mouse input. Registering MouseSensor as well
+  // can activate two sensor lifecycles for the same mouse gesture.
+  const sensors = useSensors(useSensor(PointerSensor));
 
   const handleDragEnd = useCallback(
     (event: DragEndEvent) => {
@@ -190,6 +194,7 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
     () => (contextProps: any) => {
       return (
         <DndContext
+          autoScroll={DRAG_SORT_AUTO_SCROLL}
           modifiers={[restrictToVerticalAxis]}
           sensors={sensors}
           collisionDetection={rectIntersection}
