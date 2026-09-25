@@ -82,6 +82,23 @@ function BetaSchemaForm<T, ValueType = 'text'>(
   );
   const oldValuesRef = useRef<T>();
   const propsRef = useLatest(props);
+  const handlingValuesChangeRef = useRef(false);
+  const wrappedSubmitFormsRef = useRef(new WeakSet<object>());
+
+  const wrapSubmitDuringValuesChange = useRefFunction(
+    (initForm: ProFormInstance<T>) => {
+      if (wrappedSubmitFormsRef.current.has(initForm)) return;
+      const nativeSubmit = initForm.submit.bind(initForm);
+      initForm.submit = () => {
+        if (handlingValuesChangeRef.current) {
+          queueMicrotask(nativeSubmit);
+          return;
+        }
+        nativeSubmit();
+      };
+      wrappedSubmitFormsRef.current.add(initForm);
+    },
+  );
 
   /**
    * 生成子项，方便被 table 接入
@@ -183,7 +200,12 @@ function BetaSchemaForm<T, ValueType = 'text'>(
         updatedFormDoms([]);
       }
       oldValuesRef.current = values;
-      propsOnValuesChange?.(changedValues, values);
+      handlingValuesChangeRef.current = true;
+      try {
+        propsOnValuesChange?.(changedValues, values);
+      } finally {
+        handlingValuesChangeRef.current = false;
+      }
     },
     [propsRef, shouldUpdate],
   );
@@ -222,6 +244,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
         {...specificProps}
         {...restProps}
         onInit={(_, initForm) => {
+          wrapSubmitDuringValuesChange(initForm);
           if (propsFormRef) {
             (
               propsFormRef as React.MutableRefObject<ProFormInstance<T>>

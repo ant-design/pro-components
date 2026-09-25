@@ -880,4 +880,42 @@ describe('BasicTable Search', () => {
     // Request should NOT be called because validation failed
     expect(requestFn).not.toHaveBeenCalled();
   });
+
+  it('🎏 should submit a validated field from onValuesChange', async () => {
+    const formRef = {
+      current: undefined,
+    } as React.MutableRefObject<ProFormInstance | undefined>;
+    const requestFn = vi.fn(async () => ({ data: [], success: true }));
+    const { container } = render(
+      <ProTable
+        columns={[
+          {
+            title: 'Title',
+            dataIndex: 'title',
+            formItemProps: {
+              rules: [{ required: true, message: 'Required' }],
+            },
+          },
+        ]}
+        formRef={formRef}
+        form={{
+          ignoreRules: false,
+          onValuesChange: () => formRef.current?.submit(),
+        }}
+        request={requestFn}
+        rowKey="key"
+      />,
+    );
+
+    const input = container.querySelector<HTMLInputElement>('#title')!;
+    fireEvent.change(input, { target: { value: 'ProComponents' } });
+
+    await waitFor(() => {
+      expect(requestFn).toHaveBeenCalledWith(
+        expect.objectContaining({ title: 'ProComponents' }),
+        {},
+        {},
+      );
+    });
+  });
 });
