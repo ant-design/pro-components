@@ -15,6 +15,24 @@
   }
 }
 
+// dumi's Prism light theme keeps explicit foreground/background colors.
+// Override both fenced blocks and inline code when the site color switch is dark.
+[data-prefers-color='dark'] {
+  .markdown {
+    pre[class*='language-'],
+    code[class*='language-'] {
+      color: #d6e4ff;
+      background: #141414;
+      text-shadow: none;
+    }
+
+    :not(pre) > code {
+      color: #d6e4ff;
+      background: #262626;
+    }
+  }
+}
+
 // 表格样式优化（仅保留行间分隔，减少边框）
 .markdown table {
   table-layout: fixed;
