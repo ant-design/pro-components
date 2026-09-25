@@ -638,15 +638,57 @@ function EditableTable<
     },
   );
 
+  const validateFields = useRefFunction(
+    (
+      nameList?: Parameters<ProFormInstance['validateFields']>[0],
+      config?: Parameters<ProFormInstance['validateFields']>[1],
+    ) => {
+      const tableName = [props.name].flat(1).filter(Boolean) as (
+        | string
+        | number
+      )[];
+      const normalizedNameList = nameList?.map((name) => {
+        const path = (Array.isArray(name) ? name : [name]) as (
+          | string
+          | number
+        )[];
+        const alreadyPrefixed = tableName.every(
+          (segment, index) => path[index] === segment,
+        );
+        if (tableName.length > 0 && alreadyPrefixed) return path;
+
+        const [rowKey, ...fieldPath] = path;
+        const resolvedKey = resolveRowKey(rowKey);
+        return [
+          ...(buildFormFieldPath(resolvedKey) as (string | number)[]),
+          ...fieldPath,
+        ];
+      });
+
+      return formRef.current?.validateFields(normalizedNameList, {
+        recursive: true,
+        ...config,
+      });
+    },
+  );
+
   // 设置 editableFormRef
   useImperativeHandle(editableFormRef, () => {
     return {
       ...formRef.current,
+      validateFields,
       getRowData,
       getRowsData,
       setRowData,
     } as EditableFormInstance<DataType>;
-  }, [resolveRowKey, props.name, getRowData, getRowsData, setRowData]);
+  }, [
+    resolveRowKey,
+    props.name,
+    validateFields,
+    getRowData,
+    getRowsData,
+    setRowData,
+  ]);
 
   /**
    * 处理 name 模式下表单内部编辑引起的 onValuesChange 副作用。

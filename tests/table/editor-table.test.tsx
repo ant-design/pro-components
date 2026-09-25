@@ -2700,4 +2700,46 @@ describe('EditorProTable', () => {
 
     wrapper.unmount();
   });
+
+  it('📝 editableFormRef validates a single row by rowKey', async () => {
+    const editableFormRef = React.createRef<
+      EditableFormInstance<DataSourceType>
+    >();
+    const requiredColumns: ProColumns<DataSourceType>[] = [
+      {
+        title: '标题',
+        dataIndex: 'title',
+        formItemProps: {
+          rules: [{ required: true, message: '此项为必填项' }],
+        },
+      },
+    ];
+
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        editableFormRef={editableFormRef}
+        recordCreatorProps={false}
+        rowKey="id"
+        columns={requiredColumns}
+        value={[{ id: 1, title: '' }]}
+        editable={{
+          type: 'multiple',
+          editableKeys: [1],
+        }}
+      />,
+    );
+
+    await waitFor(() => {
+      expect(editableFormRef.current).toBeTruthy();
+      expect(wrapper.container.querySelector('input')).toBeTruthy();
+    });
+
+    await expect(
+      editableFormRef.current!.validateFields([1]),
+    ).rejects.toMatchObject({
+      errorFields: expect.arrayContaining([
+        expect.objectContaining({ name: ['1', 'title'] }),
+      ]),
+    });
+  });
 });
