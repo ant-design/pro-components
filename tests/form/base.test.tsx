@@ -606,6 +606,20 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
+  it('📦 submitter props support submitButtonProps=false', () => {
+    const wrapper = render(
+      <ProForm
+        submitter={{
+          submitButtonProps: false,
+        }}
+      />,
+    );
+
+    expect(wrapper.queryByText('提 交')).toBeNull();
+    expect(wrapper.getByText('重 置')).toBeTruthy();
+    wrapper.unmount();
+  });
+
   it('📦 submitter props support resetButtonProps', async () => {
     const fn = vi.fn();
     const wrapper = render(

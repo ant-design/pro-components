@@ -401,10 +401,14 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
           // 如果 syncToUrl，清空 URL 上对应的参数
           onUrlSyncReset(finalValues, extraUrlParams);
         }}
-        submitButtonProps={{
-          loading,
-          ...submitterProps.submitButtonProps,
-        }}
+        submitButtonProps={
+          submitterProps.submitButtonProps === false
+            ? false
+            : {
+                loading,
+                ...submitterProps.submitButtonProps,
+              }
+        }
       />
     );
 
