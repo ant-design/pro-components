@@ -1693,6 +1693,65 @@ describe('Table ColumnSetting', () => {
     expect(parentNode?.querySelector('.ant-tree-checkbox-indeterminate')).toBeNull();
   });
 
+  it('🐛 #9225 rechecking a nested child restores its parent column', async () => {
+    const html = render(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'Time',
+            key: 'time',
+            children: [
+              { title: 'Created at', key: 'createdAt', dataIndex: 'createdAt' },
+              { title: 'Updated at', key: 'updatedAt', dataIndex: 'updatedAt' },
+            ],
+          },
+        ]}
+        dataSource={[{ key: 1, createdAt: 'created', updatedAt: 'updated' }]}
+        rowKey="key"
+      />,
+    );
+
+    await waitForWaitTime(200);
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLElement>(
+          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
+        )
+        ?.click();
+    });
+    await waitForWaitTime(200);
+
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLInputElement>(
+          '.ant-pro-table-column-setting-title .ant-checkbox-input',
+        )
+        ?.click();
+    });
+    await waitForWaitTime(200);
+
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLElement>('.ant-tree-switcher')
+        ?.click();
+    });
+    await waitForWaitTime(200);
+
+    const treeNodes = html.baseElement.querySelectorAll<HTMLElement>(
+      '.ant-tree-list-holder-inner .ant-tree-treenode',
+    );
+    act(() => {
+      treeNodes[1]?.querySelector<HTMLElement>('.ant-tree-checkbox')?.click();
+    });
+    await waitForWaitTime(200);
+
+    const tableHeader = html.baseElement.querySelector('.ant-table-thead');
+    expect(tableHeader).toHaveTextContent('Time');
+    expect(tableHeader).toHaveTextContent('Created at');
+    expect(tableHeader).not.toHaveTextContent('Updated at');
+  });
+
   // P0-1：父组件动态更新 columnsState.value 后，点重置应回到新值而非 mount 时的旧值
   it('🎏 columnSetting reset should reflect latest columnsState.value after parent rerender', async () => {
     const onChange = vi.fn();
