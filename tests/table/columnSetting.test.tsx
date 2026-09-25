@@ -1,4 +1,5 @@
 import { ProTable } from '@ant-design/pro-components';
+import DensityIcon from '../../src/table/components/ToolBar/DensityIcon';
 import {
   cleanup,
   createEvent,
@@ -6,7 +7,7 @@ import {
   render,
   waitFor,
 } from '@testing-library/react';
-import { act } from 'react';
+import { act, createRef } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 import { columns } from './fixtures';
@@ -1350,6 +1351,14 @@ describe('Table ColumnSetting', () => {
     });
 
     expect(onChange).toHaveBeenCalledWith('middle');
+  });
+
+  it('DensityIcon forwards its ref to the trigger element', () => {
+    const ref = createRef<HTMLSpanElement>();
+
+    render(<DensityIcon ref={ref} />);
+
+    expect(ref.current?.tagName).toBe('SPAN');
   });
 
   it('🎏 columnSetting ellipsis support showTitle', async () => {

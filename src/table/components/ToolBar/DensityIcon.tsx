@@ -6,9 +6,10 @@ import { TableContext } from '../../Store/Provide';
 
 export type DensitySize = 'middle' | 'small' | 'large' | undefined;
 
-const DensityIcon: React.FC<{ icon?: React.ReactNode }> = ({
-  icon = <ColumnHeightOutlined />,
-}) => {
+const DensityIcon = React.forwardRef<
+  HTMLSpanElement,
+  { icon?: React.ReactNode }
+>(({ icon = <ColumnHeightOutlined /> }, ref) => {
   const counter = useContext(TableContext);
   const intl = useIntl();
 
@@ -40,10 +41,12 @@ const DensityIcon: React.FC<{ icon?: React.ReactNode }> = ({
       trigger={['click']}
     >
       <Tooltip title={intl.getMessage('tableToolBar.density', '表格密度')}>
-        <span>{icon}</span>
+        <span ref={ref}>{icon}</span>
       </Tooltip>
     </Dropdown>
   );
-};
+});
+
+DensityIcon.displayName = 'DensityIcon';
 
 export default DensityIcon;
