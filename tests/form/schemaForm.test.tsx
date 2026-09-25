@@ -566,6 +566,33 @@ describe('SchemaForm', () => {
     expect(container.querySelector('input')).toBeTruthy();
   });
 
+  it('🐛 #9239 defaultRender preserves multiple Select fieldProps', () => {
+    const { container } = render(
+      <BetaSchemaForm
+        columns={[
+          {
+            title: '多选',
+            dataIndex: 'tags',
+            valueType: 'select',
+            valueEnum: {
+              first: 'First',
+              second: 'Second',
+            },
+            fieldProps: {
+              mode: 'multiple',
+              placeholder: 'Select tags',
+            },
+            formItemRender: (schema, { defaultRender }) =>
+              defaultRender(schema),
+          },
+        ]}
+      />,
+    );
+
+    expect(container.querySelector('.ant-select-multiple')).toBeTruthy();
+    expect(container.querySelector('input#tags')).toBeTruthy();
+  });
+
   it('😊 SchemaForm support hidenInForm', async () => {
     const { container } = render(
       <BetaSchemaForm
