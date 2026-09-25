@@ -56,12 +56,20 @@ const InlineErrorFormItemPopover: React.FC<{
   }, [inputProps.errors, inputProps.warnings, inputProps.validateStatus]);
 
   const loading = inputProps.validateStatus === 'validating';
+  const displayedMessages = loading
+    ? messages
+    : {
+        errors: inputProps.errors ?? [],
+        warnings: inputProps.warnings ?? [],
+      };
   const hasMessages =
-    (messages.errors?.length ?? 0) + (messages.warnings?.length ?? 0) >= 1;
+    (displayedMessages.errors?.length ?? 0) +
+      (displayedMessages.warnings?.length ?? 0) >=
+    1;
 
   const renderMessageContent = () => (
     <>
-      {messages.errors?.map((error, index) => (
+      {displayedMessages.errors?.map((error, index) => (
         <div
           key={`error-${index}`}
           className={clsx(`${prefixCls}-form-item-explain-error`, hashId)}
@@ -69,7 +77,7 @@ const InlineErrorFormItemPopover: React.FC<{
           {error}
         </div>
       ))}
-      {messages.warnings?.map((warning, index) => (
+      {displayedMessages.warnings?.map((warning, index) => (
         <div
           key={`warning-${index}`}
           className={clsx(`${prefixCls}-form-item-explain-warning`, hashId)}

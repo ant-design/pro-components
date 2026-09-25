@@ -21,7 +21,7 @@ import {
   useDebounceValue,
 } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
-import { Form, Input } from 'antd';
+import { Form, Input, InputNumber } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import React, { act, useEffect, useState } from 'react';
@@ -686,6 +686,31 @@ describe('utils', () => {
       },
       { timeout: 3000 },
     );
+  });
+
+  it('🐛 #9473 keeps digit validation errors visible when its value becomes invalid', async () => {
+    const html = render(
+      <Form initialValues={{ count: 1 }}>
+        <InlineErrorFormItem
+          errorType="popover"
+          name="count"
+          rules={[{ max: 1, type: 'number', message: 'maximum is one' }]}
+          popoverProps={{ trigger: 'focus' }}
+        >
+          <InputNumber />
+        </InlineErrorFormItem>
+      </Form>,
+    );
+
+    const input = await html.findByRole('spinbutton');
+    input.focus();
+    fireEvent.change(input, {
+      target: { value: '2' },
+    });
+
+    await waitFor(() => {
+      expect(html.baseElement.textContent).toContain('maximum is one');
+    });
   });
 
   it('📅 transformKeySubmitValue return string', async () => {
