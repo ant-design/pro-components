@@ -624,6 +624,31 @@ describe('PageContainer', () => {
     );
   });
 
+  it('keeps sticky descendants working inside a watermark', () => {
+    const wrapper = render(
+      <PageContainer waterMarkProps={{ content: '测试环境' }}>
+        <div data-testid="watermark-content">content</div>
+      </PageContainer>,
+    );
+
+    expect(
+      wrapper.getByTestId('watermark-content').parentElement?.parentElement
+        ?.style.overflow,
+    ).toBe('visible');
+
+    wrapper.rerender(
+      <PageContainer
+        waterMarkProps={{ content: '测试环境', style: { overflow: 'clip' } }}
+      >
+        <div data-testid="watermark-content">content</div>
+      </PageContainer>,
+    );
+    expect(
+      wrapper.getByTestId('watermark-content').parentElement?.parentElement
+        ?.style.overflow,
+    ).toBe('clip');
+  });
+
   it('🐛 breadcrumbRender and restProps?.header?.breadcrumbRender', async () => {
     const html = render(
       <PageContainer
