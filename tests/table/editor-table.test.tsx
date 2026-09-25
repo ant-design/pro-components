@@ -2870,6 +2870,68 @@ describe('EditorProTable', () => {
     });
   });
 
+  it('🐛 #8085 saving one editable row only validates that row', async () => {
+    const onSave = vi.fn(async () => true);
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        recordCreatorProps={false}
+        rowKey="id"
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            formItemProps: {
+              rules: [{ required: true, message: '此项为必填项' }],
+            },
+          },
+          {
+            title: '操作',
+            valueType: 'option',
+          },
+        ]}
+        value={[
+          { id: 1, title: '' },
+          { id: 2, title: '' },
+        ]}
+        editable={{
+          type: 'multiple',
+          editableKeys: [1, 2],
+          onSave,
+        }}
+      />,
+    );
+
+    const firstRow = wrapper.container.querySelector<HTMLElement>(
+      '.ant-table-tbody tr[data-row-key="1"]',
+    );
+    const secondRow = wrapper.container.querySelector<HTMLElement>(
+      '.ant-table-tbody tr[data-row-key="2"]',
+    );
+    expect(firstRow).toBeTruthy();
+    expect(secondRow).toBeTruthy();
+
+    fireEvent.change(firstRow!.querySelector('input')!, {
+      target: { value: 'valid row' },
+    });
+    fireEvent.click(
+      Array.from(firstRow!.querySelectorAll('a')).find(
+        (action) => action.textContent === '保存',
+      )!,
+    );
+
+    await waitFor(() => {
+      expect(onSave).toHaveBeenCalledWith(
+        1,
+        expect.objectContaining({ title: 'valid row' }),
+        expect.anything(),
+        undefined,
+      );
+    });
+    expect(
+      secondRow!.querySelector('.ant-form-item-explain-error'),
+    ).toBeFalsy();
+  });
+
   it('keeps validation status with a custom formItemRender (#5942)', async () => {
     const editableFormRef = React.createRef<
       EditableFormInstance<DataSourceType>
