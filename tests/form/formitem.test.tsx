@@ -12,6 +12,19 @@ afterEach(() => {
 });
 
 describe('ProForm.Item', () => {
+  it('🐛 #9235 field readonly overrides the ProForm readonly mode', () => {
+    const { container } = render(
+      <ProForm readonly initialValues={{ editable: 'value', fixed: 'value' }}>
+        <ProFormText name="editable" readonly={false} />
+        <ProFormText name="fixed" />
+      </ProForm>,
+    );
+
+    expect(container.querySelector('input#editable')).toBeTruthy();
+    expect(container.querySelector('input#fixed')).toBeFalsy();
+    expect(container.textContent).toContain('value');
+  });
+
   it('🐛 #9254 supports overriding layout on a ProForm field', () => {
     const { container } = render(
       <ProForm layout="vertical">

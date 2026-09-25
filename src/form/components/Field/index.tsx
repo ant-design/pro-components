@@ -60,6 +60,10 @@ const BaseProFormField = React.forwardRef<
   } = props;
 
   const modeContext = useContext(EditOrReadOnlyContext);
+  const fieldMode =
+    proFieldProps?.mode ??
+    (proFieldProps?.readonly === false ? 'edit' : modeContext.mode) ??
+    'edit';
 
   const propsParams = useMemo(() => {
     // 使用dependencies时 dependenciesValues是有值的
@@ -125,7 +129,7 @@ const BaseProFormField = React.forwardRef<
       valueEnum={runFunction(valueEnum)}
       {...proFieldProps}
       {...restProps}
-      mode={proFieldProps?.mode || modeContext.mode || 'edit'}
+      mode={fieldMode}
       params={propsParams}
     />
   );
