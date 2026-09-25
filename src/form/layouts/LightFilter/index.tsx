@@ -251,6 +251,7 @@ function LightFilterComponent<T = Record<string, any>>(
     variant,
     footerRender,
     popoverProps,
+    ignoreRules,
     ...reset
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -272,16 +273,28 @@ function LightFilterComponent<T = Record<string, any>>(
       initialValues={initialValues}
       form={userForm}
       contentRender={(items) => {
+        const flatItems = items?.flatMap((item: any) => {
+          if (!item || !item?.type) return item;
+          if (item?.type?.displayName === 'ProForm-Group') {
+            return item.props.children;
+          }
+          return item;
+        });
+        const filterItems = flatItems?.map((item: any) => {
+          if (!ignoreRules || !React.isValidElement(item)) return item;
+          return React.cloneElement(item as React.ReactElement<any>, {
+            ...(item.props as Record<string, any>),
+            formItemProps: {
+              ...(item.props as Record<string, any>).formItemProps,
+              rules: [],
+            },
+          });
+        });
         return (
           <LightFilterContainer
             key={JSON.stringify(values || {})}
             prefixCls={prefixCls}
-            items={items?.flatMap((item: any) => {
-              if (!item || !item?.type) return item;
-              if (item?.type?.displayName === 'ProForm-Group')
-                return item.props.children;
-              return item;
-            })}
+            items={filterItems}
             size={size}
             variant={variant || 'borderless'}
             collapse={collapse}
