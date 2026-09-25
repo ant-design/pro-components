@@ -1274,6 +1274,86 @@ describe('EditorProTable', () => {
     expect(valuesChangeFn).toHaveBeenCalledWith('test');
   });
 
+  it('📝 EditableProTable removes a cancelled new row in ProForm name mode', async () => {
+    const onDelete = vi.fn();
+    const formRef = React.createRef<ProFormInstance>();
+    const testColumns: ProColumns<DataSourceType>[] = [
+      {
+        title: '标题',
+        dataIndex: 'title',
+        formItemProps: { rules: [{ required: true }] },
+      },
+      {
+        title: '操作',
+        valueType: 'option',
+        render: (_, row, __, action) => [
+          <a key="edit" onClick={() => action?.startEditable?.(row.id)}>
+            编辑
+          </a>,
+        ],
+      },
+    ];
+    const Demo = () => {
+      const [editableKeys, setEditableKeys] = React.useState<React.Key[]>([]);
+      const nextId = React.useRef(700000000);
+
+      return (
+        <ProForm formRef={formRef} initialValues={{ table: defaultData }}>
+          <EditableProTable<DataSourceType>
+            rowKey="id"
+            name="table"
+            columns={testColumns}
+            recordCreatorProps={{
+              record: () => ({ id: nextId.current++ }),
+            }}
+            editable={{
+              type: 'multiple',
+              editableKeys,
+              onChange: setEditableKeys,
+              onDelete,
+            }}
+          />
+        </ProForm>
+      );
+    };
+
+    const wrapper = render(<Demo />);
+    await waitForWaitTime(100);
+
+    await act(async () => {
+      wrapper.getByText('添加一行数据').click();
+    });
+    await waitForWaitTime(100);
+
+    const newRow = wrapper.container.querySelector<HTMLElement>(
+      '.ant-table-tbody tr[data-row-key="700000000"]',
+    );
+    const cancel = Array.from(newRow?.querySelectorAll('a') ?? []).find(
+      (action) => action.textContent === '取消',
+    );
+    expect(cancel).toBeTruthy();
+
+    await act(async () => {
+      cancel?.click();
+      await vi.runOnlyPendingTimersAsync();
+    });
+
+    const rowKeys = Array.from(
+      wrapper.container.querySelectorAll<HTMLElement>(
+        '.ant-table-tbody tr.ant-table-row',
+      ),
+      (row) => row.dataset.rowKey,
+    );
+    expect(onDelete).toHaveBeenCalledTimes(1);
+    expect(rowKeys).toEqual(defaultData.map((item) => String(item.id)));
+    expect(new Set(rowKeys).size).toBe(rowKeys.length);
+    expect(
+      formRef.current
+        ?.getFieldValue('table')
+        .map((item: DataSourceType) => item.id),
+    ).toEqual(defaultData.map((item) => item.id));
+  });
+
   it('📝 EditableProTable add new child line when position is top and tree level > 1 and parent has children', async () => {
     const fn = vi.fn();
     const wrapper = render(

@@ -818,7 +818,27 @@ export function useEditableArray<RecordType extends AnyObject>(
   // 多次更新 dataSource 时 Map 处于过期状态，cancelEditable / saveEditable / validateCanAddRecord
   // 通过 dataSourceKeyIndexMapRef 反查映射 key 时会拿到旧映射，新增/删除场景下偶发查不到。
   useDeepCompareEffect(() => {
-    dataSourceKeyIndexMapRef.current = buildDataSourceKeyIndexMap();
+    const nextKeyIndexMap = buildDataSourceKeyIndexMap();
+    dataSourceKeyIndexMapRef.current = nextKeyIndexMap;
+
+    // name 模式下操作列使用数组索引作为 recordKey，而新增行的快照
+    // 最初按业务 rowKey 记录。为两种 key 建立同一份快照别名，否则
+    // 取消新增行时无法识别 null 快照，会只退出编辑而不删除该行。
+    nextKeyIndexMap.forEach((mappedKey, key) => {
+      const mappedKeyString = recordKeyToString(mappedKey)?.toString();
+      const keyString = recordKeyToString(key)?.toString();
+      if (
+        mappedKeyString != null &&
+        keyString != null &&
+        preEditRowRefs.current.has(mappedKeyString) &&
+        !preEditRowRefs.current.has(keyString)
+      ) {
+        preEditRowRefs.current.set(
+          keyString,
+          preEditRowRefs.current.get(mappedKeyString) ?? null,
+        );
+      }
+    });
   }, [props.dataSource]);
 
   // 这里这么做是为了存上次的状态，不然每次存一下再拿
