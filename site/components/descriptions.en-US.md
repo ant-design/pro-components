@@ -96,7 +96,7 @@ API is the same as ProTable
 | Parameters     | Description                                                                                                                                | Type                                           | Default Value |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- | ------------- |
 | title          | The title of the description list, displayed at the top                                                                                    | `ReactNode`                                    | -             |
-| tooltip        | Supplementary description of the content, displayed after hover                                                                            | `string`                                       | -             |
+| tooltip        | Supplementary description of the content, displayed after hover                                                                            | `LabelTooltipType \| string`                   | -             |
 | loading        | Display a loaded skeleton screen, the skeleton screen and dom will not correspond one-to-one                                               | `boolean`                                      | -             |
 | extra          | Describe the operation area of ​​the list, displayed on the upper right                                                                    | `string` \| `ReactNode`                        | -             |
 | bordered       | Whether to display the border                                                                                                              | boolean                                        | false         |
@@ -104,12 +104,16 @@ API is the same as ProTable
 | size           | Set the size of the list. Can be set to `middle`, `small`, or left blank (only setting `bordered={true}` takes effect)                     | `default` \| `middle` \| `small`               | -             |
 | layout         | Description layout                                                                                                                         | `horizontal` \| `vertical`                     | `horizontal`  |
 | colon          | Configure the default `colon` for antd `Descriptions` cells                                 | boolean                                        | true          |
-| request        | Request data; use with `dataIndex` in `columns`                                  | `(params: U) => Promise<RequestData<T>>`       | -             |
+| params         | Params for the network request, used with request                                                                                          | `Record<string, unknown>`                      | -             |
+| request        | Request data; use with `dataIndex` in `columns`                                                                                            | `(params: Record<string, unknown> \| undefined) => Promise<ProDescriptionsRequestResult<T>>` | - |
 | onRequestError | Handling request errors, by default an error will be thrown directly                                                                       | `(error: Error) => void`                       | -             |
-| columns        | Column definition, used with request [columns](/components/table#columns)                                                                  | `ProColumns<T>[]`                              | -             |
+| onLoadingChange | Triggered when loading changes                                                                                                            | `(loading?: boolean) => void`                  | -             |
+| columns        | Column definition, used with request [columns](/components/table#columns)                                                                  | `ProDescriptionsColumn<T>[]`                   | -             |
 | editable       | Editable related configuration                                                                                                             | [EditableConfig](#editable-edit-configuration) | -             |
-| dataSource     | Data source                                                                                                                                | `T[]`                                          | -             |
-| actionRef      | Operation reference                                                                                                                        | `MutableRefObject<ActionType>`                 | -             |
+| dataSource     | Data source (a single object)                                                                                                              | `T`                                            | -             |
+| onDataSourceChange | Triggered when the data source changes                                                                                                   | `(value: T \| undefined) => void`              | -             |
+| emptyText      | Display when data is empty                                                                                                                 | `ReactNode`                                    | -             |
+| actionRef      | Operation reference; `ProDescriptionsActionType<T>` recommended (with Map editing methods), `ProCoreActionType` compatible                  | `MutableRefObject<ProDescriptionsActionType<T> \| ProCoreActionType \| undefined>` | - |
 
 ### editable edit configuration
 

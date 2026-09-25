@@ -44,11 +44,18 @@ StepsForm 通过 Provider 来管理子表单的数据，每个子表单都是完
 | current         | 当前表单的步骤数，从 `0` 开始                                                                                                    | `number`                                                      | 0      |
 | onCurrentChange | current 发生改变的事件                                                                                                           | `(current:number)=>void`                                      | -      |
 | onFinish        | 表单最后一步提交成功触发，返回真值会自动重置表单（包括 `StepForm` 变回第一步）                                                   | `(values: T) => Promise<boolean \| void>`                     | -      |
-| stepsProps      | StepsForm 自带的 Steps 的 props，使用方式与 [antd](https://ant.design/components/steps-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/steps-cn/#API)          | -      |
+| stepsProps      | StepsForm 自带的 Steps 的 props，使用方式与 [antd](https://ant.design/components/steps-cn/) 相同                                  | [StepsProps](https://ant.design/components/steps-cn/#API)     | -      |
+| formProps       | 传递给内部 ProForm 的公共配置                                                                                                    | `ProFormProps`                                                | -      |
 | stepFormRender  | 自定义当前展示的表单（返回 dom 在表单内部）                                                                                      | `(formDom: ReactNode) => ReactNode`                           | -      |
 | stepsFormRender | 自定义整个表单区域（返回的 dom 在表单的外部）                                                                                    | `(formDom: ReactNode, submitter: ReactNode) => ReactNode`     | -      |
 | stepsRender     | 自定义步骤器                                                                                                                     | `(steps, dom) => ReactNode`                                   | -      |
+| layoutRender    | 自定义整个布局，可将 stepsDom 和 formDom 放置到任意位置                                                                          | `({stepsDom, formDom}) => ReactNode`                          | -      |
 | formRef         | 当前展示表单的 `formRef`（便于自定义触发）                                                                                       | `MutableRefObject<ProFormInstance<any> \| undefined \| null>` | -      |
+| stepsFormRef    | 分步容器 ref，可合并取值、获取指定步表单实例、无校验跳转等                                                                       | `MutableRefObject<StepsFormRef \| null \| undefined>`         | -      |
+| formMapRef      | 所有表单的 formMapRef                                                                                                            | `MutableRefObject<MutableRefObject<FormInstance \| undefined>[]>` | -  |
+| allowStepSelect | 是否允许点击步骤条切换步骤（不触发表单校验）                                                                                     | `boolean`                                                     | `false` |
+| submitter       | 按钮的统一配置，优先级低于分步表单的配置                                                                                         | `SubmitterProps<{step,onPre,form}> \| false`                  | -      |
+| containerStyle  | 容器样式                                                                                                                         | `React.CSSProperties`                                         | -      |
 
 ### StepForm
 

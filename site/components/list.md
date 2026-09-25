@@ -143,11 +143,11 @@ ProList 基于 ProTable 封装，支持两种列配置方式：
 | onDataSourceChange | 数据发生改变时触发                                                                                                                                              | `(dataSource: T[]) => void`                                                                                                                                                                                  | -                  |
 | actionRef          | Table action 的引用，便于自定义触发                                                                                                                             | `React.Ref<ActionType \| undefined>`                                                                                                                                                                         | -                  |
 | formRef            | 可以获取到查询表单的 form 实例，用于一些灵活的配置                                                                                                              | `TableFormItem<T>['formRef']`                                                                                                                                                                                | -                  |
-| rowKey             | 行的 key，一般是行 id                                                                                                                                           | `string` \| `(row: T, index: number) => string`                                                                                                                                                              | `'id'`             |
+| rowKey             | 行的 key，一般是行 id，未设置时依次尝试 `item.key`、行索引                                                                      | `keyof T` \| `(item: T) => React.Key`                                                                                                                                                                        | -                  |
 | headerTitle        | 左上角的 title                                                                                                                                                  | `ReactNode`                                                                                                                                                                                                  | -                  |
 | tooltip            | 标题旁边的 tooltip                                                                                                                                              | `string \| LabelTooltipType`                                                                                                                                                                                 | -                  |
-| loading            | 是否加载中                                                                                                                                                      | `boolean \| (item: any) => boolean`                                                                                                                                                                          | `false`            |
-| split              | 是否有分割线                                                                                                                                                    | `boolean`                                                                                                                                                                                                    | `false`            |
+| loading            | 是否加载中                                                                                                                                                      | `boolean` \| `{ spinning?: boolean }`                                                                                                                                                                        | `false`            |
+| split              | 是否有分割线                                                                                                                                                    | `boolean`                                                                                                                                                                                                    | `true`             |
 | variant            | 列表外观变体                                                                                                                                                    | `'outlined'` \| `'borderless'` \| `'filled'`                                                                                                                                                                  | `'borderless'`    |
 | footer             | 列表底部                                                                                                                                                        | `ReactNode`                                                                                                                                                                                                  | -                  |
 | grid               | 栅格配置，开启后以卡片模式渲染                                                                                                                                  | `ListGridType`                                                                                                                                                                                               | -                  |
@@ -181,12 +181,12 @@ ProList 基于 ProTable 封装，支持两种列配置方式：
 
 有时我们要手动触发 ProList 的 reload 等操作，可以使用 actionRef，用法与 [ProTable ActionRef](/components/table#actionref-手动触发) 完全一致。
 
-| 方法           | 描述                                 | 类型                                 |
-| -------------- | ------------------------------------ | ------------------------------------ |
-| reload         | 刷新列表，如果传入 true 则重置页码   | `(resetPageIndex?: boolean) => void` |
-| reloadAndRest  | 刷新并清空，页码也会重置，不包括表单 | `() => void`                         |
-| reset          | 重置到默认值，包括表单               | `() => void`                         |
-| clearSelected  | 清空选中项                           | `() => void`                         |
+| 方法           | 描述                                 | 类型                                      |
+| -------------- | ------------------------------------ | ----------------------------------------- |
+| reload         | 刷新列表，如果传入 true 则重置页码   | `(resetPageIndex?: boolean) => Promise<void>` |
+| reloadAndRest  | 刷新并清空，页码也会重置，不包括表单 | `() => Promise<void>`                     |
+| reset          | 重置到默认值，包括表单               | `() => void`                              |
+| clearSelected  | 清空选中项                           | `() => void`                              |
 | startEditable  | 开始编辑行                           | `(rowKey: Key) => boolean`           |
 | cancelEditable | 取消编辑行                           | `(rowKey: Key) => boolean`           |
 
@@ -280,11 +280,12 @@ Metas 使用对象的键名来映射列表项各个部分（标题、头像、�
 | 属性           | 描述                                                | 类型                                                                                     | 默认值   |
 | -------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------- | -------- |
 | dataIndex      | 数据在数据项中对应的路径，支持通过数组查询嵌套路径  | `string` \| `string[]`                                                                   | -        |
+| title          | 标题                                                | `ReactNode`                                                                              | -        |
 | valueType      | 值的类型，和 ProTable 一致，会生成不同的渲染器      | [`valueType`](/components/schema#valuetype)                                              | `'text'` |
 | render         | 自定义渲染函数                                      | `(text: ReactNode, record: T, index: number) => ReactNode \| ReactNode[]`                | -        |
 | valueEnum      | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](/components/schema-form#valueenum)                                           | -        |
-| search         | 配置列的搜索相关，false 为隐藏                      | `false` \| `{ transform: (value: any) => any }`                                          | -        |
-| editable       | 在编辑列表中是否可编辑                              | `false` \| `(text: any, record: T, index: number) => boolean`                            | -        |
+| search         | 配置列的搜索相关，false 为隐藏                      | `boolean` \| `{ transform: (value: any) => any }`                                        | -        |
+| editable       | 在编辑列表中是否可编辑                              | `boolean` \| `(text: any, record: T, index: number) => boolean`                          | -        |
 | fieldProps     | 查询表单的 props，会透传给表单项                    | `(form, config) => Record \| Record`                                                     | -        |
 | formItemProps  | 传递给 Form.Item 的配置                             | `(form, config) => formItemProps` \| `formItemProps`                                     | -        |
 | formItemRender | 渲染查询表单的输入组件                              | `(item, { type, defaultRender, formItemProps, fieldProps, ...rest }, form) => ReactNode` | -        |
@@ -334,11 +335,7 @@ Metas 使用对象的键名来映射列表项各个部分（标题、头像、�
 | --------- | ---- | ---- | ----------- |
 | dataIndex | -    | -    | `'content'` |
 
-#### Metas.extra
-
-| 属性      | 描述 | 类型 | 默认值    |
-| --------- | ---- | ---- | --------- |
-| dataIndex | -    | -    | `'extra'` |
+> `metas` 中仅支持 `type`、`title`、`subTitle`、`description`、`avatar`、`content`、`actions` 这些键。旧文档中的 `Metas.extra` 并不存在于类型定义中，右侧附属内容请使用 `columns` 的 `listSlot: 'aside'`（内部映射到列表项的 `extra` 区域）。
 
 ### 批量操作
 

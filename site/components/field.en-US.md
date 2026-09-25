@@ -33,10 +33,13 @@ return <Field text="100" valueType="money" mode={state} />;
 
 ### Properties
 
-| Parameters     | Description                                                                               | Type                                    | Default Value |
-| -------------- | ----------------------------------------------------------------------------------------- | --------------------------------------- | ------------- |
-| text           | The value to be formatted                                                                 | any                                     | -             |
-| valueType      | The type of formatting                                                                    | ValueType                               | -             |
-| mode           | The mode of the component                                                                 | `read` \| `edit` \| `update`            | `read`        |
-| formItemRender | Custom DOM rendering when `mode=update \| edit`, typically used for rendering input boxes | `(item: any, config: any) => ReactNode` | -             |
-| render         | Custom DOM rendering when `mode=read`, purely for display purposes                        | `(item: any, config: any) => ReactNode` | -             |
+| Parameters     | Description                                                                               | Type                                                                       | Default Value |
+| -------------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------- |
+| text           | The value to be formatted                                                                 | `ReactNode \| ReactNode[] \| Record<string,any> \| Record<string,any>[]`  | -             |
+| valueType      | The type of formatting                                                                    | `ProFieldValueTypeInput`                                                   | -             |
+| mode           | The mode of the component                                                                 | `read` \| `edit` \| `update`                                               | `read`        |
+| readonly       | Whether it is read-only                                                                   | `boolean`                                                                  | -             |
+| request        | Read enum from remote server                                                              | `(params, props) => Promise<RequestOptionsType[]>`                         | -             |
+| emptyText      | Display for empty values                                                                  | `ReactNode`                                                                | -             |
+| formItemRender | Custom DOM rendering when `mode=update \| edit`, typically used for rendering input boxes | `(text, props, dom) => JSX.Element`                                        | -             |
+| render         | Custom DOM rendering when `mode=read`, purely for display purposes                        | `(text, props, dom) => JSX.Element`                                        | -             |

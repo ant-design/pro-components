@@ -184,6 +184,9 @@ ProCard 兼容 antd Card API，以下 props 与 antd Card 保持一致。
 | split                 | 拆分卡片的方式                                                                                                                 | `vertical` \| `horizontal`                                          | -            |        |
 | actions               | 操作按钮                                                                                                                       | `React.ReactNode[] \| React.ReactNode`                              | -            |        |
 | ghost                 | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。                                                                 | `boolean`                                                           | false        |        |
+| variant               | 卡片变体，与 antd Card variant 一致                                                                                            | `'outlined' \| 'borderless'`                                        | -            |        |
+| boxShadow             | 是否显示卡片阴影                                                                                                               | `boolean`                                                           | -            |        |
+| styles                | 语义化 styles，结构同 antd Card                                                                                                | `{ root?, header?, body?, extra?, title?, actions?, cover? }`       | -            |        |
 | headerBordered        | 页头是否有分割线                                                                                                               | `boolean`                                                           | false        |        |
 | hoverable             | 鼠标移过时可浮起                                                                                                               | `boolean`                                                           | false        |        |
 | collapsed             | 受控属性，是否折叠                                                                                                             | `boolean`                                                           | false        |        |
@@ -205,7 +208,7 @@ ProCard 兼容 antd Card API，以下 props 与 antd Card 保持一致。
 | 参数      | 说明                                                      | 类型                           | 默认值 |
 | :-------- | :-------------------------------------------------------- | :----------------------------- | :----- |
 | activeKey | 当前选中项                                                | string                         | -      |
-| type      | 页签的基本样式，可选 `line`、`card`、`editable-card` 类型 | string                         | inline |
+| type      | 页签的基本样式，可选 `line`、`card`、 `editable-card` 类型，透传 antd Tabs | string              | `line` |
 | onChange  | 回调                                                      | `(activeKey: string) => void;` | -      |
 | items     | 基于 antd 拓展的页签的基本配置，必填                      | `ItemsProps`                   | -      |
 

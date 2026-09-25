@@ -87,6 +87,8 @@ formItemRender: (
   ) => JSX.Element | false | null;
 ```
 
+> 实际类型定义见 `ProSchema['formItemRender']`：第三个参数为 `FormInstance`，还支持第四个参数 `action`（编辑工具方法集合，可编辑表格场景使用）。
+
 <code src="../../demos/table/linkage-form.tsx" background="var(--main-bg-color)" title="动态联动搜索栏"></code>
 
 <code src="../../demos/table/form.tsx" background="var(--main-bg-color)" title="通过 formRef 来操作查询表单"></code>
@@ -222,7 +224,7 @@ RTL means right-to-left.
 
 ### 其它示例
 
-列状态受控与动态列、自定义列设置图标、基于 `hideInSearch` 的内容类搜索项（contentWords）等。
+列状态受控与动态列、自定义列设置图标、基于 `search` 配置的内容类搜索项（contentWords）等。
 
 <code src="../../demos/table/dynamic-columns-state.tsx" background="var(--main-bg-color)" title="列状态 columnsState"></code>
 

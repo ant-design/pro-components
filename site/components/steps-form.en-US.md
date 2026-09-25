@@ -43,12 +43,19 @@ When steps are split into components, each `StepForm` owns a separate Form insta
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------- |
 | current          | Active step index, starting from `0`                                                                                                  | `number`                                                     | `0`     |
 | onCurrentChange  | Fired when `current` changes                                                                                                         | `(current: number) => void`                                   | -       |
-| onFinish         | Last step succeeds; returning a truthy value resets flows back to step 1                                                            | `(values: T) => Promise<boolean \| void> \| boolean \| void` | -       |
-| stepsProps       | Props forwarded to antd `<Steps>` (without `current` / `onChange`)                                                                      | [`Steps`](https://ant.design/components/steps/#API)          | -       |
+| onFinish         | Last step succeeds; returning a truthy value resets flows back to step 1                                                            | `(values: T) => Promise<boolean \| void>`                    | -       |
+| stepsProps       | Props forwarded to antd `<Steps>`                                                                                                     | [`StepsProps`](https://ant.design/components/steps/#API)     | -       |
+| formProps        | Common props passed to the inner ProForm                                                                                              | `ProFormProps`                                               | -       |
 | stepFormRender   | Customize the rendered form body for the active step                                                                                 | `(formDom: ReactNode) => ReactNode`                          | -       |
 | stepsFormRender  | Customize the wrapper around the submitter                                                                                             | `(formDom: ReactNode, submitter: ReactNode) => ReactNode`     | -       |
 | stepsRender      | Completely replace the Steps header/footer region                                                                                       | `(steps, dom) => ReactNode`                                  | -       |
+| layoutRender     | Customize the whole layout; place stepsDom and formDom anywhere                                                                       | `({stepsDom, formDom}) => ReactNode`                         | -       |
 | formRef          | Latest `ProFormInstance` for the visible step                                                                                          | `MutableRefObject<ProFormInstance<any> \| null \| undefined>` | -       |
+| stepsFormRef     | Steps container ref: merged values, per-step form instance, step jump without validation                                              | `MutableRefObject<StepsFormRef \| null \| undefined>`         | -       |
+| formMapRef       | formMapRef of all step forms                                                                                                          | `MutableRefObject<MutableRefObject<FormInstance \| undefined>[]>` | -   |
+| allowStepSelect  | Whether clicking the step bar switches steps (without triggering validation)                                                          | `boolean`                                                    | `false` |
+| submitter        | Unified submitter config, lower priority than each StepForm's config                                                                  | `SubmitterProps<{step,onPre,form}> \| false`                 | -       |
+| containerStyle   | Container style                                                                                                                       | `React.CSSProperties`                                        | -       |
 
 ### StepForm
 

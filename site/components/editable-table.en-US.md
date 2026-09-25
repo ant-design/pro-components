@@ -134,6 +134,7 @@ Compared with the ProForm form, the editable form adds the following three metho
 | formProps                     | form properties can be configured, but onFinish is not supported                                                                                                                       | [\`FormProps'](https://procomponents.ant.design/components/form#proform) | -                                              |
 | editableKeys                  | Row being edited, controlled attributes. The default`key` will use the configuration of `rowKey`,if there is no configuration, it will use the`index`, it is recommended to use rowKey | `Key[]`                                                                  | -                                              |
 | onChange                      | Triggered when row data is modified                                                                                                                                                    | `(editableKeys: Key[], editableRows: T[]) => void`                       | -                                              |
+| onValuesChange                | Triggered when row values change                                                                                                                                                       | `(record: T, dataSource: T[]) => void`                                   | -                                              |
 | onSave                        | Triggered when a row is saved                                                                                                                                                          | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>`  | -                                              |
 | saveText                      | Text for saving a row                                                                                                                                                                  | `React.ReactNode`                                                        | `Save`                                         |
 | onDelete                      | Triggered when a row is deleted                                                                                                                                                        | `(key: Key, row: T) => Promise<any>`                                     | -                                              |
@@ -144,6 +145,9 @@ Compared with the ProForm form, the editable form adds the following three metho
 | deletePopconfirmMessage       | The pop-up confirmation box prompt message when deleting                                                                                                                               | `ReactNode`                                                              | `Delete this line?`                            |
 | onlyOneLineEditorAlertMessage | Only one line can be edited                                                                                                                                                            | `ReactNode`                                                              | `Only one line can be edited at the same time` |
 | onlyAddOneLineAlertMessage    | Only one line can be added at the same time                                                                                                                                            | `ReactNode`                                                              | `Only add one line`                            |
+| tableName                     | The name set on the Table, used to splice names to get data                                                                                                                            | `NamePath`                                                               | -                                              |
+| getRealIndex                  | Fix FormItem namePath using the wrong index as path caused by pagination ([issue #7790](https://github.com/ant-design/pro-components/issues/7790))                                      | `(record: T) => number`                                                  | -                                              |
+| dateFormatter                 | Same as ProTable `dateFormatter`; converts in-row dayjs to string or number when merging into dataSource                                                                                | `'string' \| 'number' \| false \| ((value, valueType) => string \| number)` | -                                           |
 
 ### recordCreatorProps New button configuration
 
@@ -153,6 +157,8 @@ In order to use it, we preset a New function, which in most cases already meets 
 
 ```typescript
 recordCreatorProps = {
+  // Add under which parent node, generally used for nested tables
+  parentKey: React.Key,
   // Add at the top or bottom
   position: 'bottom',
   // Method to add a new row, default is caching, it will disappear after cancellation

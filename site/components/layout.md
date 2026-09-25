@@ -22,7 +22,7 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 | 参数                       | 说明                                                                                                                                                            | 类型                                                                                                                                           | 默认值                                   | 版本 |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ---- |
 | title                      | layout 的左上角的 title                                                                                                                                         | `ReactNode`                                                                                                                                    | `'Ant Design Pro'`                       | -    |
-| logo                       | layout 的左上角 logo 的配置，可以配置url，React 组件 和 false                                                                                                   | `ReactNode` \| `JSX.Element` \| `WithFalse<() => ReactNode \| JSX.Element>`                                                                    | -                                        | -    | -    |
+| logo                       | layout 的左上角 logo 的配置，可以配置url，React 组件 和 false                                                                                                   | `ReactNode` \| `JSX.Element` \| `WithFalse<() => ReactNode \| JSX.Element>`                                                                    | -                                        | -    |
 | pure                       | 简约模式，设置了之后不渲染的任何 layout 的东西，但是会有 context，可以获取到当前菜单                                                                            | `boolean`                                                                                                                                      | -                                        | -    |
 | loading                    | layout 的加载态，设置完成之后只展示一个 loading                                                                                                                 | `boolean`                                                                                                                                      | -                                        | -    |
 | location                   | 当前应用会话的位置信息。如果你的应用创建了自定义的 history，则需要显示指定 location 属性，详见 [issue](https://github.com/ant-design/pro-components/issues/327) | `RouterTypes['location']`                                                                                                                      | isBrowser ? window\.location : undefined | -    |
@@ -38,7 +38,7 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 | contentWidth               | layout 的内容模式，Fluid：自适应，Fixed：定宽 1200px                                                                                                            | `'Fluid'` \| `'Fixed'`                                                                                                                         | `'Fluid'`                                | -    |
 | actionRef                  | layout 的常见操作，比如刷新菜单                                                                                                                                 | `React.MutableRefObject<{reload: () => void} \| undefined>`                                                                                    | -                                        | -    |
 | fixedHeader                | 是否固定 header 到顶部                                                                                                                                          | `boolean`                                                                                                                                      | `false`                                  | -    |
-| fixSiderbar                | 是否固定导航                                                                                                                                                    | `boolean`                                                                                                                                      | `false`                                  | -    |
+| fixSiderbar                | 是否固定导航                                                                                                                                                    | `boolean`                                                                                                                                      | `true`                                   | -    |
 | breakpoint                 | 触发响应式布局的[断点](https://ant.design/components/grid-cn/#Col)                                                                                              | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }`                                                                                                 | `lg`                                     | -    |
 | menu                       | 关于 [menu](#menu) 的配置，暂时只有 locale，locale 可以关闭 menu 的自带的全球化                                                                                 | [`menuConfig`](#menu)                                                                                                                          | `{ locale: true }`                       | -    |
 | iconfontUrl                | 使用 [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) 的图标配置                                                                | `URL`                                                                                                                                          | -                                        | -    |
@@ -87,12 +87,17 @@ menu 中支持了部分常用的 menu 配置，可以帮助我们更好的管理
 
 | 参数            | 说明                                                                                           | 类型                                                  | 默认值   | 版本 |
 | --------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------- | -------- | ---- |
-| autoClose       | 选中菜单是否自动关闭菜单                                                                       | `boolean`                                             | true     | -    |
+| autoClose       | 选中菜单是否自动关闭菜单                                                                       | `false`                                               | true     | -    |
+| collapsedShowGroupTitle | 收起时也展示分组菜单的标题                                                             | `boolean`                                             | -        | -    |
+| collapsedShowTitle | 收起时也展示标题                                                                           | `boolean`                                             | -        | -    |
+| collapsedWidth  | 菜单收起时的宽度                                                                               | `number`                                              | -        | -    |
 | defaultOpenAll  | 默认打开所有的菜单项，要注意只有 layout 挂载之前生效，异步加载菜单是不支持的                   | `boolean`                                             | false    | -    |
+| hideMenuWhenCollapsed | 菜单收起时隐藏菜单面板                                                                | `boolean`                                             | -        | -    |
 | ignoreFlatMenu  | 是否忽略手动折叠过的菜单状态，结合 defaultOpenAll 可实现折叠按钮切换后，同样可以展开所有子菜单 | `boolean`                                             | false    | -    |
 | loading         | 菜单是否正在加载中                                                                             | `boolean`                                             | false    | -    |
 | locale          | menu 是否使用国际化，还需要 formatMessage 的配合                                               | `boolean`                                             | true     | -    |
 | onLoadingChange | 菜单的加载状态变更                                                                             | `(loading: boolean) => void`                          | -        | -    |
+| params          | 菜单远程请求时用的参数，只有 params 变化才会重新触发 request                                   | `Record<string, any>`                                 | -        | -    |
 | request         | 远程加载菜单的方法，会自动修改 loading 状态                                                    | `(params, defaultMenuData) => Promise<MenuDataItem[]>` | -        | -    |
 | type            | 菜单的类型                                                                                     | `'sub' \| 'group'`                                    | `'group'` | -    |
 
@@ -185,24 +190,54 @@ const title = getPageTitle({
 // 可以通过 import { Settings } from '@ant-design/pro-layout/defaultSettings'
 // 来获取这个类型
 export interface Settings {
+  /** theme of nav */
+  navTheme: 'light' | 'realDark';
   /** Primary color of ant design */
   colorPrimary: string;
-  /** Nav menu position: `side` or `top` */
-  layout: 'side' | 'top';
+  /** Nav menu position: `side` or `top` or `mix` */
+  layout: 'side' | 'top' | 'mix';
   /** Layout of content: `Fluid` or `Fixed`, only works when layout is top */
   contentWidth: 'Fluid' | 'Fixed';
   /** Sticky header */
   fixedHeader: boolean;
   /** Sticky siderbar */
   fixSiderbar: boolean;
-  menu: { locale: boolean };
-  title: string;
-  pwa: boolean;
-  // Your custom iconfont Symbol script Url
-  // eg：//at.alicdn.com/t/font_1039637_btcrd5co4w.js
-  // Usage: https://github.com/ant-design/ant-design-pro/pull/3517
-  iconfontUrl: string;
-  colorWeak: boolean;
+  /**
+   * menu 的配置
+   * @example 取消自动关闭菜单 menu={{ autoClose: false }}
+   */
+  menu?: {
+    locale?: boolean;
+    hideMenuWhenCollapsed?: boolean;
+    collapsedShowTitle?: boolean;
+    collapsedShowGroupTitle?: boolean;
+    defaultOpenAll?: boolean;
+    ignoreFlatMenu?: boolean;
+    loading?: boolean;
+    onLoadingChange?: (loading?: boolean) => void;
+    params?: Record<string, any>;
+    request?: (
+      params: Record<string, any>,
+      defaultMenuData: MenuDataItem[],
+    ) => Promise<MenuDataItem[]>;
+    type?: 'sub' | 'group';
+    autoClose?: false;
+    collapsedWidth?: number;
+  };
+  /** Layout 的 title，也会显示在浏览器标签上 */
+  title?: string | false;
+  /** Your custom iconfont Symbol script Url */
+  iconfontUrl?: string;
+  /** 主色，需要配合 umi 使用 */
+  colorPrimary?: string;
+  /** 全局增加滤镜 */
+  colorWeak?: boolean;
+  /** 只在 mix 模式下生效，切割菜单 */
+  splitMenus?: boolean;
+  /** 在菜单为空时隐藏Sider */
+  suppressSiderWhenMenuEmpty?: boolean;
+  /** 侧边菜单模式 */
+  siderMenuType?: 'sub' | 'group';
 }
 ```
 

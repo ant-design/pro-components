@@ -132,7 +132,7 @@ atomId: StatisticCard
 | valueStyle  | 设置数值的样式            | style                                                           | -        |
 | description | 描述性标签                | React.ReactNode \| () => React.ReactNode                        | -        |
 | layout      | 布局                      | `horizontal \| vertical \| inline`                              | `inline` |
-| trend       | 趋势                      | `up \| down \|`                                                 | -        |
+| trend       | 趋势                      | `up \| down`                                               | -        |
 
 更多 API 参考 [Statistic](https://ant.design/components/statistic-cn/)，支持 `Statistic` 的所有 API。
 

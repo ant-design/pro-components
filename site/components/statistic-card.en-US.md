@@ -132,7 +132,7 @@ Refer to `ProCard` for more details, supports all APIs of `ProCard`.
 | valueStyle  | Style of the value                  | style                                                           | -        |
 | description | Description label                   | React.ReactNode \| () => React.ReactNode                        | -        |
 | layout      | Layout                              | `horizontal \| vertical \| inline`                              | `inline` |
-| trend       | Trend                               | `up \| down \|`                                                 | -        |
+| trend       | Trend                               | `up \| down`                                               | -        |
 
 Refer to [Statistic](https://ant.design/components/statistic/) for more APIs, supports all APIs of `Statistic`.
 

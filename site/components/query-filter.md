@@ -50,15 +50,24 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | 参数                   | 说明                                                                                    | 类型                                                                                      | 默认值 |
 | ---------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------ |
 | collapsed              | 是否折叠超出的表单项，用于受控模式                                                      | `boolean`                                                                                 | -      |
-| defaultCollapsed       | 默认状态下是否折叠超出的表单项                                                          | `boolean`                                                                                 | true   |
+| defaultCollapsed       | 默认状态下是否折叠超出的表单项                                                          | `boolean`                                                                                 | `true` |
 | onCollapse             | 切换表单折叠状态时的回调                                                                | `(collapsed)=>void`                                                                       | -      |
+| collapseRender         | 收起按钮的 render，设为 `false` 可隐藏                                                  | `((collapsed, props, intl, hiddenNum?) => ReactNode) \| false`                             | -      |
+| layout                 | 布局模式，`vertical` 时上下布局                                                         | `'horizontal' \| 'vertical' \| 'inline'`                                                  | -      |
 | submitterColSpanProps  | 提交按钮所在 col 的 props（需要包含 `span`）                                            | `Omit<ColProps, 'span'> & { span: number }`                                               | -      |
 | defaultColsNumber      | 自定义折叠状态下默认显示的表单控件数量，**最多只展示一行控件**，超出时展示收起/隐藏按钮 | `number`                                                                                  | -      |
 | defaultFormItemsNumber | 与 defaultColsNumber 的不同点在于，设置多少就展示多少个控件，超出时展示收起/隐藏按钮    | `number`                                                                                  | -      |
 | labelWidth             | label 宽度                                                                              | `number` \| `'auto'`                                                                      | `80`   |
 | span                   | 表单项宽度                                                                              | `number` \| `{ xs: number; sm: number; md: number; lg: number; xl: number; xxl: number }` | -      |
-| split                  | 每一行是否有分割线                                                                      | `boolean`                                                                                 | -      |
-| preserve               | 是否能够查询收起的数据，如果设置为 false，收起后的表单数据将会丢失                      | `boolean`                                                                                 | true   |
+| split                  | 每一行是否有分割线（仅在 `layout=vertical` 时生效）                                     | `boolean`                                                                                 | -      |
+| searchText             | 查询按钮的文本                                                                          | `string`                                                                                  | -      |
+| resetText              | 重置按钮的文本                                                                          | `string`                                                                                  | -      |
+| searchGutter           | 查询表单栅格间隔                                                                        | `RowProps['gutter']`                                                                      | -      |
+| optionRender           | 底部操作栏的 render，设为 `false` 可隐藏                                                | `((searchConfig, props, dom) => ReactNode[]) \| false`                                     | -      |
+| ignoreRules            | 忽略 Form.Item 的 rules 校验配置                                                        | `boolean`                                                                                 | -      |
+| showHiddenNum          | 收起时是否显示隐藏个数                                                                  | `boolean`                                                                                 | `false` |
+| preserve               | 是否能够查询收起的数据，如果设置为 false，收起后的表单数据将会丢失                      | `boolean`                                                                                 | `true` |
+| containerStyle         | 容器样式                                                                                | `React.CSSProperties`                                                                     | -      |
 
 #### 响应式断点规则
 
@@ -92,8 +101,8 @@ LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | ------------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
 | collapse      | 是否默认折叠全部字段                                           | `boolean`                                                                                                                   | `false`                    |
 | collapseLabel | 折叠区域的标签                                                 | `ReactNode`                                                                                                                 | `更多筛选 <DownOutlined/>` |
-| variant       | 样式变体                                                       | `'outlined' \| 'filled' \| 'borderless'`                                                                                    | -                          |
+| variant       | 样式变体                                                       | `'outlined' \| 'filled' \| 'borderless'`                                                                                    | `'borderless'`             |
 | ignoreRules   | 是否忽略表单项的 rules（LightFilter 场景一般不建议使用 rules） | `boolean`                                                                                                                   | -                          |
 | footerRender  | 底部内容，当不需要默认底部按钮时，可以设为 `false`             | `((onConfirm?: (e?: React.MouseEvent) => void, onClear?: (e?: React.MouseEvent) => void) => JSX.Element \| false) \| false` | -                          |
 | popoverProps  | 透传给内部 Popover 的属性（折叠态弹层），可用 `classNames` 等  | `Omit<PopoverProps, 'children' \| 'content' \| 'trigger' \| 'open' \| 'onOpenChange' \| 'placement'>`                       | -                          |
-| placement     | 选择框弹出的位置                                               | `TooltipPlacement`                                                                                                          | `bottomLeft`               |
+| placement     | 选择框弹出的位置，透传给 Popover，未设置时使用 Popover 默认值  | `TooltipPlacement`                                                                                                          | -                          |
