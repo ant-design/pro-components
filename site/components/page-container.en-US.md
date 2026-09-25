@@ -35,15 +35,29 @@ PageContainer is a page container component that provides a unified page layout 
 
 | Parameter        | Description                 | Type                                       | Default |
 | ---------------- | --------------------------- | ------------------------------------------ | ------- |
-| title            | Page title                  | `ReactNode`                                | -       |
+| title            | Page title, set false to hide | `ReactNode \| false`                     | -       |
 | subTitle         | Page subtitle               | `ReactNode`                                | -       |
 | extra            | Page operation area         | `ReactNode`                                | -       |
+| extraContent     | Extra content beside the operation area | `ReactNode`                     | -       |
 | content          | Page content                | `ReactNode`                                | -       |
-| loading          | Loading state               | `boolean \| SpinProps`                     | false   |
-| header           | Header configuration        | `PageHeaderProps`                          | -       |
+| footer           | Footer toolbar (items aligned right) | `ReactNode[]`                      | -       |
+| loading          | Loading state               | `boolean \| SpinProps \| ReactNode`        | false   |
+| header           | Header configuration        | `Partial<PageHeaderProps> & { children?: ReactNode }` | - |
+| pageHeaderRender | Custom pageHeader, return false to hide | `(props: PageContainerProps) => ReactNode \| false` | - |
+| affixProps       | Affix configuration, same as antd | `Omit<AffixProps, 'children'>`       | -       |
 | breadcrumb       | Breadcrumb configuration    | `BreadcrumbProps`                          | -       |
-| breadcrumbRender | Custom breadcrumb rendering | `(props: PageContainerProps) => ReactNode` | -       |
+| breadcrumbRender | Custom breadcrumb rendering, return false to hide | `PageHeaderProps['breadcrumbRender'] \| false` | - |
 | waterMarkProps   | Watermark configuration     | `WatermarkProps`                           | -       |
+| token            | Custom token                | `pageContainerToken`                       | -       |
+| stylish          | Style configuration         | `GenerateStyle<PageContainerToken>`        | -       |
+| footerStylish    | Footer style configuration  | `GenerateStyle<PageContainerToken>`        | -       |
+| footerToolBarProps | Footer toolbar configuration | `FooterToolbarProps`                     | -       |
+| tabList          | Tab configuration (passed to PageHeader tabs) | `(TabPaneProps & { key?: React.Key })[]` | - |
+| tabActiveKey     | Currently active tab        | `TabsProps['activeKey']`                   | -       |
+| onTabChange      | Tab change callback         | `TabsProps['onChange']`                    | -       |
+| tabBarExtraContent | Extra area on the tab bar  | `TabsProps['tabBarExtraContent']`          | -       |
+| tabProps         | Other tabs configs          | `TabsProps`                                | -       |
+| fixedHeader      | Fix PageHeader to the top of the page | `boolean`                        | -       |
 | children         | Children                    | `ReactNode`                                | -       |
 
 ### PageHeaderProps

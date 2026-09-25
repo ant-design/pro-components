@@ -38,11 +38,10 @@ return <Skeleton type="list" />;
 
 | parameter      | description                                                                                    | type                                   | default value |
 | -------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------- | ------------- |
-| type           | Different types of skeleton screens                                                            | `'list' \| 'result' \| 'descriptions'` | list          |
-| active         | Whether to show dynamic                                                                        | boolean                                | true          |
-| pageHeader     | Whether to display pageHeader's skeleton screen descriptions and list are valid                | -                                      | -             |
-| statistic      | number of statistic skeleton screens                                                           | `number` \| `false`                    | -             |
-| list           | skeleton screen of the list, you can control the number                                        | `number` \| `false`                    | -             |
-| toolbar        | Action bar skeleton screen of the list                                                         | boolean                                | -             |
-| formItemRender | Customize the dom performance under `mode=update or edit`, generally used to render edit boxes | -                                      | -             |
-| render         | Customize the dom performance under `mode=read`, which is just a simple form of expression     | -                                      | -             |
+| type           | Different types of skeleton screens                                                            | `'list' \| 'result' \| 'descriptions'` | `list`        |
+| active         | Whether to show dynamic                                                                        | `boolean`                              | `true`        |
+| pageHeader     | Whether to display pageHeader's skeleton screen, set `false` to hide                           | `false`                                | -             |
+| statistic      | Number of statistic skeleton screens, set `false` to hide, responsive when unset               | `number` \| `false`                    | -             |
+| list           | Skeleton screen of the list, you can control the number, set `false` to hide                   | `number` \| `false`                    | `5`           |
+| toolbar        | Action bar skeleton screen of the list, set `false` to hide                                    | `false`                                | -             |
+| actionButton   | Action button skeleton screen of the list, set `false` to hide                                 | `false`                                | -             |

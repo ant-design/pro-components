@@ -141,7 +141,8 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 | 参数              | 说明                                                  | 类型                                                  | 默认值 |
 | ----------------- | ----------------------------------------------------- | ----------------------------------------------------- | ------ |
-| onGetCaptcha      | 点击获取验证码的事件，如果配置了 phoneName 会自动注入 | `(phone)=>Promise<any>`                               | -      |
+| onGetCaptcha      | 点击获取验证码的事件，如果配置了 phoneName 会自动注入 | `(phone)=>Promise<void>`                              | -      |
+| phoneName         | 手机号的 name，onGetCaptcha 会注入这个值              | `NamePath`                                            | -      |
 | onTiming          | 计时数字监听                                          | `(count: number)=>void`                               | -      |
 | captchaProps      | 获取验证码按钮的 props，与 antd 的 props 相同         | `ButtonProps`                                         | -      |
 | countDown         | 倒计时的秒数                                          | number                                                | 60     |
@@ -550,6 +551,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 | icon        | Dragger 的图标 | `ReactNode` | InboxOutlined                     |
 | title       | Dragger 的标题 | `ReactNode` | ' 单击或拖动文件到此区域进行上传' |
 | description | Dragger 的描述 | `ReactNode` | ' 支持单次或批量上传'             |
+| max         | 最大的文件数量，到达数量之后上传按钮会失效 | `number` | - |
 
 ```tsx | pure
 <ProFormUploadDragger label="Dragger" name="dragger" action="upload.do" />
@@ -564,7 +566,9 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 | icon       | Button 的图标                                                                                                                                 | `ReactNode`  | UploadOutlined |
 | title      | Button 的标题                                                                                                                                 | `ReactNode`  | 单击上传       |
 | max        | 最大上传数量，超过最大数量就会隐藏上传按钮                                                                                                    | `number`     | -              |
-| imageProps | 预览 [Image](https://ant-design.antgroup.com/components/image-cn#image) 组件的额外配置，可以自定义预览行为、工具栏以及其他 Image 组件的属性。 | `ImageProps` | -              |
+| buttonProps | 上传按钮的配置，如 `buttonProps={{ type: "primary" }}`                                                                                       | `ButtonProps` | -             |
+| disabled   | 是否禁用按钮                                                                                                                                  | `boolean`    | -              |
+| imageProps | 预览 [Image](https://ant-design.antgroup.com/components/image-cn#image) 组件的额外配置，可以自定义预览行为、工具栏以及其他 Image 组件的属性。 | `Omit<ImageProps, 'src'>` | -  |
 
 ```tsx | pure
 <ProFormUploadButton label="upload" name="upload" action="upload.do" />

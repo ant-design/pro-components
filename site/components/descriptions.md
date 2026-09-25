@@ -96,7 +96,7 @@ API 与 ProTable 相同
 | 参数           | 说明                                                                                              | 类型                                     | 默认值       |
 | -------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------- | ------------ |
 | title          | 描述列表的标题，显示在最顶部                                                                      | `ReactNode`                              | -            |
-| tooltip        | 内容的补充描述，hover 后显示                                                                      | `string`                                 | -            |
+| tooltip        | 内容的补充描述，hover 后显示                                                                      | `LabelTooltipType \| string`             | -            |
 | loading        | 展示一个加载的骨架屏，骨架屏和 dom 不会一一对应                                                   | `boolean`                                | -            |
 | extra          | 描述列表的操作区域，显示在右上方                                                                  | `string` \| `ReactNode`                  | -            |
 | bordered       | 是否展示边框                                                                                      | boolean                                  | false        |
@@ -104,12 +104,16 @@ API 与 ProTable 相同
 | size           | 设置列表的大小。可以设置为 `middle` 、`small`，或不填（只有设置 `bordered={true}` 生效）          | `default` \| `middle` \| `small`         | -            |
 | layout         | 描述布局                                                                                          | `horizontal` \| `vertical`               | `horizontal` |
 | colon          | 配置 antd `Descriptions` 单元格 `colon` 的默认值                     | boolean                                  | true         |
-| request        | 请求数据，与 `columns` 中的 `dataIndex` 配合使用         | `(params: U) => Promise<RequestData<T>>` | -            |
+| params         | 发起网络请求的参数，与 request 配合使用                                                           | `Record<string, unknown>`                | -            |
+| request        | 请求数据，与 `columns` 中的 `dataIndex` 配合使用                                                  | `(params: Record<string, unknown> \| undefined) => Promise<ProDescriptionsRequestResult<T>>` | - |
 | onRequestError | 处理 request 的错误，默认会直接抛出错误                                                           | `(error: Error) => void`                 | -            |
-| columns        | 列定义，与 request 配合使用 [columns](/components/table#columns)                                  | `ProColumns<T>[]`                        | -            |
+| onLoadingChange | loading 变化时触发                                                                               | `(loading?: boolean) => void`            | -            |
+| columns        | 列定义，与 request 配合使用 [columns](/components/table#columns)                                  | `ProDescriptionsColumn<T>[]`             | -            |
 | editable       | 编辑的相关配置                                                                                    | [EditableConfig](#editable-编辑配置)     | -            |
-| dataSource     | 数据源                                                                                            | `T[]`                                    | -            |
-| actionRef      | 操作引用                                                                                          | `MutableRefObject<ActionType>`           | -            |
+| dataSource     | 数据源（单个对象）                                                                                | `T`                                      | -            |
+| onDataSourceChange | 数据源变化时触发                                                                               | `(value: T \| undefined) => void`        | -            |
+| emptyText      | 空数据时的展示                                                                                    | `ReactNode`                              | -            |
+| actionRef      | 操作引用，推荐 `ProDescriptionsActionType<T>`（含 Map 编辑方法），兼容 `ProCoreActionType`        | `MutableRefObject<ProDescriptionsActionType<T> \| ProCoreActionType \| undefined>` | - |
 
 ### editable 编辑配置
 

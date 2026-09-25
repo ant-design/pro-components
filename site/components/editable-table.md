@@ -134,6 +134,7 @@ atomId: EditableProTable
 | formProps                     | 可以配置 form 的属性，但是不支持 onFinish                                                               | [`FormProps`](https://procomponents.ant.design/components/form#proform) | -                  |
 | editableKeys                  | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `Key[]`                                                                 | -                  |
 | onChange                      | 行数据被修改的时候触发                                                                                  | `(editableKeys: Key[], editableRows: T[]) => void`                      | -                  |
+| onValuesChange                | 行数据被修改的时候触发                                                                                  | `(record: T, dataSource: T[]) => void`                                  | -                  |
 | onSave                        | 保存一行的时候触发                                                                                      | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | -                  |
 | saveText                      | 保存一行的文字                                                                                          | `React.ReactNode`                                                       | `保存`             |
 | onDelete                      | 删除一行的时候触发                                                                                      | `(key: Key, row: T) => Promise<any>`                                    | -                  |
@@ -144,6 +145,9 @@ atomId: EditableProTable
 | deletePopconfirmMessage       | 删除时弹出的确认框提示消息                                                                              | `ReactNode`                                                             | `删除此项？`       |
 | onlyOneLineEditorAlertMessage | 只能编辑一行的的提示                                                                                    | `ReactNode`                                                             | `只能同时编辑一行` |
 | onlyAddOneLineAlertMessage    | 只能同时新增一行的提示                                                                                  | `ReactNode`                                                             | `只能新增一行`     |
+| tableName                     | Table 上设置的 name，用于拼接 name 来获取数据                                                          | `NamePath`                                                              | -                  |
+| getRealIndex                  | 解决分页带来的 FormItem namePath 使用错误的 index 作为路径（[issue #7790](https://github.com/ant-design/pro-components/issues/7790)） | `(record: T) => number`                            | -                  |
+| dateFormatter                 | 与 ProTable `dateFormatter` 一致；合并到 dataSource 时把行内的 dayjs 转为 string 或 number              | `'string' \| 'number' \| false \| ((value, valueType) => string \| number)` | -            |
 
 ### RecordCreatorProps
 
@@ -154,7 +158,7 @@ atomId: EditableProTable
 ```typescript
 recordCreatorProps = {
   // 要增加到哪个节点下，一般用于多重嵌套表格
-  parentKey: React.key,
+  parentKey: React.Key,
   // 顶部添加还是末尾添加
   position: 'bottom',
   // 新增一行的方式，默认是缓存，取消后就会消失

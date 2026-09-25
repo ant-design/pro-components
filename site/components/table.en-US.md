@@ -87,7 +87,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | tableStyle         | style of the encapsulated table                                                                                                             | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html)                                                                                                                                                             | -                                                                   |
 | headerTitle        | The title of the top-left corner                                                                                                            | `ReactNode`                                                                                                                                                                                                                         | -                                                                   |
 | tooltip            | Tooltip next to the title                                                                                                                   | `string \| LabelTooltipType`                                                                                                                                                                                                        | -                                                                   |
-| options            | table toolbar, not displayed when set to false, passing function will trigger when clicked                                                  | `{{ density?: boolean, fullScreen?: boolean \| function, reload?: boolean \| function, reloadIcon?: React.ReactNode, densityIcon?: React.ReactNode, setting?: boolean \|` [SettingOptionType](#menu-bar-options-configuration) `}}` | `{ fullScreen: false, reload: true, density: true, setting: true }` |
+| options            | table toolbar, not displayed when set to false, passing function will trigger when clicked                                                  | `{{ density?: boolean, fullScreen?: boolean \| function, reload?: boolean \| function, reloadIcon?: React.ReactNode, densityIcon?: React.ReactNode, setting?: boolean \|` [SettingOptionType](#menu-bar-options-configuration) `}}` | `{ reload: true, density: true, setting: true, search: false, fullScreen: false }` |
 | search             | Whether to display the search form, when the object is passed in, it is the configuration of the search form                                | `false` \| [SearchConfig](#search-search-form)                                                                                                                                                                                      | -                                                                   |
 | defaultSize        | Default size                                                                                                                                | SizeType                                                                                                                                                                                                                            | -                                                                   |
 | dateFormatter      | Convert dayjs format data to a specific type, false will not be converted                                                                   | `"string"` \| `"number"` \| ((value: dayjs.Dayjs, valueType: string) => string \| number) \| `false`                                                                                                                                | `"string"`                                                          |
@@ -108,7 +108,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | cardProps          | Settings for the card outside the table                                                                                                     | `ProCardProps \| false`                                                                                                                                                                                                             | -                                                                   |
 | cardBordered       | Border of Card components around Table and Search                                                                                           | `boolean \| {search?: boolean, table?: boolean}`                                                                                                                                                                                    | false                                                               |
 | ghost              | Ghost mode, that is, whether to cancel the padding of the table content area.                                                               | `boolean`                                                                                                                                                                                                                           | false                                                               |
-| debounceTime       | Debounce time                                                                                                                               | `number`                                                                                                                                                                                                                            | 10                                                                  |
+| debounceTime       | Debounce time                                                                                                                               | `number`                                                                                                                                                                                                                            | 20                                                                  |
 | revalidateOnFocus  | Automatically re-request when the window is focused                                                                                         | `boolean`                                                                                                                                                                                                                           | `false`                                                             |
 | columnsState       | Column Status Control, you can operate the display hide                                                                                     | `ColumnStateType`                                                                                                                                                                                                                   | -                                                                   |
 | name               | The name of the editable table, through which you can communicate directly with the form without nesting                                    | `NamePath`                                                                                                                                                                                                                          | -                                                                   |
@@ -120,9 +120,11 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 
 | Property         | Description                                                         | Type              | Default Value |
 | ---------------- | ------------------------------------------------------------------- | ----------------- | ------------- |
-| record           | The row data to be added, generally contains a unique key           | `T`               | `{}`          |
-| position         | Where does the line increase, start or end                          | `top` \| `bottom` | `bottom`      |
 | (...buttonProps) | [ButtonProps](https://ant.design/components/button-cn/#API) of antd | ButtonProps       | —             |
+| record           | The row data to be added, generally contains a unique key. Supports a function `((index, dataSource) => T)` | `T \| ((index: number, dataSource: T[]) => T)` | `{}` |
+| position         | Where does the line increase, start or end                          | `'top' \| 'bottom'` | `'bottom'`  |
+| newRecordType    | Type of the new row: `dataSource` appends to data directly, `cache` puts it in cache and disappears on cancel | `'dataSource' \| 'cache'` | - |
+| parentKey        | Which node to add to, generally for multiply nested tables          | `React.Key \| ((index: number, dataSource: T[]) => React.Key)` | - |
 
 #### ColumnStateType
 
@@ -141,9 +143,8 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | filterType       | Filter form type                                         | `'query'` \| `'light'`                                                      | `'query'`        |
 | searchText       | Search button text                                       | `string`                                                                    | Search           |
 | resetText        | reset button text                                        | `string`                                                                    | Reset            |
-| submitText       | The text of the submit button                            | `string`                                                                    | Submit           |
-| labelWidth       | Label width                                              | `'number'` \| `'auto'`                                                      | 80               |
-| span             | Configure the number of columns in the query form        | `'number'` \| [`'ColConfig'`](#ColConfig)                                   | defaultColConfig |
+| labelWidth       | Label width                                              | `number` \| `'auto'`                                                        | 80               |
+| span             | Configure the number of columns in the query form, supports breakpoint config (xs/sm/md/lg/xl/xxl); responsive defaults when unset | `number` \| `SpanConfig` | Responsive defaults |
 | className        | Encapsulated search Form className                       | `string`                                                                    | -                |
 | collapseRender   | Collapse button render                                   | `((collapsed: boolean,showCollapseButton?: boolean) => ReactNode)`\|`false` | -                |
 | defaultCollapsed | Whether to collapse by default                           | `boolean`                                                                   | `true`           |
@@ -157,16 +158,17 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 #### ColConfig
 
 ```tsx | pure
-const defaultColConfig = {
+const defaultSpanConfig = {
   xs: 24,
   sm: 24,
   md: 12,
   lg: 12,
   xl: 8,
   xxl: 6,
-  xxl: 6,
 };
 ```
+
+> Actual breakpoints come from antd design tokens (screenSMMin etc.) and can be customized via ConfigProvider theme; values above are defaults under default tokens.
 
 #### Menu bar options configuration
 
@@ -203,8 +205,8 @@ Sometimes we need to manually trigger the reload of the table and other operatio
 
 | Method         | Description                                                               | Type                                                                   |
 | -------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| reload         | Refresh the table, if true is passed, reset the page number               | `(resetPageIndex?: boolean) => void`                                   |
-| reloadAndRest  | Refresh and clear, the page number will also be reset, excluding the form | `() => void`                                                           |
+| reload         | Refresh the table, if true is passed, reset the page number               | `(resetPageIndex?: boolean) => Promise<void>`                          |
+| reloadAndRest  | Refresh and clear, the page number will also be reset, excluding the form | `() => Promise<void>`                                                  |
 | reset          | Reset to default values, including forms                                  | `() => void`                                                           |
 | clearSelected  | Clear the selected item                                                   | `() => void`                                                           |
 | startEditable  | Start editing row                                                         | `(rowKey: Key) => boolean`                                             |
@@ -254,7 +256,7 @@ If you want **client-side** sorting/filtering (and **do not** want to trigger `r
 | Property                               | Description                                                                                                                                                                                                                                  | Type                                                                                                  | Default Value |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------- |
 | title                                  | Basically the same as in antd, but supports passing in a method                                                                                                                                                                              | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)`                         | -             |
-| tooltip                                | An icon will be displayed after the title, and some information will be prompted after hover                                                                                                                                                 | `string`                                                                                              | -             |
+| tooltip                                | An icon will be displayed after the title, and some information will be prompted after hover                                                                                                                                                 | `LabelTooltipType \| string`                                                                         | -             |
 | ellipsis                               | Whether to abbreviate automatically                                                                                                                                                                                                          | `boolean` \| `{showTitle?: boolean}`                                                                  | -             |
 | copyable                               | Whether to support copying                                                                                                                                                                                                                   | `boolean`                                                                                             | -             |
 | valueEnum                              | The value enumeration will automatically convert the value as a key to retrieve the content to be displayed                                                                                                                                  | [valueEnum](/en-US/components/schema-form#valueenum)                                                  | -             |
@@ -264,11 +266,11 @@ If you want **client-side** sorting/filtering (and **do not** want to trigger `r
 | `formItemProps`                        | The configuration passed to Form.Item can be configured with rules, but the default query form rules does not take effect. Need to configure `ignoreRules`                                                                                   | `(form,config)=>formItemProps` \| `formItemProps`                                                     | -             |
 | renderText                             | Render like table, but must return string. If you just want to convert enumeration, you can use [valueEnum](/en-US/components/schema-form#valueenum)                                                                                         | `(text: any,record: T,index: number,action: UseFetchDataAction<T>) => string`                         | -             |
 | render                                 | Render similar to table, the first parameter becomes dom, and the fourth parameter action is added                                                                                                                                           | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \| ReactNode[]` | -             |
-| formItemRender                         | Render the input components of the query form                                                                                                                                                                                                | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode`                | -             |
-| search                                 | Configuration column search related, false is hidden                                                                                                                                                                                         | `false` \| `{ transform: (value: any) => any }`                                                       | true          |
+| formItemRender                         | Render the input components of the query form                                                                                                                                                                                                | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form,action) => ReactNode`         | -             |
+| search                                 | Configuration column search related, false is hidden                                                                                                                                                                                         | `boolean` \| `{ transform: (value: any) => any }`                                                     | true          |
 | sorter                                 | Basically same as antd, newly added support for string override this field when requesting field                                                                                                                                             | `function \| boolean \| string \| { compare: function, multiple: number }`                            | -             |
 | search.transform                       | The key of the conversion value, generally used for the conversion of the event interval                                                                                                                                                     | `(value: any) => any`                                                                                 | -             |
-| [editable](/components/editable-table) | Whether it is editable in the edit table, the parameters of the function are the same as the render of the table                                                                                                                             | `false` \| `(text: any, record: T,index: number) => boolean`                                          | true          |
+| [editable](/components/editable-table) | Whether it is editable in the edit table, the parameters of the function are the same as the render of the table                                                                                                                             | `boolean` \| `(text: any, record: T,index: number) => boolean`                                        | -             |
 | colSize                                | The number of grids occupied by a form item, `proportion = colSize*span`, `colSize` defaults to 1, `span` is 8, `span` is `form={{span:8}}` global setting Of                                                                                | `number`                                                                                              | -             |
 | hideInTable                            | Do not show this column in Table                                                                                                                                                                                                             | `boolean`                                                                                             | -             |
 | hideInForm                             | Do not show this column in Form                                                                                                                                                                                                              | `boolean`                                                                                             | -             |
@@ -279,9 +281,8 @@ If you want **client-side** sorting/filtering (and **do not** want to trigger `r
 | request                                | Request enumeration from server                                                                                                                                                                                                              | [request](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)                | -             |
 | initialValue                           | Initial value of query form item                                                                                                                                                                                                             | `any`                                                                                                 | -             |
 | disable                                | Status of `disabled` in column settings                                                                                                                                                                                                      | `boolean` \| `{ checkbox: boolean; }`                                                                 | -             |
-| ignoreRules                            | Ignore rules, LightFilter should not support rules, the default is false.                                                                                                                                                                    | `boolean`                                                                                             | false         |
 | readonly                               | read only                                                                                                                                                                                                                                    | `boolean`                                                                                             | -             |
-| listKey                                | List key, private property                                                                                                                                                                                                                   | `string`                                                                                              | -             |
+| listSlot                               | List slot (ProList slot), maps this column to a slot of the list item, e.g. `title`, `avatar`, `description`, `subTitle`, `content`, `actions`, `aside`, `type`. Private property | `string`                                                | -             |
 
 ### valueType value type
 
@@ -319,50 +320,51 @@ Toolbar section for customizing forms.
 
 Toolbar configuration properties for lists and tables
 
-| Parameters   | Description                                              | Type                         | Default |
-| ------------ | -------------------------------------------------------- | ---------------------------- | ------- |
-| title        | title                                                    | `ReactNode`                  | -       |
-| subTitle     | subTitle                                                 | `ReactNode`                  | -       |
-| tooltip      | tooltip Description                                      | `string`                     | -       |
-| search       | query area                                               | `ReactNode` \| `SearchProps` | -       |
-| actions      | actions area                                             | `ReactNode[]`                | -       |
-| settings     | settings area                                            | `(ReactNode \| Setting)[]`   | -       |
-| filter       | The filter area, usually used with `LightFilter`         | `ReactNode`                  | -       |
-| multipleLine | Whether to display multiple lines                        | `boolean`                    | `false` |
-| menu         | menu configuration                                       | `ListToolBarMenu`            | -       |
-| tabs         | Tabs configuration, only valid if `multipleLine` is true | `ListToolBarTabs`            | -       |
+| Parameters   | Description                                              | Type                                        | Default |
+| ------------ | -------------------------------------------------------- | ------------------------------------------- | ------- |
+| title        | title                                                    | `ReactNode`                                 | -       |
+| subTitle     | subTitle                                                 | `ReactNode`                                 | -       |
+| tooltip      | tooltip Description                                      | `string \| LabelTooltipType`                | -       |
+| search       | query area, supports Input.Search config, custom node or `false` to hide | `SearchProps & {onSearch} \| ReactNode \| boolean` | -  |
+| onSearch     | Triggered when search is performed                       | `(keyWords: string) => void`                | -       |
+| actions      | actions area                                             | `ReactNode[]`                               | -       |
+| settings     | settings area                                            | `(ReactNode \| Setting)[]`                  | -       |
+| filter       | The filter area, usually used with `LightFilter`         | `ReactNode`                                 | -       |
+| multipleLine | Whether to display multiple lines                        | `boolean`                                   | `false` |
+| menu         | menu configuration                                       | `ListToolBarMenu`                           | -       |
+| tabs         | Tabs configuration, only valid if `multipleLine` is true | `ListToolBarTabs`                           | -       |
 
 SearchProps is a property of antd's [Input.Search](https://ant.design/components/input-cn/#Input.Search).
 
 #### Setting
 
-| Parameters | Description                 | Type                  | Default |
-| ---------- | --------------------------- | --------------------- | ------- |
-| icon       | icon                        | `ReactNode`           | -       |
-| tooltip    | tooltip Description         | `string`              | -       |
-| key        | operation unique identifier | `string`              | -       |
-| onClick    | set to be triggered         | `(key: string)=>void` | -       |
+| Parameters | Description                 | Type                           | Default |
+| ---------- | --------------------------- | ------------------------------ | ------- |
+| icon       | icon                        | `ReactNode`                    | -       |
+| tooltip    | tooltip Description         | `LabelTooltipType \| string`   | -       |
+| key        | operation unique identifier | `string`                       | -       |
+| onClick    | set to be triggered         | `(key: string)=>void`          | -       |
 
 #### ListToolBarMenu
 
-| Parameters | Description                  | Type                                  | Default  |
-| ---------- | ---------------------------- | ------------------------------------- | -------- |
-| type       | type                         | `inline` \| `dropdown` \| `tab`       | `inline` |
-| activeKey  | current value                | `string`                              | -        |
-| items      | menu items                   | `{ key: string; label: ReactNode }[]` | -        |
-| onChange   | Callback for switching menus | `(activeKey)=>void`                   | -        |
+| Parameters | Description                  | Type                                                        | Default  |
+| ---------- | ---------------------------- | ----------------------------------------------------------- | -------- |
+| type       | type                         | `inline` \| `dropdown` \| `tab`                              | `inline` |
+| activeKey  | current value                | `React.Key`                                                  | -        |
+| items      | menu items                   | `{ key: React.Key; label: ReactNode; disabled?: boolean }[]` | -        |
+| onChange   | Callback for switching menus | `(activeKey: React.Key)=>void`                               | -        |
 
 #### ListToolBarTabs
 
-| Parameters | Description                      | Type                                | Default |
-| ---------- | -------------------------------- | ----------------------------------- | ------- |
-| activeKey  | currently selected item          | `string`                            | -       |
-| items      | menu items                       | `{ key: string; tab: ReactNode }[]` | -       |
-| onChange   | Callback for toggling menu items | `(activeKey)=>void`                 | -       |
+| Parameters | Description                      | Type                                        | Default |
+| ---------- | -------------------------------- | ------------------------------------------- | ------- |
+| activeKey  | currently selected item          | `string`                                    | -       |
+| items      | menu items                       | `TabPaneProps & { key?: string }[]`         | -       |
+| onChange   | Callback for toggling menu items | `(activeKey)=>void`                         | -       |
 
 #### TableDropdown
 
-| Parameters | Description                 | Type                                 | Default |
-| ---------- | --------------------------- | ------------------------------------ | ------- |
-| menus      | Menu configuration          | `{ key: string; name: ReactNode }[]` | -       |
-| onSelect   | Callback for selecting menu | `(key: string) => void`              | -       |
+| Parameters | Description                 | Type                                              | Default |
+| ---------- | --------------------------- | ------------------------------------------------- | ------- |
+| menus      | Menu configuration          | `{ key: string; name: ReactNode; disabled?: boolean }[]` | -  |
+| onSelect   | Callback for selecting menu | `(key: string) => void`                           | -       |

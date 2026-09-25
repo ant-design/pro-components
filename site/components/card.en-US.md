@@ -198,6 +198,9 @@ ProCard is compatible with antd Card API. The following props are consistent wit
 | split                 | Direction to split the card                                                                                                                                                   | `vertical` \| `horizontal`                                   | -            |         |
 | actions               | Card action group, located at the bottom of the card                                                                                                                          | `React.ReactNode[]` \| `React.ReactNode`                      | -            |         |
 | ghost                 | Ghost mode, that is, whether to cancel the padding of the card content area and the background color of the card.                                                             | `boolean`                                                    | false        |         |
+| variant               | Card variant, same as antd Card variant                                                                                                                                      | `'outlined' \| 'borderless'`                                 | -            |         |
+| boxShadow             | Whether to show the card shadow                                                                                                                                              | `boolean`                                                    | -            |         |
+| styles                | Semantic styles, same structure as antd Card                                                                                                                                 | `{ root?, header?, body?, extra?, title?, actions?, cover? }`| -            |         |
 | headerBordered        | Whether the header has a dividing line                                                                                                                                        | `boolean`                                                    | false        |         |
 | hoverable             | Whether to lift on hover                                                                                                                                                      | `boolean`                                                    | false        |         |
 | collapsed             | Controlled property, whether to collapse                                                                                                                                      | `boolean`                                                    | false        |         |
@@ -214,7 +217,7 @@ ProCard is compatible with antd Card API. The following props are consistent wit
 | parameter | description                                                               | type                           | default value |
 | :-------- | :------------------------------------------------------------------------ | :----------------------------- | :------------ |
 | activeKey | Currently selected item                                                   | string                         | -             |
-| type      | The basic style of the tab, optional `line`, `card`, `editable-card` type | string                         | inline        |
+| type      | The basic style of the tab, optional `line`, `card`, `editable-card` type | string                         | `line`        |
 | onChange  | callback                                                                  | `(activeKey: string) => void;` | -             |
 | items     | Tab items configuration (required)                                        | `ItemsProps`                  | -             |
 

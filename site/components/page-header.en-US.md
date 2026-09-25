@@ -24,7 +24,7 @@ PageHeader can be used to highlight the page topic, display important informatio
 | extra            | Operating area, at the end of the line of the title            | ReactNode                                  | -              |         |
 | ghost            | PageHeader type, will change background color                  | boolean                                    | true           |         |
 | subTitle         | Custom subtitle text                                           | ReactNode                                  | -              |         |
-| tags             | Tag list next to title                                         | [TagProps](/components/tag/)[]             | -              |         |
+| tags             | Tag list next to title                                         | `Tag[]`                                    | -              |         |
 | title            | Custom title text                                              | ReactNode                                  | -              |         |
 | onBack           | Back button click event                                        | () => void                                 | -              |         |
 | footer           | PageHeader footer, generally used to render TabBar             | ReactNode                                  | -              |         |

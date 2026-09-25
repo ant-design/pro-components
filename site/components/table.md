@@ -78,7 +78,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | dateFormatter      | 转化 dayjs 格式数据为特定类型，false 不做转化                                                      | `'string' \| 'number' \| ((value: dayjs.Dayjs, valueType: string) => string \| number) \| false`                                                                                                                         | `'string'`                                                                                                                        | -    |
 | defaultData        | 默认的数据                                                                                         | `T[]`                                                                                                                                                                                                                    | -                                                                   | -    |
 | defaultSize        | 默认的 size                                                                                        | SizeType                                                                                                                                                                                                                 | -                                                                   | -    |
-| debounceTime       | 防抖时间                                                                                           | `number`                                                                                                                                                                                                                 | 10                                                                  | -    |
+| debounceTime       | 防抖时间                                                                                           | `number`                                                                                                                                                                                                                 | 20                                                                  | -    |
 | editable           | 可编辑表格的相关配置，支持 `type="multiple"` 等。[配置详情](/components/editable-table)            | `RowEditableConfig<T>`                                                                                                                                                                                                   | -                                                                   | -    |
 | ErrorBoundary      | 自带了错误处理功能，防止白屏，`ErrorBoundary=false` 关闭默认错误边界                               | `React.ComponentClass<any, any> \| false`                                                                                                                                                                                | 内置 ErrorBoundary                                                  | -    |
 | form               | type="form" 和搜索表单的 Form 配置                                                                 | `Omit<ProFormProps & QueryFilterProps, 'form'>`                                                                                                                                                                           | -                                                                   | -    |
@@ -94,12 +94,12 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onReset            | 重置表单时触发                                                                                     | `() => void`                                                                                                                                                                                                            | -                                                                   | -    |
 | onSizeChange       | table 尺寸发生改变                                                                                 | `(size: DensitySize) => void`                                                                                                                                                                                           | -                                                                   | -    |
 | onSubmit           | 提交表单时触发                                                                                     | `(params: U) => void`                                                                                                                                                                                                   | -                                                                   | -    |
-| options            | table 工具栏，设为 false 时不显示，传入 function 会点击时触发                                      | `{{ density?: boolean, fullScreen?: boolean \| function, reload?: boolean \| function, reloadIcon?: React.ReactNode, densityIcon?: React.ReactNode, setting?: boolean \|` [SettingOptionType](#菜单栏-options-配置) `}}` | `{ fullScreen: false, reload: true, density: true, setting: true }` | -    |
+| options            | table 工具栏，设为 false 时不显示，传入 function 会点击时触发                                      | `{{ density?: boolean, fullScreen?: boolean \| function, reload?: boolean \| function, reloadIcon?: React.ReactNode, densityIcon?: React.ReactNode, setting?: boolean \|` [SettingOptionType](#菜单栏-options-配置) `}}` | `{ reload: true, density: true, setting: true, search: false, fullScreen: false }` | -    |
 | optionsRender      | 自定义渲染工具栏选项                                                                               | `ToolBarProps<T>['optionsRender']`                                                                                                                                                                                       | -                                                                   | -    |
 | pagination         | 分页器的配置，`current` 和 `pageSize` 会被 `request` 接管                                          | `TablePaginationConfig` \| `false`                                                                                                                                                                                       | -                                                                   | -    |
 | params             | 用于 `request` 查询的额外参数，一旦变化会触发重新加载                                              | `U`                                                                                                                                                                                                                      | -                                                                   | -    |
 | polling            | 是否轮询，polling 表示轮询的时间间隔，0 表示关闭轮询，大于 0 表示开启轮询，最小的轮询时间为 2000ms | `number \| ((dataSource: T[]) => number) \| undefined`                                                                                                                                                                   | -                                                                   | -    |
-| postData           | 对通过 `request` 获取的数据进行处理                                                                | `(data: T[]) => T[]`                                                                                                                                                                                                     | -                                                                   | -    |
+| postData           | 对通过 `request` 获取的数据进行处理                                                                | `(data: T[]) => T[]`                                                                                   | -                                                                   | -    |
 | request            | 获取 `dataSource` 的方法                                                                           | `(params: U & {pageSize?: number, current?: number, keyword?: string}, sort: Record<string, SortOrder>, filter: Record<string, FilterValue>) => Promise<{data: T[], success?: boolean, total?: number}>`                 | -                                                                   | -    |
 | revalidateOnFocus  | 窗口聚焦时自动重新请求                                                                             | `boolean`                                                                                                                                                                                                                | false                                                               | -    |
 | rowSelection       | 选择项配置                                                                                         | `TableProps<T>['rowSelection'] & {alwaysShowAlert?: boolean} \| false`                                                                                                                                                   | -                                                                   | -    |
@@ -122,7 +122,9 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | ---------------- | ------------------------------------------------------------------- | ----------------- | --------- | ---- |
 | (...buttonProps) | antd 的 [ButtonProps](https://ant.design/components/button-cn/#API) | ButtonProps       | -         | -    |
 | position         | 行增加在哪里，开始或者末尾                                          | `'top' \| 'bottom'` | `'bottom'`  | -    |
-| record           | 需要新增的行数据，一般来说包含唯一 key                              | `T`                | `{}`      | -    |
+| record           | 需要新增的行数据，一般来说包含唯一 key，支持传入函数                | `T \| ((index: number, dataSource: T[]) => T)` | `{}`      | -    |
+| newRecordType    | 新增行的类型，`dataSource` 直接写入数据，`cache` 写入缓存取消后消失 | `'dataSource' \| 'cache'` | - | -    |
+| parentKey        | 要增加到哪个节点下，一般用于多重嵌套表格                            | `React.Key \| ((index: number, dataSource: T[]) => React.Key)` | - | -    |
 
 #### ColumnStateType
 
@@ -142,22 +144,26 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | collapseRender   | 收起按钮的 render            | `(collapsed: boolean, showCollapseButton?: boolean) => ReactNode \| false`  | -                | -    |
 | collapsed        | 是否收起                     | `boolean`                                                                   | -                | -    |
 | defaultCollapsed | 默认是否收起                 | `boolean`                                                                   | true             | -    |
+| defaultColsNumber | 默认一行显示几个表单项（查询表单分栏数） | `number`                                                       | -                | -    |
+| defaultFormItemsNumber | 默认展示几个表单项      | `number`                                                                    | -                | -    |
 | filterType       | 过滤表单类型                 | `'query' \| 'light'`                                                        | `'query'`        | -    |
-| labelWidth       | 标签的宽度                   | `'number' \| 'auto'`                                                        | 80               | -    |
+| labelWidth       | 标签的宽度                   | `number \| 'auto'`                                                          | 80               | -    |
+| layout           | 搜索表单布局                 | `'horizontal' \| 'inline' \| 'vertical'`                                    | -                | -    |
+| split            | 每一行之前是否有分割线，`layout` 为 `vertical` 时生效 | `boolean`                                                  | -                | -    |
 | onCollapse       | 收起按钮的事件               | `(collapsed: boolean) => void`                                              | -                | -    |
 | optionRender     | 自定义操作栏                 | `(searchConfig, formProps, dom) => ReactNode[] \| false`                     | -                | -    |
 | resetText        | 重置按钮的文本               | `string`                                                                    | `'重置'`         | -    |
 | searchText       | 查询按钮的文本               | `string`                                                                    | `'查询'`         | -    |
+| searchGutter     | 查询表单栅格间隔              | `RowProps['gutter']`                                                        | -                | -    |
 | showHiddenNum    | 是否显示收起之后显示隐藏个数 | `boolean`                                                                   | false            | -    |
-| span             | 配置查询表单的列数           | `number` \| [ColConfig](#ColConfig)                                        | defaultColConfig | -    |
-| submitText       | 提交按钮的文本               | `string`                                                                    | `'提交'`         | -    |
+| span             | 配置查询表单的列数，支持按断点配置（xs/sm/md/lg/xl/xxl），未配置时按屏幕宽度自动分行 | `number \| SpanConfig` | 响应式默认值 | -    |
 
 `optionRender: false` 只会隐藏操作按钮。如需在输入或选择后自动查询，可在 `form.onValuesChange` 中调用 `formRef.current?.submit()`；请使用 ProTable 的 `debounceTime` 配置请求防抖。
 
 #### ColConfig
 
 ```tsx | pure
-const defaultColConfig = {
+const defaultSpanConfig = {
   xs: 24,
   sm: 24,
   md: 12,
@@ -166,6 +172,8 @@ const defaultColConfig = {
   xxl: 6,
 };
 ```
+
+> 实际断点值来自 antd 设计 token（screenSMMin 等），可通过 ConfigProvider 主题定制；以上为默认 token 下的参考值。
 
 #### 菜单栏 options 配置
 
@@ -202,8 +210,8 @@ export type SettingOptionType = {
 
 | 方法           | 描述                                 | 类型                                                                   |
 | -------------- | ------------------------------------ | ---------------------------------------------------------------------- |
-| reload         | 刷新表格，如果传入 true 则重置页码   | `(resetPageIndex?: boolean) => void`                                   |
-| reloadAndRest  | 刷新并清空，页码也会重置，不包括表单 | `() => void`                                                           |
+| reload         | 刷新表格，如果传入 true 则重置页码   | `(resetPageIndex?: boolean) => Promise<void>`                          |
+| reloadAndRest  | 刷新并清空，页码也会重置，不包括表单 | `() => Promise<void>`                                                  |
 | reset          | 重置到默认值，包括表单               | `() => void`                                                           |
 | clearSelected  | 清空选中项                           | `() => void`                                                           |
 | startEditable  | 开始编辑行                           | `(rowKey: Key) => boolean`                                             |
@@ -255,7 +263,7 @@ ref.current?.cancelEditable(rowKey);
 | 属性                                   | 描述                                                                                                                                             | 类型                                                                                                                | 默认值 |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- | ------ |
 | title                                  | 与 antd 中基本相同，但是支持通过传入一个方法                                                                                                     | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)`                                       | -      |
-| tooltip                                | 会在 title 之后展示一个 icon，hover 之后提示一些信息                                                                                             | `string`                                                                                                            | -      |
+| tooltip                                | 会在 title 之后展示一个 icon，hover 之后提示一些信息                                                                                             | `LabelTooltipType \| string`                                                                                        | -      |
 | ellipsis                               | 是否自动缩略                                                                                                                                     | boolean \| {showTitle?: boolean,tooltip: [TooltipProps](https://ant-design.antgroup.com/components/tooltip-cn#api)} | -      |
 | copyable                               | 是否支持复制                                                                                                                                     | `boolean`                                                                                                           | -      |
 | valueEnum                              | 值的枚举，会自动转化把值当成 key 来取出要显示的内容                                                                                              | [valueEnum](/components/schema-form#valueenum)                                                                      | -      |
@@ -265,11 +273,11 @@ ref.current?.cancelEditable(rowKey);
 | `formItemProps`                        | 传递给 Form.Item 的配置，可以配置 rules，但是默认的查询表单 rules 是不生效的。需要配置 `ignoreRules`                                             | `(form,config)=>formItemProps` \| `formItemProps`                                                                   | -      |
 | renderText                             | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](/components/schema-form#valueenum)                         | `(text: any,record: T,index: number,action: UseFetchDataAction<T>) => string`                                       | -      |
 | render                                 | 类似 table 的 render，第一个参数变成了 dom，增加了第四个参数 action                                                                              | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \| ReactNode[]`               | -      |
-| formItemRender                         | 渲染查询表单的输入组件                                                                                                                           | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode`                              | -      |
-| search                                 | 配置列的搜索相关，false 为隐藏                                                                                                                   | `false` \| `{ transform: (value: any) => any }`                                                                     | true   |
+| formItemRender                         | 渲染查询表单的输入组件                                                                                                                           | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form,action) => ReactNode`                       | -      |
+| search                                 | 配置列的搜索相关，false 为隐藏                                                                                                                   | `boolean` \| `{ transform: (value: any) => any }`                                                                     | true   |
 | sorter                                 | 与 antd 中基本相同，新增支持字串覆盖该栏位请求时字段                                                                                             | `function \| boolean \| string \| { compare: function, multiple: number }`                                          | -      |
 | search.transform                       | 转化值的 key, 一般用于时间区间的转化                                                                                                             | `(value: any) => any`                                                                                               | -      |
-| [editable](/components/editable-table) | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样                                                                                      | `false` \| `(text: any, record: T,index: number) => boolean`                                                        | true   |
+| [editable](/components/editable-table) | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样                                                                                      | `boolean` \| `(text: any, record: T,index: number) => boolean`                                                       | -      |
 | colSize                                | 一个表单项占用的格子数量，`占比= colSize*span`，`colSize` 默认为 1 ，`span` 为 8，`span`是`form={{span:8}}` 全局设置的                           | `number`                                                                                                            | -      |
 | hideInTable                            | 在 Table 中不展示此列                                                                                                                            | `boolean`                                                                                                           | -      |
 | hideInForm                             | 在 Form 中不展示此列                                                                                                                             | `boolean`                                                                                                           | -      |
@@ -280,9 +288,8 @@ ref.current?.cancelEditable(rowKey);
 | request                                | 从服务器请求枚举                                                                                                                                 | [request](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)                              | -      |
 | initialValue                           | 查询表单项初始值                                                                                                                                 | `any`                                                                                                               | -      |
 | disable                                | 列设置中`disabled`的状态                                                                                                                         | `boolean` \| `{ checkbox: boolean; }`                                                                               | -      |
-| ignoreRules                            | 忽略rules，LightFilter 应该不支持rules，默认是 false。                                                                                           | `boolean`                                                                                                           | false  |
 | readonly                               | 只读                                                                                                                                             | `boolean`                                                                                                           | -      |
-| listKey                                | 列表键，私有属性                                                                                                                                 | `string`                                                                                                            | -      |
+| listSlot                               | 列表键（ProList 插槽），指定该列映射到列表项的插槽位置，如 `title`、`avatar`、`description`、`subTitle`、`content`、`actions`、`aside`、`type`，私有属性 | `string`                                                              | -      |
 
 ### valueType 值类型
 
@@ -320,18 +327,19 @@ Form 的列是根据 `valueType` 来生成不同的类型，详细的值类型�
 
 列表和表格的工具栏配置属性
 
-| 参数         | 说明                                           | 类型                         | 默认值  | 版本 |
-| ------------ | ---------------------------------------------- | ---------------------------- | ------- | ---- |
-| actions      | 操作区                                         | `ReactNode[]`                | -       | -    |
-| filter       | 过滤区，通常配合 `LightFilter` 使用            | `ReactNode`                  | -       | -    |
-| menu         | 菜单配置                                       | `ListToolBarMenu`            | -       | -    |
-| multipleLine | 是否多行展示                                   | `boolean`                    | false   | -    |
-| search       | 查询区                                         | `ReactNode \| SearchProps`   | -       | -    |
-| settings     | 设置区                                         | `(ReactNode \| Setting)[]`   | -       | -    |
-| subTitle     | 子标题                                         | `ReactNode`                  | -       | -    |
-| tabs         | 标签页配置，仅当 `multipleLine` 为 true 时有效 | `ListToolBarTabs`            | -       | -    |
-| title        | 标题                                           | `ReactNode`                  | -       | -    |
-| tooltip      | tooltip 描述                                   | `string`                     | -       | -    |
+| 参数         | 说明                                           | 类型                              | 默认值  | 版本 |
+| ------------ | ---------------------------------------------- | --------------------------------- | ------- | ---- |
+| actions      | 操作区                                         | `ReactNode[]`                     | -       | -    |
+| filter       | 过滤区，通常配合 `LightFilter` 使用            | `ReactNode`                       | -       | -    |
+| menu         | 菜单配置                                       | `ListToolBarMenu`                 | -       | -    |
+| multipleLine | 是否多行展示                                   | `boolean`                         | false   | -    |
+| search       | 查询区，支持传入 Input.Search 配置或自定义节点，`false` 时隐藏 | `SearchProps & {onSearch} \| ReactNode \| boolean` | -  | -    |
+| onSearch     | 查询区搜索触发                                 | `(keyWords: string) => void`      | -       | -    |
+| settings     | 设置区                                         | `(ReactNode \| Setting)[]`        | -       | -    |
+| subTitle     | 子标题                                         | `ReactNode`                       | -       | -    |
+| tabs         | 标签页配置，仅当 `multipleLine` 为 true 时有效 | `ListToolBarTabs`                 | -       | -    |
+| title        | 标题                                           | `ReactNode`                       | -       | -    |
+| tooltip      | tooltip 描述                                   | `string \| LabelTooltipType`      | -       | -    |
 
 SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#Input.Search) 的属性。
 
@@ -342,28 +350,28 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 | icon    | 图标         | `ReactNode`             | -      | -    |
 | key     | 操作唯一标识 | `string`                | -      | -    |
 | onClick | 设置被触发   | `(key: string) => void` | -      | -    |
-| tooltip | tooltip 描述 | `string`                | -      | -    |
+| tooltip | tooltip 描述 | `LabelTooltipType \| string` | -  | -    |
 
 #### ListToolBarMenu
 
-| 参数      | 说明           | 类型                                  | 默认值    | 版本 |
-| --------- | -------------- | ------------------------------------- | --------- | ---- |
-| activeKey | 当前值         | `string`                              | -         | -    |
-| items     | 菜单项         | `{ key: string; label: ReactNode }[]` | -         | -    |
-| onChange  | 切换菜单的回调 | `(activeKey: string) => void`         | -         | -    |
-| type      | 类型           | `'inline' \| 'dropdown' \| 'tab'`     | `'inline'` | -    |
+| 参数      | 说明           | 类型                                       | 默认值    | 版本 |
+| --------- | -------------- | ------------------------------------------ | --------- | ---- |
+| activeKey | 当前值         | `React.Key`                                | -         | -    |
+| items     | 菜单项         | `{ key: React.Key; label: ReactNode; disabled?: boolean }[]` | - | -    |
+| onChange  | 切换菜单的回调 | `(activeKey: React.Key) => void`           | -         | -    |
+| type      | 类型           | `'inline' \| 'dropdown' \| 'tab'`          | `'inline'` | -    |
 
 #### ListToolBarTabs
 
-| 参数      | 说明           | 类型                                | 默认值 | 版本 |
-| --------- | -------------- | ----------------------------------- | ------ | ---- |
-| activeKey | 当前选中项     | `string`                            | -      | -    |
-| items     | 菜单项         | `{ key: string; tab: ReactNode }[]` | -      | -    |
-| onChange  | 切换菜单的回调 | `(activeKey: string) => void`       | -      | -    |
+| 参数      | 说明           | 类型                                        | 默认值 | 版本 |
+| --------- | -------------- | ------------------------------------------- | ------ | ---- |
+| activeKey | 当前选中项     | `string`                                    | -      | -    |
+| items     | 菜单项         | `TabPaneProps & { key?: string }[]`         | -      | -    |
+| onChange  | 切换菜单的回调 | `(activeKey: string) => void`               | -      | -    |
 
 #### TableDropdown
 
-| 参数     | 说明           | 类型                                 | 默认值 | 版本 |
-| -------- | -------------- | ------------------------------------ | ------ | ---- |
-| menus    | 菜单配置       | `{ key: string; name: ReactNode }[]` | -      | -    |
-| onSelect | 选中菜单的回调 | `(key: string) => void`              | -      | -    |
+| 参数     | 说明           | 类型                                              | 默认值 | 版本 |
+| -------- | -------------- | ------------------------------------------------- | ------ | ---- |
+| menus    | 菜单配置       | `{ key: string; name: ReactNode; disabled?: boolean }[]` | - | -    |
+| onSelect | 选中菜单的回调 | `(key: string) => void`                           | -      | -    |

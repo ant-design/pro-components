@@ -354,9 +354,11 @@ ProFormInstance adds some capabilities compared to antd's form.
 
 ### ProForm.Group
 
+ProForm.Group supports group configs like `title`, `tooltip`, `extra`, see `ProFormBaseGroupProps` for the full type.
+
 | Parameters | Description                   | Type              | Default |
 | ---------- | ----------------------------- | ----------------- | ------- |
-| title      | title                         | `string`          | -       |
+| title      | title                         | `ReactNode`       | -       |
 | children   | form control or other element | `React.ReactNode` | -       |
 
 #### submitter
@@ -365,12 +367,12 @@ While we would prefer not to modify the submitter, it is a common requirement to
 
 | Parameters        | Description                                                           | Type                                                    | Default |
 | ----------------- | --------------------------------------------------------------------- | ------------------------------------------------------- | ------- |
-| onSubmit          | Submit method                                                         | `()=>void`                                              | -       |
-| onReset           | Reset method                                                          | `()=>void`                                              | -       |
+| onSubmit          | Submit method                                                         | `(value?: T)=>void`                                     | -       |
+| onReset           | Reset method                                                          | `(value?: T)=>void`                                     | -       |
 | searchConfig      | The configuration of the search, generally used to configure the text | `{resetText,submitText}`                                | -       |
-| submitButtonProps | The props for the submit button                                       | [ButtonProps](https://ant.design/components/button-cn/) | -       |
-| resetButtonProps  | The props for the reset button                                        | [ButtonProps](https://ant.design/components/button-cn/) | -       |
-| render            | Rendering of custom actions                                           | `false`\|`(props,dom:JSX[])=>ReactNode[]`               | -       |
+| submitButtonProps | The props for the submit button                                       | `false \| ButtonProps`                                  | -       |
+| resetButtonProps  | The props for the reset button                                        | `false \| ButtonProps`                                  | -       |
+| render            | Rendering of custom actions                                           | `false\|((props,dom:JSX[])=>ReactNode[]\|ReactNode\|false)` | -   |
 
 > The second argument to render is the default dom array, the first is the submit button and the second is the reset button.
 

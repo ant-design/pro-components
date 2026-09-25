@@ -143,9 +143,11 @@ ProFormCaptcha is a component developed to support common CAPTCHA functionality 
 
 | Parameters        | Description                                                                                         | Type                                                  | Default |
 | ----------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------- |
-| onGetCaptcha      | The event to click to get the captcha, if phoneName is configured it will be injected automatically | `(phone)=>Promise<any>`                               | -       |
+| onGetCaptcha      | The event to click to get the captcha, if phoneName is configured it will be injected automatically | `(phone)=>Promise<void>`                              | -       |
+| phoneName         | The name of the phone field, onGetCaptcha will inject its value                                     | `NamePath`                                            | -       |
+| onTiming          | Listen to the countdown number                                                                      | `(count: number)=>void`                               | -       |
 | captchaProps      | The props of the Get Captcha button, same as antd's props                                           | `ButtonProps`                                         | -       |
-| countDown         | The number of seconds to count down                                                                 | number                                                | 60      |
+| countDown         | The number of seconds to count down                                                                 | `number`                                              | `60`    |
 | captchaTextRender | Render the text of the timer                                                                        | `(timing: boolean, count: number) => React.ReactNode` | -       |
 
 ### ProFormText.Password
@@ -559,12 +561,14 @@ Same as [upload](https://ant.design/components/upload/). Dragger style is preset
 
 Same as [upload](https://ant.design/components/upload/). The Button style is preset, otherwise it is the same as Upload.
 
-| Parameters | Description                                                                                                                                                                                                   | Type         | Default         |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- |
-| icon       | The chart of Dragger.                                                                                                                                                                                         | `ReactNode`  | UploadOutlined  |
-| title      | Dragger's title                                                                                                                                                                                               | `ReactNode`  | Click to upload |
-| max        | Maximum upload quantity. The upload button will be hidden if the maximum quantity is exceeded                                                                                                                 | `number`     | -               |
-| imageProps | Preview the additional configuration of the [Image](https://ant-design.antgroup.com/components/image-cn) component, and you can customize the preview behavior, toolbar and other image component properties. | `ImageProps` | -               |
+| Parameters  | Description                                                                                                                                                                                                   | Type                   | Default         |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | --------------- |
+| icon        | The chart of Dragger.                                                                                                                                                                                         | `ReactNode`            | UploadOutlined  |
+| title       | Dragger's title                                                                                                                                                                                               | `ReactNode`            | Click to upload |
+| max         | Maximum upload quantity. The upload button will be hidden if the maximum quantity is exceeded                                                                                                                 | `number`               | -               |
+| buttonProps | Configuration of the upload button, e.g. `buttonProps={{ type: "primary" }}`                                                                                                                                  | `ButtonProps`          | -               |
+| disabled    | Whether to disable the button                                                                                                                                                                                 | `boolean`              | -               |
+| imageProps  | Preview the additional configuration of the [Image](https://ant-design.antgroup.com/components/image-cn) component, and you can customize the preview behavior, toolbar and other image component properties. | `Omit<ImageProps, 'src'>` | -            |
 
 ```tsx | pure
 <ProFormUploadButton label="upload" name="upload" action="upload.do" />

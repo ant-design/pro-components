@@ -32,11 +32,10 @@ return <Skeleton type="list" />;
 
 | 参数           | 说明                                                           | 类型                                    | 默认值 |
 | -------------- | -------------------------------------------------------------- | --------------------------------------- | ------ |
-| type           | 不同类型的骨架屏                                               | `'list' \| 'result' \| 'descriptions'`  | list   |
-| active         | 是否显示动态                                                   | boolean                                 | true   |
-| pageHeader     | 是否显示 pageHeader 的骨架屏 descriptions 和 list 有效         | boolean                                 | true   |
-| statistic      | 统计信息骨架屏的数量                                           | `number` \| `false`                     | 4      |
-| list           | 列表的骨架屏，可以控制数量                                     | `number` \| `false`                     | 5      |
-| toolbar        | 列表的操作栏骨架屏                                             | boolean                                 | true   |
-| formItemRender | 自定义 `mode=update 或 edit` 下的 dom 表现，一般用于渲染编辑框 | `(item: any, config: any) => ReactNode` | -      |
-| render         | 自定义 `mode=read` 下的 dom 表现，只是单纯的表现形式           | `(item: any, config: any) => ReactNode` | -      |
+| type           | 不同类型的骨架屏                                               | `'list' \| 'result' \| 'descriptions'`  | `list` |
+| active         | 是否显示动态                                                   | `boolean`                               | `true` |
+| pageHeader     | 是否显示 pageHeader 的骨架屏，设为 `false` 隐藏                | `false`                                 | -      |
+| statistic      | 统计信息骨架屏的数量，设为 `false` 隐藏，不设置时按屏幕宽度自适应 | `number` \| `false`                  | -      |
+| list           | 列表的骨架屏，可以控制数量，设为 `false` 隐藏                  | `number` \| `false`                     | `5`    |
+| toolbar        | 列表的操作栏骨架屏，设为 `false` 隐藏                          | `false`                                 | -      |
+| actionButton   | 列表的操作按钮骨架屏，设为 `false` 隐藏                        | `false`                                 | -      |

@@ -354,9 +354,11 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
 
 ### ProForm.Group
 
+ProForm.Group 支持 `title`、`tooltip`、`extra` 等分组配置，完整类型见 `ProFormBaseGroupProps`。
+
 | 参数     | 说明                 | 类型              | 默认值 |
 | -------- | -------------------- | ----------------- | ------ |
-| title    | 标题                 | `string`          | -      |
+| title    | 标题                 | `ReactNode`       | -      |
 | children | 表单控件或者其他元素 | `React.ReactNode` | -      |
 
 #### submitter
@@ -365,12 +367,12 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
 
 | 参数              | 说明                         | 类型                                                    | 默认值 |
 | ----------------- | ---------------------------- | ------------------------------------------------------- | ------ |
-| onSubmit          | 提交方法                     | `()=>void`                                              | -      |
-| onReset           | 重置方法                     | `()=>void`                                              | -      |
+| onSubmit          | 提交方法                     | `(value?: T)=>void`                                     | -      |
+| onReset           | 重置方法                     | `(value?: T)=>void`                                     | -      |
 | searchConfig      | 搜索的配置，一般用来配置文本 | `{resetText,submitText}`                                | -      |
-| submitButtonProps | 提交按钮的 props             | [ButtonProps](https://ant.design/components/button-cn/) | -      |
-| resetButtonProps  | 重置按钮的 props             | [ButtonProps](https://ant.design/components/button-cn/) | -      |
-| render            | 自定义操作的渲染             | `false`\|`(props,dom:JSX[])=>ReactNode[]`               | -      |
+| submitButtonProps | 提交按钮的 props             | `false \| ButtonProps`                                  | -      |
+| resetButtonProps  | 重置按钮的 props             | `false \| ButtonProps`                                  | -      |
+| render            | 自定义操作的渲染             | `false\|((props,dom:JSX[])=>ReactNode[]\|ReactNode\|false)` | -  |
 
 > render 的第二个参数是默认的 dom 数组，第一个是提交按钮，第二个是重置按钮。
 

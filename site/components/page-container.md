@@ -35,15 +35,29 @@ PageContainer 是一个页面容器组件，提供了统一的页面布局结构
 
 | 参数             | 说明             | 类型                                       | 默认值 |
 | ---------------- | ---------------- | ------------------------------------------ | ------ |
-| title            | 页面标题         | `ReactNode`                                | -      |
+| title            | 页面标题，false 时不展示 | `ReactNode \| false`               | -      |
 | subTitle         | 页面副标题       | `ReactNode`                                | -      |
 | extra            | 页面操作区       | `ReactNode`                                | -      |
+| extraContent     | 操作区旁边的额外内容 | `ReactNode`                            | -      |
 | content          | 页面内容         | `ReactNode`                                | -      |
-| loading          | 加载状态         | `boolean \| SpinProps`                     | false  |
-| header           | 头部配置         | `PageHeaderProps`                          | -      |
+| footer           | 页脚工具栏（数组中的元素会靠右排列） | `ReactNode[]`                  | -      |
+| loading          | 加载状态         | `boolean \| SpinProps \| ReactNode`        | false  |
+| header           | 头部配置         | `Partial<PageHeaderProps> & { children?: ReactNode }` | - |
+| pageHeaderRender | 自定义 pageHeader，返回 false 不展示 | `(props: PageContainerProps) => ReactNode \| false` | - |
+| affixProps       | 固钉的配置，与 antd 完全相同 | `Omit<AffixProps, 'children'>`  | -      |
 | breadcrumb       | 面包屑配置       | `BreadcrumbProps`                          | -      |
-| breadcrumbRender | 自定义面包屑渲染 | `(props: PageContainerProps) => ReactNode` | -      |
+| breadcrumbRender | 自定义面包屑渲染，返回 false 不展示 | `PageHeaderProps['breadcrumbRender'] \| false` | - |
 | waterMarkProps   | 水印配置         | `WatermarkProps`                           | -      |
+| token            | 自定义的 token   | `pageContainerToken`                       | -      |
+| stylish          | 样式配置         | `GenerateStyle<PageContainerToken>`        | -      |
+| footerStylish    | 页脚样式配置     | `GenerateStyle<PageContainerToken>`        | -      |
+| footerToolBarProps | 页脚工具栏配置 | `FooterToolbarProps`                       | -      |
+| tabList          | 标签页配置（透传 PageHeader tabs） | `(TabPaneProps & { key?: React.Key })[]` | - |
+| tabActiveKey     | 当前选中标签页   | `TabsProps['activeKey']`                   | -      |
+| onTabChange      | 标签页切换回调   | `TabsProps['onChange']`                    | -      |
+| tabBarExtraContent | tab 上额外的区域 | `TabsProps['tabBarExtraContent']`        | -      |
+| tabProps         | tabs 的其他配置  | `TabsProps`                                | -      |
+| fixedHeader      | 固定 PageHeader 到页面顶部 | `boolean`                        | -      |
 | children         | 子元素           | `ReactNode`                                | -      |
 
 ### PageHeaderProps

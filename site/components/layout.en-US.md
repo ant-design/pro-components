@@ -83,7 +83,7 @@ ProLayout will automatically select the menu based on `location.pathname` and au
 | contentWidth               | content mode of layout,Fluid: adaptive,Fixed: fixed 1200px                                                                                                                                                                                  | `'Fluid'` \| `'Fixed'`                                                                                                                         | `'Fluid'`                                |
 | actionRef                  | Common operations of layout, such as reloading menu                                                                                                                                                                                         | `React.MutableRefObject<{reload: () => void} \| undefined>`                                                                                    | -                                        |
 | fixedHeader                | Whether to fix the header to the top                                                                                                                                                                                                        | `boolean`                                                                                                                                      | `false`                                  |
-| fixSiderbar                | whether to fix the navigation                                                                                                                                                                                                               | `boolean`                                                                                                                                      | `false`                                  |
+| fixSiderbar                | whether to fix the navigation                                                                                                                                                                                                               | `boolean`                                                                                                                                      | `true`                                   |
 | breakpoint                 | Trigger [breakpoint](https://ant.design/components/grid/#Col) for responsive layouts                                                                                                                                                        | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }`                                                                                                 | `lg`                                     |
 | menu                       | About [menu](#menu) configuration, temporarily only locale, locale can close the menu's own globalization                                                                                                                                   | [`menuConfig`](#menu)                                                                                                                          | `{ locale: true }`                       |
 | iconfontUrl                | Use the icon configuration of [IconFont](https://ant.design/components/icon/#components-icon-demo-iconfont)                                                                                                                                 | `URL`                                                                                                                                          | -                                        |
@@ -136,10 +136,19 @@ menu supports some commonly used menu configurations to help us better manage me
 | defaultOpenAll  | Open all menu items by default, note that it only takes effect before layout mount, asynchronous loading of menus is not supported                       | `boolean`                                            | `false` |
 | ignoreFlatMenu  | Whether to ignore the manually collapsed menu state, combined with defaultOpenAll can achieve expansion of all submenus after the toggle button switches | `boolean`                                            | `false` |
 | type            | Type of menu                                                                                                                                             | `sub` \| `group`                                     | `group` |
-| autoClose       | Whether to automatically close the menu when selected                                                                                                    | `boolean`                                            | `true`  |
+| autoClose       | Whether to automatically close the menu when selected                                                                                                    | `false`                                              | `true`  |
+| collapsedShowGroupTitle | Show group menu titles when collapsed                                                                                                          | `boolean`                                            | -       |
+| collapsedShowTitle | Show titles when collapsed                                                                                                                            | `boolean`                                            | -       |
+| collapsedWidth  | Menu width when collapsed                                                                                                                                 | `number`                                             | -       |
+| defaultOpenAll  | Open all menu items by default, only works before layout mounts; async menus are not supported                                                           | `boolean`                                            | `false` |
+| hideMenuWhenCollapsed | Hide the menu panel when collapsed                                                                                                               | `boolean`                                            | -       |
+| ignoreFlatMenu  | Ignore manually collapsed menu state; with defaultOpenAll, all submenus can still expand after toggling the collapse button                               | `boolean`                                            | `false` |
+| locale          | Whether the menu uses i18n, requires formatMessage                                                                                                       | `boolean`                                            | `true`  |
+| params          | Params for remote menu requests; request is re-triggered only when params change                                                                         | `Record<string, any>`                                | -       |
 | loading         | Whether the menu is loading                                                                                                                              | `boolean`                                            | `false` |
 | onLoadingChange | Menu loading state change                                                                                                                                | `(loading)=>void`                                    | -       |
 | request         | Method for remote loading of menus, will automatically modify loading state                                                                              | `(params,defaultMenuDat) => Promise<MenuDataItem[]>` | -       |
+| type            | Menu type                                                                                                                                                | `'sub' \| 'group'`                                   | `'group'` |
 
 ### SettingDrawer
 
@@ -230,24 +239,49 @@ const title = getPageTitle({
 // You can get this type by importing { Settings } from '@ant-design/pro-layout/defaultSettings'
 // to get this type
 export interface Settings {
+  /** theme of nav */
+  navTheme: 'light' | 'realDark';
   /** Primary color of ant design */
   colorPrimary: string;
-  /** Nav menu position: `side` or `top` */
-  layout: 'side' | 'top';
+  /** Nav menu position: `side` or `top` or `mix` */
+  layout: 'side' | 'top' | 'mix';
   /** Layout of content: `Fluid` or `Fixed`, only works when layout is top */
   contentWidth: 'Fluid' | 'Fixed';
   /** Sticky header */
   fixedHeader: boolean;
   /** Sticky siderbar */
   fixSiderbar: boolean;
-  menu: { locale: boolean };
-  title: string;
-  pwa: boolean;
-  // Your custom iconfont Symbol script Url
-  // eg: // at.alicdn.com/t/font_1039637_btcrd5co4w.js
-  // Usage: https://github.com/ant-design/ant-design-pro/pull/3517
-  iconfontUrl: string;
-  colorWeak: boolean;
+  /** menu configuration */
+  menu?: {
+    locale?: boolean;
+    hideMenuWhenCollapsed?: boolean;
+    collapsedShowTitle?: boolean;
+    collapsedShowGroupTitle?: boolean;
+    defaultOpenAll?: boolean;
+    ignoreFlatMenu?: boolean;
+    loading?: boolean;
+    onLoadingChange?: (loading?: boolean) => void;
+    params?: Record<string, any>;
+    request?: (
+      params: Record<string, any>,
+      defaultMenuData: MenuDataItem[],
+    ) => Promise<MenuDataItem[]>;
+    type?: 'sub' | 'group';
+    autoClose?: false;
+    collapsedWidth?: number;
+  };
+  /** Layout title, also displayed in the browser tab */
+  title?: string | false;
+  /** Your custom iconfont Symbol script Url */
+  iconfontUrl?: string;
+  /** Global color filter */
+  colorWeak?: boolean;
+  /** Split menus, only works in mix mode */
+  splitMenus?: boolean;
+  /** Hide Sider when menu is empty */
+  suppressSiderWhenMenuEmpty?: boolean;
+  /** Sider menu type */
+  siderMenuType?: 'sub' | 'group';
 }
 ```
 
