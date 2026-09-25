@@ -88,6 +88,7 @@ describe('useEditableArray - Cancel Operation', () => {
 
     // 暴露到 window 上以便测试访问
     (window as any).__editableUtils = editableUtils;
+    (window as any).__setEditableDataSource = setDataSource;
 
     return (
       <Form>
@@ -575,6 +576,39 @@ describe('useEditableArray - Cancel Operation', () => {
         );
       });
     }
+  });
+
+  it('📝 clears a cached new row when the parent clears dataSource', async () => {
+    render(<TestComponent />);
+
+    let editableUtils = (window as any).__editableUtils;
+    act(() => {
+      expect(
+        editableUtils.addEditRecord(
+          { id: 3, name: 'test3' },
+          { recordKey: 3, newRecordType: 'cache' },
+        ),
+      ).toBe(true);
+    });
+
+    act(() => {
+      (window as any).__setEditableDataSource([]);
+    });
+
+    await waitFor(() => {
+      editableUtils = (window as any).__editableUtils;
+      expect(editableUtils.editableKeys).toEqual([]);
+      expect(editableUtils.newLineRecord).toBeUndefined();
+    });
+
+    act(() => {
+      expect(
+        editableUtils.addEditRecord(
+          { id: 4, name: 'test4' },
+          { recordKey: 4, newRecordType: 'cache' },
+        ),
+      ).toBe(true);
+    });
   });
 
   it('📝 取消编辑时 preEditRowRef 应该被正确清理', async () => {

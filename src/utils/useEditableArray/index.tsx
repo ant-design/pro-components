@@ -888,6 +888,30 @@ export function useEditableArray<RecordType extends AnyObject>(
     [props.onChange, getRecordByKey, editableType],
   );
 
+  const previousDataSourceRef = useRef(props.dataSource);
+
+  // A cache-mode row is intentionally absent from dataSource. If a populated
+  // table is explicitly replaced with an empty array, however, that is a table
+  // reset and the cached row must not keep blocking the next add. Requiring a
+  // previously populated source avoids treating an initially empty remote
+  // table as reset while its first request is still loading (#6992).
+  useEffect(() => {
+    const previousDataSource = previousDataSourceRef.current;
+    previousDataSourceRef.current = props.dataSource;
+    if (
+      previousDataSource.length === 0 ||
+      props.dataSource.length > 0 ||
+      !newLineRecordRef.current
+    ) {
+      return;
+    }
+    setNewLineRecordCache(undefined);
+    newLineRecordRef.current = undefined;
+    preEditRowRef.current = null;
+    preEditRowRefs.current.clear();
+    setEditableRowKeys([]);
+  }, [props.dataSource]);
+
   const editableKeysRef = usePrevious(editableKeys);
 
   /**
