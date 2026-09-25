@@ -1630,6 +1630,25 @@ describe('Field', () => {
     html.unmount();
   });
 
+  it('🐴 readonly text fields use a wrapping container', () => {
+    const longWord = 'a'.repeat(200);
+    const text = render(<Field text={longWord} mode="read" />);
+    const textArea = render(
+      <Field text={longWord} valueType="textarea" mode="read" />,
+    );
+
+    expect(
+      text.container.querySelector('.ant-pro-field-readonly'),
+    ).toBeTruthy();
+    expect(
+      textArea.container.querySelector('.ant-pro-field-readonly-textarea'),
+    ).toBeTruthy();
+    expect(document.head.textContent).toContain('overflow-wrap:anywhere');
+
+    text.unmount();
+    textArea.unmount();
+  });
+
   it('🐴 textarea read mode does not pass showCount to the DOM', () => {
     const html = render(
       <Field

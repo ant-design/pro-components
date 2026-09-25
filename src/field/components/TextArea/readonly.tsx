@@ -23,7 +23,9 @@ const FieldTextAreaReadonly: ProFieldFC<{
         display: 'inline-block',
         lineHeight: '1.5715',
         maxWidth: '100%',
+        overflowWrap: 'anywhere',
         whiteSpace: 'pre-wrap',
+        wordBreak: 'break-word',
       },
     };
   });
