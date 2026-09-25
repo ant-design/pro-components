@@ -1,7 +1,7 @@
 import { ConfigProvider, Layout } from 'antd';
 import { clsx } from 'clsx';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { isNeedOpenHash, ProProvider } from '../../../provider';
+import { ProProvider } from '../../../provider';
 import type { WithFalse } from '../../typing';
 import { clearMenuItem } from '../../utils/utils';
 import type { GlobalHeaderProps } from '../GlobalHeader';
@@ -135,7 +135,6 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
       <>
         <ConfigProvider
           theme={{
-            hashed: isNeedOpenHash(),
             components: {
               Layout: {
                 headerBg: 'transparent',

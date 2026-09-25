@@ -15,7 +15,7 @@ import React, {
 } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
 import type { GenerateStyle, ProTokenType } from '../provider';
-import { ProConfigProvider, ProProvider, isNeedOpenHash } from '../provider';
+import { ProConfigProvider, ProProvider } from '../provider';
 import {
   isBrowser,
   useBreakpoint,
@@ -820,7 +820,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           >
             <ConfigProvider
               theme={{
-                hashed: isNeedOpenHash(),
                 token: {
                   controlHeightLG:
                     token.layout?.sider?.menuHeight || token?.controlHeightLG,

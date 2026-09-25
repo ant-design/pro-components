@@ -1,7 +1,7 @@
 import { ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo, useRef } from 'react';
-import { isNeedOpenHash, ProProvider } from '../../../provider';
+import { ProProvider } from '../../../provider';
 
 import { AppsLogoComponents } from '../AppsLogoComponents';
 import type { GlobalHeaderProps } from '../GlobalHeader';
@@ -54,7 +54,6 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
     const defaultDom = (
       <ConfigProvider
         theme={{
-          hashed: isNeedOpenHash(),
           components: {
             Layout: {
               headerBg: 'transparent',

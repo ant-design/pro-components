@@ -65,6 +65,18 @@ export const isNeedOpenHash = () => {
   return true;
 };
 
+/** Resolve hashing without overriding an outer antd ConfigProvider. */
+export const resolveProConfigHashed = (
+  propsHashed: boolean | undefined,
+  inheritedProHashed: boolean | undefined,
+  parentHashId: string | undefined,
+  needOpenHash = isNeedOpenHash(),
+) =>
+  propsHashed !== false &&
+  inheritedProHashed !== false &&
+  parentHashId !== '' &&
+  needOpenHash;
+
 /**
  * 解析最终使用的 intl 实例。优先级从高到低：
  * 1. 组件 props 显式传入的 `intl`
@@ -329,29 +341,30 @@ const ConfigProviderContainer: React.FC<{
     },
   );
 
-  const hashed = useMemo(() => {
-    if (props.hashed === false) {
-      return false;
-    }
-    if (proProvide.hashed === false) return false;
-    return true;
-  }, [proProvide.hashed, props.hashed]);
+  const hashed = useMemo(
+    () =>
+      resolveProConfigHashed(
+        props.hashed,
+        proProvide.hashed,
+        tokenContext.hashId,
+      ),
+    [proProvide.hashed, props.hashed, tokenContext.hashId],
+  );
 
   const hashId = useMemo(() => {
     if (props.hashed === false) {
       return '';
     }
     if (proProvide.hashed === false) return '';
-    //Fix issue with hashId code
-    if (!isNeedOpenHash()) {
+    if (!hashed) {
       return '';
-    } else if (tokenContext.hashId) {
+    } else if (tokenContext.hashId !== undefined) {
       return tokenContext.hashId;
     } else {
       // 生产环境或其他环境
       return nativeHashId;
     }
-  }, [nativeHashId, proProvide.hashed, props.hashed]);
+  }, [hashed, nativeHashId, tokenContext.hashId]);
 
   useEffect(() => {
     dayjs.locale(locale?.locale || 'zh-cn');
@@ -361,9 +374,9 @@ const ConfigProviderContainer: React.FC<{
     return {
       ...restConfig.theme,
       hashId: hashId,
-      hashed: hashed && isNeedOpenHash(),
+      hashed,
     };
-  }, [restConfig.theme, hashId, hashed, isNeedOpenHash()]);
+  }, [restConfig.theme, hashId, hashed]);
 
   const proConfigContextValue = useMemo(() => {
     return {

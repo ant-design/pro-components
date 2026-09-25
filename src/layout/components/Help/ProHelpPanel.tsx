@@ -3,7 +3,7 @@ import { useControlledState } from '@rc-component/util';
 import { Card, ConfigProvider, Menu } from 'antd';
 import { clsx } from 'clsx';
 import React, { useCallback, useContext, useMemo, useState } from 'react';
-import { ProProvider, isNeedOpenHash } from '../../../provider';
+import { ProProvider } from '../../../provider';
 
 import type { ProHelpDataSource } from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';
@@ -254,7 +254,6 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           >
             <ConfigProvider
               theme={{
-                hashed: isNeedOpenHash(),
                 token: {
                   lineHeight: 1.2,
                   fontSize: 12,

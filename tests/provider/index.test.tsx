@@ -9,12 +9,23 @@ import {
 import { cleanup, render } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
 import { afterEach, describe, expect, it } from 'vitest';
+import { resolveProConfigHashed } from '../../src/provider';
 
 afterEach(() => {
   cleanup();
 });
 
 describe('ProConfigProvider', () => {
+  it('🐛 #8473 preserves the parent ConfigProvider hashed setting', () => {
+    expect(resolveProConfigHashed(undefined, undefined, '', true)).toBe(false);
+    expect(resolveProConfigHashed(undefined, undefined, 'css-parent', true)).toBe(
+      true,
+    );
+    expect(resolveProConfigHashed(false, undefined, 'css-parent', true)).toBe(
+      false,
+    );
+  });
+
   it('token should be correct in useStyle', () => {
     const useDemoStyle = () => {
       return useStyle('ProCardActions', (token) => {
