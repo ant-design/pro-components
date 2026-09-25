@@ -4276,6 +4276,25 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
+  it('validateFieldsReturnFormatValue applies ProForm.Item transform (#9179)', async () => {
+    const formRef = React.createRef<ProFormInstance<any>>();
+    render(
+      <ProForm
+        formRef={formRef}
+        initialValues={{ name: { x: 'ffffffff' } }}
+      >
+        <ProForm.Item name="name" transform={(value) => value.x}>
+          <Input />
+        </ProForm.Item>
+      </ProForm>,
+    );
+
+    await waitFor(() => expect(formRef.current).toBeTruthy());
+    await expect(
+      formRef.current!.validateFieldsReturnFormatValue!(),
+    ).resolves.toEqual({ name: 'ffffffff' });
+  });
+
   it('📦 getFieldsFormatValue should handle complex transforms', async () => {
     const formRef = React.createRef<ProFormInstance<any>>();
     const wrapper = render(
