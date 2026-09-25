@@ -84,6 +84,8 @@ Completed or classified:
 - #9193: usage issue; search-form values are in `params`, not `filter`.
 - #9227: fixed in `e24302c9e`.
 - #9236: fixed in `9c4d3aa75`.
+- #9613: fixed in `6a49c5acd`; switching query/light remounts the form and
+  removes the previous toolbar node.
 - #9319/#9321: one documentation/design issue for mixing remote request data
   with local sorting and filtering.
 - #9687/#9688: fixed in `982cb7ad5`; close #9688 as duplicate.
@@ -96,6 +98,19 @@ Completed or classified:
 - #9188, #9291, #9311, and #9646 need standalone current-version
   reproductions before code changes.
 - #7493, #9164, and #9279 are documentation/how-to requests.
+
+## Additional recent reports
+
+- #9545 is already fixed by merged PR #9493 and has direct `classNames` test
+  coverage; close after pointing the reporter to a release containing it.
+- #9348 is a duplicate dependency-tree installation caused by consumers that
+  install both v2 sub-packages and the monolithic v3 package. Route it to the
+  depending package (reported as `@umijs/plugins`) and document `npm ls`/pnpm
+  inspection; do not use forced overrides without compatibility testing.
+- #9555 is a release-roadmap question and needs a maintainer answer, not a code
+  change.
+- #9292 needs comparison against the native antd Select behavior before any
+  ProFormSelect-specific blur handling is added.
 
 ## Backlog policy
 
