@@ -11,6 +11,8 @@ StepsForm orchestrates nested step forms via a context Provider: each inner form
 
 > StepsForm extends antd [`Form.Provider`](https://ant.design/components/form/#Form.Provider). Serialization of dates (for example converting `dayjs` for submit) follows ProForm’s pipeline, so payloads in **`onFormFinish` / `onFormChange`** are still the raw Field values managed by Provider.
 
+When steps are split into components, each `StepForm` owns a separate Form instance, so a single `useWatch` outside StepsForm cannot watch across every step. Read merged values with `stepsFormRef.current?.getAllFieldsValue()`, lift the reactive value from `onFormChange` into parent state, and pass it to other steps for conditional fields or request parameters.
+
 ## Basic step flow
 
 <code src="../../demos/form/steps-form/basic.tsx" title="Basic StepsForm"></code>

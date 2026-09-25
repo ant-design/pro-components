@@ -11,6 +11,8 @@ StepsForm 通过 Provider 来管理子表单的数据，每个子表单都是完
 
 > StepsForm 继承了 Form.Provider ，相关文档可以看[这里](https://ant.design/components/form-cn/#Form.Provider)，转化 moment 的值是 ProForm 提供的功能，所以 `onFormFinish` 和 `onFormChange` 其中的值都是未经转化的。
 
+拆分为多个组件时，每个 `StepForm` 有独立的 Form 实例，不应在 StepsForm 外直接用单一 `useWatch` 跨步监听。请通过 `stepsFormRef.current?.getAllFieldsValue()` 合并取值，并在 `onFormChange` 中将需要响应的值提升到父组件状态，再传给其他步骤做字段显隐或请求参数。
+
 ## 分步表单
 
 <code src="../../demos/form/steps-form/basic.tsx" title="分步表单"></code>

@@ -539,4 +539,40 @@ describe('StepsForm', () => {
     });
     expect(stepsFormRef.current?.getCurrentStep()).toBe(0);
   });
+
+  it('🐛 #9583 observes one step and drives fields in another step', async () => {
+    const Demo = () => {
+      const stepsFormRef = React.useRef<StepsFormRef | null>(null);
+      const [x, setX] = React.useState<string>();
+
+      return (
+        <>
+          <span data-testid="watched-x">{x}</span>
+          <StepsForm
+            stepsFormRef={stepsFormRef}
+            onFormChange={() => {
+              setX(stepsFormRef.current?.getAllFieldsValue().x);
+            }}
+          >
+            <StepsForm.StepForm name="x-set" title="XSet">
+              <ProFormText name="x" fieldProps={{ 'aria-label': 'x' }} />
+            </StepsForm.StepForm>
+            <StepsForm.StepForm name="y-set" title="YSet">
+              {x === 'show-z' ? <ProFormText name="z" /> : null}
+            </StepsForm.StepForm>
+          </StepsForm>
+        </>
+      );
+    };
+
+    const html = render(<Demo />);
+    fireEvent.change(await html.findByLabelText('x'), {
+      target: { value: 'show-z' },
+    });
+
+    await waitFor(() => {
+      expect(html.getByTestId('watched-x')).toHaveTextContent('show-z');
+      expect(html.container.querySelector('#y-set_z')).toBeInTheDocument();
+    });
+  });
 });
