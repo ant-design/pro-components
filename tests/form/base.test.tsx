@@ -2948,6 +2948,43 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
+  it('🐛 #9292 hides a retained multiple search value while blurred', async () => {
+    const wrapper = render(
+      <ProForm>
+        <ProFormSelect
+          name="products"
+          mode="multiple"
+          showSearch
+          request={async () => [
+            { label: 'Product 34', value: '34' },
+            { label: 'Product 35', value: '35' },
+          ]}
+          fieldProps={{ autoClearSearchValue: false }}
+        />
+      </ProForm>,
+    );
+
+    const selector = wrapper.container.querySelector('.ant-select')!;
+    fireEvent.mouseDown(selector);
+    const input = await waitFor(() => {
+      const element = wrapper.container.querySelector<HTMLInputElement>(
+        '.ant-select-input',
+      );
+      expect(element).toBeTruthy();
+      return element!;
+    });
+
+    fireEvent.focus(input);
+    fireEvent.change(input, { target: { value: '34' } });
+    await waitFor(() => expect(input.value).toBe('34'));
+
+    fireEvent.blur(input);
+    await waitFor(() => expect(input.value).toBe(''));
+
+    fireEvent.focus(input);
+    await waitFor(() => expect(input.value).toBe('34'));
+  });
+
   it('📦 Select support multiple and autoClearSearchValue: true', async () => {
     const onSearch = vi.fn();
     const onFinish = vi.fn();

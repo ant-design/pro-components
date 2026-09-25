@@ -7,6 +7,7 @@ import React, {
   useEffect,
   useImperativeHandle,
   useRef,
+  useState,
 } from 'react';
 import type { RequestOptionsType } from '../../../../utils';
 import { nanoid } from '../../../../utils';
@@ -102,6 +103,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     mode,
     onSearch,
     onFocus,
+    onBlur,
     onChange,
     autoClearSearchValue = true,
     searchOnFocus = false,
@@ -142,6 +144,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     defaultSearchValue,
     showSearchConfig?.searchValue ?? propsSearchValue,
   );
+  const [focused, setFocused] = useState(Boolean(restProps.autoFocus));
 
   const selectRef = useRef<any>();
 
@@ -253,7 +256,13 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       disabled={disabled}
       mode={mode}
       showSearch={showSearch}
-      searchValue={searchValue}
+      searchValue={
+        mode === 'multiple' &&
+        !effectiveAutoClearSearchValue &&
+        !focused
+          ? ''
+          : searchValue
+      }
       optionFilterProp={effectiveOptionFilterProp}
       optionLabelProp={optionLabelProp}
       onClear={() => {
@@ -396,6 +405,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         if (resetAfterSelect) resetData();
       }}
       onFocus={(e) => {
+        setFocused(true);
         if (searchOnFocus) {
           // 当 searchOnFocus 为 true 时，应该清空搜索关键词以显示所有选项
           fetchData(undefined);
@@ -406,6 +416,10 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
           }
         }
         onFocus?.(e);
+      }}
+      onBlur={(e) => {
+        setFocused(false);
+        onBlur?.(e);
       }}
       options={genOptions(options || [])}
     />
