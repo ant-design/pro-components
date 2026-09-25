@@ -111,6 +111,8 @@ export const FieldRender: React.FC<
           name={dataIndex}
           {...formItemProps}
           style={{
+            flex: 1,
+            minWidth: 0,
             margin: 0,
             ...(formItemProps?.style || {}),
           }}

@@ -264,6 +264,30 @@ describe('Descriptions', () => {
     expect(wrapper.container.querySelector('.ant-form-item')).toBeTruthy();
   });
 
+  it('🐛 #9208 editable textarea fills the available width', () => {
+    const wrapper = render(
+      <ProDescriptions
+        editable={{ editableKeys: ['introduction'] }}
+        columns={[
+          {
+            dataIndex: 'introduction',
+            valueType: 'textarea',
+            fieldProps: { style: { width: '100%' } },
+          },
+        ]}
+        dataSource={{ introduction: 'About me' }}
+      />,
+    );
+
+    const formItem = wrapper.container.querySelector<HTMLElement>(
+      '.ant-form-item',
+    );
+    expect(formItem).toHaveStyle({ flex: '1', minWidth: '0' });
+    expect(wrapper.container.querySelector('textarea')).toHaveStyle({
+      width: '100%',
+    });
+  });
+
   it('📝 columns support editable test', async () => {
     const wrapper = render(
       <ProDescriptions
