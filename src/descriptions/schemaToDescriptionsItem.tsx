@@ -61,11 +61,6 @@ export function schemaToDescriptionsItem(
 
       const Component = showEditIcon ? Space : React.Fragment;
 
-      const contentDom: React.ReactNode =
-        fieldMode === 'edit'
-          ? text
-          : genCopyable(text, item, text, defaultData);
-
       const key = restItem.key || restItem.label?.toString() || index;
       const label = (title || restItem.label || restItem.tooltip) && (
         <LabelIconTip
@@ -74,6 +69,25 @@ export function schemaToDescriptionsItem(
           ellipsis={item.ellipsis}
         />
       );
+      const fieldDom = (
+        <FieldRender
+          {...item}
+          key={item?.key}
+          dataIndex={item.dataIndex || index}
+          mode={fieldMode}
+          text={text}
+          valueType={valueType}
+          entity={row}
+          index={index}
+          emptyText={valueType === 'option' ? undefined : emptyText}
+          action={action}
+          editableUtils={editableUtils}
+        />
+      );
+      const renderedField =
+        fieldMode === 'edit'
+          ? fieldDom
+          : genCopyable(fieldDom, item, text, defaultData);
       const field: DescriptionsItemType | React.JSX.Element =
         valueType !== 'option'
           ? ({
@@ -82,19 +96,7 @@ export function schemaToDescriptionsItem(
               label,
               children: (
                 <Component>
-                  <FieldRender
-                    {...item}
-                    key={item?.key}
-                    dataIndex={item.dataIndex || index}
-                    mode={fieldMode}
-                    text={contentDom}
-                    valueType={valueType}
-                    entity={row}
-                    index={index}
-                    emptyText={emptyText}
-                    action={action}
-                    editableUtils={editableUtils}
-                  />
+                  {renderedField}
                   {showEditIcon && (
                     <EditOutlined
                       onClick={() => {
@@ -110,17 +112,7 @@ export function schemaToDescriptionsItem(
           : ((
               <React.Fragment key={key}>
                 <Component>
-                  <FieldRender
-                    {...item}
-                    dataIndex={item.dataIndex || index}
-                    mode={fieldMode}
-                    text={contentDom}
-                    valueType={valueType}
-                    entity={row}
-                    index={index}
-                    action={action}
-                    editableUtils={editableUtils}
-                  />
+                  {renderedField}
                 </Component>
               </React.Fragment>
             ) as React.JSX.Element);

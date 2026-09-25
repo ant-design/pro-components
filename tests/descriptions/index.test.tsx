@@ -427,6 +427,30 @@ describe('descriptions', () => {
     wrapper.unmount();
   });
 
+  it('🐛 #9141 formats ISO timestamps with microseconds and ellipsis', async () => {
+    const wrapper = render(
+      <ProDescriptions
+        dataSource={{ sentAt: '2025-06-24T21:45:50.642678+08:00' }}
+        columns={[
+          {
+            title: 'Sent at',
+            dataIndex: 'sentAt',
+            valueType: 'dateTime',
+            ellipsis: true,
+          },
+        ]}
+      />,
+    );
+
+    const content = wrapper.container.querySelector(
+      '.ant-descriptions-item-content',
+    );
+    await waitFor(() => {
+      expect(content).toHaveTextContent(/2025-06-\d{2} \d{2}:45:50/);
+      expect(content).not.toHaveTextContent('Invalid Date');
+    });
+  });
+
   it('🐛 styles 属性应透传给 Descriptions 且保留内置默认 minWidth', async () => {
     const html = render(
       <ProDescriptions
