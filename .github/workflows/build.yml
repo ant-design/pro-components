@@ -13,6 +13,7 @@ jobs:
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
+      - run: node scripts/checkRepositorySafety.mjs
       - uses: pnpm/action-setup@v2
         with:
           version: 10.13.1
