@@ -108,6 +108,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
     splitMenus,
     menuData,
     prefixCls,
+    suppressSiderWhenMenuEmpty,
   } = props;
   const { getPrefixCls, direction } = useContext(ConfigProvider.ConfigContext);
   const baseClassName = `${prefixCls || getPrefixCls('pro')}-global-header`;
@@ -150,7 +151,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
       style={{ ...style }}
       data-testid="pro-layout-global-header"
     >
-      {isMobile && (
+      {isMobile && !(suppressSiderWhenMenuEmpty && menuData?.length === 0) && (
         <span
           className={clsx(`${baseClassName}-collapsed-button`, hashId)}
           onClick={() => {

@@ -93,6 +93,12 @@ Completed or classified:
 ## Layout
 
 - #9697 and #9698 are fixed as listed above.
+- #8095 is fixed in `d3f1c5033`; collapsed sider popups now consume the
+  documented `colorBgMenuItemCollapsedElevated` token.
+- #7312 is fixed locally; mobile layouts no longer render a collapse trigger
+  when an empty menu suppresses the sider.
+- #7670 was fixed upstream by `8f08d3d809`; ProLayout deletes only its own SWR
+  cache key on unmount instead of clearing the shared cache.
 - #8691 and likely #9188 are covered by merged theme refresh fix #9538.
 - #9308 is reporter-confirmed resolved and can be closed.
 - #9188, #9291, #9311, and #9646 need standalone current-version
