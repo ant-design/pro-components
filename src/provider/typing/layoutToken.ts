@@ -1,5 +1,5 @@
-import { setAlpha } from '../useStyle';
 import type { AliasToken } from 'antd/es/theme/interface';
+import { setAlpha } from '../useStyle';
 
 export type BaseLayoutDesignToken = {
   hashId: string;
@@ -140,6 +140,7 @@ export const getLayoutDesignToken: (
       colorTextCollapsedButtonHover: antdToken.colorTextSecondary,
       colorTextCollapsedButton: setAlpha(antdToken.colorTextBase, 0.25),
       colorMenuBackground: 'transparent',
+      colorBgMenuItemCollapsedElevated: antdToken.colorBgElevated,
       colorMenuItemDivider: setAlpha(antdToken.colorTextBase, 0.06),
       colorBgMenuItemHover: setAlpha(antdToken.colorTextBase, 0.03),
       colorBgMenuItemSelected: setAlpha(antdToken.colorTextBase, 0.04),
