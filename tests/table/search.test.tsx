@@ -918,7 +918,7 @@ describe('BasicTable Search', () => {
     expect(requestFn).not.toHaveBeenCalled();
   });
 
-  it('🎏 should submit a validated field from onValuesChange', async () => {
+  it('🐛 #9433 submits optionRender=false search from onValuesChange', async () => {
     const formRef = {
       current: undefined,
     } as React.MutableRefObject<ProFormInstance | undefined>;
@@ -939,6 +939,7 @@ describe('BasicTable Search', () => {
           ignoreRules: false,
           onValuesChange: () => formRef.current?.submit(),
         }}
+        search={{ optionRender: false }}
         request={requestFn}
         rowKey="key"
       />,

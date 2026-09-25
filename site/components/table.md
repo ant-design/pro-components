@@ -152,6 +152,8 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | span             | 配置查询表单的列数           | `number` \| [ColConfig](#ColConfig)                                        | defaultColConfig | -    |
 | submitText       | 提交按钮的文本               | `string`                                                                    | `'提交'`         | -    |
 
+`optionRender: false` 只会隐藏操作按钮。如需在输入或选择后自动查询，可在 `form.onValuesChange` 中调用 `formRef.current?.submit()`；请使用 ProTable 的 `debounceTime` 配置请求防抖。
+
 #### ColConfig
 
 ```tsx | pure

@@ -152,6 +152,8 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | optionRender     | Custom action bar                                        | `((searchConfig,formProps,dom) => ReactNode[])`\|`false`                    | -                |
 | showHiddenNum    | Whether to show the number of hidden items after storing | `boolean`                                                                   | `false`          |
 
+`optionRender: false` only hides the action buttons. To query after an input or selection changes, call `formRef.current?.submit()` from `form.onValuesChange`; use ProTable's `debounceTime` to debounce requests.
+
 #### ColConfig
 
 ```tsx | pure
