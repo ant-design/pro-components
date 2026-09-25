@@ -100,15 +100,17 @@ export interface SearchSelectProps<T = Record<string, any>> extends Omit<
 const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   const {
     mode,
-    onSearch,
+    onSearch: propsOnSearch,
     onFocus,
     onChange,
-    autoClearSearchValue = true,
+    autoClearSearchValue: propsAutoClearSearchValue = true,
     searchOnFocus = false,
     resetAfterSelect = false,
     fetchDataOnSearch = true,
-    optionFilterProp = 'label',
+    optionFilterProp: propsOptionFilterProp = 'label',
     optionLabelProp = 'label',
+    filterOption: propsFilterOption,
+    filterSort: propsFilterSort,
     className,
     disabled,
     options,
@@ -123,6 +125,17 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     ...restProps
   } = props;
 
+  const showSearchConfig = typeof showSearch === 'object' ? showSearch : {};
+  const onSearch = showSearchConfig.onSearch ?? propsOnSearch;
+  const autoClearSearchValue =
+    showSearchConfig.autoClearSearchValue ?? propsAutoClearSearchValue;
+  const optionFilterProp =
+    showSearchConfig.optionFilterProp ?? propsOptionFilterProp;
+  const filterOption = showSearchConfig.filterOption ?? propsFilterOption;
+  const filterSort = showSearchConfig.filterSort ?? propsFilterSort;
+  const mergedPropsSearchValue =
+    showSearchConfig.searchValue ?? propsSearchValue;
+
   const {
     label: labelPropsName = 'label',
     value: valuePropsName = 'value',
@@ -131,7 +144,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
 
   const [searchValue, setSearchValue] = useControlledState(
     defaultSearchValue,
-    propsSearchValue,
+    mergedPropsSearchValue,
   );
 
   const selectRef = useRef<any>();
@@ -235,6 +248,62 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       } as DefaultOptionType;
     });
   };
+
+  const mergedFilterOption: SelectProps<any>['filterOption'] =
+    filterOption == false
+      ? false
+      : (inputValue, option) => {
+          const effectiveSearchValue =
+            searchValue === '' ? '' : inputValue || searchValue;
+          if (!effectiveSearchValue) {
+            return true;
+          }
+          if (typeof filterOption === 'function') {
+            return filterOption(effectiveSearchValue, {
+              ...option,
+              label: option?.data_title,
+            });
+          }
+          return !!(
+            option?.data_title
+              ?.toString()
+              .toLowerCase()
+              .includes(effectiveSearchValue.toLowerCase()) ||
+            (Array.isArray(optionFilterProp)
+              ? optionFilterProp
+              : [optionFilterProp]
+            ).some((prop) =>
+              option?.[prop]
+                ?.toString()
+                .toLowerCase()
+                .includes(effectiveSearchValue.toLowerCase()),
+            )
+          );
+        };
+
+  const handleSearch = showSearch
+    ? (value: string) => {
+        if (fetchDataOnSearch) {
+          fetchData(value);
+        }
+        onSearch?.(value);
+        setSearchValue(value);
+      }
+    : undefined;
+
+  const mergedShowSearch =
+    typeof showSearch === 'object'
+      ? {
+          ...showSearch,
+          autoClearSearchValue,
+          filterOption: mergedFilterOption,
+          filterSort,
+          onSearch: handleSearch,
+          optionFilterProp,
+          searchValue,
+        }
+      : showSearch;
+
   return (
     <Select<any>
       ref={selectRef}
@@ -243,10 +312,11 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       autoClearSearchValue={autoClearSearchValue}
       disabled={disabled}
       mode={mode}
-      showSearch={showSearch}
+      showSearch={mergedShowSearch}
       searchValue={searchValue}
       optionFilterProp={optionFilterProp}
       optionLabelProp={optionLabelProp}
+      filterSort={filterSort}
       onClear={() => {
         onClear?.();
         fetchData(undefined);
@@ -256,49 +326,8 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         }
       }}
       {...restProps}
-      filterOption={
-        restProps.filterOption == false
-          ? false
-          : (inputValue, option) => {
-              // 当 inputValue 为空或 searchValue 为空时，显示所有选项
-              // 这样可以确保 searchOnFocus 时能够显示所有选项
-              const effectiveSearchValue =
-                searchValue === '' ? '' : inputValue || searchValue;
-              if (!effectiveSearchValue) {
-                return true;
-              }
-              if (
-                restProps.filterOption &&
-                typeof restProps.filterOption === 'function'
-              ) {
-                return restProps.filterOption(effectiveSearchValue, {
-                  ...option,
-                  label: option?.data_title,
-                });
-              }
-              return !!(
-                option?.data_title
-                  ?.toString()
-                  .toLowerCase()
-                  .includes(effectiveSearchValue.toLowerCase()) ||
-                option?.[optionFilterProp as string]
-                  ?.toString()
-                  .toLowerCase()
-                  .includes(effectiveSearchValue.toLowerCase())
-              );
-            }
-      } // 这里使用pro-components的过滤逻辑
-      onSearch={
-        showSearch
-          ? (value) => {
-              if (fetchDataOnSearch) {
-                fetchData(value);
-              }
-              onSearch?.(value);
-              setSearchValue(value);
-            }
-          : undefined
-      }
+      filterOption={mergedFilterOption} // 这里使用pro-components的过滤逻辑
+      onSearch={handleSearch}
       onChange={(value, optionList, ...rest) => {
         // 将搜索框置空 和 antd 行为保持一致
         if (showSearch && autoClearSearchValue) {

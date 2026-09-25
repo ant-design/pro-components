@@ -1265,6 +1265,56 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
+  it('📦 SearchSelect supports showSearch object config', async () => {
+    const onSearch = vi.fn();
+    const wrapper = render(
+      <ProForm>
+        <ProFormSelect.SearchSelect
+          name="userQuery"
+          fieldProps={{
+            mode: 'multiple',
+            showSearch: {
+              autoClearSearchValue: false,
+              onSearch,
+              optionFilterProp: 'value',
+            },
+          }}
+          options={[{ label: 'Alpha', value: 'matching-value' }]}
+        />
+      </ProForm>,
+    );
+
+    fireEvent.mouseDown(wrapper.baseElement.querySelector('.ant-select')!);
+
+    const searchInput = await waitFor(() => {
+      const input =
+        wrapper.baseElement.querySelector<HTMLInputElement>(
+          '.ant-select-input',
+        );
+      expect(input).toBeTruthy();
+      return input!;
+    });
+
+    fireEvent.change(searchInput, { target: { value: 'matching-value' } });
+
+    await waitFor(() => {
+      expect(onSearch).toHaveBeenCalledWith('matching-value');
+      expect(
+        document.body.querySelector('.ant-select-item-option-content'),
+      ).toHaveTextContent('Alpha');
+    });
+
+    fireEvent.click(
+      document.body.querySelector('.ant-select-item-option-content')!,
+    );
+
+    await waitFor(() => {
+      expect(searchInput).toHaveValue('matching-value');
+    });
+
+    wrapper.unmount();
+  });
+
   it('📦 SearchSelect onSearch support valueEnum', async () => {
     const onSearch = vi.fn();
     const wrapper = render(
