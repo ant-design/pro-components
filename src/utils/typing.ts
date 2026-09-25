@@ -655,6 +655,8 @@ export type ProSchema<
       originProps?: any;
     },
     config: {
+      /** Form.Item may inject custom value/trigger prop names. */
+      [key: string]: any;
       onSelect?: (value: any) => void;
       onChange?: <T = any>(value: T) => void;
       value?: any;

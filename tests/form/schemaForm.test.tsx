@@ -426,6 +426,47 @@ describe('SchemaForm', () => {
     expect(screen.findByTestId('test')).toBeTruthy();
   });
 
+  it('😊 SchemaForm forwards custom trigger and getValueProps to formItemRender', async () => {
+    const formRef = createRef<FormInstance>();
+    const wrapper = render(
+      <BetaSchemaForm
+        formRef={formRef as any}
+        initialValues={{ asset: 'initial' }}
+        columns={[
+          {
+            title: '附件',
+            dataIndex: 'asset',
+            formItemProps: {
+              trigger: 'onUploaded',
+              getValueProps: (value) => ({ customValue: value }),
+            },
+            formItemRender: (_, config) => (
+              <button
+                type="button"
+                data-testid="custom-upload"
+                data-value={config.customValue}
+                data-trigger={typeof config.onUploaded}
+                onClick={() => config.onUploaded?.('next')}
+              >
+                upload
+              </button>
+            ),
+          },
+        ]}
+      />,
+    );
+
+    const upload = wrapper.getByTestId('custom-upload');
+    expect(upload).toHaveAttribute('data-value', 'initial');
+    expect(upload).toHaveAttribute('data-trigger', 'function');
+
+    act(() => upload.click());
+
+    await waitFor(() => {
+      expect(formRef.current?.getFieldValue('asset')).toBe('next');
+    });
+  });
+
   it('😊 support SchemaForm formItemRender return false', async () => {
     const formRef = createRef<FormInstance>();
     const { container } = render(
