@@ -233,6 +233,30 @@ describe('EditorProTable', () => {
     wrapper.unmount();
   });
 
+  it('keeps a new row visible with request pagination (#6992)', async () => {
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        request={async () => ({
+          data: defaultData.slice(0, 2),
+          total: 6,
+          success: true,
+        })}
+        pagination={{ pageSize: 2, current: 2 }}
+        recordCreatorProps={{
+          position: 'bottom',
+          record: { id: 555, title: 'new row' },
+        }}
+        columns={columns}
+      />,
+    );
+
+    await wrapper.findByText(defaultData[0].title!);
+    fireEvent.click(wrapper.getByText('添加一行数据'));
+
+    expect(await wrapper.findByDisplayValue('new row')).toBeTruthy();
+  });
+
   it('📝 EditableProTable addEditRecord is null will throw Error', async () => {
     const spy = vi.spyOn(global.console, 'warn');
     const actionRef = React.createRef<ActionType>();
