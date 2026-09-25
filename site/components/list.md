@@ -282,7 +282,7 @@ Metas 使用对象的键名来映射列表项各个部分（标题、头像、�
 | dataIndex      | 数据在数据项中对应的路径，支持通过数组查询嵌套路径  | `string` \| `string[]`                                                                   | -        |
 | valueType      | 值的类型，和 ProTable 一致，会生成不同的渲染器      | [`valueType`](/components/schema#valuetype)                                              | `'text'` |
 | render         | 自定义渲染函数                                      | `(text: ReactNode, record: T, index: number) => ReactNode \| ReactNode[]`                | -        |
-| valueEnum      | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](/components/schema#valueenum)                                                | -        |
+| valueEnum      | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](/components/schema-form#valueenum)                                           | -        |
 | search         | 配置列的搜索相关，false 为隐藏                      | `false` \| `{ transform: (value: any) => any }`                                          | -        |
 | editable       | 在编辑列表中是否可编辑                              | `false` \| `(text: any, record: T, index: number) => boolean`                            | -        |
 | fieldProps     | 查询表单的 props，会透传给表单项                    | `(form, config) => Record \| Record`                                                     | -        |

@@ -78,6 +78,10 @@ The most important part of SchemaForm is the Schema type definition. We use the 
 | `defaultKeyWords`     | `string`                                                                       | Default keyword when searching                                                                                                                                                                                                                                                                   |
 | `ignoreFormItem`      | `boolean`                                                                      | Do not wrap Form.Item, render component directly                                                                                                                                                                                                                                                 |
 
+### valueEnum
+
+`valueEnum` maps a field value to display text and status. It accepts an object, a Map, or a function that returns the enumeration for the current entity.
+
 ### Common ValueTypes
 
 | ValueType    | Description        |

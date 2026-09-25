@@ -7,7 +7,7 @@ atomId: BetaSchemaForm
 
 # Schema Form - JSON 表单
 
-SchemaForm 是根据 JSON Schema 来生成表单的工具。SchemaForm 会根据 valueType 来映射成不同的[表单项](/components/schema)。
+SchemaForm 是根据 JSON Schema 来生成表单的工具。SchemaForm 会根据 valueType 来映射成不同的[表单项](#schema-定义)。
 
 > **Tips**： 如您遇到卡顿问题或有更高的性能要求可[参考示例](#高性能代码示例)使用
 
@@ -77,6 +77,10 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 | `debounceTime`        | `number`                                                                       | request 防抖时间                                                                                                                                                                         |
 | `defaultKeyWords`     | `string`                                                                       | 搜索时的默认关键字                                                                                                                                                                       |
 | `ignoreFormItem`      | `boolean`                                                                      | 不包裹 Form.Item，直接渲染组件                                                                                                                                                           |
+
+### valueEnum
+
+`valueEnum` 用值作为 key 映射展示文本和状态，支持 object、Map，也支持根据当前数据返回枚举的函数。
 
 ### 常见 ValueType
 
