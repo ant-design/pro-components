@@ -148,6 +148,8 @@ describe('LightFilter', () => {
     });
     expect(fieldLabel).toBeTruthy();
     expect(fieldLabel?.textContent).toContain('名称');
+    expect(container.querySelectorAll('.ant-form-item-label')).toHaveLength(0);
+    expect(container.textContent?.match(/名称/g)).toHaveLength(1);
   });
 
   it(' 🪕 should support date picker', async () => {
