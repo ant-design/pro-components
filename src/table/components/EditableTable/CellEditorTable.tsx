@@ -60,6 +60,13 @@ export function CellEditorTable<
     },
   );
 
+  const handleValuesChange = useRefFunction(
+    (record: DataType, dataSource: DataType[]) => {
+      props.editable?.onValuesChange?.(record, dataSource);
+      if (!props.controlled) props.onChange?.(dataSource);
+    },
+  );
+
   const scheduleExitEditing = useCallback(() => {
     blurTimerRef.current = setTimeout(() => {
       handleEditableKeysChange([]);
@@ -85,9 +92,13 @@ export function CellEditorTable<
         );
         return {
           ...item,
-          editable: activeColumnId === columnId ? undefined : false,
+          editable:
+            item.editable === false || activeColumnId !== columnId
+              ? false
+              : undefined,
           onCell: (record: any, rowIndex: any) => ({
             onDoubleClick: () => {
+              if (item.editable === false) return;
               cancelExitEditing();
               handleEditableKeysChange([getRowKey(record, rowIndex)]);
               setActiveColumnId(columnId);
@@ -109,6 +120,7 @@ export function CellEditorTable<
       editable={{
         ...props.editable,
         editableKeys,
+        onValuesChange: handleValuesChange,
       }}
       columns={columns}
     />
