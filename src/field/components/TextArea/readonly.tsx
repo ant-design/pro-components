@@ -23,7 +23,9 @@ const FieldTextAreaReadonly: ProFieldFC<{
         display: 'inline-block',
         lineHeight: '1.5715',
         maxWidth: '100%',
+        overflowWrap: 'anywhere',
         whiteSpace: 'pre-wrap',
+        wordBreak: 'break-word',
       },
     };
   });
@@ -32,7 +34,7 @@ const FieldTextAreaReadonly: ProFieldFC<{
     <span
       ref={ref}
       className={clsx(hashId, readonlyClassName, compClassName)}
-      {...omit(fieldProps, ['autoSize', 'classNames', 'styles'])}
+      {...omit(fieldProps, ['autoSize', 'classNames', 'showCount', 'styles'])}
     >
       {text ?? '-'}
     </span>,

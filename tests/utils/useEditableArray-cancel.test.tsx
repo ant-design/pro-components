@@ -88,6 +88,7 @@ describe('useEditableArray - Cancel Operation', () => {
 
     // 暴露到 window 上以便测试访问
     (window as any).__editableUtils = editableUtils;
+    (window as any).__setEditableDataSource = setDataSource;
 
     return (
       <Form>
@@ -577,6 +578,39 @@ describe('useEditableArray - Cancel Operation', () => {
     }
   });
 
+  it('📝 clears a cached new row when the parent clears dataSource', async () => {
+    render(<TestComponent />);
+
+    let editableUtils = (window as any).__editableUtils;
+    act(() => {
+      expect(
+        editableUtils.addEditRecord(
+          { id: 3, name: 'test3' },
+          { recordKey: 3, newRecordType: 'cache' },
+        ),
+      ).toBe(true);
+    });
+
+    act(() => {
+      (window as any).__setEditableDataSource([]);
+    });
+
+    await waitFor(() => {
+      editableUtils = (window as any).__editableUtils;
+      expect(editableUtils.editableKeys).toEqual([]);
+      expect(editableUtils.newLineRecord).toBeUndefined();
+    });
+
+    act(() => {
+      expect(
+        editableUtils.addEditRecord(
+          { id: 4, name: 'test4' },
+          { recordKey: 4, newRecordType: 'cache' },
+        ),
+      ).toBe(true);
+    });
+  });
+
   it('📝 取消编辑时 preEditRowRef 应该被正确清理', async () => {
     const onCancel = vi.fn(async () => Promise.resolve());
 
@@ -644,7 +678,7 @@ describe('useEditableArray - Cancel Operation', () => {
     });
   });
 
-  it('🐛 多行编辑依次点击取消时不应误删后续行', async () => {
+  it('🐛 #9092 多行编辑依次点击取消时不应误删后续行', async () => {
     const onDelete = vi.fn(async () => Promise.resolve());
     const onCancel = vi.fn(async () => Promise.resolve());
 
@@ -685,7 +719,7 @@ describe('useEditableArray - Cancel Operation', () => {
 
           <button
             data-testid="start-edit-1"
-            onClick={() => editableUtils.startEditable(1, dataSource[0])}
+            onClick={() => editableUtils.startEditable(1)}
           >
             Start Edit 1
           </button>
@@ -742,6 +776,10 @@ describe('useEditableArray - Cancel Operation', () => {
     await waitFor(() => {
       expect(wrapper.getByTestId('editable-keys').textContent).toBe('2');
       expect(onDelete).not.toHaveBeenCalled();
+      // #8951: startEditable 未显式传入 record 时，取消也不应把已有行当成新行删除。
+      expect(wrapper.getByTestId('data-source').textContent).toBe(
+        '1:test1,2:test2',
+      );
     });
 
     act(() => {
@@ -755,6 +793,79 @@ describe('useEditableArray - Cancel Operation', () => {
       expect(wrapper.getByTestId('data-source').textContent).toBe(
         '1:test1,2:test2',
       );
+    });
+  });
+
+  it('🐛 #9051 删除行时应清理 name 模式下的表单残值', async () => {
+    let formInstance: ReturnType<typeof Form.useForm>[0] | undefined;
+
+    const DeleteRowComponent: React.FC = () => {
+      const [form] = Form.useForm();
+      const [dataSource, setDataSource] = useState<TestRecordType[]>([
+        { id: 1, name: 'deleted-row', value: 'old-value' },
+      ]);
+      formInstance = form;
+
+      const editableUtils = useEditableArray<TestRecordType>({
+        dataSource,
+        setDataSource,
+        getRowKey: (record) => record.id,
+        childrenColumnName: undefined,
+        tableName: 'testTable',
+        form,
+      });
+      const actions = dataSource[0]
+        ? editableUtils.actionRender({ ...dataSource[0], index: 0 })
+        : [];
+
+      return (
+        <Form
+          form={form}
+          initialValues={{
+            testTable: {
+              1: { id: 1, name: 'deleted-row', value: 'old-value' },
+            },
+          }}
+        >
+          <button
+            data-testid="start-edit"
+            onClick={() => editableUtils.startEditable(1)}
+          >
+            Start Edit
+          </button>
+          <span data-testid="delete-action">{actions?.[1]}</span>
+          <div data-testid="data-source">{dataSource.length}</div>
+        </Form>
+      );
+    };
+
+    const wrapper = render(<DeleteRowComponent />);
+
+    act(() => {
+      fireEvent.click(wrapper.getByTestId('start-edit'));
+      vi.runAllTimers();
+    });
+
+    act(() => {
+      fireEvent.click(
+        within(wrapper.getByTestId('delete-action')).getByText('删除'),
+      );
+      vi.runAllTimers();
+    });
+
+    const confirm = wrapper.container.querySelector<HTMLElement>(
+      '.ant-popconfirm .ant-btn-primary',
+    );
+    expect(confirm).toBeTruthy();
+
+    await act(async () => {
+      fireEvent.click(confirm!);
+      await vi.runOnlyPendingTimersAsync();
+    });
+
+    await waitFor(() => {
+      expect(wrapper.getByTestId('data-source').textContent).toBe('0');
+      expect(formInstance?.getFieldValue(['testTable', '1'])).toBeUndefined();
     });
   });
 });

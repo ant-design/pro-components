@@ -1,7 +1,11 @@
 import type { FormItemProps } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import React from 'react';
-import type { ProFieldProps, SearchTransformKeyFn } from '../utils';
+import type {
+  ProFieldProps,
+  SearchConvertKeyFn,
+  SearchTransformKeyFn,
+} from '../utils';
 import type { ProFieldValueType } from '../utils/typing';
 import type { CommonFormProps } from './BaseForm';
 import type { FieldProps, ProFormGroupProps } from './typing';
@@ -16,6 +20,8 @@ export type FiledContextProps = {
     obj: {
       valueType?: ProFieldValueType;
       dateFormat?: string;
+      /** 将后端值转换为组件值 */
+      convertValue?: SearchConvertKeyFn;
       /** 数据转化的地方 */
       transform?: SearchTransformKeyFn;
     },

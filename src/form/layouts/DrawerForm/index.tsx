@@ -20,7 +20,7 @@ export type CustomizeResizeType = {
 export type DrawerFormProps<
   T = Record<string, any>,
   U = Record<string, any>,
-> = Omit<FormProps, 'onFinish' | 'title'> &
+> = Omit<FormProps, 'onFinish' | 'title' | 'size'> &
   CommonFormProps<T, U> & {
     /**
      * 接收任意值，返回 真值 会关掉这个抽屉
@@ -53,7 +53,13 @@ export type DrawerFormProps<
     /** @name 抽屉的标题 */
     title?: DrawerProps['title'];
 
-    /** @name 抽屉的宽度 */
+    /** @name 抽屉的尺寸 */
+    size?: DrawerProps['size'];
+
+    /** @name 是否使用 antd 原生拖拽调整尺寸 */
+    resizable?: DrawerProps['resizable'];
+
+    /** @name 抽屉的宽度 @deprecated 请使用 size */
     width?: DrawerProps['size'];
 
     /**
@@ -70,6 +76,8 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   onFinish,
   submitTimeout,
   title,
+  size,
+  resizable,
   width,
   resize,
   onOpenChange,
@@ -103,8 +111,12 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   const getCls = (className: string) => `${baseClassName}-${className}`;
 
   const [drawerWidth, setDrawerWidth] = useState<DrawerProps['size']>(
-    width ? width : resize ? resizeInfo?.minWidth : 800,
+    size ?? width ?? drawerProps?.size ?? (resize ? resizeInfo?.minWidth : 800),
   );
+  const nativeResizable = resize
+    ? false
+    : (resizable ?? drawerProps?.resizable);
+  const resolvedSize = size ?? width ?? drawerProps?.size ?? 800;
 
   const formRef = useRef<ProFormInstance>();
 
@@ -168,8 +180,20 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
         {...drawerProps}
         destroyOnHidden={drawerProps?.destroyOnHidden}
         title={title}
+        resizable={nativeResizable}
+        defaultSize={
+          nativeResizable
+            ? (drawerProps?.defaultSize ?? resolvedSize)
+            : drawerProps?.defaultSize
+        }
         size={
-          typeof drawerWidth === 'number' ? drawerWidth : (drawerWidth as any)
+          nativeResizable
+            ? undefined
+            : resize
+              ? typeof drawerWidth === 'number'
+                ? drawerWidth
+                : (drawerWidth as any)
+              : resolvedSize
         }
         open={open}
         afterOpenChange={(nextOpen) => {

@@ -12,6 +12,7 @@ import {
 } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
+import dayjs from 'dayjs';
 import React, { act, createRef, useContext, useEffect } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
@@ -71,6 +72,41 @@ afterEach(() => {
 });
 
 describe('SchemaForm', () => {
+  it('formats date values inside a schema formList (#9663)', async () => {
+    const onFinish = vi.fn();
+    const wrapper = render(
+      <BetaSchemaForm
+        initialValues={{
+          detailList: [{ deliveryDate: dayjs('2026-07-14') }],
+        }}
+        onFinish={async (values) => onFinish(values)}
+        columns={[
+          {
+            title: '产品信息',
+            valueType: 'formList',
+            dataIndex: 'detailList',
+            columns: [
+              {
+                title: '交货日期',
+                dataIndex: 'deliveryDate',
+                valueType: 'date',
+                fieldProps: { format: 'YYYY-MM-DD' },
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+
+    fireEvent.click(await wrapper.findByText('提 交'));
+
+    await waitFor(() => {
+      expect(onFinish).toHaveBeenCalledWith({
+        detailList: [{ deliveryDate: '2026-07-14' }],
+      });
+    });
+  });
+
   it('😊 SchemaForm support columns', async () => {
     const { container } = render(<BetaSchemaForm columns={columns} />);
 
@@ -424,6 +460,47 @@ describe('SchemaForm', () => {
       />,
     );
     expect(screen.findByTestId('test')).toBeTruthy();
+  });
+
+  it('😊 SchemaForm forwards custom trigger and getValueProps to formItemRender', async () => {
+    const formRef = createRef<FormInstance>();
+    const wrapper = render(
+      <BetaSchemaForm
+        formRef={formRef as any}
+        initialValues={{ asset: 'initial' }}
+        columns={[
+          {
+            title: '附件',
+            dataIndex: 'asset',
+            formItemProps: {
+              trigger: 'onUploaded',
+              getValueProps: (value) => ({ customValue: value }),
+            },
+            formItemRender: (_, config) => (
+              <button
+                type="button"
+                data-testid="custom-upload"
+                data-value={config.customValue}
+                data-trigger={typeof config.onUploaded}
+                onClick={() => config.onUploaded?.('next')}
+              >
+                upload
+              </button>
+            ),
+          },
+        ]}
+      />,
+    );
+
+    const upload = wrapper.getByTestId('custom-upload');
+    expect(upload).toHaveAttribute('data-value', 'initial');
+    expect(upload).toHaveAttribute('data-trigger', 'function');
+
+    act(() => upload.click());
+
+    await waitFor(() => {
+      expect(formRef.current?.getFieldValue('asset')).toBe('next');
+    });
   });
 
   it('😊 support SchemaForm formItemRender return false', async () => {

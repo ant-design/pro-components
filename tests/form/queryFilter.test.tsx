@@ -296,6 +296,24 @@ describe('QueryFilter', () => {
     ).toHaveLength(1);
   });
 
+  it('🕵️‍♀️ defaultColsNumber ignores conditionally omitted fields', () => {
+    const shouldDisplay = false;
+    const wrapper = render(
+      <QueryFilter defaultColsNumber={2}>
+        <ProFormText label="a" name="a" />
+        {shouldDisplay ? <ProFormText label="omitted" name="omitted" /> : null}
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+      </QueryFilter>,
+    );
+
+    expect(
+      wrapper.container.querySelectorAll('.ant-row .ant-form-item-hidden'),
+    ).toHaveLength(1);
+    expect(wrapper.container.querySelector('input#a')).toBeTruthy();
+    expect(wrapper.container.querySelector('input#b')).toBeTruthy();
+  });
+
   it('🕵️‍♀️ defaultFormItemsNumber should work', async () => {
     const wrapper0 = render(
       <QueryFilter defaultFormItemsNumber={5}>

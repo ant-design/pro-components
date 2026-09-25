@@ -10,8 +10,8 @@ import {
   it,
   vi,
 } from 'vitest';
-import defaultProps from './defaultProps';
 import { waitForWaitTime } from '../util';
+import defaultProps from './defaultProps';
 
 afterEach(() => {
   cleanup();
@@ -97,6 +97,26 @@ describe('mobile BasicLayout', () => {
     );
     await waitForWaitTime(100);
     expect(html.asFragment()).toMatchSnapshot();
+  });
+
+  it('📱 hides the collapsed button when an empty menu suppresses the sider', async () => {
+    const html = render(
+      <ProLayout
+        getContainer={false}
+        menuDataRender={() => []}
+        suppressSiderWhenMenuEmpty
+      >
+        welcome
+      </ProLayout>,
+    );
+
+    await html.findByText('welcome');
+
+    expect(
+      html.baseElement.querySelector(
+        'span.ant-pro-global-header-collapsed-button',
+      ),
+    ).toBeNull();
   });
 
   it('📱 layout=mix and splitMenus', async () => {

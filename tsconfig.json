@@ -15,7 +15,9 @@
     "resolveJsonModule": true,
     "paths": {
       "@@/*": [".dumi/tmp/*"],
-      "@ant-design/pro-components": ["src"]
+      "@ant-design/pro-components": ["src"],
+      "src": ["src"],
+      "src/*": ["src/*"]
     }
   },
   "include": [

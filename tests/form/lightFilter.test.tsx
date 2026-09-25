@@ -6,13 +6,31 @@ import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import zhCn from 'dayjs/locale/zh-cn';
+import React from 'react';
 import { describe, expect, it, vi } from 'vitest';
+import type { ProFormInstance } from '../../src/form';
 import { dateArrayFormatter } from '../../src/utils/dateArrayFormatter';
 
 dayjs.extend(advancedFormat);
 dayjs.extend(weekOfYear);
 
 describe('LightFilter', () => {
+  it('🐛 #9166 should ignore validation rules when ignoreRules is true', async () => {
+    const formRef = React.createRef<ProFormInstance>();
+    render(
+      <LightFilter formRef={formRef} ignoreRules>
+        <LightFilter.input
+          name="requiredField"
+          label="Required"
+          rules={[{ required: true }]}
+        />
+      </LightFilter>,
+    );
+
+    await waitFor(() => expect(formRef.current).toBeTruthy());
+    await expect(formRef.current?.validateFields()).resolves.toEqual({});
+  });
+
   it(' 🪕 should not use light field label until using LightFilter field helpers', async () => {
     const { container } = render(
       <LightFilter>
@@ -148,6 +166,8 @@ describe('LightFilter', () => {
     });
     expect(fieldLabel).toBeTruthy();
     expect(fieldLabel?.textContent).toContain('名称');
+    expect(container.querySelectorAll('.ant-form-item-label')).toHaveLength(0);
+    expect(container.textContent?.match(/名称/g)).toHaveLength(1);
   });
 
   it(' 🪕 should support date picker', async () => {
@@ -290,6 +310,41 @@ describe('LightFilter', () => {
       '.ant-pro-core-field-dropdown-label',
     );
     expect(dropdownLabel).toBeTruthy();
+  });
+
+  it('🐛 #9649 keeps the collapse popover open while typing', async () => {
+    const { container, baseElement } = render(
+      <LightFilter
+        collapse
+        popoverProps={{ classNames: { root: 'collapse-input-popover' } }}
+      >
+        <ProFormText label="Code" name="code" />
+      </LightFilter>,
+    );
+
+    fireEvent.click(
+      container.querySelector('.ant-pro-core-field-dropdown-label')!,
+    );
+    const input = await waitFor(() => {
+      const element = baseElement.querySelector<HTMLInputElement>(
+        '.collapse-input-popover input',
+      );
+      expect(element).toBeTruthy();
+      return element;
+    });
+
+    fireEvent.change(input!, { target: { value: 'group-code' } });
+
+    await waitFor(() => {
+      const popover = baseElement.querySelector('.collapse-input-popover');
+      expect(popover).toBeTruthy();
+      expect(popover?.classList.contains('ant-popover-hidden')).toBe(false);
+      expect(
+        baseElement.querySelector<HTMLInputElement>(
+          '.collapse-input-popover input',
+        )?.value,
+      ).toBe('group-code');
+    });
   });
 
   it(' 🪕 should support collapse mode with collapseLabel', async () => {

@@ -1,5 +1,5 @@
 import type { ProFormInstance } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import { ProFormSelect, ProTable } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
@@ -432,6 +432,43 @@ describe('BasicTable Search', () => {
     });
 
     html.unmount();
+  });
+
+  it('🎏 does not loop when formItemRender config is spread into ProFormSelect (#9676)', async () => {
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const html = render(
+      <ProTable
+        columns={[
+          {
+            title: 'Type',
+            dataIndex: 'type',
+            valueType: 'select',
+            valueEnum: {
+              course: { text: 'Course' },
+              test: { text: 'Test' },
+            },
+            formItemRender: (_, config) => (
+              <ProFormSelect {...config} mode="multiple" />
+            ),
+          },
+        ]}
+        dataSource={[]}
+      />,
+    );
+
+    await act(async () => {
+      await vi.runAllTimersAsync();
+    });
+
+    expect(html.baseElement.querySelector('.ant-select')).toBeTruthy();
+    expect(
+      errorSpy.mock.calls.some(([message]) =>
+        String(message).includes('Maximum update depth exceeded'),
+      ),
+    ).toBe(false);
+
+    errorSpy.mockRestore();
   });
 
   it('🎏 formItemRender support return false', async () => {
@@ -879,5 +916,95 @@ describe('BasicTable Search', () => {
 
     // Request should NOT be called because validation failed
     expect(requestFn).not.toHaveBeenCalled();
+  });
+
+  it('🎏 should submit a validated field from onValuesChange', async () => {
+    const formRef = {
+      current: undefined,
+    } as React.MutableRefObject<ProFormInstance | undefined>;
+    const requestFn = vi.fn(async () => ({ data: [], success: true }));
+    const { container } = render(
+      <ProTable
+        columns={[
+          {
+            title: 'Title',
+            dataIndex: 'title',
+            formItemProps: {
+              rules: [{ required: true, message: 'Required' }],
+            },
+          },
+        ]}
+        formRef={formRef}
+        form={{
+          ignoreRules: false,
+          onValuesChange: () => formRef.current?.submit(),
+        }}
+        request={requestFn}
+        rowKey="key"
+      />,
+    );
+
+    const input = container.querySelector<HTMLInputElement>('#title')!;
+    fireEvent.change(input, { target: { value: 'ProComponents' } });
+
+    await waitFor(() => {
+      expect(requestFn).toHaveBeenCalledWith(
+        expect.objectContaining({ title: 'ProComponents' }),
+        {},
+        {},
+      );
+    });
+  });
+
+  it('🎏 replaces the search form when filterType changes (#9613)', async () => {
+    const Demo = () => {
+      const [filterType, setFilterType] = React.useState<'query' | 'light'>(
+        'query',
+      );
+      return (
+        <>
+          <button
+            type="button"
+            onClick={() =>
+              setFilterType((type) => (type === 'query' ? 'light' : 'query'))
+            }
+          >
+            toggle
+          </button>
+          <ProTable
+            columns={[{ title: 'Name', dataIndex: 'name' }]}
+            dataSource={[]}
+            search={{ filterType }}
+            rowKey="key"
+          />
+        </>
+      );
+    };
+
+    const { container, getByText } = render(<Demo />);
+    expect(container.querySelectorAll('.ant-pro-query-filter')).toHaveLength(1);
+    expect(
+      container.querySelectorAll('.ant-pro-form-light-filter'),
+    ).toHaveLength(0);
+
+    fireEvent.click(getByText('toggle'));
+    await waitFor(() => {
+      expect(container.querySelectorAll('.ant-pro-query-filter')).toHaveLength(
+        0,
+      );
+      expect(
+        container.querySelectorAll('.ant-pro-form-light-filter'),
+      ).toHaveLength(1);
+    });
+
+    fireEvent.click(getByText('toggle'));
+    await waitFor(() => {
+      expect(container.querySelectorAll('.ant-pro-query-filter')).toHaveLength(
+        1,
+      );
+      expect(
+        container.querySelectorAll('.ant-pro-form-light-filter'),
+      ).toHaveLength(0);
+    });
   });
 });

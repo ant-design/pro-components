@@ -1,4 +1,5 @@
-﻿import { ModalForm, ProFormText } from '@ant-design/pro-components';
+﻿import type { ProFormInstance } from '@ant-design/pro-components';
+import { ModalForm, ProForm, ProFormText } from '@ant-design/pro-components';
 import {
   act,
   cleanup,
@@ -7,8 +8,8 @@ import {
   waitFor,
 } from '@testing-library/react';
 import type { FormInstance } from 'antd';
-import { Button } from 'antd';
-import { createRef } from 'react';
+import { Button, Form, Modal } from 'antd';
+import { createRef, useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
@@ -597,6 +598,127 @@ describe('ModalForm', () => {
 
     await waitFor(() => {
       expect(formRef.current).toBeTruthy();
+    });
+  });
+
+  it('📦 external form shows the latest record after destroyOnHidden', async () => {
+    const records = {
+      A: { id: 'A', name: 'name-of-A', remark: 'only-A' },
+      B: { id: 'B', name: 'name-of-B' },
+    };
+
+    const Demo = () => {
+      const [form] = Form.useForm();
+      const [recordId, setRecordId] = useState<'A' | 'B'>('A');
+      const [open, setOpen] = useState(false);
+
+      const openRecord = (id: 'A' | 'B') => {
+        setRecordId(id);
+        setOpen(true);
+      };
+
+      return (
+        <>
+          <Button onClick={() => openRecord('A')}>edit A</Button>
+          <Button onClick={() => openRecord('B')}>edit B</Button>
+          <ModalForm
+            form={form}
+            modalProps={{
+              destroyOnHidden: true,
+              maskTransitionName: '',
+              transitionName: '',
+            }}
+            open={open}
+            params={{ id: recordId }}
+            request={async ({ id }) => records[id as 'A' | 'B']}
+            submitter={false}
+            onOpenChange={setOpen}
+          >
+            <ProFormText name="id" />
+            <ProFormText name="name" />
+            <ProFormText name="remark" />
+          </ModalForm>
+        </>
+      );
+    };
+
+    const wrapper = render(<Demo />);
+
+    fireEvent.click(wrapper.getByText('edit A'));
+    await waitFor(() => {
+      expect(wrapper.getByDisplayValue('name-of-A')).toBeInTheDocument();
+    });
+
+    fireEvent.click(document.querySelector('button.ant-modal-close')!);
+    await waitFor(() => {
+      expect(wrapper.queryByDisplayValue('name-of-A')).toBeNull();
+    });
+
+    fireEvent.click(wrapper.getByText('edit B'));
+    await waitFor(() => {
+      expect(wrapper.getByDisplayValue('name-of-B')).toBeInTheDocument();
+      expect(wrapper.queryByDisplayValue('name-of-A')).toBeNull();
+      expect(document.querySelector('input#remark')).toHaveValue('');
+    });
+  });
+
+  it('📦 getFieldsFormatValue uses the recreated form instance', async () => {
+    type Item = { id: string; name: string };
+    const formRef = createRef<ProFormInstance<Item>>();
+
+    const Demo = () => {
+      const [item, setItem] = useState<Item>();
+
+      return (
+        <>
+          <Button onClick={() => setItem({ id: 'A', name: 'name-of-A' })}>
+            open A
+          </Button>
+          <Button onClick={() => setItem({ id: 'B', name: 'name-of-B' })}>
+            open B
+          </Button>
+          <Modal
+            destroyOnHidden
+            footer={null}
+            maskTransitionName=""
+            open={!!item}
+            onCancel={() => setItem(undefined)}
+            transitionName=""
+          >
+            <ProForm<Item>
+              formRef={formRef}
+              submitter={false}
+              request={async () => item!}
+            >
+              <ProFormText name="id" />
+              <ProFormText name="name" />
+            </ProForm>
+          </Modal>
+        </>
+      );
+    };
+
+    const wrapper = render(<Demo />);
+
+    fireEvent.click(wrapper.getByText('open A'));
+    await waitFor(() => {
+      expect(formRef.current?.getFieldsFormatValue?.()).toEqual({
+        id: 'A',
+        name: 'name-of-A',
+      });
+    });
+
+    fireEvent.click(document.querySelector('button.ant-modal-close')!);
+    await waitFor(() => {
+      expect(wrapper.queryByDisplayValue('name-of-A')).toBeNull();
+    });
+
+    fireEvent.click(wrapper.getByText('open B'));
+    await waitFor(() => {
+      expect(formRef.current?.getFieldsFormatValue?.()).toEqual({
+        id: 'B',
+        name: 'name-of-B',
+      });
     });
   });
 

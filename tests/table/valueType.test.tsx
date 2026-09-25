@@ -86,6 +86,30 @@ afterEach(() => {
 });
 
 describe('BasicTable valueType', () => {
+  it('🐛 #9549 preserves precision from a functional percent valueType', async () => {
+    const html = render(
+      <ProTable
+        search={false}
+        options={false}
+        pagination={false}
+        rowKey="key"
+        columns={[
+          {
+            title: '百分比',
+            dataIndex: 'percent',
+            valueType: () => ({
+              type: 'percent',
+              precision: 8,
+            }),
+          },
+        ]}
+        dataSource={[{ key: 1, percent: 0.000001 }]}
+      />,
+    );
+
+    expect(await html.findByText('0.00000100%')).toBeTruthy();
+  });
+
   it('🎏 table support user valueType', async () => {
     const html = render(
       <ProProvider.Provider

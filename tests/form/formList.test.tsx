@@ -1440,6 +1440,29 @@ describe('ProForm List', () => {
     expect(ref.current?.getCurrentRowData().lv2Name).toBe('test');
   });
 
+  it('formats dates in a nested FormList (#5873)', async () => {
+    const formRef = React.createRef<any>();
+    render(
+      <ProForm formRef={formRef} dateFormatter="YYYY-MM-DD">
+        <ProFormList
+          name="list"
+          initialValue={[{ list: [{ date: dayjs('2022-09-06') }] }]}
+        >
+          <ProFormList name="list">
+            <ProFormDatePicker name="date" />
+          </ProFormList>
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitFor(() => {
+      expect(formRef.current).toBeTruthy();
+    });
+    expect(formRef.current.getFieldsFormatValue()).toEqual({
+      list: [{ list: [{ date: '2022-09-06' }] }],
+    });
+  });
+
   it('⛲ ProForm.List getCurrentRowData and setCurrentRowData support two-dimensional array', async () => {
     const ref = React.createRef<{
       getCurrentRowData: () => any;

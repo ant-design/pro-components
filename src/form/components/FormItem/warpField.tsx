@@ -279,7 +279,8 @@ export function warpField<P extends ProFormFieldItemProps = any>(
       );
     }, [fieldProFieldProps, fieldFieldProps, rest, mergedFieldRef]);
 
-    const isLightMode = proFieldProps?.light === true && !customLightMode;
+    const isLightField = proFieldProps?.light === true;
+    const isLightMode = isLightField && !customLightMode;
 
     // 使用useMemo包裹避免不必要的re-render
     const formItem = useDeepCompareMemo(() => {
@@ -325,8 +326,9 @@ export function warpField<P extends ProFormFieldItemProps = any>(
           key={props.proFormFieldKey || otherProps.name?.toString()}
           {...otherProps}
           // 轻量模式下 Form.Item 不展示 label/tooltip，放在展开之后确保不被覆盖
-          label={isLightMode ? undefined : label}
-          tooltip={isLightMode ? undefined : tooltip}
+          noStyle={isLightField}
+          label={isLightField ? undefined : label}
+          tooltip={isLightField ? undefined : tooltip}
           ignoreFormItem={ignoreFormItem}
           transform={transform}
           dataFormat={fieldProps?.format}
@@ -342,6 +344,7 @@ export function warpField<P extends ProFormFieldItemProps = any>(
       );
     }, [
       isLightMode,
+      isLightField,
       label,
       tooltip,
       valuePropName,

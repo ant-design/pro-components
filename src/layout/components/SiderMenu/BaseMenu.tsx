@@ -554,13 +554,17 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const defaultOpenKeysRef = useRef<string[]>([]);
 
   const [defaultOpenAll, setDefaultOpenAll] = useState(menu?.defaultOpenAll);
+  const allMenuOpenKeys = useMemo(
+    () => getOpenKeysFromMenuData(menuData),
+    [menuData],
+  );
 
   const openKeysValue = propsOpenKeys === false ? undefined : propsOpenKeys;
   const [openKeys, setOpenKeysInner] = useControlledState<
     (string | number)[] | false
   >(() => {
     if (menu?.defaultOpenAll) {
-      return getOpenKeysFromMenuData(menuData) || [];
+      return allMenuOpenKeys || [];
     }
     if (propsOpenKeys === false) {
       return false;
@@ -655,13 +659,13 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       } else if (menu?.ignoreFlatMenu && defaultOpenAll && !props.collapsed) {
         // 忽略用户手动折叠过的菜单状态，折叠按钮切换之后也可实现默认展开所有菜单
         // 但是如果用户手动点击关闭菜单，则应该遵循用户的选择
-        setOpenKeys(getOpenKeysFromMenuData(menuData));
+        setOpenKeys(allMenuOpenKeys);
       } else {
         setDefaultOpenAll(false);
       }
     },
     // 依赖项加上 props.collapsed，保证折叠时能正确响应
-    [matchMenuKeys.join('-'), props.collapsed],
+    [matchMenuKeys.join('-'), props.collapsed, allMenuOpenKeys.join('-')],
   );
 
   const openKeysProps = useMemo(
@@ -738,10 +742,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       items={menuUtils.getNavMenuItems(finallyData, 0, 0)}
       onOpenChange={(_openKeys) => {
         if (!props.collapsed) {
-          // 如果用户手动关闭所有菜单，则关闭自动展开
-          if (_openKeys.length === 0) {
-            setDefaultOpenAll(false);
-          }
+          // 用户手动更改过展开状态后，不再用 defaultOpenAll 覆盖其选择
+          setDefaultOpenAll(false);
           setOpenKeys(_openKeys);
         }
       }}

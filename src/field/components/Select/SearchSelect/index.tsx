@@ -122,6 +122,15 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     defaultSearchValue,
     ...restProps
   } = props;
+  const showSearchConfig =
+    typeof showSearch === 'object' ? showSearch : undefined;
+  const effectiveAutoClearSearchValue =
+    showSearchConfig?.autoClearSearchValue ?? autoClearSearchValue;
+  const effectiveOptionFilterProp =
+    showSearchConfig?.optionFilterProp ?? optionFilterProp;
+  const effectiveOnSearch = showSearchConfig?.onSearch ?? onSearch;
+  const effectiveFilterOption =
+    showSearchConfig?.filterOption ?? restProps.filterOption;
 
   const {
     label: labelPropsName = 'label',
@@ -131,7 +140,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
 
   const [searchValue, setSearchValue] = useControlledState(
     defaultSearchValue,
-    propsSearchValue,
+    showSearchConfig?.searchValue ?? propsSearchValue,
   );
 
   const selectRef = useRef<any>();
@@ -240,24 +249,24 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       ref={selectRef}
       className={classString}
       allowClear
-      autoClearSearchValue={autoClearSearchValue}
+      autoClearSearchValue={effectiveAutoClearSearchValue}
       disabled={disabled}
       mode={mode}
       showSearch={showSearch}
       searchValue={searchValue}
-      optionFilterProp={optionFilterProp}
+      optionFilterProp={effectiveOptionFilterProp}
       optionLabelProp={optionLabelProp}
       onClear={() => {
         onClear?.();
         fetchData(undefined);
         if (showSearch) {
-          onSearch?.('');
+          effectiveOnSearch?.('');
           setSearchValue('');
         }
       }}
       {...restProps}
       filterOption={
-        restProps.filterOption == false
+        effectiveFilterOption == false
           ? false
           : (inputValue, option) => {
               // 当 inputValue 为空或 searchValue 为空时，显示所有选项
@@ -268,23 +277,30 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
                 return true;
               }
               if (
-                restProps.filterOption &&
-                typeof restProps.filterOption === 'function'
+                effectiveFilterOption &&
+                typeof effectiveFilterOption === 'function'
               ) {
-                return restProps.filterOption(effectiveSearchValue, {
+                return effectiveFilterOption(effectiveSearchValue, {
                   ...option,
                   label: option?.data_title,
                 });
               }
+              const optionFilterProps = Array.isArray(
+                effectiveOptionFilterProp,
+              )
+                ? effectiveOptionFilterProp
+                : [effectiveOptionFilterProp];
               return !!(
                 option?.data_title
                   ?.toString()
                   .toLowerCase()
                   .includes(effectiveSearchValue.toLowerCase()) ||
-                option?.[optionFilterProp as string]
-                  ?.toString()
-                  .toLowerCase()
-                  .includes(effectiveSearchValue.toLowerCase())
+                optionFilterProps.some((filterProp) =>
+                  option?.[filterProp as string]
+                    ?.toString()
+                    .toLowerCase()
+                    .includes(effectiveSearchValue.toLowerCase()),
+                )
               );
             }
       } // 这里使用pro-components的过滤逻辑
@@ -294,18 +310,18 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
               if (fetchDataOnSearch) {
                 fetchData(value);
               }
-              onSearch?.(value);
+              effectiveOnSearch?.(value);
               setSearchValue(value);
             }
           : undefined
       }
       onChange={(value, optionList, ...rest) => {
         // 将搜索框置空 和 antd 行为保持一致
-        if (showSearch && autoClearSearchValue) {
+        if (showSearch && effectiveAutoClearSearchValue) {
           fetchData(undefined);
-          onSearch?.('');
+          effectiveOnSearch?.('');
           setSearchValue('');
-        } else if (showSearch && !autoClearSearchValue) {
+        } else if (showSearch && !effectiveAutoClearSearchValue) {
           // 当 autoClearSearchValue 为 false 时，保持搜索值不变
           // 但是需要确保我们的状态与 Ant Design 的内部状态同步
           // 在 multiple 模式下，Ant Design 可能会自动清除搜索值，我们需要重新设置它

@@ -15,6 +15,7 @@ import ProForm, { ProFormDependency, ProFormInstance } from '../../../form';
 import type { ParamsType } from '../../../provider';
 import { useIntl } from '../../../provider';
 import {
+  getFieldPropsOrFormItemProps,
   isDeepEqualReact,
   runFunction,
   useDeepCompareEffect,
@@ -123,6 +124,9 @@ export type EditableProTableProps<
 const EditableTableActionContext = React.createContext<
   React.MutableRefObject<ActionType | undefined> | undefined
 >(undefined);
+
+/** Registers validation rules without mounting the full editor control. */
+const VirtualValidationControl: React.FC = () => null;
 
 /** 可编辑表格的按钮 */
 function RecordCreator<T = Record<string, any>>(
@@ -638,15 +642,57 @@ function EditableTable<
     },
   );
 
+  const validateFields = useRefFunction(
+    (
+      nameList?: Parameters<ProFormInstance['validateFields']>[0],
+      config?: Parameters<ProFormInstance['validateFields']>[1],
+    ) => {
+      const tableName = [props.name].flat(1).filter(Boolean) as (
+        | string
+        | number
+      )[];
+      const normalizedNameList = nameList?.map((name) => {
+        const path = (Array.isArray(name) ? name : [name]) as (
+          | string
+          | number
+        )[];
+        const alreadyPrefixed = tableName.every(
+          (segment, index) => path[index] === segment,
+        );
+        if (tableName.length > 0 && alreadyPrefixed) return path;
+
+        const [rowKey, ...fieldPath] = path;
+        const resolvedKey = resolveRowKey(rowKey);
+        return [
+          ...(buildFormFieldPath(resolvedKey) as (string | number)[]),
+          ...fieldPath,
+        ];
+      });
+
+      return formRef.current?.validateFields(normalizedNameList, {
+        recursive: true,
+        ...config,
+      });
+    },
+  );
+
   // 设置 editableFormRef
   useImperativeHandle(editableFormRef, () => {
     return {
       ...formRef.current,
+      validateFields,
       getRowData,
       getRowsData,
       setRowData,
     } as EditableFormInstance<DataType>;
-  }, [resolveRowKey, props.name, getRowData, getRowsData, setRowData]);
+  }, [
+    resolveRowKey,
+    props.name,
+    validateFields,
+    getRowData,
+    getRowsData,
+    setRowData,
+  ]);
 
   /**
    * 处理 name 模式下表单内部编辑引起的 onValuesChange 副作用。
@@ -789,8 +835,75 @@ function EditableTable<
 
   const editableProps = getEditableProps();
 
+  // Virtual tables unmount rows outside the viewport. Ant Design Form also
+  // unregisters those Form.Item entities, so validateFields would otherwise
+  // validate only the visible rows. Keep lightweight, DOM-free field entities
+  // for ruled editable cells while virtual scrolling is enabled (#9553).
+  const virtualValidationFields = props.virtual
+    ? value.flatMap((record, rowIndex) => {
+        const recordKey = getRowKey(record, rowIndex);
+        const editableKeys = props.editable?.editableKeys;
+        if (
+          editableKeys?.length &&
+          !editableKeys.some(
+            (key) => key?.toString() === recordKey?.toString(),
+          )
+        ) {
+          return [];
+        }
+
+        return (rest.columns || []).flatMap((column: any, columnIndex) => {
+          const dataIndex = column?.dataIndex;
+          const cellValue = get(record, [dataIndex].flat(1));
+          const cellIsEditable =
+            typeof column?.editable === 'function'
+              ? column.editable(cellValue, record, rowIndex) !== false
+              : column?.editable !== false;
+          if (
+            dataIndex == null ||
+            column?.valueType === 'option' ||
+            column?.hideInTable ||
+            !cellIsEditable
+          )
+            return [];
+
+          const resolvedForm = formRef.current || form;
+          const resolvedFormItemProps = getFieldPropsOrFormItemProps(
+            column.formItemProps,
+            resolvedForm,
+            {
+              ...column,
+              rowKey: props.name ? rowIndex : recordKey,
+              rowIndex,
+              isEditable: true,
+            },
+          );
+          if (!resolvedFormItemProps?.rules?.length) return [];
+
+          const fieldName = [
+            ...([props.name].flat(1).filter(Boolean) as React.Key[]),
+            props.name ? rowIndex.toString() : recordKey.toString(),
+            ...([dataIndex].flat(1) as React.Key[]),
+          ];
+
+          return (
+            <Form.Item
+              key={`virtual-validation-${fieldName.join('-')}-${columnIndex}`}
+              name={fieldName as NamePath}
+              rules={resolvedFormItemProps.rules}
+              preserve
+              noStyle
+            >
+              <VirtualValidationControl />
+            </Form.Item>
+          );
+        });
+      })
+    : null;
+
   return (
     <>
+      {virtualValidationFields}
       <EditableTableActionContext.Provider value={actionRef}>
         <ProTable<DataType, Params, ValueType>
           search={false}

@@ -6,10 +6,9 @@ export interface ProLayoutBaseMenuToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
-  token,
-  mode,
-) => {
+export const genProLayoutBaseMenuStyle: GenerateStyle<
+  ProLayoutBaseMenuToken
+> = (token, mode) => {
   const menuToken = mode.includes('horizontal')
     ? token.layout?.header
     : token.layout?.sider;
@@ -171,7 +170,9 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           },
         }),
     [`${token.antCls}-menu-submenu-popup`]: {
-      backgroundColor: 'rgba(255, 255, 255, 0.42)',
+      backgroundColor: mode.includes('horizontal')
+        ? token.layout?.header?.colorBgMenuElevated
+        : token.layout?.sider?.colorBgMenuItemCollapsedElevated,
       '-webkit-backdrop-filter': 'blur(8px)',
       backdropFilter: 'blur(8px)',
     },

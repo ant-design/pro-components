@@ -166,7 +166,7 @@ export function genProColumnToColumn<T extends AnyObject>(params: {
         children,
       } = columnProps as ProColumns<T, any>;
       const columnKey = genColumnKey(
-        key || dataIndex?.toString(),
+        key || (dataIndex as React.Key),
         [parents?.key, columnsIndex].filter(Boolean).join('-'),
       );
       const noNeedPro = !valueEnum && !valueType && !children;

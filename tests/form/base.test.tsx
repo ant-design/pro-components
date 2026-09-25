@@ -606,6 +606,20 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
+  it('📦 submitter props support submitButtonProps=false', () => {
+    const wrapper = render(
+      <ProForm
+        submitter={{
+          submitButtonProps: false,
+        }}
+      />,
+    );
+
+    expect(wrapper.queryByText('提 交')).toBeNull();
+    expect(wrapper.getByText('重 置')).toBeTruthy();
+    wrapper.unmount();
+  });
+
   it('📦 submitter props support resetButtonProps', async () => {
     const fn = vi.fn();
     const wrapper = render(
@@ -2436,6 +2450,49 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
+  it('SearchSelect supports the antd 6 showSearch object', async () => {
+    const onSearch = vi.fn();
+    const wrapper = render(
+      <ProFormSelect.SearchSelect
+        name="status"
+        fieldProps={{
+          mode: 'multiple',
+          showSearch: {
+            autoClearSearchValue: false,
+            optionFilterProp: 'value',
+            onSearch,
+          },
+        }}
+        options={[
+          { label: '未解决', value: 'open' },
+          { label: '已解决', value: 'closed' },
+        ]}
+      />,
+    );
+
+    fireEvent.mouseDown(wrapper.baseElement.querySelector('.ant-select')!);
+    const searchInput = wrapper.baseElement.querySelector<HTMLInputElement>(
+      '.ant-select-input',
+    )!;
+    fireEvent.change(searchInput, { target: { value: 'open' } });
+
+    await waitFor(() => {
+      expect(onSearch).toHaveBeenCalledWith('open');
+      expect(
+        document.body.querySelectorAll(
+          '.ant-select-item.ant-select-item-option',
+        ),
+      ).toHaveLength(1);
+    });
+
+    fireEvent.click(
+      document.body.querySelector<HTMLElement>(
+        '.ant-select-item.ant-select-item-option',
+      )!,
+    );
+    expect(searchInput.value).toBe('open');
+  });
+
   it('📦 Select support single', async () => {
     const onFinish = vi.fn();
     const wrapper = render(
@@ -4217,6 +4274,47 @@ describe('ProForm', () => {
     });
 
     wrapper.unmount();
+  });
+
+  it('validateFieldsReturnFormatValue applies ProForm.Item transform (#9179)', async () => {
+    const formRef = React.createRef<ProFormInstance<any>>();
+    render(
+      <ProForm
+        formRef={formRef}
+        initialValues={{ name: { x: 'ffffffff' } }}
+      >
+        <ProForm.Item name="name" transform={(value) => value.x}>
+          <Input />
+        </ProForm.Item>
+      </ProForm>,
+    );
+
+    await waitFor(() => expect(formRef.current).toBeTruthy());
+    await expect(
+      formRef.current!.validateFieldsReturnFormatValue!(),
+    ).resolves.toEqual({ name: 'ffffffff' });
+  });
+
+  it('does not reconvert values already emitted by the component (#9285)', async () => {
+    const Tags = ({ value, onChange }: any) => (
+      <button type="button" onClick={() => onChange(value.slice(1))}>
+        {value.join(',')}
+      </button>
+    );
+    const wrapper = render(
+      <ProForm initialValues={{ tags: 'a,b' }}>
+        <ProForm.Item
+          name="tags"
+          convertValue={(value: string) => value.split(',')}
+        >
+          <Tags />
+        </ProForm.Item>
+      </ProForm>,
+    );
+
+    fireEvent.click(await wrapper.findByRole('button', { name: 'a,b' }));
+
+    expect(await wrapper.findByRole('button', { name: 'b' })).toBeTruthy();
   });
 
   it('📦 getFieldsFormatValue should handle complex transforms', async () => {

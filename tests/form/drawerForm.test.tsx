@@ -672,6 +672,39 @@ describe('DrawerForm', () => {
     });
   });
 
+  it('supports antd 6 size and resizable props', async () => {
+    const onResize = vi.fn();
+    const html = render(
+      <DrawerForm
+        open
+        size="50vw"
+        resizable={{ onResize }}
+        submitter={false}
+      >
+        <ProFormText name="name" />
+      </DrawerForm>,
+    );
+
+    const wrapper = html.baseElement.querySelector<HTMLDivElement>(
+      '.ant-drawer-content-wrapper',
+    );
+    expect(wrapper?.style.width).toBe('50vw');
+
+    const dragger = html.baseElement.querySelector<HTMLElement>(
+      '.ant-drawer-resizable-dragger',
+    );
+    expect(dragger).toBeTruthy();
+
+    fireEvent.mouseDown(dragger!, { clientX: 500 });
+    fireEvent.mouseMove(document, { clientX: 400 });
+    fireEvent.mouseUp(document);
+
+    await waitFor(() => {
+      expect(onResize).toHaveBeenCalled();
+      expect(wrapper?.style.width).not.toBe('50vw');
+    });
+  });
+
   const tests = [
     {
       name: 'drawerForm',

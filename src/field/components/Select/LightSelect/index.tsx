@@ -39,12 +39,17 @@ const getValueOrLabel = (
         label: string;
         value: string;
       }
-    | string,
+    | string
+    | null
+    | undefined,
 ) => {
+  if (v == null) {
+    return v;
+  }
   if (typeof v !== 'object') {
     return valueMap[v] || v;
   }
-  return valueMap[v?.value] || v.label;
+  return valueMap[v.value] || v.label;
 };
 
 export const LightSelect: React.ForwardRefRenderFunction<

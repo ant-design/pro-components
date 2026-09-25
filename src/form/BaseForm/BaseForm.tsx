@@ -316,6 +316,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
       finalValues: Record<string, any>,
       extraUrlParams?: Record<string, any>,
     ) => void;
+    formatValue: (values: any, omit: boolean, parentKey?: NamePath) => any;
     transformKey: (values: any, omit: boolean, parentKey?: NamePath) => any;
   },
 ) {
@@ -326,6 +327,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     fieldProps,
     formItemProps,
     groupProps,
+    formatValue,
     transformKey,
     formRef: propsFormRef,
     onInit,
@@ -362,7 +364,11 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
    */
   const { RowWrapper } = useGridHelpers({ grid, rowProps });
 
-  const getFormInstance = useRefFunction(() => formInstance);
+  // Always resolve the live instance. Containers such as Modal and Drawer can
+  // destroy and recreate their contents while keeping the public formRef. In
+  // that case, closing over `formInstance` leaves the formatting helpers bound
+  // to the already-destroyed form and makes them return an empty object.
+  const getFormInstance = useRefFunction(() => formInstanceRef.current);
 
   // 消除 formatValues useMemo 与 useImperativeHandle 里的重复实现，统一由 buildFormatValues 生成
   const formatValues = useMemo(
@@ -397,10 +403,14 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
           // 如果 syncToUrl，清空 URL 上对应的参数
           onUrlSyncReset(finalValues, extraUrlParams);
         }}
-        submitButtonProps={{
-          loading,
-          ...submitterProps.submitButtonProps,
-        }}
+        submitButtonProps={
+          submitterProps.submitButtonProps === false
+            ? false
+            : {
+                loading,
+                ...submitterProps.submitButtonProps,
+              }
+        }
       />
     );
 
@@ -436,11 +446,11 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     [omitNil, transformKey, propsFormRef],
   );
   useEffect(() => {
-    const finalValues = transformKey(
+    const initialFormValues = formatValue(
       formInstanceRef.current?.getFieldsValue?.(true),
       omitNil,
     );
-    onInit?.(finalValues, {
+    onInit?.(initialFormValues, {
       ...formInstanceRef.current,
       ...formatValues,
     });
@@ -637,6 +647,19 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     },
   );
 
+  const formatValue = useRefFunction(
+    (values: any, paramsOmitNil: boolean, parentKey?: NamePath) => {
+      if (!values || typeof values !== 'object') return values;
+      return conversionMomentValue(
+        values,
+        dateFormatter,
+        fieldsValueType.current,
+        paramsOmitNil,
+        parentKey,
+      );
+    },
+  );
+
   const getPopupContainer = useMemo(() => {
     if (typeof window === 'undefined') return undefined;
     // 如果在 drawerForm 和  modalForm 里就渲染dom到父节点里
@@ -691,6 +714,37 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     return formRef.current;
   }, [!initialData]);
 
+  const requestInitialValues = syncToUrlAsImportant
+    ? {
+        ...initialValues,
+        ...initialData,
+        ...urlParamsMergeInitialValues,
+      }
+    : {
+        ...urlParamsMergeInitialValues,
+        ...initialValues,
+        ...initialData,
+      };
+
+  useEffect(() => {
+    if (!request || !initialData || !formRef.current) return;
+
+    // An externally supplied FormInstance survives Modal/Drawer destruction.
+    // Clear values from the previous request before applying the new record so
+    // omitted fields cannot leak from one edit session into the next.
+    const previousValues = formRef.current.getFieldsValue?.(true) || {};
+    const clearedValues = Object.keys(previousValues).reduce<
+      Record<string, undefined>
+    >((values, key) => {
+      values[key] = undefined;
+      return values;
+    }, {});
+    formRef.current.setFieldsValue?.({
+      ...clearedValues,
+      ...requestInitialValues,
+    });
+  }, [initialData]);
+
   if (request && initialDataLoading) {
     return (
       <div style={{ paddingTop: 50, paddingBottom: 50, textAlign: 'center' }}>
@@ -719,7 +773,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
             formKey: curFormKey.current,
             setFieldValueType: (
               name,
-              { valueType = 'text', dateFormat, transform },
+              { valueType = 'text', dateFormat, convertValue, transform },
             ) => {
               if (!Array.isArray(name)) return;
 
@@ -728,18 +782,38 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                 transformKeyRef.current = namePathSet(
                   transformKeyRef.current,
                   name,
-                  transform,
+                  convertValue
+                    ? (value: any, namePath: string[], allValues: any) => {
+                        let convertedValue = value;
+                        try {
+                          convertedValue = convertValue(value, namePath);
+                        } catch {
+                          // The form store may already contain the component
+                          // value after user interaction (#9285).
+                        }
+                        return transform(
+                          convertedValue,
+                          namePath,
+                          allValues,
+                        );
+                      }
+                    : transform,
                 );
               }
 
-              fieldsValueType.current = namePathSet(
-                fieldsValueType.current,
-                name,
-                {
-                  valueType,
-                  dateFormat,
-                },
-              );
+              // formList is a container. Registering metadata at its path
+              // would overwrite the nested field metadata registered by its
+              // children (for example detailList.0.deliveryDate).
+              if (valueType !== 'formList') {
+                fieldsValueType.current = namePathSet(
+                  fieldsValueType.current,
+                  name,
+                  {
+                    valueType,
+                    dateFormat,
+                  },
+                );
+              }
             },
           }}
         >
@@ -771,19 +845,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                 };
               }}
               // 组合 urlParamsMergeInitialValues 和 initialValues
-              initialValues={
-                syncToUrlAsImportant
-                  ? {
-                      ...initialValues,
-                      ...initialData,
-                      ...urlParamsMergeInitialValues,
-                    }
-                  : {
-                      ...urlParamsMergeInitialValues,
-                      ...initialValues,
-                      ...initialData,
-                    }
-              }
+              initialValues={requestInitialValues}
               onValuesChange={(changedValues, values) => {
                 propRest?.onValuesChange?.(
                   transformKey(changedValues, !!omitNil),
@@ -795,6 +857,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
               onFinish={onFinish}
             >
               <BaseFormComponents<T, U>
+                formatValue={formatValue}
                 transformKey={transformKey}
                 autoComplete="off"
                 loading={

@@ -139,6 +139,13 @@ export function columnRender<T extends AnyObject>({
       ? textDom
       : genCopyable(textDom, columnProps, renderTextStr, text);
 
+  const optionJustifyContent =
+    columnProps.align === 'center'
+      ? 'center'
+      : columnProps.align === 'right'
+        ? 'flex-end'
+        : 'flex-start';
+
   /** 如果是编辑模式，并且 formItemRender 存在直接走 formItemRender */
   if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
@@ -148,8 +155,7 @@ export function columnRender<T extends AnyObject>({
             display: 'flex',
             alignItems: 'center',
             gap: marginSM,
-            justifyContent:
-              columnProps.align === 'center' ? 'center' : 'flex-start',
+            justifyContent: optionJustifyContent,
           }}
         >
           {editableUtils.actionRender({
@@ -198,7 +204,7 @@ export function columnRender<T extends AnyObject>({
         style={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'flex-start',
+          justifyContent: optionJustifyContent,
           gap: 8,
         }}
       >

@@ -2,6 +2,7 @@ import type {
   ActionType,
   EditableFormInstance,
   ProColumns,
+  ProFormInstance,
 } from '@ant-design/pro-components';
 import {
   EditableProTable,
@@ -15,7 +16,7 @@ import {
   render,
   waitFor,
 } from '@testing-library/react';
-import { InputNumber } from 'antd';
+import { Input, InputNumber } from 'antd';
 import crypto from 'crypto';
 import React from 'react';
 import {
@@ -230,6 +231,30 @@ describe('EditorProTable', () => {
     expect(fn).toHaveBeenCalledWith(555);
 
     wrapper.unmount();
+  });
+
+  it('keeps a new row visible with request pagination (#6992)', async () => {
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        request={async () => ({
+          data: defaultData.slice(0, 2),
+          total: 6,
+          success: true,
+        })}
+        pagination={{ pageSize: 2, current: 2 }}
+        recordCreatorProps={{
+          position: 'bottom',
+          record: { id: 555, title: 'new row' },
+        }}
+        columns={columns}
+      />,
+    );
+
+    await wrapper.findByText(defaultData[0].title!);
+    fireEvent.click(wrapper.getByText('添加一行数据'));
+
+    expect(await wrapper.findByDisplayValue('new row')).toBeTruthy();
   });
 
   it('📝 EditableProTable addEditRecord is null will throw Error', async () => {
@@ -833,8 +858,10 @@ describe('EditorProTable', () => {
   });
 
   it('📝 EditableProTable add newLine when position=top', async () => {
+    const formRef = React.createRef<ProFormInstance>();
     const wrapper = render(
       <ProForm
+        formRef={formRef}
         initialValues={{
           table: defaultData,
         }}
@@ -842,7 +869,7 @@ describe('EditorProTable', () => {
         <EditableProTable<DataSourceType>
           recordCreatorProps={{
             id: 'new-button',
-            record: () => ({ id: Math.random() * 100000000 }),
+            record: () => ({ id: 'new-record' }),
             position: 'top',
           }}
           rowKey="id"
@@ -880,6 +907,26 @@ describe('EditorProTable', () => {
       )[0]?.value || '';
 
     expect(firstLineValue).toBe('');
+    fireEvent.change(
+      wrapper.container.querySelectorAll<HTMLInputElement>(
+        '.ant-table-tbody tr.ant-table-row td .ant-input',
+      )[0],
+      { target: { value: 'new title' } },
+    );
+    await act(() => vi.runOnlyPendingTimers());
+
+    const formRows = formRef.current?.getFieldValue('table') as
+      | DataSourceType[]
+      | undefined;
+    expect(formRows).toHaveLength(defaultData.length + 1);
+    expect(formRows?.find((row) => row.id === 'new-record')?.title).toBe(
+      'new title',
+    );
+    defaultData.forEach((originalRow) => {
+      expect(formRows?.find((row) => row.id === originalRow.id)?.title).toBe(
+        originalRow.title,
+      );
+    });
 
     wrapper.unmount();
   });
@@ -1249,6 +1296,86 @@ describe('EditorProTable', () => {
     });
     expect(valuesChangeFn).toHaveBeenCalledTimes(1);
     expect(valuesChangeFn).toHaveBeenCalledWith('test');
+  });
+
+  it('📝 EditableProTable removes a cancelled new row in ProForm name mode', async () => {
+    const onDelete = vi.fn();
+    const formRef = React.createRef<ProFormInstance>();
+    const testColumns: ProColumns<DataSourceType>[] = [
+      {
+        title: '标题',
+        dataIndex: 'title',
+        formItemProps: { rules: [{ required: true }] },
+      },
+      {
+        title: '操作',
+        valueType: 'option',
+        render: (_, row, __, action) => [
+          <a key="edit" onClick={() => action?.startEditable?.(row.id)}>
+            编辑
+          </a>,
+        ],
+      },
+    ];
+    const Demo = () => {
+      const [editableKeys, setEditableKeys] = React.useState<React.Key[]>([]);
+      const nextId = React.useRef(700000000);
+
+      return (
+        <ProForm formRef={formRef} initialValues={{ table: defaultData }}>
+          <EditableProTable<DataSourceType>
+            rowKey="id"
+            name="table"
+            columns={testColumns}
+            recordCreatorProps={{
+              record: () => ({ id: nextId.current++ }),
+            }}
+            editable={{
+              type: 'multiple',
+              editableKeys,
+              onChange: setEditableKeys,
+              onDelete,
+            }}
+          />
+        </ProForm>
+      );
+    };
+
+    const wrapper = render(<Demo />);
+    await waitForWaitTime(100);
+
+    await act(async () => {
+      wrapper.getByText('添加一行数据').click();
+    });
+    await waitForWaitTime(100);
+
+    const newRow = wrapper.container.querySelector<HTMLElement>(
+      '.ant-table-tbody tr[data-row-key="700000000"]',
+    );
+    const cancel = Array.from(newRow?.querySelectorAll('a') ?? []).find(
+      (action) => action.textContent === '取消',
+    );
+    expect(cancel).toBeTruthy();
+
+    await act(async () => {
+      cancel?.click();
+      await vi.runOnlyPendingTimersAsync();
+    });
+
+    const rowKeys = Array.from(
+      wrapper.container.querySelectorAll<HTMLElement>(
+        '.ant-table-tbody tr.ant-table-row',
+      ),
+      (row) => row.dataset.rowKey,
+    );
+    expect(onDelete).toHaveBeenCalledTimes(1);
+    expect(rowKeys).toEqual(defaultData.map((item) => String(item.id)));
+    expect(new Set(rowKeys).size).toBe(rowKeys.length);
+    expect(
+      formRef.current
+        ?.getFieldValue('table')
+        .map((item: DataSourceType) => item.id),
+    ).toEqual(defaultData.map((item) => item.id));
   });
 
   it('📝 EditableProTable add new child line when position is top and tree level > 1 and parent has children', async () => {
@@ -2699,5 +2826,243 @@ describe('EditorProTable', () => {
     }
 
     wrapper.unmount();
+  });
+
+  it('📝 editableFormRef validates a single row by rowKey', async () => {
+    const editableFormRef = React.createRef<
+      EditableFormInstance<DataSourceType>
+    >();
+    const requiredColumns: ProColumns<DataSourceType>[] = [
+      {
+        title: '标题',
+        dataIndex: 'title',
+        formItemProps: {
+          rules: [{ required: true, message: '此项为必填项' }],
+        },
+      },
+    ];
+
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        editableFormRef={editableFormRef}
+        recordCreatorProps={false}
+        rowKey="id"
+        columns={requiredColumns}
+        value={[{ id: 1, title: '' }]}
+        editable={{
+          type: 'multiple',
+          editableKeys: [1],
+        }}
+      />,
+    );
+
+    await waitFor(() => {
+      expect(editableFormRef.current).toBeTruthy();
+      expect(wrapper.container.querySelector('input')).toBeTruthy();
+    });
+
+    await expect(
+      editableFormRef.current!.validateFields([1]),
+    ).rejects.toMatchObject({
+      errorFields: expect.arrayContaining([
+        expect.objectContaining({ name: ['1', 'title'] }),
+      ]),
+    });
+  });
+
+  it('🐛 #9553 validates editable rows outside the virtual viewport', async () => {
+    const editableFormRef = React.createRef<
+      EditableFormInstance<DataSourceType>
+    >();
+    const rows = Array.from({ length: 100 }, (_, index) => ({
+      id: index + 1,
+      title: index === 99 ? '' : `row-${index + 1}`,
+    }));
+
+    const wrapper = render(
+      <ProForm initialValues={{ table: rows }}>
+        <EditableProTable<DataSourceType>
+          name="table"
+          editableFormRef={editableFormRef}
+          recordCreatorProps={false}
+          rowKey="id"
+          virtual
+          scroll={{ y: 120 }}
+          columns={[
+            {
+              title: '标题',
+              dataIndex: 'title',
+              formItemProps: {
+                rules: [{ required: true, message: '此项为必填项' }],
+              },
+            },
+          ]}
+          editable={{
+            type: 'multiple',
+            editableKeys: rows.map((row) => row.id),
+          }}
+        />
+      </ProForm>,
+    );
+
+    await waitFor(() => expect(editableFormRef.current).toBeTruthy());
+    expect(
+      wrapper.container.querySelectorAll(
+        '.ant-table-tbody tr[data-row-key]',
+      ).length,
+    ).toBeLessThan(rows.length);
+    await expect(editableFormRef.current!.validateFields()).rejects.toMatchObject(
+      {
+        errorFields: expect.arrayContaining([
+          expect.objectContaining({ name: ['table', '99', 'title'] }),
+        ]),
+      },
+    );
+  });
+
+  it('🐛 #8085 saving one editable row only validates that row', async () => {
+    const onSave = vi.fn(async () => true);
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        recordCreatorProps={false}
+        rowKey="id"
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            formItemProps: {
+              rules: [{ required: true, message: '此项为必填项' }],
+            },
+          },
+          {
+            title: '操作',
+            valueType: 'option',
+          },
+        ]}
+        value={[
+          { id: 1, title: '' },
+          { id: 2, title: '' },
+        ]}
+        editable={{
+          type: 'multiple',
+          editableKeys: [1, 2],
+          onSave,
+        }}
+      />,
+    );
+
+    const firstRow = wrapper.container.querySelector<HTMLElement>(
+      '.ant-table-tbody tr[data-row-key="1"]',
+    );
+    const secondRow = wrapper.container.querySelector<HTMLElement>(
+      '.ant-table-tbody tr[data-row-key="2"]',
+    );
+    expect(firstRow).toBeTruthy();
+    expect(secondRow).toBeTruthy();
+
+    fireEvent.change(firstRow!.querySelector('input')!, {
+      target: { value: 'valid row' },
+    });
+    fireEvent.click(
+      Array.from(firstRow!.querySelectorAll('a')).find(
+        (action) => action.textContent === '保存',
+      )!,
+    );
+
+    await waitFor(() => {
+      expect(onSave).toHaveBeenCalledWith(
+        1,
+        expect.objectContaining({ title: 'valid row' }),
+        expect.anything(),
+        undefined,
+      );
+    });
+    expect(
+      secondRow!.querySelector('.ant-form-item-explain-error'),
+    ).toBeFalsy();
+  });
+
+  it('keeps validation status with a custom formItemRender (#5942, #8348)', async () => {
+    const editableFormRef = React.createRef<
+      EditableFormInstance<DataSourceType>
+    >();
+    const wrapper = render(
+      <ProForm initialValues={{ table: [{ id: 1, title: '' }] }}>
+        <EditableProTable<DataSourceType>
+          name="table"
+          editableFormRef={editableFormRef}
+          recordCreatorProps={false}
+          rowKey="id"
+          columns={[
+            {
+              title: '标题',
+              dataIndex: 'title',
+              formItemRender: () => <Input />,
+              formItemProps: {
+                rules: [{ required: true, message: '此项为必填项' }],
+              },
+            },
+          ]}
+          editable={{ editableKeys: [1] }}
+        />
+      </ProForm>,
+    );
+
+    await expect(
+      editableFormRef.current!.validateFields([1]),
+    ).rejects.toBeTruthy();
+
+    await waitFor(() => {
+      expect(
+        wrapper.container.querySelector('.ant-input-status-error'),
+      ).toBeTruthy();
+    });
+  });
+
+  it('📝 ProForm submit validates editable table fields', async () => {
+    const onFinish = vi.fn();
+    const onFinishFailed = vi.fn();
+    const requiredColumns: ProColumns<DataSourceType>[] = [
+      {
+        title: '标题',
+        dataIndex: 'title',
+        formItemProps: {
+          rules: [{ required: true, message: '此项为必填项' }],
+        },
+      },
+    ];
+
+    const wrapper = render(
+      <ProForm
+        initialValues={{ table: [{ id: 1, title: '' }] }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+      >
+        <EditableProTable<DataSourceType>
+          name="table"
+          recordCreatorProps={false}
+          rowKey="id"
+          columns={requiredColumns}
+          editable={{
+            type: 'multiple',
+            editableKeys: [1],
+          }}
+        />
+      </ProForm>,
+    );
+
+    fireEvent.click(await wrapper.findByText('提 交'));
+    await act(() => vi.runOnlyPendingTimers());
+
+    await waitFor(() => {
+      expect(onFinish).not.toHaveBeenCalled();
+      expect(onFinishFailed).toHaveBeenCalledWith(
+        expect.objectContaining({
+          errorFields: expect.arrayContaining([
+            expect.objectContaining({ name: ['table', '0', 'title'] }),
+          ]),
+        }),
+      );
+    });
   });
 });
