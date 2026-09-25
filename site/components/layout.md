@@ -436,6 +436,8 @@ ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生�
 
 有时候我们会发现 `collapsed` 和 `onCollapse` 设置默认收起并不生效，这是因为 ProLayout 中内置了 `breakpoint` 来触发收起的机制，我们可以设置 `breakpoint={false}` 来关掉这个机制。
 
+需要在任意组件中切换时，将 `collapsed` 提升到共享状态，并向 ProLayout 传入 `collapsed={collapsed}` 和 `onCollapse={setCollapsed}`。可复用的切换函数为 `() => setCollapsed(value => !value)`。
+
 ### 自定义菜单的宽度
 
 siderWidth 可以自定义菜单的宽度，你可以将其设置得更短或者更长，FooterToolbar 等组件会自动支持，但是可能需要做一些样式上的处理，不然菜单展示可能会有一些小问题。

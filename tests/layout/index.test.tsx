@@ -764,6 +764,39 @@ describe('BasicLayout', () => {
     expect(dom?.textContent).toEqual('true');
   });
 
+  it('🐛 #9279 controls sidebar collapse from an external reusable action', async () => {
+    const Demo = () => {
+      const [collapsed, setCollapsed] = useState(false);
+      const toggleSidebar = () => setCollapsed((value) => !value);
+
+      return (
+        <>
+          <button type="button" onClick={toggleSidebar}>
+            toggle sidebar
+          </button>
+          <ProLayout
+            breakpoint={false}
+            collapsed={collapsed}
+            onCollapse={setCollapsed}
+            collapsedButtonRender={(value) => (
+              <span data-testid="collapsed-state">{String(value)}</span>
+            )}
+          />
+        </>
+      );
+    };
+
+    const wrapper = render(<Demo />);
+    expect(await wrapper.findByTestId('collapsed-state')).toHaveTextContent(
+      'false',
+    );
+
+    fireEvent.click(wrapper.getByText('toggle sidebar'));
+    await waitFor(() => {
+      expect(wrapper.getByTestId('collapsed-state')).toHaveTextContent('true');
+    });
+  });
+
   it('🥩 support hideMenuWhenCollapsed', async () => {
     const wrapper = render(
       <ProLayout

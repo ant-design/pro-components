@@ -481,6 +481,8 @@ ProLayout will automatically select the menu based on `location.pathname` and au
 
 Sometimes we find that `collapsed` and `onCollapse` do not work by default. This is because ProLayout has a built-in `breakpoint` mechanism to trigger collapse, we can set `breakpoint={false}` to turn off this mechanism.
 
+To toggle the sidebar from any component, lift `collapsed` into shared state and pass `collapsed={collapsed}` plus `onCollapse={setCollapsed}` to ProLayout. A reusable toggle action is `() => setCollapsed(value => !value)`.
+
 ### Customize the width of the menu
 
 siderWidth can customize the width of the menu, you can set it shorter or longer FooterToolbar and other components will automatically support, but may need to do some style processing, otherwise the menu display may have some small problems.
