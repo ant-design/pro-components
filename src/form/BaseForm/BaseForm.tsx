@@ -695,6 +695,37 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     return formRef.current;
   }, [!initialData]);
 
+  const requestInitialValues = syncToUrlAsImportant
+    ? {
+        ...initialValues,
+        ...initialData,
+        ...urlParamsMergeInitialValues,
+      }
+    : {
+        ...urlParamsMergeInitialValues,
+        ...initialValues,
+        ...initialData,
+      };
+
+  useEffect(() => {
+    if (!request || !initialData || !formRef.current) return;
+
+    // An externally supplied FormInstance survives Modal/Drawer destruction.
+    // Clear values from the previous request before applying the new record so
+    // omitted fields cannot leak from one edit session into the next.
+    const previousValues = formRef.current.getFieldsValue?.(true) || {};
+    const clearedValues = Object.keys(previousValues).reduce<
+      Record<string, undefined>
+    >((values, key) => {
+      values[key] = undefined;
+      return values;
+    }, {});
+    formRef.current.setFieldsValue?.({
+      ...clearedValues,
+      ...requestInitialValues,
+    });
+  }, [initialData]);
+
   if (request && initialDataLoading) {
     return (
       <div style={{ paddingTop: 50, paddingBottom: 50, textAlign: 'center' }}>
@@ -775,19 +806,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                 };
               }}
               // 组合 urlParamsMergeInitialValues 和 initialValues
-              initialValues={
-                syncToUrlAsImportant
-                  ? {
-                      ...initialValues,
-                      ...initialData,
-                      ...urlParamsMergeInitialValues,
-                    }
-                  : {
-                      ...urlParamsMergeInitialValues,
-                      ...initialValues,
-                      ...initialData,
-                    }
-              }
+              initialValues={requestInitialValues}
               onValuesChange={(changedValues, values) => {
                 propRest?.onValuesChange?.(
                   transformKey(changedValues, !!omitNil),
