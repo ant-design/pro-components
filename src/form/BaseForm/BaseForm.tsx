@@ -848,8 +848,8 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
               initialValues={requestInitialValues}
               onValuesChange={(changedValues, values) => {
                 propRest?.onValuesChange?.(
-                  transformKey(changedValues, !!omitNil),
-                  transformKey(values, !!omitNil),
+                  transformKey(changedValues, false),
+                  transformKey(values, false),
                 );
               }}
               className={props.className}

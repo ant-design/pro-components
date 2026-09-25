@@ -1134,6 +1134,28 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
+  it('🐛 onValuesChange should preserve empty values when omitNil is enabled', async () => {
+    const onValuesChange = vi.fn();
+    const wrapper = render(
+      <ProForm onValuesChange={onValuesChange} omitNil>
+        <ProFormText name="name" fieldProps={{ id: 'omitNilInput' }} />
+      </ProForm>,
+    );
+    await wrapper.findByText('提 交');
+
+    const input = wrapper.baseElement.querySelector<HTMLInputElement>(
+      'input#omitNilInput',
+    )!;
+    fireEvent.change(input, { target: { value: 'test' } });
+    fireEvent.change(input, { target: { value: '' } });
+
+    expect(onValuesChange).toHaveBeenLastCalledWith(
+      { name: '' },
+      { name: '' },
+    );
+    wrapper.unmount();
+  });
+
   it('📦 ProFormField support onChange', async () => {
     const fn = vi.fn();
     const wrapper = render(
