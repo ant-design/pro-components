@@ -2,10 +2,98 @@
 
 Snapshot date: 2026-09-25
 
-The repository currently has 779 open issues. Of those, 396 have not been
-updated for more than two years and 672 have no labels. A title-based first
-pass groups 246 under Form, 209 under Table, 100 under EditableTable, and 79
-under Layout. This backlog must be triaged in batches rather than by age alone.
+After the resolved/stale cleanup, the repository has 348 open issues. Of these,
+300 have no labels, 305 were created more than one year ago, 105 have no
+comments, only 6 were updated in the last 90 days, and only 2 were updated in
+the last 30 days. Title matching (categories overlap) finds 154 Form, 142
+Table, 61 Field, 40 EditableTable, 48 build/type/dependency, and 34 Layout
+reports. The remaining backlog therefore needs reproduction and consolidation
+before implementation, not another age-only closing pass.
+
+## Remaining 348: execution plan
+
+### Phase 0: restore triage signal (1–2 days)
+
+1. Apply one primary component label to all 300 unlabeled issues: `form`,
+   `table`, `editable`, `field`, `layout`, `build`, `docs`, or `question`.
+2. Apply one disposition label: `confirmed`, `needs-reproduction`,
+   `upstream-antd`, `duplicate`, or `roadmap`.
+3. Keep a maximum of one canonical issue per exact symptom. Link and close
+   duplicates only after copying any distinct reproduction details.
+4. Require current `3.x + antd 6` reproduction details for implementation.
+   Reports against v2/antd 5 remain useful as regression hypotheses but are not
+   automatically accepted as current defects.
+
+Exit criteria: every open issue has an owner component and disposition; the
+unlabeled count is zero.
+
+### Phase 1: correctness and page-freeze bugs (week 1)
+
+Work in this order, one issue and one regression test per commit:
+
+| Track                         | Issues                     | Acceptance criteria                                                                                                                                                                                                                  |
+| ----------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Infinite rendering            | #9676                      | The supplied `formItemRender` reproduction settles after one render cycle and remains interactive. Audit whether spreading internal `config` is supported before changing public behavior.                                           |
+| Editable row loss/cache reuse | #9092, #9051, #8951        | Cancel never deletes an existing form-backed row; delete then add never restores the deleted snapshot; multi-row cancellation is order-independent. First rerun these against fixes for #8664/#9203 because they may now be covered. |
+| Validation correctness        | #8085, #8348, #9166, #9553 | Row save validates only its row; error state is visible; LightFilter validation still submits; virtualized off-screen data has an explicitly supported validation path.                                                              |
+| Numeric output correctness    | #9549                      | `valueType: { type: 'percent', precision: 8 }` preserves eight-digit precision and has read/edit coverage.                                                                                                                           |
+
+Do not combine these into one large EditableTable patch. The data-loss cases
+must be independently revertable.
+
+### Phase 2: current 3.x regressions and compatibility (week 2)
+
+- #9649: reproduce LightFilter `collapse` focus/popup dismissal and test text,
+  select, and date fields.
+- #9292 and #9222: compare SearchSelect behavior with native antd 6 Select,
+  then document which layer owns `searchValue`, filtering, and blur behavior.
+- #8473/#8743/#9407: run one light/dark token matrix with hashed styles on and
+  off before modifying Layout theme code.
+- #9243/#9053/#9645: test only supported package entry points and TypeScript
+  versions; separate broken declarations from mixed v2/v3 dependency trees.
+- #9629: make an explicit maintainer decision to deprecate or republish the old
+  standalone sub-packages. The monolithic v3 manifest cannot repair already
+  published v2 peer ranges.
+- #9684/#9632: treat documentation-site regressions as a separate deployable
+  batch so product releases are not blocked by site styling.
+
+### Phase 3: EditableTable performance and virtualization (week 3)
+
+Canonical performance issue: keep #9264 and fold #9263, #9271, #9275, and
+#9612 into it after preserving their distinct scenarios. Keep #9424 and #9553
+as correctness constraints, not performance duplicates.
+
+Build a benchmark before changing render paths:
+
+| Scenario                   | Sizes           | Measurements                                            | Target                                              |
+| -------------------------- | --------------- | ------------------------------------------------------- | --------------------------------------------------- |
+| Controlled EditableTable   | 20/100/200 rows | keystroke-to-paint, commits, heap                       | p95 under 100 ms at 100 rows                        |
+| EditableTable in Form.Item | 20/100/200 rows | parent/table/row render counts                          | changed row only where possible                     |
+| Multiple-row editing       | 20/100 rows     | validation and cancellation time                        | linear growth, no row loss                          |
+| Virtual table              | 200/1000 rows   | focus navigation, header alignment, validation coverage | no alignment drift; documented validation semantics |
+
+Profile field registration, form-wide subscriptions, `onValuesChange`, and
+column recreation separately. Do not trade away validation or data integrity
+to hit the latency target.
+
+### Phase 4: product behavior and documentation (week 4)
+
+- Merge #9683 for #9679 after rebasing and add a focused test for custom
+  `loadingContent` plus the default Spin fallback.
+- Resolve #9319/#9321 through one documented local-vs-remote sorting contract.
+- Answer and close roadmap/how-to reports such as #9555, #9279, #9433, #9565,
+  #9569, and #9583 rather than routing them through code changes.
+- Review enhancements (#9643, #9682, #9664) against API surface and maintenance
+  cost; accepted features need an owner and milestone, otherwise close with a
+  concrete alternative.
+
+### Release gates
+
+Each implementation batch must pass focused tests, `pnpm run tsc`, repository
+safety checks, and the relevant complete component suite. Before a release,
+also run the full suite and declaration build. Close fixed issues only after the
+fix is present in a published version, with the release number in the closing
+comment.
 
 ## P0: security and data integrity
 
