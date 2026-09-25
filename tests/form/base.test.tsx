@@ -118,6 +118,25 @@ describe('ProForm', () => {
     });
   });
 
+  it('🐛 #9211 addon content keeps text and select fields flexible', () => {
+    const wrapper = render(
+      <ProForm submitter={false}>
+        <ProFormText name="text" addonAfter="Text action" />
+        <ProFormSelect name="select" addonAfter="Select action" />
+      </ProForm>,
+    );
+
+    const textLayout = wrapper.container
+      .querySelector('input#text')
+      ?.closest('.ant-form-item-control-input')?.parentElement;
+    const selectLayout = wrapper.container
+      .querySelector('#select')
+      ?.closest('.ant-form-item-control-input')?.parentElement;
+
+    expect(textLayout).toHaveStyle({ flex: '1', minWidth: '0' });
+    expect(selectLayout).toHaveStyle({ flex: '1', minWidth: '0' });
+  });
+
   // need jsdom support
   it('📦 ProForm support sync form url', async () => {
     const fn = vi.fn();
