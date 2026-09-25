@@ -5,33 +5,56 @@ import { useEffect, useMemo, useState } from 'react';
  *
  * @see https://github.com/chenshuai2144/use-params
  */
+function isHashRouterUrl(url: URL): boolean {
+  return /^#!?\//.test(url.hash);
+}
+
+function getSearchParams(url: URL): URLSearchParams {
+  if (!isHashRouterUrl(url)) return url.searchParams;
+  const queryIndex = url.hash.indexOf('?');
+  return new URLSearchParams(
+    queryIndex === -1 ? '' : url.hash.slice(queryIndex + 1),
+  );
+}
+
+function getSearchString(url: URL): string {
+  return getSearchParams(url).toString();
+}
+
 function setQueryToCurrentUrl(params: Record<string, unknown>): URL {
   const href =
     typeof window !== 'undefined' && window.location
       ? window.location.href
       : 'http://localhost/';
   const url = new URL(href);
+  const searchParams = getSearchParams(url);
   Object.keys(params).forEach((key) => {
     const value = params[key];
     if (value !== null && value !== undefined) {
       if (Array.isArray(value)) {
-        url.searchParams.delete(key);
+        searchParams.delete(key);
         value.forEach((valueItem) => {
-          url.searchParams.append(key, String(valueItem));
+          searchParams.append(key, String(valueItem));
         });
       } else if (value instanceof Date) {
         if (!Number.isNaN(value.getTime())) {
-          url.searchParams.set(key, value.toISOString());
+          searchParams.set(key, value.toISOString());
         }
       } else if (typeof value === 'object') {
-        url.searchParams.set(key, JSON.stringify(value));
+        searchParams.set(key, JSON.stringify(value));
       } else {
-        url.searchParams.set(key, String(value));
+        searchParams.set(key, String(value));
       }
     } else {
-      url.searchParams.delete(key);
+      searchParams.delete(key);
     }
   });
+  if (isHashRouterUrl(url)) {
+    const queryIndex = url.hash.indexOf('?');
+    const hashPath = queryIndex === -1 ? url.hash : url.hash.slice(0, queryIndex);
+    const nextSearch = searchParams.toString();
+    url.hash = `${hashPath}${nextSearch ? `?${nextSearch}` : ''}`;
+  }
   return url;
 }
 
@@ -77,10 +100,13 @@ export function useUrlSearchParams(
   (value: Record<string, string | number>) => void,
 ] {
   const [, forceUpdate] = useState<Record<string, unknown>>();
-  const locationSearch =
+  const locationHref =
     typeof window !== 'undefined' && window.location
-      ? window.location.search
+      ? window.location.href
       : undefined;
+  const locationSearch = locationHref
+    ? getSearchString(new URL(locationHref))
+    : undefined;
 
   /** disabled 时与上游包一致，使用空对象占位（勿改为 URLSearchParams，以免影响 toString 比较逻辑） */
   const urlSearchParams = useMemo(() => {
@@ -127,14 +153,16 @@ export function useUrlSearchParams(
       return;
     }
     const url = setQueryToCurrentUrl(newParams);
-    if (window.location.search !== url.search) {
+    const currentSearch = getSearchString(new URL(window.location.href));
+    const nextSearch = getSearchString(url);
+    if (currentSearch !== nextSearch) {
       window.history.replaceState({}, '', url.toString());
     }
     const prev =
       urlSearchParams instanceof URLSearchParams
         ? urlSearchParams.toString()
         : Object.prototype.toString.call(urlSearchParams);
-    if (prev !== url.searchParams.toString()) {
+    if (prev !== nextSearch) {
       forceUpdate({});
     }
   }
@@ -165,8 +193,10 @@ export function useUrlSearchParams(
       forceUpdate({});
     };
     window.addEventListener('popstate', onPopState);
+    window.addEventListener('hashchange', onPopState);
     return () => {
       window.removeEventListener('popstate', onPopState);
+      window.removeEventListener('hashchange', onPopState);
     };
   }, [config.disabled]);
 
