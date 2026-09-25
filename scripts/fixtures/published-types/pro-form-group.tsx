@@ -1,5 +1,14 @@
 import React from 'react';
 import { ProForm, ProFormGroup } from '../../../es';
+import type {
+  GroupProps,
+  ProFormGroupProps,
+  ProFormItemProps,
+} from '../../../es';
+
+const groupProps: ProFormGroupProps = { title: 'Typed group' };
+const legacyGroupProps: GroupProps = groupProps;
+const itemProps: ProFormItemProps = { label: 'Typed item' };
 
 const NamespaceGroup = () => (
   <ProForm>
@@ -7,6 +16,10 @@ const NamespaceGroup = () => (
   </ProForm>
 );
 
-const NamedGroup = () => <ProFormGroup title="Named group" />;
+const NamedGroup = () => (
+  <ProFormGroup {...legacyGroupProps}>
+    <ProForm.Item {...itemProps}>content</ProForm.Item>
+  </ProFormGroup>
+);
 
 export { NamedGroup, NamespaceGroup };

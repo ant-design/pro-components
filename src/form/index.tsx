@@ -45,6 +45,6 @@ export type {
 } from './typing';
 export { PRO_FIELD_SCHEMA_LAYOUT_VALUE_TYPES } from './typing';
 export { GridContext, ProForm };
-export type { ProFormGroupProps as GroupProps };
+export type { ProFormGroupProps, ProFormGroupProps as GroupProps };
 
 export default ProForm;
