@@ -2870,6 +2870,56 @@ describe('EditorProTable', () => {
     });
   });
 
+  it('🐛 #9553 validates editable rows outside the virtual viewport', async () => {
+    const editableFormRef = React.createRef<
+      EditableFormInstance<DataSourceType>
+    >();
+    const rows = Array.from({ length: 100 }, (_, index) => ({
+      id: index + 1,
+      title: index === 99 ? '' : `row-${index + 1}`,
+    }));
+
+    const wrapper = render(
+      <ProForm initialValues={{ table: rows }}>
+        <EditableProTable<DataSourceType>
+          name="table"
+          editableFormRef={editableFormRef}
+          recordCreatorProps={false}
+          rowKey="id"
+          virtual
+          scroll={{ y: 120 }}
+          columns={[
+            {
+              title: '标题',
+              dataIndex: 'title',
+              formItemProps: {
+                rules: [{ required: true, message: '此项为必填项' }],
+              },
+            },
+          ]}
+          editable={{
+            type: 'multiple',
+            editableKeys: rows.map((row) => row.id),
+          }}
+        />
+      </ProForm>,
+    );
+
+    await waitFor(() => expect(editableFormRef.current).toBeTruthy());
+    expect(
+      wrapper.container.querySelectorAll(
+        '.ant-table-tbody tr[data-row-key]',
+      ).length,
+    ).toBeLessThan(rows.length);
+    await expect(editableFormRef.current!.validateFields()).rejects.toMatchObject(
+      {
+        errorFields: expect.arrayContaining([
+          expect.objectContaining({ name: ['table', '99', 'title'] }),
+        ]),
+      },
+    );
+  });
+
   it('🐛 #8085 saving one editable row only validates that row', async () => {
     const onSave = vi.fn(async () => true);
     const wrapper = render(
