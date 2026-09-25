@@ -4295,6 +4295,28 @@ describe('ProForm', () => {
     ).resolves.toEqual({ name: 'ffffffff' });
   });
 
+  it('does not reconvert values already emitted by the component (#9285)', async () => {
+    const Tags = ({ value, onChange }: any) => (
+      <button type="button" onClick={() => onChange(value.slice(1))}>
+        {value.join(',')}
+      </button>
+    );
+    const wrapper = render(
+      <ProForm initialValues={{ tags: 'a,b' }}>
+        <ProForm.Item
+          name="tags"
+          convertValue={(value: string) => value.split(',')}
+        >
+          <Tags />
+        </ProForm.Item>
+      </ProForm>,
+    );
+
+    fireEvent.click(await wrapper.findByRole('button', { name: 'a,b' }));
+
+    expect(await wrapper.findByRole('button', { name: 'b' })).toBeTruthy();
+  });
+
   it('📦 getFieldsFormatValue should handle complex transforms', async () => {
     const formRef = React.createRef<ProFormInstance<any>>();
     const wrapper = render(

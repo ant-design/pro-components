@@ -783,12 +783,20 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                   transformKeyRef.current,
                   name,
                   convertValue
-                    ? (value: any, namePath: string[], allValues: any) =>
-                        transform(
-                          convertValue(value, namePath),
+                    ? (value: any, namePath: string[], allValues: any) => {
+                        let convertedValue = value;
+                        try {
+                          convertedValue = convertValue(value, namePath);
+                        } catch {
+                          // The form store may already contain the component
+                          // value after user interaction (#9285).
+                        }
+                        return transform(
+                          convertedValue,
                           namePath,
                           allValues,
-                        )
+                        );
+                      }
                     : transform,
                 );
               }

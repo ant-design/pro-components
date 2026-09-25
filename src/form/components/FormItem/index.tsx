@@ -206,10 +206,33 @@ const WarpFormItem: React.FC<
   help,
   ...props
 }) => {
+  const convertValueTypeRef = React.useRef<{
+    source: string;
+    target: string;
+  }>();
+  const getValueType = (value: any) => {
+    if (value === null) return 'null';
+    if (Array.isArray(value)) return 'array';
+    return typeof value;
+  };
   const getValuePropsFunc =
     convertValue || props.getValueProps
       ? (value: any) => {
-          const newValue = convertValue?.(value, props.name!) ?? value;
+          const valueType = getValueType(value);
+          const cachedTypes = convertValueTypeRef.current;
+          const shouldReuseComponentValue =
+            cachedTypes &&
+            cachedTypes.source !== cachedTypes.target &&
+            valueType === cachedTypes.target;
+          const newValue = shouldReuseComponentValue
+            ? value
+            : (convertValue?.(value, props.name!) ?? value);
+          if (convertValue && !shouldReuseComponentValue) {
+            convertValueTypeRef.current = {
+              source: valueType,
+              target: getValueType(newValue),
+            };
+          }
           if (props.getValueProps) return props.getValueProps(newValue);
           return { [valuePropName || 'value']: newValue };
         }
