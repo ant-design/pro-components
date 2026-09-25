@@ -278,7 +278,7 @@ const WarpFormItem: React.FC<
                 {addonBefore ? (
                   <div style={{ marginInlineEnd: 8 }}>{addonBefore}</div>
                 ) : null}
-                {doms.input}
+                <div style={{ flex: 1, minWidth: 0 }}>{doms.input}</div>
                 {addonAfter ? (
                   <div style={{ marginInlineStart: 8 }}>{addonAfter}</div>
                 ) : null}
