@@ -41,7 +41,9 @@ export const field: ProSchemaRenderValueTypeFunction<any, any> = (
 
   const formItemRender = item?.formItemRender
     ? (_: any, config: any) => {
-        const renderConfig = {
+        const renderConfig: Parameters<
+          NonNullable<typeof item.formItemRender>
+        >[1] = {
           ...omitUndefined({
             ...config,
             onChange: undefined,
@@ -50,7 +52,7 @@ export const field: ProSchemaRenderValueTypeFunction<any, any> = (
             // this same formItemRender forever (#9676).
             formItemRender: undefined,
           }),
-        };
+        } as Parameters<NonNullable<typeof item.formItemRender>>[1];
         // `defaultRender` and `type` are control metadata rather than field
         // props. Keep direct/destructured access for compatibility, but make
         // them non-enumerable so `{...config}` cannot feed a newly-created
