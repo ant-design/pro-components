@@ -2436,6 +2436,49 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
+  it('SearchSelect supports the antd 6 showSearch object', async () => {
+    const onSearch = vi.fn();
+    const wrapper = render(
+      <ProFormSelect.SearchSelect
+        name="status"
+        fieldProps={{
+          mode: 'multiple',
+          showSearch: {
+            autoClearSearchValue: false,
+            optionFilterProp: 'value',
+            onSearch,
+          },
+        }}
+        options={[
+          { label: '未解决', value: 'open' },
+          { label: '已解决', value: 'closed' },
+        ]}
+      />,
+    );
+
+    fireEvent.mouseDown(wrapper.baseElement.querySelector('.ant-select')!);
+    const searchInput = wrapper.baseElement.querySelector<HTMLInputElement>(
+      '.ant-select-input',
+    )!;
+    fireEvent.change(searchInput, { target: { value: 'open' } });
+
+    await waitFor(() => {
+      expect(onSearch).toHaveBeenCalledWith('open');
+      expect(
+        document.body.querySelectorAll(
+          '.ant-select-item.ant-select-item-option',
+        ),
+      ).toHaveLength(1);
+    });
+
+    fireEvent.click(
+      document.body.querySelector<HTMLElement>(
+        '.ant-select-item.ant-select-item-option',
+      )!,
+    );
+    expect(searchInput.value).toBe('open');
+  });
+
   it('📦 Select support single', async () => {
     const onFinish = vi.fn();
     const wrapper = render(
