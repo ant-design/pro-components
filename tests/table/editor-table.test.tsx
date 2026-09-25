@@ -2995,6 +2995,43 @@ describe('EditorProTable', () => {
     errorSpy.mockRestore();
   });
 
+  it('🐛 #9424 keeps a virtual table header synced after keyboard navigation', async () => {
+    const rows = Array.from({ length: 50 }, (_, index) => ({
+      id: index + 1,
+      title: `row-${index + 1}`,
+      state: 'open',
+    }));
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        recordCreatorProps={false}
+        rowKey="id"
+        virtual
+        scroll={{ x: 800, y: 120 }}
+        columns={[
+          { title: '标题', dataIndex: 'title', width: 400 },
+          { title: '状态', dataIndex: 'state', width: 400 },
+        ]}
+        value={rows}
+        editable={{ type: 'multiple', editableKeys: rows.map((row) => row.id) }}
+      />,
+    );
+
+    const input = await wrapper.findByDisplayValue('row-1');
+    fireEvent.keyDown(input, { key: 'ArrowRight' });
+
+    const holder = wrapper.container.querySelector(
+      '.ant-table-tbody-virtual-holder',
+    ) as HTMLElement;
+    const header = wrapper.container.querySelector(
+      '.ant-table-header',
+    ) as HTMLElement;
+    expect(holder).toBeTruthy();
+    expect(header).toBeTruthy();
+
+    fireEvent.wheel(holder, { deltaX: 160, deltaY: 0 });
+    await waitFor(() => expect(header.scrollLeft).toBe(160));
+  });
+
   it('🐛 #8085 saving one editable row only validates that row', async () => {
     const onSave = vi.fn(async () => true);
     const wrapper = render(
