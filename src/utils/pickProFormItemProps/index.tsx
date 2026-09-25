@@ -13,6 +13,7 @@ const antdFormItemPropsList = [
   'label',
   'labelAlign',
   'labelCol',
+  'layout',
   'name',
   'preserve',
   'normalize',

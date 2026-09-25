@@ -12,6 +12,26 @@ afterEach(() => {
 });
 
 describe('ProForm.Item', () => {
+  it('🐛 #9254 supports overriding layout on a ProForm field', () => {
+    const { container } = render(
+      <ProForm layout="vertical">
+        <ProFormText name="vertical" label="Vertical" />
+        <ProFormText
+          name="horizontal"
+          label="Horizontal"
+          layout="horizontal"
+        />
+      </ProForm>,
+    );
+
+    expect(
+      container.querySelector('#vertical')?.closest('.ant-form-item'),
+    ).toHaveClass('ant-form-item-vertical');
+    expect(
+      container.querySelector('#horizontal')?.closest('.ant-form-item'),
+    ).toHaveClass('ant-form-item-horizontal');
+  });
+
   it('📦 ProForm support fieldProps.onBlur', async () => {
     const onBlur = vi.fn();
     const { container } = render(
