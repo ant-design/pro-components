@@ -1630,6 +1630,20 @@ describe('Field', () => {
     html.unmount();
   });
 
+  it('🐴 textarea read mode does not pass showCount to the DOM', () => {
+    const html = render(
+      <Field
+        text="qixian"
+        valueType="textarea"
+        mode="read"
+        fieldProps={{ showCount: true }}
+      />,
+    );
+
+    expect(html.baseElement.querySelector('span[showcount]')).toBeNull();
+    html.unmount();
+  });
+
   it(`🐴 valueType formItemRender return number`, async () => {
     const html = render(
       <Field

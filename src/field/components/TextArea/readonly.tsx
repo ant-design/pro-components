@@ -32,7 +32,7 @@ const FieldTextAreaReadonly: ProFieldFC<{
     <span
       ref={ref}
       className={clsx(hashId, readonlyClassName, compClassName)}
-      {...omit(fieldProps, ['autoSize', 'classNames', 'styles'])}
+      {...omit(fieldProps, ['autoSize', 'classNames', 'showCount', 'styles'])}
     >
       {text ?? '-'}
     </span>,
