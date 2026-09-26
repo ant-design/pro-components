@@ -9,6 +9,7 @@
   - 🆕 `onCell` td props now include `data-editing` / `data-cell-editing` editing state for custom cell interactions (proposal C of #9043)
 - ProTable
   - ⚡️ Plain `ellipsis: true` now uses antd Table native CSS ellipsis for much faster rendering on large datasets; columns configured with `tooltip`/`showTitle` or `copyable` keep the Typography rendering path [#9664](https://github.com/ant-design/pro-components/issues/9664) [#8868](https://github.com/ant-design/pro-components/issues/8868)
+  - ⚡️ Refactor the per-cell render hot path: `editableKeys` now builds a Set/Map index once per change for O(1) lookups (~5x faster edit-state checks); tables without `editable` no longer wrap `onCell`, and tree data without children skips index registration, drastically cutting per-cell closure and array allocations
 - ProForm
   - 🔥 Add `loadingRender` prop to customize the render while `request` is loading (e.g. `Skeleton`), aligning with antd 5.18+ loading style [#9679](https://github.com/ant-design/pro-components/issues/9679)
 - ProFormSelect

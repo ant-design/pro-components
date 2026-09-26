@@ -104,10 +104,7 @@ export function columnRender<T extends AnyObject>({
     recordKey,
     isRowEditable,
     cellEditableKeys = [],
-  } = editableUtils.isEditable({
-    ...rowData,
-    index,
-  });
+  } = editableUtils.isEditable(rowData, index);
   const { renderText = (val: any) => val } = columnProps;
 
   const renderTextStr = renderText(text, rowData, index, action as ActionType);

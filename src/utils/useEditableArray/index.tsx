@@ -39,6 +39,9 @@ const warning = (messageStr: React.ReactNode) => {
   return message.warning(messageStr);
 };
 
+/** 无 cell 级编辑键时复用的空数组，避免每格渲染分配 */
+const EMPTY_CELL_KEYS: string[] = [];
+
 export type RowEditableType = 'single' | 'multiple';
 
 export type RecordKey = React.Key | React.Key[];
@@ -919,68 +922,88 @@ export function useEditableArray<RecordType extends AnyObject>(
   const editableKeysRef = usePrevious(editableKeys);
 
   /**
-   * 检查 key 是否在编辑列表中
+   * 编辑键索引：keys 变化时构建一次，行/单元格查询 O(1)，
+   * 避免原先每个单元格渲染时重复 map/filter/Set 分配（R×C×K 复杂度）
    */
-  const checkKeyInEditableList = useRefFunction(
-    (key: string, keysList: string[]): boolean => {
-      return keysList.includes(key);
-    },
-  );
-
-  /**
-   * 判断 editableKeys 中该行包含的 cell 粒度复合键（`${rowKey}:${dataIndex}`）
-   * 返回不含行键本身的 cell 键集合，用于列级编辑判断
-   */
-  const getCellEditableKeysForRow = useRefFunction(
-    (recordKey: string, keysList: string[]): string[] => {
-      const prefix = `${recordKey}:`;
-      return keysList.filter((key) => key.startsWith(prefix));
-    },
-  );
-
-  /** 这行是不是编辑状态（支持 cell 粒度复合键 `${rowKey}:${dataIndex}`） */
-  const isEditable = useRefFunction((row: RecordType & { index: number }) => {
-    const recordKeyWithIndex = props.getRowKey(row, row.index)?.toString();
-    const recordKey = props.getRowKey(row, -1)?.toString();
-    const stringEditableKeys =
-      editableKeys?.map((key) => key?.toString()) || [];
-    const stringEditableKeysRef =
-      editableKeysRef?.map((key) => key?.toString()) || [];
-
-    // cell 粒度：该行激活的 cell 复合键列表（去重，避免 rowKey 与 index 拼出重复键）
-    const cellKeys = Array.from(
-      new Set(
-        getCellEditableKeysForRow(recordKey, stringEditableKeys).concat(
-          getCellEditableKeysForRow(recordKeyWithIndex, stringEditableKeys),
-        ),
-      ),
-    );
-    const cellKeysRef = Array.from(
-      new Set(
-        getCellEditableKeysForRow(recordKey, stringEditableKeysRef).concat(
-          getCellEditableKeysForRow(recordKeyWithIndex, stringEditableKeysRef),
-        ),
-      ),
-    );
-
-    const rowEditable =
-      checkKeyInEditableList(recordKey, stringEditableKeys) ||
-      checkKeyInEditableList(recordKeyWithIndex, stringEditableKeys);
-    const rowEditableRef =
-      checkKeyInEditableList(recordKey, stringEditableKeysRef) ||
-      checkKeyInEditableList(recordKeyWithIndex, stringEditableKeysRef);
-
-    return {
-      recordKey,
-      /** 行级或任意 cell 级激活时该行处于编辑状态 */
-      isEditable: rowEditable || cellKeys.length > 0,
-      preIsEditable: rowEditableRef || cellKeysRef.length > 0,
-      /** 行级编辑（控制 option 列的保存/取消按钮渲染） */
-      isRowEditable: rowEditable,
-      /** 当前行的 cell 粒度复合键（如 ['row1:name']），空数组表示非 cell 编辑 */
-      cellEditableKeys: cellKeys,
+  const editableIndex = useMemo(() => {
+    const build = (keys?: React.Key[]) => {
+      const rowKeySet = new Set<string>();
+      const cellKeysMap = new Map<string, string[]>();
+      keys?.forEach((key) => {
+        const keyStr = key?.toString();
+        if (!keyStr) return;
+        // 行级判断保持精确匹配语义：含 ':' 的键仍可整串作为 rowKey 命中
+        rowKeySet.add(keyStr);
+        // 复合键 `${rowKey}:${dataIndex}` 归入 cell 级索引。
+        // 在每个冒号边界注册，保持与旧版 startsWith(`${rowKey}:`) 前缀匹配
+        // 完全等价（rowKey 自身含 ':' 时也能命中）
+        let separatorIndex = keyStr.indexOf(':');
+        while (separatorIndex > -1) {
+          const rowKey = keyStr.slice(0, separatorIndex);
+          const list = cellKeysMap.get(rowKey);
+          if (list) {
+            if (!list.includes(keyStr)) list.push(keyStr);
+          } else {
+            cellKeysMap.set(rowKey, [keyStr]);
+          }
+          separatorIndex = keyStr.indexOf(':', separatorIndex + 1);
+        }
+      });
+      return { rowKeySet, cellKeysMap };
     };
-  });
+    return {
+      current: build(editableKeys),
+      previous: build(editableKeysRef),
+    };
+  }, [editableKeys, editableKeysRef]);
+
+  /** 这行是不是编辑状态（支持 cell 粒度复合键 `${rowKey}:${dataIndex}`）
+   *
+   * 兼容两种调用：isEditable(row, index) 与 isEditable({ ...row, index })
+   */
+  const isEditable = useRefFunction(
+    (row: RecordType, indexArg?: number) => {
+      const index = indexArg ?? (row as { index?: number })?.index;
+      const recordKeyWithIndex = props.getRowKey(row, index)?.toString();
+      const recordKey = props.getRowKey(row, -1)?.toString();
+      const { current, previous } = editableIndex;
+
+      // cell 粒度：该行激活的 cell 复合键（合并 rowKey 与 index 两种寻址，构建时已去重）
+      let cellKeys = EMPTY_CELL_KEYS;
+      const byKey = current.cellKeysMap.get(recordKey);
+      const byIndex = current.cellKeysMap.get(recordKeyWithIndex);
+      if (byKey && byIndex && byKey !== byIndex) {
+        cellKeys = byKey.concat(
+          byIndex.filter((k) => !byKey.includes(k)),
+        );
+      } else if (byKey || byIndex) {
+        cellKeys = (byKey ?? byIndex)!;
+      }
+
+      const rowEditable =
+        current.rowKeySet.has(recordKey) ||
+        current.rowKeySet.has(recordKeyWithIndex);
+      const rowEditableRef =
+        previous.rowKeySet.has(recordKey) ||
+        previous.rowKeySet.has(recordKeyWithIndex);
+
+      return {
+        recordKey,
+        /** 行级或任意 cell 级激活时该行处于编辑状态 */
+        isEditable: rowEditable || cellKeys.length > 0,
+        preIsEditable:
+          rowEditableRef ||
+          !!(
+            previous.cellKeysMap.get(recordKey)?.length ||
+            previous.cellKeysMap.get(recordKeyWithIndex)?.length
+          ),
+        /** 行级编辑（控制 option 列的保存/取消按钮渲染） */
+        isRowEditable: rowEditable,
+        /** 当前行的 cell 粒度复合键（如 ['row1:name']），空数组表示非 cell 编辑 */
+        cellEditableKeys: cellKeys,
+      };
+    },
+  );
 
   /**
    * 验证是否可以开始编辑

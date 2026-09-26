@@ -651,12 +651,16 @@ const ProTable = <
   counter.setAction(actionRef.current);
 
   // ---------- 列计算相关 start  -----------------
+  /** 表格是否开启行编辑，列生成上下文用其跳过非编辑表格的 onCell 包装 */
+  const editableConfig = !!props.editable;
+
   const tableColumn = useMemo(() => {
     const columnContext: TableColumnContext<T> = {
       counter,
       columnEmptyText,
       type,
       editableUtils,
+      editableConfig,
       marginSM: token.marginSM,
       rowKey: rowKey ?? 'id',
       childrenColumnName: props.expandable?.childrenColumnName ?? 'children',
@@ -674,6 +678,7 @@ const ProTable = <
     columnEmptyText,
     type,
     editableUtils.editableKeys?.join(','),
+    editableConfig,
     proFilter,
     proSort,
   ]);

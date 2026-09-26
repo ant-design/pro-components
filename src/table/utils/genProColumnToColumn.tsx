@@ -32,6 +32,8 @@ export type TableColumnContext<T> = {
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
+  /** 表格是否开启行编辑（editable 配置存在），用于跳过非编辑表格的 onCell 包装 */
+  editableConfig: boolean;
   marginSM: number;
   rowKey: TableProps<T>['rowKey'];
   childrenColumnName: string;
@@ -78,6 +80,8 @@ function parseColumnFilterSort<T>(
   };
 }
 
+const EMPTY_SUB_NAME: string[] = [];
+
 function updateSubNameRecord<T>(
   rowData: T,
   index: number,
@@ -85,18 +89,23 @@ function updateSubNameRecord<T>(
   childrenColumnName: string,
   subNameRecord: Map<unknown, unknown[]>,
 ): unknown {
-  if (
-    typeof rowData !== 'object' ||
-    rowData === null ||
-    !Reflect.has(rowData as object, keyName)
-  ) {
+  if (typeof rowData !== 'object' || rowData === null) {
     return undefined;
   }
   const record = rowData as Record<string, any>;
+  // 快路径：绝大多数行没有子行，直接属性读取即可，避免 Reflect.has 开销
+  if (!(keyName in record)) {
+    return undefined;
+  }
   const uniqueKey = record[keyName as string];
+  const children = record[childrenColumnName];
+  // 无子行时不注册索引，查询侧统一回退共享空数组（避免每格分配）
+  if (!children?.length) {
+    return uniqueKey;
+  }
   const parentInfo = subNameRecord.get(uniqueKey) || [];
-  record[childrenColumnName]?.forEach((item: any) => {
-    const itemUniqueKey = item[keyName];
+  children.forEach((item: any) => {
+    const itemUniqueKey = item?.[keyName];
     if (!subNameRecord.has(itemUniqueKey)) {
       subNameRecord.set(
         itemUniqueKey,
@@ -133,29 +142,32 @@ function createCellRender<T extends AnyObject>(
       counter: context.counter,
       type: context.type,
       marginSM: context.marginSM,
-      subName: (subNameRecord.get(uniqueKey) ?? []) as string[],
+      subName: (uniqueKey === undefined
+        ? EMPTY_SUB_NAME
+        : (subNameRecord.get(uniqueKey) ?? EMPTY_SUB_NAME)) as string[],
       editableUtils: context.editableUtils,
     });
   };
 }
 
 /**
- * 包装用户的 onCell，向返回的 td props 注入当前行的编辑状态（#9043 / #9643 方案 C）：
- * - editing: boolean 该行是否处于编辑（行级或 cell 级）
- * - cellEditing: boolean 该行是否有任意 cell 级复合键激活
- * 用户可通过 data-* 或闭包自行消费，不改变 antd onCell 的既有签名
+ * 包装用户的 onCell，向返回的 td props 注入当前行的编辑状态（#9643 方案 C）：
+ * - data-editing: 该行是否处于编辑（行级或 cell 级）
+ * - data-cell-editing: 该行激活的 cell 级复合键列表
+ * 仅在表格开启编辑（editable 配置存在）时才包装，非编辑表格零开销
  */
 function createOnCell<T extends AnyObject>(
   columnProps: ProColumns<T, any>,
   context: TableColumnContext<T>,
 ) {
   const userOnCell = columnProps.onCell;
-  if (!userOnCell && !context.editableUtils) return undefined;
+  // 未开启编辑且用户没有 onCell 时直接透传，避免所有表格每个 td 都包一层
+  if (!userOnCell && !context.editableConfig) return undefined;
   return function wrappedOnCell(record: T, rowIndex?: number) {
     const userProps = userOnCell ? userOnCell(record, rowIndex!) : {};
-    if (!context.editableUtils?.isEditable) return userProps;
+    if (!context.editableConfig) return userProps;
     const { isEditable, cellEditableKeys = [] } =
-      context.editableUtils.isEditable({ ...record, index: rowIndex! }) || {};
+      context.editableUtils.isEditable(record, rowIndex!);
     return {
       'data-editing': isEditable ? 'true' : undefined,
       'data-cell-editing':
@@ -214,18 +226,14 @@ export function genProColumnToColumn<T extends AnyObject>(params: {
         columnProps,
       );
 
-      // 纯 ellipsis: true 时透传给 antd Table，走原生 CSS 省略（性能优化，#9664）
-      // 有 tooltip/showTitle 定制或 copyable 时保持 Typography.Text 渲染路径
-      const nativeEllipsis =
-        columnProps.ellipsis === true && !columnProps.copyable;
-
+      // 纯 ellipsis: true 时 antd 走原生 CSS 省略（性能优化，#9664），
+      // 有 tooltip/copyable 等定制时仍由 Typography.Text 渲染，无需特殊处理
       const tempColumns = {
         index: columnsIndex,
         key: columnKey,
         ...columnProps,
         title: renderColumnsTitle(columnProps),
         valueEnum,
-        ellipsis: nativeEllipsis ? true : columnProps.ellipsis,
         filters: resolveFilters(columnProps),
         onFilter: resolveOnFilter(columnProps),
         filteredValue,
@@ -235,9 +243,9 @@ export function genProColumnToColumn<T extends AnyObject>(params: {
           context.type === 'list'
             ? columnProps.width
             : columnProps.width || (columnProps.fixed ? 200 : undefined),
-        children: (columnProps as ProColumns<T, any>).children
+        children: children
           ? genProColumnToColumn({
-              columns: (columnProps as ProColumns<T, any>)?.children ?? [],
+              columns: children ?? [],
               context,
               parents: { ...columnProps, key: columnKey } as ProColumns<T, any>,
             })

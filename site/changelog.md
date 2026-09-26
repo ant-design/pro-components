@@ -9,6 +9,7 @@
   - 🆕 `onCell` 返回的 td props 注入 `data-editing` / `data-cell-editing` 编辑状态，便于自定义单元格交互（#9043 方案 C）
 - ProTable
   - ⚡️ 纯 `ellipsis: true` 改用 antd Table 原生 CSS 省略，大数据量渲染显著提速；配置 `tooltip`/`showTitle` 或 `copyable` 时仍走 Typography 渲染，行为不变 [#9664](https://github.com/ant-design/pro-components/issues/9664) [#8868](https://github.com/ant-design/pro-components/issues/8868)
+  - ⚡️ 单元格渲染热路径重构：`editableKeys` 改为变更时一次性构建索引（Set/Map），查询 O(1)，编辑态判断耗时降低约 5 倍；未开启 `editable` 的表格不再包装 `onCell`，树形数据无子行时跳过索引注册，大幅减少每格渲染的闭包与数组分配
 - ProForm
   - 🔥 新增 `loadingRender` 属性，支持自定义 `request` 加载期间的渲染（如 `Skeleton`），对齐 antd 5.18+ 加载风格 [#9679](https://github.com/ant-design/pro-components/issues/9679)
 - ProFormSelect

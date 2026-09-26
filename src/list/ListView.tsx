@@ -237,7 +237,7 @@ function ListView<RecordType extends AnyObject>(
       ) as React.ReactNode;
 
       const { isEditable, recordKey } =
-        actionRef.current?.isEditable({ ...item, index }) || {};
+        actionRef.current?.isEditable(item, index) || {};
 
       const itemKey = getRowKey(item, index);
       const isChecked = selectedKeySet.has(itemKey);
