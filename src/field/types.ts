@@ -41,6 +41,12 @@ export type ProFieldRenderProps = Omit<
     emptyText?: React.ReactNode;
     open?: boolean;
     onOpenChange?: (open: boolean) => void;
+    /**
+     * #9002 内部标记：valueType 为缺省值（调用方未显式传入）时为 true。
+     * 渲染函数依据它决定是否做「valueEnum/request → select」智能推断，
+     * 显式传入的 valueType 永远优先。外部无需关心此字段。
+     */
+    isDefaultValueType?: boolean;
     [key: string]: any;
   };
 

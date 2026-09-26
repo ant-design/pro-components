@@ -330,6 +330,8 @@ describe('ProForm', () => {
 
   it('📦 onFinish should simulate button close loading', async () => {
     const fn = vi.fn();
+    // #9019 onFinish 异常现在会 console.error 暴露（不再静默吞掉）
+    const onError = vi.spyOn(console, 'error').mockImplementation(() => {});
     const wrapper = render(
       <ProForm
         onFinish={async () => {
@@ -358,6 +360,9 @@ describe('ProForm', () => {
       const dom = await (await wrapper.findByText('提 交')).parentElement;
       expect(dom?.className.includes('ant-btn-loading')).toBe(false);
     });
+    // 异常已被暴露
+    expect(onError).toHaveBeenCalled();
+    onError.mockRestore();
   });
 
   it('📦 onFinish support params and request', async () => {

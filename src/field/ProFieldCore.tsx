@@ -66,7 +66,7 @@ export function createProField(
   > = (
     {
       text,
-      valueType = 'text',
+      valueType,
       mode = 'read',
       onChange,
       formItemRender,
@@ -98,6 +98,11 @@ export function createProField(
       options.pickProPropsWithValueTypeMap &&
       Object.keys(context.valueTypeMap || {}).includes(String(valueType));
 
+    // #9002 显式传入的 valueType 不再被 valueEnum/request 智能推断覆盖：
+    // 仅当调用方未设置 valueType（缺省 'text'）时才允许推断为 select 等类型，
+    // 用于区分「用户显式要 text」与「历史默认行为（有 valueEnum 就渲染 select）」
+    const isDefaultValueType = valueType === undefined;
+
     const effectiveMode = readonly ? 'read' : mode;
     /** 取值顺序仍以原始 mode 为准（readonly + mode=edit 时仍按编辑态取 fieldProps.value） */
     const dataValue =
@@ -115,6 +120,10 @@ export function createProField(
       omitUndefined({
         ref,
         ...rest,
+        // #9002 标记 valueType 是否为缺省值（undefined 时补 'text'）。
+        // AllProField / ValueTypeToComponent 依据此标记决定是否做
+        // 「valueEnum/request → select」的智能推断，显式 valueType 优先。
+        isDefaultValueType,
         mode: effectiveMode,
         formItemRender: formItemRender
           ? (

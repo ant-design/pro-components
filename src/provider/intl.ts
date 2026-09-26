@@ -51,13 +51,18 @@ const zhCNMessages: Record<string, any> = zhCN;
  * 从 locale messages 中按 id 取值的工具。id 支持点号路径和方括号下标：
  * - `a.b.c`
  * - `a.b[0].c`
+ * 返回 undefined 表示「该 locale 未定义此 key」；空字符串是合法文案（如 vi-VN
+ * 的 `pagination.total.range: ' '`），不应被当作缺失而回落到 zh-CN（#9016）。
  */
 const getMessageByPath = (
   messages: Record<string, any>,
   id: string,
-): string => {
-  return (get(messages, id.replace(/\[(\d+)\]/g, '.$1').split('.')) ||
-    '') as string;
+): string | undefined => {
+  const value = get(
+    messages,
+    id.replace(/\[(\d+)\]/g, '.$1').split('.'),
+  ) as unknown;
+  return typeof value === 'string' ? value : undefined;
 };
 
 /**
@@ -76,7 +81,8 @@ export const createIntl = (
 ): IntlType => ({
   getMessage: (id: string, defaultMessage: string) => {
     const msg = getMessageByPath(localeMap, id);
-    if (msg) return msg;
+    // 空字符串是合法文案（故意留空，如 vi-VN 分页范围前缀），直接返回
+    if (msg !== undefined) return msg;
     const localeKeyDashed = locale.replace('_', '-');
     if (localeKeyDashed === 'zh-CN') {
       return defaultMessage;

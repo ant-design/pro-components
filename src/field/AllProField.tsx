@@ -352,7 +352,11 @@ function renderDefaultValueTypeLeaf(
 
   if (
     valueType === 'select' ||
-    (valueType === 'text' && (props.valueEnum || props.request))
+    // #9002 仅缺省 valueType（未显式指定）时才根据 valueEnum/request 推断为 select，
+    // 显式传入 valueType: 'text' 的列即使带 valueEnum 也按文本渲染
+    (valueType === 'text' &&
+      props.isDefaultValueType &&
+      (props.valueEnum || props.request))
   ) {
     return wrapProFieldLight(
       props.light,

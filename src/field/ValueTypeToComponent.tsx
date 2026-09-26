@@ -268,7 +268,8 @@ const ValueTypeToComponentMap: Record<
     wrapProFieldLight(props.light, <FieldSelect {...props} text={text} />),
   ),
   text: sameRenderPair((text, props) =>
-    'valueEnum' in props ? (
+    // #9002 仅缺省 valueType 时才根据 valueEnum 推断为 select（与 AllProField 行为一致）
+    'valueEnum' in props && props.isDefaultValueType ? (
       wrapProFieldLight(props.light, <FieldSelect {...props} text={text} />)
     ) : (
       <FieldText {...props} text={text as string} />

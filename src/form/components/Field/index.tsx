@@ -123,7 +123,9 @@ const BaseProFormField = React.forwardRef<
       text={fieldProps?.[valuePropName]}
       render={render as any}
       formItemRender={formItemRender as any}
-      valueType={(valueType ?? 'text') as ProFieldValueTypeInput}
+      // #9002 保持 valueType 为 undefined 透传（缺省标记），不要在此处补 'text'：
+      // ProFieldCore 依据「是否显式传入」决定 valueEnum → select 的智能推断
+      valueType={valueType as ProFieldValueTypeInput}
       cacheForSwr={cacheForSwr}
       fieldProps={memoFieldProps}
       valueEnum={runFunction(valueEnum)}

@@ -130,7 +130,9 @@ export function columnRender<T extends AnyObject>({
 
   const textDom = cellRenderToFromItem<T>({
     text: renderTextStr,
-    valueType: (columnProps.valueType as ProFieldValueType) || 'text',
+    // #9002 未显式配置 valueType 时传 undefined（保留缺省标记），
+    // 由 ProFieldCore 决定是否按 valueEnum 推断 select，不要在此处补 'text'
+    valueType: columnProps.valueType as ProFieldValueType | undefined,
     index,
     rowData,
     subName,

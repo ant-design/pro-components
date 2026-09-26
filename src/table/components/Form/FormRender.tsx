@@ -153,12 +153,15 @@ const FormRender = <T, U = any>({
         return true;
       })
       .map((item) => {
-        const finalValueType =
-          !item.valueType ||
-          (['textarea', 'jsonCode', 'code'].includes(item?.valueType) &&
-            type === 'table')
-            ? 'text'
-            : (item?.valueType as 'text');
+        // #9002 未显式配置 valueType 时保留 undefined（缺省标记），
+        // 让 ProFieldCore 依据「是否显式传入」决定 valueEnum → select 的推断；
+        // 仅 table 场景下的 textarea/jsonCode/code 需要强转为 text
+        const isTableOnlyCodeType =
+          ['textarea', 'jsonCode', 'code'].includes(item?.valueType) &&
+          type === 'table';
+        const finalValueType = isTableOnlyCodeType
+          ? 'text'
+          : (item?.valueType as 'text' | undefined);
         const columnKey = item?.key || item?.dataIndex?.toString();
 
         return {
