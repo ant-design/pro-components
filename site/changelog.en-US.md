@@ -4,6 +4,9 @@
 
 ### 🆕 Features
 
+- EditableProTable
+  - 🔥 `editable.editableKeys` supports cell-level composite keys `` `${rowKey}:${dataIndex}` `` (e.g. `['1:name']` activates only that cell); fully backwards compatible with row keys and can be mixed [#9643](https://github.com/ant-design/pro-components/issues/9643)
+  - 🆕 `onCell` td props now include `data-editing` / `data-cell-editing` editing state for custom cell interactions (proposal C of #9043)
 - ProTable
   - ⚡️ Plain `ellipsis: true` now uses antd Table native CSS ellipsis for much faster rendering on large datasets; columns configured with `tooltip`/`showTitle` or `copyable` keep the Typography rendering path [#9664](https://github.com/ant-design/pro-components/issues/9664) [#8868](https://github.com/ant-design/pro-components/issues/8868)
 - ProForm

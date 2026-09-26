@@ -24,6 +24,8 @@ Use a segmented control to toggle `editable.type` between inline single-row edit
 
 <code src="../../demos/table/editable-table/cell-editor-table.tsx" background="var(--main-bg-color)" title="Cell editor"></code>
 
+<code src="../../demos/table/editable-table/cell-editable-keys.tsx" background="var(--main-bg-color)" title="Cell-level editableKeys"></code>
+
 ### Row editing
 
 <code src="../../demos/table/editable-table/row-editor-table.tsx" background="var(--main-bg-color)" title="Row editor"></code>
@@ -132,7 +134,7 @@ Compared with the ProForm form, the editable form adds the following three metho
 | type                          | Type of editable table, single or multiple                                                                                                                                             | `single` \| `multiple`                                                   | -                                              |
 | form                          | Form instance of editable form, use `Form.useForm` to generate and use                                                                                                                 | `FormInstance`                                                           | -                                              |
 | formProps                     | form properties can be configured, but onFinish is not supported                                                                                                                       | [\`FormProps'](https://procomponents.ant.design/components/form#proform) | -                                              |
-| editableKeys                  | Row being edited, controlled attributes. The default`key` will use the configuration of `rowKey`,if there is no configuration, it will use the`index`, it is recommended to use rowKey | `Key[]`                                                                  | -                                              |
+| editableKeys                  | Row being edited, controlled attributes. The default`key` will use the configuration of `rowKey`,if there is no configuration, it will use the`index`, it is recommended to use rowKey. Supports cell-level composite keys `` `${rowKey}:${dataIndex}` `` (e.g. `['1:name']` activates only that cell); row keys and cell keys can be mixed. In cell mode the option column does not render save/cancel buttons | `Key[]`                                                                  | -                                              |
 | onChange                      | Triggered when row data is modified                                                                                                                                                    | `(editableKeys: Key[], editableRows: T[]) => void`                       | -                                              |
 | onValuesChange                | Triggered when row values change                                                                                                                                                       | `(record: T, dataSource: T[]) => void`                                   | -                                              |
 | onSave                        | Triggered when a row is saved                                                                                                                                                          | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>`  | -                                              |

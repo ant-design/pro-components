@@ -627,6 +627,8 @@ export type ProSchema<
       ExtraFormItemProps
     > & {
       isEditable?: boolean;
+      /** cell 粒度编辑：当前列的复合键（`rowKey:dataIndex`）激活时为 true */
+      isCellEditable?: boolean;
       type: ComponentsType;
     },
   ) =>

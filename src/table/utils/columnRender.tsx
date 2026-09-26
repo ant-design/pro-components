@@ -99,15 +99,34 @@ export function columnRender<T extends AnyObject>({
   editableUtils,
 }: ColumnRenderInterface<T>): any {
   const { action, prefixName } = counter;
-  const { isEditable, recordKey } = editableUtils.isEditable({
+  const {
+    isEditable,
+    recordKey,
+    isRowEditable,
+    cellEditableKeys = [],
+  } = editableUtils.isEditable({
     ...rowData,
     index,
   });
   const { renderText = (val: any) => val } = columnProps;
 
   const renderTextStr = renderText(text, rowData, index, action as ActionType);
+
+  // cell 粒度：当前列的复合键（`${rowKey}:${dataIndex}`）是否激活
+  const columnId = [columnProps.key ?? columnProps.dataIndex ?? index]
+    .flat(1)
+    .join('.');
+  const recordKeyStr = recordKey?.toString();
+  const isCellEditable =
+    !isRowEditable &&
+    cellEditableKeys.some(
+      (cellKey) =>
+        cellKey.startsWith(`${recordKeyStr}:`) &&
+        cellKey.slice(recordKeyStr.length + 1) === columnId,
+    );
+
   const mode =
-    isEditable &&
+    (isRowEditable || isCellEditable) &&
     !isNotEditableCell(text, rowData, index, columnProps?.editable)
       ? 'edit'
       : 'read';
@@ -149,6 +168,8 @@ export function columnRender<T extends AnyObject>({
   /** 如果是编辑模式，并且 formItemRender 存在直接走 formItemRender */
   if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
+      // cell 粒度编辑时 option 列不渲染整行的保存/取消按钮（无行级激活）
+      if (!isRowEditable) return null;
       return (
         <div
           style={{
@@ -185,6 +206,7 @@ export function columnRender<T extends AnyObject>({
     {
       ...columnProps,
       isEditable,
+      isCellEditable,
       type: 'table',
     },
   );

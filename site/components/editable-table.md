@@ -24,6 +24,8 @@ atomId: EditableProTable
 
 <code src="../../demos/table/editable-table/cell-editor-table.tsx"  background="var(--main-bg-color)" ></code>
 
+<code src="../../demos/table/editable-table/cell-editable-keys.tsx"  background="var(--main-bg-color)" ></code>
+
 ### 行编辑
 
 <code src="../../demos/table/editable-table/row-editor-table.tsx"  background="var(--main-bg-color)" ></code>
@@ -132,7 +134,7 @@ atomId: EditableProTable
 | type                          | 可编辑表格的类型，单行编辑或者多行编辑                                                                  | `single` \| `multiple`                                                  | -                  |
 | form                          | 可编辑表格的 form 实例，使用 `Form.useForm` 生成后使用                                                  | `FormInstance`                                                          | -                  |
 | formProps                     | 可以配置 form 的属性，但是不支持 onFinish                                                               | [`FormProps`](https://procomponents.ant.design/components/form#proform) | -                  |
-| editableKeys                  | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `Key[]`                                                                 | -                  |
+| editableKeys                  | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey。支持 cell 粒度复合键 `` `${rowKey}:${dataIndex}` ``（如 `['1:name']` 只激活该单元格），行级 key 与 cell 键可混用；cell 编辑时 option 列不渲染保存/取消按钮 | `Key[]`                                                                 | -                  |
 | onChange                      | 行数据被修改的时候触发                                                                                  | `(editableKeys: Key[], editableRows: T[]) => void`                      | -                  |
 | onValuesChange                | 行数据被修改的时候触发                                                                                  | `(record: T, dataSource: T[]) => void`                                  | -                  |
 | onSave                        | 保存一行的时候触发                                                                                      | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | -                  |

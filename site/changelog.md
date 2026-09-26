@@ -4,6 +4,9 @@
 
 ### 🆕 新特性
 
+- EditableProTable
+  - 🔥 `editable.editableKeys` 支持 cell 粒度复合键 `` `${rowKey}:${dataIndex}` ``（如 `['1:name']` 仅激活该单元格编辑），与行级 key 完全向后兼容、可混用 [#9643](https://github.com/ant-design/pro-components/issues/9643)
+  - 🆕 `onCell` 返回的 td props 注入 `data-editing` / `data-cell-editing` 编辑状态，便于自定义单元格交互（#9043 方案 C）
 - ProTable
   - ⚡️ 纯 `ellipsis: true` 改用 antd Table 原生 CSS 省略，大数据量渲染显著提速；配置 `tooltip`/`showTitle` 或 `copyable` 时仍走 Typography 渲染，行为不变 [#9664](https://github.com/ant-design/pro-components/issues/9664) [#8868](https://github.com/ant-design/pro-components/issues/8868)
 - ProForm

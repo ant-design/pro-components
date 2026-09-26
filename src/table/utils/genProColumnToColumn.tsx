@@ -140,6 +140,32 @@ function createCellRender<T extends AnyObject>(
 }
 
 /**
+ * 包装用户的 onCell，向返回的 td props 注入当前行的编辑状态（#9043 / #9643 方案 C）：
+ * - editing: boolean 该行是否处于编辑（行级或 cell 级）
+ * - cellEditing: boolean 该行是否有任意 cell 级复合键激活
+ * 用户可通过 data-* 或闭包自行消费，不改变 antd onCell 的既有签名
+ */
+function createOnCell<T extends AnyObject>(
+  columnProps: ProColumns<T, any>,
+  context: TableColumnContext<T>,
+) {
+  const userOnCell = columnProps.onCell;
+  if (!userOnCell && !context.editableUtils) return undefined;
+  return function wrappedOnCell(record: T, rowIndex?: number) {
+    const userProps = userOnCell ? userOnCell(record, rowIndex!) : {};
+    if (!context.editableUtils?.isEditable) return userProps;
+    const { isEditable, cellEditableKeys = [] } =
+      context.editableUtils.isEditable({ ...record, index: rowIndex! }) || {};
+    return {
+      'data-editing': isEditable ? 'true' : undefined,
+      'data-cell-editing':
+        cellEditableKeys.length > 0 ? cellEditableKeys.join(',') : undefined,
+      ...userProps,
+    };
+  };
+}
+
+/**
  * 转化 columns 到 pro 的格式 主要是 render 方法的自行实现
  *
  * @param params.columns 列配置
@@ -216,6 +242,7 @@ export function genProColumnToColumn<T extends AnyObject>(params: {
               parents: { ...columnProps, key: columnKey } as ProColumns<T, any>,
             })
           : undefined,
+        onCell: createOnCell(columnProps, context),
         render: createCellRender(columnProps, context, subNameRecord),
       };
       return omitUndefinedAndEmptyArr(tempColumns);

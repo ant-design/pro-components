@@ -120,7 +120,11 @@ export type RowEditableConfig<DataType> = {
    * @name 编辑的类型，支持单选和多选
    */
   type?: RowEditableType;
-  /** @name 正在编辑的列 */
+  /**
+   * @name 正在编辑的行或单元格
+   * 支持行级 key（如 `['1']`）与 cell 级复合键 `${rowKey}:${dataIndex}`（如 `['1:name']`）混用；
+   * cell 级键只激活对应单元格的编辑态，option 列的保存/取消按钮仅在行级激活时渲染
+   */
   editableKeys?: React.Key[];
   /** 正在编辑的列修改的时候 */
   onChange?: (
@@ -923,7 +927,18 @@ export function useEditableArray<RecordType extends AnyObject>(
     },
   );
 
-  /** 这行是不是编辑状态 */
+  /**
+   * 判断 editableKeys 中该行包含的 cell 粒度复合键（`${rowKey}:${dataIndex}`）
+   * 返回不含行键本身的 cell 键集合，用于列级编辑判断
+   */
+  const getCellEditableKeysForRow = useRefFunction(
+    (recordKey: string, keysList: string[]): string[] => {
+      const prefix = `${recordKey}:`;
+      return keysList.filter((key) => key.startsWith(prefix));
+    },
+  );
+
+  /** 这行是不是编辑状态（支持 cell 粒度复合键 `${rowKey}:${dataIndex}`） */
   const isEditable = useRefFunction((row: RecordType & { index: number }) => {
     const recordKeyWithIndex = props.getRowKey(row, row.index)?.toString();
     const recordKey = props.getRowKey(row, -1)?.toString();
@@ -932,16 +947,38 @@ export function useEditableArray<RecordType extends AnyObject>(
     const stringEditableKeysRef =
       editableKeysRef?.map((key) => key?.toString()) || [];
 
-    const preIsEditable =
+    // cell 粒度：该行激活的 cell 复合键列表（去重，避免 rowKey 与 index 拼出重复键）
+    const cellKeys = Array.from(
+      new Set(
+        getCellEditableKeysForRow(recordKey, stringEditableKeys).concat(
+          getCellEditableKeysForRow(recordKeyWithIndex, stringEditableKeys),
+        ),
+      ),
+    );
+    const cellKeysRef = Array.from(
+      new Set(
+        getCellEditableKeysForRow(recordKey, stringEditableKeysRef).concat(
+          getCellEditableKeysForRow(recordKeyWithIndex, stringEditableKeysRef),
+        ),
+      ),
+    );
+
+    const rowEditable =
+      checkKeyInEditableList(recordKey, stringEditableKeys) ||
+      checkKeyInEditableList(recordKeyWithIndex, stringEditableKeys);
+    const rowEditableRef =
       checkKeyInEditableList(recordKey, stringEditableKeysRef) ||
       checkKeyInEditableList(recordKeyWithIndex, stringEditableKeysRef);
 
     return {
       recordKey,
-      isEditable:
-        checkKeyInEditableList(recordKey, stringEditableKeys) ||
-        checkKeyInEditableList(recordKeyWithIndex, stringEditableKeys),
-      preIsEditable,
+      /** 行级或任意 cell 级激活时该行处于编辑状态 */
+      isEditable: rowEditable || cellKeys.length > 0,
+      preIsEditable: rowEditableRef || cellKeysRef.length > 0,
+      /** 行级编辑（控制 option 列的保存/取消按钮渲染） */
+      isRowEditable: rowEditable,
+      /** 当前行的 cell 粒度复合键（如 ['row1:name']），空数组表示非 cell 编辑 */
+      cellEditableKeys: cellKeys,
     };
   });
 
