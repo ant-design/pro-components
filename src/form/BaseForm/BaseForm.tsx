@@ -827,6 +827,10 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
               }}
               autoComplete="off"
               form={form}
+              // 默认注入唯一 form name：antd Form.Item 会以 `${name}_${field}` 生成 input id，
+              // 页面出现多个 ProForm（或同名 ProFormText）时避免 id 重复（#9144）。
+              // 用户显式传入的 name 在 propRest 展开中优先级更高。
+              name={curFormKey.current}
               {...omit(propRest, [
                 'ref',
                 'labelWidth',

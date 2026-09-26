@@ -311,16 +311,20 @@ export const parseServerDefaultColumnConfig = <T, Value>(
 
     // 当 column 启用服务端 filters 功能时，取出默认的筛选值
     if (column.filters && !isLocalFilter(column.filters, column.onFilter)) {
-      filter[dataIndex] = (column.defaultFilteredValue as FilterValue) ?? null;
+      const defaultFilteredValue =
+        column.defaultFilteredValue as FilterValue | undefined;
+      // 没有 defaultFilteredValue 时不写入 null，
+      // 避免 request 收到 { dataIndex: null }（#9161）
+      if (defaultFilteredValue != null) filter[dataIndex] = defaultFilteredValue;
     }
 
     // 当 column 启用服务端 sorter 功能时，取出默认的排序值
     if (column.sorter && !isLocalSorter(column.sorter)) {
-      if (typeof column.sorter === 'string') {
-        sort[column.sorter] = column.defaultSortOrder ?? null;
-      } else {
-        sort[dataIndex] = column.defaultSortOrder ?? null;
-      }
+      const sortKey =
+        typeof column.sorter === 'string' ? column.sorter : dataIndex;
+      // 没有 defaultSortOrder 时不写入 null，
+      // 避免 request 收到 { dataIndex: null }（#9161）
+      if (column.defaultSortOrder != null) sort[sortKey] = column.defaultSortOrder;
     }
   });
   return { sort, filter };

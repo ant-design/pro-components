@@ -142,10 +142,10 @@ describe('BasicTable valueType', () => {
 
     expect((await html.findAllByText('TradeCode 0')).length).toBe(1);
 
-    expect(!!html.asFragment().querySelector('input#name')).toBeTruthy();
+    expect(!!html.asFragment().querySelector('input[id$="_name"]')).toBeTruthy();
 
     expect(
-      (html.asFragment().querySelector('input#name') as HTMLInputElement).value,
+      (html.asFragment().querySelector('input[id$="_name"]') as HTMLInputElement).value,
     ).toBe('TradeCode');
 
     html.unmount();
@@ -188,10 +188,10 @@ describe('BasicTable valueType', () => {
 
     expect((await html.findAllByText('TradeCode 0red')).length).toBe(1);
 
-    expect(!!html.asFragment().querySelector('input#name')).toBeTruthy();
+    expect(!!html.asFragment().querySelector('input[id$="_name"]')).toBeTruthy();
 
     expect(
-      (html.asFragment().querySelector('input#name') as HTMLInputElement).value,
+      (html.asFragment().querySelector('input[id$="_name"]') as HTMLInputElement).value,
     ).toBe('TradeCode');
 
     html.unmount();
@@ -201,7 +201,7 @@ describe('BasicTable valueType', () => {
     await waitForWaitTime(1200);
 
     act(() => {
-      fireEvent.change(html.baseElement.querySelector('input#treeSelect')!, {
+      fireEvent.change(html.baseElement.querySelector('input[id$="_treeSelect"]')!, {
         target: {
           value: 'Ja',
         },
@@ -222,7 +222,7 @@ describe('BasicTable valueType', () => {
     );
 
     act(() => {
-      fireEvent.change(html.baseElement.querySelector('input#treeSelect')!, {
+      fireEvent.change(html.baseElement.querySelector('input[id$="_treeSelect"]')!, {
         target: {
           value: 'Javasc',
         },
@@ -244,7 +244,7 @@ describe('BasicTable valueType', () => {
     // 经过两轮 filter 后，treeSelect 的下拉项仅匹配 Javascript
     // 验证选中项与表格主体均渲染正常
     expect(
-      html.baseElement.querySelector('input#treeSelect'),
+      html.baseElement.querySelector('input[id$="_treeSelect"]'),
     ).toBeTruthy();
     expect(html.baseElement.querySelector('.ant-table')).toBeTruthy();
 

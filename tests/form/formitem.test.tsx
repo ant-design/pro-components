@@ -20,8 +20,8 @@ describe('ProForm.Item', () => {
       </ProForm>,
     );
 
-    expect(container.querySelector('input#editable')).toBeTruthy();
-    expect(container.querySelector('input#fixed')).toBeFalsy();
+    expect(container.querySelector('input[id$="_editable"]')).toBeTruthy();
+    expect(container.querySelector('input[id$="_fixed"]')).toBeFalsy();
     expect(container.textContent).toContain('value');
   });
 
@@ -38,10 +38,10 @@ describe('ProForm.Item', () => {
     );
 
     expect(
-      container.querySelector('#vertical')?.closest('.ant-form-item'),
+      container.querySelector('[id$="_vertical"]')?.closest('.ant-form-item'),
     ).toHaveClass('ant-form-item-vertical');
     expect(
-      container.querySelector('#horizontal')?.closest('.ant-form-item'),
+      container.querySelector('[id$="_horizontal"]')?.closest('.ant-form-item'),
     ).toHaveClass('ant-form-item-horizontal');
   });
 

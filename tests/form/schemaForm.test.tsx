@@ -590,7 +590,7 @@ describe('SchemaForm', () => {
     );
 
     expect(container.querySelector('.ant-select-multiple')).toBeTruthy();
-    expect(container.querySelector('input#tags')).toBeTruthy();
+    expect(container.querySelector('input[id$="_tags"]')).toBeTruthy();
   });
 
   it('😊 SchemaForm support hidenInForm', async () => {
@@ -619,7 +619,7 @@ describe('SchemaForm', () => {
     );
 
     expect(screen.findByTestId('title')).toBeTruthy();
-    expect(!!container.querySelector('#category')).toBeFalsy();
+    expect(!!container.querySelector('[id$="_category"]')).toBeFalsy();
   });
 
   it('😊 SchemaForm support ProFormDependency', async () => {
@@ -677,13 +677,13 @@ describe('SchemaForm', () => {
       />,
     );
 
-    fireEvent.change(container.querySelector('input#name')!, {
+    fireEvent.change(container.querySelector('input[id$="_name"]')!, {
       target: {
         value: 'test',
       },
     });
 
-    fireEvent.change(container.querySelector('input#name2_text')!, {
+    fireEvent.change(container.querySelector('input[id$="_name2_text"]')!, {
       target: {
         value: 'test2',
       },
@@ -1022,7 +1022,7 @@ describe('SchemaForm', () => {
       expect(fibonacci).toHaveBeenCalledTimes(1);
     });
 
-    fireEvent.change(wrapper.baseElement.querySelector('input#name')!, {
+    fireEvent.change(wrapper.baseElement.querySelector('input[id$="_name"]')!, {
       target: {
         value: 'test2',
       },

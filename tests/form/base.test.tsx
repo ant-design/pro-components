@@ -127,10 +127,10 @@ describe('ProForm', () => {
     );
 
     const textLayout = wrapper.container
-      .querySelector('input#text')
+      .querySelector('input[id$="_text"]')
       ?.closest('.ant-form-item-control-input')?.parentElement;
     const selectLayout = wrapper.container
-      .querySelector('#select')
+      .querySelector('[id$="_select"]')
       ?.closest('.ant-form-item-control-input')?.parentElement;
 
     expect(textLayout).toHaveStyle({ flex: '1', minWidth: '0' });
@@ -783,7 +783,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0],
+        wrapper.baseElement.querySelectorAll<HTMLElement>('input[id$="_name"]')[0],
         {
           target: {
             value: 'test',
@@ -980,7 +980,7 @@ describe('ProForm', () => {
     await wrapper.findByText('提 交');
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0],
+        wrapper.baseElement.querySelectorAll<HTMLElement>('input[id$="_name"]')[0],
         {
           target: {
             value: 'test',
@@ -992,7 +992,7 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.change(
         wrapper.baseElement.querySelectorAll<HTMLElement>(
-          'input#name2_text',
+          'input[id$="_name2_text"]',
         )[0],
         {
           target: {
@@ -3799,7 +3799,7 @@ describe('ProForm', () => {
     await waitForWaitTime(300);
     act(() => {
       const dom =
-        html.baseElement.querySelector<HTMLInputElement>('input#count')!;
+        html.baseElement.querySelector<HTMLInputElement>('input[id$="_count"]')!;
       fireEvent.change(dom, {
         target: {
           value: '22.22',
@@ -3810,7 +3810,7 @@ describe('ProForm', () => {
     });
     await waitForWaitTime(300);
     expect(
-      html.baseElement.querySelector<HTMLInputElement>('input#count')?.value,
+      html.baseElement.querySelector<HTMLInputElement>('input[id$="_count"]')?.value,
     ).toBe('22');
 
     await act(async () => {
@@ -3842,7 +3842,7 @@ describe('ProForm', () => {
     await waitForWaitTime(100);
 
     const dom =
-      html.baseElement.querySelector<HTMLInputElement>('input#count')!;
+      html.baseElement.querySelector<HTMLInputElement>('input[id$="_count"]')!;
 
     await act(async () => {
       fireEvent.change(dom, {

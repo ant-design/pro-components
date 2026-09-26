@@ -65,12 +65,12 @@ describe('ModalForm journey (e2e)', () => {
     expect(onFinish).not.toHaveBeenCalled();
 
     // Step 3: user fills the name and picks a role
-    const nameInput = document.querySelector<HTMLInputElement>('#name')!;
+    const nameInput = document.querySelector<HTMLInputElement>('[id$="_name"]')!;
     fireEvent.change(nameInput, { target: { value: 'Alex' } });
 
     await act(async () => {
       fireEvent.mouseDown(
-        document.querySelector('#role')!.closest('.ant-select')!,
+        document.querySelector('[id$="_role"]')!.closest('.ant-select')!,
       );
     });
     await waitFor(() => {
@@ -121,7 +121,7 @@ describe('DrawerForm journey (e2e)', () => {
     });
 
     // Step 2: fill and submit; the first attempt fails server-side
-    const input = document.querySelector<HTMLInputElement>('#nickname')!;
+    const input = document.querySelector<HTMLInputElement>('[id$="_nickname"]')!;
     fireEvent.change(input, { target: { value: 'Qixian' } });
     await act(async () => {
       html.getByText('确 认').click();
@@ -185,7 +185,7 @@ describe('DrawerForm journey (e2e)', () => {
     // Switch to company -> the dependent field changes
     await act(async () => {
       fireEvent.mouseDown(
-        document.querySelector('#type')!.closest('.ant-select')!,
+        document.querySelector('[id$="_type"]')!.closest('.ant-select')!,
       );
     });
     await waitFor(() => {
@@ -200,7 +200,7 @@ describe('DrawerForm journey (e2e)', () => {
 
     // Fill and submit -> only the rendered dependent field is submitted
     const companyInput =
-      document.querySelector<HTMLInputElement>('#companyName')!;
+      document.querySelector<HTMLInputElement>('[id$="_companyName"]')!;
     fireEvent.change(companyInput, { target: { value: 'Ant Group' } });
     await act(async () => {
       html.getByText('确 认').click();
