@@ -195,7 +195,8 @@
       "send": ">=0.19.0",
       "prismjs": ">=1.30.0",
       "braces": ">=3.0.3",
-      "node-fetch": "2.7.0"
+      "node-fetch": "2.7.0",
+      "esbuild": ">=0.25.0"
     }
   },
   "engines": {
