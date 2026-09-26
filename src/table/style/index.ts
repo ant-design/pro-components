@@ -50,6 +50,10 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           fontSize: token.fontSize,
         },
       },
+      [`table tr th${token.antCls}-table-selection-column${token.antCls}-table-cell-fix-start`]:
+        {
+          zIndex: 'calc(var(--z-offset, 0) + 2)',
+        },
       [`${token.antCls}-table${token.antCls}-table-tbody${token.antCls}-table-wrapper:only-child${token.antCls}-table`]:
         {
           marginBlock: 0,

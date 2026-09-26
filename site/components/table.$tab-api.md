@@ -113,6 +113,8 @@ formItemRender: (
 
 <code src="../../demos/table/table-nested.tsx" background="var(--main-bg-color)" title="嵌套表格"></code>
 
+<code src="../../demos/table/fixed-selection-column.tsx" background="var(--main-bg-color)" title="固定选择列"></code>
+
 <code src="../../demos/table/split.tsx" background="var(--main-bg-color)" title="左右结构"></code>
 
 <code src="../../demos/table/polling.tsx" background="var(--main-bg-color)" title="表格轮询"></code>

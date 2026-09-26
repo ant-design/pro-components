@@ -341,4 +341,30 @@ describe('Table ColumnSetting', () => {
     // 修复：renderText 返回 JSX 时 ellipsis tooltip 不应显示 [object Object]
     expect(container.innerHTML).not.toContain('[object Object]');
   });
+
+  it('🐛 固定选择列的表头 z-index 规则应使用 v6 的 cell-fix-start 类名', () => {
+    const { container } = render(
+      <ProTable
+        search={false}
+        toolBarRender={false}
+        rowKey="key"
+        columns={[
+          { title: '名称', dataIndex: 'name', fixed: 'start' },
+          { title: '状态', dataIndex: 'status' },
+          { title: '操作', dataIndex: 'option', fixed: 'end' },
+        ]}
+        rowSelection={{ fixed: 'start' }}
+        dataSource={[{ key: '1', name: '中文', status: 1, option: 'x' }]}
+      />,
+    );
+
+    // 固定选择列的表头单元格应带有 cell-fix-start 类名
+    const selectionTh = container.querySelector(
+      'th.ant-table-selection-column',
+    );
+    expect(selectionTh?.className).toContain('ant-table-cell-fix-start');
+
+    // 选择列 z-index 规则应正确注入，避免表头勾选框被相邻固定列遮挡
+    expect(document.head.textContent).toContain('calc(var(--z-offset, 0) + 2)');
+  });
 });

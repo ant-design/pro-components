@@ -99,6 +99,8 @@ Child fields are switched to controlled mode, so standalone `defaultValue` will 
 
 <code src="../../demos/table/table-nested.tsx" background="var(--main-bg-color)" title="Nested Tables"></code>
 
+<code src="../../demos/table/fixed-selection-column.tsx" background="var(--main-bg-color)" title="Fixed Selection Column"></code>
+
 <code src="../../demos/table/split.tsx" background="var(--main-bg-color)" title="Left-Right Structure"></code>
 
 <code src="../../demos/table/polling.tsx" background="var(--main-bg-color)" title="Table Polling"></code>
