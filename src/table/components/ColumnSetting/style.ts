@@ -80,7 +80,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
           float: 'right',
           cursor: 'pointer',
           '> span': {
-            '> span.anticon': {
+            [`> span${token.iconCls}`]: {
               color: token.colorPrimary,
             },
           },

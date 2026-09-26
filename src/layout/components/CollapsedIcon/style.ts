@@ -32,7 +32,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
         boxShadow:
           '0 4px 16px -4px rgba(0,0,0,0.05), 0 2px 8px -2px rgba(25,15,15,0.07), 0 1px 2px 0 rgba(0,0,0,0.08)',
       },
-      '.anticon': {
+      [token.iconCls]: {
         fontSize: '14px',
       },
       '& > svg': {

@@ -1,7 +1,12 @@
 import { createFromIconfontCN } from '@ant-design/icons';
 import { useControlledState } from '@rc-component/util';
+import {
+  ConfigProvider as AntdConfigProvider,
+  Menu,
+  Skeleton,
+  Tooltip,
+} from 'antd';
 import type { MenuProps } from 'antd';
-import { Menu, Skeleton, Tooltip } from 'antd';
 import type { ItemType } from 'antd/lib/menu/interface';
 import { clsx } from 'clsx';
 import React, {
@@ -187,6 +192,7 @@ class MenuUtil {
     menuRenderType?: 'header' | 'sider';
     baseClassName: string;
     hashId: string;
+    iconPrefixCls: string;
   };
 
   constructor(
@@ -195,6 +201,7 @@ class MenuUtil {
       menuRenderType?: 'header' | 'sider';
       baseClassName: string;
       hashId: string;
+      iconPrefixCls: string;
     },
   ) {
     this.props = props;
@@ -416,7 +423,9 @@ class MenuUtil {
             display: defaultIcon === null && !icon ? 'none' : '',
           }}
         >
-          {icon || <span className="anticon">{defaultIcon}</span>}
+          {icon || (
+            <span className={this.props.iconPrefixCls}>{defaultIcon}</span>
+          )}
         </span>
         <span
           className={clsx(`${baseClassName}-item-text`, this.props?.hashId, {
@@ -453,7 +462,9 @@ class MenuUtil {
               display: defaultIcon === null && !icon ? 'none' : '',
             }}
           >
-            {icon || <span className="anticon">{defaultIcon}</span>}
+            {icon || (
+              <span className={this.props.iconPrefixCls}>{defaultIcon}</span>
+            )}
           </span>
           <span
             className={clsx(`${baseClassName}-item-text`, this.props?.hashId, {
@@ -548,6 +559,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   } = props;
 
   const { dark, token: designToken } = useContext(ProProvider);
+  const { iconPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
 
   const baseClassName = `${prefixCls}-base-menu-${mode}`;
   // 用于减少 defaultOpenKeys 计算的组件
@@ -681,8 +693,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       menuRenderType,
       baseClassName,
       hashId,
+      iconPrefixCls,
     });
-  }, [props, designToken, menuRenderType, baseClassName, hashId]);
+  }, [props, designToken, menuRenderType, baseClassName, hashId, iconPrefixCls]);
 
   if (menu?.loading) {
     return (

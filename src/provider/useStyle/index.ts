@@ -58,6 +58,12 @@ export type ProAliasToken = GlobalToken &
      * @example .ant
      */
     antCls: string;
+    /**
+     * antd 图标的 className，跟随 ConfigProvider 的 iconPrefixCls
+     * @type {string}
+     * @example .anticon
+     */
+    iconCls: string;
   };
 
 export const resetComponent = (token: ProAliasToken): CSSObject => ({
@@ -143,7 +149,9 @@ export function useStyle(
 
   const { token: antdToken, hashId, theme } = antdTheme.useToken();
 
-  const { getPrefixCls, csp } = useContext(AntdConfigProvider.ConfigContext);
+  const { getPrefixCls, csp, iconPrefixCls } = useContext(
+    AntdConfigProvider.ConfigContext,
+  );
 
   // 如果不在 ProProvider 里面，就用 antd 的
   if (!token.layout) {
@@ -153,6 +161,8 @@ export function useStyle(
   token.proComponentsCls = token.proComponentsCls ?? `.${getPrefixCls('pro')}`;
 
   token.antCls = `.${getPrefixCls()}`;
+
+  token.iconCls = `.${iconPrefixCls}`;
 
   // Register styles (side effect only in v2)
   // Keep path sensitive to both antd theme and Pro token updates.

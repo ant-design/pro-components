@@ -226,6 +226,7 @@ const ProConfigContext = React.createContext<ConfigContextPropsType>({
     ...antdTheme.getDesignToken(),
     proComponentsCls: '.ant-pro',
     antCls: '.ant',
+    iconCls: '.anticon',
     themeId: 0,
   },
   prefixCls: '.ant-pro',

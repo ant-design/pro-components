@@ -92,7 +92,7 @@ export const genProLayoutBaseMenuStyle: GenerateStyle<
             height: '16px',
             width: '16px',
             lineHeight: '16px !important',
-            '.anticon': {
+            [token.iconCls]: {
               lineHeight: '16px !important',
               height: '16px',
             },
@@ -120,7 +120,7 @@ export const genProLayoutBaseMenuStyle: GenerateStyle<
               height: '16px',
               width: '16px',
               lineHeight: '16px !important',
-              '.anticon': {
+              [token.iconCls]: {
                 lineHeight: '16px!important',
                 height: '16px',
               },
@@ -148,7 +148,7 @@ export const genProLayoutBaseMenuStyle: GenerateStyle<
         [`${token.antCls}-menu-item-group-title`]: {
           fontSize: 12,
           color: token.colorTextLabel,
-          '.anticon': {
+          [token.iconCls]: {
             marginInlineEnd: 8,
           },
         },

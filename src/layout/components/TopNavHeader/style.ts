@@ -13,7 +13,7 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
       width: '100%',
       height: '100%',
       backgroundColor: 'transparent',
-      '.anticon': {
+      [token.iconCls]: {
         color: 'inherit',
       },
       '&-main': {

@@ -36,7 +36,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
       '&-polling': {
         [`${token.componentCls}-list-toolbar-setting-item`]: {
-          '.anticon.anticon-reload': {
+          [`${token.iconCls}${token.iconCls}-reload`]: {
             transform: 'rotate(0deg)',
             animationName: turn,
             animationDuration: '1s',

@@ -64,7 +64,7 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
           },
 
           [`a:not(${antCls}-btn),
-            > .anticon`]: {
+            > ${token.iconCls}`]: {
             display: 'inline-block',
             width: '100%',
             color: token.colorTextSecondary,
@@ -76,7 +76,7 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
             },
           },
 
-          '.anticon': {
+          [token.iconCls]: {
             fontSize: token.cardActionIconSize,
             lineHeight: '22px',
           },

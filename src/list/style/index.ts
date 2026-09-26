@@ -487,12 +487,12 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           cursor: 'pointer',
           height: token.controlHeightSM,
           color: token.colorTextSecondary,
-          '> .anticon > svg': {
+          [`> ${token.iconCls} > svg`]: {
             transition: '0.3s',
           },
         },
         '&-expanded': {
-          '> .anticon > svg': {
+          [`> ${token.iconCls} > svg`]: {
             transform: 'rotate(90deg)',
           },
         },

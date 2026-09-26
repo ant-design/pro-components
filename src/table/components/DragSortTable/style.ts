@@ -21,7 +21,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         fontSize: token.fontSize,
         borderRadius: token.borderRadius,
         transition: `color ${token.motionDurationMid}, background-color ${token.motionDurationMid}`,
-        '& .anticon': {
+        [`& ${token.iconCls}`]: {
           color: token.colorText,
           fontSize: 'inherit',
         },
