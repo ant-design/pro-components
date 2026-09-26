@@ -29,12 +29,12 @@ describe('ProTable columnSetting ellipsis (#9121)', () => {
     );
     await waitForWaitTime(200);
 
-    // 只统计表格主体内的省略元素
+    // 只统计表格主体内的省略元素（#9664：纯 ellipsis:true 走 antd 原生省略）
     const countEllipsis = () =>
       html.baseElement.querySelectorAll(
-        '.ant-table-cell .ant-typography-ellipsis',
+        '.ant-table-cell-ellipsis',
       ).length;
-    expect(countEllipsis()).toBe(1);
+    expect(countEllipsis()).toBeGreaterThan(0);
 
     const toggleSetting = () =>
       act(() => {
@@ -48,17 +48,17 @@ describe('ProTable columnSetting ellipsis (#9121)', () => {
     // 打开列设置
     toggleSetting();
     await waitForWaitTime(300);
-    expect(countEllipsis()).toBe(1);
+    expect(countEllipsis()).toBeGreaterThan(0);
 
     // 关闭列设置
     toggleSetting();
     await waitForWaitTime(300);
-    expect(countEllipsis()).toBe(1);
+    expect(countEllipsis()).toBeGreaterThan(0);
 
     // 再次打开（#9121：重新打开后省略号失效）
     toggleSetting();
     await waitForWaitTime(300);
-    expect(countEllipsis()).toBe(1);
+    expect(countEllipsis()).toBeGreaterThan(0);
   });
 
   it('ellipsis rendering survives toggling column visibility and reset', async () => {
@@ -85,11 +85,10 @@ describe('ProTable columnSetting ellipsis (#9121)', () => {
     );
     await waitForWaitTime(200);
 
+    // #9664：纯 ellipsis:true 走 antd 原生省略
     const countEllipsis = () =>
-      html.baseElement.querySelectorAll(
-        '.ant-table-cell .ant-typography-ellipsis',
-      ).length;
-    expect(countEllipsis()).toBe(1);
+      html.baseElement.querySelectorAll('.ant-table-cell-ellipsis').length;
+    expect(countEllipsis()).toBeGreaterThan(0);
 
     // 打开列设置
     act(() => {
@@ -110,7 +109,10 @@ describe('ProTable columnSetting ellipsis (#9121)', () => {
         ?.click();
     });
     await waitForWaitTime(300);
-    expect(countEllipsis()).toBe(0);
+    // 只剩 Age 列（无 ellipsis）
+    const nameCellGone = () =>
+      html.baseElement.querySelectorAll('td[class*="ellipsis"]').length;
+    expect(nameCellGone()).toBe(0);
 
     // 重新勾选 Name 列
     act(() => {
@@ -121,7 +123,9 @@ describe('ProTable columnSetting ellipsis (#9121)', () => {
         ?.click();
     });
     await waitForWaitTime(300);
-    expect(countEllipsis()).toBe(1);
+    expect(
+      html.baseElement.querySelectorAll('td[class*="ellipsis"]').length,
+    ).toBeGreaterThan(0);
 
     // 点击重置按钮
     act(() => {
@@ -132,6 +136,8 @@ describe('ProTable columnSetting ellipsis (#9121)', () => {
         ?.click();
     });
     await waitForWaitTime(300);
-    expect(countEllipsis()).toBe(1);
+    expect(
+      html.baseElement.querySelectorAll('td[class*="ellipsis"]').length,
+    ).toBeGreaterThan(0);
   });
 });

@@ -4,6 +4,8 @@
 
 ### 🆕 Features
 
+- ProTable
+  - ⚡️ Plain `ellipsis: true` now uses antd Table native CSS ellipsis for much faster rendering on large datasets; columns configured with `tooltip`/`showTitle` or `copyable` keep the Typography rendering path [#9664](https://github.com/ant-design/pro-components/issues/9664) [#8868](https://github.com/ant-design/pro-components/issues/8868)
 - ProForm
   - 🔥 Add `loadingRender` prop to customize the render while `request` is loading (e.g. `Skeleton`), aligning with antd 5.18+ loading style [#9679](https://github.com/ant-design/pro-components/issues/9679)
 - ProFormSelect
@@ -11,7 +13,7 @@
 
 ### ✅ Tests
 
-- ✅ Add regression tests for `loadingRender` and `fetchDataOnSearch`
+- ✅ Add regression tests for `loadingRender`, `fetchDataOnSearch` and native ellipsis rendering paths
 
 ## [3.1.14-6] - 2026-07-29
 
