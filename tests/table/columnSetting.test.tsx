@@ -1408,6 +1408,33 @@ describe('Table ColumnSetting', () => {
     expect(onChange).toHaveBeenCalledWith('middle');
   });
 
+  it('🎏 DensityIcon should not receive a ref warning from Tooltip', async () => {
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <ProTable
+        options={{ density: true }}
+        columns={columns}
+        dataSource={[{ key: 1, name: 'TradeCode 1' }]}
+        rowKey="key"
+      />,
+    );
+
+    await waitForWaitTime(100);
+
+    const densityIcon = document.querySelector<HTMLElement>(
+      '.ant-pro-table-list-toolbar-setting-item .anticon-column-height',
+    );
+    fireEvent.mouseEnter(densityIcon!);
+    await waitForWaitTime(100);
+    expect(
+      errorSpy.mock.calls.some(([message]) =>
+        String(message).includes('Function components cannot be given refs'),
+      ),
+    ).toBe(false);
+    errorSpy.mockRestore();
+  });
+
   it('DensityIcon forwards its ref to the trigger element', () => {
     const ref = createRef<HTMLSpanElement>();
 
