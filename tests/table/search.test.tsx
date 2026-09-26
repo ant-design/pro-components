@@ -892,7 +892,7 @@ describe('BasicTable Search', () => {
     expect(requestFn).not.toHaveBeenCalled();
 
     // Enter value
-    const input = container.querySelector('#name');
+    const input = container.querySelector('[id$="_name"]');
     fireEvent.change(input!, { target: { value: 'hello' } });
 
     fireEvent.click(getByText('查 询'));
@@ -945,7 +945,7 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    const input = container.querySelector<HTMLInputElement>('#title')!;
+    const input = container.querySelector<HTMLInputElement>('[id$="_title"]')!;
     fireEvent.change(input, { target: { value: 'ProComponents' } });
 
     await waitFor(() => {

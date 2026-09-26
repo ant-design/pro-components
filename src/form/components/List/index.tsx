@@ -194,6 +194,12 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     if (listContext.name === undefined) {
       return [rest.name].flat(1);
     }
+    // render-prop 场景用户已传入 [index, 'key']（antd 惯例，Form.List 会自动补外层前缀），
+    // 不再重复拼 listContext.name，否则会生成 items.0.0.key 的双重索引（#9129/#9238）
+    const nameArray = [rest.name].flat(1);
+    if (nameArray[0] === listContext.name) {
+      return nameArray;
+    }
     return [listContext.name, rest.name].flat(1);
   }, [listContext.name, rest.name]);
 

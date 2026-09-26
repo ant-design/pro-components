@@ -2,7 +2,11 @@
 import React from 'react';
 import type { ProFieldFC } from '../../types';
 import InputNumberPopover from './InputNumberPopover';
-import { getTextByLocale } from './moneyFormat';
+import {
+  getTextByLocale,
+  splitSuffixSpacing,
+  type LocaleMoneyMeta,
+} from './moneyFormat';
 import type { FieldMoneyProps } from './types';
 
 type Props = Omit<Parameters<ProFieldFC<FieldMoneyProps>>[0], 'moneySymbol'> & {
@@ -12,7 +16,12 @@ type Props = Omit<Parameters<ProFieldFC<FieldMoneyProps>>[0], 'moneySymbol'> & {
   numberPopoverRender: FieldMoneyProps['numberPopoverRender'];
   numberFormatOptions: FieldMoneyProps['numberFormatOptions'];
   getFormateValue: (value?: string | number) => string;
+  /** locale 数字分隔符与货币符号位置（由 FieldMoney 统一计算，避免在直接函数调用中挂 hooks） */
+  localeMeta: LocaleMoneyMeta;
 };
+
+const escapeRegExp = (text: string) =>
+  text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 export function FieldMoneyEdit(props: Props, ref: React.Ref<unknown>) {
   const {
@@ -27,7 +36,11 @@ export function FieldMoneyEdit(props: Props, ref: React.Ref<unknown>) {
     numberPopoverRender,
     numberFormatOptions,
     getFormateValue,
+    localeMeta,
   } = props;
+
+  const { groupSeparator, decimalSeparator, suffixAffix } = localeMeta;
+  const suffixSpacing = splitSuffixSpacing(suffixAffix).spacing;
 
   const dom = (
     <InputNumberPopover
@@ -35,7 +48,7 @@ export function FieldMoneyEdit(props: Props, ref: React.Ref<unknown>) {
         if (numberPopoverRender === false) return null;
         if (!p.value) return null;
         const localeText = getTextByLocale(
-          moneySymbol || locale || false,
+          locale || false,
           `${getFormateValue(p.value)}`,
           precision,
           {
@@ -57,19 +70,34 @@ export function FieldMoneyEdit(props: Props, ref: React.Ref<unknown>) {
       precision={precision}
       formatter={(value) => {
         if (value && moneySymbol) {
-          return `${moneySymbol} ${getFormateValue(value)}`;
+          const formattedNumber = getFormateValue(value)
+            // eslint-disable-next-line no-control-regex -- \u0001 作为占位符避免组/小数分隔符冲突
+            .replace(/,/g, '\u0001')
+            .replace(/\./g, decimalSeparator)
+            // eslint-disable-next-line no-control-regex -- 同上
+            .replace(/\u0001/g, groupSeparator);
+          if (suffixAffix) {
+            return `${formattedNumber}${suffixSpacing}${moneySymbol}`;
+          }
+          return `${moneySymbol} ${formattedNumber}`;
         }
         return value?.toString() || (value as string);
       }}
       parser={(value) => {
         if (moneySymbol && value) {
           return value.replace(
-            new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'),
+            new RegExp(
+              `${escapeRegExp(moneySymbol)}\\s?|(${escapeRegExp(
+                groupSeparator,
+              )}*)`,
+              'g',
+            ),
             '',
           );
         }
         return value!;
       }}
+      decimalSeparator={decimalSeparator === '.' ? undefined : decimalSeparator}
       placeholder={placeholderValue}
       {...omit(fieldProps, [
         'numberFormatOptions',
@@ -79,6 +107,7 @@ export function FieldMoneyEdit(props: Props, ref: React.Ref<unknown>) {
         'moneySymbol',
         'visible',
         'open',
+        'locale',
       ])}
       onBlur={
         fieldProps.onBlur
@@ -86,7 +115,12 @@ export function FieldMoneyEdit(props: Props, ref: React.Ref<unknown>) {
               let value = e.target.value;
               if (moneySymbol && value) {
                 value = value.replace(
-                  new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'),
+                  new RegExp(
+                    `${escapeRegExp(moneySymbol)}\\s?|(${escapeRegExp(
+                      groupSeparator,
+                    )}*)`,
+                    'g',
+                  ),
                   '',
                 );
               }

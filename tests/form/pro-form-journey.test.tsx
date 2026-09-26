@@ -61,14 +61,14 @@ describe('ProForm journey (e2e)', () => {
     expect(onFinish).not.toHaveBeenCalled();
 
     // Step 2: fill name
-    fireEvent.change(container.querySelector<HTMLInputElement>('#name')!, {
+    fireEvent.change(container.querySelector<HTMLInputElement>('[id$="_name"]')!, {
       target: { value: 'Alex' },
     });
 
     // Step 3: pick city from async options
     await act(async () => {
       fireEvent.mouseDown(
-        container.querySelector('#city')!.closest('.ant-select')!,
+        container.querySelector('[id$="_city"]')!.closest('.ant-select')!,
       );
     });
     await waitFor(() => {
@@ -80,7 +80,7 @@ describe('ProForm journey (e2e)', () => {
 
     // Step 4: fill address detail
     fireEvent.change(
-      container.querySelector<HTMLTextAreaElement>('#detail')!,
+      container.querySelector<HTMLTextAreaElement>('[id$="_detail"]')!,
       { target: { value: 'Xihu Road 1' } },
     );
 
@@ -140,10 +140,10 @@ describe('ProForm journey (e2e)', () => {
 
     // Step 3: fill captcha + age, then submit
     fireEvent.change(
-      container.querySelector<HTMLInputElement>('#captcha')!,
+      container.querySelector<HTMLInputElement>('[id$="_captcha"]')!,
       { target: { value: '1234' } },
     );
-    fireEvent.change(container.querySelector<HTMLInputElement>('#age')!, {
+    fireEvent.change(container.querySelector<HTMLInputElement>('[id$="_age"]')!, {
       target: { value: '18' },
     });
     await act(async () => {

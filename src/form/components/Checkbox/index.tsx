@@ -57,10 +57,15 @@ export type ProFormCheckboxProps = ProFormFieldItemProps<CheckboxProps>;
  */
 const ProFormCheckboxComponents: React.FC<ProFormCheckboxProps> =
   React.forwardRef<CheckboxRef, ProFormCheckboxProps>(
-    ({ fieldProps, children }, ref) => {
+    ({ fieldProps, children, readonly }, ref) => {
       const { ...restFieldProps } = fieldProps || {};
       return (
-        <Checkbox ref={ref} {...omit(restFieldProps, ['allowClear'])}>
+        <Checkbox
+          ref={ref}
+          // 单个 checkbox 不经过 ProField 的 mode 切换，readonly 时只能通过 disabled 阻止交互（#9107）
+          disabled={readonly || restFieldProps.disabled}
+          {...omit(restFieldProps, ['allowClear', 'disabled'])}
+        >
           {children}
         </Checkbox>
       );

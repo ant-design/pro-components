@@ -272,12 +272,14 @@ export function warpField<P extends ProFormFieldItemProps = any>(
           // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
           // 比如 ProFormSelect 的 request
           {...(rest as P)}
+          // readonly 需要透传给不经过 ProField mode 切换的自定义 Field（如单个 ProFormCheckbox）
+          readonly={readonly}
           fieldProps={fieldFieldProps}
           proFieldProps={fieldProFieldProps}
           ref={mergedFieldRef}
         />
       );
-    }, [fieldProFieldProps, fieldFieldProps, rest, mergedFieldRef]);
+    }, [fieldProFieldProps, fieldFieldProps, rest, mergedFieldRef, readonly]);
 
     const isLightField = proFieldProps?.light === true;
     const isLightMode = isLightField && !customLightMode;

@@ -14,11 +14,13 @@ afterEach(() => {
  */
 describe('ProTable server sorter/filter defaults (#9161)', () => {
   it('sorter: true without defaultSortOrder sends empty sort', async () => {
-    const requestFn = vi.fn(async () => ({
-      data: Array.from({ length: 30 }, (_, i) => ({ key: i, name: `n${i}` })),
-      success: true,
-      total: 30,
-    }));
+    const requestFn = vi.fn(
+      async (_params: any, _sort: any, _filter: any) => ({
+        data: Array.from({ length: 30 }, (_, i) => ({ key: i, name: `n${i}` })),
+        success: true,
+        total: 30,
+      }),
+    );
     const html = render(
       <ProTable
         size="small"
@@ -40,10 +42,12 @@ describe('ProTable server sorter/filter defaults (#9161)', () => {
   });
 
   it('filters without defaultFilteredValue sends empty filter', async () => {
-    const requestFn = vi.fn(async () => ({
-      data: [{ key: 1, name: 'a' }],
-      success: true,
-    }));
+    const requestFn = vi.fn(
+      async (_params: any, _sort: any, _filter: any) => ({
+        data: [{ key: 1, name: 'a' }],
+        success: true,
+      }),
+    );
     render(
       <ProTable
         size="small"
@@ -68,10 +72,12 @@ describe('ProTable server sorter/filter defaults (#9161)', () => {
   });
 
   it('defaultSortOrder and defaultFilteredValue are still honored', async () => {
-    const requestFn = vi.fn(async () => ({
-      data: [{ key: 1, name: 'a' }],
-      success: true,
-    }));
+    const requestFn = vi.fn(
+      async (_params: any, _sort: any, _filter: any) => ({
+        data: [{ key: 1, name: 'a' }],
+        success: true,
+      }),
+    );
     render(
       <ProTable
         size="small"

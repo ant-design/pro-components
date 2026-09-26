@@ -240,13 +240,51 @@ const WarpFormItem: React.FC<
 
   const formDom =
     !addonAfter && !addonBefore ? (
-      <Form.Item
-        {...props}
-        valuePropName={valuePropName}
-        getValueProps={getValuePropsFunc}
-      >
-        {children}
-      </Form.Item>
+      typeof help === 'function' ? (
+        // 函数式 help 需要拿到 errors/warnings，antd Form.Item 原生不支持，
+        // 复用 _internalItemRender 自定义渲染（与 addon 分支同构，#9066）
+        <Form.Item
+          {...props}
+          help={undefined}
+          valuePropName={valuePropName}
+          // @ts-ignore
+          _internalItemRender={{
+            mark: 'pro_table_render',
+            render: (
+              inputProps: FormItemProps & {
+                errors: React.ReactNode[];
+                warnings: React.ReactNode[];
+              },
+              doms: {
+                input: React.JSX.Element;
+                errorList: React.JSX.Element;
+                extra: React.JSX.Element;
+              },
+            ) => (
+              <>
+                {doms.input}
+                {help({
+                  errors: inputProps.errors,
+                  warnings: inputProps.warnings,
+                })}
+                {doms.extra}
+              </>
+            ),
+          }}
+          getValueProps={getValuePropsFunc}
+        >
+          {children}
+        </Form.Item>
+      ) : (
+        <Form.Item
+          {...props}
+          help={help}
+          valuePropName={valuePropName}
+          getValueProps={getValuePropsFunc}
+        >
+          {children}
+        </Form.Item>
+      )
     ) : (
       <Form.Item
         {...props}
@@ -326,7 +364,7 @@ const WarpFormItem: React.FC<
   );
 };
 
-export type ProFormItemProps = FormItemProps & {
+export type ProFormItemProps = Omit<FormItemProps, 'help'> & {
   ignoreFormItem?: boolean;
   valueType?: ProFieldValueType;
   /**
@@ -369,14 +407,33 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   const fieldValueTypeName = useMemo(() => {
     if (props.name === undefined) return props.name;
     if (formListField.listName !== undefined) {
+      // render-prop 场景用户已传入 [index, 'a'] 时不再重复拼 listName 的行索引，
+      // 否则 transform/valueType 会注册到 items.0.0.a 的错误路径（#9129/#9238）
+      const nameArray = Array.isArray(props.name) ? props.name : [props.name];
+      const [firstSegment] = nameArray;
+      if (firstSegment === formListField.name) {
+        // 用户 name 已带行索引：listName 去掉末尾的行索引后拼接
+        const listNameArray = Array.isArray(formListField.listName)
+          ? formListField.listName
+          : [formListField.listName];
+        return [...listNameArray.slice(0, -1), ...nameArray] as string[];
+      }
       return [formListField.listName, props.name].flat(1) as string[];
     }
     // 确保返回的是数组格式
     return Array.isArray(props.name) ? props.name : [props.name];
-  }, [formListField.listName, props.name]);
+  }, [formListField.listName, formListField.name, props.name]);
   const name = useMemo(() => {
     if (props.name === undefined) return props.name;
     if (formListField.name !== undefined) {
+      // antd 的 Form.List 会自动给内部字段的 name 追加列表前缀，
+      // 字段 name 应当是「相对列表」的路径。静态 children（name="answer"）需要
+      // 手动补上行索引；render-prop 场景用户已按 antd 惯例传入 [index, 'answer']，
+      // 不再重复补索引，否则会生成 items.0.0.answer 的双重索引（#9129/#9238）。
+      const [firstSegment] = Array.isArray(props.name) ? props.name : [props.name];
+      if (firstSegment === formListField.name) {
+        return Array.isArray(props.name) ? props.name : [props.name];
+      }
       return [formListField.name, props.name].flat(1) as string[];
     }
     // 确保返回的是数组格式

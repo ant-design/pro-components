@@ -403,13 +403,30 @@ const ProFormListItem: React.FC<
       unmountedRef.current = true;
     };
   }, []);
+  /**
+   * render-prop 场景用户传入的 name 已带行索引（[index, 'key']，antd Form.List 惯例），
+   * 此时 listName 末尾的行索引不再重复拼接，否则会生成 items.0.0.key 的双重索引（#9129/#9238）
+   */
+  const originNameArray = [originName].flat(1).filter((i) => i !== undefined);
+  const dedupListName = useMemo(() => {
+    if (
+      originNameArray.length > 0 &&
+      originNameArray[0] === listContext.name &&
+      Array.isArray(listContext.listName)
+    ) {
+      return listContext.listName.slice(0, -1);
+    }
+    return listContext.listName;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [listContext.listName, listContext.name, originName]);
+
   /** 当前行的字段路径，供 getCurrentRowData/setCurrentRowData/copyIcon/options.record 复用 */
-  const rowFieldPath = [listContext.listName, originName, field.name]
+  const rowFieldPath = [dedupListName, originName, field.name]
     .filter((item) => item !== undefined)
     .flat(1) as (string | number)[];
 
   /** 当前行（用 index 字符串，与 set 保持一致）的路径 */
-  const rowKeyPath = [listContext.listName, originName, index?.toString()]
+  const rowKeyPath = [dedupListName, originName, index?.toString()]
     .flat(1)
     .filter((item) => item !== null && item !== undefined);
 

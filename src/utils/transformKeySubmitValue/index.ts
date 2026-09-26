@@ -313,6 +313,32 @@ function processNestedObjectTransforms(
         // 如果返回原始值，用新键替换
         currentResult[entityKey] = transformed;
       }
+    } else if (Array.isArray(itemValue)) {
+      // 数组（如 ProFormList 的值）：逐元素递归。
+      // transform 配置树可能是数组（namePathSet 按数字索引生成）或对象（'0' 作为 key），
+      // 都按索引下钻，保持两种形态兼容（#9129/#9238）。
+      const arrayTransforms =
+        currentTransforms[entityKey] &&
+        typeof currentTransforms[entityKey] === 'object'
+          ? currentTransforms[entityKey]
+          : currentTransforms;
+      const nestedArray = itemValue.map((arrayItem, arrayIndex) => {
+        // 非对象元素（string/number 等）直接保留，避免被 Object.keys 展开成索引对象
+        if (!isPlainObj(arrayItem)) return arrayItem;
+        const indexedTransforms = Array.isArray(arrayTransforms)
+          ? arrayTransforms[arrayIndex]
+          : arrayTransforms?.[arrayIndex];
+        return processNestedObjectTransforms(
+          arrayItem,
+          [...nextParentsKey, arrayIndex.toString()],
+          indexedTransforms && typeof indexedTransforms === 'object'
+            ? indexedTransforms
+            : arrayTransforms,
+          rootLevelMerges,
+          rootAllValues,
+        );
+      });
+      currentResult[entityKey] = nestedArray;
     } else if (isPlainObj(itemValue) && !isNil(itemValue)) {
       // 递归处理嵌套对象（但跳过 null 值）
       const nestedTransforms = currentTransforms[entityKey];

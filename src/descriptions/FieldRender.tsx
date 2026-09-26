@@ -1,4 +1,5 @@
 ﻿import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import { get, set } from '@rc-component/util';
 import type { FormInstance } from 'antd';
 import React from 'react';
 import ProForm, { ProFormField } from '../form';
@@ -8,6 +9,7 @@ import type { ProFieldValueTypeInput } from '../utils/typing';
 import {
   InlineErrorFormItem,
   getFieldPropsOrFormItemProps,
+  useDeepCompareMemo,
 } from '../utils';
 import type { ProDescriptionsColumn } from './typing';
 
@@ -46,10 +48,28 @@ export const FieldRender: React.FC<
 
   const { token } = proTheme.useToken?.();
 
+  // Descriptions 没有 Form 实例，dependencies 的取值来自 dataSource（entity）。
+  // 与 SchemaForm 的行为对齐：把依赖字段的值注入 request 的 params（#9170）
+  const dependenciesValues = useDeepCompareMemo(() => {
+    const deps = props.dependencies;
+    if (!deps?.length) return undefined;
+    let values: Record<string, any> = {};
+    deps.forEach((dep) => {
+      const namePath = [dep].flat(1) as (string | number)[];
+      const value = get(entity, namePath);
+      if (value !== undefined) {
+        // rc-util 的 set 是 immutable 的，必须使用返回值
+        values = set(values, namePath, value);
+      }
+    });
+    return values;
+  }, [props.dependencies, entity]);
+
   const fieldConfig = {
     text,
     valueEnum,
     mode: mode || 'read',
+    dependenciesValues,
     proFieldProps: {
       emptyText,
       render: render
