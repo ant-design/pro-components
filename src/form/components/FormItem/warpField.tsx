@@ -328,7 +328,7 @@ export function warpField<P extends ProFormFieldItemProps = any>(
           key={props.proFormFieldKey || otherProps.name?.toString()}
           {...otherProps}
           // 轻量模式下 Form.Item 不展示 label/tooltip，放在展开之后确保不被覆盖
-          noStyle={isLightField}
+          noStyle={otherProps?.noStyle ?? isLightField}
           label={isLightField ? undefined : label}
           tooltip={isLightField ? undefined : tooltip}
           ignoreFormItem={ignoreFormItem}
