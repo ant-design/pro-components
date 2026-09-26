@@ -1,5 +1,90 @@
 # Changelog
 
+## [3.1.15-1] - 2026-09-26
+
+### 🐛 问题修复
+
+- ProForm
+  - 🐞 修复 LightFilter 折叠部分表单值未正确重置的问题 [2dc5c9a67](https://github.com/ant-design/pro-components/commit/2dc5c9a67)
+  - 🐞 修复 LightFilter 输入过程中面板意外收起的问题 [#9649](https://github.com/ant-design/pro-components/pull/9649)
+  - 🐞 修复 LightFilter 标签重复显示的问题 [#9695](https://github.com/ant-design/pro-components/pull/9695)
+  - 🐞 修复 LightFilter 未生效 `ignoreRules` 的问题 [#9166](https://github.com/ant-design/pro-components/pull/9166)
+  - 🐞 修复 hash 路由下查询参数同步错误的问题 [#8649](https://github.com/ant-design/pro-components/pull/8649)
+  - 🐞 修复 QueryFilter 默认收起数量未生效的问题 [e42cc49d3](https://github.com/ant-design/pro-components/commit/e42cc49d3)
+  - 🐞 修复 `onValuesChange` 中空值丢失的问题 [cbd1dff33](https://github.com/ant-design/pro-components/commit/cbd1dff33)
+  - 🐞 修复 SchemaForm 嵌套日期字段元数据丢失的问题 [#9663](https://github.com/ant-design/pro-components/pull/9663)
+  - 🐞 修复 SchemaForm 自定义字段绑定的类型错误 [#8615](https://github.com/ant-design/pro-components/pull/8615) [#8617](https://github.com/ant-design/pro-components/pull/8617)
+  - 🐞 修复自定义字段递归渲染的问题 [#9676](https://github.com/ant-design/pro-components/pull/9676)
+  - 🐞 修复 `formItemRender` 配置类型被丢失的问题 [#9676](https://github.com/ant-design/pro-components/pull/9676)
+  - 🐞 修复初始值在 transform 前未转换的问题 [#8452](https://github.com/ant-design/pro-components/pull/8452)
+  - 🐞 修复表单值被重复转换的问题 [#9285](https://github.com/ant-design/pro-components/pull/9285)
+  - 🐞 修复 DrawerForm 支持原生 drawer 缩放 [#9675](https://github.com/ant-design/pro-components/pull/9675)
+  - 🐞 修复隐藏提交按钮时提交流程错误的问题 [#8648](https://github.com/ant-design/pro-components/pull/8648)
+  - 🐞 修复外部 `form` 实例请求值未刷新的问题 [#8352](https://github.com/ant-design/pro-components/pull/8352)
+  - 🐞 修复组件重挂载后使用过期 form 实例的问题 [#9703](https://github.com/ant-design/pro-components/pull/9703)
+  - 🐞 修复字段级 readonly 未覆盖表单 mode 的问题 [a8be297a1](https://github.com/ant-design/pro-components/commit/a8be297a1)
+  - 🐞 修复字段级 layout 配置未生效的问题 [66356980c](https://github.com/ant-design/pro-components/commit/66356980c)
+  - 🐞 修复 addon 字段灵活性受限的问题 [d1f385a2a](https://github.com/ant-design/pro-components/commit/d1f385a2a)
+  - 🐞 修复默认 render 字段 props 被意外覆盖的问题 [4abf70ef6](https://github.com/ant-design/pro-components/commit/4abf70ef6)
+  - 🐞 导出 ProForm group props 类型 [8e34e54c5](https://github.com/ant-design/pro-components/commit/8e34e54c5)
+- ProTable
+  - 🐞 修复「固定选择列 + 固定列」场景下表头勾选框被相邻固定列遮挡的问题 [23cd4b86e](https://github.com/ant-design/pro-components/commit/23cd4b86e)
+  - 🐞 修复拖拽排序时滚动失控的问题 [d14d3814a](https://github.com/ant-design/pro-components/commit/d14d3814a)
+  - 🐞 修复行内校验错误信息不可见的问题 [59c966cc8](https://github.com/ant-design/pro-components/commit/59c966cc8)
+  - 🐞 修复离屏虚拟可编辑行未校验的问题 [#9553](https://github.com/ant-design/pro-components/pull/9553)
+  - 🐞 修复已删除的可编辑行值残留的问题 [#9051](https://github.com/ant-design/pro-components/pull/9051)
+  - 🐞 修复 ColumnSetting 拖拽后固定列丢失的问题 [#9687](https://github.com/ant-design/pro-components/pull/9687)
+  - 🐞 修复 filterType 切换时搜索表单未替换的问题 [#9613](https://github.com/ant-design/pro-components/pull/9613)
+  - 🐞 修复数据清空后缓存行未重置的问题 [#9203](https://github.com/ant-design/pro-components/pull/9203)
+  - 🐞 修复表单更新后提交值不完整的问题 [#9236](https://github.com/ant-design/pro-components/pull/9236)
+  - 🐞 修复单元格编辑器改动丢失的问题 [#8472](https://github.com/ant-design/pro-components/pull/8472)
+  - 🐞 修复取消编辑时 form 行未移除的问题 [#8664](https://github.com/ant-design/pro-components/pull/8664)
+  - 🐞 修复可编辑行按 rowKey 校验失败的问题 [#9280](https://github.com/ant-design/pro-components/pull/9280)
+  - 🐞 修复操作列对齐方式未生效的问题 [#9701](https://github.com/ant-design/pro-components/pull/9701)
+  - 🐞 修复密度切换触发器 ref 转发的问题 [#9699](https://github.com/ant-design/pro-components/pull/9699)
+  - ⚡️ 优化可编辑表格全量重渲染的问题 [3ba9b4a3f](https://github.com/ant-design/pro-components/commit/3ba9b4a3f)
+- Provider
+  - 🛠 样式体系注入 `iconCls` token，并迁移全部写死的 `.anticon` 选择器，自定义 `ConfigProvider.iconPrefixCls` 时 ProComponents 样式可正确跟随 [308fe7a2e](https://github.com/ant-design/pro-components/commit/308fe7a2e)
+- ProLayout
+  - 🐞 修复侧边栏滚动条颜色未应用主题的问题 [bd097660f](https://github.com/ant-design/pro-components/commit/bd097660f)
+  - 🐞 修复 ConfigProvider `hashed` 设置未继承的问题 [#8473](https://github.com/ant-design/pro-components/pull/8473)
+  - 🐞 修复空移动端菜单触发器误显示的问题 [#7312](https://github.com/ant-design/pro-components/pull/7312)
+  - 🐞 修复折叠菜单弹层未应用 token 的问题 [#8095](https://github.com/ant-design/pro-components/pull/8095)
+  - 🐞 修复水印下 sticky 内容丢失的问题 [#9698](https://github.com/ant-design/pro-components/pull/9698)
+  - 🐞 修复异步加载菜单未展开的问题 [#9697](https://github.com/ant-design/pro-components/pull/9697)
+- ProField
+  - 🐞 修复 percent 精度处理错误的问题 [#9549](https://github.com/ant-design/pro-components/pull/9549)
+  - 🐞 修复长文本 readonly 换行的问题 [#8581](https://github.com/ant-design/pro-components/pull/8581)
+  - 🐞 修复 textarea read 模式透传 showCount 的问题 [#8642](https://github.com/ant-design/pro-components/pull/8642)
+  - 🐞 修复对象形式 showSearch 配置未生效的问题 [#9680](https://github.com/ant-design/pro-components/pull/9680)
+  - 🐞 修复 LightFilter select 清空后值未清除的问题 [#9227](https://github.com/ant-design/pro-components/pull/9227)
+- ProDescriptions
+  - 🐞 修复可编辑字段未填满宽度的问题 [91970093b](https://github.com/ant-design/pro-components/commit/91970093b)
+  - 🐞 修复 ellipsis 前值未格式化的问题 [0de4ddefb](https://github.com/ant-design/pro-components/commit/0de4ddefb)
+- ProSelect
+  - 🐞 修复 request 选项按 value 匹配错误的问题 [#9222](https://github.com/ant-design/pro-components/pull/9222)
+  - 🐞 修复失焦时残留搜索值未隐藏的问题 [#9292](https://github.com/ant-design/pro-components/pull/9292)
+- 其他
+  - 🛠 修复声明产物中 src 导入路径未重写的问题 [#9017](https://github.com/ant-design/pro-components/pull/9017)
+
+### ✅ 测试
+
+- ✅ 新增固定选择列 z-index 回归测试 [23cd4b86e](https://github.com/ant-design/pro-components/commit/23cd4b86e)
+- ✅ 修复可编辑表格用例与 fake timers 冲突导致的偶发失败，并补齐侧边栏滚动条类名快照 [38addfdb2](https://github.com/ant-design/pro-components/commit/38addfdb2)
+
+## [3.1.14-7] - 2026-08-28
+
+### 🐛 问题修复
+
+- ProCard
+  - 🐞 修复 actions 区域语义化 className/styles 未应用的问题 [#9693](https://github.com/ant-design/pro-components/pull/9693)
+- ProDescriptions
+  - 🐞 修复用户 styles 与内部默认样式合并被覆盖的问题 [#9692](https://github.com/ant-design/pro-components/pull/9692)
+- 国际化
+  - 🇺🇸🇨🇳 修复 zh-TW 语言包错别字 [#9691](https://github.com/ant-design/pro-components/pull/9691)
+- 其他
+  - 💄 应用 `fontWeightStrong` token 到 ProList meta 标题与可编辑文本
+
 ## [3.1.14-6] - 2026-07-29
 
 ### 🐛 问题修复

@@ -1,5 +1,90 @@
 # Changelog
 
+## [3.1.15-1] - 2026-09-26
+
+### 🐛 Bug Fixes
+
+- ProForm
+  - 🐞 Fix collapsed LightFilter values not being reset correctly [2dc5c9a67](https://github.com/ant-design/pro-components/commit/2dc5c9a67)
+  - 🐞 Fix LightFilter panel collapsing unexpectedly while typing [#9649](https://github.com/ant-design/pro-components/pull/9649)
+  - 🐞 Fix duplicate labels in LightFilter [#9695](https://github.com/ant-design/pro-components/pull/9695)
+  - 🐞 Fix `ignoreRules` not taking effect in LightFilter [#9166](https://github.com/ant-design/pro-components/pull/9166)
+  - 🐞 Fix query params syncing incorrectly inside hash routes [#8649](https://github.com/ant-design/pro-components/pull/8649)
+  - 🐞 Fix QueryFilter default collapsed item count not taking effect [e42cc49d3](https://github.com/ant-design/pro-components/commit/e42cc49d3)
+  - 🐞 Fix empty values being lost in `onValuesChange` [cbd1dff33](https://github.com/ant-design/pro-components/commit/cbd1dff33)
+  - 🐞 Fix nested date field metadata loss in SchemaForm [#9663](https://github.com/ant-design/pro-components/pull/9663)
+  - 🐞 Fix type errors of custom field bindings in SchemaForm [#8615](https://github.com/ant-design/pro-components/pull/8615) [#8617](https://github.com/ant-design/pro-components/pull/8617)
+  - 🐞 Fix recursive rendering of custom fields [#9676](https://github.com/ant-design/pro-components/pull/9676)
+  - 🐞 Fix `formItemRender` config typing being dropped [#9676](https://github.com/ant-design/pro-components/pull/9676)
+  - 🐞 Fix initial values not converted before transform [#8452](https://github.com/ant-design/pro-components/pull/8452)
+  - 🐞 Fix values being converted repeatedly [#9285](https://github.com/ant-design/pro-components/pull/9285)
+  - 🐞 Support native drawer resizing in DrawerForm [#9675](https://github.com/ant-design/pro-components/pull/9675)
+  - 🐞 Fix broken submit flow when the submit button is hidden [#8648](https://github.com/ant-design/pro-components/pull/8648)
+  - 🐞 Fix external `form` instance not refreshing request values [#8352](https://github.com/ant-design/pro-components/pull/8352)
+  - 🐞 Fix stale form instance used after remount [#9703](https://github.com/ant-design/pro-components/pull/9703)
+  - 🐞 Fix field-level readonly not overriding form mode [a8be297a1](https://github.com/ant-design/pro-components/commit/a8be297a1)
+  - 🐞 Fix field-level layout config not taking effect [66356980c](https://github.com/ant-design/pro-components/commit/66356980c)
+  - 🐞 Fix addon fields being overly restricted [d1f385a2a](https://github.com/ant-design/pro-components/commit/d1f385a2a)
+  - 🐞 Fix default render field props being unexpectedly overridden [4abf70ef6](https://github.com/ant-design/pro-components/commit/4abf70ef6)
+  - 🐞 Export ProForm group props type [8e34e54c5](https://github.com/ant-design/pro-components/commit/8e34e54c5)
+- ProTable
+  - 🐞 Fix the header checkbox of a fixed selection column being covered by adjacent fixed columns [23cd4b86e](https://github.com/ant-design/pro-components/commit/23cd4b86e)
+  - 🐞 Fix runaway scrolling during drag sort [d14d3814a](https://github.com/ant-design/pro-components/commit/d14d3814a)
+  - 🐞 Fix inline validation errors being invisible [59c966cc8](https://github.com/ant-design/pro-components/commit/59c966cc8)
+  - 🐞 Fix offscreen virtual editable rows not being validated [#9553](https://github.com/ant-design/pro-components/pull/9553)
+  - 🐞 Fix values of deleted editable rows lingering [#9051](https://github.com/ant-design/pro-components/pull/9051)
+  - 🐞 Fix fixed columns lost after ColumnSetting drag [#9687](https://github.com/ant-design/pro-components/pull/9687)
+  - 🐞 Fix search form not replaced when filterType changes [#9613](https://github.com/ant-design/pro-components/pull/9613)
+  - 🐞 Fix cached rows not reset when data is cleared [#9203](https://github.com/ant-design/pro-components/pull/9203)
+  - 🐞 Fix incomplete submitted values after form update [#9236](https://github.com/ant-design/pro-components/pull/9236)
+  - 🐞 Fix cell editor changes being lost [#8472](https://github.com/ant-design/pro-components/pull/8472)
+  - 🐞 Fix cancelled form-backed rows not removed [#8664](https://github.com/ant-design/pro-components/pull/8664)
+  - 🐞 Fix editable row validation failing by rowKey [#9280](https://github.com/ant-design/pro-components/pull/9280)
+  - 🐞 Fix option column alignment not taking effect [#9701](https://github.com/ant-design/pro-components/pull/9701)
+  - 🐞 Fix density trigger ref forwarding [#9699](https://github.com/ant-design/pro-components/pull/9699)
+  - ⚡️ Avoid full editable table rerenders [3ba9b4a3f](https://github.com/ant-design/pro-components/commit/3ba9b4a3f)
+- Provider
+  - 🛠 Inject `iconCls` token into the style system and migrate all hardcoded `.anticon` selectors, so ProComponents styles follow a custom `ConfigProvider.iconPrefixCls` correctly [308fe7a2e](https://github.com/ant-design/pro-components/commit/308fe7a2e)
+- ProLayout
+  - 🐞 Fix sider scrollbar colors not following the theme [bd097660f](https://github.com/ant-design/pro-components/commit/bd097660f)
+  - 🐞 Fix ConfigProvider `hashed` setting not inherited [#8473](https://github.com/ant-design/pro-components/pull/8473)
+  - 🐞 Fix empty mobile menu trigger being shown [#7312](https://github.com/ant-design/pro-components/pull/7312)
+  - 🐞 Fix collapsed menu popup not applying tokens [#8095](https://github.com/ant-design/pro-components/pull/8095)
+  - 🐞 Fix sticky content lost under watermark [#9698](https://github.com/ant-design/pro-components/pull/9698)
+  - 🐞 Fix asynchronously loaded menus not expanded [#9697](https://github.com/ant-design/pro-components/pull/9697)
+- ProField
+  - 🐞 Fix functional percent precision [#9549](https://github.com/ant-design/pro-components/pull/9549)
+  - 🐞 Fix long readonly text not wrapping [#8581](https://github.com/ant-design/pro-components/pull/8581)
+  - 🐞 Fix textarea passing showCount in read mode [#8642](https://github.com/ant-design/pro-components/pull/8642)
+  - 🐞 Fix object-form showSearch config not taking effect [#9680](https://github.com/ant-design/pro-components/pull/9680)
+  - 🐞 Fix cleared light select values not reset [#9227](https://github.com/ant-design/pro-components/pull/9227)
+- ProDescriptions
+  - 🐞 Fix editable fields not filling width [91970093b](https://github.com/ant-design/pro-components/commit/91970093b)
+  - 🐞 Fix values not formatted before ellipsis [0de4ddefb](https://github.com/ant-design/pro-components/commit/0de4ddefb)
+- ProSelect
+  - 🐞 Fix request options matched by value incorrectly [#9222](https://github.com/ant-design/pro-components/pull/9222)
+  - 🐞 Fix retained search value not hidden on blur [#9292](https://github.com/ant-design/pro-components/pull/9292)
+- Other
+  - 🛠 Fix src import paths not rewritten in declaration output [#9017](https://github.com/ant-design/pro-components/pull/9017)
+
+### ✅ Tests
+
+- ✅ Add regression test for fixed selection column z-index [23cd4b86e](https://github.com/ant-design/pro-components/commit/23cd4b86e)
+- ✅ Fix flaky editable table case caused by fake timer conflict, and update sider scrollbar snapshot [38addfdb2](https://github.com/ant-design/pro-components/commit/38addfdb2)
+
+## [3.1.14-7] - 2026-08-28
+
+### 🐛 Bug Fixes
+
+- ProCard
+  - 🐞 Fix semantic classNames/styles not applied to the actions area [#9693](https://github.com/ant-design/pro-components/pull/9693)
+- ProDescriptions
+  - 🐞 Fix user styles overridden instead of merged with internal defaults [#9692](https://github.com/ant-design/pro-components/pull/9692)
+- Locale
+  - 🇺🇸🇨🇳 Fix zh-TW typos of line item glyphs [#9691](https://github.com/ant-design/pro-components/pull/9691)
+- Other
+  - 💄 Apply `fontWeightStrong` token to ProList meta title and editable text
+
 ## [3.1.14-6] - 2026-07-29
 
 ### 🐛 Bug Fixes
