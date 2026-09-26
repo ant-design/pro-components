@@ -20,6 +20,16 @@ const isNeedTranText = (item: any): boolean => {
   return false;
 };
 
+/**
+ * 判断是否可走 antd Table 原生 CSS 省略：
+ * 仅当 ellipsis 为纯 true（无 tooltip/showTitle 定制）且未开启 copyable 时，
+ * 由 antd column 的 ellipsis 属性完成省略，避免为每个单元格包 Typography.Text。
+ * 注意：仅适用于 Table 场景（antd column 支持 ellipsis 透传）；
+ * Descriptions 等无原生省略能力的场景仍需 Typography 渲染。
+ */
+export const canUseNativeEllipsis = (item: any): boolean =>
+  item?.ellipsis === true && !item?.copyable;
+
 const getEllipsis = (item: any): ProEllipsisTooltip | boolean => {
   if (item.ellipsis?.showTitle === false) {
     return false;
@@ -93,14 +103,19 @@ const genEllipsis = (
  * @param item 列配置
  * @param text renderText 的返回值，可能是 string/number 或 React 元素
  * @param copyText 用于复制的原始文本，当 renderText 返回 JSX 时避免复制 [object Object]
+ * @param enableNativeEllipsis 是否启用原生 CSS 省略（仅 Table 场景，antd column 会透传 ellipsis）
  */
 export const genCopyable = (
   dom: React.ReactNode,
   item: any,
   text: string | React.ReactNode,
   copyText?: unknown,
+  enableNativeEllipsis?: boolean,
 ) => {
   if (!item.copyable && !item.ellipsis) return dom;
+
+  // 纯 ellipsis: true 且无 copyable 时走 antd Table 原生省略，不再包 Typography.Text
+  if (enableNativeEllipsis && canUseNativeEllipsis(item)) return dom;
 
   const normalizedText = normalizeCopyText(text);
   // renderText 返回 JSX 时使用原始文本避免复制 [object Object]

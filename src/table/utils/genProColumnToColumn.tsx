@@ -188,12 +188,18 @@ export function genProColumnToColumn<T extends AnyObject>(params: {
         columnProps,
       );
 
+      // 纯 ellipsis: true 时透传给 antd Table，走原生 CSS 省略（性能优化，#9664）
+      // 有 tooltip/showTitle 定制或 copyable 时保持 Typography.Text 渲染路径
+      const nativeEllipsis =
+        columnProps.ellipsis === true && !columnProps.copyable;
+
       const tempColumns = {
         index: columnsIndex,
         key: columnKey,
         ...columnProps,
         title: renderColumnsTitle(columnProps),
         valueEnum,
+        ellipsis: nativeEllipsis ? true : columnProps.ellipsis,
         filters: resolveFilters(columnProps),
         onFilter: resolveOnFilter(columnProps),
         filteredValue,

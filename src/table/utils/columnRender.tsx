@@ -137,7 +137,7 @@ export function columnRender<T extends AnyObject>({
   const dom: React.ReactNode =
     mode === 'edit'
       ? textDom
-      : genCopyable(textDom, columnProps, renderTextStr, text);
+      : genCopyable(textDom, columnProps, renderTextStr, text, true);
 
   const optionJustifyContent =
     columnProps.align === 'center'

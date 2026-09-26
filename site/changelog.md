@@ -4,6 +4,8 @@
 
 ### 🆕 新特性
 
+- ProTable
+  - ⚡️ 纯 `ellipsis: true` 改用 antd Table 原生 CSS 省略，大数据量渲染显著提速；配置 `tooltip`/`showTitle` 或 `copyable` 时仍走 Typography 渲染，行为不变 [#9664](https://github.com/ant-design/pro-components/issues/9664) [#8868](https://github.com/ant-design/pro-components/issues/8868)
 - ProForm
   - 🔥 新增 `loadingRender` 属性，支持自定义 `request` 加载期间的渲染（如 `Skeleton`），对齐 antd 5.18+ 加载风格 [#9679](https://github.com/ant-design/pro-components/issues/9679)
 - ProFormSelect
@@ -11,7 +13,7 @@
 
 ### ✅ 测试
 
-- ✅ 新增 `loadingRender`、`fetchDataOnSearch` 回归测试
+- ✅ 新增 `loadingRender`、`fetchDataOnSearch`、原生 ellipsis 渲染路径回归测试
 
 ## [3.1.15-1] - 2026-09-26
 
