@@ -23,6 +23,8 @@ title: ProField 原子组件
 
 <code src="../../demos/field/select-request.tsx" debug></code>
 
+<code src="../../demos/field/select-local-search.tsx" debug></code>
+
 ## API
 
 ```typescript | pure

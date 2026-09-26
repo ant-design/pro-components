@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.1.15-0] - 2026-09-26
+
+### 🆕 新特性
+
+- ProForm
+  - 🔥 新增 `loadingRender` 属性，支持自定义 `request` 加载期间的渲染（如 `Skeleton`），对齐 antd 5.18+ 加载风格 [#9679](https://github.com/ant-design/pro-components/issues/9679)
+- ProFormSelect
+  - 🆕 顶层新增 `fetchDataOnSearch` 属性，设为 `false` 时 `request` 仅初始化拉取一次，搜索走本地过滤 [#9682](https://github.com/ant-design/pro-components/issues/9682)
+
+### ✅ 测试
+
+- ✅ 新增 `loadingRender`、`fetchDataOnSearch` 回归测试
+
 ## [3.1.15-1] - 2026-09-26
 
 ### 🐛 问题修复

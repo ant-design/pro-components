@@ -23,6 +23,8 @@ It is an atomic information component that standardizes field definitions across
 
 <code src="../../demos/field/select-request.tsx" debug></code>
 
+<code src="../../demos/field/select-local-search.tsx" debug></code>
+
 ## API
 
 ```typescript | pure

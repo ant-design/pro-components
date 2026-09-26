@@ -29,12 +29,6 @@ export type ProFormSelectProps<
      * @default false
      */
     resetAfterSelect?: boolean;
-    /**
-     * 当搜索关键词发生变化时是否请求远程数据
-     *
-     * @default true
-     */
-    fetchDataOnSearch?: boolean;
   },
   RefSelectProps
 > & {
@@ -43,6 +37,14 @@ export type ProFormSelectProps<
   showSearch?: SelectProps<ValueType, OptionType>['showSearch'];
   readonly?: boolean;
   onChange?: SelectProps<ValueType, OptionType>['onChange'];
+  /**
+   * 当搜索关键词发生变化时是否请求远程数据
+   *
+   * 设为 false 时仅在初始化拉取一次全量数据，后续搜索走本地过滤
+   *
+   * @default true
+   */
+  fetchDataOnSearch?: boolean;
 } & ProFormFieldRemoteProps;
 
 /**
@@ -71,6 +73,7 @@ const ProFormSelectComponents = <T, OptionType extends BaseOptionType = any>(
     request,
     showSearch,
     options,
+    fetchDataOnSearch,
     ...rest
   }: ProFormSelectProps<T, OptionType>,
   ref: any,
@@ -98,6 +101,7 @@ const ProFormSelectComponents = <T, OptionType extends BaseOptionType = any>(
             options,
             mode,
             showSearch,
+            fetchDataOnSearch,
             getPopupContainer: context.getPopupContainer,
             ...fieldProps,
           } as SelectProps<any>
@@ -123,6 +127,7 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
       valueEnum,
       request,
       options,
+      fetchDataOnSearch,
       ...rest
     },
     ref,
@@ -130,6 +135,7 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
     const finalMode = fieldProps?.mode || mode || 'multiple';
     const props: Omit<SelectProps<any>, 'options'> & {
       options?: ProFormSelectProps['options'];
+      fetchDataOnSearch?: boolean;
     } = {
       options,
       labelInValue: true,
@@ -137,6 +143,7 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
       suffixIcon: null,
       autoClearSearchValue: true,
       optionLabelProp: 'label',
+      fetchDataOnSearch,
       ...fieldProps,
       mode:
         finalMode === 'single' ? undefined : (finalMode as 'multiple' | 'tags'), // 确保mode正确设置

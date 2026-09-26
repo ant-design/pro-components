@@ -274,6 +274,22 @@ How `labelInValue` changes option payload shape inside ProForm selects.
 
 <code src="../../demos/form/label-in-value.tsx"></code>
 
+### Custom `request` loading state
+
+While `request` is loading a centered `Spin` is rendered by default; use `loadingRender` to replace it with a `Skeleton` or any custom node.
+
+<code src="../../demos/form/loading-render.tsx"></code>
+
+### Select local search with `request`
+
+When `request` fetches the full dataset once, set `fetchDataOnSearch={false}` so that searching filters locally instead of re-triggering the request.
+
+<code src="../../demos/field/select-local-search.tsx"></code>
+
+| Property           | Description                                                                                      | Type      | Default |
+| ------------------ | ------------------------------------------------------------------------------------------------ | --------- | ------- |
+| fetchDataOnSearch  | Whether searching re-triggers `request`; set `false` to fetch once on init and filter locally      | `boolean` | `true`  |
+
 ### ProProvider / ConfigProvider (debug)
 
 <code src="../../demos/form/config-provider.tsx" debug background="var(--main-bg-color)"></code>
@@ -290,6 +306,7 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 | onReset                                         | Callback for clicking the reset button                                                                                                                       | `(e) => void`                                                                                                                                                                                                                 | -               |
 | submitter                                       | Submitter button-related configuration                                                                                                                       | `SubmitterProps<{form?: FormInstance<any>}> \| false`                                                                                                                                                                         | `true`          |
 | loading                                         | Form button loading state                                                                                                                                    | `boolean`                                                                                                                                                                                                                     | -               |
+| loadingRender                                   | Custom render while `request` is loading, defaults to a centered `Spin`. Pass `Skeleton` to align with antd 5.18+ loading style                               | `ReactNode \| (() => ReactNode)`                                                                                                                                                                                             | `<Spin />`      |
 | onLoadingChange                                 | Callback when loading state changes                                                                                                                          | `(loading: boolean) => void`                                                                                                                                                                                                  | -               |
 | formRef                                         | Get the form instance. `ProFormInstance` adds formatted-value helpers compared to antd Form                                                                  | `React.MutableRefObject<(ProFormInstance<T> & { nativeElement?: HTMLElement; focus?: () => void }) \| undefined> \| React.RefObject<(ProFormInstance<T> & { nativeElement?: HTMLElement; focus?: () => void }) \| undefined>` | -               |
 | syncToUrl                                       | sync parameters to url, url only supports string, better read [documentation](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) before using | `boolean \| ((values: T, type: 'get' \| 'set') => T)`                                                                                                                                                                         | -               |
