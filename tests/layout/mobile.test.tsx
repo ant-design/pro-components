@@ -18,6 +18,16 @@ afterEach(() => {
 });
 
 describe('mobile BasicLayout', () => {
+  /**
+   * 归一化 DOM 序列化结果，剔除环境噪声后再做快照断言：
+   * - `css-var-rXX`：cssinjs 样式 hash，与运行顺序相关，每次运行可能不同
+   * - `:rXX:`：React useId 生成的自增序号，与组件树挂载顺序相关
+   */
+  const normalizeHtml = (container: HTMLElement) =>
+    container.innerHTML
+      .replace(/css-var-r\w+/g, 'css-var')
+      .replace(/:r[a-z0-9]+:/g, ':useId:');
+
   beforeAll(() => {
     process.env.NODE_ENV = 'TEST';
     process.env.USE_MEDIA = 'xs';
@@ -96,7 +106,7 @@ describe('mobile BasicLayout', () => {
       { timeout: 10000 },
     );
     await waitForWaitTime(100);
-    expect(html.asFragment()).toMatchSnapshot();
+    expect(normalizeHtml(html.baseElement)).toMatchSnapshot();
   });
 
   it('📱 hides the collapsed button when an empty menu suppresses the sider', async () => {

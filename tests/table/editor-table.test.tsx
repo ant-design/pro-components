@@ -237,30 +237,31 @@ describe('EditorProTable', () => {
     // describe 级 beforeAll 安装了 fake timers，与本用例的 request 异步链路 +
     // findBy* 轮询冲突（前置用例运行后 request 数据永远不渲染），切换回真实定时器
     vi.useRealTimers();
+    try {
+      const wrapper = render(
+        <EditableProTable<DataSourceType>
+          rowKey="id"
+          request={async () => ({
+            data: defaultData.slice(0, 2),
+            total: 6,
+            success: true,
+          })}
+          pagination={{ pageSize: 2, current: 2 }}
+          recordCreatorProps={{
+            position: 'bottom',
+            record: { id: 555, title: 'new row' },
+          }}
+          columns={columns}
+        />,
+      );
 
-    const wrapper = render(
-      <EditableProTable<DataSourceType>
-        rowKey="id"
-        request={async () => ({
-          data: defaultData.slice(0, 2),
-          total: 6,
-          success: true,
-        })}
-        pagination={{ pageSize: 2, current: 2 }}
-        recordCreatorProps={{
-          position: 'bottom',
-          record: { id: 555, title: 'new row' },
-        }}
-        columns={columns}
-      />,
-    );
+      await wrapper.findByText(defaultData[0].title!);
+      fireEvent.click(wrapper.getByText('添加一行数据'));
 
-    await wrapper.findByText(defaultData[0].title!);
-    fireEvent.click(wrapper.getByText('添加一行数据'));
-
-    expect(await wrapper.findByDisplayValue('new row')).toBeTruthy();
-
-    vi.useFakeTimers();
+      expect(await wrapper.findByDisplayValue('new row')).toBeTruthy();
+    } finally {
+      vi.useFakeTimers();
+    }
   });
 
   it('📝 EditableProTable addEditRecord is null will throw Error', async () => {
