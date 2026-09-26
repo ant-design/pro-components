@@ -44,6 +44,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                   class="ant-layout-sider-children"
                 >
                   <div
+                    class="ant-pro-sider-scroll"
                     style="overflow-y: auto; overflow-x: hidden; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <ul

@@ -234,6 +234,10 @@ describe('EditorProTable', () => {
   });
 
   it('keeps a new row visible with request pagination (#6992)', async () => {
+    // describe 级 beforeAll 安装了 fake timers，与本用例的 request 异步链路 +
+    // findBy* 轮询冲突（前置用例运行后 request 数据永远不渲染），切换回真实定时器
+    vi.useRealTimers();
+
     const wrapper = render(
       <EditableProTable<DataSourceType>
         rowKey="id"
@@ -255,6 +259,8 @@ describe('EditorProTable', () => {
     fireEvent.click(wrapper.getByText('添加一行数据'));
 
     expect(await wrapper.findByDisplayValue('new row')).toBeTruthy();
+
+    vi.useFakeTimers();
   });
 
   it('📝 EditableProTable addEditRecord is null will throw Error', async () => {
