@@ -60,7 +60,7 @@ describe('ProTable crud journey (e2e)', () => {
 
     // Step 2: user searches for "foo"
     const input = html.container.querySelector<HTMLInputElement>(
-      '#name',
+      '[id$="_name"]',
     )!;
     fireEvent.change(input, { target: { value: 'foo' } });
     await act(async () => {
@@ -134,7 +134,7 @@ describe('ProTable crud journey (e2e)', () => {
     });
 
     // Search first
-    const input = html.container.querySelector<HTMLInputElement>('#name')!;
+    const input = html.container.querySelector<HTMLInputElement>('[id$="_name"]')!;
     fireEvent.change(input, { target: { value: 'bar' } });
     await act(async () => {
       html.getByText('查 询').click();

@@ -766,14 +766,14 @@ describe('DrawerForm', () => {
       });
       await waitFor(() => {
         expect(
-          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+          html.baseElement.querySelector<HTMLDivElement>('input[id$="_name"]'),
         ).toBeInTheDocument();
       });
 
       // 修改表单值
       act(() => {
         fireEvent.change(
-          html.baseElement.querySelector<HTMLDivElement>('input#name')!,
+          html.baseElement.querySelector<HTMLDivElement>('input[id$="_name"]')!,
           {
             target: {
               value: '12345',
@@ -783,7 +783,7 @@ describe('DrawerForm', () => {
       });
       await waitFor(() => {
         expect(
-          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+          html.baseElement.querySelector<HTMLDivElement>('input[id$="_name"]'),
         ).toHaveValue('12345');
       });
 
@@ -815,13 +815,13 @@ describe('DrawerForm', () => {
       });
       await waitFor(() => {
         expect(
-          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+          html.baseElement.querySelector<HTMLDivElement>('input[id$="_name"]'),
         ).toBeInTheDocument();
       });
 
       act(() => {
         fireEvent.change(
-          html.baseElement.querySelector<HTMLDivElement>('input#name')!,
+          html.baseElement.querySelector<HTMLDivElement>('input[id$="_name"]')!,
           {
             target: {
               value: '12345',
@@ -831,7 +831,7 @@ describe('DrawerForm', () => {
       });
       await waitFor(() => {
         expect(
-          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+          html.baseElement.querySelector<HTMLDivElement>('input[id$="_name"]'),
         ).toHaveValue('12345');
       });
 
@@ -860,13 +860,13 @@ describe('DrawerForm', () => {
       });
       await waitFor(() => {
         expect(
-          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+          html.baseElement.querySelector<HTMLDivElement>('input[id$="_name"]'),
         ).toBeInTheDocument();
       });
 
       act(() => {
         fireEvent.change(
-          html.baseElement.querySelector<HTMLDivElement>('input#name')!,
+          html.baseElement.querySelector<HTMLDivElement>('input[id$="_name"]')!,
           {
             target: {
               value: '12345',
@@ -876,7 +876,7 @@ describe('DrawerForm', () => {
       });
       await waitFor(() => {
         expect(
-          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+          html.baseElement.querySelector<HTMLDivElement>('input[id$="_name"]'),
         ).toHaveValue('12345');
       });
 

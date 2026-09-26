@@ -2158,4 +2158,43 @@ describe('Field', () => {
       ),
     ).not.toThrow();
   });
+
+  // https://github.com/ant-design/pro-components/issues/9104
+  it(`🐴 #9104 tags mode renders all items inside the flex-wrap content container`, () => {
+    const OPTIONS = [
+      'AAAAAA',
+      'BBBBBB',
+      'CCCCCC',
+      'DDDDDD',
+      'EEEEEE',
+      'FFFFFFFF',
+      'GGGGGG',
+      'HHHHHH',
+    ];
+    const html = render(
+      <FieldSelect
+        mode="edit"
+        text={OPTIONS.join(',')}
+        fieldProps={{
+          mode: 'tags',
+          allowClear: false,
+          style: { width: 328 },
+          value: OPTIONS,
+        }}
+      />,
+    );
+
+    const content = html.baseElement.querySelector('.ant-select-content');
+    // antd 6 的多行布局容器存在（间距由 item margin 控制）
+    expect(content).toBeTruthy();
+
+    const items = [
+      ...html.baseElement.querySelectorAll('.ant-select-selection-item'),
+    ];
+    expect(items.length).toBe(OPTIONS.length);
+    items.forEach((item) => {
+      expect(item.closest('.ant-select-content')).toBe(content);
+    });
+    html.unmount();
+  });
 });

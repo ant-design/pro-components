@@ -40,7 +40,7 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    const input = container.querySelector<HTMLInputElement>('input#pid');
+    const input = container.querySelector<HTMLInputElement>('input[id$="_pid"]');
     expect(input).toBeTruthy();
 
     fireEvent.change(input!, { target: { value: '10001' } });

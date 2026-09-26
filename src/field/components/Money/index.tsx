@@ -7,7 +7,7 @@ import {
 import type { ProFieldFC } from '../../types';
 import { FieldMoneyEdit } from './FieldMoneyEdit';
 import { FieldMoneyRead } from './FieldMoneyRead';
-import { DefaultPrecisionCont } from './moneyFormat';
+import { DefaultPrecisionCont, getLocaleMoneyMeta } from './moneyFormat';
 import type { FieldMoneyProps } from './types';
 
 export type { FieldMoneyProps };
@@ -51,6 +51,11 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     }
     return intl.getMessage('moneySymbol', '¥');
   }, [customSymbol, fieldProps.moneySymbol, intl, rest.moneySymbol]);
+
+  const localeMeta = useMemo(
+    () => getLocaleMoneyMeta(locale, numberFormatOptions),
+    [locale, numberFormatOptions],
+  );
 
   const getFormateValue = useCallback(
     (value?: string | number) => {
@@ -121,6 +126,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         placeholderValue,
         moneySymbol,
         getFormateValue,
+        localeMeta,
       },
       ref,
     );

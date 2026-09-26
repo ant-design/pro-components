@@ -71,7 +71,7 @@ describe('ProConfigProvider', () => {
       </ConfigProvider>,
     );
 
-    const input = container.querySelector('input#amount') as HTMLInputElement;
+    const input = container.querySelector('input[id$="_amount"]') as HTMLInputElement;
     expect(input).toBeTruthy();
     expect(input.value).toBe('!? 44.33');
   });

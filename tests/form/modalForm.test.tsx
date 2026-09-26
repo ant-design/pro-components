@@ -658,7 +658,7 @@ describe('ModalForm', () => {
     await waitFor(() => {
       expect(wrapper.getByDisplayValue('name-of-B')).toBeInTheDocument();
       expect(wrapper.queryByDisplayValue('name-of-A')).toBeNull();
-      expect(document.querySelector('input#remark')).toHaveValue('');
+      expect(document.querySelector('input[id$="_remark"]')).toHaveValue('');
     });
   });
 

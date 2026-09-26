@@ -310,8 +310,8 @@ describe('QueryFilter', () => {
     expect(
       wrapper.container.querySelectorAll('.ant-row .ant-form-item-hidden'),
     ).toHaveLength(1);
-    expect(wrapper.container.querySelector('input#a')).toBeTruthy();
-    expect(wrapper.container.querySelector('input#b')).toBeTruthy();
+    expect(wrapper.container.querySelector('input[id$="_a"]')).toBeTruthy();
+    expect(wrapper.container.querySelector('input[id$="_b"]')).toBeTruthy();
   });
 
   it('🕵️‍♀️ defaultFormItemsNumber should work', async () => {
@@ -412,7 +412,7 @@ describe('QueryFilter', () => {
     expect(
       container.querySelectorAll('.ant-row .ant-form-item-hidden'),
     ).toHaveLength(4);
-    expect(container.querySelector('input#name')).toBeTruthy();
+    expect(container.querySelector('input[id$="_name"]')).toBeTruthy();
   });
 
   it('🐛 #9293 colSize should not consume defaultFormItemsNumber', () => {
@@ -428,8 +428,8 @@ describe('QueryFilter', () => {
     expect(
       container.querySelectorAll('.ant-row .ant-form-item-hidden'),
     ).toHaveLength(1);
-    expect(container.querySelector('input#second')).toBeTruthy();
-    expect(container.querySelector('input#third')).toBeTruthy();
+    expect(container.querySelector('input[id$="_second"]')).toBeTruthy();
+    expect(container.querySelector('input[id$="_third"]')).toBeTruthy();
   });
 
   it('🕵️‍♀️ QueryFilter support ProForm.Group', async () => {

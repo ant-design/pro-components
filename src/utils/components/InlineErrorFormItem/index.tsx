@@ -89,44 +89,48 @@ const InlineErrorFormItemPopover: React.FC<{
   );
 
   return (
-    <Popover
-      key="popover"
-      open={!hasMessages ? false : open}
-      onOpenChange={(changeOpen: boolean) => {
-        if (changeOpen === open) return;
-        setOpen(changeOpen);
-      }}
-      trigger={popoverProps?.trigger || ['click']}
-      placement={popoverProps?.placement || 'topLeft'}
-      getPopupContainer={popoverProps?.getPopupContainer}
-      getTooltipContainer={popoverProps?.getTooltipContainer}
-      content={wrapSSR(
-        <div
-          className={clsx(`${prefixCls}-form-item`, hashId, token.hashId)}
-          style={{
-            margin: 0,
-            padding: 0,
-          }}
-        >
+    <>
+      {/* 不能把 Fragment 作为 Popover 的直接 child：rc-trigger 会向 child 注入
+          onKeyDown 等事件，Fragment 无法承接，触发
+          "Invalid prop `onKeyDown` supplied to `React.Fragment`"（#9153）。
+          这里以 input 本体作为 trigger，extra 渲染在 Popover 之外。 */}
+      <Popover
+        key="popover"
+        open={!hasMessages ? false : open}
+        onOpenChange={(changeOpen: boolean) => {
+          if (changeOpen === open) return;
+          setOpen(changeOpen);
+        }}
+        trigger={popoverProps?.trigger || ['click']}
+        placement={popoverProps?.placement || 'topLeft'}
+        getPopupContainer={popoverProps?.getPopupContainer}
+        getTooltipContainer={popoverProps?.getTooltipContainer}
+        content={wrapSSR(
           <div
-            className={clsx(
-              `${prefixCls}-form-item-with-help`,
-              hashId,
-              token.hashId,
-            )}
+            className={clsx(`${prefixCls}-form-item`, hashId, token.hashId)}
+            style={{
+              margin: 0,
+              padding: 0,
+            }}
           >
-            {loading ? <LoadingOutlined /> : null}
-            {hasMessages ? renderMessageContent() : errorList}
-          </div>
-        </div>,
-      )}
-      {...popoverProps}
-    >
-      <>
+            <div
+              className={clsx(
+                `${prefixCls}-form-item-with-help`,
+                hashId,
+                token.hashId,
+              )}
+            >
+              {loading ? <LoadingOutlined /> : null}
+              {hasMessages ? renderMessageContent() : errorList}
+            </div>
+          </div>,
+        )}
+        {...popoverProps}
+      >
         {input}
-        {extra}
-      </>
-    </Popover>
+      </Popover>
+      {extra}
+    </>
   );
 };
 

@@ -16,7 +16,7 @@ afterEach(() => {
 
 describe('💵 ProFormMoney', () => {
   const getMoneyInput = (container: HTMLElement) =>
-    container.querySelector('input#amount') as HTMLInputElement;
+    container.querySelector('input[id$="_amount"]') as HTMLInputElement;
 
   it('💵 ProFormMoney value expect number', async () => {
     const fn = vi.fn();
@@ -204,5 +204,73 @@ describe('💵 ProFormMoney', () => {
     });
     // precision=2 应保留 2 位小数，并使用千分位分隔；提交值为原始未截断的精度
     expect(getMoneyInput(container).value).toBe('💰 444,444,444.33');
+  });
+
+  // https://github.com/ant-design/pro-components/issues/9090
+  it('💵 ru-RU locale: symbol after value, no double symbol', async () => {
+    const { container } = render(
+      <ProForm submitter={false}>
+        <ProFormMoney
+          name="amount"
+          initialValue={1234.56}
+          locale="ru-RU"
+        />
+      </ProForm>,
+    );
+    // 编辑态：1 234,56 ₽（符号后置、窄不换行空格分组、逗号小数）
+    expect(getMoneyInput(container).value).toBe('1\u00a0234,56\u00a0₽');
+  });
+
+  // https://github.com/ant-design/pro-components/issues/9090
+  it('💵 ru-RU readonly: symbol after value, no double symbol', () => {
+    const html = render(
+      <ProForm submitter={false}>
+        <ProFormMoney
+          name="amount"
+          initialValue={1234.56}
+          locale="ru-RU"
+          readonly
+        />
+      </ProForm>,
+    );
+    const text = html.baseElement.textContent || '';
+    expect(text).toContain('1\u00a0234,56\u00a0₽');
+    // 只出现一次 ₽，修复双重符号
+    expect(text.match(/₽/g)?.length).toBe(1);
+  });
+
+  // https://github.com/ant-design/pro-components/issues/9090
+  it('💵 numberFormatOptions in fieldProps takes effect', () => {
+    const html = render(
+      <ProForm submitter={false}>
+        <ProFormMoney
+          name="price"
+          initialValue={1234.56}
+          locale="ru-RU"
+          fieldProps={{
+            numberFormatOptions: {
+              style: 'currency',
+              currency: 'RUB',
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0,
+            },
+          }}
+          readonly
+        />
+      </ProForm>,
+    );
+    // numberFormatOptions 生效：0 位小数
+    expect(html.baseElement.textContent).toContain('1\u00a0235\u00a0₽');
+  });
+
+  // https://github.com/ant-design/pro-components/issues/9090
+  it('💵 default zh-CN behavior unchanged', () => {
+    const html = render(
+      <ProForm submitter={false}>
+        <ProFormMoney name="amount" initialValue={1234.56} readonly />
+      </ProForm>,
+    );
+    // 前置符号 + 逗号分组保持不变
+    expect(html.baseElement.textContent).toContain('¥1,234.56');
   });
 });
