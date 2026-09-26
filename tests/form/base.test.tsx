@@ -137,6 +137,22 @@ describe('ProForm', () => {
     expect(selectLayout).toHaveStyle({ flex: '1', minWidth: '0' });
   });
 
+  it('🐛 Digit addonAfter stays next to fixed-width input', () => {
+    const wrapper = render(
+      <ProForm submitter={false}>
+        <ProFormDigit name="sessionValidTime" width={100} addonAfter="秒" />
+      </ProForm>,
+    );
+
+    const controlInput = wrapper.container
+      .querySelector('#sessionValidTime')
+      ?.closest('.ant-form-item-control-input');
+    const addon = wrapper.getByText('秒');
+
+    expect(controlInput?.parentElement).toContainElement(addon);
+    expect(controlInput?.nextElementSibling).toContainElement(addon);
+  });
+
   // need jsdom support
   it('📦 ProForm support sync form url', async () => {
     const fn = vi.fn();

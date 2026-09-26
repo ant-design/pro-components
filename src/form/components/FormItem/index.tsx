@@ -278,10 +278,25 @@ const WarpFormItem: React.FC<
                 {addonBefore ? (
                   <div style={{ marginInlineEnd: 8 }}>{addonBefore}</div>
                 ) : null}
-                <div style={{ flex: 1, minWidth: 0 }}>{doms.input}</div>
-                {addonAfter ? (
-                  <div style={{ marginInlineStart: 8 }}>{addonAfter}</div>
-                ) : null}
+                {/*
+                 * flex:1 包住「控件 + addonAfter」，保证 Text/Select 可收缩，
+                 * 同时单位/按钮紧跟控件，避免 Digit 固定宽度时把 addon 顶到行尾。
+                 */}
+                <div
+                  style={{
+                    flex: 1,
+                    minWidth: 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  {doms.input}
+                  {addonAfter ? (
+                    <div style={{ marginInlineStart: 8, flexShrink: 0 }}>
+                      {addonAfter}
+                    </div>
+                  ) : null}
+                </div>
               </div>
               {typeof help === 'function'
                 ? help({
