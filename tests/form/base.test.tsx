@@ -144,8 +144,9 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
+    // ProForm 默认注入唯一 form name，input id 形如 `${formKey}_${name}`（#9144）
     const controlInput = wrapper.container
-      .querySelector('#sessionValidTime')
+      .querySelector('[id$="_sessionValidTime"]')
       ?.closest('.ant-form-item-control-input');
     const addon = wrapper.getByText('秒');
 
