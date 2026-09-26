@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.1.15-0] - 2026-09-26
+
+### 🆕 Features
+
+- ProForm
+  - 🔥 Add `loadingRender` prop to customize the render while `request` is loading (e.g. `Skeleton`), aligning with antd 5.18+ loading style [#9679](https://github.com/ant-design/pro-components/issues/9679)
+- ProFormSelect
+  - 🆕 Add top-level `fetchDataOnSearch` prop; when `false`, `request` only fetches once on init and searching filters locally [#9682](https://github.com/ant-design/pro-components/issues/9682)
+
+### ✅ Tests
+
+- ✅ Add regression tests for `loadingRender` and `fetchDataOnSearch`
+
 ## [3.1.14-6] - 2026-07-29
 
 ### 🐛 Bug Fixes

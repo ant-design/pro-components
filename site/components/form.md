@@ -274,6 +274,22 @@ FormItemRender 用来专门处理，采用 render props 的方式来组织代码
 
 <code src="../../demos/form/label-in-value.tsx"></code>
 
+### 自定义 request 加载状态
+
+`request` 加载期间默认渲染居中的 `Spin`，通过 `loadingRender` 替换为 `Skeleton` 等自定义内容。
+
+<code src="../../demos/form/loading-render.tsx"></code>
+
+### Select `request` 数据本地搜索
+
+`request` 一次性拉取全量数据后，设置 `fetchDataOnSearch={false}` 可让搜索走本地过滤，不再重复发起请求。
+
+<code src="../../demos/field/select-local-search.tsx"></code>
+
+| 参数               | 说明                                                                        | 类型      | 默认值  |
+| ------------------ | --------------------------------------------------------------------------- | --------- | ------- |
+| fetchDataOnSearch  | 搜索时是否重新触发 `request`；设为 `false` 时仅初始化拉取一次，搜索走本地过滤 | `boolean` | `true`  |
+
 ### ProProvider / ConfigProvider（调试）
 
 <code src="../../demos/form/config-provider.tsx" debug background="var(--main-bg-color)"></code>
@@ -290,6 +306,7 @@ ProForm 是对 antd Form 的再封装，如果你想要自定义表单元素，P
 | onReset                                         | 点击重置按钮的回调                                                                                                                             | `(e) => void`                                                                                                                                                                                                                 | -               |
 | submitter                                       | 提交按钮相关配置                                                                                                                               | `SubmitterProps<{form?: FormInstance<any>}> \| false`                                                                                                                                                                         | `true`          |
 | loading                                         | 表单按钮的 loading 状态                                                                                                                        | `boolean`                                                                                                                                                                                                                     | -               |
+| loadingRender                                   | `request` 加载期间的自定义渲染，默认为居中的 `Spin`，可传 `Skeleton` 对齐 antd 5.18+ 加载风格                                                  | `ReactNode \| (() => ReactNode)`                                                                                                                                                                                             | `<Spin />`      |
 | onLoadingChange                                 | loading 状态改变时的回调                                                                                                                       | `(loading: boolean) => void`                                                                                                                                                                                                  | -               |
 | formRef                                         | 获取表单所使用的 form，`ProFormInstance` 相比 antd Form 增加了格式化数据的方法                                                                 | `React.MutableRefObject<(ProFormInstance<T> & { nativeElement?: HTMLElement; focus?: () => void }) \| undefined> \| React.RefObject<(ProFormInstance<T> & { nativeElement?: HTMLElement; focus?: () => void }) \| undefined>` | -               |
 | syncToUrl                                       | 同步参数到 url 上，url 只支持 string，在使用之前最好读一下[url 中的参数类型](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) | `boolean \| ((values: T, type: 'get' \| 'set') => T)`                                                                                                                                                                         | -               |

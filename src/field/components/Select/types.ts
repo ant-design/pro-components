@@ -23,4 +23,11 @@ export type FieldSelectProps<FieldProps = any> = {
 
   /** 默认搜素条件 */
   defaultKeyWords?: string;
+
+  /**
+   * 搜索时是否重新触发 request
+   * @default true
+   * 设为 false 时仅在初始化拉取一次全量数据，后续搜索走本地过滤
+   */
+  fetchDataOnSearch?: boolean;
 } & ProFieldLightProps;

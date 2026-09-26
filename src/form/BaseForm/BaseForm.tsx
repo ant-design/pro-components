@@ -101,6 +101,13 @@ export type CommonFormProps<
    */
   loading?: boolean;
   /**
+   * @name request 加载期间的自定义渲染
+   * @description 默认渲染居中的 `<Spin />`；传入 Skeleton 等组件可对齐 antd 5.18+ 的加载风格
+   *
+   * @example loadingRender={<Skeleton paragraph={{ rows: 4 }} />}
+   */
+  loadingRender?: React.ReactNode | (() => React.ReactNode);
+  /**
    * @name 这是一个可选的属性(onLoadingChange)，它接受一个名为loading的参数，类型为boolean，表示加载状态是否改变。
    * 当loading状态发生变化时，将会调用一个函数，这个函数接受这个loading状态作为参数，并且没有返回值(void)。
    */
@@ -516,6 +523,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     readonly,
     onLoadingChange,
     loading: propsLoading,
+    loadingRender,
     ...propRest
   } = props;
   const formRef = useRef<ProFormRef<any>>({} as any);
@@ -746,6 +754,13 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   }, [initialData]);
 
   if (request && initialDataLoading) {
+    if (loadingRender !== undefined) {
+      return (
+        <>
+          {typeof loadingRender === 'function' ? loadingRender() : loadingRender}
+        </>
+      );
+    }
     return (
       <div style={{ paddingTop: 50, paddingBottom: 50, textAlign: 'center' }}>
         <Spin />

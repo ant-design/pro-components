@@ -34,6 +34,7 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
     fetchData,
     resetData,
     inputRef,
+    fetchDataOnSearch,
     ...rest
   } = props;
 
@@ -58,6 +59,7 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
       placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
       label={label}
       {...fieldProps}
+      fetchDataOnSearch={fieldProps?.fetchDataOnSearch ?? fetchDataOnSearch}
       options={options}
     />
   );
