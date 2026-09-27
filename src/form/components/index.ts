@@ -51,7 +51,18 @@ export { default as ProFormRadio } from './Radio';
 export type { ProFormRadioGroupProps } from './Radio';
 export { default as ProFormRate } from './Rate';
 export { default as BetaSchemaForm } from './SchemaForm';
-export type { ProFormColumnsType, ProFormLayoutType } from './SchemaForm';
+// #9088 导出完整类型定义，支持二次封装时继承
+export type {
+  ProFormColumnsType,
+  ProFormLayoutType,
+  FormSchema,
+  ProFormPropsType,
+  ProSchemaRenderValueTypeFunction,
+  ProFormRenderValueTypeHelpers,
+  ProFormRenderValueTypeItem,
+  ItemType,
+  ExtraProColumnType,
+} from './SchemaForm';
 export { default as ProFormSegmented } from './Segmented';
 export { default as ProFormSelect } from './Select';
 export type { ProFormSelectProps } from './Select';

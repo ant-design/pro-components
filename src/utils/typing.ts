@@ -67,6 +67,11 @@ export type ProFormBaseGroupProps = {
    */
   style?: React.CSSProperties;
   /**
+   * @name 自定义容器类名
+   * @example <ProForm.Group title="标题" className="my-group" />
+   */
+  className?: string;
+  /**
    * @name 自定义 title 样式
    * @example 增加背景颜色
    * <ProForm.Group titleStyle={{ backgroundColor: '#f0f0f0' }} />

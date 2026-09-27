@@ -466,6 +466,11 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
    * 错误边界自定义
    */
   ErrorBoundary?: React.ComponentClass<any, any> | false;
+  /**
+   * 表格滚动时触发。rc-table 原生仅在设置 scroll.y 时回调；
+   * 未设置 scroll.y 时 ProTable 通过捕获相补挂（仅水平方向生效）
+   */
+  onScroll?: React.UIEventHandler<HTMLDivElement>;
 } & Omit<TableProps<DataSource>, 'columns' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {

@@ -17,6 +17,7 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
       collapsible,
       defaultCollapsed,
       style,
+      className: propsClassName,
       labelLayout,
       title = props.label,
       tooltip,
@@ -157,7 +158,7 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
     return wrapSSR(
       <ColWrapper>
         <div
-          className={clsx(className, hashId, {
+          className={clsx(className, propsClassName, hashId, {
             [`${className}-twoLine`]: labelLayout === 'twoLine',
           })}
           style={style}

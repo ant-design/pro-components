@@ -328,6 +328,7 @@ const ProTable = <
     tooltip,
     revalidateOnFocus = false,
     searchFormRender,
+    onScroll,
     ...rest
   } = props;
   const { wrapSSR, hashId } = useStyle(props.defaultClassName);
@@ -987,6 +988,14 @@ const ProTable = <
 
   const notNeedCardDom = search === false && hideToolbar;
 
+  /**
+   * #9082 rc-table 仅在 fixHeader（设置了 scroll.y）分支调用用户 onScroll，
+   * 无 scroll.y 时唯一表格容器的原生滚动事件不会透传。
+   * 这里在外层用捕获相监听（scroll 不冒泡但可捕获），仅对水平滚动生效，
+   * 避免与 rc-table 内部的 onBodyScroll 重复触发。
+   */
+  const needsScrollCapture = Boolean(onScroll) && !props.scroll?.y;
+
   const getBaseTableDom = () => (
     <GridContext.Provider
       value={{
@@ -995,7 +1004,21 @@ const ProTable = <
         rowProps: undefined,
       }}
     >
-      <Table<T> {...mergedTableProps} rowKey={rowKey} ref={antTableRef} />
+      {needsScrollCapture ? (
+        <div
+          style={{ display: 'contents' }}
+          onScrollCapture={(e) => {
+            // 只转发水平滚动（rc-table 内部已处理纵向场景）
+            if ((e.target as HTMLElement).scrollWidth > (e.target as HTMLElement).clientWidth) {
+              onScroll?.(e as unknown as React.UIEvent<HTMLDivElement>);
+            }
+          }}
+        >
+          <Table<T> {...mergedTableProps} rowKey={rowKey} ref={antTableRef} />
+        </div>
+      ) : (
+        <Table<T> {...mergedTableProps} rowKey={rowKey} ref={antTableRef} />
+      )}
     </GridContext.Provider>
   );
 

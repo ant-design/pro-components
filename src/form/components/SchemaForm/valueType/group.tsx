@@ -9,6 +9,7 @@ export const group: ProSchemaRenderValueTypeFunction = (item, { genItems }) => {
       <ProFormGroup
         key={item.key}
         label={item.label}
+        className={item.className}
         colProps={item.colProps}
         rowProps={item.rowProps}
         {...item.getFieldProps?.()}
