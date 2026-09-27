@@ -297,9 +297,7 @@ FormItemChildrenShell.displayName = 'FormItemChildrenShell';
  * @param WarpFormItemProps
  * @returns
  */
-const WarpFormItem: React.FC<
-  Omit<FormItemProps, 'help'> & WarpFormItemProps
-> = ({
+const WarpFormItem: React.FC<ProFormItemProps> = ({
   children,
   addonAfter,
   addonBefore,
@@ -384,7 +382,7 @@ const WarpFormItem: React.FC<
   );
 };
 
-export type ProFormItemProps = Omit<FormItemProps, 'help'> & {
+export type ProFormItemProps = Omit<FormItemProps, keyof WarpFormItemProps> & {
   ignoreFormItem?: boolean;
   valueType?: ProFieldValueType;
   /**

@@ -36,6 +36,7 @@ export function FieldDatePickerLightEdit(
     fieldProps,
     picker,
     lightLabel,
+    popoverOpen,
     variant,
     open,
     setOpen,
@@ -64,7 +65,7 @@ export function FieldDatePickerLightEdit(
       }
       disabled={disabled}
       value={
-        dayValue || open ? (
+        dayValue || open || popoverOpen ? (
           <DatePicker
             picker={picker}
             showTime={showTime}
@@ -82,7 +83,7 @@ export function FieldDatePickerLightEdit(
         ) : undefined
       }
       allowClear={false}
-      downIcon={dayValue || open ? false : undefined}
+      downIcon={dayValue || open || popoverOpen ? false : undefined}
       variant={variant}
       ref={lightLabel}
     />

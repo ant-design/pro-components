@@ -10,7 +10,9 @@ export type StepFormProps<T = Record<string, any>, U = Record<string, any>> = {
   step?: number;
   stepProps?: NonNullable<StepsProps['items']>[number];
   index?: number;
-} & Omit<FormProps<T>, 'onFinish' | 'form'> &
+  // #9101 支持传入 Form.useForm() 实例（运行时经 restProps 透传给 BaseForm），
+  // 共享实例时非当前步字段通过 skipFieldRules 跳过校验
+} & Omit<FormProps<T>, 'onFinish'> &
   Omit<CommonFormProps<T, U>, 'submitter' | 'form'>;
 
 function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
@@ -53,6 +55,9 @@ function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
   return (
     <BaseForm<T>
       formRef={formRef}
+      // 非当前步的字段跳过 rules（#9101）：共享 form 实例时
+      // submit 会校验整个 store，隐藏步骤的必填项会阻塞当前步提交
+      skipFieldRules={context ? context.current !== (step ?? 0) : false}
       onFinish={async (values) => {
         if (restProps.name) {
           context?.onFormFinish(restProps.name, values);

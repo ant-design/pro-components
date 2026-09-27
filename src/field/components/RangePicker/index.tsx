@@ -33,6 +33,7 @@ const FieldRangePicker: ProFieldFC<
     formItemRender,
     showTime,
     lightLabel,
+    popoverOpen,
     variant: propsVariant,
     fieldProps,
   },
@@ -91,6 +92,7 @@ const FieldRangePicker: ProFieldFC<
         {
           ...editProps,
           lightLabel,
+          popoverOpen,
           open,
           setOpen,
         },

@@ -33,6 +33,7 @@ const FieldTimePicker: ProFieldFC<
     formItemRender,
     fieldProps,
     lightLabel,
+    popoverOpen,
     variant,
   },
   ref,
@@ -76,6 +77,7 @@ const FieldTimePicker: ProFieldFC<
         {
           ...editProps,
           lightLabel,
+          popoverOpen,
           open,
           setOpen,
           intl,
@@ -104,6 +106,7 @@ const FieldTimeRangePickerComponents: ProFieldFC<
     label,
     mode,
     lightLabel,
+    popoverOpen,
     format = 'HH:mm:ss',
     render,
     formItemRender,
@@ -169,6 +172,7 @@ const FieldTimeRangePickerComponents: ProFieldFC<
         {
           ...editProps,
           lightLabel,
+          popoverOpen,
           open,
           setOpen,
           intl,

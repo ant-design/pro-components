@@ -227,6 +227,10 @@ export type BaseFormProps<T = Record<string, any>, U = Record<string, any>> = {
   isKeyPressSubmit?: boolean;
   /** Form 组件的类型，内部使用 */
   formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter' | 'LightFilter';
+  /**
+   * 非当前分步的字段跳过 rules 校验（#9101），内部由 StepsForm 注入
+   */
+  skipFieldRules?: boolean;
 } & Omit<FormProps, 'onFinish'> &
   CommonFormProps<T, U>;
 
@@ -511,6 +515,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     onInit,
     form,
     formComponentType,
+    skipFieldRules,
     onReset,
     grid,
     rowProps,
@@ -790,6 +795,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
             formItemProps,
             groupProps,
             formComponentType,
+            skipFieldRules,
             getPopupContainer,
             formKey: curFormKey.current,
             setFieldValueType: (

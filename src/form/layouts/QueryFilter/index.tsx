@@ -32,6 +32,7 @@ type BreakpointsConfig = {
 
 /** 从 antd 设计 token 获取断点配置，与 Grid 响应式布局保持一致 */
 const getBreakpointsConfig = (token: {
+  screenXSMin?: number;
   screenSMMin?: number;
   screenMDMin?: number;
   screenLGMin?: number;
@@ -40,13 +41,17 @@ const getBreakpointsConfig = (token: {
 }): BreakpointsConfig => {
   const defaultToken = theme.getDesignToken();
   const t = { ...defaultToken, ...token };
+  // #9131 断点键与 antd 栅格对齐：每个档位取「本档」的最小宽度 token，
+  // 用户定制 screenXLMin/screenXXLMin 等按预期影响对应档位。
+  // 判断式为 `width < min + 16`（16 = 2 × 8px gutter 补偿），
+  // 即每档生效区间为 [min+16, 下一档 min+16)
   const bp = {
-    xs: t.screenSMMin ?? 576,
-    sm: t.screenMDMin ?? 768,
-    md: t.screenLGMin ?? 992,
-    lg: t.screenXLMin ?? 1200,
-    xl: t.screenXXLMin ?? 1600,
-    xxl: Infinity,
+    xs: t.screenXSMin ?? 480,
+    sm: t.screenSMMin ?? 576,
+    md: t.screenMDMin ?? 768,
+    lg: t.screenLGMin ?? 992,
+    xl: t.screenXLMin ?? 1200,
+    xxl: t.screenXXLMin ?? 1600,
   } as const;
 
   return {
@@ -103,7 +108,10 @@ const getSpanConfig = (
 
   if (!breakPoint) {
     return {
-      span: 8,
+      // xxl 之后没有更多断点：优先使用 xxl 档的列数配置，未配置时默认一行 3 列
+      span: spanConfig?.[spanConfig.length - 1]
+        ? 24 / (spanConfig[spanConfig.length - 1][1] as number)
+        : 8,
       layout: 'horizontal',
     };
   }
@@ -487,6 +495,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   const breakpointsConfig = useMemo(
     () => getBreakpointsConfig(token),
     [
+      token.screenXSMin,
       token.screenSMMin,
       token.screenMDMin,
       token.screenLGMin,

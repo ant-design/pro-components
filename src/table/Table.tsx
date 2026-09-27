@@ -1,5 +1,5 @@
 import { Summary } from '@rc-component/table';
-import { useControlledState } from '@rc-component/util';
+import { noteOnce, useControlledState } from '@rc-component/util';
 import type { TablePaginationConfig } from 'antd';
 import { ConfigProvider, Table } from 'antd';
 import type {
@@ -451,7 +451,10 @@ const ProTable = <
     onRequestError,
     postData,
     revalidateOnFocus,
-    manual: formSearch === undefined,
+    // #9106 自定义查询表单（searchFormRender）可能不渲染内置 FormRender，
+    // formSearch 永远为 undefined 会让 manual 一直为 true，首屏查询被跳过。
+    // 该场景下首屏直接以空筛选请求（用户仍可通过 formRef/actionRef.reload 触发）
+    manual: !searchFormRender && formSearch === undefined,
     polling,
     effects: [
       stringify(params),
@@ -592,6 +595,22 @@ const ProTable = <
 
   // ============================ Render ============================
   const { token } = proTheme?.useToken();
+
+  if (process.env.NODE_ENV !== 'production') {
+    // #9616 树形数据与 expandedRowRender 不兼容（antd Table 限制）：
+    // 树形行展开会与嵌套子表行冲突，expandedRowRender 返回空时仍可能
+    // 生成占位 tr/td。提前给出明确警告，避免难以排查的布局错乱
+    const hasTreeData = (action.dataSource || []).some(
+      (row) =>
+        row?.[props.expandable?.childrenColumnName ?? 'children']?.length > 0,
+    );
+    if (hasTreeData && props.expandable?.expandedRowRender) {
+      noteOnce(
+        false,
+        '`expandedRowRender` 与树形数据（children）不兼容，嵌套展开会产生空白行或布局错乱。请改用 `Table.EXPAND_COLUMN` 或在 dataSource 层拆分子表。',
+      );
+    }
+  }
 
   /** 绑定 action */
   useActionType(actionRef, action, {

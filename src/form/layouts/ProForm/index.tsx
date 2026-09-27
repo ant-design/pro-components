@@ -4,7 +4,12 @@ import React, { useCallback } from 'react';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
-import { Group, ProFormItem } from '../../components';
+// #9185 直接从具体文件导入而非 '../../components' barrel：
+// barrel 会拉入 SchemaForm，而 SchemaForm 又依赖 layouts/ProForm，
+// 形成 ProForm → components → SchemaForm → ProForm 的循环依赖，
+// vite/rollup 构建时产生 "circular dependency between chunks" 警告
+import Group from '../../components/FormItem/Group';
+import ProFormItem from '../../components/FormItem';
 
 export type ProFormProps<
   T = Record<string, any>,

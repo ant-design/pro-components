@@ -33,6 +33,13 @@ export type FiledContextProps = {
 
   /** 表单的 getPopupContainer 控制 */
   getPopupContainer?: (e: HTMLElement) => HTMLElement | ParentNode;
+
+  /**
+   * 分步表单中非当前步的字段跳过 rules 校验（#9101）：
+   * 共享 form 实例时 submit 会校验整个 store，隐藏步骤的必填项
+   * 会阻塞当前步提交。仅 StepsForm 内部使用。
+   */
+  skipFieldRules?: boolean;
 } & Pick<CommonFormProps, 'formRef' | 'grid'>;
 
 const FieldContext = React.createContext<FiledContextProps>({});

@@ -37,6 +37,7 @@ const FieldDatePicker: ProFieldFC<
     fieldProps,
     picker,
     lightLabel,
+    popoverOpen,
     variant,
   },
   ref,
@@ -82,6 +83,7 @@ const FieldDatePicker: ProFieldFC<
         {
           ...editProps,
           lightLabel,
+          popoverOpen,
           open,
           setOpen,
         },

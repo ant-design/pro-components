@@ -35,6 +35,7 @@ export function FieldRangePickerLightEdit(
     formItemRender,
     showTime,
     lightLabel,
+    popoverOpen,
     variant: propsVariant,
     fieldProps,
     open,
@@ -70,7 +71,7 @@ export function FieldRangePickerLightEdit(
       }
       disabled={fieldProps.disabled}
       value={
-        dayValue || open ? (
+        dayValue || open || popoverOpen ? (
           <DatePicker.RangePicker
             picker={picker}
             showTime={showTime}
@@ -96,7 +97,7 @@ export function FieldRangePickerLightEdit(
       variant={propsVariant}
       allowClear={false}
       ref={lightLabel}
-      downIcon={dayValue || open ? false : undefined}
+      downIcon={dayValue || open || popoverOpen ? false : undefined}
     />
   );
 

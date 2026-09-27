@@ -25,6 +25,13 @@ export type ProFieldLightProps = {
     clearRef: React.RefObject<HTMLElement>;
   }>;
   labelTrigger?: boolean;
+  /**
+   * LightFilter 弹层展开状态（#9062）：
+   * 弹层内 FieldLabel 的点击被外层接管，内部 open 无法通过点击置位，
+   * 无初值时编辑器不渲染。弹层打开时该值为 true，light 编辑组件
+   * 应直接进入可编辑态
+   */
+  popoverOpen?: boolean;
 };
 
 /** Value type by function */

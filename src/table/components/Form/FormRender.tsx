@@ -51,8 +51,12 @@ const getFormCompetent = (
 const getFromProps = (isForm: boolean, searchConfig: any, name: string) => {
   if (!isForm && name === 'LightFilter') {
     // 传给轻量筛选表单的配置
+    // 搜索筛选场景不应校验 columns 的 formItemProps.rules：
+    // LightFilter 值变更即触发查询，rules 会阻塞提交导致无法查询（#9079）。
+    // 显式传入 ignoreRules 时以用户配置为准
     return omit(
       {
+        ignoreRules: true,
         ...searchConfig,
       },
       ['labelWidth', 'defaultCollapsed', 'filterType'],

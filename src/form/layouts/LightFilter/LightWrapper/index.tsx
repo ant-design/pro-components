@@ -173,6 +173,10 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
               childProps?.onChange?.(e);
             },
             variant: 'borderless' as const,
+            // #9062 弹层展开时通知内部的 light 编辑组件切换到可编辑态：
+            // 内部 FieldLabel 的点击被外层 FilterDropdown label 接管，
+            // open 状态无法通过点击传递，无初值时编辑器永不渲染
+            popoverOpen: open,
             fieldProps: mergedFieldProps,
           });
         })()}

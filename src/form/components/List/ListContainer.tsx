@@ -7,6 +7,7 @@ import { useContext, useMemo, useRef, useState } from 'react';
 import { ProProvider, useIntl } from '../../../provider';
 import { nanoid, runFunction } from '../../../utils';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
+import { useGridHelpers } from '../../helpers';
 import type { ProFormListItemProps } from './ListItem';
 import { ProFormListItem } from './ListItem';
 
@@ -133,10 +134,21 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
   ]);
   const readOnlyContext = useContext(EditOrReadOnlyContext);
 
+  const { grid } = useGridHelpers();
+
+  // grid 模式下多个列表项需要纵向堆叠为多个 flex 行容器（#9083）：
+  // width:max-content 保持「无字段时收缩」，minWidth:100% 保持占满行宽
   const defaultStyle: CSSProperties = {
     width: 'max-content',
     maxWidth: '100%',
     minWidth: '100%',
+    ...(grid
+      ? {
+          display: 'flex',
+          flexDirection: 'column' as const,
+          alignItems: 'stretch' as const,
+        }
+      : {}),
     ...containerStyle,
   };
 

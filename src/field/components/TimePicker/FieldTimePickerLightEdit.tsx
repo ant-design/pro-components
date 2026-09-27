@@ -33,6 +33,7 @@ export function FieldTimePickerLightEdit(
     formItemRender,
     fieldProps,
     lightLabel,
+    popoverOpen,
     variant,
     finalFormat,
     open,
@@ -62,7 +63,7 @@ export function FieldTimePickerLightEdit(
       disabled={disabled}
       variant={variant ?? fieldProps?.variant}
       value={
-        dayValue || open ? (
+        dayValue || open || popoverOpen ? (
           <TimePicker
             format={format}
             ref={ref as React.Ref<any>}
@@ -81,7 +82,7 @@ export function FieldTimePickerLightEdit(
           />
         ) : null
       }
-      downIcon={dayValue || open ? false : undefined}
+      downIcon={dayValue || open || popoverOpen ? false : undefined}
       allowClear={false}
       ref={lightLabel}
     />

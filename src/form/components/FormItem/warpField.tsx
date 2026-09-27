@@ -20,6 +20,7 @@ import type {
   ProFormItemCreateConfig,
 } from '../../typing';
 import ProFormDependency from '../Dependency';
+import type { ProFormItemProps } from './index';
 import ProFormItem from './index';
 
 export const TYPE = Symbol('ProFormComponent');
@@ -79,8 +80,10 @@ export function warpField<P extends ProFormFieldItemProps = any>(
       valuePropName = 'value',
       ignoreWidth,
       defaultProps,
+      // 函数式 help 由 ProFormItem（Form.Item 层）处理，不能流入原生 FormItemProps
+      help: _configHelp,
       ...defaultFormItemProps
-    } = { ...props?.fieldConfig, ...config };
+    } = { ...props?.fieldConfig, ...config } as ProFormItemCreateConfig;
     const {
       label,
       tooltip,
@@ -174,12 +177,20 @@ export function warpField<P extends ProFormFieldItemProps = any>(
     );
 
     const otherProps = useDeepCompareMemo(
-      () => ({
-        messageVariables,
-        ...defaultFormItemProps,
-        ...formItemProps,
-      }),
-      [defaultFormItemProps, formItemProps, messageVariables],
+      () => {
+        const merged: FormItemProps = {
+          messageVariables,
+          ...defaultFormItemProps,
+          ...formItemProps,
+        };
+        // 分步表单非当前步：跳过 rules 校验（#9101）。
+        // 共享 form 实例时 submit 校验整个 store，隐藏步骤的必填项会阻塞当前步提交
+        if (contextValue.skipFieldRules) {
+          return { ...merged, rules: [] };
+        }
+        return merged;
+      },
+      [defaultFormItemProps, formItemProps, messageVariables, contextValue.skipFieldRules],
     );
 
     const { prefixName } = useContext(RcFieldContext);
@@ -286,6 +297,10 @@ export function warpField<P extends ProFormFieldItemProps = any>(
 
     // 使用useMemo包裹避免不必要的re-render
     const formItem = useDeepCompareMemo(() => {
+      // #9709/#8942 函数式 help 交给 ProFormItem 处理（help="" 保持高度占位），
+      // 不能以函数形式透传给原生 Form.Item 的 ReactNode help
+      const { help, ...restOtherProps } = otherProps as ProFormItemProps;
+
       // light 模式下（非下拉类）：由 Form.Item 正常注入 value，LightWrapper 作为 Form.Item
       // 的直接 children 接收 value/onChange，再把 Field 渲染在 Popover 内部
       if (isLightMode && !isDropdownValueType(valueType)) {
@@ -295,7 +310,8 @@ export function warpField<P extends ProFormFieldItemProps = any>(
             tooltip={false}
             valuePropName={valuePropName}
             key={props.proFormFieldKey || otherProps.name?.toString()}
-            {...otherProps}
+            {...restOtherProps}
+            help={help}
             ignoreFormItem={ignoreFormItem}
             transform={transform}
             dataFormat={fieldProps?.format}
@@ -326,7 +342,8 @@ export function warpField<P extends ProFormFieldItemProps = any>(
         <ProFormItem
           valuePropName={valuePropName}
           key={props.proFormFieldKey || otherProps.name?.toString()}
-          {...otherProps}
+          {...restOtherProps}
+          help={help}
           // 轻量模式下 Form.Item 不展示 label/tooltip，放在展开之后确保不被覆盖
           noStyle={otherProps?.noStyle ?? isLightField}
           label={isLightField ? undefined : label}

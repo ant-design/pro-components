@@ -576,6 +576,17 @@ const ProFormListItem: React.FC<
   const itemContainer =
     itemContainerRender?.(childrenArray, options) || childrenArray;
 
+  // grid 模式下 container 需要作为 flex 行容器（模拟 antd Row），
+  // 否则列表内字段的 Col/colProps 无法水平排列（#9083）
+  const gridContainerStyle = grid
+    ? {
+        display: 'flex',
+        flexWrap: 'wrap' as const,
+        rowGap: 0,
+        minWidth: 0,
+      }
+    : undefined;
+
   const contentDom = itemRender?.(
     {
       listDom: (
@@ -583,6 +594,7 @@ const ProFormListItem: React.FC<
           className={clsx(`${prefixCls}-container`, containerClassName, hashId)}
           style={{
             width: grid ? '100%' : undefined,
+            ...gridContainerStyle,
             ...containerStyle,
           }}
         >
@@ -607,6 +619,7 @@ const ProFormListItem: React.FC<
         className={clsx(`${prefixCls}-container`, containerClassName, hashId)}
         style={{
           width: grid ? '100%' : undefined,
+          ...gridContainerStyle,
           ...containerStyle,
         }}
       >
