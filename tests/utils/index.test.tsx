@@ -679,7 +679,7 @@ describe('utils', () => {
         );
         expect(!!popoverContent).toBeTruthy();
         const warningEl = html.baseElement.querySelector(
-          '.ant-form-item-explain-warning',
+          'div.ant-popover .ant-form-item-explain-warning',
         );
         expect(!!warningEl).toBeTruthy();
         expect(warningEl?.textContent).toContain(warningMessage);

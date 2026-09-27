@@ -126,12 +126,14 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
+    // addon 布局位于 Form.Item 标准 children 内（control-input-content 中），
+    // 内层 flex:1/minWidth:0 容器保证控件可收缩（#9211）
     const textLayout = wrapper.container
       .querySelector('input[id$="_text"]')
-      ?.closest('.ant-form-item-control-input')?.parentElement;
+      ?.closest('.ant-form-item-control-input-content > div > div');
     const selectLayout = wrapper.container
       .querySelector('[id$="_select"]')
-      ?.closest('.ant-form-item-control-input')?.parentElement;
+      ?.closest('.ant-form-item-control-input-content > div > div');
 
     expect(textLayout).toHaveStyle({ flex: '1', minWidth: '0' });
     expect(selectLayout).toHaveStyle({ flex: '1', minWidth: '0' });
@@ -145,13 +147,18 @@ describe('ProForm', () => {
     );
 
     // ProForm 默认注入唯一 form name，input id 形如 `${formKey}_${name}`（#9144）
-    const controlInput = wrapper.container
+    const controlContent = wrapper.container
       .querySelector('[id$="_sessionValidTime"]')
-      ?.closest('.ant-form-item-control-input');
+      ?.closest('.ant-form-item-control-input-content > div');
     const addon = wrapper.getByText('秒');
 
-    expect(controlInput?.parentElement).toContainElement(addon);
-    expect(controlInput?.nextElementSibling).toContainElement(addon);
+    // addon 与控件同在一个 flex 容器中，紧邻渲染
+    expect(controlContent).toContainElement(addon);
+    expect(
+      wrapper.container
+        .querySelector('[id$="_sessionValidTime"]')
+        ?.closest('.ant-form-item-control-input-content'),
+    ).toContainElement(addon);
   });
 
   // need jsdom support

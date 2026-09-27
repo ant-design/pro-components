@@ -157,6 +157,12 @@ const WithValueFomFiledProps = React.forwardRef<
 });
 WithValueFomFiledProps.displayName = 'WithValueFomFiledProps';
 
+/** 函数式 help：接收字段校验消息，返回自定义的帮助内容 */
+export type ProFormItemHelpFunction = (params: {
+  errors: React.ReactNode[];
+  warnings: React.ReactNode[];
+}) => React.ReactNode;
+
 type WarpFormItemProps = {
   /** @name 前置的dom * */
   addonBefore?: React.ReactNode;
@@ -180,13 +186,110 @@ type WarpFormItemProps = {
    * @example  string => object   convertValue: (value,namePath)=> { return {value,label:value} }
    */
   convertValue?: SearchConvertKeyFn;
-  help?:
-    | React.ReactNode
-    | ((params: {
-        errors: React.ReactNode[];
-        warnings: React.ReactNode[];
-      }) => React.ReactNode);
+  help?: React.ReactNode | ProFormItemHelpFunction;
 };
+
+/**
+ * 读取 Form.Item 校验消息的桥接组件。
+ *
+ * antd 6 会把 { status, errors, warnings } 通过 FormItemInputContext 注入到
+ * Form.Item 的 children 树中（`Form.Item.useStatus` 的数据源），
+ * 函数式 help 借助这个公开 API 拿到校验消息，
+ * 替代旧版 `_internalItemRender` 私有渲染（#9709/#8942/#9066）：
+ * 私有渲染会整体跳过 additionalDom（错误提示 + extra + minHeight 占位），
+ * 导致校验时高度抖动、错误信息丢失。
+ */
+const FieldHelpMessages: React.FC<{
+  help: ProFormItemHelpFunction;
+}> = ({ help }) => {
+  const { errors = [], warnings = [] } = Form.Item.useStatus();
+  // help="" 使原生 explain 只渲染空内容（高度 0），错误显示由此处接管，
+  // additionalDom 常驻保证校验出现/消失时高度稳定（#9709/#8942）
+  return <div>{help({ errors, warnings })}</div>;
+};
+
+interface FormItemChildrenShellProps {
+  addonBefore?: React.ReactNode;
+  addonAfter?: React.ReactNode;
+  addonWarpStyle?: React.CSSProperties;
+  help?: ProFormItemHelpFunction;
+  children?: React.ReactNode;
+}
+
+/**
+ * Form.Item 的 children 壳层：
+ * 1. addonBefore/addonAfter 与控件一起进入 Form.Item 标准 children 插槽，
+ *    错误提示 / extra / minHeight 占位由 antd 原生 additionalDom 管理，
+ *    校验出现与消失时高度稳定（#9709/#8942）；
+ * 2. Form.Item 通过 cloneElement 注入的控制属性（value/onChange/id/ref 等）
+ *    由这里透传给内部真正的字段组件。
+ */
+const FormItemChildrenShell = React.forwardRef<
+  any,
+  FormItemChildrenShellProps & Record<string, any>
+>(
+  (
+    { addonBefore, addonAfter, addonWarpStyle, help: helpFn, children, ...controlProps },
+    ref,
+  ) => {
+    // 只有子组件支持 ref 时才注入（与 antd Form.Item 的 supportRef 判断一致），
+    // 避免给普通函数组件传 ref 触发警告
+    const mergedRef =
+      ref && supportRef(children as React.ReactElement) ? ref : undefined;
+
+    // 与 antd Form.Item 的 cloneElement 语义保持一致：
+    // 控制属性直接覆盖（包括 value: undefined 的受控清空），
+    // ref 仅在子组件支持时注入
+    const fieldChild = React.isValidElement(children)
+      ? React.cloneElement(children, {
+          ...controlProps,
+          ...(mergedRef ? { ref: mergedRef } : {}),
+        } as any)
+      : children;
+
+    return (
+      <>
+        {addonBefore || addonAfter ? (
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              ...addonWarpStyle,
+            }}
+          >
+            {addonBefore ? (
+              <div style={{ marginInlineEnd: 8 }}>{addonBefore}</div>
+            ) : null}
+            {/*
+             * flex:1 包住「控件 + addonAfter」，保证 Text/Select 可收缩，
+             * 同时单位/按钮紧跟控件，避免 Digit 固定宽度时把 addon 顶到行尾。
+             */}
+            <div
+              style={{
+                flex: 1,
+                minWidth: 0,
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              {fieldChild}
+              {addonAfter ? (
+                <div style={{ marginInlineStart: 8, flexShrink: 0 }}>
+                  {addonAfter}
+                </div>
+              ) : null}
+            </div>
+          </div>
+        ) : (
+          fieldChild
+        )}
+        {helpFn ? <FieldHelpMessages help={helpFn} /> : null}
+      </>
+    );
+  },
+);
+FormItemChildrenShell.displayName = 'FormItemChildrenShell';
 
 /**
  * 支持了一下前置 dom 和后置的 dom 同时包一个provide
@@ -238,119 +341,36 @@ const WarpFormItem: React.FC<
         }
       : undefined;
 
-  const formDom =
-    !addonAfter && !addonBefore ? (
-      typeof help === 'function' ? (
-        // 函数式 help 需要拿到 errors/warnings，antd Form.Item 原生不支持，
-        // 复用 _internalItemRender 自定义渲染（与 addon 分支同构，#9066）
-        <Form.Item
-          {...props}
-          help={undefined}
-          valuePropName={valuePropName}
-          // @ts-ignore
-          _internalItemRender={{
-            mark: 'pro_table_render',
-            render: (
-              inputProps: FormItemProps & {
-                errors: React.ReactNode[];
-                warnings: React.ReactNode[];
-              },
-              doms: {
-                input: React.JSX.Element;
-                errorList: React.JSX.Element;
-                extra: React.JSX.Element;
-              },
-            ) => (
-              <>
-                {doms.input}
-                {help({
-                  errors: inputProps.errors,
-                  warnings: inputProps.warnings,
-                })}
-                {doms.extra}
-              </>
-            ),
-          }}
-          getValueProps={getValuePropsFunc}
-        >
-          {children}
-        </Form.Item>
+  const isFunctionHelp = typeof help === 'function';
+  // render-prop children（函数）必须直接交给 Form.Item，
+  // 由 rc-form 以 (control, meta, context) 调用，不能经过壳层包装
+  const isRenderPropsChildren = typeof children === 'function';
+
+  // 函数式 help：help="" 让 additionalDom 常驻（保持高度占位），
+  // 具体内容由 children 内的 FieldHelpMessages 渲染。
+  // 注意不能用 ReactNode help 替换原生 ErrorList——help 优先级高于 errors，
+  // 会吞掉用户未自定义时的默认错误提示。
+  const formDom = (
+    <Form.Item
+      {...props}
+      help={isFunctionHelp ? '' : help}
+      valuePropName={valuePropName}
+      getValueProps={getValuePropsFunc}
+    >
+      {isRenderPropsChildren ? (
+        (children as any)
       ) : (
-        <Form.Item
-          {...props}
-          help={help}
-          valuePropName={valuePropName}
-          getValueProps={getValuePropsFunc}
+        <FormItemChildrenShell
+          addonBefore={addonBefore}
+          addonAfter={addonAfter}
+          addonWarpStyle={addonWarpStyle}
+          help={isFunctionHelp ? (help as ProFormItemHelpFunction) : undefined}
         >
           {children}
-        </Form.Item>
-      )
-    ) : (
-      <Form.Item
-        {...props}
-        help={typeof help !== 'function' ? help : undefined}
-        valuePropName={valuePropName}
-        // @ts-ignore
-        _internalItemRender={{
-          mark: 'pro_table_render',
-          render: (
-            inputProps: FormItemProps & {
-              errors: React.ReactNode[];
-              warnings: React.ReactNode[];
-            },
-            doms: {
-              input: React.JSX.Element;
-              errorList: React.JSX.Element;
-              extra: React.JSX.Element;
-            },
-          ) => (
-            <>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexWrap: 'wrap',
-                  ...addonWarpStyle,
-                }}
-              >
-                {addonBefore ? (
-                  <div style={{ marginInlineEnd: 8 }}>{addonBefore}</div>
-                ) : null}
-                {/*
-                 * flex:1 包住「控件 + addonAfter」，保证 Text/Select 可收缩，
-                 * 同时单位/按钮紧跟控件，避免 Digit 固定宽度时把 addon 顶到行尾。
-                 */}
-                <div
-                  style={{
-                    flex: 1,
-                    minWidth: 0,
-                    display: 'flex',
-                    alignItems: 'center',
-                  }}
-                >
-                  {doms.input}
-                  {addonAfter ? (
-                    <div style={{ marginInlineStart: 8, flexShrink: 0 }}>
-                      {addonAfter}
-                    </div>
-                  ) : null}
-                </div>
-              </div>
-              {typeof help === 'function'
-                ? help({
-                    errors: inputProps.errors,
-                    warnings: inputProps.warnings,
-                  })
-                : doms.errorList}
-              {doms.extra}
-            </>
-          ),
-        }}
-        getValueProps={getValuePropsFunc}
-      >
-        {children}
-      </Form.Item>
-    );
+        </FormItemChildrenShell>
+      )}
+    </Form.Item>
+  );
 
   return (
     <FormItemProvide.Provider

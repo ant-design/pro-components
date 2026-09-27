@@ -26,17 +26,22 @@ const FIX_INLINE_STYLE = {
   marginInlineEnd: 0,
 };
 
+/**
+ * 读取 Form.Item 校验状态并渲染 Popover 错误层。
+ *
+ * antd 6 通过 FormItemInputContext 把 { status, errors, warnings } 注入到
+ * Form.Item 的 children 树（`Form.Item.useStatus` 的数据源），
+ * 这里借助该公开 API 获取校验消息，替代旧版 `_internalItemRender` 私有渲染
+ * （#9709/#8942/#9066/#9153）：私有渲染会整体跳过 additionalDom
+ * （错误提示 + extra + minHeight 占位），导致高度抖动、错误丢失。
+ */
 const InlineErrorFormItemPopover: React.FC<{
-  inputProps: FormItemProps & {
-    errors?: React.ReactNode[];
-    warnings?: React.ReactNode[];
-  };
-  input: React.JSX.Element;
-  errorList: React.JSX.Element;
-  extra: React.JSX.Element;
   popoverProps?: PopoverProps;
-}> = ({ inputProps, input, extra, errorList, popoverProps }) => {
+  input: React.ReactNode;
+}> = ({ popoverProps, input }) => {
+  const { status, errors = [], warnings = [] } = Form.Item.useStatus();
   const [open, setOpen] = useState<boolean | undefined>(false);
+  // 校验中保持上一次的消息，避免 loading 抖动
   const [messages, setMessages] = useState<{
     errors: React.ReactNode[];
     warnings: React.ReactNode[];
@@ -47,21 +52,13 @@ const InlineErrorFormItemPopover: React.FC<{
   const token = theme.useToken();
   const { wrapSSR, hashId } = useStyle(`${prefixCls}-form-item-with-help`);
   useEffect(() => {
-    if (inputProps.validateStatus !== 'validating') {
-      setMessages({
-        errors: inputProps.errors ?? [],
-        warnings: inputProps.warnings ?? [],
-      });
+    if (status !== 'validating') {
+      setMessages({ errors, warnings });
     }
-  }, [inputProps.errors, inputProps.warnings, inputProps.validateStatus]);
+  }, [status, errors, warnings]);
 
-  const loading = inputProps.validateStatus === 'validating';
-  const displayedMessages = loading
-    ? messages
-    : {
-        errors: inputProps.errors ?? [],
-        warnings: inputProps.warnings ?? [],
-      };
+  const loading = status === 'validating';
+  const displayedMessages = loading ? messages : { errors, warnings };
   const hasMessages =
     (displayedMessages.errors?.length ?? 0) +
       (displayedMessages.warnings?.length ?? 0) >=
@@ -93,7 +90,7 @@ const InlineErrorFormItemPopover: React.FC<{
       {/* 不能把 Fragment 作为 Popover 的直接 child：rc-trigger 会向 child 注入
           onKeyDown 等事件，Fragment 无法承接，触发
           "Invalid prop `onKeyDown` supplied to `React.Fragment`"（#9153）。
-          这里以 input 本体作为 trigger，extra 渲染在 Popover 之外。 */}
+          这里以 input 本体作为 trigger。 */}
       <Popover
         key="popover"
         open={!hasMessages ? false : open}
@@ -121,7 +118,7 @@ const InlineErrorFormItemPopover: React.FC<{
               )}
             >
               {loading ? <LoadingOutlined /> : null}
-              {hasMessages ? renderMessageContent() : errorList}
+              {hasMessages ? renderMessageContent() : null}
             </div>
           </div>,
         )}
@@ -129,10 +126,35 @@ const InlineErrorFormItemPopover: React.FC<{
       >
         {input}
       </Popover>
-      {extra}
     </>
   );
 };
+
+/**
+ * Form.Item 的 children 壳层：接收 Form.Item cloneElement 注入的控制属性
+ * （value/onChange/id/ref 等）透传给真正的字段组件，
+ * 同时在校验子树内通过 Form.Item.useStatus 读取消息驱动 Popover。
+ * extra 由 Form.Item 原生 additionalDom 渲染，无需在此处理。
+ */
+const InlineErrorPopoverShell = React.forwardRef<
+  any,
+  {
+    popoverProps?: PopoverProps;
+    children?: React.ReactNode;
+  } & Record<string, any>
+>(({ popoverProps, children, ...controlProps }, ref) => {
+  const fieldChild = React.isValidElement(children)
+    ? React.cloneElement(children, {
+        ...controlProps,
+        ...(ref ? { ref } : {}),
+      } as any)
+    : children;
+
+  return (
+    <InlineErrorFormItemPopover popoverProps={popoverProps} input={fieldChild} />
+  );
+});
+InlineErrorPopoverShell.displayName = 'InlineErrorPopoverShell';
 
 const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
   rules,
@@ -146,6 +168,9 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
       name={name}
       rules={rules}
       hasFeedback={false}
+      // help="" 占位：popover 模式下原生 explain 只渲染空内容，错误由气泡接管；
+      // 同时 additionalDom 常驻，校验出现/消失时高度稳定（#9709/#8942）
+      help=""
       shouldUpdate={(prev, next) => {
         if (prev === next) return false;
         const shouldName = [name].flat(1);
@@ -161,33 +186,15 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
           return true;
         }
       }}
-      // @ts-ignore
-      _internalItemRender={{
-        mark: 'pro_table_render',
-        render: (
-          inputProps: FormItemProps & {
-            errors: any[];
-          },
-          doms: {
-            input: React.JSX.Element;
-            errorList: React.JSX.Element;
-            extra: React.JSX.Element;
-          },
-        ) => (
-          <InlineErrorFormItemPopover
-            inputProps={inputProps}
-            popoverProps={popoverProps}
-            {...doms}
-          />
-        ),
-      }}
       {...rest}
       style={{
         ...FIX_INLINE_STYLE,
         ...rest?.style,
       }}
     >
-      {children}
+      <InlineErrorPopoverShell popoverProps={popoverProps}>
+        {children}
+      </InlineErrorPopoverShell>
     </Form.Item>
   );
 };
