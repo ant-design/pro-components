@@ -1,23 +1,53 @@
 # Changelog
 
-## [3.1.15-0] - 2026-09-26
+## [3.1.15-2] - 2026-09-27
 
 ### 🆕 新特性
 
 - EditableProTable
-  - 🔥 `editable.editableKeys` 支持 cell 粒度复合键 `` `${rowKey}:${dataIndex}` ``（如 `['1:name']` 仅激活该单元格编辑），与行级 key 完全向后兼容、可混用 [#9643](https://github.com/ant-design/pro-components/issues/9643)
-  - 🆕 `onCell` 返回的 td props 注入 `data-editing` / `data-cell-editing` 编辑状态，便于自定义单元格交互（#9043 方案 C）
+  - 🔥 `editable.editableKeys` 支持 cell 粒度复合键 `` `${rowKey}:${dataIndex}` ``（如 `['1:name']` 仅激活该单元格编辑），与行级 key 完全向后兼容、可混用 [#9643](https://github.com/ant-design/pro-components/issues/9643) [b6826ece5](https://github.com/ant-design/pro-components/commit/b6826ece5)
+  - 🆕 `onCell` 返回的 td props 注入 `data-editing` / `data-cell-editing` 编辑状态，便于自定义单元格交互（#9043 方案 C） [b6826ece5](https://github.com/ant-design/pro-components/commit/b6826ece5)
 - ProTable
-  - ⚡️ 纯 `ellipsis: true` 改用 antd Table 原生 CSS 省略，大数据量渲染显著提速；配置 `tooltip`/`showTitle` 或 `copyable` 时仍走 Typography 渲染，行为不变 [#9664](https://github.com/ant-design/pro-components/issues/9664) [#8868](https://github.com/ant-design/pro-components/issues/8868)
-  - ⚡️ 单元格渲染热路径重构：`editableKeys` 改为变更时一次性构建索引（Set/Map），查询 O(1)，编辑态判断耗时降低约 5 倍；未开启 `editable` 的表格不再包装 `onCell`，树形数据无子行时跳过索引注册，大幅减少每格渲染的闭包与数组分配
+  - ⚡️ 纯 `ellipsis: true` 改用 antd Table 原生 CSS 省略，大数据量渲染显著提速；配置 `tooltip`/`showTitle` 或 `copyable` 时仍走 Typography 渲染，行为不变 [#9664](https://github.com/ant-design/pro-components/issues/9664) [#8868](https://github.com/ant-design/pro-components/issues/8868) [01fda391d](https://github.com/ant-design/pro-components/commit/01fda391d)
+  - ⚡️ 单元格渲染热路径重构：`editableKeys` 改为变更时一次性构建索引（Set/Map），查询 O(1)，编辑态判断耗时降低约 5 倍；未开启 `editable` 的表格不再包装 `onCell`，树形数据无子行时跳过索引注册 [84a36700a](https://github.com/ant-design/pro-components/commit/84a36700a)
 - ProForm
-  - 🔥 新增 `loadingRender` 属性，支持自定义 `request` 加载期间的渲染（如 `Skeleton`），对齐 antd 5.18+ 加载风格 [#9679](https://github.com/ant-design/pro-components/issues/9679)
+  - 🔥 新增 `loadingRender` 属性，支持自定义 `request` 加载期间的渲染（如 `Skeleton`），对齐 antd 5.18+ 加载风格 [#9679](https://github.com/ant-design/pro-components/issues/9679) [803017665](https://github.com/ant-design/pro-components/commit/803017665)
 - ProFormSelect
-  - 🆕 顶层新增 `fetchDataOnSearch` 属性，设为 `false` 时 `request` 仅初始化拉取一次，搜索走本地过滤 [#9682](https://github.com/ant-design/pro-components/issues/9682)
+  - 🆕 顶层新增 `fetchDataOnSearch` 属性，设为 `false` 时 `request` 仅初始化拉取一次，搜索走本地过滤 [#9682](https://github.com/ant-design/pro-components/issues/9682) [803017665](https://github.com/ant-design/pro-components/commit/803017665)
+
+### 🐛 问题修复
+
+- ProForm
+  - 🐞 修复显式 `valueType` 被 `valueEnum`/`request` 推断覆盖的问题 [#9002](https://github.com/ant-design/pro-components/issues/9002) [399a1da0b](https://github.com/ant-design/pro-components/commit/399a1da0b)
+  - 🐞 修复用户传入的 `noStyle` 在非 light 模式下被覆盖的问题 [a96050e33](https://github.com/ant-design/pro-components/commit/a96050e33)
+  - 🐞 修复固定宽度 `ProFormDigit` 与 `addonAfter` 被顶开的问题 [#9211](https://github.com/ant-design/pro-components/issues/9211) [aa266935f](https://github.com/ant-design/pro-components/commit/aa266935f)
+  - 🐞 修复 `ProFormCheckbox` 的 `readonly` 未透传到 antd Checkbox `disabled` 的问题 [#9107](https://github.com/ant-design/pro-components/issues/9107) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+  - 🐞 修复同名字段生成重复 input id 的问题 [#9144](https://github.com/ant-design/pro-components/issues/9144) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+  - 🐞 修复 ProForm 字段 `help` 属性未透传的问题 [#9066](https://github.com/ant-design/pro-components/issues/9066) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+  - 🐞 修复 `ProFormMoney` 在 `ru-RU` 下货币符号位置、分隔符与 `numberFormatOptions` 合并错误的问题 [#9090](https://github.com/ant-design/pro-components/issues/9090) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+  - 🐞 修复 `ProFormList` 嵌套 `name` 路径下 `transform` 未触发，以及 list render 传 `[index, key]` 时行索引重复的问题 [#9129](https://github.com/ant-design/pro-components/issues/9129) [#9238](https://github.com/ant-design/pro-components/issues/9238) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+  - 🐞 修复 `ProFormList` `onAfterAdd` 回调参数与文档不一致的问题 [#9102](https://github.com/ant-design/pro-components/issues/9102) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+  - 🐞 修复编辑行时 `rules` 相关 props 被错误展开到 Fragment 的问题 [#9153](https://github.com/ant-design/pro-components/issues/9153) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+  - 🐞 修复 `onFinish` 错误被静默吞掉的问题，现通过 `console.error` 暴露 [#9019](https://github.com/ant-design/pro-components/issues/9019) [399a1da0b](https://github.com/ant-design/pro-components/commit/399a1da0b)
+- ProField / ProTable
+  - 🐞 修复 select 只读态枚举输出无法配合 `ellipsis` + `copyable` 省略的问题 [#8978](https://github.com/ant-design/pro-components/issues/8978) [399a1da0b](https://github.com/ant-design/pro-components/commit/399a1da0b)
+- ProTable
+  - 🐞 修复 `request` 在加载/分页/重置时收到 `sorter`/`filter` 为 `null` 默认值的问题 [#9161](https://github.com/ant-design/pro-components/pull/9161) [ddbbb1425](https://github.com/ant-design/pro-components/commit/ddbbb1425)
+- ProDescriptions
+  - 🐞 修复 `request` 的 `params` 未注入 dependency 值的问题 [#9170](https://github.com/ant-design/pro-components/issues/9170) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+- Provider
+  - 🇺🇸🇨🇳 修复空字符串 locale 文案（如 vi-VN 分页 range）被错误回退到 zh-CN 的问题 [#9016](https://github.com/ant-design/pro-components/issues/9016) [399a1da0b](https://github.com/ant-design/pro-components/commit/399a1da0b)
+
+### 🛠 其他
+
+- 🛠 覆盖存在漏洞的传递依赖至已修补版本（开发依赖范围） [1e84af860](https://github.com/ant-design/pro-components/commit/1e84af860)
+- 🛠 统一 esbuild 至 0.28+，消除开发服务器告警 [301644384](https://github.com/ant-design/pro-components/commit/301644384)
 
 ### ✅ 测试
 
-- ✅ 新增 `loadingRender`、`fetchDataOnSearch`、原生 ellipsis 渲染路径回归测试
+- ✅ 新增 `loadingRender`、`fetchDataOnSearch`、原生 ellipsis、cell 级 `editableKeys` 回归测试
+- ✅ 为 #8973、#9033、#9104、#9118、#9119、#9121、#9133、#9142 等已验证场景补充回归锁定
+- ✅ 稳定可编辑表格与 layout mix 快照相关 flaky 用例 [943d09a83](https://github.com/ant-design/pro-components/commit/943d09a83)
 
 ## [3.1.15-1] - 2026-09-26
 

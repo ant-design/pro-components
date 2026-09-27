@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-components",
-  "version": "3.1.15-1",
+  "version": "3.1.15-2",
   "description": "All-in-one package of @ant-design/pro-components",
   "keywords": [
     "antd",
@@ -85,7 +85,7 @@
   },
   "devDependencies": {
     "@ant-design/antd-theme-variable": "^1.0.0",
-    "@babel/core": "^7.29.7",
+    "@babel/core": "^8.0.6",
     "@babel/eslint-plugin": "^7.29.7",
     "@babel/parser": "^7.29.9",
     "@babel/plugin-transform-object-rest-spread": "^7.29.7",

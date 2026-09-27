@@ -1,23 +1,53 @@
 # Changelog
 
-## [3.1.15-0] - 2026-09-26
+## [3.1.15-2] - 2026-09-27
 
 ### 🆕 Features
 
 - EditableProTable
-  - 🔥 `editable.editableKeys` supports cell-level composite keys `` `${rowKey}:${dataIndex}` `` (e.g. `['1:name']` activates only that cell); fully backwards compatible with row keys and can be mixed [#9643](https://github.com/ant-design/pro-components/issues/9643)
-  - 🆕 `onCell` td props now include `data-editing` / `data-cell-editing` editing state for custom cell interactions (proposal C of #9043)
+  - 🔥 `editable.editableKeys` supports cell-level composite keys `` `${rowKey}:${dataIndex}` `` (e.g. `['1:name']` activates only that cell); fully backwards compatible with row keys and can be mixed [#9643](https://github.com/ant-design/pro-components/issues/9643) [b6826ece5](https://github.com/ant-design/pro-components/commit/b6826ece5)
+  - 🆕 `onCell` td props now include `data-editing` / `data-cell-editing` editing state for custom cell interactions (proposal C of #9043) [b6826ece5](https://github.com/ant-design/pro-components/commit/b6826ece5)
 - ProTable
-  - ⚡️ Plain `ellipsis: true` now uses antd Table native CSS ellipsis for much faster rendering on large datasets; columns configured with `tooltip`/`showTitle` or `copyable` keep the Typography rendering path [#9664](https://github.com/ant-design/pro-components/issues/9664) [#8868](https://github.com/ant-design/pro-components/issues/8868)
-  - ⚡️ Refactor the per-cell render hot path: `editableKeys` now builds a Set/Map index once per change for O(1) lookups (~5x faster edit-state checks); tables without `editable` no longer wrap `onCell`, and tree data without children skips index registration, drastically cutting per-cell closure and array allocations
+  - ⚡️ Plain `ellipsis: true` now uses antd Table native CSS ellipsis for much faster rendering on large datasets; columns configured with `tooltip`/`showTitle` or `copyable` keep the Typography rendering path [#9664](https://github.com/ant-design/pro-components/issues/9664) [#8868](https://github.com/ant-design/pro-components/issues/8868) [01fda391d](https://github.com/ant-design/pro-components/commit/01fda391d)
+  - ⚡️ Refactor the per-cell render hot path: `editableKeys` now builds a Set/Map index once per change for O(1) lookups (~5x faster edit-state checks); tables without `editable` no longer wrap `onCell`, and tree data without children skips index registration [84a36700a](https://github.com/ant-design/pro-components/commit/84a36700a)
 - ProForm
-  - 🔥 Add `loadingRender` prop to customize the render while `request` is loading (e.g. `Skeleton`), aligning with antd 5.18+ loading style [#9679](https://github.com/ant-design/pro-components/issues/9679)
+  - 🔥 Add `loadingRender` prop to customize the render while `request` is loading (e.g. `Skeleton`), aligning with antd 5.18+ loading style [#9679](https://github.com/ant-design/pro-components/issues/9679) [803017665](https://github.com/ant-design/pro-components/commit/803017665)
 - ProFormSelect
-  - 🆕 Add top-level `fetchDataOnSearch` prop; when `false`, `request` only fetches once on init and searching filters locally [#9682](https://github.com/ant-design/pro-components/issues/9682)
+  - 🆕 Add top-level `fetchDataOnSearch` prop; when `false`, `request` only fetches once on init and searching filters locally [#9682](https://github.com/ant-design/pro-components/issues/9682) [803017665](https://github.com/ant-design/pro-components/commit/803017665)
+
+### 🐛 Bug Fixes
+
+- ProForm
+  - 🐞 Fix explicit `valueType` being overridden by `valueEnum`/`request` inference [#9002](https://github.com/ant-design/pro-components/issues/9002) [399a1da0b](https://github.com/ant-design/pro-components/commit/399a1da0b)
+  - 🐞 Fix user-provided `noStyle` being overwritten in non-light mode [a96050e33](https://github.com/ant-design/pro-components/commit/a96050e33)
+  - 🐞 Fix fixed-width `ProFormDigit` being pushed apart from `addonAfter` [#9211](https://github.com/ant-design/pro-components/issues/9211) [aa266935f](https://github.com/ant-design/pro-components/commit/aa266935f)
+  - 🐞 Fix `ProFormCheckbox` `readonly` not passed through to antd Checkbox `disabled` [#9107](https://github.com/ant-design/pro-components/issues/9107) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+  - 🐞 Fix duplicate generated input ids for same-name fields [#9144](https://github.com/ant-design/pro-components/issues/9144) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+  - 🐞 Fix `help` prop not passed through on ProForm fields [#9066](https://github.com/ant-design/pro-components/issues/9066) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+  - 🐞 Fix `ProFormMoney` symbol position, separators and `numberFormatOptions` merge for `ru-RU` [#9090](https://github.com/ant-design/pro-components/issues/9090) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+  - 🐞 Fix `ProFormList` `transform` not firing on nested name paths, and duplicated row index when list render receives `[index, key]` [#9129](https://github.com/ant-design/pro-components/issues/9129) [#9238](https://github.com/ant-design/pro-components/issues/9238) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+  - 🐞 Fix `ProFormList` `onAfterAdd` callback arguments not matching the docs [#9102](https://github.com/ant-design/pro-components/issues/9102) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+  - 🐞 Fix `rules`-related props being incorrectly spread onto Fragment when editing rows [#9153](https://github.com/ant-design/pro-components/issues/9153) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+  - 🐞 Fix `onFinish` errors being silently swallowed; now exposed via `console.error` [#9019](https://github.com/ant-design/pro-components/issues/9019) [399a1da0b](https://github.com/ant-design/pro-components/commit/399a1da0b)
+- ProField / ProTable
+  - 🐞 Fix select read-mode enum output not working with `ellipsis` + `copyable` [#8978](https://github.com/ant-design/pro-components/issues/8978) [399a1da0b](https://github.com/ant-design/pro-components/commit/399a1da0b)
+- ProTable
+  - 🐞 Fix `request` receiving `null` sorter/filter defaults on load, pagination and reset [#9161](https://github.com/ant-design/pro-components/pull/9161) [ddbbb1425](https://github.com/ant-design/pro-components/commit/ddbbb1425)
+- ProDescriptions
+  - 🐞 Fix dependency values not injected into `request` params [#9170](https://github.com/ant-design/pro-components/issues/9170) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
+- Provider
+  - 🇺🇸🇨🇳 Fix empty-string locale messages (e.g. vi-VN pagination range) incorrectly falling back to zh-CN [#9016](https://github.com/ant-design/pro-components/issues/9016) [399a1da0b](https://github.com/ant-design/pro-components/commit/399a1da0b)
+
+### 🛠 Other
+
+- 🛠 Override vulnerable transitive dependencies to patched versions (development scope) [1e84af860](https://github.com/ant-design/pro-components/commit/1e84af860)
+- 🛠 Unify esbuild to 0.28+ to clear the development-server alert [301644384](https://github.com/ant-design/pro-components/commit/301644384)
 
 ### ✅ Tests
 
-- ✅ Add regression tests for `loadingRender`, `fetchDataOnSearch` and native ellipsis rendering paths
+- ✅ Add regression tests for `loadingRender`, `fetchDataOnSearch`, native ellipsis and cell-level `editableKeys`
+- ✅ Lock verified scenarios for #8973, #9033, #9104, #9118, #9119, #9121, #9133, #9142 and related cases
+- ✅ Stabilize flaky editable-table and layout mix snapshot cases [943d09a83](https://github.com/ant-design/pro-components/commit/943d09a83)
 
 ## [3.1.15-1] - 2026-09-26
 
