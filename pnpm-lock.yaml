@@ -94,7 +94,7 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       '@babel/core':
-        specifier: ^8.0.6
+        specifier: '>=7.29.6'
         version: 8.0.6
       '@babel/eslint-plugin':
         specifier: ^7.29.7
@@ -214,7 +214,7 @@ importers:
         specifier: ^0.31.1
         version: 0.31.1(@types/react@18.3.31)(dumi@2.4.50(@babel/core@8.0.6)(@swc/helpers@0.5.15)(@types/node@26.6.3)(@types/react@18.3.31)(jiti@2.7.0)(lightningcss@1.33.0)(prettier@3.9.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rolldown@1.2.11)(rollup@4.63.5)(tsx@4.23.15)(type-fest@4.41.0)(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       esbuild:
-        specifier: ^0.28.2
+        specifier: '>=0.25.0'
         version: 0.28.2
       eslint:
         specifier: ^8.57.1
