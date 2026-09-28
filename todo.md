@@ -96,6 +96,7 @@
 
 - [x] #8875 EditableProTable date 输出变成 `YYYY-MM-DD hh:mm:ss`(已验证按 valueType 正确格式化,测试锁定)
 - [x] #8863 EditableProTable date + `format:'DD/MM/YYYY'` 赋值解析失败(已修复,编辑态传 format 解析+宽容重试)
+- [x] #7813 ProFormDateTimeRangePicker value 格式错误无法格式化(已答疑:双 dayjs 实例,给出 resolutions 方案,行为已测试锁定)
 - [ ] #7813 ProFormDateTimeRangePicker value 格式错误无法格式化
 - [ ] #8733 ProFormDateRangePicker 国际化失效
 - [ ] #9312 页面定时器 + dateRange 打开异常(读 issue 复现)
