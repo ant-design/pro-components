@@ -126,7 +126,10 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children' | 'rules'> &
   } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'>;
 
 function ProFormList<T>(props: ProFormListProps<T>) {
+  /** 保存 Form.List 原始 action，供 useImperativeHandle 与渲染函数消费 */
   const actionRefs = useRef<FormListOperation>();
+  /** 保存经过 actionGuard 包装、带 onAfterAdd/onAfterRemove 回调的 action（#8939） */
+  const guardedActionRef = useRef<FormListOperation>();
   const context = useContext(ConfigProvider.ConfigContext);
   const listContext = useContext(FormListContext);
   const baseClassName = context.getPrefixCls('pro-form-list');
@@ -207,7 +210,9 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     actionRef,
     () =>
       ({
-        ...actionRefs.current,
+        // 使用带 actionGuard 与 onAfterAdd/onAfterRemove 的包装 action，
+        // 保证 actionRef.add/remove 与内置按钮行为一致（#8939）
+        ...guardedActionRef.current,
         get: (index: number) => {
           return proFormContext.formRef!.current!.getFieldValue([
             ...name,
@@ -294,6 +299,7 @@ function ProFormList<T>(props: ProFormListProps<T>) {
                 <RowWrapper>
                   <ProFormListContainer
                     name={name}
+                    guardedActionRef={guardedActionRef}
                     readonly={!!readonly}
                     originName={rest.name}
                     copyIconProps={copyIconProps}

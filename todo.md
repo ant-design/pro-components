@@ -138,13 +138,13 @@
 
 ## B7 ProFormList(P1,8 个)
 
-- [ ] #8939 自定义 ref FormListActionType 无法触发 onAfterAdd/onAfterRemove/beforeRemoveRow
-- [ ] #8700 首次提交未触发 transform
-- [ ] #8208 子项 `preserve={false}` 导致新增行丢值
-- [ ] #8896 第二个子项未渲染
+- [x] #8939 自定义 ref FormListActionType 无法触发 onAfterAdd/onAfterRemove/beforeRemoveRow(已修复+测试)
+- [x] #8700 首次提交未触发 transform(已验证:现版首次提交即触发且合并一致,回归测试锁定,已回复 issue)
+- [x] #8208 子项 `preserve={false}` 导致新增行丢值(当前版本已无法复现,回归测试锁定)
+- [x] #8896 第二个子项未渲染(当前版本已无法复现,回归测试锁定)
 - [ ] #8561 BetaSchemaForm columns 为 formList 时 title 拿不到 index
 - [ ] #8893 与 Form 配合 name + 多行编辑新增子项配置问题
-- [ ] #8702 ProFormList 支持 convertValue(feature 顺带)
+- [x] #8702 ProFormList 支持 convertValue(feature 顺带)(已排期:方向确认,给出设计要点与替代方案,欢迎 PR)
 - [ ] #6508 ProFormList 嵌套 EditableTable 设置 editableKeys(老 issue,给示例或支持)
 
 ## B8 transform / convertValue(P1,4 个)
