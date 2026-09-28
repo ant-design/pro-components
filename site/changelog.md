@@ -14,6 +14,7 @@
   - ✅ 回归锁定条件卸载重挂载（如开关控制显隐）后子项正常重新渲染、`actionRef` 增删正常 [#8896](https://github.com/ant-design/pro-components/issues/8896)
 - BetaSchemaForm
   - 🐞 修复 QueryFilter 布局下 columns 的 `hidden` 字段仍占用栅格位置的问题：`hidden` 现在透传到字段级，隐藏项不再渲染占位 Col [#8397](https://github.com/ant-design/pro-components/issues/8397)
+  - 🆕 `valueType: 'formList'` 子列支持按行感知的函数式 props：子列改用 render-prop 按行求值，`title(schema, type, dom, rowIndex)` 第四个参数为当前行号，`fieldProps` / `formItemProps` 函数的 `config` 参数中可拿到 `rowIndex` [#8561](https://github.com/ant-design/pro-components/issues/8561)
 - QueryFilter
   - 🐞 修复响应式 `span` 对象（`{xs:1, sm:2, ...}`）时 `layout="vertical"` 被强制改写为 horizontal 的问题 [#8836](https://github.com/ant-design/pro-components/issues/8836)
 - EditableProTable

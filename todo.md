@@ -142,7 +142,7 @@
 - [x] #8700 首次提交未触发 transform(已验证:现版首次提交即触发且合并一致,回归测试锁定,已回复 issue)
 - [x] #8208 子项 `preserve={false}` 导致新增行丢值(当前版本已无法复现,回归测试锁定)
 - [x] #8896 第二个子项未渲染(当前版本已无法复现,回归测试锁定)
-- [ ] #8561 BetaSchemaForm columns 为 formList 时 title 拿不到 index
+- [x] #8561 BetaSchemaForm columns 为 formList 时 title 拿不到 index(已修复+测试:formList 子列按行求值,title 第 4 参/fieldProps/formItemProps 均可拿到 rowIndex)
 - [ ] #8893 与 Form 配合 name + 多行编辑新增子项配置问题
 - [x] #8702 ProFormList 支持 convertValue(feature 顺带)(已排期:方向确认,给出设计要点与替代方案,欢迎 PR)
 - [ ] #6508 ProFormList 嵌套 EditableTable 设置 editableKeys(老 issue,给示例或支持)

@@ -14,6 +14,7 @@
   - ✅ Lock regression that list items re-render correctly after conditional unmount / remount (e.g. toggling visibility), with `actionRef` add/remove still working [#8896](https://github.com/ant-design/pro-components/issues/8896)
 - BetaSchemaForm
   - 🐞 Fix columns `hidden` in QueryFilter layout still occupying grid space: `hidden` is now passed down to the field level so hidden items no longer render placeholder Cols [#8397](https://github.com/ant-design/pro-components/issues/8397)
+  - 🆕 Support row-aware function props inside `valueType: 'formList'` sub-columns: children are now evaluated per row via render-prop, so `title(schema, type, dom, rowIndex)` receives the current row index as its 4th argument, and `fieldProps` / `formItemProps` functions receive `rowIndex` in their `config` parameter [#8561](https://github.com/ant-design/pro-components/issues/8561)
 - QueryFilter
   - 🐞 Fix `layout="vertical"` being forced to horizontal when using a responsive `span` object (`{xs:1, sm:2, ...}`) [#8836](https://github.com/ant-design/pro-components/issues/8836)
 - EditableProTable

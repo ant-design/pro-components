@@ -104,29 +104,46 @@ function BetaSchemaForm<T, ValueType = 'text'>(
    * 生成子项，方便被 table 接入
    *
    * @param items
+   * @param listContext #8561 formList 按行求值时携带的行号上下文，
+   *   供函数式 title / fieldProps / formItemProps 消费
    */
   const genItems: ProFormRenderValueTypeHelpers<T, ValueType>['genItems'] =
-    useRefFunction((items: ProFormColumnsType<T, ValueType>[]) => {
-      return items
-        .filter((originItem) => {
-          return !(originItem.hideInForm && type === 'form');
-        })
-        .sort((a, b) => {
-          if (b.order || a.order) {
-            return (b.order || 0) - (a.order || 0);
-          }
-          return (b.index || 0) - (a.index || 0);
-        })
-        .map((originItem, index) => {
-          const title = runFunction(
-            originItem.title,
-            originItem,
-            'form',
-            <LabelIconTip
-              label={originItem.title as string}
-              tooltip={originItem.tooltip}
-            />,
-          );
+    useRefFunction(
+      (
+        items: ProFormColumnsType<T, ValueType>[],
+        listContext?: { rowIndex?: number },
+      ) => {
+        const rowIndex = listContext?.rowIndex;
+        /**
+         * #8561 带行号递归（formList > group > field 等多层嵌套）时，
+         * helpers 里的 genItems 保持行号上下文，保证 rowIndex 不在中间层丢失
+         */
+        const contextBoundGenItems =
+          rowIndex !== undefined
+            ? (its: ProFormColumnsType<T, ValueType>[]) =>
+                genItems(its, { rowIndex })
+            : genItems;
+        return items
+          .filter((originItem) => {
+            return !(originItem.hideInForm && type === 'form');
+          })
+          .sort((a, b) => {
+            if (b.order || a.order) {
+              return (b.order || 0) - (a.order || 0);
+            }
+            return (b.index || 0) - (a.index || 0);
+          })
+          .map((originItem, index) => {
+            const title = runFunction(
+              originItem.title,
+              originItem,
+              'form',
+              <LabelIconTip
+                label={originItem.title as string}
+                tooltip={originItem.tooltip}
+              />,
+              rowIndex,
+            );
 
           const item = omitUndefined({
             title,
@@ -156,7 +173,11 @@ function BetaSchemaForm<T, ValueType = 'text'>(
                   runFunction(
                     originItem.fieldProps,
                     formRef.current,
-                    originItem,
+                    {
+                      ...originItem,
+                      type,
+                      rowIndex,
+                    } as any,
                   )
               : undefined,
             getFormItemProps: originItem.formItemProps
@@ -164,7 +185,11 @@ function BetaSchemaForm<T, ValueType = 'text'>(
                   runFunction(
                     originItem.formItemProps,
                     formRef.current,
-                    originItem,
+                    {
+                      ...originItem,
+                      type,
+                      rowIndex,
+                    } as any,
                   )
               : undefined,
             render: originItem.render,
@@ -183,13 +208,14 @@ function BetaSchemaForm<T, ValueType = 'text'>(
             type,
             originItem,
             formRef,
-            genItems,
+            genItems: contextBoundGenItems,
           });
         })
         .filter((field) => {
           return Boolean(field);
         });
-    });
+      },
+    );
 
   const onValuesChange: FormProps<T>['onValuesChange'] = useCallback(
     (changedValues: any, values: T) => {
