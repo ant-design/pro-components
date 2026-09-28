@@ -425,10 +425,16 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
       />
     );
 
-  const wrapItems = grid ? <RowWrapper>{items}</RowWrapper> : items;
+  // contentRender 的契约是接收 ReactNode[](#8253):
+  // QueryFilter/LightFilter 会在 contentRender 里做 items.flatMap 布局计算,
+  // 如果 grid 时把 items 包进单个 RowWrapper 元素,flatMap 将收到元素而非数组导致崩溃。
+  // grid 布局由 GridContext + 每个表单项的 ColWrapper 完成(见 warpField),
+  // 因此 contentRender 场景下保持数组形态传递。
   const content = contentRender
-    ? contentRender(wrapItems as any, submitterNode, formInstanceRef.current)
-    : wrapItems;
+    ? contentRender(items, submitterNode, formInstanceRef.current)
+    : grid
+      ? <RowWrapper>{items}</RowWrapper>
+      : items;
 
   const preInitialValues = usePrevious(props.initialValues);
 
