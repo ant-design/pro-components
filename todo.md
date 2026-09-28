@@ -92,8 +92,10 @@
 
 ## B4 日期 / 数值格式化(P1,11 个)
 
-- [ ] #8875 EditableProTable date 输出变成 `YYYY-MM-DD hh:mm:ss`
-- [ ] #8863 EditableProTable date + `format:'DD/MM/YYYY'` 赋值解析失败
+> 进度(2026-09-28):#8875 已验证+回归锁定(date 输出 YYYY-MM-DD);#8863 已修复(parseValueToDay 传入 format + 单位数宽容重试)。
+
+- [x] #8875 EditableProTable date 输出变成 `YYYY-MM-DD hh:mm:ss`(已验证按 valueType 正确格式化,测试锁定)
+- [x] #8863 EditableProTable date + `format:'DD/MM/YYYY'` 赋值解析失败(已修复,编辑态传 format 解析+宽容重试)
 - [ ] #7813 ProFormDateTimeRangePicker value 格式错误无法格式化
 - [ ] #8733 ProFormDateRangePicker 国际化失效
 - [ ] #9312 页面定时器 + dateRange 打开异常(读 issue 复现)

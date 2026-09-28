@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.1.15-6] - 2026-09-28
+
+### 🐛 问题修复
+
+- ProFormDatePicker / ProFormDateRangePicker
+  - 🐞 修复自定义 `format`（如 `DD/MM/YYYY`）下字符串值（如 `23/3/2024`）无法解析回显的问题：编辑态解析现在会把 `format` 传入 `parseValueToDay`，且严格位数解析失败时降级为单位数宽容形式重试 [#8863](https://github.com/ant-design/pro-components/issues/8863)
+- EditableProTable
+  - ✅ 回归锁定 `valueType: 'date'` 编辑后按 `YYYY-MM-DD` 输出（含 dayjs 对象值场景）[#8875](https://github.com/ant-design/pro-components/issues/8875)
+
 ## [3.1.15-5] - 2026-09-28
 
 ### 🐛 问题修复

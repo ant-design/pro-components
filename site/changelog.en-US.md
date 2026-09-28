@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.1.15-6] - 2026-09-28
+
+### 🐛 Bug Fixes
+
+- ProFormDatePicker / ProFormDateRangePicker
+  - 🐞 Fix string values (e.g. `23/3/2024`) failing to parse and display with custom `format` (e.g. `DD/MM/YYYY`): edit-mode parsing now passes `format` into `parseValueToDay`, with a lenient single-digit retry when strict-width parsing fails [#8863](https://github.com/ant-design/pro-components/issues/8863)
+- EditableProTable
+  - ✅ Regression-locked `valueType: 'date'` saving as `YYYY-MM-DD` (including dayjs object values) [#8875](https://github.com/ant-design/pro-components/issues/8875)
+
 ## [3.1.15-5] - 2026-09-28
 
 ### 🐛 Bug Fixes
