@@ -275,7 +275,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         role="button"
         tabIndex={collapsible === 'icon' ? 0 : undefined}
         className={clsx(`${prefixCls}-collapsible-icon`, hashId)}
-        onClick={collapsible === 'icon' ? handleCollapsibleIconClick : undefined}
+        onClick={
+          collapsible === 'icon' ? handleCollapsibleIconClick : undefined
+        }
         onKeyDown={
           collapsible === 'icon'
             ? (e) => {
@@ -297,15 +299,10 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       />
     ));
 
-  const headerCls = clsx(
-    `${prefixCls}-header`,
-    hashId,
-    classNames?.header,
-    {
-      [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
-      [`${prefixCls}-header-collapsible`]: collapsibleButton,
-    },
-  );
+  const headerCls = clsx(`${prefixCls}-header`, hashId, classNames?.header, {
+    [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
+    [`${prefixCls}-header-collapsible`]: collapsibleButton,
+  });
 
   const titleCls = clsx(`${prefixCls}-title`, hashId, classNames?.title);
   const extraCls = clsx(`${prefixCls}-extra`, hashId, classNames?.extra);
@@ -365,7 +362,11 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             onChange={tabs.onChange}
             {...omit(tabs, ['cardProps'])}
             items={ModifyTabItemsContent}
-            className={clsx(`${prefixCls}-tabs`, hashId)}
+            className={clsx(`${prefixCls}-tabs`, hashId, {
+              // #9052 tabs.cardProps.ghost：去掉 tab 内容区 padding，
+              // 与顶层 ghost 语义一致（内容区无 padding、透明背景）
+              [`${prefixCls}-tabs-ghost`]: tabs.cardProps?.ghost,
+            })}
           />
         )
       ) : (

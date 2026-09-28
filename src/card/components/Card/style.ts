@@ -262,10 +262,17 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           paddingBlock: token.paddingXS,
         },
       },
-
     },
 
     [`${componentCls}-tabs`]: {
+      [`&${componentCls}-tabs-ghost`]: {
+        // #9052 ghost 模式下 tab 内容区不再保留 padding
+        [`> ${token.antCls}-tabs-body-holder`]: {
+          [`${token.antCls}-tabs-content`]: {
+            padding: 0,
+          },
+        },
+      },
       [`&${token.antCls}-tabs-top`]: {
         [`> ${token.antCls}-tabs-nav`]: {
           marginBlockEnd: 0,
