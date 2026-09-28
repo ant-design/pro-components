@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.1.15-4] - 2026-09-28
+
+### 🐛 问题修复
+
+- ProForm / ModalForm / DrawerForm
+  - 🐞 修复多次打开弹窗时 `initialValues` 更新不生效、表单仍显示上一次值的问题：BaseForm 现在会深比较 `initialValues` 变化并同步到表单 store，同步前清空旧字段避免上一记录遗留 [#8834](https://github.com/ant-design/pro-components/issues/8834) [#9165](https://github.com/ant-design/pro-components/issues/9165)
+- StepsForm
+  - 🐞 修复 `StepForm` 使用 `request` 异步加载数据后外层 `formRef` 为空对象的问题：实例初始化完成时同步刷新 StepsForm 对外暴露的 formRef [#8108](https://github.com/ant-design/pro-components/issues/8108)
+
+### ✅ 测试
+
+- ✅ 新增 ModalForm initialValues 跨打开、request + `Form.useWatch` 收敛、StepsForm request 后 formRef、BetaSchemaForm ModalForm 首次打开渲染回归测试（#8834 / #8624 / #8108 / #8753）
+
 ## [3.1.15-3] - 2026-09-28
 
 ### 🐛 问题修复

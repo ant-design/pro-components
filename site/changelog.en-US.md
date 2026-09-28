@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.1.15-4] - 2026-09-28
+
+### 🐛 Bug Fixes
+
+- ProForm / ModalForm / DrawerForm
+  - 🐞 Fix stale `initialValues` across overlay re-opens: BaseForm now deep-compares `initialValues` changes and syncs them into the form store, clearing previous fields first so values from the last record cannot leak into the new session [#8834](https://github.com/ant-design/pro-components/issues/8834) [#9165](https://github.com/ant-design/pro-components/issues/9165)
+- StepsForm
+  - 🐞 Fix outer `formRef` staying an empty object after a `StepForm` loads data via `request`: the exposed ref is now re-synced when the step form instance finishes initializing [#8108](https://github.com/ant-design/pro-components/issues/8108)
+
+### ✅ Tests
+
+- ✅ Add regression tests for ModalForm initialValues across opens, request + `Form.useWatch` convergence, StepsForm formRef after request, and BetaSchemaForm ModalForm first-open rendering (#8834 / #8624 / #8108 / #8753)
+
 ## [3.1.15-3] - 2026-09-28
 
 ### 🐛 Bug Fixes
