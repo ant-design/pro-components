@@ -84,6 +84,8 @@ function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
         if (context && context?.formArrayRef) {
           context.formArrayRef.current[step || 0] = formRef;
         }
+        // #8108:通知 StepsForm 实例已初始化,刷新外层 formRef 的 imperative handle
+        context?.onFormInit?.();
         restProps?.onInit?.(_, form);
       }}
       layout="vertical"
