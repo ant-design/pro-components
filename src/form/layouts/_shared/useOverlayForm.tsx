@@ -57,6 +57,8 @@ export type UseOverlayFormResult<T> = {
   onFinishHandle: (values: T) => Promise<any>;
   /** 关闭时重置表单，仅在 destroyOnHidden=true 时有效 */
   resetFields: () => void;
+  /** form 实例挂载完成回调（传给 BaseForm onInit 中调用），用于缓冲首次 onOpenChange */
+  onFormMount: () => void;
 };
 
 /**
@@ -88,8 +90,34 @@ export function useOverlayForm<T = Record<string, any>>({
 
   const [open, setOpenInner] = useControlledState<boolean>(false, propsOpen);
 
+  /**
+   * form 实例是否已挂载（BaseForm onInit 后置 true）。
+   * Modal/Drawer 懒渲染下，首次打开时 onOpenChange(true) 会在 children
+   * 挂载前触发，此时用户在回调里 setFieldsValue 会静默失败（#8920）。
+   */
+  const formMountedRef = useRef(false);
+
+  /** form 挂载前缓冲的 open 事件，挂载后 flush */
+  const pendingOpenRef = useRef<boolean | null>(null);
+
   const onOpenChangeCallback = useRefFunction((nextOpen: boolean) => {
+    if (!formMountedRef.current) {
+      // form 未挂载：缓冲事件，等 onFormMount 后再通知，
+      // 保证用户回调里 formRef.current 一定可用
+      pendingOpenRef.current = nextOpen;
+      return;
+    }
     onOpenChange?.(nextOpen);
+  });
+
+  /** form 挂载完成（由 ModalForm/DrawerForm 的 BaseForm onInit 调用） */
+  const onFormMount = useRefFunction(() => {
+    formMountedRef.current = true;
+    const pending = pendingOpenRef.current;
+    pendingOpenRef.current = null;
+    if (pending !== null) {
+      onOpenChange?.(pending);
+    }
   });
 
   /**
@@ -236,5 +264,6 @@ export function useOverlayForm<T = Record<string, any>>({
     contentRender,
     onFinishHandle,
     resetFields,
+    onFormMount,
   };
 }

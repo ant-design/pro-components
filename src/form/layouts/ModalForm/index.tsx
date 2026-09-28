@@ -79,6 +79,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     contentRender,
     onFinishHandle,
     resetFields,
+    onFormMount,
   } = useOverlayForm<T>({
     propsOpen,
     onOpenChange,
@@ -145,6 +146,8 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
             }
             rest?.onInit?.(_, form);
             formRef.current = form;
+            // #8920 通知 useOverlayForm form 已挂载，flush 缓冲的 onOpenChange
+            onFormMount();
           }}
           submitter={submitterConfig}
           onFinish={async (values) => {
