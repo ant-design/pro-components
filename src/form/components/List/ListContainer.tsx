@@ -170,7 +170,13 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
   }, [children, props, uuidFields, wrapperAction]);
 
   if (readOnlyContext.mode === 'read' || props.readonly === true) {
-    return <>{itemList}</>;
+    // readonly 下仍保留容器 div，containerClassName / containerStyle 不丢失（#8979）。
+    // creator 按钮与 fieldExtraRender 属于编辑态交互，readonly 不渲染。
+    return (
+      <div style={defaultStyle} className={containerClassName}>
+        {itemList}
+      </div>
+    );
   }
 
   return (

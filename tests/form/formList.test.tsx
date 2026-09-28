@@ -121,6 +121,26 @@ describe('ProForm List', () => {
     ).toBeFalsy();
   });
 
+  // #8979 readonly 模式下 containerClassName 不应丢失
+  it('⛲ ProForm.List keeps containerClassName in readonly mode', async () => {
+    const html = render(
+      <ProForm readonly submitter={false}>
+        <ProFormList
+          name="users"
+          label="用户信息"
+          containerClassName="readonly-container-cls"
+          initialValue={[{ name: '1111' }]}
+        >
+          <ProFormText name="name" label="姓名" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    expect(
+      html.baseElement.querySelector('.readonly-container-cls'),
+    ).toBeTruthy();
+  });
+
   it('⛲ ProForm.List for deps ProFormDependency', async () => {
     const html = render(
       <StepsForm<{
