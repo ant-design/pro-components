@@ -156,6 +156,20 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     }
   }, [restProps.autoFocus]);
 
+  // #8801:受控 searchValue 变化时同步触发 request(keyWords) 重新请求。
+  // 仅响应外部 prop 变化:初次挂载(searchValue 为 undefined)跳过;
+  // 用户输入路径已由 onSearch → fetchData 覆盖,这里负责编程式更新
+  // (如下拉收起时外部清空搜索词,期望以 keyWords='' 重新拉取全量数据)。
+  const controlledSearchValue = showSearchConfig?.searchValue ?? propsSearchValue;
+  const lastControlledSearchValue = useRef(controlledSearchValue);
+  useEffect(() => {
+    if (controlledSearchValue === lastControlledSearchValue.current) return;
+    lastControlledSearchValue.current = controlledSearchValue;
+    if (fetchDataOnSearch) {
+      fetchData?.(controlledSearchValue);
+    }
+  }, [controlledSearchValue, fetchData, fetchDataOnSearch]);
+
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const prefixCls = getPrefixCls('pro-filed-search-select', customizePrefixCls);
@@ -331,7 +345,12 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       onChange={(value, optionList, ...rest) => {
         // 将搜索框置空 和 antd 行为保持一致
         if (showSearch && effectiveAutoClearSearchValue) {
-          fetchData(undefined);
+          // #8780/#8928:选中值后清空搜索词,仅当之前确实有搜索词时才重新请求。
+          // keyWords 本来就是空(未输入直接选择)时再触发 fetchData(undefined)
+          // 只会产生一次与挂载时完全相同的多余 request。
+          if (searchValue) {
+            fetchData(undefined);
+          }
           effectiveOnSearch?.('');
           setSearchValue('');
         } else if (showSearch && !effectiveAutoClearSearchValue) {
