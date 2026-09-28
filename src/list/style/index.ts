@@ -6,8 +6,8 @@ export interface ProListToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genTechUiListActiveKeyframes = (token: ProListToken) =>
-  new Keyframes('techUiListActive', {
+const genListActiveKeyframes = (token: ProListToken) =>
+  new Keyframes('proListActive', {
     '0%': { backgroundColor: 'unset' },
     '30%': {
       background: token.colorWarningBg ?? setAlpha(token.colorWarning, 0.15),
@@ -65,7 +65,7 @@ const genProListResponsiveStyle: GenerateStyle<ProListToken> = (token) => {
 };
 
 const genProListStyle: GenerateStyle<ProListToken> = (token) => {
-  const techUiListActive = genTechUiListActiveKeyframes(token);
+  const listActive = genListActiveKeyframes(token);
   return {
     [token.componentCls]: {
       boxSizing: 'border-box',
@@ -421,7 +421,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           },
         },
         [`&${token.componentCls}-row-type-new`]: {
-          animationName: techUiListActive,
+          animationName: listActive,
           animationDuration: '3s',
         },
         [`&${token.componentCls}-row-type-inline`]: {

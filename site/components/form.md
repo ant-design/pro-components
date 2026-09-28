@@ -238,7 +238,7 @@ FormItemRender 用来专门处理，采用 render props 的方式来组织代码
 
 - 使用 useControlModel 来快速的创建一个自定义表单项，同时支持单实例或多实例（适用于封装自定义表单组件，在多个地方使用的场景）
 - 使用 withFormItemRender 来生成一个 FormItemRender，可以以内联的方式去组织代码（适用于只被使用一次或需要的上下文参数很多的场景）
-- 使用 FormControlRender 来把一个 form 组件转换成 render props 的形式，在特定情况下是很有用的（例如@alipay/techui-rule-tree 组件的一些设计缺陷，render 里面的组件不能调用 onChange 方法，这个时候包裹一下就可以解决）
+- 使用 FormControlRender 来把一个 form 组件转换成 render props 的形式，在特定情况下是很有用的（例如某些第三方组件的设计缺陷导致 render 里面的组件不能调用 onChange 方法，这个时候包裹一下就可以解决）
 
 > 当然，也不一定非要用 withFormItemRender，Form.Item 是可以嵌套使用，也可以 Form.Item 嵌套外层设置 noStyle 的方式来组织你的代码，这样会多一些 div 的元素包裹，如果对你样式没有影响也可以使用
 

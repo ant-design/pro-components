@@ -238,7 +238,7 @@ Forms are essential in middle and backend projects, and are usually accompanied 
 
 - Use useControlModel to quickly create a custom form item, while supporting single instance or multiple instances (suitable for encapsulating custom form components and using them in multiple places)
 - Use withFormItemRender to generate a FormItemRender, which can organize code inline (suitable for scenarios where it is used only once or requires many context parameters)
-- Use FormControlRender to convert a form component into a render props form, which is useful in certain situations (such as some design defects of the @alipay/techui-rule-tree component, the component in render cannot call the onChange method, wrapping it at this time can solve it)
+- Use FormControlRender to convert a form component into a render props form, which is useful in certain situations (such as some design defects of certain third-party components, where the component in render cannot call the onChange method, wrapping it at this time can solve it)
 
 > Of course, you don't necessarily have to use withFormItemRender. Form.Item can be nested, or Form.Item can be nested with noStyle set on the outer layer to organize your code. This will wrap more div elements. If it does not affect your style, you can also use it.
 

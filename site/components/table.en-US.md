@@ -14,8 +14,6 @@ Built on ProForm, **ProTable** can switch query UI modes (for example full `Quer
 
 ![layout](https://gw.alipayobjects.com/zos/antfincdn/Hw%26ryTueTW/bianzu%2525204.png)
 
-If you are an internal network user, you are welcome to use our [TechUI Studio](https://techui-studio.antfin-inc.com/) visual configuration to generate initial code.
-
 ## When to Use
 
 When your **tables** need to interact with the server or need rich cell renderers, ProTable is a good fit.
