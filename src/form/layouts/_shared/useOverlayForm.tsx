@@ -100,10 +100,23 @@ export function useOverlayForm<T = Record<string, any>>({
   /** form 挂载前缓冲的 open 事件，挂载后 flush */
   const pendingOpenRef = useRef<boolean | null>(null);
 
+  /**
+   * 受控模式下缓冲 open=true 会死锁(#9624):
+   * 用户依赖 onOpenChange(true) 翻转自己的 state;事件被缓冲时
+   * propsOpen 保持 false → Modal 永不渲染 → form 永不挂载 → 事件永不 flush。
+   * 受控模式(传了 propsOpen)不缓冲,立即通知;
+   * 仅非受控(trigger 自管理状态)时保留 #8920 的缓冲语义。
+   */
+  const controlledRef = useRef(propsOpen !== undefined);
+  controlledRef.current = propsOpen !== undefined;
+
   const onOpenChangeCallback = useRefFunction((nextOpen: boolean) => {
-    if (!formMountedRef.current) {
-      // form 未挂载：缓冲事件，等 onFormMount 后再通知，
-      // 保证用户回调里 formRef.current 一定可用
+    if (!formMountedRef.current && nextOpen && !controlledRef.current) {
+      // form 未挂载且要打开：缓冲事件，等 onFormMount 后再通知，
+      // 保证用户回调里 formRef.current 一定可用（#8920）。
+      // 注意只缓冲 open=true：受控模式下用户依赖 onOpenChange 翻转 state,
+      // 若 open 事件被吞,Modal 永远不打开 → form 永远不挂载 → 死锁(#9624)。
+      // 而首次打开前 form 必然未挂载,close 事件无需等待 form。
       pendingOpenRef.current = nextOpen;
       return;
     }

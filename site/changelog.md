@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.1.15-3] - 2026-09-28
+
+### 🐛 问题修复
+
+- ProForm / QueryFilter
+  - 🐞 修复 `grid: true` 时 QueryFilter/LightFilter 崩溃（`items.flatMap is not a function`）的问题：`contentRender` 现在始终接收数组形态的 items，栅格由字段自身的 ColWrapper 完成 [#8253](https://github.com/ant-design/pro-components/issues/8253)
+- ModalForm / DrawerForm
+  - 🐞 修复受控 `open` + `trigger` 组合下弹窗永远无法打开的死锁问题：受控模式不再缓冲 `onOpenChange`，`#8920` 的缓冲语义仅保留在非受控模式 [#9624](https://github.com/ant-design/pro-components/issues/9624)
+
+### ✅ 测试
+
+- ✅ 新增 `grid: true` QueryFilter 渲染、受控 open + trigger、默认展开、trigger `stopPropagation` 回归测试
+
 ## [3.1.15-2] - 2026-09-27
 
 ### 🆕 新特性

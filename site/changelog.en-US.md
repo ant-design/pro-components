@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.1.15-3] - 2026-09-28
+
+### 🐛 Bug Fixes
+
+- ProForm / QueryFilter
+  - 🐞 Fix QueryFilter/LightFilter crash (`items.flatMap is not a function`) when `grid: true`: `contentRender` now always receives items as an array, and grid layout is handled by each field's ColWrapper [#8253](https://github.com/ant-design/pro-components/issues/8253)
+- ModalForm / DrawerForm
+  - 🐞 Fix deadlock where the overlay could never open with controlled `open` + `trigger`: controlled mode no longer buffers `onOpenChange`; the buffering semantics of `#8920` are kept only for uncontrolled mode [#9624](https://github.com/ant-design/pro-components/issues/9624)
+
+### ✅ Tests
+
+- ✅ Add regression tests for `grid: true` QueryFilter rendering, controlled open + trigger, default open, and trigger `stopPropagation`
+
 ## [3.1.15-2] - 2026-09-27
 
 ### 🆕 Features
