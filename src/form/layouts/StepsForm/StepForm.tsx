@@ -20,7 +20,14 @@ function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
   const context = useContext(StepsFormProvide);
   const stepContext = useContext(StepFormProvide);
 
-  const props = { ...stepNativeProps, ...stepContext } as StepFormProps<T> &
+  /**
+   * #9021:StepsForm 会把外层 item 的 props(含 children)放进
+   * StepFormProvide context。当 StepForm 被自定义组件包裹时,
+   * context 里的 children 是包装组件从外层接收的,
+   * 若 context 覆盖元素自身 props,内部显式声明的渲染逻辑会被覆盖。
+   * 元素自身书写的 props(含 children)必须优先。
+   */
+  const props = { ...stepContext, ...stepNativeProps } as StepFormProps<T> &
     StepsFormProps<any>;
   const {
     onFinish,

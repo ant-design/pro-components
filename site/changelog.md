@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.15-5] - 2026-09-28
+
+### 🐛 问题修复
+
+- StepsForm
+  - 🐞 修复把 `StepsForm.StepForm` 包一层自定义组件时，内部显式声明的 children/渲染逻辑被外层包装组件 props（经 context）覆盖的问题：元素自身书写的 props 现在优先 [#9021](https://github.com/ant-design/pro-components/issues/9021)
+
 ## [3.1.15-4] - 2026-09-28
 
 ### 🐛 问题修复

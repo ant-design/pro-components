@@ -87,7 +87,7 @@
 - [x] #9624 Dropdown 中 ModalForm 默认展开(受控死锁修复,PR #9710)
 - [x] #8753 next.js 集成 BetaSchemaForm ModalForm 打开后内容空白(同 #9210,PR #9214 已修,回归测试锁定)
 - [x] #8924 ModalForm 触发元素 stopPropagation 后点击任意处触发父级冒泡(行为正确,测试锁定)
-- [ ] #9021 StepsForm.StepForm 包一层后渲染逻辑被覆盖
+- [x] #9021 StepsForm.StepForm 包一层后渲染逻辑被覆盖(自身 props 优先合并,测试锁定)
 - [x] #8108 StepsForm 拿不到 formRef(formInitVersion 重新同步,回归测试锁定)
 
 ## B4 日期 / 数值格式化(P1,11 个)

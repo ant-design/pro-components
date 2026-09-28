@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.15-5] - 2026-09-28
+
+### 🐛 Bug Fixes
+
+- StepsForm
+  - 🐞 Fix children/rendering declared directly on `StepsForm.StepForm` being overridden by the wrapping component's props (leaked through context) when StepForm is wrapped in a custom component: props written on the element itself now take precedence [#9021](https://github.com/ant-design/pro-components/issues/9021)
+
 ## [3.1.15-4] - 2026-09-28
 
 ### 🐛 Bug Fixes
