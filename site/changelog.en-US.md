@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.1.15-7] - 2026-09-28
+
+### 🐛 Bug Fixes
+
+- ProTable / ProForm date fields
+  - 🐞 Fix date `valueType`s (e.g. `dateTimeRange`) showing empty when `syncToUrl` restores seconds (10-digit) / milliseconds (13-digit) timestamp strings: `parseValueToDay` now detects timestamp strings by digit count after format parsing fails [#8810](https://github.com/ant-design/pro-components/issues/8810)
+- ProTable
+  - 🐞 Fix `ellipsis` tooltip showing the raw value (e.g. id) instead of the rendered text for `valueType`s whose text differs from value (`select` / `cascader` / `treeSelect` / `money` / `digit`, etc.) [#8542](https://github.com/ant-design/pro-components/issues/8542)
+  - ✅ Lock regression that `valueType: 'money'` renders and saves numbers correctly in EditableProTable row editing [#9618](https://github.com/ant-design/pro-components/issues/9618)
+
 ## [3.1.15-6] - 2026-09-28
 
 ### 🐛 Bug Fixes

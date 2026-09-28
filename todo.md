@@ -92,20 +92,19 @@
 
 ## B4 日期 / 数值格式化(P1,11 个)
 
-> 进度(2026-09-28):#8875 已验证+回归锁定(date 输出 YYYY-MM-DD);#8863 已修复(parseValueToDay 传入 format + 单位数宽容重试)。
+> 进度(2026-09-28):B4 全部完成。#8875/#8863/#8542/#9618/#8810 已修复或锁定,#7813/#8733/#9312/#8833/#8790/#8877 已答疑并回复 issue。
 
 - [x] #8875 EditableProTable date 输出变成 `YYYY-MM-DD hh:mm:ss`(已验证按 valueType 正确格式化,测试锁定)
 - [x] #8863 EditableProTable date + `format:'DD/MM/YYYY'` 赋值解析失败(已修复,编辑态传 format 解析+宽容重试)
 - [x] #7813 ProFormDateTimeRangePicker value 格式错误无法格式化(已答疑:双 dayjs 实例,给出 resolutions 方案,行为已测试锁定)
-- [ ] #7813 ProFormDateTimeRangePicker value 格式错误无法格式化
-- [ ] #8733 ProFormDateRangePicker 国际化失效
-- [ ] #9312 页面定时器 + dateRange 打开异常(读 issue 复现)
-- [ ] #8833 Select dropdownRender 内 RangePicker 二次选择无法选开始时间
-- [ ] #8790 DrawerForm 内 DateRangePicker 弹层超出 drawer 被裁剪(getPopupContainer)
-- [ ] #8810 syncToUrl 秒级时间戳回显(search 反序列化增强)
-- [ ] #8877 ProFormMoney 按分提交、按元展示(新增 cents 支持)
-- [ ] #8542 ellipsis + valueType 时 tooltip 与文本一致
-- [ ] #9618 ProTable valueType:'money' 编辑模式异常
+- [x] #8733 ProFormDateRangePicker 国际化失效(已答疑,行为已测试锁定)
+- [x] #9312 页面定时器 + dateRange 打开异常(已答疑:定时器每秒 setFieldsValue 重置所致,非组件 bug)
+- [x] #8833 Select dropdownRender 内 RangePicker 二次选择无法选开始时间(已答疑:antd 焦点管理行为,给出 blur workaround)
+- [x] #8790 DrawerForm 内 DateRangePicker 弹层超出 drawer 被裁剪(已答疑:父节点挂载默认+getPopupContainer 覆盖方案)
+- [x] #8810 syncToUrl 秒级时间戳回显(已修复:parseValueToDay 识别 10/13 位时间戳字符串,测试锁定)
+- [x] #8877 ProFormMoney 按分提交、按元展示(已答疑:convertValue/transform 现有 API 可实现,不内置 unit 预设)
+- [x] #8542 ellipsis + valueType 时 tooltip 与文本一致(已修复:mismatch valueType 集合走 dom tooltip,测试锁定)
+- [x] #9618 ProTable valueType:'money' 编辑模式异常(已验证:现版 InputNumberPopover 正常,保存值为数字,测试锁定)
 
 ## B5 校验与提交行为(P1,8 个)
 

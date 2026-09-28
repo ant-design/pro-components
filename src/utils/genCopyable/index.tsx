@@ -10,11 +10,38 @@ export type ProEllipsisTooltip = {
 
 export type ProEllipsis = ProEllipsisTooltip | boolean;
 
-const isNeedTranText = (item: any): boolean => {
+/**
+ * 这些 valueType 的展示文本与原始值不同(值→label/格式化文本),
+ * tooltip 需要用渲染后的 dom 而非原始值,保证提示与文本一致(#8542)。
+ * 例:select 的 value→label、cascader 的 id→路径文本、money 的数字→带符号文本。
+ */
+const VALUE_TEXT_MISMATCH_VALUE_TYPES = new Set([
+  'select',
+  'cascader',
+  'treeSelect',
+  'radio',
+  'checkbox',
+  'segmented',
+  'money',
+  'percent',
+  'digit',
+  'digitRange',
+  'second',
+  'progress',
+  'fromNow',
+  'avatar',
+  'image',
+  'color',
+  'status',
+  'jsonCode',
+  'code',
+]);
+
+export const isNeedTranText = (item: any): boolean => {
   if (item?.valueType?.toString().startsWith('date')) {
     return true;
   }
-  if (item?.valueType === 'select' || item?.valueEnum) {
+  if (item?.valueEnum || VALUE_TEXT_MISMATCH_VALUE_TYPES.has(item?.valueType)) {
     return true;
   }
   return false;

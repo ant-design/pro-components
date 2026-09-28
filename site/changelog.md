@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.1.15-7] - 2026-09-28
+
+### 🐛 问题修复
+
+- ProTable / ProForm 日期字段
+  - 🐞 修复 `syncToUrl` 回填秒级（10 位）/毫秒级（13 位）时间戳字符串时 date 相关 `valueType`（如 `dateTimeRange`）无法显示时间的问题：`parseValueToDay` 现在在 format 解析失败后按位数识别时间戳 [#8810](https://github.com/ant-design/pro-components/issues/8810)
+- ProTable
+  - 🐞 修复 `ellipsis` 开启后，`valueType` 为 `select` / `cascader` / `treeSelect` / `money` / `digit` 等值与文本不一致的字段，tooltip 显示原始值（如 id）而非渲染后文本的问题 [#8542](https://github.com/ant-design/pro-components/issues/8542)
+  - ✅ 回归锁定 `valueType: 'money'` 在 EditableProTable 行编辑中正常渲染、保存值为数字 [#9618](https://github.com/ant-design/pro-components/issues/9618)
+
 ## [3.1.15-6] - 2026-09-28
 
 ### 🐛 问题修复

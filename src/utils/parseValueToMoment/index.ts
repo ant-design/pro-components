@@ -104,6 +104,25 @@ export const parseValueToDay = (
     return dayjs(value);
   }
   if (typeof value === 'string') {
+    /**
+     * #8810:syncToUrl 回填的时间戳字符串(10 位秒/13 位毫秒)无法按 format 解析,
+     * 导致 date 相关 valueType 显示为空。format 解析失败时按位数识别时间戳。
+     */
+    const parseTimestampString = (
+      str: string,
+    ): dayjs.Dayjs | null => {
+      if (!/^\d+$/.test(str)) return null;
+      const ms =
+        str.length === 10
+          ? Number(str) * 1000
+          : str.length === 13
+            ? Number(str)
+            : null;
+      if (ms === null) return null;
+      const parsed = dayjs(ms);
+      return parsed.isValid() ? parsed : null;
+    };
+
     if (formatter) {
       const strict = dayjs(value, formatter);
       if (strict.isValid()) {
@@ -124,7 +143,15 @@ export const parseValueToDay = (
           return lenient;
         }
       }
+      const ts = parseTimestampString(value);
+      if (ts) {
+        return ts;
+      }
       return null;
+    }
+    const ts = parseTimestampString(value);
+    if (ts) {
+      return ts;
     }
     const parsed = dayjs(value);
     return parsed.isValid() ? parsed : null;
