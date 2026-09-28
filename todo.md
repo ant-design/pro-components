@@ -64,15 +64,15 @@
 
 ## B2 崩溃 / 报错 / 类型错误(P0,8 个)
 
-> 进度(2026-09-28):#8253 已修复(PR #9710);#8642 已修复(commit 7467ba136);#8648 已修复(commit 7ddd96bbc);#9093 findDOMNode 已清除(QueryFilter 部分由 #9065 修复,无残留调用);#8740 类型验证通过+fixture 锁定(PR #9710);#9617 待答疑(正确 prop 是 tooltip);#8845 待答疑(render 首参为单元格原始值,与文档一致);#7773 待答疑(社区结论:Outlet 外层加 Suspense)
+> 进度(2026-09-28):#8253 已修复(PR #9710);#8642 已修复(commit 7467ba136);#8648 已修复(commit 7ddd96bbc);#9093 findDOMNode 已清除(QueryFilter 部分由 #9065 修复,无残留调用);#8740 类型验证通过+fixture 锁定(PR #9710);#9617 已答疑(正确 prop 是 tooltip);#8845 已答疑(render 首参为单元格原始值,与文档一致);#7773 已答疑(Outlet 外层加 Suspense,关联 #6264)
 
 - [x] #8253 search `grid:true` 报 `items.flatMap is not a function`(PR #9710)
-- [ ] #7773 ProLayout `undefined is not iterable`(答疑:无堆栈难复现,关联 #6264 Suspense 方案)
+- [x] #7773 ProLayout `undefined is not iterable`(已答疑:无堆栈难复现,关联 #6264 Suspense 方案)
 - [x] #8642 React 不识别 DOM 上的 `showCount` prop(透传过滤,commit 7467ba136)
 - [x] #8648 `submitButtonProps=false` 提交按钮仍显示(commit 7ddd96bbc)
-- [ ] #9617 `tip` 不在 ProColumns 类型中(答疑:正确属性为 tooltip)
+- [x] #9617 `tip` 不在 ProColumns 类型中(已答疑:正确属性为 tooltip)
 - [x] #8740 ProFormColorPicker onChange 类型(AggregationColor)(类型已兼容,fixture 锁定)
-- [ ] #8845 ProFormField 类型错误(答疑:render 首参为单元格原始值)
+- [x] #8845 ProFormField 类型错误(已答疑:render 首参为单元格原始值)
 - [x] #9093 react18 使用 ProTable 报错(代码已无 findDOMNode)
 
 ## B3 Overlay 表单值同步(P0,9 个)⚠️ 已有进行中代码
