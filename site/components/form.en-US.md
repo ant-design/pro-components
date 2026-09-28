@@ -72,8 +72,6 @@ ProForm is a degradable encapsulation based on antd Form, fully aligned with ant
 | [LightFilter](/components/query-filter)         | Generally used as an inline built-in filter, such as card action bar and table action bar.                            |
 | [StepsForm](/components/steps-form)             | Step form, needs to be used with StepForm configuration.                                                              |
 
-<code src="../../demos/form/layout-change.tsx" title="Form layout switching"></code>
-
 ## Data conversion
 
 Many times there is no exact match between the data required by the component and the data required by the backend, and ProForm provides two APIs to solve this problem, `transform` and `convertValue`.
@@ -199,36 +197,17 @@ import { set } from '@rc-component/util';
 
 ## Code examples
 
-<code src="../../demos/form/base.tsx" title="Basic Usage"></code>
-
 ### Label and Form Item Layout
 
 Except for fixed layout form styles like `LightFilter` and `QueryFilter`, other form layouts support configuring three layout methods consistent with `antd`.
-
-<code src="../../demos/form/form-layout.tsx"  ></code>
 
 ### Grid layout
 
 Supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
 
-<code src="../../demos/form/form-layout-grid.tsx" ></code>
-
-<code src="../../demos/form/dependency.tsx" title="Form Linkage"></code>
-
-<code src="../../demos/form/form-ref.tsx" id="formRef-usage" description="
-You can get a reference to the form instance via `formRef`, through which you can call form methods to implement form reset, set form, get form values, etc." title="Form Method Call"></code>
-
 ### Sync submission results to url
 
 When opening, the url parameters are also set as default values, supports transform, but pay attention to field mapping.
-
-<code src="../../demos/form/sync-to-url.tsx" ></code>
-
-<code src="../../demos/form/money.tsx" title="Money"></code>
-
-<code src="../../demos/form/layout-footer.tsx" iframe="580" title="Fixed Footer"></code>
-
-<code src="../../demos/form/pro-form-editable-table.tsx" title="ProForm and EditableTable used together"></code>
 
 ## Components that hijack render functions
 
@@ -246,53 +225,33 @@ Forms are essential in middle and backend projects, and are usually accompanied 
 
 Start with an official example [Customized Form Controls](https://ant.design/components/form/#components-form-demo-customized-form-controls)
 
-<code src="../../demos/form/antd.tsx" description="Official Example"></code> <code src="../../demos/form/antd-modify.tsx" description="Modify using hooks"></code> <code src="../../demos/form/antd-nest.tsx" description="Nested Usage"></code>
-
 ### FormControlRender
 
 Using FormControlRender allows you to write code inline and write logic more flexibly. It is suitable for some components wrapped with ProForm.Item or Form.Item.
 
 Sometimes you need to use Form.Item.useStatus, but you must meet the usage specifications of hooks, which makes development require extraction into a separate component for use, and cannot be used inline, and FormControlRender solves this situation very well.
 
-<code src="../../demos/form/form-control-render.tsx"></code>
-
 ### FormItemRender & ProFormItemRender
 
 Using FormItemRender or ProFormItemRender makes it easier to write form items in Form
-
-<code src="../../demos/form/form-item-render.tsx"></code>
-
-<code src="../../demos/form/linkage-customization.tsx" debug></code>
-
-<code src="../../demos/form/_pro-form-dependency.tsx"  debug></code>
-
-<code src="../../demos/form/label-col.tsx" debug></code>
 
 ### Select `labelInValue`
 
 How `labelInValue` changes option payload shape inside ProForm selects.
 
-<code src="../../demos/form/label-in-value.tsx"></code>
-
 ### Custom `request` loading state
 
 While `request` is loading a centered `Spin` is rendered by default; use `loadingRender` to replace it with a `Skeleton` or any custom node.
 
-<code src="../../demos/form/loading-render.tsx"></code>
-
 ### Select local search with `request`
 
 When `request` fetches the full dataset once, set `fetchDataOnSearch={false}` so that searching filters locally instead of re-triggering the request.
-
-<code src="../../demos/field/select-local-search.tsx"></code>
 
 | Property           | Description                                                                                      | Type      | Default |
 | ------------------ | ------------------------------------------------------------------------------------------------ | --------- | ------- |
 | fetchDataOnSearch  | Whether searching re-triggers `request`; set `false` to fetch once on init and filter locally      | `boolean` | `true`  |
 
 ### ProProvider / ConfigProvider (debug)
-
-<code src="../../demos/form/config-provider.tsx" debug background="var(--main-bg-color)"></code>
 
 ## ProForm
 
@@ -438,8 +397,6 @@ While we would prefer not to modify the submitter, it is a common requirement to
 
 This property is a high-level wrapper made by ProForm based on the original Antd's `FormInstance`, adding some more convenient methods. Usage is as follows:
 
-<code src="../../demos/form/form-ref.tsx" id="formRef-api" title="Usage of formRef"></code>
-
 ```tsx | pure
 import type { ProFormInstance } from '@ant-design/pro-components';
 import {
@@ -550,7 +507,3 @@ export default () => {
 |       `getFieldFormatValue`       |          Usage is the same as `FormInstance`'s `getFieldValue` method, returns formatted specified data           |         |
 |    `getFieldFormatValueObject`    |   Usage is the same as `FormInstance`'s `getFieldValue`, returns formatted specified data (including name path)   |         |
 | `validateFieldsReturnFormatValue` | Usage is the same as `FormInstance`'s `validateFields` method, returns all formatted data after validation passes |         |
-
-<code src="../../demos/form/_modalform-test.tsx"  debug></code>
-
-<code src="../../demos/form/params-form-ref.tsx"  debug></code>
