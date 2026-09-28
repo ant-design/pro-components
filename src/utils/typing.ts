@@ -554,6 +554,8 @@ export type ProSchema<
    * 支持 ReactNode 和 方法
    *
    * @name 标题
+   * @param rowIndex #8561 在 formList 子列中按行求值时携带当前行号（从 0 开始），
+   *   非 list 场景为 undefined
    */
   title?:
     | ((
@@ -566,6 +568,7 @@ export type ProSchema<
         >,
         type: ComponentsType,
         dom: React.ReactNode,
+        rowIndex?: number,
       ) => React.ReactNode)
     | React.ReactNode;
 

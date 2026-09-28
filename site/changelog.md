@@ -17,6 +17,8 @@
 - ProFormList
   - 🐞 让 `actionRef.add` 和 `actionRef.remove` 统一经过 `actionGuard`、`onAfterAdd` 与 `onAfterRemove` [#8939](https://github.com/ant-design/pro-components/issues/8939)
   - ✅ 增加 `preserve={false}` 字段复制、条件重挂载及首次提交 transform 的回归测试 [#8208](https://github.com/ant-design/pro-components/issues/8208) [#8896](https://github.com/ant-design/pro-components/issues/8896) [#8700](https://github.com/ant-design/pro-components/issues/8700)
+- BetaSchemaForm
+  - 🆕 在 `formList` 子列的函数式属性中传入当前行号 [#8561](https://github.com/ant-design/pro-components/issues/8561)
 
 ### 📖 文档
 
