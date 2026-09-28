@@ -121,10 +121,12 @@ const BaseProFormUploadButton: React.FC<ProFormUploadButtonProps> =
         (max === undefined || !value || value?.length < max) && mode !== 'read';
       const isPictureCard =
         (listType ?? fieldProps?.listType) === 'picture-card';
-      // 参考 antd：不传 id 给 Upload，避免点击 label 触发 file input 打开文件选择器
-      const { id: _id, ...uploadFieldProps } = fieldProps || {};
+      // #9298 不把 id 透传给 Upload（内部 file input 会因 label htmlFor 被点击触发打开文件选择器），
+      // 但 #8992 又需要 id 留在 DOM 上供 form.scrollToField 的 getElementById fallback 定位。
+      // 折中：id 挂到外层包裹 span（不可聚焦，label 点击不会聚焦/触发它）
+      const { id: fieldId, ...uploadFieldProps } = fieldProps || {};
       return (
-        <>
+        <span id={fieldId}>
           <Upload
             action={action}
             accept={accept}
@@ -167,7 +169,7 @@ const BaseProFormUploadButton: React.FC<ProFormUploadButtonProps> =
               src={previewImage}
             />
           )}
-        </>
+        </span>
       );
     },
   );

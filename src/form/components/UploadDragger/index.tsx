@@ -83,45 +83,49 @@ const BaseProFormUploadDragger: React.FC<ProFormUploadDraggerProps> =
         (max === undefined || !value || value?.length < max) &&
         mode !== 'read' &&
         proFieldProps?.readonly !== true;
-      // 参考 antd：不传 id 给 Upload，避免点击 label 触发 file input 打开文件选择器
-      const { id: _id, ...uploadFieldProps } = fieldProps || {};
+      // #9298 不把 id 透传给 Upload（内部 file input 会因 label htmlFor 被点击触发打开文件选择器），
+      // 但 #8992 又需要 id 留在 DOM 上供 form.scrollToField 的 getElementById fallback 定位。
+      // 折中：id 挂到外层包裹 span（不可聚焦，label 点击不会聚焦/触发它），两种诉求同时满足
+      const { id: fieldId, ...uploadFieldProps } = fieldProps || {};
       return (
-        <Upload.Dragger
-          ref={ref}
-          name="files"
-          action={action}
-          accept={accept}
-          fileList={value}
-          {...uploadFieldProps}
-          onChange={(info) => {
-            onChange?.(info);
-            if (uploadFieldProps?.onChange) {
-              uploadFieldProps?.onChange(info);
-            }
-          }}
-          style={{
-            flexDirection: 'column',
-            alignItems: 'center',
-            ...uploadFieldProps?.style,
-            display: !showUploadButton
-              ? 'none'
-              : uploadFieldProps?.style?.display || 'flex',
-          }}
-        >
-          <p className={`${baseClassName}-drag-icon`}>{icon}</p>
-          <p className={`${baseClassName}-text`}>{title}</p>
-          <p className={`${baseClassName}-hint`}>{description}</p>
-          {children ? (
-            <div
-              className={`${baseClassName}-extra`}
-              style={{
-                padding: 16,
-              }}
-            >
-              {children}
-            </div>
-          ) : null}
-        </Upload.Dragger>
+        <span id={fieldId}>
+          <Upload.Dragger
+            ref={ref}
+            name="files"
+            action={action}
+            accept={accept}
+            fileList={value}
+            {...uploadFieldProps}
+            onChange={(info) => {
+              onChange?.(info);
+              if (uploadFieldProps?.onChange) {
+                uploadFieldProps?.onChange(info);
+              }
+            }}
+            style={{
+              flexDirection: 'column',
+              alignItems: 'center',
+              ...uploadFieldProps?.style,
+              display: !showUploadButton
+                ? 'none'
+                : uploadFieldProps?.style?.display || 'flex',
+            }}
+          >
+            <p className={`${baseClassName}-drag-icon`}>{icon}</p>
+            <p className={`${baseClassName}-text`}>{title}</p>
+            <p className={`${baseClassName}-hint`}>{description}</p>
+            {children ? (
+              <div
+                className={`${baseClassName}-extra`}
+                style={{
+                  padding: 16,
+                }}
+              >
+                {children}
+              </div>
+            ) : null}
+          </Upload.Dragger>
+        </span>
       );
     },
   );
