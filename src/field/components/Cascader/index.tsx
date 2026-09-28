@@ -85,6 +85,8 @@ const FieldCascader: ProFieldFC<GroupProps> = (
         variant={variant}
         optionsValueEnum={optionsValueEnum}
         {...rest}
+        // 放在 rest 之后：fetch 拉取的 options 作为兜底（fieldProps.options 优先级在组件内部处理）
+        fetchOptions={options}
       />
     );
   }

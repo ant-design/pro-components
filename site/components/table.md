@@ -81,7 +81,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | debounceTime       | 防抖时间                                                                                           | `number`                                                                                                                                                                                                                 | 20                                                                  | -    |
 | editable           | 可编辑表格的相关配置，支持 `type="multiple"` 等。[配置详情](/components/editable-table)            | `RowEditableConfig<T>`                                                                                                                                                                                                   | -                                                                   | -    |
 | ErrorBoundary      | 自带了错误处理功能，防止白屏，`ErrorBoundary=false` 关闭默认错误边界                               | `React.ComponentClass<any, any> \| false`                                                                                                                                                                                | 内置 ErrorBoundary                                                  | -    |
-| form               | type="form" 和搜索表单的 Form 配置                                                                 | `Omit<ProFormProps & QueryFilterProps, 'form'>`                                                                                                                                                                           | -                                                                   | -    |
+| form               | type="form" 和搜索表单的 Form 配置，`ignoreRules: false` 可开启查询表单校验，[详见此处](#搜索表单的-rules-校验) | `Omit<ProFormProps & QueryFilterProps, 'form'>`                                                                                                                                                                           | -                                                                   | -    |
 | formRef            | 可以获取到查询表单的 form 实例，用于一些灵活的配置                                                 | `TableFormItem<T>['formRef']`                                                                                                                                                                                            | -                                                                   | -    |
 | ghost              | 幽灵模式，即是否取消表格区域的 padding                                                             | `boolean`                                                                                                                                                                                                                | false                                                               | -    |
 | headerTitle        | 左上角的 title                                                                                     | `ReactNode`                                                                                                                                                                                                              | -                                                                   | -    |
@@ -159,6 +159,20 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | span             | 配置查询表单的列数，支持按断点配置（xs/sm/md/lg/xl/xxl），未配置时按屏幕宽度自动分行 | `number \| SpanConfig` | 响应式默认值 | -    |
 
 `optionRender: false` 只会隐藏操作按钮。如需在输入或选择后自动查询，可在 `form.onValuesChange` 中调用 `formRef.current?.submit()`；请使用 ProTable 的 `debounceTime` 配置请求防抖。
+
+#### 搜索表单的 rules 校验
+
+查询表单为了不阻塞搜索，默认忽略列配置 `formItemProps.rules` 中的校验规则（ProTable 会为查询表单自动注入 `ignoreRules: true`）。如果希望查询表单也执行校验，需要显式开启：
+
+```tsx | pure
+<ProTable
+  columns={columns}
+  // 开启查询表单校验
+  form={{ ignoreRules: false }}
+/>
+```
+
+开启后列上的 `formItemProps.rules`（如 `required`）会在提交查询时生效；校验不通过将阻止搜索请求。可编辑表格（`editable`）中的行内校验不受此配置影响。
 
 #### ColConfig
 
@@ -270,7 +284,7 @@ ref.current?.cancelEditable(rowKey);
 | valueType                              | 值的类型，会生成不同的渲染器                                                                                                                     | [`valueType`](/components/schema-form#常见-valuetype)                                                                         | `text` |
 | order                                  | 查询表单中的权重，权重大排序靠前                                                                                                                 | `number`                                                                                                            | -      |
 | fieldProps                             | 查询表单的 props，会透传给表单项，如果渲染出来是 Input，就支持 Input 的所有 props，同理如果是 select，也支持 select 的所有 props。也支持方法传入 | `(form,config)=>Record \| Record`                                                                                   | -      |
-| `formItemProps`                        | 传递给 Form.Item 的配置，可以配置 rules，但是默认的查询表单 rules 是不生效的。需要配置 `ignoreRules`                                             | `(form,config)=>formItemProps` \| `formItemProps`                                                                   | -      |
+| `formItemProps`                        | 传递给 Form.Item 的配置，可以配置 rules，但查询表单默认忽略 rules，需配置 [`form={{ ignoreRules: false }}`](#搜索表单的-rules-校验) | `(form,config)=>formItemProps` \| `formItemProps`                                                                   | -      |
 | renderText                             | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](/components/schema-form#valueenum)                         | `(text: any,record: T,index: number,action: UseFetchDataAction<T>) => string`                                       | -      |
 | render                                 | 类似 table 的 render，第一个参数变成了 dom，增加了第四个参数 action                                                                              | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \| ReactNode[]`               | -      |
 | formItemRender                         | 渲染查询表单的输入组件                                                                                                                           | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form,action) => ReactNode`                       | -      |
