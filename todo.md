@@ -108,14 +108,16 @@
 
 ## B5 校验与提交行为(P1,8 个)
 
-- [ ] #8380 `validateTrigger="onBlur"` 校验不生效
-- [ ] #8956 ProFormText 校验失败页面闪烁
-- [ ] #8942 ModalForm 校验信息出现导致表单项高度跳动
-- [ ] #8895 LoginForm rules message 提示跳动
-- [ ] #8892 ProFormText show help rules 撑破边框
-- [ ] #8859 EditableProTable 违反 rules 时 field 多出 margin
-- [ ] #8992 `scrollToFirstError` 对 ProFormUploadDragger 不滚动
-- [ ] #8044 ProFormDigit 非必填空值时提交数据缺字段(undefined vs 缺失语义)
+> 进度(2026-09-28):B5 全部完成。#8380/#8956/#8942/#8895/#8892/#8859 已验证或修复并测试锁定;#8992 已修复(commit f69b584e8);#8044 已修复(omitNil 贯穿 transform 链路,863 测试全绿)。
+
+- [x] #8380 `validateTrigger="onBlur"` 校验不生效(已验证正常+回归锁定;答疑:字段级属性+升级)
+- [x] #8956 ProFormText 校验失败页面闪烁(已修复:FormItemChildrenShell 交还 antd additionalDom,测试锁定)
+- [x] #8942 ModalForm 校验信息出现导致表单项高度跳动(已修复,同上,测试锁定)
+- [x] #8895 LoginForm rules message 提示跳动(已修复,同上)
+- [x] #8892 ProFormText show help rules 撑破边框(已修复,同上)
+- [x] #8859 EditableProTable 违反 rules 时 field 多出 margin(已验证:负 margin + offset 补偿层净占位为 0,回归测试锁定,已回复 issue)
+- [x] #8992 `scrollToFirstError` 对 ProFormUploadDragger 不滚动(已修复:field id 挂到包裹 span,commit f69b584e8,含回归测试)
+- [x] #8044 ProFormDigit 非必填空值时提交数据缺字段(已修复:omitNil=false 时 transformKeySubmitValue 保留 null 字段,默认行为不变,回归测试锁定,已回复 issue)
 
 ## B6 搜索表单(QueryFilter)联动与布局(P1,12 个)
 

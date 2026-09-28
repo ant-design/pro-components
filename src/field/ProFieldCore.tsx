@@ -73,6 +73,10 @@ export function createProField(
       value,
       readonly,
       fieldProps: restFieldProps,
+      // #8380:Form.Item 经 cloneElement 注入的 onBlur（validateTrigger="onBlur" 时
+      // 是 rc-form 的校验触发器）不在 fieldProps 里,不取出会在下方 rest 透传中被丢弃,
+      // 导致 onBlur 校验不生效。
+      onBlur: injectedOnBlur,
       ...rest
     },
     ref,
@@ -84,15 +88,21 @@ export function createProField(
       onChange?.(...restParams);
     });
 
+    const onBlurCallBack = useRefFunction((...restParams: any[]) => {
+      restFieldProps?.onBlur?.(...restParams);
+      injectedOnBlur?.(...restParams);
+    });
+
     const fieldProps: any = useDeepCompareMemo(() => {
       return (
-        (value !== undefined || restFieldProps) && {
+        (value !== undefined || restFieldProps || injectedOnBlur) && {
           value,
           ...omitUndefined(restFieldProps),
           onChange: onChangeCallBack,
+          ...(injectedOnBlur ? { onBlur: onBlurCallBack } : {}),
         }
       );
-    }, [value, restFieldProps, onChangeCallBack]);
+    }, [value, restFieldProps, onChangeCallBack, onBlurCallBack, injectedOnBlur]);
 
     const customValueType =
       options.pickProPropsWithValueTypeMap &&

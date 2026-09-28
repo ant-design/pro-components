@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.1.15-8] - 2026-09-28
+
+### 🐛 Bug Fixes
+
+- ProForm
+  - 🐞 Fix other `null` fields being dropped when a field `transform` returns an object while `omitNil={false}`: `transformKeySubmitValue` now respects `omitNil`, so cleared optional fields (e.g. `ProFormDigit`) are fully kept as `null`, aligned with antd Form `getFieldsValue` semantics [#8044](https://github.com/ant-design/pro-components/issues/8044)
+- EditableProTable
+  - ✅ Lock regression that row height stays stable while cell validation errors appear/disappear: the negative margin and the `ant-form-item-margin-offset` compensation layer net out to zero [#8859](https://github.com/ant-design/pro-components/issues/8859)
+
 ## [3.1.15-7] - 2026-09-28
 
 ### 🐛 Bug Fixes

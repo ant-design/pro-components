@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.1.15-8] - 2026-09-28
+
+### 🐛 问题修复
+
+- ProForm
+  - 🐞 修复 `omitNil={false}` 时字段 `transform` 返回对象会连带丢弃其他 `null` 字段的问题：`transformKeySubmitValue` 现在尊重 `omitNil`，清空后的非必填字段（如 `ProFormDigit`）以 `null` 完整保留，与 antd Form `getFieldsValue` 语义对齐 [#8044](https://github.com/ant-design/pro-components/issues/8044)
+- EditableProTable
+  - ✅ 回归锁定单元格校验错误出现/消失时行高稳定：负 margin 与 `ant-form-item-margin-offset` 补偿层净占位为 0 [#8859](https://github.com/ant-design/pro-components/issues/8859)
+
 ## [3.1.15-7] - 2026-09-28
 
 ### 🐛 问题修复
