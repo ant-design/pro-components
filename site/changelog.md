@@ -6,6 +6,12 @@
 
 - ProForm
   - 🐞 修复 `omitNil={false}` 时字段 `transform` 返回对象会连带丢弃其他 `null` 字段的问题：`transformKeySubmitValue` 现在尊重 `omitNil`，清空后的非必填字段（如 `ProFormDigit`）以 `null` 完整保留，与 antd Form `getFieldsValue` 语义对齐 [#8044](https://github.com/ant-design/pro-components/issues/8044)
+  - 🐞 修复 `ProFormSelect` 受控 `searchValue` 编程式变化不触发 `request` 重新请求的问题：现在受控搜索词变化会同步以新 `keyWords` 发起请求 [#8801](https://github.com/ant-design/pro-components/issues/8801)
+  - 🐞 修复 `ProFormSelect`（含可编辑表格单元格）未输入搜索词直接选中选项后触发一次多余 `request` 的问题 [#8780](https://github.com/ant-design/pro-components/issues/8780) [#8928](https://github.com/ant-design/pro-components/issues/8928)
+- BetaSchemaForm
+  - 🐞 修复 QueryFilter 布局下 columns 的 `hidden` 字段仍占用栅格位置的问题：`hidden` 现在透传到字段级，隐藏项不再渲染占位 Col [#8397](https://github.com/ant-design/pro-components/issues/8397)
+- QueryFilter
+  - 🐞 修复响应式 `span` 对象（`{xs:1, sm:2, ...}`）时 `layout="vertical"` 被强制改写为 horizontal 的问题 [#8836](https://github.com/ant-design/pro-components/issues/8836)
 - EditableProTable
   - ✅ 回归锁定单元格校验错误出现/消失时行高稳定：负 margin 与 `ant-form-item-margin-offset` 补偿层净占位为 0 [#8859](https://github.com/ant-design/pro-components/issues/8859)
 

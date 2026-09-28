@@ -121,18 +121,20 @@
 
 ## B6 搜索表单(QueryFilter)联动与布局(P1,12 个)
 
-- [ ] #9193 ProTable 搜索、筛选无效
-- [ ] #8503 `collapse:true` 时 form 数据变化即触发 reload
-- [ ] #8660 ProTable search 回显错误
-- [ ] #8499 ProTable 中 form 部分属性不生效(白名单透传核对)
-- [ ] #8836 search span 固定值时小屏不自适应、按钮溢出
-- [ ] #8802 收起状态下展示行数可配置
-- [ ] #8780 valueType select + request 选中后触发一次多余搜索
-- [ ] #8928 EditableProTable select 失焦导致 request 重复调用
-- [ ] #8310 QueryFilter 宽度不足时未隐藏组件化的表单项
-- [ ] #8397 BetaSchemaForm QueryFilter `hidden` 仍占位
-- [ ] #8801 ProFormSelect searchValue 无法触发 request 更新
-- [ ] #9148 自定义 valueType 取不到 fieldProps / request 参数
+> 进度(2026-09-28):B6 全部完成。修复 5 个(#8801/#8780/#8928/#8397/#8836,均含回归测试),答疑 7 个(#9193/#8503/#8660/#8499/#8802/#8310/#9148)。
+
+- [x] #9193 ProTable 搜索、筛选无效(已答疑:表单值在 params,filter 仅指列筛选,已回复 issue)
+- [x] #8503 `collapse:true` 时 form 数据变化即触发 reload(已答疑:light 模式点选即查是设计;collapse 重挂载用 preserve/cacheForSwr,已回复 issue)
+- [x] #8660 ProTable search 回显错误(已答疑:light 模式 Cascader/TreeSelect 集成限制,labelInValue 方案可用,浮层重构进入评估)
+- [x] #8499 ProTable 中 form 部分属性不生效(已答疑:labelCol 按设计不支持,推荐 search.labelWidth / 字段级 formItemProps,已回复 issue)
+- [x] #8836 search span 固定值时小屏不自适应、按钮溢出(已修复:span 对象不再强制 horizontal;固定数值为设计语义,已回复 issue)
+- [x] #8802 收起状态下展示行数可配置(已答疑:defaultFormItemsNumber 按项数控制,2 行 = 每行项数 × 2,已回复 issue)
+- [x] #8780 valueType select + request 选中后触发一次多余搜索(已修复:无搜索词选中不重发请求,测试锁定,已回复 issue)
+- [x] #8928 EditableProTable select 失焦导致 request 重复调用(已修复:同 #8780 根因,已回复 issue)
+- [x] #8310 QueryFilter 宽度不足时未隐藏组件化的表单项(已答疑:自定义组件需透传 hidden 等根级 props,给出排查与配置指引)
+- [x] #8397 BetaSchemaForm QueryFilter `hidden` 仍占位(已修复:genItems 透传 hidden 到字段级,测试锁定,已回复 issue)
+- [x] #8801 ProFormSelect searchValue 无法触发 request 更新(已修复:受控 searchValue 变化同步 fetchData,测试锁定,已回复 issue)
+- [x] #9148 自定义 valueType 取不到 fieldProps / request 参数(已验证:现版 formItemRender 第二参含 request/fieldProps,回归测试锁定,已回复 issue)
 
 ## B7 ProFormList(P1,8 个)
 

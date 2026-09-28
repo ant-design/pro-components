@@ -98,7 +98,9 @@ const getSpanConfig = (
     ? (['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const).map((key) => [
         configSpanBreakpoints[key],
         24 / (span as Record<string, number>)[key],
-        'horizontal',
+        // #8836:响应式 span 对象不应强制改写布局方向,
+        // 尊重用户显式传入的 layout(vertical 保持 vertical)
+        layout || 'horizontal',
       ])
     : breakpoints[(layout as 'default') || 'default'];
 

@@ -6,6 +6,12 @@
 
 - ProForm
   - 🐞 Fix other `null` fields being dropped when a field `transform` returns an object while `omitNil={false}`: `transformKeySubmitValue` now respects `omitNil`, so cleared optional fields (e.g. `ProFormDigit`) are fully kept as `null`, aligned with antd Form `getFieldsValue` semantics [#8044](https://github.com/ant-design/pro-components/issues/8044)
+  - 🐞 Fix controlled `searchValue` changes on `ProFormSelect` not re-triggering `request`: controlled search value updates now re-fetch with the new `keyWords` [#8801](https://github.com/ant-design/pro-components/issues/8801)
+  - 🐞 Fix an extra `request` fired after selecting an option without prior search input on `ProFormSelect` (incl. editable table cells) [#8780](https://github.com/ant-design/pro-components/issues/8780) [#8928](https://github.com/ant-design/pro-components/issues/8928)
+- BetaSchemaForm
+  - 🐞 Fix columns `hidden` in QueryFilter layout still occupying grid space: `hidden` is now passed down to the field level so hidden items no longer render placeholder Cols [#8397](https://github.com/ant-design/pro-components/issues/8397)
+- QueryFilter
+  - 🐞 Fix `layout="vertical"` being forced to horizontal when using a responsive `span` object (`{xs:1, sm:2, ...}`) [#8836](https://github.com/ant-design/pro-components/issues/8836)
 - EditableProTable
   - ✅ Lock regression that row height stays stable while cell validation errors appear/disappear: the negative margin and the `ant-form-item-margin-offset` compensation layer net out to zero [#8859](https://github.com/ant-design/pro-components/issues/8859)
 
