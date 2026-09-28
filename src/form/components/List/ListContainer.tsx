@@ -43,6 +43,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     action,
     fields,
     actionGuard,
+    guardedActionRef,
     max,
     fieldExtraRender,
     meta,
@@ -80,6 +81,10 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
 
     wrapAction.remove = (...args) =>
       wrapWithGuard(args, actionGuard?.beforeRemoveRow, count, action.remove, onAfterRemove, -1);
+
+    // 同步给外层 ProFormList 的 actionRef，保证 actionRef.add/remove
+    // 与内置按钮走同一套 guard 与回调（#8939）
+    guardedActionRef.current = wrapAction;
 
     return wrapAction;
   }, [
