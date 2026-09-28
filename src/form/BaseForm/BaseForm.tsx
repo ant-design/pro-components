@@ -656,6 +656,8 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
           parentKey,
         ),
         transformKeyRef.current,
+        // #8044:键转换环节同样尊重 omitNil,false 时保留 null 字段
+        paramsOmitNil,
       );
     },
   );
