@@ -770,6 +770,42 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     });
   }, [initialData]);
 
+  /**
+   * #8834/#9165:antd Form 的 initialValues 只在首次初始化时生效,
+   * ModalForm/DrawerForm 复用 form 实例多次打开时,新的 initialValues
+   * 不会覆盖 store 里的旧值。这里在 initialValues 引用变化时主动同步,
+   * 同步前清掉旧字段,避免上一个记录的遗漏字段泄漏到本次会话。
+   * 仅在非 request 场景生效(request 由上面的 effect 负责),
+   * 且 form 已挂载后才开始同步(首次初始化交给 antd)。
+   */
+  const prevPropsInitialValuesRef = useRef<typeof initialValues | undefined>(
+    undefined,
+  );
+  useEffect(() => {
+    if (request || !initialValues) return;
+    if (prevPropsInitialValuesRef.current === undefined) {
+      // 首次渲染:记录后跳过,交给 antd initialValues 初始化
+      prevPropsInitialValuesRef.current = initialValues;
+      return;
+    }
+    if (isDeepEqualReact(prevPropsInitialValuesRef.current, initialValues)) {
+      return;
+    }
+    prevPropsInitialValuesRef.current = initialValues;
+    if (!formRef.current) return;
+    const previousValues = formRef.current.getFieldsValue?.(true) || {};
+    const clearedValues = Object.keys(previousValues).reduce<
+      Record<string, undefined>
+    >((values, key) => {
+      values[key] = undefined;
+      return values;
+    }, {});
+    formRef.current.setFieldsValue?.({
+      ...clearedValues,
+      ...initialValues,
+    });
+  }, [initialValues, request]);
+
   if (request && initialDataLoading) {
     if (loadingRender !== undefined) {
       return (
