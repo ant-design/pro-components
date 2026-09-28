@@ -43,7 +43,8 @@ export function FieldRangePickerLightEdit(
     intl,
   } = props;
 
-  const dayValue = parseValueToDay(fieldProps.value) as dayjs.Dayjs[];
+  /** #8863:字符串值按 format 解析,避免非 ISO 格式(如 '23/3/2024')解析失败 */
+  const dayValue = parseValueToDay(fieldProps.value, format) as dayjs.Dayjs[];
   const handleRangeChange = (value: unknown) => {
     fieldProps?.onChange?.(value);
 

@@ -104,7 +104,29 @@ export const parseValueToDay = (
     return dayjs(value);
   }
   if (typeof value === 'string') {
-    const parsed = formatter ? dayjs(value, formatter) : dayjs(value);
+    if (formatter) {
+      const strict = dayjs(value, formatter);
+      if (strict.isValid()) {
+        return strict;
+      }
+      /**
+       * #8863:customParseFormat 对 `MM`/`DD` 等两位占位符要求严格位数,
+       * 值为 `23/3/2024` + format `DD/MM/YYYY` 时解析失败。
+       * 降级为单位数宽容形式(`M`/`D`/`H`/`m`/`s`)重试一次。
+       */
+      const lenientFormatter = formatter.replace(
+        /(MM|DD|HH|mm|ss)/g,
+        (token) => token[0],
+      );
+      if (lenientFormatter !== formatter) {
+        const lenient = dayjs(value, lenientFormatter);
+        if (lenient.isValid()) {
+          return lenient;
+        }
+      }
+      return null;
+    }
+    const parsed = dayjs(value);
     return parsed.isValid() ? parsed : null;
   }
 
