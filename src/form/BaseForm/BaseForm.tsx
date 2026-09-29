@@ -857,7 +857,12 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                     ? (value: any, namePath: string[], allValues: any) => {
                         let convertedValue = value;
                         try {
-                          convertedValue = convertValue(value, namePath);
+                          // #9120 提交链路的 convertValue 同样携带整表数据(entity)
+                          convertedValue = convertValue(
+                            value,
+                            namePath,
+                            allValues,
+                          );
                         } catch {
                           // The form store may already contain the component
                           // value after user interaction (#9285).

@@ -26,6 +26,7 @@ import type {
   ProSchemaComponentTypes,
   ProTableEditableFnType,
   RowEditableConfig,
+  SearchConvertKeyFn,
   SearchTransformKeyFn,
 } from '../utils';
 import type { AlertRenderType } from './components/Alert';
@@ -121,6 +122,20 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     ellipsis?: ProEllipsis;
     /** @name 是否拷贝 */
     copyable?: boolean;
+
+    /**
+     * 获取时转化值，将数据格式化为组件接收的格式（编辑/表单模式生效）
+     *
+     * @example string => array  convertValue: (value) => value.split(",")
+     */
+    convertValue?: SearchConvertKeyFn;
+
+    /**
+     * 提交/行保存时转化值（serialize），可编辑表格行保存与查询表单提交均会执行
+     *
+     * @example 时间区间拆分  transform: (value) => ({ startTime: value[0], endTime: value[1] })
+     */
+    transform?: SearchTransformKeyFn;
 
     /** 在查询表单中隐藏 */
     search?:

@@ -15,7 +15,13 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import type { TableComponents } from '@rc-component/table/es/interface';
-import React, { createContext, useCallback, useContext, useMemo } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useRef,
+} from 'react';
 import { useRefFunction } from '../../utils';
 
 const SortableItemContextValue = createContext<{
@@ -179,33 +185,55 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
     );
   });
 
-  const components: TableComponents<T> = props.components || {};
-
-  if (dragSortKey) {
-    components.body = {
-      wrapper: DraggableContainer,
-      row: DraggableBodyRow,
-      cell: SortableItemCell,
-      ...(props.components?.body || {}),
-    };
-  }
-
-  const memoDndContext = useMemo(
-    () => (contextProps: any) => {
-      return (
-        <DndContext
-          autoScroll={DRAG_SORT_AUTO_SCROLL}
-          modifiers={[restrictToVerticalAxis]}
-          sensors={sensors}
-          collisionDetection={rectIntersection}
-          onDragEnd={handleDragEnd}
-        >
-          {contextProps.children}
-        </DndContext>
-      );
-    },
-    [handleDragEnd, sensors],
+  /**
+   * #8342: components 引用必须稳定。此前每次渲染都新建对象并在渲染期间
+   * 修改 props.components(副作用),rc-table 识别到 components 变化后整表
+   * (含表头)重挂载,配合 scroll.y 表头固定布局就表现为「表头闪烁」。
+   * wrapper/row 均为 useRefFunction 稳定引用,cell 是模块级 memo 组件,
+   * 因此 memo 化后引用恒定,重取数据不再重挂载。
+   */
+  const components = useMemo<TableComponents<T>>(
+    () =>
+      dragSortKey
+        ? {
+            ...props.components,
+            body: {
+              wrapper: DraggableContainer,
+              row: DraggableBodyRow,
+              cell: SortableItemCell,
+              ...(props.components?.body || {}),
+            },
+          }
+        : { ...props.components },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [props.components, dragSortKey],
   );
+
+  /**
+   * #8342: DndContext 包装组件的引用必须稳定。此前 useMemo 依赖
+   * handleDragEnd(随 dataSource 变化而重建),函数组件身份一变,
+   * React 就卸载重挂其整棵子树(包含整个表格),scroll.y 下表头
+   * 固定布局重建即表现为「表头闪烁」。
+   * 改为 useRefFunction 稳定组件身份,onDragEnd 经 ref 读取最新值。
+   */
+  const handleDragEndRef = useRef(handleDragEnd);
+  handleDragEndRef.current = handleDragEnd;
+
+  const memoDndContext = useRefFunction((contextProps: any) => {
+    return (
+      <DndContext
+        autoScroll={DRAG_SORT_AUTO_SCROLL}
+        modifiers={[restrictToVerticalAxis]}
+        sensors={sensors}
+        collisionDetection={rectIntersection}
+        onDragEnd={(event: DragEndEvent) => {
+          handleDragEndRef.current(event);
+        }}
+      >
+        {contextProps.children}
+      </DndContext>
+    );
+  });
 
   return {
     DndContext: memoDndContext,

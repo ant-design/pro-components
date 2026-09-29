@@ -33,7 +33,10 @@ export const pureRenderRead: ProFieldRenderText = (
     if (
       typeof dataValue !== 'boolean' &&
       typeof dataValue !== 'number' &&
-      !dataValue
+      // #8848 空数组(如多选 Select 清空后的 [])视为空值,展示 emptyText 占位
+      (dataValue == null ||
+        dataValue === '' ||
+        (Array.isArray(dataValue) && dataValue.length === 0))
     ) {
       const { fieldProps, render } = props;
       if (render) {

@@ -6,6 +6,7 @@ import React, { useContext, useEffect, useMemo } from 'react';
 import type { ProFieldValueType } from '../../../utils';
 import {
   omitUndefined,
+  ProFormContext,
   SearchConvertKeyFn,
   SearchTransformKeyFn,
   useDeepCompareMemo,
@@ -176,6 +177,7 @@ type WarpFormItemProps = {
    * @name 获取时转化值，一般用于将数据格式化为组件接收的格式
    * @param value 字段的值
    * @param namePath 字段的name
+   * @param entity 整个表单的数据(#9120)，可用于跨字段还原(如 startDate+endDate => range)
    * @returns 字段新的值
    *
    *
@@ -184,6 +186,7 @@ type WarpFormItemProps = {
    * @example number => date   convertValue: (value,namePath)=> Dayjs(value)
    * @example YYYY-MM-DD => date   convertValue: (value,namePath)=> Dayjs(value,"YYYY-MM-DD")
    * @example  string => object   convertValue: (value,namePath)=> { return {value,label:value} }
+   * @example  跨字段还原        convertValue: (value,namePath,entity)=> [entity?.startDate, entity?.endDate]
    */
   convertValue?: SearchConvertKeyFn;
   help?: React.ReactNode | ProFormItemHelpFunction;
@@ -307,6 +310,8 @@ const WarpFormItem: React.FC<ProFormItemProps> = ({
   help,
   ...props
 }) => {
+  /** #9120:convertValue 第三个参数(entity)需要整表数据 */
+  const proFormContext = React.useContext(ProFormContext);
   const convertValueTypeRef = React.useRef<{
     source: string;
     target: string;
@@ -325,9 +330,20 @@ const WarpFormItem: React.FC<ProFormItemProps> = ({
             cachedTypes &&
             cachedTypes.source !== cachedTypes.target &&
             valueType === cachedTypes.target;
+          let entity: Record<string, any> | undefined;
+          try {
+            // #9120 entity:整表数据(true: 包含未注册 Form.Item 的字段,
+            // 如通过 initialValues/setFieldsValue 写入的 startDate)。
+            // ProFormContext.formRef 是 BaseForm 内部维护的实时 form 实例,
+            // 挂载即可用,无时序问题
+            const instance = proFormContext?.formRef?.current as any;
+            entity = instance?.getFieldsValue?.(true);
+          } catch {
+            entity = undefined;
+          }
           const newValue = shouldReuseComponentValue
             ? value
-            : (convertValue?.(value, props.name!) ?? value);
+            : (convertValue?.(value, props.name!, entity) ?? value);
           if (convertValue && !shouldReuseComponentValue) {
             convertValueTypeRef.current = {
               source: valueType,

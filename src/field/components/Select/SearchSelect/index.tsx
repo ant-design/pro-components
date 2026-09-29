@@ -6,6 +6,7 @@ import React, {
   useContext,
   useEffect,
   useImperativeHandle,
+  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -28,6 +29,13 @@ export type DataValueType<T> = KeyLabel & T;
 
 /** 可能单选，可能多选 */
 export type DataValuesType<T> = DataValueType<T> | DataValueType<T>[];
+
+/**
+ * 可做 String() 弱比较的基础类型
+ * #8517: 对象 valueEnum 的数字 key 经 Object.entries 字符串化后,
+ * option value ("2") 与业务数据值 (number 2) 严格相等失败,导致编辑态显示原始数字。
+ */
+type PrimitiveMatchableValue = string | number | boolean;
 
 export interface SearchSelectProps<T = Record<string, any>> extends Omit<
   SelectProps<KeyLabel | KeyLabel[]>,
@@ -223,6 +231,76 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     return [];
   };
 
+  /**
+   * #8517: 收集全部叶子选项的 value,用于对受控 value 做弱匹配修正。
+   * 仅当严格匹配不存在、但 String() 弱匹配存在时才替换,保证:
+   * - value 与 option 类型一致的老用法完全不受影响;
+   * - 只影响回显(label 解析),不改变 onChange 输出与表单提交值。
+   */
+  const flatOptionValues = useMemo(() => {
+    const values = new Map<string, PrimitiveMatchableValue>();
+    const traverse = (opts: RequestOptionsType[]) => {
+      opts?.forEach((item) => {
+        const itemValue = item[valuePropsName];
+        if (
+          item.options &&
+          (item.optionType === 'optGroup' || (item.options as any)?.length)
+        ) {
+          traverse(item.options);
+          return;
+        }
+        if (
+          typeof itemValue === 'string' ||
+          typeof itemValue === 'number' ||
+          typeof itemValue === 'boolean'
+        ) {
+          // 首个出现的优先(与 Select 选中匹配顺序一致)
+          if (!values.has(String(itemValue))) {
+            values.set(String(itemValue), itemValue);
+          }
+        }
+      });
+    };
+    traverse(options || []);
+    return values;
+  }, [options, valuePropsName]);
+
+  /** #8517: 弱匹配修正单个 value(见 flatOptionValues 注释) */
+  const alignValueToOptions = (
+    value: unknown,
+  ): PrimitiveMatchableValue | undefined => {
+    if (
+      typeof value !== 'string' &&
+      typeof value !== 'number' &&
+      typeof value !== 'boolean'
+    ) {
+      return undefined;
+    }
+    // 严格相等命中时不需要修正
+    if ([...flatOptionValues.values()].includes(value)) return value;
+    const coerced = flatOptionValues.get(String(value));
+    return coerced;
+  };
+
+  /** #8517: 对受控 value(单选/多选)做弱匹配修正,仅影响回显 */
+  const alignedValue = useMemo(() => {
+    const { value: propsValue } = restProps;
+    if (propsValue == null) return propsValue;
+    if (Array.isArray(propsValue)) {
+      const aligned = propsValue.map((item) => {
+        const result = alignValueToOptions(item);
+        return result === undefined ? item : result;
+      });
+      // 全部未命中时保持原值,避免产生新引用触发多余渲染
+      return aligned.every((item, i) => item === propsValue[i])
+        ? propsValue
+        : aligned;
+    }
+    const result = alignValueToOptions(propsValue);
+    return result === undefined ? propsValue : result;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [restProps.value, flatOptionValues]);
+
   const genOptions = (
     mapOptions: RequestOptionsType[],
   ): DefaultOptionType[] => {
@@ -288,6 +366,8 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         }
       }}
       {...restProps}
+      // #8517: 弱匹配修正后的回显 value(仅回显,onChange/提交值保持用户数据类型)
+      value={alignedValue}
       filterOption={
         effectiveFilterOption == false
           ? false

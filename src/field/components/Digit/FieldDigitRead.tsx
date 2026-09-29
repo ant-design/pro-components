@@ -21,7 +21,10 @@ export function FieldDigitRead(
 
   const dom = !fieldProps?.stringMode ? (
     <span ref={ref as React.Ref<HTMLSpanElement>}>
+      {/* #8844 只读模式渲染 prefix/suffix,与编辑态 InputNumber 展示对齐 */}
+      {fieldProps?.prefix}
       {fieldProps?.formatter?.(digit) || digit}
+      {fieldProps?.suffix}
     </span>
   ) : (
     <span>{text}</span>

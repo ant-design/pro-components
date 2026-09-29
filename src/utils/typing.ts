@@ -471,10 +471,18 @@ export type SearchTransformKeyFn = (
   namePath: string[],
   allValues: any,
 ) => any;
+/**
+ * 获取时转化值
+ * @param value 字段当前值
+ * @param field 字段 name
+ * @param entity 整个表单/行数据(#9120),配合 transform 做跨字段还原
+ *   (如 startDate+endDate => [start,end])
+ */
 export type SearchConvertKeyFn = (
   value: any,
   field: NamePath,
-) => string | boolean | Record<string, any>;
+  entity?: Record<string, any>,
+) => string | boolean | Record<string, any> | any;
 
 export type ProTableEditableFnType<T> = (
   value: any,

@@ -1156,6 +1156,15 @@ const ProviderTableContainer = <
       : props.ErrorBoundary || ErrorBoundary;
 
   const context = useContext(ProConfigContext);
+
+  // #8054/#9150: valueTypeMap 引用必须稳定。之前每次渲染都新建对象,
+  // keepalive 路由切换(外层 ProLayout/ProConfigProvider 重渲染)时,
+  // 新引用触发 ProConfigProvider 重建 context,导致已挂载页面的 ProTable 整树重渲染。
+  const mergedValueTypeMap = useMemo(
+    () => ({ ...context.valueTypeMap, ...ValueTypeToComponent }),
+    [context.valueTypeMap],
+  );
+
   return (
     <TableProvider
       initValue={{
@@ -1167,10 +1176,7 @@ const ProviderTableContainer = <
         defaultSize: (props.defaultSize as any) || undefined,
       }}
     >
-      <ProConfigProvider
-        valueTypeMap={{ ...context.valueTypeMap, ...ValueTypeToComponent }}
-        needDeps
-      >
+      <ProConfigProvider valueTypeMap={mergedValueTypeMap} needDeps>
         <ErrorComponent>
           <ProTable<DataType, Params, ValueType>
             defaultClassName={`${getPrefixCls('pro-table')}`}
