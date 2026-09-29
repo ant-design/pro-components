@@ -21,6 +21,10 @@
   - ✅ Add regressions for copying `preserve={false}` fields, conditional remounts, and first-submit transforms [#8208](https://github.com/ant-design/pro-components/issues/8208) [#8896](https://github.com/ant-design/pro-components/issues/8896) [#8700](https://github.com/ant-design/pro-components/issues/8700)
 - BetaSchemaForm
   - 🆕 Pass the current row index to function props in `formList` sub-columns [#8561](https://github.com/ant-design/pro-components/issues/8561)
+- ProList
+  - 🐞 Restore `showActions`, `showExtra`, and card action placement, and lock grid gutter and live pagination regressions [#7421](https://github.com/ant-design/pro-components/issues/7421) [#8387](https://github.com/ant-design/pro-components/issues/8387) [#7862](https://github.com/ant-design/pro-components/issues/7862)
+- ProTable
+  - 🆕 Add `options.setting.listItemTitleRender` for adaptive column-setting titles [#9620](https://github.com/ant-design/pro-components/issues/9620)
 
 ### 📖 Documentation
 

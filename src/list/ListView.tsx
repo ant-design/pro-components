@@ -46,6 +46,10 @@ export type ListViewProps<RecordType> = Omit<
     dataSource: readonly RecordType[];
     itemRender?: ProListItemRender<RecordType>;
     actionRef: React.MutableRefObject<ActionType | undefined>;
+    /** #7421: 何时展示 actions，'hover' 时悬浮列表项才显示 */
+    showActions?: 'hover' | 'always';
+    /** #7421: 何时展示 extra，'hover' 时悬浮列表项才显示 */
+    showExtra?: 'hover' | 'always';
     // 当非卡片模式时，用于为每一行的项目绑定事件，用户设置 `grid`时将会失效
     onRow?: GetComponentProps<RecordType>;
     // 兼容普通和卡片模式的事件绑定，代表每一个项目的事件，是对`onRow`的补充
@@ -75,6 +79,8 @@ function ListView<RecordType extends AnyObject>(
     expandable: expandableConfig,
     rowSelection,
     pagination, // List 的 pagination 默认是 false
+    showActions,
+    showExtra,
     onRow,
     onItem,
     rowClassName,
@@ -272,6 +278,8 @@ function ListView<RecordType extends AnyObject>(
           index={index}
           record={item}
           item={item}
+          showActions={showActions}
+          showExtra={showExtra}
           itemTitleRender={itemTitleRender}
           itemHeaderRender={itemHeaderRender}
           rowSupportExpand={!rowExpandable || rowExpandable(item)}

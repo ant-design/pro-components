@@ -193,6 +193,7 @@ const CheckboxList: React.FC<{
   showListItemOption: boolean;
   showTitle?: boolean;
   listHeight?: number;
+  listItemTitleRender?: SettingOptionType['listItemTitleRender'];
 }> = ({
   list,
   draggable,
@@ -202,6 +203,7 @@ const CheckboxList: React.FC<{
   showTitle = true,
   title: listTitle,
   listHeight = 280,
+  listItemTitleRender,
 }) => {
   const { hashId } = useContext(ProProvider);
 
@@ -475,7 +477,10 @@ const CheckboxList: React.FC<{
         const node = { ..._node, children: undefined };
         if (!node.title) return null;
         const normalizedTitle = runFunction(node.title, node);
-        const wrappedTitle = (
+        // #9620: listItemTitleRender 允许自定义标题渲染（如取消固定宽度让长标题单行自适应）
+        const wrappedTitle = listItemTitleRender ? (
+          listItemTitleRender(normalizedTitle, node as any)
+        ) : (
           <Typography.Text
             style={{ width: 80 }}
             ellipsis={{ tooltip: normalizedTitle }}
@@ -523,6 +528,7 @@ const GroupCheckboxList: React.FC<{
   checkable: boolean;
   showListItemOption: boolean;
   listsHeight?: number;
+  listItemTitleRender?: SettingOptionType['listItemTitleRender'];
 }> = ({
   localColumns,
   className,
@@ -530,6 +536,7 @@ const GroupCheckboxList: React.FC<{
   checkable,
   showListItemOption,
   listsHeight,
+  listItemTitleRender,
 }) => {
   const { hashId } = useContext(ProProvider);
   const rightList: (ProColumns<any> & { index?: number })[] = [];
@@ -570,6 +577,7 @@ const GroupCheckboxList: React.FC<{
         showListItemOption={showListItemOption}
         className={className}
         listHeight={listsHeight}
+        listItemTitleRender={listItemTitleRender}
       />
       {/* 如果没有任何固定，不需要显示title */}
       <CheckboxList
@@ -581,6 +589,7 @@ const GroupCheckboxList: React.FC<{
         showTitle={showLeft || showRight}
         className={className}
         listHeight={listsHeight}
+        listItemTitleRender={listItemTitleRender}
       />
       <CheckboxList
         title={intl.getMessage('tableToolBar.rightFixedTitle', '固定在右侧')}
@@ -590,6 +599,7 @@ const GroupCheckboxList: React.FC<{
         showListItemOption={showListItemOption}
         className={className}
         listHeight={listsHeight}
+        listItemTitleRender={listItemTitleRender}
       />
     </div>
   );
@@ -738,6 +748,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
           className={className}
           localColumns={localColumns as any}
           listsHeight={props.listsHeight}
+          listItemTitleRender={props.listItemTitleRender}
         />
       }
     >

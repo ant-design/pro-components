@@ -69,7 +69,8 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         justifyContent: 'space-between',
         '&-title': {
           flex: 1,
-          maxWidth: 80,
+          // #9620: min-width 保证省略号生效；max-width 交给内部 Typography（默认 80）或自定义渲染
+          minWidth: 0,
           textOverflow: 'ellipsis',
           overflow: 'hidden',
           wordBreak: 'break-all',
