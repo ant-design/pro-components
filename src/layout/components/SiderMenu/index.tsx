@@ -30,6 +30,22 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
     }
   }, [isMobile]);
 
+  /**
+   * #8748/#8672: 移动端抽屉打开时锁定页面滚动。
+   * getContainer=false 时 Drawer 渲染在当前位置（inline），
+   * 抽屉自身的 body 可滚动，但背后页面不应跟着滚；
+   * 关闭（collapsed=true）或卸载时恢复。
+   */
+  const drawerOpen = isMobile && !collapsed;
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const { overflow } = document.body.style;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = overflow;
+    };
+  }, [drawerOpen]);
+
   const omitProps = omit(props, ['className', 'style']);
 
   const { direction } = React.useContext(ConfigProvider.ConfigContext);

@@ -147,7 +147,12 @@ export const genProLayoutBaseMenuStyle: GenerateStyle<
       '&-group': {
         [`${token.antCls}-menu-item-group-title`]: {
           fontSize: 12,
-          color: token.colorTextLabel,
+          // #8976 分组标题颜色应消费 sider 的 colorTextMenuSecondary，
+          // 与菜单项 colorTextMenu 一致地从 layout token 取值
+          color:
+            menuToken?.colorTextMenuSecondary ||
+            token.colorTextMenuSecondary ||
+            token.colorTextLabel,
           [token.iconCls]: {
             marginInlineEnd: 8,
           },
