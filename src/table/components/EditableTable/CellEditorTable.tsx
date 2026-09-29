@@ -82,9 +82,14 @@ export function CellEditorTable<
   }, []);
 
   // 缓存 columns 避免每次 render 生成全新数组触发 antd Table 大面积 diff
+  // #8880: 递归为分组表头的叶子列同样注入 onCell（双击进入编辑），
+  // 旧实现只 map 顶层列，分组 children 的叶子列没有 onDoubleClick。
   const columns = useMemo(
     () =>
-      (props?.columns?.map((item, columnIndex) => {
+      (props?.columns?.map(function wrapColumn(
+        item: ProColumns<any, ValueType>,
+        columnIndex: number,
+      ): ProColumns<any, ValueType> {
         const columnId = buildColumnIdentifier(
           columnIndex,
           item.dataIndex as string | string[] | undefined,
@@ -96,6 +101,11 @@ export function CellEditorTable<
             item.editable === false || activeColumnId !== columnId
               ? false
               : undefined,
+          children: item.children
+            ? (item.children.map((child, childIndex) =>
+                wrapColumn(child, childIndex),
+              ) as ProColumns<any, ValueType>['children'])
+            : undefined,
           onCell: (record: any, rowIndex: any) => ({
             onDoubleClick: () => {
               if (item.editable === false) return;
