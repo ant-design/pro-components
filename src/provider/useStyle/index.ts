@@ -149,13 +149,26 @@ export function useStyle(
 
   const { token: antdToken, hashId, theme } = antdTheme.useToken();
 
-  const { getPrefixCls, csp, iconPrefixCls } = useContext(
-    AntdConfigProvider.ConfigContext,
-  );
+  const { getPrefixCls, csp, iconPrefixCls, theme: antdThemeConfig } =
+    useContext(AntdConfigProvider.ConfigContext);
 
   // 如果不在 ProProvider 里面，就用 antd 的
   if (!token.layout) {
     token = { ...antdToken } as any;
+  }
+
+  // #8929: 透传 antd 组件级 token（theme.components.*）进 pro token。
+  // antd 的 theme.useToken() 只返回全局 token，Pro 组件（如 ProCard 标题
+  // 消费 components.Card.headerFontSize）需要在这里补齐组件 token 才能生效。
+  const componentTokens = (antdThemeConfig as any)?.components;
+  if (componentTokens) {
+    token = {
+      ...token,
+      ...Object.values(componentTokens).reduce(
+        (acc, comp) => Object.assign(acc, comp),
+        {},
+      ),
+    } as any;
   }
 
   token.proComponentsCls = token.proComponentsCls ?? `.${getPrefixCls('pro')}`;
