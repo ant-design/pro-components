@@ -1255,9 +1255,28 @@ export function useEditableArray<RecordType extends AnyObject>(
 
       if (props.tableName) {
         // name 模式：把该行字段值恢复成进入编辑前的快照
+        // #fix OOM：表单字段的行路径段是 indexKey（如 '0'），而这里拿到的
+        // recordKey 可能是业务 rowKey（如 '624748504'，mappedKey 重试后的方向）。
+        // 直接用业务 key 构建路径会在 form store 中写出 table.624748504 嵌套值，
+        // 该多余分支会随 onValuesChange → updateDataSourceWithEditableRows →
+        // editableRowByKey('624748504') → setDataSource 每轮新增一行 → 渲染/
+        // 数据反馈无限循环（heap OOM）。必须先映射回 indexKey 再写入。
+        const recordKeyStr = recordKeyToString(recordKey)?.toString();
+        const indexKey =
+          recordKeyStr != null
+            ? dataSourceKeyIndexMapRef.current.get(recordKeyStr)
+            : undefined;
+        // 双向映射表里 get(recordKey) 可能返回业务 key 方向（map.set(indexKey, recordKey)），
+        // 需要甄别：form 行路径段恒为纯 index 形态，若映射结果是 recordKey 自身或
+        // 无法确认时，回退到「从 originRow 反查 index」
+        let rowPathKey = indexKey?.toString();
+        if (rowPathKey == null || rowPathKey === recordKeyStr) {
+          rowPathKey =
+            defaultGetRealIndex(originRow)?.toString() ?? recordKeyStr ?? '';
+        }
         const namePath = normalizeNamePath(
           props.tableName,
-          recordKey,
+          rowPathKey,
         ) as string[];
         form.setFieldsValue(set({}, namePath, originRow));
       } else {
