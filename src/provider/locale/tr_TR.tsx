@@ -79,6 +79,10 @@ const trTR: ProLocale = {
     open: 'açık',
     close: 'Kapalı',
   },
+  captcha: {
+    getCaptcha: 'Doğrulama kodu al',
+    retryAfter: '{count} sn sonra tekrar dene',
+  },
 };
 
 export default trTR;

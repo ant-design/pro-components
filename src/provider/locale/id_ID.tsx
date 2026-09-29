@@ -79,6 +79,10 @@ const idID: ProLocale = {
     open: 'buka',
     close: 'tutup',
   },
+  captcha: {
+    getCaptcha: 'Dapatkan kode verifikasi',
+    retryAfter: 'Coba lagi dalam {count} detik',
+  },
 };
 
 export default idID;

@@ -79,6 +79,10 @@ const hrHR: ProLocale = {
     open: 'otvori',
     close: 'zatvori',
   },
+  captcha: {
+    getCaptcha: 'Dohvati verifikacijski kod',
+    retryAfter: 'Pokušaj ponovno za {count}s',
+  },
 };
 
 export default hrHR;

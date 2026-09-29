@@ -79,6 +79,10 @@ const mnMN: ProLocale = {
     open: 'Нээх',
     close: 'Хаах',
   },
+  captcha: {
+    getCaptcha: 'Баталгаажуулах код авах',
+    retryAfter: '{count} секундын дараа дахин оролдоно уу',
+  },
 };
 
 export default mnMN;

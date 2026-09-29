@@ -302,11 +302,18 @@ ref.current?.cancelEditable(rowKey);
 | hideInSetting                          | 不在配置工具中显示                                                                                                                               | `boolean`                                                                                                           | -      |
 | filters                                | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成                                                                                        | `boolean` \| `object[]`                                                                                             | false  |
 | onFilter                               | 筛选表单，为 true 时使用 ProTable 自带的，为 false 时关闭本地筛选                                                                                | `(value, record) => boolean` \| `false`                                                                             | false  |
+| onCell                                 | 与 antd Table 相同，设置单元格属性，返回 `colSpan` / `rowSpan` 可实现合并单元格（值为 0 时不渲染该单元格），写法与 [antd 合并单元格示例](https://ant.design/components/table-cn#components-table-demo-colspan-rowspan) 完全一致 | `(value: any, record: T, index: number) => React.HTMLAttributes<HTMLElement>`                                        | -      |
 | request                                | 从服务器请求枚举                                                                                                                                 | [request](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)                              | -      |
 | initialValue                           | 查询表单项初始值                                                                                                                                 | `any`                                                                                                               | -      |
 | disable                                | 列设置中`disabled`的状态                                                                                                                         | `boolean` \| `{ checkbox: boolean; }`                                                                               | -      |
 | readonly                               | 只读                                                                                                                                             | `boolean`                                                                                                           | -      |
 | listSlot                               | 列表键（ProList 插槽），指定该列映射到列表项的插槽位置，如 `title`、`avatar`、`description`、`subTitle`、`content`、`actions`、`aside`、`type`，私有属性 | `string`                                                              | -      |
+
+#### 合并单元格示例
+
+`onCell` 返回 `colSpan` / `rowSpan` 即可合并单元格，与 antd Table 完全一致（被合并的单元格返回 0）：
+
+<code src="../../demos/table/colspan-rowspan.tsx" background="var(--main-bg-color)"></code>
 
 ### valueType 值类型
 

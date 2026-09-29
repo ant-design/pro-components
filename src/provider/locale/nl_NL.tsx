@@ -79,6 +79,10 @@ const nlNL: ProLocale = {
     open: 'Openen',
     close: 'Sluiten',
   },
+  captcha: {
+    getCaptcha: 'Verificatiecode ophalen',
+    retryAfter: 'Opnieuw over {count}s',
+  },
 };
 
 export default nlNL;

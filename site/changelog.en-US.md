@@ -10,6 +10,20 @@
   - 🐞 Fix `gutter` not working in card (grid) mode with a custom `itemRender` [#8387](https://github.com/ant-design/pro-components/issues/8387)
 - ProTable
   - 🆕 Add `options.setting.listItemTitleRender` to customize column setting list item titles, e.g. remove the default 80px fixed width for adaptive single-line display [#9620](https://github.com/ant-design/pro-components/issues/9620)
+- BetaSchemaForm
+  - 🐞 Fix form callbacks like `onValuesChange` / `onFinish` not working when `layoutType="Embed"` is used standalone: a Form container (`submitter=false`) is now rendered; when nested inside a `<Form>`, children are still passed through without nesting `<form>` elements [#8727](https://github.com/ant-design/pro-components/issues/8727)
+  - ✅ Lock regression: switching layout types (Form ↔ LightFilter) in the schema form does not crash [#8850](https://github.com/ant-design/pro-components/issues/8850)
+- ProFormCaptcha
+  - 🇺🇸🇨🇳 Fix captcha button text not using i18n: default text now reads `captcha.getCaptcha` / `captcha.retryAfter` locale keys (all 34 languages added); `captchaTextRender` override still takes priority [#8899](https://github.com/ant-design/pro-components/issues/8899)
+- ProTable (regression locks)
+  - ✅ Lock regression: `Table.EXPAND_COLUMN` can be placed at any column position to control the expand column [#8913](https://github.com/ant-design/pro-components/issues/8913)
+  - ✅ Lock regression: column width and ellipsis work correctly for ProTable inside Tabs items [#8747](https://github.com/ant-design/pro-components/issues/8747)
+  - ✅ Lock regression: cells show converted text when `valueEnum` + `ellipsis` are used together [#8694](https://github.com/ant-design/pro-components/issues/8694)
+  - ✅ Lock regression: `onCell` returning `rowSpan` / `colSpan` merges cells correctly (docs + demo added) [#8701](https://github.com/ant-design/pro-components/issues/8701)
+- ProLayout (regression locks)
+  - ✅ Lock regression: `layout=mix` + `splitMenus` + `siderMenuType=sub` renders the active top menu's children in the sider (menu data must include children) [#9310](https://github.com/ant-design/pro-components/issues/9310)
+- Density selector
+  - 💄 Remove the 80px fixed width of the density dropdown menu so long translated labels no longer wrap [#9619](https://github.com/ant-design/pro-components/issues/9619)
 
 ## [3.1.15-8] - 2026-09-28
 

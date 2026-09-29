@@ -10,6 +10,20 @@
   - 🐞 修复卡片（grid）模式自定义 `itemRender` 时 `gutter` 不生效的问题 [#8387](https://github.com/ant-design/pro-components/issues/8387)
 - ProTable
   - 🆕 `options.setting.listItemTitleRender` 新增列设置面板列表项标题自定义渲染，可移除默认 80px 固定宽度实现按内容单行自适应 [#9620](https://github.com/ant-design/pro-components/issues/9620)
+- BetaSchemaForm
+  - 🐞 修复 `layoutType="Embed"` 单独使用时 `onValuesChange` / `onFinish` 等表单回调不生效的问题：独立使用时现在渲染 Form 容器（`submitter=false`），嵌套在 `<Form>` 内时保持透传不产生嵌套 `<form>` [#8727](https://github.com/ant-design/pro-components/issues/8727)
+  - ✅ 回归锁定 Schema 表单切换布局方式（Form ↔ LightFilter）不崩溃 [#8850](https://github.com/ant-design/pro-components/issues/8850)
+- ProFormCaptcha
+  - 🇺🇸🇨🇳 修复获取验证码按钮文案未走 i18n 的问题：默认文案接入 `captcha.getCaptcha` / `captcha.retryAfter` 语言包（34 种语言同步补充），`captchaTextRender` 自定义优先级不变 [#8899](https://github.com/ant-design/pro-components/issues/8899)
+- ProTable（回归锁定）
+  - ✅ 回归锁定 `Table.EXPAND_COLUMN` 可放置于任意列位置控制展开列 [#8913](https://github.com/ant-design/pro-components/issues/8913)
+  - ✅ 回归锁定 Tabs item 内 ProTable 的列宽与省略正常生效 [#8747](https://github.com/ant-design/pro-components/issues/8747)
+  - ✅ 回归锁定 `valueEnum` + `ellipsis` 同用时单元格展示转换后文本 [#8694](https://github.com/ant-design/pro-components/issues/8694)
+  - ✅ 回归锁定 `onCell` 返回 `rowSpan` / `colSpan` 合并单元格正常（文档补充说明与示例）[#8701](https://github.com/ant-design/pro-components/issues/8701)
+- ProLayout（回归锁定）
+  - ✅ 回归锁定 `layout=mix` + `splitMenus` + `siderMenuType=sub` 组合下侧栏正常展示激活一级菜单的子菜单（菜单数据需含 children）[#9310](https://github.com/ant-design/pro-components/issues/9310)
+- 密度选择器
+  - 💄 移除行间距（密度）下拉菜单的 80px 固定宽度，多语言长文本下宽度自适应不再折行 [#9619](https://github.com/ant-design/pro-components/issues/9619)
 
 ## [3.1.15-8] - 2026-09-28
 

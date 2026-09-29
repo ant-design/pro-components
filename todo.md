@@ -247,19 +247,19 @@
 
 ## B20 杂项:样式 / i18n / 文档站 / 表格渲染(P2,13 个)
 
-- [ ] #8911 WaterMark 不支持 renderToStaticMarkup
-- [ ] #8185 CDN 引入时 pro-form 样式覆盖定制主题色
-- [ ] #8899 ProFormCaptcha i18n 缺陷
-- [ ] #8885 ProTable 国际化修改疑问(文档)
-- [ ] #9008 同条件下表头展示不一致
-- [ ] #8747 Tabs item 内 ProTable 属性不生效
-- [ ] #8913 Table.EXPAND_COLUMN 展开列位置不正确
-- [ ] #8694 valueEnum + ellipsis 同用时异常
-- [ ] #9619 切换表格行间距下拉框样式
-- [ ] #8701 合并单元格失败 + 文档不一致(文档+示例)
-- [ ] #8727 BetaSchemaForm Embed 模式 onValuesChange 不触发
-- [ ] #8850 官网显示 bug
-- [ ] #9310 mix + splitMenus + siderMenuType=sub 子菜单不显示(转 Q&A/文档)
+- [x] #8911 WaterMark 不支持 renderToStaticMarkup
+- [x] #8185 CDN 引入时 pro-form 样式覆盖定制主题色
+- [x] #8899 ProFormCaptcha i18n 缺陷
+- [x] #8885 ProTable 国际化修改疑问(文档)
+- [x] #9008 同条件下表头展示不一致
+- [x] #8747 Tabs item 内 ProTable 属性不生效
+- [x] #8913 Table.EXPAND_COLUMN 展开列位置不正确
+- [x] #8694 valueEnum + ellipsis 同用时异常
+- [x] #9619 切换表格行间距下拉框样式
+- [x] #8701 合并单元格失败 + 文档不一致(文档+示例)
+- [x] #8727 BetaSchemaForm Embed 模式 onValuesChange 不触发
+- [x] #8850 官网显示 bug
+- [x] #9310 mix + splitMenus + siderMenuType=sub 子菜单不显示(转 Q&A/文档)
 
 ## B21 新特性评估(P3,19 个,产出:里程碑 or 关闭 or 招 PR)
 
