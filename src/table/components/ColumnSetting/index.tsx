@@ -199,7 +199,11 @@ const CheckboxList: React.FC<{
             typeof config.disable === 'boolean'
               ? config.disable
               : config.disable?.checkbox,
-          isLeaf: parentConfig ? true : undefined,
+          // #8988 isLeaf 应由「自身是否还有 children」决定,
+          // 不能用 parentConfig 判断 —— 否则任意嵌套分组的子分组
+          // (如 L2 > L3)会被标记为叶子,列设置树无法再展开,
+          // 三级及以下的列永远无法在列设置中显示/勾选。
+          isLeaf: !children,
         };
 
         if (children) {
@@ -225,7 +229,15 @@ const CheckboxList: React.FC<{
     return { list: loopData(list), keys: checkedKeys, map: treeMap };
   }, [columnsMap, list, show]);
 
-  /** 移动到指定的位置 */
+  /**
+   * 移动到指定的位置
+   *
+   * #8133 嵌套列(分组表头的子列)不在 sortKeyColumns(仅含顶层列)里,
+   * 旧实现 findIndex < 0 直接 return,导致拖拽子列毫无效果。
+   * 现在:子列拖拽按「同级兄弟顺序」重排 —— 兄弟 key 列表来自
+   * treeDataConfig.map(树结构),重排后把 order 写入 columnsMap,
+   * 渲染侧 genProColumnToColumn 按 columnsMap[key].order 排 children。
+   */
   const move = useRefFunction(
     (id: React.Key, targetId: React.Key, dropPosition: number) => {
       const newMap = { ...columnsMap };
@@ -234,8 +246,38 @@ const CheckboxList: React.FC<{
       const targetIndex = newColumns.findIndex(
         (columnKey) => columnKey === targetId,
       );
+      // 嵌套子列:sortKeyColumns 找不到 → 走同级重排
+      if (findIndex < 0 || targetIndex < 0) {
+        const dragNode = treeDataConfig.map?.get(id as string);
+        const parentNodeKey = dragNode?.parentKey;
+        // 兄弟节点(与拖拽节点同父),按树展示顺序
+        const siblings = (
+          parentNodeKey
+            ? treeDataConfig.map?.get(parentNodeKey)?.children
+            : treeDataConfig.list
+        )?.map((node) => node.key as string);
+        if (!siblings) return;
+        const dragIdx = siblings.indexOf(id as string);
+        const targetIdx = siblings.indexOf(targetId as string);
+        if (dragIdx < 0 || targetIdx < 0) return;
+        const isDownWard = dropPosition >= dragIdx;
+        siblings.splice(dragIdx, 1);
+        if (dropPosition === 0) {
+          siblings.unshift(id as string);
+        } else {
+          siblings.splice(
+            isDownWard ? targetIdx : targetIdx + 1,
+            0,
+            id as string,
+          );
+        }
+        siblings.forEach((key, order) => {
+          newMap[key] = { ...(newMap[key] || {}), order };
+        });
+        setColumnsMap(newMap);
+        return;
+      }
       const isDownWard = dropPosition >= findIndex;
-      if (findIndex < 0) return;
       const targetItem = newColumns[findIndex];
       newColumns.splice(findIndex, 1);
 
@@ -300,6 +342,80 @@ const CheckboxList: React.FC<{
     setColumnsMap({ ...newColumnMap });
   });
 
+  /**
+   * #9115 拖拽列时接近列表边缘自动滚动。
+   *
+   * rc-tree 的虚拟列表在 HTML5 拖拽期间不会收到 wheel 事件，
+   * 拖到可视区边缘就"卡住"，长列表只能一段一段拖。
+   * 这里在 onDragOver 中检测指针与容器边缘的距离，直接改写
+   * `.ant-tree-list-holder` 的 scrollTop —— rc-virtual-list 的
+   * onFallbackScroll 会同步窗口重算，虚拟滚动不会错位。
+   *
+   * 注意：以下全部是 Hook 调用，必须位于 `if (!show) return null`
+   * 之前，否则该 early return 会导致 Hook 顺序错乱（React 会抛出
+   * "change in the order of Hooks" 并整树崩溃）。
+   */
+  const AUTO_SCROLL_EDGE = 36; // 距边缘多少像素开始滚动
+  const AUTO_SCROLL_STEP = 8; // 每帧滚动像素
+  const autoScrollRef = React.useRef<{
+    holder: HTMLElement | null;
+    direction: 0 | 1 | -1; // 0 = 停止
+    rafId: number | null;
+  }>({ holder: null, direction: 0, rafId: null });
+
+  // 卸载（Popover 关闭）时终止 rAF 循环
+  React.useEffect(
+    () => () => {
+      const { rafId } = autoScrollRef.current;
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    },
+    [],
+  );
+
+  const stopAutoScroll = useRefFunction(() => {
+    const session = autoScrollRef.current;
+    if (session.rafId !== null) {
+      cancelAnimationFrame(session.rafId);
+    }
+    autoScrollRef.current = { holder: null, direction: 0, rafId: null };
+  });
+
+  const startAutoScroll = useRefFunction(
+    (holder: HTMLElement, direction: 1 | -1) => {
+      const session = autoScrollRef.current;
+      if (session.holder === holder && session.direction === direction) {
+        return; // 已在滚动，避免重复启动 rAF 循环
+      }
+      stopAutoScroll();
+      const tick = () => {
+        const s = autoScrollRef.current;
+        if (!s.holder || !s.direction) return;
+        s.holder.scrollTop += AUTO_SCROLL_STEP * s.direction;
+        s.rafId = requestAnimationFrame(tick);
+      };
+      autoScrollRef.current = { holder, direction, rafId: null };
+      autoScrollRef.current.rafId = requestAnimationFrame(tick);
+    },
+  );
+
+  const onTreeDragOver = useRefFunction(
+    ({ event }: { event: React.DragEvent<HTMLElement> }) => {
+      const holder = (event.currentTarget as HTMLElement)?.closest?.(
+        '.ant-tree-list-holder',
+      ) as HTMLElement | null;
+      if (!holder) return;
+      const rect = holder.getBoundingClientRect();
+      const y = event.clientY;
+      if (y - rect.top < AUTO_SCROLL_EDGE) {
+        startAutoScroll(holder, -1);
+      } else if (rect.bottom - y < AUTO_SCROLL_EDGE) {
+        startAutoScroll(holder, 1);
+      } else {
+        stopAutoScroll();
+      }
+    },
+  );
+
   if (!show) {
     return null;
   }
@@ -313,7 +429,11 @@ const CheckboxList: React.FC<{
         treeDataConfig.list?.length > 1
       }
       checkable={checkable}
+      onDragOver={onTreeDragOver}
+      onDragLeave={stopAutoScroll}
+      onDragEnd={stopAutoScroll}
       onDrop={(info) => {
+        stopAutoScroll();
         const dropKey = info.node.key;
         const dragKey = info.dragNode.key;
         const { dropPosition, dropToGap } = info;
