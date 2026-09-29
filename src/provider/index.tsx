@@ -305,7 +305,10 @@ const ConfigProviderContainer: React.FC<{
     return {
       ...proProvide,
       dark: dark ?? proProvide.dark,
-      token: shallowMergeOneLevel(proProvide.token, tokenContext.token, {
+      // #9125: propsToken 必须参与合并，否则 ProConfigProvider token
+      // （如 colorPrimary）只影响 layout token，不进入 Pro 组件（如 CheckCard）
+      // 消费的 proProvide.token
+      token: shallowMergeOneLevel(proProvide.token, tokenContext.token, propsToken, {
         proComponentsCls,
         antCls,
         themeId: tokenContext.theme.id,
@@ -317,6 +320,7 @@ const ConfigProviderContainer: React.FC<{
     locale?.locale,
     proProvide,
     dark,
+    propsToken,
     tokenContext.token,
     tokenContext.theme.id,
     proComponentsCls,
