@@ -180,7 +180,9 @@ function InternalProList<
 
   const actionRef = useRef<ActionType>();
 
-  useImperativeHandle(rest.actionRef, () => actionRef.current);
+  // #7862: 返回内部 actionRef 的实时引用（而非挂载时的快照），
+  // 保证 request 完成后用户 actionRef.current.pageInfo 拿到最新 total
+  useImperativeHandle(rest.actionRef, () => actionRef.current as ActionType);
 
   // metas 废弃提示，仅在开发环境触发一次
   useEffect(() => {

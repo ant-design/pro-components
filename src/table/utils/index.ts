@@ -5,7 +5,7 @@ import type {
   SortOrder,
 } from 'antd/lib/table/interface';
 import type React from 'react';
-import { type ReactElement, Key } from 'react';
+import { type ReactElement, Key, useRef } from 'react';
 import type { IntlType } from '../../provider';
 import type { UseEditableUtilType } from '../../utils';
 import type {
@@ -98,9 +98,21 @@ export function useActionType<T>(
     scrollTo?: ActionType['scrollTo'];
   },
 ) {
+  /**
+   * #7862: 保持 ref 指向的对象恒定、每次 render 原地更新字段。
+   * 旧实现每次 render 都生成新对象赋给 ref.current，导致未随内部
+   * Table 重渲染的父组件（如 ProList）持有的引用停留在挂载快照，
+   * pageInfo.total 始终为初始值 0。
+   */
+  const isFirstRun = useRef(true);
+  const userActionRef = useRef<ActionType>();
+  if (isFirstRun.current) {
+    userActionRef.current = {} as ActionType;
+    isFirstRun.current = false;
+  }
+  const userAction = userActionRef.current as ActionType;
   /** 这里生成action的映射，保证 action 总是使用的最新 只需要渲染一次即可 */
-  const userAction: ActionType = {
-    ...props.editableUtils,
+  Object.assign(userAction, props.editableUtils, {
     pageInfo: action.pageInfo,
     nativeElement: props.nativeElement,
     focus: props.focus,
@@ -131,7 +143,7 @@ export function useActionType<T>(
     setPageInfo: (rest) => action.setPageInfo(rest),
     // 透出 scrollTo（如上层提供）
     scrollTo: props.scrollTo,
-  };
+  });
   ref.current = userAction;
 }
 
@@ -431,7 +443,11 @@ export function buildEditableTableRowKey<DataType extends Record<string, any>>(
       return (record as any)?.[rowKeyStr];
     }
     if (name) {
-      return index?.toString() ?? '';
+      // #8893 name 模式优先取业务 key：旧实现无条件退化为 index，
+      // 嵌套树场景父子的 index key 会冲突（父第0行/子第0行都是 '0'），
+      // 导致 flatten 树重建丢 children。业务 key 缺失时才回退 index。
+      const businessKey = (record as any)?.[rowKeyStr];
+      return businessKey ?? index?.toString() ?? '';
     }
     return (record as any)?.[rowKeyStr] ?? index?.toString() ?? '';
   };
