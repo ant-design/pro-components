@@ -24,6 +24,8 @@
   - ✅ 回归锁定 `layout=mix` + `splitMenus` + `siderMenuType=sub` 组合下侧栏正常展示激活一级菜单的子菜单（菜单数据需含 children）[#9310](https://github.com/ant-design/pro-components/issues/9310)
 - 密度选择器
   - 💄 移除行间距（密度）下拉菜单的 80px 固定宽度，多语言长文本下宽度自适应不再折行 [#9619](https://github.com/ant-design/pro-components/issues/9619)
+- QueryFilter（回归锁定）
+  - ✅ 回归锁定 `search.submitterColSpanProps` 自定义查询表单操作区（重置/查询按钮）占用的栅格宽度，操作区按钮过多导致溢出时可扩大 span [#9626](https://github.com/ant-design/pro-components/issues/9626)
 
 ## [3.1.15-8] - 2026-09-28
 

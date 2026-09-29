@@ -24,6 +24,8 @@
   - ✅ Lock regression: `layout=mix` + `splitMenus` + `siderMenuType=sub` renders the active top menu's children in the sider (menu data must include children) [#9310](https://github.com/ant-design/pro-components/issues/9310)
 - Density selector
   - 💄 Remove the 80px fixed width of the density dropdown menu so long translated labels no longer wrap [#9619](https://github.com/ant-design/pro-components/issues/9619)
+- QueryFilter (regression locks)
+  - ✅ Lock regression: `search.submitterColSpanProps` customizes the grid span of the query form action area (reset/submit buttons) so extra buttons no longer overflow [#9626](https://github.com/ant-design/pro-components/issues/9626)
 
 ## [3.1.15-8] - 2026-09-28
 

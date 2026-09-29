@@ -262,26 +262,28 @@
 - [x] #9310 mix + splitMenus + siderMenuType=sub 子菜单不显示(转 Q&A/文档)
 
 ## B21 新特性评估(P3,19 个,产出:里程碑 or 关闭 or 招 PR)
+<!-- 2026-09-29 全部分诊完成:#9626 已有能力答疑关闭(submitterColSpanProps,回归测试
+     tests/form/queryFilterSubmitterSpan.test.tsx);其余 18 个列入排期/招 PR,详见各 issue 回复 -->
 
-- [ ] #9500 ProTable next_token 游标分页
-- [ ] #9246 ProFormAutoComplete 组件
-- [ ] #9221 EditableProTable 自定义按钮
-- [ ] #9197 ActionRef 提取当前 filter/sort
-- [ ] #9084 MenuDataItem icon 支持自定义
-- [ ] #9081 ProFormRadio.Group 长短 label 对齐优化
-- [ ] #9061 columns 区分 table 和 form 场景
-- [ ] #9046 DragSortTable + EditableProTable 同用
-- [ ] #8990 EditableProTable 行锁定
-- [ ] #8980 控制刷新展开的嵌套 table
-- [ ] #8972 按行禁用单元格编辑
-- [ ] #8971 内容区可用高度 API
-- [ ] #8917 表格区域选择
-- [ ] #8870 BetaSchemaForm 自定义 Wrapper(Card)
-- [ ] #8730 ProTable 暴露 tableRef
-- [ ] #8786 可编辑表格错误提示 popover 可配置
-- [ ] #8256 EditableProTable 支持拖拽排序
-- [ ] #9623 EditableTreeNode 可编辑树
-- [ ] #9626 自定义 optionRender 需求
+- [x] #9500 ProTable next_token 游标分页(排期:分页协议重设计)
+- [x] #9246 ProFormAutoComplete 组件(排期:新 valueType)
+- [x] #9221 EditableProTable 自定义按钮(排期)
+- [x] #9197 ActionRef 提取当前 filter/sort(排期)
+- [x] #9084 MenuDataItem icon 支持自定义(排期:icon 支持 ReactNode/FC)
+- [x] #9081 ProFormRadio.Group 长短 label 对齐优化(排期)
+- [x] #9061 columns 区分 table 和 form 场景(排期:场景化 schema)
+- [x] #9046 DragSortTable + EditableProTable 同用(排期:与 #8256 合并实现 editable 拖拽)
+- [x] #8990 EditableProTable 行锁定(排期)
+- [x] #8980 控制刷新展开的嵌套 table(排期)
+- [x] #8972 按行禁用单元格编辑(排期)
+- [x] #8971 内容区可用高度 API(排期)
+- [x] #8917 表格区域选择(排期)
+- [x] #8870 BetaSchemaForm 自定义 Wrapper(Card)(排期)
+- [x] #8730 ProTable 暴露 tableRef(排期:actionRef 补充转发,低风险)
+- [x] #8786 可编辑表格错误提示 popover 可配置(排期:列级 errorType + popoverProps)
+- [x] #8256 EditableProTable 支持拖拽排序(排期:复用 useDragSort,招 PR)
+- [x] #9623 EditableTreeNode 可编辑树(排期:EditableTree 评估,招 PR)
+- [x] #9626 自定义 optionRender 需求(答疑:已有 search.submitterColSpanProps 能力,关闭)
 
 ## B22 答疑与用法(P3,25 个,动作:回复 → 可沉淀的写进文档 → 2 周无回应关闭)
 
