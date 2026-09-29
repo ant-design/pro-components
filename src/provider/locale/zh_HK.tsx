@@ -79,6 +79,10 @@ const zhHK: ProLocale = {
     open: '打開',
     close: '關閉',
   },
+  captcha: {
+    getCaptcha: '獲取驗證碼',
+    retryAfter: '{count} 秒後重新獲取',
+  },
 };
 
 export default zhHK;

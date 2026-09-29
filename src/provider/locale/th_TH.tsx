@@ -79,6 +79,10 @@ const thTH: ProLocale = {
     open: 'เปิด',
     close: 'ปิด',
   },
+  captcha: {
+    getCaptcha: 'รับรหัสยืนยัน',
+    retryAfter: 'ลองอีกครั้งใน {count} วินาที',
+  },
 };
 
 export default thTH;

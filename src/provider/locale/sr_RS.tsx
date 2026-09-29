@@ -79,6 +79,10 @@ const srRS: ProLocale = {
     open: 'Otvori',
     close: 'Zatvori',
   },
+  captcha: {
+    getCaptcha: 'Добиј верификациони код',
+    retryAfter: 'Покушајте поново за {count}s',
+  },
 };
 
 export default srRS;

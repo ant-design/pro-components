@@ -79,6 +79,10 @@ const viVN: ProLocale = {
     open: 'mở',
     close: 'đóng',
   },
+  captcha: {
+    getCaptcha: 'Nhận mã xác minh',
+    retryAfter: 'Thử lại sau {count} giây',
+  },
 };
 
 export default viVN;

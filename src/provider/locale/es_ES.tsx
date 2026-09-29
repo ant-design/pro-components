@@ -79,6 +79,10 @@ const esES: ProLocale = {
     open: 'abrir',
     close: 'cerrar',
   },
+  captcha: {
+    getCaptcha: 'Obtener código de verificación',
+    retryAfter: 'Reintentar en {count}s',
+  },
 };
 
 export default esES;

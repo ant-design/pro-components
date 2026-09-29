@@ -4,6 +4,18 @@
 
 ### 🐛 Bug Fixes
 
+- BetaSchemaForm
+  - 🐞 Fix form callbacks such as `onValuesChange` and `onFinish` when standalone `layoutType="Embed"` is used, while preserving passthrough inside an existing Form [#8727](https://github.com/ant-design/pro-components/issues/8727)
+  - ✅ Lock the layout switching regression from Form to LightFilter [#8850](https://github.com/ant-design/pro-components/issues/8850)
+- ProFormCaptcha
+  - 🐞 Localize the default captcha and countdown text across all bundled locales [#8899](https://github.com/ant-design/pro-components/issues/8899)
+- ProTable
+  - 🐞 Preserve the explicit `Table.EXPAND_COLUMN` position, and lock Tabs width/ellipsis and formatted valueEnum ellipsis regressions [#8913](https://github.com/ant-design/pro-components/issues/8913) [#8747](https://github.com/ant-design/pro-components/issues/8747) [#8694](https://github.com/ant-design/pro-components/issues/8694)
+  - 📚 Document and demonstrate merged cells through `onCell` rowSpan/colSpan [#8701](https://github.com/ant-design/pro-components/issues/8701)
+- ProLayout
+  - ✅ Lock `layout="mix"`, `splitMenus`, and `siderMenuType="sub"` child-menu rendering [#9310](https://github.com/ant-design/pro-components/issues/9310)
+- Density selector
+  - 💄 Let translated density menu labels determine the dropdown width [#9619](https://github.com/ant-design/pro-components/issues/9619)
 - Parse custom date formats and URL-synchronized second/millisecond timestamps consistently in edit fields [#8863](https://github.com/ant-design/pro-components/issues/8863) [#8810](https://github.com/ant-design/pro-components/issues/8810)
 - Preserve null fields when `omitNil=false`, forward field-level blur validation, and keep formatted ellipsis tooltips aligned with rendered text [#8044](https://github.com/ant-design/pro-components/issues/8044) [#8380](https://github.com/ant-design/pro-components/issues/8380) [#8542](https://github.com/ant-design/pro-components/issues/8542)
 - Refresh Select requests for controlled search values without repeating empty searches, preserve hidden QueryFilter fields, and respect responsive vertical layouts [#8801](https://github.com/ant-design/pro-components/issues/8801) [#8780](https://github.com/ant-design/pro-components/issues/8780) [#8928](https://github.com/ant-design/pro-components/issues/8928) [#8397](https://github.com/ant-design/pro-components/issues/8397) [#8836](https://github.com/ant-design/pro-components/issues/8836)

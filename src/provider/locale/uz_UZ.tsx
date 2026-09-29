@@ -79,6 +79,10 @@ const uzUZ: ProLocale = {
     open: 'Ochish',
     close: 'Yopish',
   },
+  captcha: {
+    getCaptcha: 'Tasdiqlash kodini olish',
+    retryAfter: '{count} soniyadan keyin qayta urinib ko‘ring',
+  },
 };
 
 export default uzUZ;

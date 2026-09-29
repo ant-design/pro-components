@@ -79,6 +79,10 @@ const enUS: ProLocale = {
     open: 'open',
     close: 'close',
   },
+  captcha: {
+    getCaptcha: 'Get CAPTCHA',
+    retryAfter: 'Retry in {count}s',
+  },
 };
 
 export default enUS;
