@@ -89,6 +89,12 @@ export type ItemProps<RecordType> = {
   rowSupportExpand?: boolean;
   onExpand?: (expand: boolean) => void;
   expandable?: ExpandableConfig<any>;
+  /** #7421: actions 渲染到 card 的哪个位置，默认 extra */
+  cardActionProps?: 'actions' | 'extra';
+  /** #7421: 何时展示 actions，'hover' 时鼠标悬浮列表项才显示 */
+  showActions?: 'hover' | 'always';
+  /** #7421: 何时展示 extra，'hover' 时鼠标悬浮列表项才显示 */
+  showExtra?: 'hover' | 'always';
   type?: 'new' | 'top' | 'inline' | 'subheader';
   isEditable: boolean;
   recordKey: string | number | undefined;
@@ -139,6 +145,9 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
     onExpand: propsOnExpand,
     expandable: expandableConfig,
     rowSupportExpand,
+    cardActionProps,
+    showActions,
+    showExtra,
     type,
     style,
     className: propsClassName = defaultClassName,
@@ -178,8 +187,10 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
   const className = clsx(
     {
       [`${defaultClassName}-selected`]: !cardProps && selected,
+      [`${defaultClassName}-show-action-hover`]: showActions === 'hover',
       [`${defaultClassName}-type-${type}`]: !!type,
       [`${defaultClassName}-editable`]: isEditable,
+      [`${defaultClassName}-show-extra-hover`]: showExtra === 'hover',
     },
     hashId,
     defaultClassName,
@@ -195,6 +206,12 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
     () => (actions ? React.Children.toArray(actions) : undefined),
     [actions],
   );
+
+  // #7421: cardActionProps 决定 actions 渲染到 card 的 extra 还是 actions 位置
+  const extraDom =
+    actionsArray && cardActionProps !== 'actions' ? actionsArray : undefined;
+  const actionsDom =
+    actionsArray && cardActionProps === 'actions' ? actionsArray : undefined;
 
   const titleDom =
     title || subTitle ? (
@@ -277,7 +294,8 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
           {...cardProps}
           title={cardTitleDom}
           subTitle={subTitle}
-          extra={actionsArray}
+          extra={extraDom}
+          actions={actionsDom}
           bodyStyle={{ padding: token.paddingLG, ...cardProps.bodyStyle }}
           {...(itemProps as CheckCardProps)}
           onClick={(e) => {
@@ -304,6 +322,11 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
     [className]: className,
   });
 
+  // #7421: showExtra='hover' 时 extra 默认隐藏，悬浮列表项后显示
+  const extraClassName = clsx(hashId, {
+    [`${defaultClassName}-extra`]: showExtra === 'hover',
+  });
+
   return (
     <BaseListItem
       className={clsx(rowClassName, hashId, {
@@ -311,7 +334,7 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
       })}
       {...rest}
       actions={actionsArray}
-      extra={extra}
+      extra={!!extra && <div className={extraClassName}>{extra}</div>}
       {...onRow?.(record, index)}
       {...itemProps}
       onClick={(e: React.MouseEvent<HTMLDivElement>) => {
@@ -342,6 +365,7 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
               } as RenderExpandIconProps<RecordType>)}
           </div>
           {headerDom}
+          {extraDom}
         </div>
         {needExpanded && (content || expandedRowDom) && (
           <div className={clsx(`${className}-content`, hashId)}>

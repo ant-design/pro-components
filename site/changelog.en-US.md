@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.1.15-9] - 2026-09-29
+
+### 🐛 Bug Fixes
+
+- ProList
+  - 🐞 Fix `showActions` / `showExtra` having no effect: the prop chain accidentally removed during a refactor is restored. With `'hover'`, actions/extra only appear when hovering a list item; `metas.actions.cardActionProps` rendering position control in card mode is also restored [#7421](https://github.com/ant-design/pro-components/issues/7421)
+  - 🐞 Fix `actionRef.current.pageInfo.total` staying 0 after `request` completes: actionRef now returns a live reference to the internal instance [#7862](https://github.com/ant-design/pro-components/issues/7862)
+  - 🐞 Fix `gutter` not working in card (grid) mode with a custom `itemRender` [#8387](https://github.com/ant-design/pro-components/issues/8387)
+- ProTable
+  - 🆕 Add `options.setting.listItemTitleRender` to customize column setting list item titles, e.g. remove the default 80px fixed width for adaptive single-line display [#9620](https://github.com/ant-design/pro-components/issues/9620)
+
 ## [3.1.15-8] - 2026-09-28
 
 ### 🐛 Bug Fixes

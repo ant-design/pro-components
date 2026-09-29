@@ -208,6 +208,11 @@ export type SettingOptionType = {
   extra?: React.ReactNode;
   children?: React.ReactNode;
   settingIcon?: React.ReactNode;
+  /** #9620: Custom title render for column setting list items, e.g. remove fixed width for adaptive single-line display */
+  listItemTitleRender?: (
+    title: React.ReactNode,
+    column: { key?: React.Key; title?: React.ReactNode; [key: string]: any },
+  ) => React.ReactNode;
 };
 ```
 

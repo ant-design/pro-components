@@ -213,6 +213,11 @@ export type SettingOptionType = {
   extra?: React.ReactNode;
   children?: React.ReactNode;
   settingIcon?: React.ReactNode;
+  /** #9620: 自定义列设置面板列表项标题渲染，可取消固定宽度实现单行自适应 */
+  listItemTitleRender?: (
+    title: React.ReactNode,
+    column: { key?: React.Key; title?: React.ReactNode; [key: string]: any },
+  ) => React.ReactNode;
 };
 ```
 

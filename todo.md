@@ -240,10 +240,10 @@
 
 ## B19 ProList(P2,4 个)
 
-- [ ] #8387 卡片模式 renderItem 自定义时 gutter 不生效
-- [ ] #7862 actionRef 获取 pageInfo total 为 0
-- [ ] #7421 showActions / showExtra 无效(2021 老 bug)
-- [ ] #9620 操作栏不能按列内容自适应换行
+- [x] #8387 卡片模式 renderItem 自定义时 gutter 不生效
+- [x] #7862 actionRef 获取 pageInfo total 为 0
+- [x] #7421 showActions / showExtra 无效(2021 老 bug)
+- [x] #9620 操作栏不能按列内容自适应换行
 
 ## B20 杂项:样式 / i18n / 文档站 / 表格渲染(P2,13 个)
 

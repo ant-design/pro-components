@@ -97,6 +97,10 @@ export type ProListProps<
     onRow?: GetComponentProps<RecordType>;
     onItem?: GetComponentProps<RecordType>;
     itemCardProps?: CheckCardProps;
+    /** #7421: 何时展示 actions，'hover' 时悬浮列表项才显示（CardList 模式下不生效） */
+    showActions?: 'hover' | 'always';
+    /** #7421: 何时展示 extra，'hover' 时悬浮列表项才显示（CardList 模式下不生效） */
+    showExtra?: 'hover' | 'always';
     rowClassName?: string | ((item: RecordType, index: number) => string);
     itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
     itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
@@ -169,6 +173,8 @@ function InternalProList<
     itemRender,
     grid,
     itemCardProps,
+    showActions,
+    showExtra,
     onRow,
     onItem,
     rowClassName,
@@ -243,6 +249,8 @@ function InternalProList<
         rowKey={rowKey}
         expandable={expandable}
         rowSelection={propRowSelection === false ? undefined : rowSelection}
+        showActions={showActions}
+        showExtra={showExtra}
         pagination={pagination as PaginationProps}
         itemLayout={itemLayout}
         loading={loading}

@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.1.15-9] - 2026-09-29
+
+### 🐛 问题修复
+
+- ProList
+  - 🐞 修复 `showActions` / `showExtra` 无效的问题：重构中误删的 props 链路已恢复，`'hover'` 模式下悬浮列表项才显示操作区/附属内容，同时恢复 `metas.actions.cardActionProps` 在卡片模式下的渲染位置控制 [#7421](https://github.com/ant-design/pro-components/issues/7421)
+  - 🐞 修复 `actionRef.current.pageInfo.total` 在 `request` 完成后仍为 0 的问题：actionRef 现在返回内部实例的实时引用 [#7862](https://github.com/ant-design/pro-components/issues/7862)
+  - 🐞 修复卡片（grid）模式自定义 `itemRender` 时 `gutter` 不生效的问题 [#8387](https://github.com/ant-design/pro-components/issues/8387)
+- ProTable
+  - 🆕 `options.setting.listItemTitleRender` 新增列设置面板列表项标题自定义渲染，可移除默认 80px 固定宽度实现按内容单行自适应 [#9620](https://github.com/ant-design/pro-components/issues/9620)
+
 ## [3.1.15-8] - 2026-09-28
 
 ### 🐛 问题修复
