@@ -22,6 +22,7 @@ import {
   parseProFilteredValue,
   parseProSortOrder,
 } from './index';
+import { columnSort } from './columnSort';
 
 type ColumnToColumnReturnType<T> = (TableColumnType<T> & {
   index?: number;
@@ -244,11 +245,17 @@ export function genProColumnToColumn<T extends AnyObject>(params: {
             ? columnProps.width
             : columnProps.width || (columnProps.fixed ? 200 : undefined),
         children: children
-          ? genProColumnToColumn({
+          ? // #8133: 分组表头的子列同样消费 columnsMap[key].order ——
+            // ColumnSetting 拖拽子列时 move 只写 order（不动 columns 源数组），
+            // 渲染端按 order 重排 children 才能生效
+            genProColumnToColumn({
               columns: children ?? [],
               context,
-              parents: { ...columnProps, key: columnKey } as ProColumns<T, any>,
-            })
+              parents: { ...columnProps, key: columnKey } as ProColumns<
+                T,
+                any
+              >,
+            }).sort(columnSort(context.counter.columnsMap ?? {}))
           : undefined,
         onCell: createOnCell(columnProps, context),
         render: createCellRender(columnProps, context, subNameRecord),

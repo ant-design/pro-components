@@ -137,7 +137,9 @@ const CheckboxListItem: React.FC<{
       <div className={clsx(`${className}-list-item-title`, hashId)}>
         {title}
       </div>
-      {showListItemOption && !isLeaf ? dom : null}
+      {/* #8988: isLeaf 只影响树的展开语义，不再屏蔽固定/拖拽选项。
+          分组节点（有 children）同样允许固定，叶子列也不受嵌套层级影响 */}
+      {showListItemOption ? dom : null}
     </span>
   );
 };
@@ -199,9 +201,9 @@ const CheckboxList: React.FC<{
             typeof config.disable === 'boolean'
               ? config.disable
               : config.disable?.checkbox,
-          // #8988 isLeaf 应由「自身是否还有 children」决定,
+          // #8988 isLeaf 应由「自身是否还有 children」决定，
           // 不能用 parentConfig 判断 —— 否则任意嵌套分组的子分组
-          // (如 L2 > L3)会被标记为叶子,列设置树无法再展开,
+          // (如 L2 > L3)会被标记为叶子，列设置树无法再展开，
           // 三级及以下的列永远无法在列设置中显示/勾选。
           isLeaf: !children,
         };
@@ -232,11 +234,11 @@ const CheckboxList: React.FC<{
   /**
    * 移动到指定的位置
    *
-   * #8133 嵌套列(分组表头的子列)不在 sortKeyColumns(仅含顶层列)里,
-   * 旧实现 findIndex < 0 直接 return,导致拖拽子列毫无效果。
-   * 现在:子列拖拽按「同级兄弟顺序」重排 —— 兄弟 key 列表来自
-   * treeDataConfig.map(树结构),重排后把 order 写入 columnsMap,
-   * 渲染侧 genProColumnToColumn 按 columnsMap[key].order 排 children。
+   * #8133 嵌套分组表头的子列不在 sortKeyColumns（仅含顶层列）中，
+   * 旧实现 findIndex < 0 直接 return，导致拖拽子列毫无效果。
+   * 现在：子列拖拽按「同级兄弟顺序」重排 —— 兄弟 key 列表来自
+   * treeDataConfig.map（树节点），重排后把 order 写入 columnsMap，
+   * 渲染端 genProColumnToColumn 消费 columnsMap[key].order 排列 children。
    */
   const move = useRefFunction(
     (id: React.Key, targetId: React.Key, dropPosition: number) => {
@@ -246,11 +248,11 @@ const CheckboxList: React.FC<{
       const targetIndex = newColumns.findIndex(
         (columnKey) => columnKey === targetId,
       );
-      // 嵌套子列:sortKeyColumns 找不到 → 走同级重排
+      // 嵌套子列：sortKeyColumns 找不到时，走同级重排
       if (findIndex < 0 || targetIndex < 0) {
         const dragNode = treeDataConfig.map?.get(id as string);
         const parentNodeKey = dragNode?.parentKey;
-        // 兄弟节点(与拖拽节点同父),按树展示顺序
+        // 兄弟节点（与拖拽节点同父），按树展示顺序
         const siblings = (
           parentNodeKey
             ? treeDataConfig.map?.get(parentNodeKey)?.children
@@ -362,7 +364,6 @@ const CheckboxList: React.FC<{
     direction: 0 | 1 | -1; // 0 = 停止
     rafId: number | null;
   }>({ holder: null, direction: 0, rafId: null });
-
   // 卸载（Popover 关闭）时终止 rAF 循环
   React.useEffect(
     () => () => {
