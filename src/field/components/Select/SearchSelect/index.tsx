@@ -247,6 +247,16 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       } as DefaultOptionType;
     });
   };
+  const handleSearch = showSearch
+    ? (value: string) => {
+        if (fetchDataOnSearch) {
+          fetchData(value);
+        }
+        effectiveOnSearch?.(value);
+        setSearchValue(value);
+      }
+    : undefined;
+
   return (
     <Select<any>
       ref={selectRef}
@@ -255,11 +265,13 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       autoClearSearchValue={effectiveAutoClearSearchValue}
       disabled={disabled}
       mode={mode}
-      showSearch={showSearch}
+      showSearch={
+        showSearchConfig
+          ? { ...showSearchConfig, onSearch: handleSearch }
+          : showSearch
+      }
       searchValue={
-        mode === 'multiple' &&
-        !effectiveAutoClearSearchValue &&
-        !focused
+        mode === 'multiple' && !effectiveAutoClearSearchValue && !focused
           ? ''
           : searchValue
       }
@@ -294,9 +306,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
                   label: option?.data_title,
                 });
               }
-              const optionFilterProps = Array.isArray(
-                effectiveOptionFilterProp,
-              )
+              const optionFilterProps = Array.isArray(effectiveOptionFilterProp)
                 ? effectiveOptionFilterProp
                 : [effectiveOptionFilterProp];
               return !!(
@@ -317,17 +327,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
               );
             }
       } // 这里使用pro-components的过滤逻辑
-      onSearch={
-        showSearch
-          ? (value) => {
-              if (fetchDataOnSearch) {
-                fetchData(value);
-              }
-              effectiveOnSearch?.(value);
-              setSearchValue(value);
-            }
-          : undefined
-      }
+      onSearch={handleSearch}
       onChange={(value, optionList, ...rest) => {
         // 将搜索框置空 和 antd 行为保持一致
         if (showSearch && effectiveAutoClearSearchValue) {
@@ -415,7 +415,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
           fetchData(undefined);
           // 同时清空搜索值
           if (showSearch) {
-            onSearch?.('');
+            effectiveOnSearch?.('');
             setSearchValue('');
           }
         }
