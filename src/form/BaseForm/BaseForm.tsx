@@ -779,12 +779,17 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
    * 且 form 已挂载后才开始同步(首次初始化交给 antd)。
    */
   const prevPropsInitialValuesRef = useRef<typeof initialValues | undefined>(
-    undefined,
+    initialValues,
   );
+  const initialValuesEffectMountedRef = useRef(false);
   useEffect(() => {
-    if (request || !initialValues) return;
-    if (prevPropsInitialValuesRef.current === undefined) {
+    if (!initialValuesEffectMountedRef.current) {
       // 首次渲染:记录后跳过,交给 antd initialValues 初始化
+      initialValuesEffectMountedRef.current = true;
+      prevPropsInitialValuesRef.current = initialValues;
+      return;
+    }
+    if (request) {
       prevPropsInitialValuesRef.current = initialValues;
       return;
     }
@@ -802,7 +807,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     }, {});
     formRef.current.setFieldsValue?.({
       ...clearedValues,
-      ...initialValues,
+      ...(initialValues || {}),
     });
   }, [initialValues, request]);
 

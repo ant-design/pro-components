@@ -4,6 +4,8 @@
 
 ### 🐛 Bug Fixes
 
+- Keep BaseForm `contentRender` items as an array with grid enabled, and allow controlled overlay triggers to open before the form mounts [#8253](https://github.com/ant-design/pro-components/issues/8253) [#9624](https://github.com/ant-design/pro-components/issues/9624)
+- Synchronize changed overlay `initialValues`, late StepsForm request form refs, and wrapped StepForm children [#8834](https://github.com/ant-design/pro-components/issues/8834) [#9165](https://github.com/ant-design/pro-components/issues/9165) [#8624](https://github.com/ant-design/pro-components/issues/8624) [#8108](https://github.com/ant-design/pro-components/issues/8108) [#9021](https://github.com/ant-design/pro-components/issues/9021)
 - Fix nested child form paths when EditableProTable uses a function `rowKey`, with regression coverage for controlled tables inside ProFormList [#8893](https://github.com/ant-design/pro-components/issues/8893) [#6508](https://github.com/ant-design/pro-components/issues/6508)
 - Align whole-entity, nested-list, and ProTable column semantics across the `convertValue` / `transform` pipeline [#8907](https://github.com/ant-design/pro-components/issues/8907) [#8480](https://github.com/ant-design/pro-components/issues/8480) [#9120](https://github.com/ant-design/pro-components/issues/9120) [#9032](https://github.com/ant-design/pro-components/issues/9032)
 - Fix empty arrays, Digit affixes, and numeric valueEnum labels in read/edit display paths [#8848](https://github.com/ant-design/pro-components/issues/8848) [#8844](https://github.com/ant-design/pro-components/issues/8844) [#8517](https://github.com/ant-design/pro-components/issues/8517)
