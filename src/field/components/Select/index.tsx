@@ -121,9 +121,13 @@ export const useFieldFetchData = (
   },
 ): [boolean, SelectOptionType, (keyWord?: string) => void, () => void] => {
   const { cacheForSwr, fieldProps } = props;
+  const initialControlledSearchValue =
+    typeof fieldProps?.showSearch === 'object'
+      ? fieldProps.showSearch.searchValue
+      : fieldProps?.searchValue;
 
   const [keyWords, setKeyWords] = useState<string | undefined>(
-    props.defaultKeyWords,
+    initialControlledSearchValue ?? props.defaultKeyWords,
   );
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {

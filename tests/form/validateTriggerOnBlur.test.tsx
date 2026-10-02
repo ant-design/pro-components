@@ -76,6 +76,7 @@ describe('#8380 validateTrigger onBlur', () => {
         <ProFormText
           name="name"
           label="名称"
+          initialValue="已有值"
           validateTrigger="onBlur"
           rules={[{ required: true, message: '必填' }]}
         />

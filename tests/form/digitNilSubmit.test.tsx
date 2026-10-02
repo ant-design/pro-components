@@ -7,6 +7,7 @@ import {
 import React from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { ProForm, ProFormDigit, ProFormText } from '../../src';
+import { transformKeySubmitValue } from '../../src/utils';
 
 /**
  * #8044:ProFormDigit 非必填、清空后提交,omitNil 默认 true 会丢字段(设计如此),
@@ -110,5 +111,23 @@ describe('#8044 ProFormDigit nil submit semantics', () => {
     fireEvent.click(screen.getByText('提 交'));
     await waitFor(() => expect(onFinish).toHaveBeenCalled());
     expect(onFinish.mock.calls[0][0]).toEqual({ displayName: 'Ada' });
+  });
+
+  it('preserves null array elements only when omitNil=false', async () => {
+    const transforms = {
+      items: {
+        1: {
+          name: (value: string) => ({ name: value }),
+        },
+      },
+    } as any;
+    const values = { items: [null, { name: 'Ada' }] };
+
+    expect(await transformKeySubmitValue(values, transforms, false)).toEqual({
+      items: [null, { name: 'Ada' }],
+    });
+    expect(await transformKeySubmitValue(values, transforms, true)).toEqual({
+      items: [undefined, { name: 'Ada' }],
+    });
   });
 });

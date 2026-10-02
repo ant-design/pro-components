@@ -326,6 +326,9 @@ function processNestedObjectTransforms(
           ? currentTransforms[entityKey]
           : currentTransforms;
       const nestedArray = itemValue.map((arrayItem, arrayIndex) => {
+        if (isNil(arrayItem)) {
+          return omitNil === false ? arrayItem : undefined;
+        }
         // 非对象元素（string/number 等）直接保留，避免被 Object.keys 展开成索引对象
         if (!isPlainObj(arrayItem)) return arrayItem;
         const indexedTransforms = Array.isArray(arrayTransforms)

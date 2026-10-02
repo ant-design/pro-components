@@ -9,6 +9,23 @@ import { ProFormSelect } from '../../src';
  * 而不是保留上一次搜索词的缓存结果。
  */
 describe('#8801 ProFormSelect controlled searchValue triggers request', () => {
+  it('uses the initial controlled searchValue for the first request', async () => {
+    const request = vi.fn(async () => []);
+    render(
+      <ProFormSelect
+        name="initial"
+        fieldProps={{ showSearch: true, searchValue: 'abc' }}
+        request={request}
+      />,
+    );
+
+    await waitFor(() => expect(request).toHaveBeenCalledTimes(1));
+    expect(request).toHaveBeenLastCalledWith(
+      expect.objectContaining({ keyWords: 'abc' }),
+      expect.anything(),
+    );
+  });
+
   it('programmatic searchValue change re-fetches with new keyWords', async () => {
     const request = vi.fn(
       async (params: { keyWords?: string }) =>

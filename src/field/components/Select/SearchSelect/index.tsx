@@ -162,7 +162,9 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   // 用户输入路径已由 onSearch → fetchData 覆盖,这里负责编程式更新
   // (如下拉收起时外部清空搜索词,期望以 keyWords='' 重新拉取全量数据)。
   const controlledSearchValue = showSearchConfig?.searchValue ?? propsSearchValue;
-  const lastControlledSearchValue = useRef(controlledSearchValue);
+  const lastControlledSearchValue = useRef(
+    controlledSearchValue ?? defaultSearchValue,
+  );
   useEffect(() => {
     if (controlledSearchValue === lastControlledSearchValue.current) return;
     lastControlledSearchValue.current = controlledSearchValue;

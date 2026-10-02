@@ -28,6 +28,11 @@ describe('#8863 DatePicker custom format parsing', () => {
         'YYYY-MM-DD HH:mm:ss',
       ),
     ).toBe('2024-03-23 00:00:00');
+    expect(
+      (parseValueToDay('March 3, 2024', 'MMMM DD, YYYY') as any)?.format(
+        'YYYY-MM-DD',
+      ),
+    ).toBe('2024-03-03');
     // 两位数不受影响
     expect(
       (parseValueToDay('23/03/2024', 'DD/MM/YYYY') as any)?.format('YYYY-MM-DD'),

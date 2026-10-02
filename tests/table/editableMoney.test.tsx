@@ -70,6 +70,6 @@ describe('#9618 money valueType in edit mode', () => {
     });
     const savedRow = onSave.mock.lastCall?.[0] as any;
     // 保存值应为数字,不应是带 ¥ 的字符串
-    expect([200, '200']).toContain(savedRow.price);
+    expect(savedRow.price).toBe(200);
   });
 });

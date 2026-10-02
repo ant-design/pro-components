@@ -138,8 +138,11 @@ export const parseValueToDay = (
        * 降级为单位数宽容形式(`M`/`D`/`H`/`m`/`s`)重试一次。
        */
       const lenientFormatter = currentFormatter.replace(
-        /(MM|DD|HH|mm|ss)/g,
-        (token) => token[0],
+        /(MMMM|MMM|MM|DD|HH|mm|ss)/g,
+        (token) =>
+          token === 'MM' || token === 'DD' || token.length === 2
+            ? token[0]
+            : token,
       );
       if (lenientFormatter !== currentFormatter) {
         const lenient = dayjs(value, lenientFormatter, true);
