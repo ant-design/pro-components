@@ -33,7 +33,10 @@ describe('ProTable columnSetting listItemTitleRender (#9620)', () => {
         options={{
           setting: {
             listItemTitleRender: (title, column) => (
-              <span data-testid={`custom-title-${String(column.key)}`}>
+              <span
+                data-data-index={String(column.dataIndex)}
+                data-testid={`custom-title-${String(column.key)}`}
+              >
                 {title}
               </span>
             ),
@@ -49,6 +52,7 @@ describe('ProTable columnSetting listItemTitleRender (#9620)', () => {
     );
     expect(customTitle).toBeTruthy();
     expect(customTitle?.textContent).toContain('Name');
+    expect(customTitle?.getAttribute('data-data-index')).toBe('name');
     // 默认 Typography 省略包装被替换
     const defaultEllipsis =
       html.baseElement.querySelectorAll('.ant-typography-single-ellipsis');

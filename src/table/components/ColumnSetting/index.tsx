@@ -35,10 +35,11 @@ type ColumnSettingProps<T = any> = SettingOptionType & {
   columns: (TableColumnType<T> & { index?: number })[];
 };
 
-type ColumnSettingTreeNode = DataNode & {
-  parentKey?: React.Key;
-  children?: ColumnSettingTreeNode[];
-};
+type ColumnSettingTreeNode = DataNode &
+  Omit<TableColumnType<any>, 'children'> & {
+    parentKey?: string;
+    children?: ColumnSettingTreeNode[];
+  };
 
 export const reorderNestedColumns = (
   columnsMap: Record<string, ColumnsState>,
@@ -139,7 +140,7 @@ const CheckboxListItem: React.FC<{
   columnKey: string | number;
   className?: string;
   title?: React.ReactNode;
-  fixed?: boolean | 'left' | 'right';
+  fixed?: TableColumnType<any>['fixed'];
   showListItemOption?: boolean;
 }> = ({ columnKey, title, className, fixed, showListItemOption }) => {
   const intl = useIntl();
@@ -215,7 +216,7 @@ const CheckboxList: React.FC<{
     const checkedKeys: string[] = [];
     const treeMap = new Map<
       string | number,
-      DataNode & { parentKey?: string }
+      ColumnSettingTreeNode
     >();
 
     const loopData = (
@@ -223,8 +224,8 @@ const CheckboxList: React.FC<{
       parentConfig?: ColumnsState & {
         columnKey: string;
       },
-    ): DataNode[] =>
-      data.map(({ key, dataIndex: _dataIndex, children, ...rest }) => {
+    ): ColumnSettingTreeNode[] =>
+      data.map(({ key, dataIndex, children, ...rest }) => {
         const columnKey = genColumnKey(
           key,
           [parentConfig?.columnKey, rest.index].filter(Boolean).join('-'),
@@ -234,8 +235,9 @@ const CheckboxList: React.FC<{
           checkedKeys.push(columnKey);
         }
 
-        const item: DataNode = {
+        const item: ColumnSettingTreeNode = {
           key: columnKey,
+          dataIndex,
           ...omit(rest, ['className']),
           selectable: false,
           disabled: config.disable === true,
@@ -474,12 +476,15 @@ const CheckboxList: React.FC<{
       checkedKeys={treeDataConfig.keys}
       showLine={false}
       titleRender={(_node) => {
-        const node = { ..._node, children: undefined };
+        const node: ColumnSettingTreeNode = {
+          ..._node,
+          children: undefined,
+        };
         if (!node.title) return null;
         const normalizedTitle = runFunction(node.title, node);
         // #9620: listItemTitleRender 允许自定义标题渲染（如取消固定宽度让长标题单行自适应）
         const wrappedTitle = listItemTitleRender ? (
-          listItemTitleRender(normalizedTitle, node as any)
+          listItemTitleRender(normalizedTitle, node)
         ) : (
           <Typography.Text
             style={{ width: 80 }}

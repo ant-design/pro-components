@@ -368,7 +368,6 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
               } as RenderExpandIconProps<RecordType>)}
           </div>
           {headerDom}
-          {extraDom}
         </div>
         {needExpanded && (content || expandedRowDom) && (
           <div className={clsx(`${className}-content`, hashId)}>

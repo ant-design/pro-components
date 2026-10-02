@@ -75,6 +75,7 @@ describe('List showActions / showExtra (#7421)', () => {
     expect(row?.className).not.toContain('ant-pro-list-row-show-action-hover');
     expect(row?.className).not.toContain('ant-pro-list-row-show-extra-hover');
     expect(row?.textContent).toContain('编辑');
+    expect(row?.textContent?.match(/编辑/g)).toHaveLength(1);
   });
 
   it('maps legacy metas actions into the card actions slot', () => {

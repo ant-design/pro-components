@@ -382,7 +382,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           marginInline: 0,
           paddingBlock: 0,
           paddingInline: 0,
-          '&:hover': {
+          '&:hover, &:focus-within': {
             backgroundColor: 'transparent',
           },
 

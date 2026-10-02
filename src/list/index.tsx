@@ -100,7 +100,7 @@ export type ProListProps<
     onRow?: GetComponentProps<RecordType>;
     onItem?: GetComponentProps<RecordType>;
     itemCardProps?: CheckCardProps;
-    /** #7421: 何时展示 actions，'hover' 时悬浮列表项才显示（CardList 模式下不生效） */
+    /** #7421: 何时展示 actions，'hover' 时悬浮或聚焦列表项才显示 */
     showActions?: 'hover' | 'always';
     /** #7421: 何时展示 extra，'hover' 时悬浮列表项才显示（CardList 模式下不生效） */
     showExtra?: 'hover' | 'always';
