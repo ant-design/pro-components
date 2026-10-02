@@ -96,14 +96,16 @@ export function processQueryFilterItems({
         ? (item?.props?.colSize ?? 1)
         : 1;
       const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
-
-      totalSpan += colSpan;
-      totalSize += colSize;
-
-      itemLength += 1;
-
+      const explicitlyHidden = Boolean(
+        (item as ReactElement<{ hidden: boolean }>)?.props?.hidden,
+      );
+      if (!explicitlyHidden) {
+        totalSpan += colSpan;
+        totalSize += colSize;
+        itemLength += 1;
+      }
       const hidden: boolean =
-        (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
+        explicitlyHidden ||
         // defaultColsNumber/defaultFormItemsNumber describe item counts. A
         // larger colSize affects layout, but must not consume extra items.
         (collapsed && itemLength > showLength);
@@ -123,7 +125,7 @@ export function processQueryFilterItems({
             key: itemKey || index,
           } as Record<string, any>),
           hidden: true,
-          colSpan,
+          colSpan: 0,
         };
       }
 

@@ -76,6 +76,8 @@ export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
     colSize?: number;
     /** 是否只读模式 */
     readonly?: boolean;
+    /** 是否隐藏字段；QueryFilter 中隐藏字段不占用栅格位置 */
+    hidden?: boolean;
     /** 搜索表单的默认值 */
     initialValue?: any;
     /**

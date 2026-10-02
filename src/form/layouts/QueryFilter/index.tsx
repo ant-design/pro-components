@@ -80,7 +80,7 @@ const getBreakpointsConfig = (token: {
  * @param width
  * @param breakpointsConfig 从 theme.useToken() 获取，支持 ConfigProvider 主题定制
  */
-const getSpanConfig = (
+export const getSpanConfig = (
   layout: FormProps['layout'],
   width: number,
   span: SpanConfig | undefined,
@@ -98,7 +98,9 @@ const getSpanConfig = (
     ? (['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const).map((key) => [
         configSpanBreakpoints[key],
         24 / (span as Record<string, number>)[key],
-        'horizontal',
+        // #8836:响应式 span 对象不应强制改写布局方向,
+        // 尊重用户显式传入的 layout(vertical 保持 vertical)
+        layout || 'horizontal',
       ])
     : breakpoints[(layout as 'default') || 'default'];
 
@@ -112,7 +114,7 @@ const getSpanConfig = (
       span: spanConfig?.[spanConfig.length - 1]
         ? 24 / (spanConfig[spanConfig.length - 1][1] as number)
         : 8,
-      layout: 'horizontal',
+      layout: layout || 'horizontal',
     };
   }
   return {
