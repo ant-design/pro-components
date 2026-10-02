@@ -15,18 +15,23 @@ describe('#9624 controlled open with trigger', () => {
     const onOpenChange = vi.fn();
     const values: boolean[] = [];
 
-    const Demo = () => (
-      <ModalForm
-        onOpenChange={(open) => {
-          onOpenChange(open);
-          values.push(open);
-        }}
-        trigger={<Button id="open-btn">open</Button>}
-        modalProps={{ getContainer: false }}
-      >
-        <ProFormText name="name" label="Name" />
-      </ModalForm>
-    );
+    const Demo = () => {
+      const [open, setOpen] = React.useState(false);
+      return (
+        <ModalForm
+          open={open}
+          onOpenChange={(nextOpen) => {
+            onOpenChange(nextOpen);
+            values.push(nextOpen);
+            setOpen(nextOpen);
+          }}
+          trigger={<Button id="open-btn">open</Button>}
+          modalProps={{ getContainer: false }}
+        >
+          <ProFormText name="name" label="Name" />
+        </ModalForm>
+      );
+    };
     const { container } = render(<Demo />);
 
     await act(async () => {
@@ -37,7 +42,7 @@ describe('#9624 controlled open with trigger', () => {
       await new Promise((r) => setTimeout(r, 200));
     });
 
-    // 未受控模式:点击 trigger 应通知 onOpenChange(true)
+    // 受控模式:点击 trigger 应先通知外部，再由外部更新 open。
     expect(values).toContain(true);
 
     // Modal 内容已渲染
