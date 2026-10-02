@@ -1,7 +1,7 @@
 import { merge, useControlledState } from '@rc-component/util';
 import React, {
-  useEffect,
   useImperativeHandle,
+  useLayoutEffect,
   useRef,
   useState,
 } from 'react';
@@ -108,7 +108,9 @@ export function useOverlayForm<T = Record<string, any>>({
    * 仅非受控(trigger 自管理状态)时保留 #8920 的缓冲语义。
    */
   const controlledRef = useRef(propsOpen !== undefined);
-  controlledRef.current = propsOpen !== undefined;
+  useLayoutEffect(() => {
+    controlledRef.current = propsOpen !== undefined;
+  }, [propsOpen]);
 
   const onOpenChangeCallback = useRefFunction((nextOpen: boolean) => {
     if (!formMountedRef.current && nextOpen && !controlledRef.current) {
@@ -180,15 +182,6 @@ export function useOverlayForm<T = Record<string, any>>({
    */
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(propsFormRef, () => formRef.current, []);
-
-  // 受控 propsOpen=true 时，立即通知外部感知初始打开状态
-  useEffect(() => {
-    if (propsOpen) {
-      onOpenChange?.(true);
-    }
-    // 只关心 propsOpen 的初始值，不追踪 onOpenChange（引用可能每次变化）
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [propsOpen]);
 
   // trigger 克隆：注入 onClick 以切换 open
   const triggerDom = trigger

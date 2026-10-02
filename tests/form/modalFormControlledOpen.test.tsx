@@ -44,6 +44,7 @@ describe('#9624 controlled open with trigger', () => {
 
     // 受控模式:点击 trigger 应先通知外部，再由外部更新 open。
     expect(values).toContain(true);
+    expect(onOpenChange).toHaveBeenCalledTimes(1);
 
     // Modal 内容已渲染
     const input = document.querySelector(
