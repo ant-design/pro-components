@@ -4,6 +4,9 @@
 
 ### 🐛 问题修复
 
+- 统一编辑字段中的自定义日期格式解析与 URL 同步的秒/毫秒时间戳回显 [#8863](https://github.com/ant-design/pro-components/issues/8863) [#8810](https://github.com/ant-design/pro-components/issues/8810)
+- 在 `omitNil=false` 时保留空字段，透传字段级失焦校验，并使 ellipsis tooltip 与格式化后的显示文本一致 [#8044](https://github.com/ant-design/pro-components/issues/8044) [#8380](https://github.com/ant-design/pro-components/issues/8380) [#8542](https://github.com/ant-design/pro-components/issues/8542)
+- 支持受控搜索值刷新 Select 请求且避免空搜索重复请求，正确处理 QueryFilter hidden 字段与响应式垂直布局 [#8801](https://github.com/ant-design/pro-components/issues/8801) [#8780](https://github.com/ant-design/pro-components/issues/8780) [#8928](https://github.com/ant-design/pro-components/issues/8928) [#8397](https://github.com/ant-design/pro-components/issues/8397) [#8836](https://github.com/ant-design/pro-components/issues/8836)
 - 修复 EditableProTable 函数式 `rowKey` 下嵌套子行表单路径错误，并补充 ProFormList 嵌套表格的受控写法回归测试 [#8893](https://github.com/ant-design/pro-components/issues/8893) [#6508](https://github.com/ant-design/pro-components/issues/6508)
 - 统一 `convertValue` / `transform` 的整表数据、嵌套列表和 ProTable 列转换语义 [#8907](https://github.com/ant-design/pro-components/issues/8907) [#8480](https://github.com/ant-design/pro-components/issues/8480) [#9120](https://github.com/ant-design/pro-components/issues/9120) [#9032](https://github.com/ant-design/pro-components/issues/9032)
 - 修复只读空数组、Digit 前后缀及数字 valueEnum 回显问题 [#8848](https://github.com/ant-design/pro-components/issues/8848) [#8844](https://github.com/ant-design/pro-components/issues/8844) [#8517](https://github.com/ant-design/pro-components/issues/8517)

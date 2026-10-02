@@ -35,6 +35,7 @@ functions/mock
 # screenshot
 screenshot
 .firebase
+.eslintcache
 .changelogs
 .changelog.md
 packages/components/src/version.ts

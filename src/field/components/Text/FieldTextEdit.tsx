@@ -21,6 +21,7 @@ export function FieldTextEdit(props: FieldTextEditProps) {
       {...fieldProps}
     />
   );
+
   if (formItemRender) {
     return formItemRender(text, { mode, ...fieldProps }, dom);
   }

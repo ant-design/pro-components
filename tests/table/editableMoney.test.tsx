@@ -21,7 +21,7 @@ describe('#9618 money valueType in edit mode', () => {
         recordCreatorProps={false}
         editable={{
           editableKeys: [1],
-          onSave: (_key, row) => {
+          onSave: async (_key, row) => {
             onSave(row);
           },
         }}
