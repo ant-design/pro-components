@@ -34,6 +34,30 @@ ModalForm and DrawerForm both provide triggers to reduce state usage, if you nee
 
 <code src="../../demos/form/modal-form/open-on-open-change.tsx" background="var(--main-bg-color)" title="Controlled open"></code>
 
+## Set Form Values Before the First Open
+
+antd Modal renders its content lazily by default. Before the first open, an
+instance created by `Form.useForm()` is not connected to the Form inside
+ModalForm, so calling `setFieldsValue` produces the “Instance created by
+`useForm` is not connected” warning. Passing `form={form}` alone does not mount
+the Form early.
+
+If the interaction must call `setFieldsValue` before opening the modal, set
+`modalProps={{ forceRender: true }}`. The following example is directly
+verifiable:
+
+<code src="../../demos/form/modal-form/use-form-before-open.tsx" background="var(--main-bg-color)" title="useForm: set values before the first open"></code>
+
+You can also avoid calling the instance too early:
+
+- Use `initialValues` or `request` so data is initialized after the Form
+  mounts. When editing different records, combine this with
+  `modalProps={{ destroyOnHidden: true }}` so the next open mounts a fresh Form.
+- Capture or use the connected instance in `onInit`.
+- When using ModalForm's built-in `trigger`, write values in
+  `onOpenChange(true)`. In v3, the first open callback is flushed after the
+  internal Form mounts.
+
 ## Reset Form
 
 <code src="../../demos/form/modal-form/modal-form-reset.tsx" background="var(--main-bg-color)" title="Reset after submit"></code>
