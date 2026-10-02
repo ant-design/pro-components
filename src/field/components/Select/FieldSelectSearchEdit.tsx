@@ -38,16 +38,17 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
     ...rest
   } = props;
 
-  const { normalizedOptions, normalizedValue } = useMemo(() => {
+  const normalizedOptions = useMemo(() => {
     const currentValue = fieldProps?.value;
-    const sample = Array.isArray(currentValue) ? currentValue[0] : currentValue;
-    if (typeof sample !== 'number') {
-      return { normalizedOptions: options, normalizedValue: currentValue };
-    }
+    const selectedNumericValues = new Set(
+      (Array.isArray(currentValue) ? currentValue : [currentValue]).filter(
+        (value): value is number => typeof value === 'number',
+      ),
+    );
+    if (!selectedNumericValues.size) return options;
 
     const valueKey = fieldProps?.fieldNames?.value ?? 'value';
     const childrenKey = fieldProps?.fieldNames?.options ?? 'options';
-    const normalizedStringValues = new Map<string, number>();
     const normalize = (items: RequestOptionsType[]): RequestOptionsType[] => {
       const numericValues = new Set(
         items
@@ -62,8 +63,8 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
           typeof rawValue === 'string' &&
           rawValue !== '' &&
           String(numericValue) === rawValue &&
+          selectedNumericValues.has(numericValue) &&
           !numericValues.has(numericValue);
-        if (canNormalize) normalizedStringValues.set(rawValue, numericValue);
         return {
           ...item,
           ...(canNormalize ? { [valueKey]: numericValue } : {}),
@@ -73,17 +74,7 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
         };
       });
     };
-    const nextOptions = normalize(options);
-    const normalizeSelectedValue = (value: unknown) =>
-      typeof value === 'string' && normalizedStringValues.has(value)
-        ? normalizedStringValues.get(value)
-        : value;
-    return {
-      normalizedOptions: nextOptions,
-      normalizedValue: Array.isArray(currentValue)
-        ? currentValue.map(normalizeSelectedValue)
-        : normalizeSelectedValue(currentValue),
-    };
+    return normalize(options);
   }, [fieldProps?.fieldNames, fieldProps?.value, options]);
 
   const dom = (
@@ -107,7 +98,6 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
       placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
       label={label}
       {...fieldProps}
-      value={normalizedValue}
       fetchDataOnSearch={fieldProps?.fetchDataOnSearch ?? fetchDataOnSearch}
       options={normalizedOptions}
     />
