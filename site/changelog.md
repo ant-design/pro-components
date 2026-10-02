@@ -22,6 +22,10 @@
   - ✅ 增加 `preserve={false}` 字段复制、条件重挂载及首次提交 transform 的回归测试 [#8208](https://github.com/ant-design/pro-components/issues/8208) [#8896](https://github.com/ant-design/pro-components/issues/8896) [#8700](https://github.com/ant-design/pro-components/issues/8700)
 - BetaSchemaForm
   - 🆕 在 `formList` 子列的函数式属性中传入当前行号 [#8561](https://github.com/ant-design/pro-components/issues/8561)
+- ProList
+  - 🐞 恢复 `showActions`、`showExtra` 与卡片操作区位置，并锁定栅格间距和实时分页回归 [#7421](https://github.com/ant-design/pro-components/issues/7421) [#8387](https://github.com/ant-design/pro-components/issues/8387) [#7862](https://github.com/ant-design/pro-components/issues/7862)
+- ProTable
+  - 🆕 增加 `options.setting.listItemTitleRender`，支持列设置标题自适应渲染 [#9620](https://github.com/ant-design/pro-components/issues/9620)
 
 ### 📖 文档
 

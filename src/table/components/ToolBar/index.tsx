@@ -33,6 +33,14 @@ export type SettingOptionType = {
   extra?: React.ReactNode;
   children?: React.ReactNode;
   settingIcon?: React.ReactNode;
+  /**
+   * #9620: 自定义列设置面板中列表项标题的渲染。
+   * 默认固定宽度（80px）单行省略；可通过自定义渲染节点调整宽度或省略行为。
+   */
+  listItemTitleRender?: (
+    title: React.ReactNode,
+    column: TableColumnType<any> & { key?: React.Key },
+  ) => React.ReactNode;
 };
 export type OptionConfig = {
   density?: boolean;
