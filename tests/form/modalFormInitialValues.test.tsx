@@ -1,5 +1,4 @@
-import { act, fireEvent, render } from '@testing-library/react';
-import { Button } from 'antd';
+import { act, render } from '@testing-library/react';
 import React, { useState } from 'react';
 import { describe, expect, it } from 'vitest';
 import { ModalForm, ProFormText } from '../../src';
