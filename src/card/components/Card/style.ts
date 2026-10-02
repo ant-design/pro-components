@@ -10,7 +10,7 @@ const genActiveStyle = (token: ProCardToken) => ({
   borderColor: token.controlOutline,
 });
 
-const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
+export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
   const { componentCls } = token;
   return {
     [componentCls]: {
@@ -177,9 +177,9 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       [`${componentCls}-title`]: {
         color: token.colorText,
         fontWeight: token.fontWeightStrong,
-        // #8929: 优先消费 antd Card 组件 token（components.Card.headerFontSize），
-        // 缺省回退全局 fontSizeLG，保持与 antd Card 标题规格一致
-        fontSize: (token as any).headerFontSize || token.fontSizeLG,
+        fontSize:
+          (token.components?.Card?.headerFontSize as number | undefined) ??
+          token.fontSizeLG,
         lineHeight: token.lineHeight,
       },
 

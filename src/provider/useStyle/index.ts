@@ -45,6 +45,8 @@ export type UseStyleResult = {
 
 export type ProAliasToken = GlobalToken &
   ProTokenType & {
+    /** Component tokens configured through antd ConfigProvider. */
+    components?: Record<string, Record<string, unknown>>;
     themeId: number;
     /**
      * pro 的 className
@@ -149,25 +151,29 @@ export function useStyle(
 
   const { token: antdToken, hashId, theme } = antdTheme.useToken();
 
-  const { getPrefixCls, csp, iconPrefixCls, theme: antdThemeConfig } =
-    useContext(AntdConfigProvider.ConfigContext);
+  const {
+    getPrefixCls,
+    csp,
+    iconPrefixCls,
+    theme: antdThemeConfig,
+  } = useContext(AntdConfigProvider.ConfigContext);
 
   // 如果不在 ProProvider 里面，就用 antd 的
   if (!token.layout) {
     token = { ...antdToken } as any;
   }
 
-  // #8929: 透传 antd 组件级 token（theme.components.*）进 pro token。
-  // antd 的 theme.useToken() 只返回全局 token，Pro 组件（如 ProCard 标题
-  // 消费 components.Card.headerFontSize）需要在这里补齐组件 token 才能生效。
-  const componentTokens = (antdThemeConfig as any)?.components;
+  // antd theme.useToken() only returns global tokens. Keep component tokens
+  // namespaced so Pro components can consume their antd counterpart without
+  // leaking fields from unrelated components into the global token (#8929).
+  const componentTokens = antdThemeConfig?.components;
   if (componentTokens) {
     token = {
       ...token,
-      ...Object.values(componentTokens).reduce(
-        (acc, comp) => Object.assign(acc, comp),
-        {},
-      ),
+      components: {
+        ...token.components,
+        ...componentTokens,
+      },
     } as any;
   }
 
