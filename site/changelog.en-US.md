@@ -1,5 +1,21 @@
 # Changelog
 
+## Unreleased
+
+### 🐛 Bug Fixes
+
+- ProForm
+  - 🐞 Export `ProFormGroup` directly so SSR/ESM bundlers do not read a partially initialized `ProForm.Group` during module evaluation [#8543](https://github.com/ant-design/pro-components/issues/8543)
+
+### 📖 Documentation
+
+- 📖 Clarify that v3 only publishes the single `@ant-design/pro-components` package, with installation and build diagnostics for antd 6, Umi, Next.js, `rc-util`, `path-to-regexp`, and antd 4 [#9629](https://github.com/ant-design/pro-components/issues/9629)
+- 📖 Add a `forceRender` example and timing guidance for calling `setFieldsValue` before ModalForm's first open [#9628](https://github.com/ant-design/pro-components/issues/9628)
+
+### ✅ Tests
+
+- ✅ Add LoginForm/ProFormGroup SSR coverage and a ModalForm pre-open value regression test
+
 ## [3.1.15-2] - 2026-09-27
 
 ### 🆕 Features
