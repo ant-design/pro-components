@@ -28,7 +28,8 @@ order: 2
 
 ### Package Version Changes
 
-All sub-packages unified to version `3.0.0-beta.1`
+v3 only publishes the single `@ant-design/pro-components` package. The
+standalone packages on npm remain on v2 and must not be mixed with antd 6.
 
 ## Migration Checklist
 
@@ -72,7 +73,7 @@ grep -r "plain" src/
 
 # Update dependencies
 npm install antd@^6.0.0
-npm install @ant-design/pro-components@^3.0.0-beta.1
+npm install @ant-design/pro-components@beta
 ```
 
 ## Rollback Plan

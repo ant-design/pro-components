@@ -35,6 +35,26 @@ ModalForm 和 DrawerForm 都提供了 trigger 来减少 state 的使用，如果
 
 <code src="../../demos/form/modal-form/open-on-open-change.tsx" background="var(--main-bg-color)"></code>
 
+## 在首次打开前设置表单值
+
+antd Modal 默认懒渲染内容。首次打开前，`Form.useForm()` 创建的实例还没有连接到
+ModalForm 内部的 Form，此时调用 `setFieldsValue` 会出现
+“Instance created by `useForm` is not connected” 警告。只传 `form={form}` 不能提前挂载
+Form。
+
+如果交互必须先调用 `setFieldsValue` 再打开弹窗，请设置
+`modalProps={{ forceRender: true }}`。下面的示例可以直接复制验证：
+
+<code src="../../demos/form/modal-form/use-form-before-open.tsx" background="var(--main-bg-color)" title="useForm：首次打开前写入值"></code>
+
+也可以采用以下方式避免过早调用实例：
+
+- 使用 `initialValues` 或 `request`，让数据随 Form 挂载后初始化；编辑不同记录时配合
+  `modalProps={{ destroyOnHidden: true }}`，确保下次打开重新挂载。
+- 在 `onInit` 中保存或使用已经连接的表单实例。
+- 使用 ModalForm 自带的 `trigger` 时，在 `onOpenChange(true)` 中写入值；v3 会等内部
+  Form 挂载后再触发首次打开回调。
+
 ## 重置表单
 
 <code src="../../demos/form/modal-form/modal-form-reset.tsx" background="var(--main-bg-color)"></code>
