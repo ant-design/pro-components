@@ -1,6 +1,6 @@
 import type { GetRef, SelectProps } from 'antd';
 import { Select, Spin } from 'antd';
-import React from 'react';
+import React, { useMemo } from 'react';
 import type { IntlType } from '../../../provider';
 import type { RequestOptionsType } from '../../../utils';
 import type { ProFieldFC } from '../../types';
@@ -38,6 +38,32 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
     ...rest
   } = props;
 
+  const normalizedOptions = useMemo(() => {
+    const currentValue = fieldProps?.value;
+    const sample = Array.isArray(currentValue) ? currentValue[0] : currentValue;
+    if (typeof sample !== 'number') return options;
+
+    const valueKey = fieldProps?.fieldNames?.value ?? 'value';
+    const childrenKey = fieldProps?.fieldNames?.options ?? 'options';
+    const normalize = (items: RequestOptionsType[]): RequestOptionsType[] =>
+      items.map((item) => {
+        const rawValue = item[valueKey];
+        const nested = item[childrenKey] ?? item.children;
+        return {
+          ...item,
+          ...(typeof rawValue === 'string' &&
+          rawValue !== '' &&
+          !Number.isNaN(Number(rawValue))
+            ? { [valueKey]: Number(rawValue) }
+            : {}),
+          ...(Array.isArray(nested)
+            ? { [childrenKey]: normalize(nested) }
+            : {}),
+        };
+      });
+    return normalize(options);
+  }, [fieldProps?.fieldNames, fieldProps?.value, options]);
+
   const dom = (
     <SearchSelect
       key="SearchSelect"
@@ -60,7 +86,7 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
       label={label}
       {...fieldProps}
       fetchDataOnSearch={fieldProps?.fetchDataOnSearch ?? fetchDataOnSearch}
-      options={options}
+      options={normalizedOptions}
     />
   );
 

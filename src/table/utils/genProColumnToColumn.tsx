@@ -82,30 +82,40 @@ function parseColumnFilterSort<T>(
 
 const EMPTY_SUB_NAME: string[] = [];
 
+function resolveRecordKey<T>(
+  record: Record<string, any>,
+  rowKey: TableColumnContext<T>['rowKey'],
+  index: number,
+): unknown {
+  if (typeof rowKey === 'function') {
+    return rowKey(record as T, index);
+  }
+  return record[String(rowKey ?? 'id')];
+}
+
 function updateSubNameRecord<T>(
   rowData: T,
   index: number,
-  keyName: string | number | symbol,
-  childrenColumnName: string,
+  context: TableColumnContext<T>,
   subNameRecord: Map<unknown, unknown[]>,
 ): unknown {
   if (typeof rowData !== 'object' || rowData === null) {
     return undefined;
   }
   const record = rowData as Record<string, any>;
-  // 快路径：绝大多数行没有子行，直接属性读取即可，避免 Reflect.has 开销
-  if (!(keyName in record)) {
-    return undefined;
-  }
-  const uniqueKey = record[keyName as string];
+  const { childrenColumnName } = context;
+  const uniqueKey = resolveRecordKey(record, context.rowKey, index);
   const children = record[childrenColumnName];
   // 无子行时不注册索引，查询侧统一回退共享空数组（避免每格分配）
   if (!children?.length) {
     return uniqueKey;
   }
   const parentInfo = subNameRecord.get(uniqueKey) || [];
-  children.forEach((item: any) => {
-    const itemUniqueKey = item?.[keyName];
+  children.forEach((item: any, childIndex: number) => {
+    const itemUniqueKey =
+      item == null || typeof item !== 'object'
+        ? item
+        : resolveRecordKey(item, context.rowKey, childIndex);
     if (!subNameRecord.has(itemUniqueKey)) {
       subNameRecord.set(
         itemUniqueKey,
@@ -121,16 +131,11 @@ function createCellRender<T extends AnyObject>(
   context: TableColumnContext<T>,
   subNameRecord: Map<unknown, unknown[]>,
 ) {
-  let keyName: string | number | symbol = (context.rowKey ?? 'id') as string;
   return function cellRender(text: any, rowData: T, index: number) {
-    if (typeof context.rowKey === 'function') {
-      keyName = context.rowKey(rowData, index) as string;
-    }
     const uniqueKey = updateSubNameRecord(
       rowData,
       index,
-      keyName,
-      context.childrenColumnName,
+      context,
       subNameRecord,
     );
     return columnRender<T>({

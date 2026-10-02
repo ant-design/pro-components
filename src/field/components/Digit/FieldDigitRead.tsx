@@ -19,12 +19,14 @@ export function FieldDigitRead(
     ...(fieldProps?.intlProps || {}),
   }).format(Number(text) as number);
 
-  const dom = !fieldProps?.stringMode ? (
+  const dom = (
     <span ref={ref as React.Ref<HTMLSpanElement>}>
-      {fieldProps?.formatter?.(digit) || digit}
+      {fieldProps?.prefix}
+      {!fieldProps?.stringMode
+        ? fieldProps?.formatter?.(digit) || digit
+        : text}
+      {fieldProps?.suffix}
     </span>
-  ) : (
-    <span>{text}</span>
   );
 
   if (render) {

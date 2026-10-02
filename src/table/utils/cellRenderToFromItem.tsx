@@ -332,6 +332,8 @@ function cellRenderToFromItem<T extends AnyObject>(
       : undefined,
     params: runFunction(columnProps?.params, rowData, columnProps),
     readonly: columnProps?.readonly,
+    convertValue: columnProps?.convertValue,
+    transform: columnProps?.transform,
     text:
       valueType === 'index' || valueType === 'indexBorder'
         ? config.index

@@ -384,7 +384,21 @@ function rebuildTreeStructure<RecordType>(
     }
   });
 
-  return result;
+  const stripInternalKeys = (records: RecordType[]): RecordType[] =>
+    records.map((item) => {
+      const {
+        map_row_key: _mapRowKey,
+        map_row_parentKey: _mapRowParentKey,
+        ...record
+      } = item as any;
+      const children = record[childrenColumnName];
+      if (Array.isArray(children)) {
+        record[childrenColumnName] = stripInternalKeys(children);
+      }
+      return record as RecordType;
+    });
+
+  return stripInternalKeys(result);
 }
 
 /**
@@ -1506,7 +1520,7 @@ export function useEditableArray<RecordType extends AnyObject>(
           getRowKey: props.getRowKey,
           row: {
             ...row,
-            map_row_parentKey: parentKeyValue
+            map_row_parentKey: parentKeyValue != null
               ? recordKeyToString(parentKeyValue)?.toString()
               : undefined,
           },
