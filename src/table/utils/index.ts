@@ -311,11 +311,12 @@ export const parseServerDefaultColumnConfig = <T, Value>(
 
     // 当 column 启用服务端 filters 功能时，取出默认的筛选值
     if (column.filters && !isLocalFilter(column.filters, column.onFilter)) {
-      const defaultFilteredValue =
-        column.defaultFilteredValue as FilterValue | undefined;
+      const defaultFilteredValue = column.defaultFilteredValue as
+        FilterValue | undefined;
       // 没有 defaultFilteredValue 时不写入 null，
       // 避免 request 收到 { dataIndex: null }（#9161）
-      if (defaultFilteredValue != null) filter[dataIndex] = defaultFilteredValue;
+      if (defaultFilteredValue != null)
+        filter[dataIndex] = defaultFilteredValue;
     }
 
     // 当 column 启用服务端 sorter 功能时，取出默认的排序值
@@ -324,7 +325,8 @@ export const parseServerDefaultColumnConfig = <T, Value>(
         typeof column.sorter === 'string' ? column.sorter : dataIndex;
       // 没有 defaultSortOrder 时不写入 null，
       // 避免 request 收到 { dataIndex: null }（#9161）
-      if (column.defaultSortOrder != null) sort[sortKey] = column.defaultSortOrder;
+      if (column.defaultSortOrder != null)
+        sort[sortKey] = column.defaultSortOrder;
     }
   });
   return { sort, filter };
@@ -407,7 +409,7 @@ export function resolveTableViewDefaultDom(
  *
  * 规则与 Table.tsx useRowKey / EditableTable getRowKey 保持一致：
  *  - index === -1 时（内部标识新行）直接取字段值，不走 index fallback
- *  - name 模式下使用 index.toString() 作为 key（便于转换为数组索引）
+ *  - name 模式下使用 index.toString() 作为 key（与 ProTable 内部 rowKey 保持一致）
  *  - 否则取 rowKey 字段值，fallback 到 index.toString()
  *
  * rowKey 类型兼容 antd TableProps.rowKey 的完整联合类型：
@@ -470,7 +472,6 @@ export function resolveEditingPayloadForRowEditableOnChange<
     .map((key) => kvMap.get(key))
     .filter((k): k is DataType => k !== undefined);
   const type = editableType || 'single';
-  const editingPayload =
-    type === 'single' ? editingRecords[0] : editingRecords;
+  const editingPayload = type === 'single' ? editingRecords[0] : editingRecords;
   return editingPayload as DataType | DataType[];
 }

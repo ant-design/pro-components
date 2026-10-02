@@ -184,7 +184,7 @@ export type RowEditableConfig<DataType> = {
    * 解决分页带来的 FormItem namePath 使用错误的 index 作为路径
    * @link https://github.com/ant-design/pro-components/issues/7790
    */
-  getRealIndex?: (record: DataType) => number;
+  getRealIndex?: (record: DataType) => number | React.Key[];
   /**
    * 与 ProTable `dateFormatter` 一致；合并到 dataSource 时把行内的 dayjs / 反序列化 dayjs 转为 string 或 number
    */
@@ -208,6 +208,8 @@ export type ActionRenderConfig<T, LineConfig = NewLineConfig<T>> = {
    */
   preEditRowRefs?: React.MutableRefObject<Map<string, T | null>>;
   index?: number;
+  /** name 模式下该行在表单数组中的完整路径（含嵌套 children 段） */
+  rowNamePath?: React.Key | React.Key[];
   cancelEditable: (key: RecordKey) => void;
   onSave: RowEditableConfig<T>['onSave'];
   onCancel: RowEditableConfig<T>['onCancel'];
@@ -238,44 +240,100 @@ function flattenRecordsToMap<RecordType>(
     RecordType & { map_row_key?: string; map_row_parentKey?: React.Key }
   >();
 
-  records.forEach((record, index) => {
-    // 历史实现：用 `parentIndex * 10 + index` 把"全局扁平后的位置"传给 getRowKey 的第二参数，
-    // 用于嵌套树场景下当 rowKey 退化到 index 时仍尽量保持唯一性。
-    // 这种拼法在「兄弟节点超过 9 个」时会哈希冲突（如父1的第10个孩子和父2的第0个孙都是 20），
-    // 但 editor-table 等测试已经依赖了这种 index 的具体值（重建 dataSource 时反查 map），
-    // 直接改成 `index` 会让保存编辑后丢行（`saveEditable should save and quit editing` 测试）。
-    // → 暂保留原实现，待用 path 字符串替代上层 map 的 key 维度后再彻底重构。
-    const eachIndex = (parentIndex || 0) * 10 + index;
-    const recordKey = getRowKey(record, eachIndex).toString();
+  // #8893 name 模式（或 rowKey 缺失）下 getRowKey 会退化为 index，父与子的 key 可能
+  // 完全相同（如顶层第 0 行与其第 0 个子行都是 '0'）。旧实现直接互相覆盖：
+  //  - 先子后父 → 父覆盖子，rebuild 丢整棵 children；
+  //  - 先父后子 → 子覆盖父，rebuild 的父子挂接产生自引用（children 里包含自己）→ 深递归爆栈。
+  // 这里先用递归方式为冲突的 key 追加父 key 后缀，保证 map 中每个槽位唯一，
+  // 且 map_row_key / map_row_parentKey 全程指向去重后的 key，rebuild 才能正确重建树。
+  const fillRecords = (
+    list: RecordType[],
+    parentSlotKey: string | undefined,
+    parentIndexInner: number | undefined,
+  ) => {
+    list.forEach((record, index) => {
+      // 历史实现：用 `parentIndex * 10 + index` 把"全局扁平后的位置"传给 getRowKey 的第二参数，
+      // 用于嵌套树场景下当 rowKey 退化到 index 时仍尽量保持唯一性。
+      // 这种拼法在「兄弟节点超过 9 个」时会哈希冲突（如父1的第10个孩子和父2的第0个孙都是 20），
+      // 但 editor-table 等测试已经依赖了这种 index 的具体值（重建 dataSource 时反查 map），
+      // 直接改成 `index` 会让保存编辑后丢行（`saveEditable should save and quit editing` 测试）。
+      // → 暂保留原实现，待用 path 字符串替代上层 map 的 key 维度后再彻底重构。
+      const eachIndex = (parentIndexInner || 0) * 10 + index;
+      const rawKey = getRowKey(record, eachIndex).toString();
+      const recordKey = kvMap.has(rawKey)
+        ? `${rawKey}#${parentSlotKey ?? 'top'}`
+        : rawKey;
 
-    const hasChildren =
-      record && typeof record === 'object' && childrenColumnName in record;
+      const newRecord = {
+        ...record,
+        map_row_key: recordKey,
+        map_row_parentKey: parentSlotKey,
+      };
+      delete (newRecord as any)[childrenColumnName];
+      if (parentSlotKey === undefined) {
+        delete newRecord.map_row_parentKey;
+      }
+      kvMap.set(recordKey, newRecord);
 
-    if (hasChildren) {
-      const children = (record as any)[childrenColumnName] || [];
-      const childrenMap = flattenRecordsToMap(
-        children,
-        getRowKey,
-        childrenColumnName,
-        recordKey,
-        eachIndex,
-      );
-      childrenMap.forEach((value, key) => kvMap.set(key, value));
-    }
+      const hasChildren =
+        record && typeof record === 'object' && childrenColumnName in record;
 
-    const newRecord = {
-      ...record,
-      map_row_key: recordKey,
-      map_row_parentKey: parentKey,
-    };
-    delete (newRecord as any)[childrenColumnName];
-    if (parentKey == null) {
-      delete newRecord.map_row_parentKey;
-    }
-    kvMap.set(recordKey, newRecord);
-  });
+      if (hasChildren) {
+        const children = (record as any)[childrenColumnName] || [];
+        fillRecords(children, recordKey, eachIndex);
+      }
+    });
+  };
+
+  fillRecords(records, parentKey?.toString(), parentIndex);
 
   return kvMap;
+}
+
+/**
+ * 按业务 rowKey（getRowKey(record, -1) 的返回值）在树中定位父记录，
+ * 并返回该记录在 flattenRecordsToMap 里的 map key。
+ *
+ * #8893 name 模式下 flatten 的 key 是数组 index，而用户传入的 parentKey 是
+ * 业务 id，两者对不上会导致 rebuildTreeStructure 把 children 全部丢弃；
+ * 本方法以与 flatten 完全一致的 eachIndex 计算路径，保证 key 匹配。
+ * 找不到时返回 undefined（调用方回退为原始 parentKey，保持旧行为）。
+ */
+function resolveFlattenParentKey<RecordType>(
+  records: RecordType[],
+  getRowKey: GetRowKey<RecordType>,
+  childrenColumnName: string,
+  parentKey: React.Key,
+): string | undefined {
+  const usedKeys = new Set<string>();
+  const walk = (
+    list: RecordType[],
+    parentSlotKey?: string,
+    parentIndex?: number,
+  ): string | undefined => {
+    for (let index = 0; index < list.length; index++) {
+      const record = list[index];
+      const eachIndex = (parentIndex || 0) * 10 + index;
+      const rawKey = getRowKey(record, eachIndex).toString();
+      const slotKey = usedKeys.has(rawKey)
+        ? `${rawKey}#${parentSlotKey ?? 'top'}`
+        : rawKey;
+      usedKeys.add(slotKey);
+      if (String(getRowKey(record, -1)) === String(parentKey)) {
+        return slotKey;
+      }
+      const children =
+        record &&
+        typeof record === 'object' &&
+        (record as any)[childrenColumnName];
+      if (Array.isArray(children)) {
+        const found = walk(children, slotKey, eachIndex);
+        if (found !== undefined) return found;
+      }
+    }
+    return undefined;
+  };
+  return walk(records);
 }
 
 /**
@@ -384,18 +442,26 @@ function rebuildTreeStructure<RecordType>(
     }
   });
 
+  // #8893 子记录的 map_row_key / isNewRecord 只在 rebuild 反查时有用，产出前必须清掉，
+  // 否则会泄漏进 dataSource / 表单提交值（用户可见的脏字段）。
+  // 注意：顶层记录的 map_row_key 在上方 forEach 已剥离，但它的 children 来自
+  // childrenMap（内部仍带 map_row_key），所以无论当前记录是否带内部键都要递归处理 children。
   const stripInternalKeys = (records: RecordType[]): RecordType[] =>
-    records.map((item) => {
+    records.map((item: any) => {
       const {
-        map_row_key: _mapRowKey,
-        map_row_parentKey: _mapRowParentKey,
-        ...record
-      } = item as any;
-      const children = record[childrenColumnName];
+        map_row_key: _map_row_key,
+        map_row_parentKey: _map_row_parentKey,
+        isNewRecord: _isNewRecord,
+        ...rest
+      } = item ?? {};
+      const children = rest[childrenColumnName];
       if (Array.isArray(children)) {
-        record[childrenColumnName] = stripInternalKeys(children);
+        return {
+          ...rest,
+          [childrenColumnName]: stripInternalKeys(children),
+        } as RecordType;
       }
-      return record as RecordType;
+      return rest as RecordType;
     });
 
   return stripInternalKeys(result);
@@ -568,8 +634,7 @@ export type SaveEditableActionRef<T = any> = {
    * @throws 如果校验失败，会抛出异常
    *  */
   save: () =>
-    | ReturnType<NonNullable<RowEditableConfig<T>['onSave']>>
-    | Promise<void>;
+    ReturnType<NonNullable<RowEditableConfig<T>['onSave']>> | Promise<void>;
 };
 
 /**
@@ -641,6 +706,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
   const {
     recordKey,
     tableName,
+    rowNamePath,
     newLineConfig,
     editorType,
     onCancel,
@@ -660,7 +726,10 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         e.preventDefault();
         const isMapEditor = editorType === 'Map';
         const recordKeyStr = recordKeyToString(recordKey)?.toString();
-        const namePath = normalizeNamePath(tableName, recordKey) as string[];
+        const namePath = normalizeNamePath(
+          tableName,
+          rowNamePath ?? recordKey,
+        ) as string[];
         const fields = (() => {
           const formattedObject = context?.getFieldFormatValueObject?.(
             namePath as any,
@@ -766,17 +835,19 @@ export function useEditableArray<RecordType extends AnyObject>(
     setDataSource: (dataSource: RecordType[]) => void;
   },
 ) {
-  const normalizeRowDateValues = useRefFunction((row: RecordType | null | undefined) => {
-    if (row == null || typeof row !== 'object') {
-      return row as unknown as RecordType;
-    }
-    return conversionMomentValue(
-      row,
-      props.dateFormatter ?? 'string',
-      {},
-      false,
-    ) as RecordType;
-  });
+  const normalizeRowDateValues = useRefFunction(
+    (row: RecordType | null | undefined) => {
+      if (row == null || typeof row !== 'object') {
+        return row as unknown as RecordType;
+      }
+      return conversionMomentValue(
+        row,
+        props.dateFormatter ?? 'string',
+        {},
+        false,
+      ) as RecordType;
+    },
+  );
 
   // Internationalization
   const intl = useIntl();
@@ -902,7 +973,10 @@ export function useEditableArray<RecordType extends AnyObject>(
           editableType === 'single'
             ? (editingRecords[0] as RecordType | undefined)
             : editingRecords;
-        props?.onChange?.(cleanKeys, editingPayload as RecordType | RecordType[]);
+        props?.onChange?.(
+          cleanKeys,
+          editingPayload as RecordType | RecordType[],
+        );
         return next;
       });
     },
@@ -975,49 +1049,45 @@ export function useEditableArray<RecordType extends AnyObject>(
    *
    * 兼容两种调用：isEditable(row, index) 与 isEditable({ ...row, index })
    */
-  const isEditable = useRefFunction(
-    (row: RecordType, indexArg?: number) => {
-      const index = indexArg ?? (row as { index?: number })?.index;
-      const recordKeyWithIndex = props.getRowKey(row, index)?.toString();
-      const recordKey = props.getRowKey(row, -1)?.toString();
-      const { current, previous } = editableIndex;
+  const isEditable = useRefFunction((row: RecordType, indexArg?: number) => {
+    const index = indexArg ?? (row as { index?: number })?.index;
+    const recordKeyWithIndex = props.getRowKey(row, index)?.toString();
+    const recordKey = props.getRowKey(row, -1)?.toString();
+    const { current, previous } = editableIndex;
 
-      // cell 粒度：该行激活的 cell 复合键（合并 rowKey 与 index 两种寻址，构建时已去重）
-      let cellKeys = EMPTY_CELL_KEYS;
-      const byKey = current.cellKeysMap.get(recordKey);
-      const byIndex = current.cellKeysMap.get(recordKeyWithIndex);
-      if (byKey && byIndex && byKey !== byIndex) {
-        cellKeys = byKey.concat(
-          byIndex.filter((k) => !byKey.includes(k)),
-        );
-      } else if (byKey || byIndex) {
-        cellKeys = (byKey ?? byIndex)!;
-      }
+    // cell 粒度：该行激活的 cell 复合键（合并 rowKey 与 index 两种寻址，构建时已去重）
+    let cellKeys = EMPTY_CELL_KEYS;
+    const byKey = current.cellKeysMap.get(recordKey);
+    const byIndex = current.cellKeysMap.get(recordKeyWithIndex);
+    if (byKey && byIndex && byKey !== byIndex) {
+      cellKeys = byKey.concat(byIndex.filter((k) => !byKey.includes(k)));
+    } else if (byKey || byIndex) {
+      cellKeys = (byKey ?? byIndex)!;
+    }
 
-      const rowEditable =
-        current.rowKeySet.has(recordKey) ||
-        current.rowKeySet.has(recordKeyWithIndex);
-      const rowEditableRef =
-        previous.rowKeySet.has(recordKey) ||
-        previous.rowKeySet.has(recordKeyWithIndex);
+    const rowEditable =
+      current.rowKeySet.has(recordKey) ||
+      current.rowKeySet.has(recordKeyWithIndex);
+    const rowEditableRef =
+      previous.rowKeySet.has(recordKey) ||
+      previous.rowKeySet.has(recordKeyWithIndex);
 
-      return {
-        recordKey,
-        /** 行级或任意 cell 级激活时该行处于编辑状态 */
-        isEditable: rowEditable || cellKeys.length > 0,
-        preIsEditable:
-          rowEditableRef ||
-          !!(
-            previous.cellKeysMap.get(recordKey)?.length ||
-            previous.cellKeysMap.get(recordKeyWithIndex)?.length
-          ),
-        /** 行级编辑（控制 option 列的保存/取消按钮渲染） */
-        isRowEditable: rowEditable,
-        /** 当前行的 cell 粒度复合键（如 ['row1:name']），空数组表示非 cell 编辑 */
-        cellEditableKeys: cellKeys,
-      };
-    },
-  );
+    return {
+      recordKey,
+      /** 行级或任意 cell 级激活时该行处于编辑状态 */
+      isEditable: rowEditable || cellKeys.length > 0,
+      preIsEditable:
+        rowEditableRef ||
+        !!(
+          previous.cellKeysMap.get(recordKey)?.length ||
+          previous.cellKeysMap.get(recordKeyWithIndex)?.length
+        ),
+      /** 行级编辑（控制 option 列的保存/取消按钮渲染） */
+      isRowEditable: rowEditable,
+      /** 当前行的 cell 粒度复合键（如 ['row1:name']），空数组表示非 cell 编辑 */
+      cellEditableKeys: cellKeys,
+    };
+  });
 
   /**
    * 验证是否可以开始编辑
@@ -1043,14 +1113,38 @@ export function useEditableArray<RecordType extends AnyObject>(
 
   /**
    * 查找记录
+   * #8662/#7859/#8861 递归搜索嵌套 children：旧实现只查顶层 dataSource，
+   * 子行永远查不到 —— onValuesChange 的 record 丢失业务 id、取消编辑时
+   * 因快照查不到被误判为新增行而触发 onDelete。
    */
   const findRecordByKey = useRefFunction(
     (recordKey: React.Key): RecordType | null => {
-      return (
-        props.dataSource?.find((recordData, index) => {
-          return props.getRowKey(recordData, index) === recordKey;
-        }) ?? null
-      );
+      const recordKeyStr = recordKey?.toString();
+      if (recordKeyStr == null) return null;
+      // #8662 用 visited 防止循环引用的 children 导致无限递归
+      const visited = new Set<unknown>();
+      const walk = (records?: RecordType[]): RecordType | null => {
+        if (!records || visited.has(records)) return null;
+        visited.add(records);
+        for (let i = 0; i < records.length; i++) {
+          const recordData = records[i];
+          if (
+            props.getRowKey(recordData, -1)?.toString() === recordKeyStr ||
+            props.getRowKey(recordData, i)?.toString() === recordKeyStr
+          ) {
+            return recordData;
+          }
+          const children =
+            props.childrenColumnName &&
+            (recordData as any)?.[props.childrenColumnName];
+          if (Array.isArray(children)) {
+            const found = walk(children);
+            if (found) return found;
+          }
+        }
+        return null;
+      };
+      return walk(props.dataSource) ?? null;
     },
   );
 
@@ -1105,8 +1199,7 @@ export function useEditableArray<RecordType extends AnyObject>(
    */
   const resolveFormInstance = useRefFunction((): FormInstance | undefined => {
     const formRef = props.formProps?.formRef as
-      | React.MutableRefObject<FormInstance | undefined>
-      | undefined;
+      React.MutableRefObject<FormInstance | undefined> | undefined;
     return formRef?.current || props.form;
   });
 
@@ -1174,9 +1267,40 @@ export function useEditableArray<RecordType extends AnyObject>(
 
       if (props.tableName) {
         // name 模式：把该行字段值恢复成进入编辑前的快照
+        // #fix OOM：表单字段的行路径段是 indexKey（如 '0'），而这里拿到的
+        // recordKey 可能是业务 rowKey（如 '624748504'，mappedKey 重试后的方向）。
+        // 直接用业务 key 构建路径会在 form store 中写出 table.624748504 嵌套值，
+        // 该多余分支会随 onValuesChange → updateDataSourceWithEditableRows →
+        // editableRowByKey('624748504') → setDataSource 每轮新增一行 → 渲染/
+        // 数据反馈无限循环（heap OOM）。必须先映射回 indexKey 再写入。
+        const recordKeyStr = recordKeyToString(recordKey)?.toString();
+        const indexKey =
+          recordKeyStr != null
+            ? dataSourceKeyIndexMapRef.current.get(recordKeyStr)
+            : undefined;
+        // 优先使用完整的真实路径。嵌套行会得到
+        // `[parentIndex, childrenColumnName, childIndex, ...]`，必须保留数组段；
+        // Array#toString 会错误地产生单个 `0,children,1` 字段名。
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
+        let rowPathKey: React.Key | React.Key[] | undefined =
+          props.getRealIndex?.(originRow) ?? defaultGetRealIndex(originRow);
+        if (rowPathKey == null) {
+          const mappedIndexKey = indexKey?.toString();
+          if (mappedIndexKey?.includes('_')) {
+            rowPathKey = mappedIndexKey
+              .split('_')
+              .flatMap((segment, index) =>
+                index === 0
+                  ? [segment]
+                  : [props.childrenColumnName || 'children', segment],
+              );
+          } else {
+            rowPathKey = mappedIndexKey ?? recordKeyStr ?? '';
+          }
+        }
         const namePath = normalizeNamePath(
           props.tableName,
-          recordKey,
+          rowPathKey,
         ) as string[];
         form.setFieldsValue(set({}, namePath, originRow));
       } else {
@@ -1188,10 +1312,7 @@ export function useEditableArray<RecordType extends AnyObject>(
           form.resetFields([[recordKeyStr]]);
           form.setFieldsValue({ [recordKeyStr]: undefined });
         } catch (error) {
-          console.warn(
-            'Failed to clear form fields in cancelEditable:',
-            error,
-          );
+          console.warn('Failed to clear form fields in cancelEditable:', error);
         }
       }
     } catch (error) {
@@ -1330,11 +1451,33 @@ export function useEditableArray<RecordType extends AnyObject>(
       );
 
       if (existsInDataSource) {
-        const foundRow = dataSource.find((item, index) => {
-          const key = props.getRowKey(item, index)?.toString();
-          return key === recordKey;
-        });
-        return foundRow || newLineRecordData;
+        const recordKeyStr = recordKey.toString();
+        const visited = new Set<unknown>();
+        const findUpdatedRow = (records?: RecordType[]): RecordType | null => {
+          if (!records || visited.has(records)) return null;
+          visited.add(records);
+          for (let index = 0; index < records.length; index++) {
+            const item = records[index];
+            if (
+              props.getRowKey(item, -1)?.toString() === recordKeyStr ||
+              props.getRowKey(item, index)?.toString() === recordKeyStr
+            ) {
+              return item;
+            }
+            const children =
+              props.childrenColumnName &&
+              (item as any)?.[props.childrenColumnName];
+            if (Array.isArray(children)) {
+              const found = findUpdatedRow(children);
+              if (found) return found;
+            }
+          }
+          return null;
+        };
+        const foundRow = findUpdatedRow(dataSource);
+        return foundRow
+          ? normalizeRowDateValues({ ...foundRow, ...newLineRecordData })
+          : newLineRecordData;
       }
 
       return newLineRecordData;
@@ -1517,14 +1660,33 @@ export function useEditableArray<RecordType extends AnyObject>(
         options?.newRecordType === 'dataSource' ||
         (props.tableName && options?.newRecordType !== 'cache');
       if (isDataSourceMode) {
+        /**
+         * #8893 parentKey 是业务 rowKey（如 id），而 flattenRecordsToMap 在
+         * name 模式（或 rowKey 缺失回退 index）下父记录的 map key 是 index，
+         * 两者不一致会让 rebuildTreeStructure 匹配不到父节点、丢掉全部 children。
+         * 这里用与 flatten 一致的路径把 parentKey 换算成父记录的 map key。
+         */
+        const flattenParentKey =
+          parentKeyValue !== undefined &&
+          parentKeyValue !== null &&
+          props.dataSource?.length
+            ? resolveFlattenParentKey(
+                props.dataSource,
+                props.getRowKey,
+                props.childrenColumnName || 'children',
+                parentKeyValue as React.Key,
+              )
+            : undefined;
         const actionProps = {
           data: props.dataSource,
           getRowKey: props.getRowKey,
           row: {
             ...row,
-            map_row_parentKey: parentKeyValue != null
-              ? recordKeyToString(parentKeyValue)?.toString()
-              : undefined,
+            map_row_parentKey:
+              parentKeyValue != null
+                ? (flattenParentKey ??
+                  recordKeyToString(parentKeyValue)?.toString())
+                : undefined,
           },
           key: recordKey,
           childrenColumnName: props.childrenColumnName || 'children',
@@ -1706,6 +1868,8 @@ export function useEditableArray<RecordType extends AnyObject>(
       cancelEditable,
       index: row.index,
       tableName: props.tableName,
+      // eslint-disable-next-line @typescript-eslint/no-use-before-define
+      rowNamePath: props.getRealIndex?.(row) ?? defaultGetRealIndex(row) ?? key,
       newLineConfig: newLineRecordCache,
       onCancel: actionCancelRef,
       onDelete: actionDeleteRef,
@@ -1739,6 +1903,54 @@ export function useEditableArray<RecordType extends AnyObject>(
     return [renderResult.save, renderResult.delete, renderResult.cancel];
   };
 
+  /**
+   * #8930 name 模式下，过滤/分页会让展示 index 与 dataSource 的真实 index 错位，
+   * 表单字段的 namePath 如果用展示 index 会读写到错误的行。
+   * 默认实现：按业务 rowKey 在 dataSource（含嵌套 children）中反查完整路径；
+   * 嵌套行返回 `[父索引, childrenColumnName, 子索引, ...]`。
+   * 用户显式传入 getRealIndex 时优先使用用户的。
+   */
+  const defaultGetRealIndex = useRefFunction(
+    (record: RecordType): number | React.Key[] | undefined => {
+      if (!props.tableName) return undefined;
+      const recordKey = props.getRowKey(record, -1);
+      // rowKey 未配置时 getRowKey 会退化为 index（此处为 -1），
+      // 所有行都会命中同一个 key，反查结果无意义，直接跳过
+      if (recordKey == null || recordKey === -1) return undefined;
+      const recordKeyStr = recordKey.toString();
+      const walk = (
+        records: RecordType[],
+        parentPath: React.Key[] = [],
+      ): React.Key[] | undefined => {
+        for (let i = 0; i < records.length; i++) {
+          const item = records[i];
+          // 注意：name 模式下 getRowKey(item, i) 返回的是 index 字符串，
+          // 业务 key 必须通过 getRowKey(item, -1) 获取（与 buildDataSourceKeyIndexMap 约定一致）
+          if (props.getRowKey(item, -1)?.toString() === recordKeyStr) {
+            return [...parentPath, i];
+          }
+          const children =
+            props.childrenColumnName &&
+            (item as any)?.[props.childrenColumnName];
+          if (Array.isArray(children)) {
+            const found = walk(children, [
+              ...parentPath,
+              i,
+              props.childrenColumnName || 'children',
+            ]);
+            if (found !== undefined) return found;
+          }
+        }
+        return undefined;
+      };
+      const path = walk(props.dataSource || []);
+      if (!path) return undefined;
+      return path.length === 1 ? Number(path[0]) : path;
+    },
+  );
+
+  const getRealIndex = props.getRealIndex ?? defaultGetRealIndex;
+
   return {
     editableKeys,
     setEditableRowKeys,
@@ -1751,7 +1963,7 @@ export function useEditableArray<RecordType extends AnyObject>(
     newLineRecord: newLineRecordCache,
     preEditableKeys: editableKeysRef,
     onValuesChange,
-    getRealIndex: props.getRealIndex,
+    getRealIndex,
   };
 }
 

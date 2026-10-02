@@ -54,6 +54,9 @@
   - 🐞 Fix select read-mode enum output not working with `ellipsis` + `copyable` [#8978](https://github.com/ant-design/pro-components/issues/8978) [399a1da0b](https://github.com/ant-design/pro-components/commit/399a1da0b)
 - ProTable
   - 🐞 Fix `request` receiving `null` sorter/filter defaults on load, pagination and reset [#9161](https://github.com/ant-design/pro-components/pull/9161) [ddbbb1425](https://github.com/ant-design/pro-components/commit/ddbbb1425)
+  - 🐞 Fix DragSortTable remounting the table after data reloads or row selection updates, which caused fixed-header flicker and reset both scroll axes [#8342](https://github.com/ant-design/pro-components/issues/8342) [#8404](https://github.com/ant-design/pro-components/issues/8404)
+  - 🐞 Fix multi-level grouped columns failing to expand, toggle, or reorder in column settings, and grouped CellEditorTable leaf cells failing to enter edit mode [#8988](https://github.com/ant-design/pro-components/issues/8988) [#8133](https://github.com/ant-design/pro-components/issues/8133) [#8880](https://github.com/ant-design/pro-components/issues/8880)
+  - 🐞 Fix EditableProTable editing the wrong filtered row, deleting nested rows on cancel, losing nested row ids in callbacks, and using stale creator records or dynamic validation rules in `name` mode [#8930](https://github.com/ant-design/pro-components/issues/8930) [#8662](https://github.com/ant-design/pro-components/issues/8662) [#7859](https://github.com/ant-design/pro-components/issues/7859) [#8861](https://github.com/ant-design/pro-components/issues/8861) [#8174](https://github.com/ant-design/pro-components/issues/8174) [#9184](https://github.com/ant-design/pro-components/issues/9184)
 - ProDescriptions
   - 🐞 Fix dependency values not injected into `request` params [#9170](https://github.com/ant-design/pro-components/issues/9170) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
 - Provider

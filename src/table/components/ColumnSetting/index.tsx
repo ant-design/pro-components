@@ -35,6 +35,48 @@ type ColumnSettingProps<T = any> = SettingOptionType & {
   columns: (TableColumnType<T> & { index?: number })[];
 };
 
+type ColumnSettingTreeNode = DataNode & {
+  parentKey?: React.Key;
+  children?: ColumnSettingTreeNode[];
+};
+
+export const reorderNestedColumns = (
+  columnsMap: Record<string, ColumnsState>,
+  treeMap: Map<string, ColumnSettingTreeNode> | undefined,
+  treeList: ColumnSettingTreeNode[] | undefined,
+  id: React.Key,
+  targetId: React.Key,
+  dropPosition: number,
+): Record<string, ColumnsState> | undefined => {
+  const dragNode = treeMap?.get(id as string);
+  const parentNodeKey = dragNode?.parentKey;
+  const siblings = (
+    parentNodeKey ? treeMap?.get(parentNodeKey as string)?.children : treeList
+  )?.map((node) => node.key as string);
+  if (!siblings) return undefined;
+  const dragIdx = siblings.indexOf(id as string);
+  const targetIdx = siblings.indexOf(targetId as string);
+  if (dragIdx < 0 || targetIdx < 0) return undefined;
+  siblings.splice(dragIdx, 1);
+  const targetIndexAfterRemoval = targetIdx - (dragIdx < targetIdx ? 1 : 0);
+  const insertIndex =
+    dropPosition === 0 ? targetIndexAfterRemoval : targetIndexAfterRemoval + 1;
+  siblings.splice(insertIndex, 0, id as string);
+  const newMap = { ...columnsMap };
+  siblings.forEach((key, order) => {
+    newMap[key] = { ...(newMap[key] || {}), order };
+  });
+  return newMap;
+};
+
+export const hasReorderableSiblings = (
+  nodes: ColumnSettingTreeNode[] | undefined,
+): boolean => {
+  if (!nodes?.length) return false;
+  if (nodes.length > 1) return true;
+  return nodes.some((node) => hasReorderableSiblings(node.children));
+};
+
 const ToolTipIcon: React.FC<{
   title: string;
   columnKey: string | number;
@@ -99,8 +141,7 @@ const CheckboxListItem: React.FC<{
   title?: React.ReactNode;
   fixed?: boolean | 'left' | 'right';
   showListItemOption?: boolean;
-  isLeaf?: boolean;
-}> = ({ columnKey, isLeaf, title, className, fixed, showListItemOption }) => {
+}> = ({ columnKey, title, className, fixed, showListItemOption }) => {
   const intl = useIntl();
   const { hashId } = useContext(ProProvider);
 
@@ -137,7 +178,8 @@ const CheckboxListItem: React.FC<{
       <div className={clsx(`${className}-list-item-title`, hashId)}>
         {title}
       </div>
-      {showListItemOption && !isLeaf ? dom : null}
+      {/* #8988: 分组节点和叶子列都允许固定。 */}
+      {showListItemOption ? dom : null}
     </span>
   );
 };
@@ -199,7 +241,11 @@ const CheckboxList: React.FC<{
             typeof config.disable === 'boolean'
               ? config.disable
               : config.disable?.checkbox,
-          isLeaf: parentConfig ? true : undefined,
+          // #8988 isLeaf 应由「自身是否还有 children」决定，
+          // 不能用 parentConfig 判断 —— 否则任意嵌套分组的子分组
+          // (如 L2 > L3)会被标记为叶子，列设置树无法再展开，
+          // 三级及以下的列永远无法在列设置中显示/勾选。
+          isLeaf: !children,
         };
 
         if (children) {
@@ -225,7 +271,15 @@ const CheckboxList: React.FC<{
     return { list: loopData(list), keys: checkedKeys, map: treeMap };
   }, [columnsMap, list, show]);
 
-  /** 移动到指定的位置 */
+  /**
+   * 移动到指定的位置
+   *
+   * #8133 嵌套分组表头的子列不在 sortKeyColumns（仅含顶层列）中，
+   * 旧实现 findIndex < 0 直接 return，导致拖拽子列毫无效果。
+   * 现在：子列拖拽按「同级兄弟顺序」重排 —— 兄弟 key 列表来自
+   * treeDataConfig.map（树节点），重排后把 order 写入 columnsMap，
+   * 渲染端 genProColumnToColumn 消费 columnsMap[key].order 排列 children。
+   */
   const move = useRefFunction(
     (id: React.Key, targetId: React.Key, dropPosition: number) => {
       const newMap = { ...columnsMap };
@@ -234,8 +288,20 @@ const CheckboxList: React.FC<{
       const targetIndex = newColumns.findIndex(
         (columnKey) => columnKey === targetId,
       );
+      // 嵌套子列：sortKeyColumns 找不到时，走同级重排
+      if (findIndex < 0 || targetIndex < 0) {
+        const nestedMap = reorderNestedColumns(
+          columnsMap,
+          treeDataConfig.map as Map<string, ColumnSettingTreeNode> | undefined,
+          treeDataConfig.list as ColumnSettingTreeNode[] | undefined,
+          id,
+          targetId,
+          dropPosition,
+        );
+        if (nestedMap) setColumnsMap(nestedMap);
+        return;
+      }
       const isDownWard = dropPosition >= findIndex;
-      if (findIndex < 0) return;
       const targetItem = newColumns[findIndex];
       newColumns.splice(findIndex, 1);
 
@@ -262,6 +328,24 @@ const CheckboxList: React.FC<{
   const onCheckTree = useRefFunction((e) => {
     const newColumnMap = { ...columnsMap };
 
+    const syncAncestorShow = (key: string | number) => {
+      const parentKey = treeDataConfig.map?.get(key)?.parentKey;
+      if (!parentKey) return;
+      if (e.checked) {
+        newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: true };
+        syncAncestorShow(parentKey);
+        return;
+      }
+      const siblings = treeDataConfig.map?.get(parentKey)?.children ?? [];
+      const allSiblingsUnchecked = siblings.every(
+        (sibling) => newColumnMap[sibling.key as string]?.show === false,
+      );
+      if (allSiblingsUnchecked) {
+        newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: false };
+        syncAncestorShow(parentKey);
+      }
+    };
+
     const loopSetShow = (key: string | number) => {
       const newSetting = { ...newColumnMap[key] };
       newSetting.show = e.checked;
@@ -278,27 +362,84 @@ const CheckboxList: React.FC<{
       // 否则读到的仍是旧值，导致 allSiblingsUnchecked 判断出错。
       newColumnMap[key] = newSetting;
 
-      // 勾选方向：子节点选中时父节点自动设为 true
-      // 取消方向：检查所有兄弟节点是否已全部取消，若是则父节点也取消
-      const parentKey = treeDataConfig.map?.get(key)?.parentKey;
-      if (parentKey) {
-        if (e.checked) {
-          newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: true };
-        } else {
-          const siblings = treeDataConfig.map?.get(parentKey)?.children ?? [];
-          const allSiblingsUnchecked = siblings.every((sibling) => {
-            const siblingState = newColumnMap[sibling.key as string];
-            return siblingState && siblingState.show === false;
-          });
-          if (allSiblingsUnchecked) {
-            newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: false };
-          }
-        }
-      }
+      syncAncestorShow(key);
     };
     loopSetShow(e.node.key);
     setColumnsMap({ ...newColumnMap });
   });
+
+  /**
+   * #9115 拖拽列时接近列表边缘自动滚动。
+   *
+   * rc-tree 的虚拟列表在 HTML5 拖拽期间不会收到 wheel 事件，
+   * 拖到可视区边缘就"卡住"，长列表只能一段一段拖。
+   * 这里在 onDragOver 中检测指针与容器边缘的距离，直接改写
+   * `.ant-tree-list-holder` 的 scrollTop —— rc-virtual-list 的
+   * onFallbackScroll 会同步窗口重算，虚拟滚动不会错位。
+   *
+   * 注意：以下全部是 Hook 调用，必须位于 `if (!show) return null`
+   * 之前，否则该 early return 会导致 Hook 顺序错乱（React 会抛出
+   * "change in the order of Hooks" 并整树崩溃）。
+   */
+  const AUTO_SCROLL_EDGE = 36; // 距边缘多少像素开始滚动
+  const AUTO_SCROLL_STEP = 8; // 每帧滚动像素
+  const autoScrollRef = React.useRef<{
+    holder: HTMLElement | null;
+    direction: 0 | 1 | -1; // 0 = 停止
+    rafId: number | null;
+  }>({ holder: null, direction: 0, rafId: null });
+  // 卸载（Popover 关闭）时终止 rAF 循环
+  React.useEffect(
+    () => () => {
+      const { rafId } = autoScrollRef.current;
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    },
+    [],
+  );
+
+  const stopAutoScroll = useRefFunction(() => {
+    const session = autoScrollRef.current;
+    if (session.rafId !== null) {
+      cancelAnimationFrame(session.rafId);
+    }
+    autoScrollRef.current = { holder: null, direction: 0, rafId: null };
+  });
+
+  const startAutoScroll = useRefFunction(
+    (holder: HTMLElement, direction: 1 | -1) => {
+      const session = autoScrollRef.current;
+      if (session.holder === holder && session.direction === direction) {
+        return; // 已在滚动，避免重复启动 rAF 循环
+      }
+      stopAutoScroll();
+      const tick = () => {
+        const s = autoScrollRef.current;
+        if (!s.holder || !s.direction) return;
+        s.holder.scrollTop += AUTO_SCROLL_STEP * s.direction;
+        s.rafId = requestAnimationFrame(tick);
+      };
+      autoScrollRef.current = { holder, direction, rafId: null };
+      autoScrollRef.current.rafId = requestAnimationFrame(tick);
+    },
+  );
+
+  const onTreeDragOver = useRefFunction(
+    ({ event }: { event: React.DragEvent<HTMLElement> }) => {
+      const holder = (event.currentTarget as HTMLElement)?.closest?.(
+        '.ant-tree-list-holder',
+      ) as HTMLElement | null;
+      if (!holder) return;
+      const rect = holder.getBoundingClientRect();
+      const y = event.clientY;
+      if (y - rect.top < AUTO_SCROLL_EDGE) {
+        startAutoScroll(holder, -1);
+      } else if (rect.bottom - y < AUTO_SCROLL_EDGE) {
+        startAutoScroll(holder, 1);
+      } else {
+        stopAutoScroll();
+      }
+    },
+  );
 
   if (!show) {
     return null;
@@ -309,11 +450,16 @@ const CheckboxList: React.FC<{
       itemHeight={24}
       draggable={
         draggable &&
-        !!treeDataConfig.list?.length &&
-        treeDataConfig.list?.length > 1
+        hasReorderableSiblings(
+          treeDataConfig.list as ColumnSettingTreeNode[] | undefined,
+        )
       }
       checkable={checkable}
+      onDragOver={onTreeDragOver}
+      onDragLeave={stopAutoScroll}
+      onDragEnd={stopAutoScroll}
       onDrop={(info) => {
+        stopAutoScroll();
         const dropKey = info.node.key;
         const dragKey = info.dragNode.key;
         const { dropPosition, dropToGap } = info;
@@ -351,7 +497,8 @@ const CheckboxList: React.FC<{
       height={listHeight}
       treeData={treeDataConfig.list?.map(
         ({
-          disabled: _disabled /* 不透传 disabled，使子节点禁用时也可以拖动调整顺序 */,
+          disabled:
+            _disabled /* 不透传 disabled，使子节点禁用时也可以拖动调整顺序 */,
           ...config
         }) => config,
       )}
@@ -460,8 +607,12 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
     key?: any;
   })[] = props.columns;
   const { checkedReset = true } = props;
-  const { columnsMap, setColumnsMap, clearPersistenceStorage, setSortKeyColumns } =
-    counter;
+  const {
+    columnsMap,
+    setColumnsMap,
+    clearPersistenceStorage,
+    setSortKeyColumns,
+  } = counter;
 
   /**
    * 设置全部选中，或全部未选中
@@ -531,8 +682,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   }, [columnsMap, localColumns]);
 
   // 是否全部列都已选中
-  const allChecked =
-    unCheckedKeys.length === 0 && localColumns.length > 0;
+  const allChecked = unCheckedKeys.length === 0 && localColumns.length > 0;
 
   // 是否部分选中（indeterminate）
   const indeterminate =

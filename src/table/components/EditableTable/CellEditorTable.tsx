@@ -14,13 +14,14 @@ import EditableProTable, { EditableProTableProps } from './index';
  * 同时使用 columnsIndex 避免 dataIndex/key 缺失或碰撞的问题。
  */
 function buildColumnIdentifier(
-  columnIndex: number,
+  columnPath: React.Key[],
   dataIndex: string | string[] | number | undefined,
   key: React.Key | undefined,
 ): string {
   const base = dataIndex ?? key;
-  if (base === undefined) return `__col_${columnIndex}`;
-  return `${columnIndex}:${[base].flat(1).join('.')}`;
+  const path = columnPath.map(String).join('/');
+  if (base === undefined) return `__col_${path}`;
+  return `${path}:${[base].flat(1).join('.')}`;
 }
 
 export function CellEditorTable<
@@ -46,19 +47,17 @@ export function CellEditorTable<
     [props.name, rowKey],
   );
 
-  const handleEditableKeysChange = useRefFunction(
-    (keys: React.Key[]) => {
-      const cleanKeys = keys.filter((key) => key !== undefined);
-      setEditableRowKeys(cleanKeys);
-      const editingPayload = resolveEditingPayloadForRowEditableOnChange(
-        cleanKeys,
-        props.value as readonly DataType[] | undefined,
-        getRowKey,
-        props.editable?.type,
-      );
-      props.editable?.onChange?.(cleanKeys, editingPayload);
-    },
-  );
+  const handleEditableKeysChange = useRefFunction((keys: React.Key[]) => {
+    const cleanKeys = keys.filter((key) => key !== undefined);
+    setEditableRowKeys(cleanKeys);
+    const editingPayload = resolveEditingPayloadForRowEditableOnChange(
+      cleanKeys,
+      props.value as readonly DataType[] | undefined,
+      getRowKey,
+      props.editable?.type,
+    );
+    props.editable?.onChange?.(cleanKeys, editingPayload);
+  });
 
   const handleValuesChange = useRefFunction(
     (record: DataType, dataSource: DataType[]) => {
@@ -82,35 +81,82 @@ export function CellEditorTable<
   }, []);
 
   // 缓存 columns 避免每次 render 生成全新数组触发 antd Table 大面积 diff
-  const columns = useMemo(
-    () =>
-      (props?.columns?.map((item, columnIndex) => {
-        const columnId = buildColumnIdentifier(
-          columnIndex,
-          item.dataIndex as string | string[] | undefined,
-          item.key,
-        );
-        return {
-          ...item,
-          editable:
-            item.editable === false || activeColumnId !== columnId
-              ? false
-              : undefined,
-          onCell: (record: any, rowIndex: any) => ({
-            onDoubleClick: () => {
-              if (item.editable === false) return;
+  // #8880: 递归为分组表头的叶子列同样注入 onCell（双击进入编辑），
+  // 旧实现只 map 顶层列，分组 children 的叶子列没有 onDoubleClick。
+  const columns = useMemo(() => {
+    const wrapColumn = (
+      item: ProColumns<any, ValueType>,
+      columnIndex: number,
+      parentPath: React.Key[] = [],
+    ): ProColumns<any, ValueType> => {
+      const currentPath = [
+        ...parentPath,
+        item.key ?? item.dataIndex?.toString() ?? columnIndex,
+      ];
+      const columnId = buildColumnIdentifier(
+        currentPath,
+        item.dataIndex as string | string[] | undefined,
+        item.key,
+      );
+      return {
+        ...item,
+        editable:
+          item.editable === false || activeColumnId !== columnId
+            ? false
+            : undefined,
+        children: item.children
+          ? (item.children.map((child, childIndex) =>
+              wrapColumn(
+                child as ProColumns<any, ValueType>,
+                childIndex,
+                currentPath,
+              ),
+            ) as ProColumns<any, ValueType>['children'])
+          : undefined,
+        onCell: (record: any, rowIndex: any) => {
+          const originCell = item.onCell?.(record, rowIndex) ?? {};
+          const {
+            onDoubleClick: originOnDoubleClick,
+            onBlur: originOnBlur,
+            onFocus: originOnFocus,
+            ...originCellProps
+          } = originCell;
+          return {
+            ...originCellProps,
+            onDoubleClick: (event: React.MouseEvent<HTMLElement>) => {
+              originOnDoubleClick?.(event);
+              if (event.defaultPrevented || item.editable === false) return;
               cancelExitEditing();
               handleEditableKeysChange([getRowKey(record, rowIndex)]);
               setActiveColumnId(columnId);
             },
-            onBlur: scheduleExitEditing,
-            onFocus: cancelExitEditing,
-          }),
-        };
-      }) as ProColumns<any, ValueType>[]) ?? [],
+            onBlur: (event: React.FocusEvent<HTMLElement>) => {
+              originOnBlur?.(event);
+              scheduleExitEditing();
+            },
+            onFocus: (event: React.FocusEvent<HTMLElement>) => {
+              originOnFocus?.(event);
+              cancelExitEditing();
+            },
+          };
+        },
+      };
+    };
+
+    return (
+      (props?.columns?.map((item, columnIndex) =>
+        wrapColumn(item, columnIndex),
+      ) as ProColumns<any, ValueType>[] | undefined) ?? []
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [props.columns, activeColumnId, getRowKey, scheduleExitEditing, cancelExitEditing, handleEditableKeysChange],
-  );
+  }, [
+    props.columns,
+    activeColumnId,
+    getRowKey,
+    scheduleExitEditing,
+    cancelExitEditing,
+    handleEditableKeysChange,
+  ]);
 
   return (
     <EditableProTable

@@ -17,7 +17,6 @@ import { useIntl } from '../../../provider';
 import {
   getFieldPropsOrFormItemProps,
   isDeepEqualReact,
-  runFunction,
   useDeepCompareEffect,
   useRefFunction,
 } from '../../../utils';
@@ -84,8 +83,7 @@ export type RecordCreatorProps<DataSourceType> = {
   newRecordType?: 'dataSource' | 'cache';
   /** 要增加到哪个节点下，一般用于多重嵌套表格 */
   parentKey?:
-    | React.Key
-    | ((index: number, dataSource: DataSourceType[]) => React.Key);
+    React.Key | ((index: number, dataSource: DataSourceType[]) => React.Key);
 };
 
 export type EditableProTableProps<
@@ -122,7 +120,12 @@ export type EditableProTableProps<
 };
 
 const EditableTableActionContext = React.createContext<
-  React.MutableRefObject<ActionType | undefined> | undefined
+  | {
+      actionRef: React.MutableRefObject<ActionType | undefined>;
+      /** #8174 供 RecordCreator 点击时惰性求值 record(index, dataSource) 使用 */
+      dataSource?: readonly any[];
+    }
+  | undefined
 >(undefined);
 
 /** Registers validation rules without mounting the full editor control. */
@@ -160,7 +163,7 @@ function RecordCreator<T = Record<string, any>>(
   props: RecordCreatorProps<T> & { children: React.JSX.Element },
 ) {
   const { children, record, position, newRecordType, parentKey } = props;
-  const actionRef = useContext(EditableTableActionContext);
+  const context = useContext(EditableTableActionContext);
 
   return React.cloneElement(children, {
     ...children.props,
@@ -169,11 +172,30 @@ function RecordCreator<T = Record<string, any>>(
       const isOk = await children.props.onClick?.(e);
       if (isOk === false) return;
 
+      const actionRef = context?.actionRef;
       if (actionRef?.current) {
-        actionRef.current.addEditRecord(record as any, {
+        // #8174 record/parentKey 为函数时延迟到点击时才求值：
+        // 旧实现在 render 阶段就调用了 record()，按钮挂载即预生成一行数据，
+        // 且每次点击拿到的都是上一次 render 的旧值
+        const dataSource = context?.dataSource ?? [];
+        const nextRecord =
+          typeof record === 'function'
+            ? (record as (index: number, dataSource: T[]) => T)(
+                dataSource.length,
+                dataSource as T[],
+              )
+            : record;
+        const nextParentKey =
+          typeof parentKey === 'function'
+            ? (parentKey as (index: number, dataSource: T[]) => React.Key)(
+                dataSource.length,
+                dataSource as T[],
+              )
+            : parentKey;
+        actionRef.current.addEditRecord((nextRecord ?? {}) as any, {
           position,
           newRecordType,
-          parentKey: parentKey as React.Key,
+          parentKey: nextParentKey as React.Key,
         });
       }
     },
@@ -217,9 +239,9 @@ function createButtonDom<DataType>(
 
   return (
     <RecordCreator
-      record={runFunction(record, value?.length, value) || {}}
+      record={record as any}
       position={position}
-      parentKey={runFunction(parentKey, value?.length, value)}
+      parentKey={parentKey as any}
       newRecordType={newRecordType}
     >
       <Button
@@ -454,8 +476,7 @@ function EditableTable<
         // name 模式：需要保留正在编辑的行
         const currentFormValues = formRef.current.getFieldsValue() || {};
         const currentList = get(currentFormValues, namePath) as
-          | DataType[]
-          | undefined;
+          DataType[] | undefined;
 
         if (currentList && Array.isArray(currentList)) {
           // 构建新的表单值，保留正在编辑的行
@@ -584,7 +605,8 @@ function EditableTable<
     const rowKeyName = [props.name].flat(1).filter(Boolean) as NamePath;
     // 非 name 模式：rowKeyName 为空，从表单顶层拿所有字段，值是 Record<rowKey, DataType>
     if (rowKeyName.length === 0) {
-      const rowData = formRef.current?.getFieldsValue() as Record<string, DataType> | undefined;
+      const rowData = formRef.current?.getFieldsValue() as
+        Record<string, DataType> | undefined;
       if (!rowData) return undefined;
       // getFieldsValue() 返回的永远是对象，按 key 排列后取 values
       return Object.keys(rowData).map((key) => rowData[key]);
@@ -672,13 +694,11 @@ function EditableTable<
       config?: Parameters<ProFormInstance['validateFields']>[1],
     ) => {
       const tableName = [props.name].flat(1).filter(Boolean) as (
-        | string
-        | number
+        string | number
       )[];
       const normalizedNameList = nameList?.map((name) => {
         const path = (Array.isArray(name) ? name : [name]) as (
-          | string
-          | number
+          string | number
         )[];
         const alreadyPrefixed = tableName.every(
           (segment, index) => path[index] === segment,
@@ -833,9 +853,7 @@ function EditableTable<
         const editableKeys = props.editable?.editableKeys;
         if (
           editableKeys?.length &&
-          !editableKeys.some(
-            (key) => key?.toString() === recordKey?.toString(),
-          )
+          !editableKeys.some((key) => key?.toString() === recordKey?.toString())
         ) {
           return [];
         }
@@ -889,10 +907,15 @@ function EditableTable<
       })
     : null;
 
+  const actionContextValue = useMemo(
+    () => ({ actionRef, dataSource: value }),
+    [value],
+  );
+
   return (
     <>
       {virtualValidationFields}
-      <EditableTableActionContext.Provider value={actionRef}>
+      <EditableTableActionContext.Provider value={actionContextValue}>
         <ProTable<DataType, Params, ValueType>
           search={false}
           options={false}

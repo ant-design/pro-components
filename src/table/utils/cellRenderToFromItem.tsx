@@ -33,7 +33,8 @@ const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
  *
  * @deprecated 请使用 buildNamePath，spellNamePath 是历史命名，保留以兼容外部引用
  */
-export const spellNamePath = (...rest: any[]): React.Key[] => buildNamePath(...rest);
+export const spellNamePath = (...rest: any[]): React.Key[] =>
+  buildNamePath(...rest);
 
 /**
  * 拼接用于编辑的表单字段路径（name path）
@@ -41,13 +42,13 @@ export const spellNamePath = (...rest: any[]): React.Key[] => buildNamePath(...r
 export const buildNamePath = (...rest: any[]): React.Key[] => {
   return rest
     .filter((index) => index !== undefined)
+    .flat(1)
     .map((item) => {
       if (typeof item === 'number') {
         return item.toString();
       }
       return item;
-    })
-    .flat(1);
+    });
 };
 
 type CellRenderFromItemProps<T extends AnyObject> = {
@@ -102,11 +103,19 @@ const CellRenderFromItem = <T extends AnyObject>(
     () => editableUtils?.getRealIndex?.(rowData!) ?? index,
     [editableUtils, index, rowData],
   );
+  const rowPath = useMemo(
+    () =>
+      prefixName
+        ? Array.isArray(realIndex)
+          ? realIndex
+          : [...subName, realIndex]
+        : [key],
+    [key, prefixName, realIndex, subName],
+  );
   const [formItemName, setName] = useState<React.Key[]>(() =>
     buildNamePath(
       prefixName,
-      prefixName ? subName : [],
-      prefixName ? realIndex : key,
+      rowPath,
       columnProps?.key ?? columnProps?.dataIndex ?? index,
     ),
   );
@@ -118,8 +127,7 @@ const CellRenderFromItem = <T extends AnyObject>(
   useEffect(() => {
     const nextName = buildNamePath(
       prefixName,
-      prefixName ? subName : [],
-      prefixName ? realIndex : key,
+      rowPath,
       columnProps?.key ?? columnProps?.dataIndex ?? index,
     );
     // 用 functional update 读取最新 prev 值进行比较，避免把 formItemName
@@ -135,8 +143,7 @@ const CellRenderFromItem = <T extends AnyObject>(
     recordKey,
     prefixName,
     key,
-    subName,
-    realIndex,
+    rowPath,
   ]);
 
   const needProps = useMemo(
@@ -148,9 +155,21 @@ const CellRenderFromItem = <T extends AnyObject>(
           rowKey: rowName,
           rowIndex: index,
           isEditable: true,
+          // #9184 formItemProps 为函数时,用户常通过 config.entry 读取行内其它字段的
+          // 实时值来计算动态 rules(如 required)。旧实现 entry/entity 是进入编辑时的
+          // rowData 快照,不随表单值更新,导致动态必填标识不刷新。
+          // 这里改为 getter,每次读取都从 form 取当前行值。
+          get entry() {
+            const liveRow = editableForm?.getFieldValue(rowName);
+            return liveRow ?? rowData;
+          },
+          get entity() {
+            const liveRow = editableForm?.getFieldValue(rowName);
+            return liveRow ?? rowData;
+          },
         },
       ] as const,
-    [columnProps, editableForm, index, rowName],
+    [columnProps, editableForm, index, rowName, rowData],
   );
 
   const generateFormItem = useCallback(() => {
@@ -250,8 +269,10 @@ const CellRenderFromItem = <T extends AnyObject>(
     return (
       <InlineErrorFormItem
         popoverProps={{
-          getPopupContainer: (formContext.getPopupContainer as PopoverProps['getPopupContainer']) ||
-            (() => (counter.rootDomRef.current || document.body) as HTMLElement),
+          getPopupContainer:
+            (formContext.getPopupContainer as PopoverProps['getPopupContainer']) ||
+            (() =>
+              (counter.rootDomRef.current || document.body) as HTMLElement),
         }}
         key={formItemName.join('-')}
         errorType="popover"
