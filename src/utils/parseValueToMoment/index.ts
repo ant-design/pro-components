@@ -156,10 +156,12 @@ export const parseValueToDay = (
       return ts;
     }
     // 兼容历史行为：格式只描述日期时，允许输入包含额外时间部分并截取日期。
-    // 时间戳已在上面优先识别，不会被 YYYY 等格式误解为年份。
+    // 只严格解析与格式等长的前缀，避免把 31/02/2024 归一化成其他日期。
     for (const currentFormatter of formatters) {
-      const legacy = dayjs(value, currentFormatter);
-      if (legacy.isValid()) return legacy;
+      if (value.length <= currentFormatter.length) continue;
+      const prefix = value.slice(0, currentFormatter.length);
+      const legacyPrefix = dayjs(prefix, currentFormatter, true);
+      if (legacyPrefix.isValid()) return legacyPrefix;
     }
     const parsed = dayjs(value);
     return parsed.isValid() ? parsed : null;

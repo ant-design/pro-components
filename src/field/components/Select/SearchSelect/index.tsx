@@ -87,6 +87,9 @@ export interface SearchSelectProps<T = Record<string, any>> extends Omit<
   /** 清空数据 */
   resetData: () => void;
 
+  /** 上层 useFieldFetchData 是否由 request 驱动 */
+  hasRemoteRequest?: boolean;
+
   /**
    * 当搜索关键词发生变化时是否请求远程数据
    *
@@ -115,6 +118,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     disabled,
     options,
     request,
+    hasRemoteRequest = false,
     fetchData,
     resetData,
     prefixCls: customizePrefixCls,
@@ -350,7 +354,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         if (showSearch && effectiveAutoClearSearchValue) {
           // 选择结果只清空可见搜索框，不重置已完成请求的远端关键字。
           // 显式清空输入仍由 handleSearch 触发对应请求。
-          if (!request && searchValue) {
+          if (!request && !hasRemoteRequest && searchValue) {
             fetchData(undefined);
           }
           effectiveOnSearch?.('');
