@@ -99,7 +99,8 @@ export function useActionType<T>(
   },
 ) {
   /** 这里生成action的映射，保证 action 总是使用的最新 只需要渲染一次即可 */
-  const userAction: ActionType = {
+  const userAction = ref.current ?? ({} as ActionType);
+  Object.assign(userAction, {
     ...props.editableUtils,
     pageInfo: action.pageInfo,
     nativeElement: props.nativeElement,
@@ -128,10 +129,11 @@ export function useActionType<T>(
     },
     fullScreen: () => props.fullScreen(),
     clearSelected: () => props.onCleanSelected(),
-    setPageInfo: (rest) => action.setPageInfo(rest),
+    setPageInfo: (rest: Parameters<typeof action.setPageInfo>[0]) =>
+      action.setPageInfo(rest),
     // 透出 scrollTo（如上层提供）
     scrollTo: props.scrollTo,
-  };
+  });
   ref.current = userAction;
 }
 

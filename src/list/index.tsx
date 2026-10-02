@@ -44,7 +44,10 @@ export type ProListMeta<T> = Pick<
   key?: React.Key;
 };
 
-type ProListMetaAction<T> = ProListMeta<T>;
+type ProListMetaAction<T> = ProListMeta<T> & {
+  /** Map list actions to the card's `extra` or `actions` slot. */
+  cardActionProps?: 'extra' | 'actions';
+};
 
 type IfAny<T, Y, N> = 0 extends 1 & T ? Y : N;
 type IsAny<T> = IfAny<T, true, false>;

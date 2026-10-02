@@ -322,10 +322,13 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
     [className]: className,
   });
 
-  // #7421: showExtra='hover' 时 extra 默认隐藏，悬浮列表项后显示
-  const extraClassName = clsx(hashId, {
-    [`${defaultClassName}-extra`]: showExtra === 'hover',
-  });
+  // #7421:showExtra='hover' 时增加隐藏容器；默认路径保留原始节点结构。
+  const renderedExtra =
+    showExtra === 'hover' && extra !== null && extra !== undefined ? (
+      <div className={clsx(hashId, `${defaultClassName}-extra`)}>{extra}</div>
+    ) : (
+      extra
+    );
 
   return (
     <BaseListItem
@@ -334,7 +337,7 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
       })}
       {...rest}
       actions={actionsArray}
-      extra={!!extra && <div className={extraClassName}>{extra}</div>}
+      extra={renderedExtra}
       {...onRow?.(record, index)}
       {...itemProps}
       onClick={(e: React.MouseEvent<HTMLDivElement>) => {
