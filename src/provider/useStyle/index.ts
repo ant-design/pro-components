@@ -7,6 +7,7 @@ import type React from 'react';
 import { useContext, useEffect, useMemo, useRef } from 'react';
 import { ProProvider } from '../index';
 import type { ProTokenType } from '../typing/layoutToken';
+import { mergeComponentTokens } from '../utils/merge';
 
 /**
  * 把一个颜色设置一下透明度
@@ -170,10 +171,7 @@ export function useStyle(
   if (componentTokens) {
     token = {
       ...token,
-      components: {
-        ...token.components,
-        ...componentTokens,
-      },
+      components: mergeComponentTokens(token.components, componentTokens),
     } as any;
   }
 

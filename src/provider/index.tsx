@@ -15,7 +15,7 @@ import { findIntlKeyByAntdLocaleKey, intlMap, zhCNIntl } from './intl';
 import type { DeepPartial, ProTokenType } from './typing/layoutToken';
 import { getLayoutDesignToken } from './typing/layoutToken';
 import type { ProAliasToken } from './useStyle';
-import { shallowMergeOneLevel } from './utils/merge';
+import { mergeComponentTokens, shallowMergeOneLevel } from './utils/merge';
 
 export * from './intl';
 export * from './useStyle';
@@ -302,18 +302,28 @@ const ConfigProviderContainer: React.FC<{
   }, [propsToken, tokenContext.token]);
 
   const proProvideValue = useMemo(() => {
+    const componentTokens = mergeComponentTokens(
+      proProvide.token?.components,
+      propsToken?.components,
+    );
     return {
       ...proProvide,
       dark: dark ?? proProvide.dark,
       // #9125: propsToken 必须参与合并，否则 ProConfigProvider token
       // （如 colorPrimary）只影响 layout token，不进入 Pro 组件（如 CheckCard）
       // 消费的 proProvide.token
-      token: shallowMergeOneLevel(proProvide.token, tokenContext.token, propsToken, {
-        proComponentsCls,
-        antCls,
-        themeId: tokenContext.theme.id,
-        layout: proLayoutTokenMerge,
-      }),
+      token: shallowMergeOneLevel(
+        proProvide.token,
+        tokenContext.token,
+        propsToken,
+        {
+          components: componentTokens,
+          proComponentsCls,
+          antCls,
+          themeId: tokenContext.theme.id,
+          layout: proLayoutTokenMerge,
+        },
+      ),
       intl: resolveIntl(intl, proProvide.intl, locale?.locale),
     };
   }, [
