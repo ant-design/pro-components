@@ -179,6 +179,10 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     <>
       <Drawer
         {...drawerProps}
+        onClick={(event) => {
+          event.stopPropagation();
+          drawerProps?.onClick?.(event);
+        }}
         destroyOnHidden={drawerProps?.destroyOnHidden}
         title={title}
         resizable={nativeResizable}

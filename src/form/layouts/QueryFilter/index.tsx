@@ -556,6 +556,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
         >
           <BaseForm
             isKeyPressSubmit
+            formComponentType="QueryFilter"
             preserve={preserve}
             {...rest}
             className={clsx(baseClassName, hashId, rest.className)}

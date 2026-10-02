@@ -120,6 +120,8 @@ export const StepsFormProvide = React.createContext<
       regForm: (name: string, props: StepsFormProps<any>) => void;
       unRegForm: (name: string) => void;
       onFormFinish: (name: string, formData: any) => void;
+      /** 分步表单实例初始化完成(#8108),触发外层 formRef 重新同步 */
+      onFormInit: () => void;
       keyArray: string[];
       formArrayRef: React.MutableRefObject<
         React.MutableRefObject<FormInstance<any> | undefined>[]
@@ -246,6 +248,19 @@ function StepsForm<T = Record<string, any>>(
   const intl = useIntl();
 
   /**
+   * #8108:分步表单实例的初始化版本号。
+   * request 场景下 BaseForm 先渲染 loading,数据到达后 Form 才挂载、
+   * onInit 才填充 formArrayRef。若 useImperativeHandle 只依赖
+   * [step, formArray.length],实例晚到的赋值不会被同步到外层 formRef,
+   * 外层拿到的会是一直是挂载初期的空对象。StepForm onInit 时 bump
+   * 此版本号强制重新同步。
+   */
+  const [formInitVersion, setFormInitVersion] = useState(0);
+  const onFormInit = useRefFunction(() => {
+    setFormInitVersion((v) => v + 1);
+  });
+
+  /**
    * 受控的方式来操作表单
    */
   const [step, setStepInner] = useControlledState<number>(0, props.current);
@@ -319,7 +334,7 @@ function StepsForm<T = Record<string, any>>(
 
   useImperativeHandle(formRef, () => {
     return formArrayRef.current[step || 0]?.current;
-  }, [step, formArray.length]);
+  }, [step, formArray.length, formInitVersion]);
 
   useImperativeHandle(
     propsStepsFormRef,
@@ -646,6 +661,7 @@ function StepsForm<T = Record<string, any>>(
             lastStep,
             unRegForm,
             onFormFinish,
+            onFormInit,
             current: step,
             stepCount: formArray.length,
             setCurrent: setCurrentStepSafe,

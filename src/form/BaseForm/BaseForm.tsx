@@ -425,7 +425,11 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
       />
     );
 
-  const wrapItems = grid ? <RowWrapper>{items}</RowWrapper> : items;
+  // QueryFilter/LightFilter 的 contentRender 会对 items 做 flatMap 布局计算，
+  // 需要保持数组形态；其他表单仍由 BaseForm 提供 grid Row 容器。
+  const isFilterForm =
+    formComponentType === 'QueryFilter' || formComponentType === 'LightFilter';
+  const wrapItems = grid && !isFilterForm ? <RowWrapper>{items}</RowWrapper> : items;
   const content = contentRender
     ? contentRender(wrapItems as any, submitterNode, formInstanceRef.current)
     : wrapItems;
@@ -763,6 +767,50 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
       ...requestInitialValues,
     });
   }, [initialData]);
+
+  /**
+   * #8834/#9165:antd Form 的 initialValues 只在首次初始化时生效,
+   * ModalForm/DrawerForm 复用 form 实例多次打开时,新的 initialValues
+   * 不会覆盖 store 里的旧值。这里在 initialValues 引用变化时主动同步,
+   * 同步前清掉旧字段,避免上一个记录的遗漏字段泄漏到本次会话。
+   * 仅在非 request 场景生效(request 由上面的 effect 负责),
+   * 且 form 已挂载后才开始同步(首次初始化交给 antd)。
+   */
+  const prevPropsInitialValuesRef = useRef<typeof initialValues | undefined>(
+    initialValues,
+  );
+  const initialValuesEffectMountedRef = useRef(false);
+  useEffect(() => {
+    if (!initialValuesEffectMountedRef.current) {
+      // 首次渲染:记录后跳过,交给 antd initialValues 初始化
+      initialValuesEffectMountedRef.current = true;
+      prevPropsInitialValuesRef.current = initialValues;
+      return;
+    }
+    if (
+      request ||
+      (formComponentType !== 'ModalForm' && formComponentType !== 'DrawerForm')
+    ) {
+      prevPropsInitialValuesRef.current = initialValues;
+      return;
+    }
+    if (isDeepEqualReact(prevPropsInitialValuesRef.current, initialValues)) {
+      return;
+    }
+    prevPropsInitialValuesRef.current = initialValues;
+    if (!formRef.current) return;
+    const previousValues = formRef.current.getFieldsValue?.(true) || {};
+    const clearedValues = Object.keys(previousValues).reduce<
+      Record<string, undefined>
+    >((values, key) => {
+      values[key] = undefined;
+      return values;
+    }, {});
+    formRef.current.setFieldsValue?.({
+      ...clearedValues,
+      ...(initialValues || {}),
+    });
+  }, [formComponentType, initialValues, request]);
 
   if (request && initialDataLoading) {
     if (loadingRender !== undefined) {
