@@ -14,7 +14,7 @@ const createToken = () =>
       },
       sider: {
         colorBgMenuItemCollapsedElevated: '#sider-popup',
-        colorTextMenuSecondary: '#group-title',
+        colorTextMenuTitle: '#group-title',
       },
     },
   }) as ProLayoutBaseMenuToken;
@@ -40,7 +40,7 @@ describe('SiderMenu style', () => {
     });
   });
 
-  it('uses the sider secondary text token for group titles (#8976)', () => {
+  it('uses the configured sider title token for group titles (#8976)', () => {
     const style = genProLayoutBaseMenuStyle(createToken(), 'inline');
 
     expect(style).toMatchObject({
@@ -92,7 +92,7 @@ describe('SiderMenu style', () => {
 
     expect(style).toMatchObject({
       '.pro-layout': {
-        '& .ant-drawer-inline': {
+        '& .pro-drawer-sider-root.ant-drawer-inline': {
           position: 'fixed',
           insetBlockStart: 0,
           insetInlineStart: 0,

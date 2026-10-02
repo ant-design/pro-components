@@ -103,6 +103,40 @@ describe('mobile BasicLayout', () => {
     document.body.style.removeProperty('overflow');
   });
 
+  it('📱 keeps scrolling locked until every mobile drawer closes (#8748)', async () => {
+    document.body.style.overflow = 'auto';
+    const Demo = (props: {
+      firstCollapsed: boolean;
+      secondCollapsed: boolean;
+    }) => (
+      <>
+        <ProLayout
+          {...defaultProps}
+          getContainer={false}
+          collapsed={props.firstCollapsed}
+        />
+        <ProLayout
+          {...defaultProps}
+          getContainer={false}
+          collapsed={props.secondCollapsed}
+        />
+      </>
+    );
+    const html = render(
+      <Demo firstCollapsed={false} secondCollapsed={false} />,
+    );
+
+    expect(document.body.style.overflow).toBe('hidden');
+    html.rerender(<Demo firstCollapsed secondCollapsed={false} />);
+    expect(document.body.style.overflow).toBe('hidden');
+    html.rerender(<Demo firstCollapsed secondCollapsed />);
+
+    await waitFor(() => {
+      expect(document.body.style.overflow).toBe('auto');
+    });
+    document.body.style.removeProperty('overflow');
+  });
+
   it('📱 layout=mix', async () => {
     const html = render(
       <ProLayout
