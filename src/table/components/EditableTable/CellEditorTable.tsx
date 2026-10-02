@@ -113,16 +113,33 @@ export function CellEditorTable<
               ),
             ) as ProColumns<any, ValueType>['children'])
           : undefined,
-        onCell: (record: any, rowIndex: any) => ({
-          onDoubleClick: () => {
-            if (item.editable === false) return;
-            cancelExitEditing();
-            handleEditableKeysChange([getRowKey(record, rowIndex)]);
-            setActiveColumnId(columnId);
-          },
-          onBlur: scheduleExitEditing,
-          onFocus: cancelExitEditing,
-        }),
+        onCell: (record: any, rowIndex: any) => {
+          const originCell = item.onCell?.(record, rowIndex) ?? {};
+          const {
+            onDoubleClick: originOnDoubleClick,
+            onBlur: originOnBlur,
+            onFocus: originOnFocus,
+            ...originCellProps
+          } = originCell;
+          return {
+            ...originCellProps,
+            onDoubleClick: (event: React.MouseEvent<HTMLElement>) => {
+              originOnDoubleClick?.(event);
+              if (event.defaultPrevented || item.editable === false) return;
+              cancelExitEditing();
+              handleEditableKeysChange([getRowKey(record, rowIndex)]);
+              setActiveColumnId(columnId);
+            },
+            onBlur: (event: React.FocusEvent<HTMLElement>) => {
+              originOnBlur?.(event);
+              scheduleExitEditing();
+            },
+            onFocus: (event: React.FocusEvent<HTMLElement>) => {
+              originOnFocus?.(event);
+              cancelExitEditing();
+            },
+          };
+        },
       };
     };
 

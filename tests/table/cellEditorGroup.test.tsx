@@ -1,7 +1,7 @@
 import { CellEditorTable } from '@ant-design/pro-components';
 import { fireEvent, render } from '@testing-library/react';
 import { act } from 'react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
 type Row = { id: number; name: string; age: number };
@@ -109,6 +109,41 @@ describe('#8880 CellEditorTable with grouped header', () => {
     act(() => fireEvent.doubleClick(cells[0]));
     await waitForWaitTime(300);
     expect(wrapper.container.querySelectorAll('input')).toHaveLength(1);
+    wrapper.unmount();
+  });
+
+  it('preserves grouped child onCell props and handlers', async () => {
+    const onDoubleClick = vi.fn();
+    const wrapper = render(
+      <CellEditorTable<Row>
+        rowKey="id"
+        columns={[
+          {
+            title: 'Group',
+            children: [
+              {
+                title: 'Name',
+                dataIndex: 'name',
+                onCell: () => ({
+                  'data-testid': 'custom-cell',
+                  style: { color: 'rgb(255, 0, 0)' },
+                  onDoubleClick,
+                }),
+              },
+            ],
+          },
+        ]}
+        value={[{ id: 1, name: 'Alice', age: 20 }]}
+      />,
+    );
+    await waitForWaitTime(300);
+
+    const cell = wrapper.getByTestId('custom-cell');
+    expect(cell).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    act(() => fireEvent.doubleClick(cell));
+    await waitForWaitTime(300);
+    expect(onDoubleClick).toHaveBeenCalledTimes(1);
+    expect(wrapper.container.querySelector('input')).toHaveValue('Alice');
     wrapper.unmount();
   });
 });
