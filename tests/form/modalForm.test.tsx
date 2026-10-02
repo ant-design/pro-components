@@ -17,6 +17,8 @@ afterEach(() => {
   cleanup();
   // 清理所有定时器
   vi.clearAllTimers();
+  // 恢复 console 等全局对象上的 spy
+  vi.restoreAllMocks();
   // 清理所有模拟
   vi.clearAllMocks();
 });
