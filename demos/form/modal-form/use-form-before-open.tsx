@@ -16,7 +16,7 @@ export default () => {
   const [form] = ProForm.useForm<User>();
   const [open, setOpen] = useState(false);
 
-  const edit = (user: User) => {
+  const handleEdit = (user: User) => {
     // forceRender connects this instance before the first button click.
     form.setFieldsValue(user);
     setOpen(true);
@@ -26,7 +26,7 @@ export default () => {
     <>
       <Space>
         {users.map((user) => (
-          <Button key={user.email} onClick={() => edit(user)}>
+          <Button key={user.email} onClick={() => handleEdit(user)}>
             Edit {user.name}
           </Button>
         ))}

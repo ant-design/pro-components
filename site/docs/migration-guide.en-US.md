@@ -35,8 +35,8 @@ import { ProForm, ProLayout, ProTable } from '@ant-design/pro-components';
 Remove direct dependencies on every standalone `@ant-design/pro-*` package and
 keep only `@ant-design/pro-components`. If `pnpm why @ant-design/pro-form` still
 finds a standalone package, inspect upstream dependencies such as Umi plugins.
-For Umi projects, upgrade to at least Umi 4.6.2 before moving to
-ProComponents v3.
+For Umi projects, upgrade both Umi and `@umijs/plugins` to 4.6.2 or later before
+moving to ProComponents v3.
 
 ### Codebase Preparation Suggestions
 
@@ -59,6 +59,7 @@ Verify that the project no longer contains a v2 standalone dependency tree:
 ```bash
 pnpm why @ant-design/pro-components
 pnpm why @ant-design/pro-form
+pnpm why @ant-design/pro-table
 pnpm why @ant-design/pro-layout
 ```
 

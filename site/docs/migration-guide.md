@@ -33,7 +33,8 @@ import { ProForm, ProLayout, ProTable } from '@ant-design/pro-components';
 
 升级时删除业务项目对所有 `@ant-design/pro-*` 独立子包的直接依赖，只保留
 `@ant-design/pro-components`。如果 `pnpm why @ant-design/pro-form` 仍显示子包，继续
-检查 Umi 插件等上游依赖；Umi 项目至少升级到 4.6.2，再迁移到 ProComponents v3。
+检查 Umi 插件等上游依赖；Umi 项目需要把 Umi 和 `@umijs/plugins` 都升级到 4.6.2
+或更高版本，再迁移到 ProComponents v3。
 
 ### 代码库准备建议
 
@@ -56,6 +57,7 @@ pnpm install
 ```bash
 pnpm why @ant-design/pro-components
 pnpm why @ant-design/pro-form
+pnpm why @ant-design/pro-table
 pnpm why @ant-design/pro-layout
 ```
 
