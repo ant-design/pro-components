@@ -161,4 +161,3 @@ describe('#8834 ModalForm initialValues across opens', () => {
     unmount();
   });
 });
-
