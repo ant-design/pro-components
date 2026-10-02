@@ -56,9 +56,9 @@ describe('ProFormList actionRef guards & callbacks (#8939)', () => {
     await Promise.all([firstAdd, secondAdd]);
     expect(onAfterAdd).toHaveBeenLastCalledWith({ name: '4444' }, undefined, 3);
 
-    await actionRef.current?.remove([1, 2]);
-    expect(beforeRemoveRow).toHaveBeenLastCalledWith([1, 2], 3);
-    expect(onAfterRemove).toHaveBeenLastCalledWith([1, 2], 1);
+    await actionRef.current?.remove([1, 2, 99, 99]);
+    expect(beforeRemoveRow).toHaveBeenLastCalledWith([1, 2, 99, 99], 3);
+    expect(onAfterRemove).toHaveBeenLastCalledWith([1, 2, 99, 99], 1);
   });
 
   it('actionRef.add 被 beforeAddRow 拦截时不新增也不触发 onAfterAdd', async () => {

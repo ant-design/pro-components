@@ -103,7 +103,12 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
         countRef,
         action.remove,
         (count, [index]) => {
-          const removedCount = Array.isArray(index) ? new Set(index).size : 1;
+          const indexes = Array.isArray(index) ? index : [index];
+          const removedCount = new Set(
+            indexes.filter(
+              (item) => Number.isInteger(item) && item >= 0 && item < count,
+            ),
+          ).size;
           return Math.max(0, count - removedCount);
         },
         onAfterRemove,
