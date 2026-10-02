@@ -145,73 +145,65 @@ function BetaSchemaForm<T, ValueType = 'text'>(
               rowIndex,
             );
 
-          const item = omitUndefined({
-            title,
-            label: title,
-            name: originItem.name,
-            valueType: runFunction(originItem.valueType, {}),
-            key: originItem.key || originItem.dataIndex || index,
-            columns: originItem.columns,
-            valueEnum: originItem.valueEnum,
-            dataIndex: originItem.dataIndex || originItem.key,
-            initialValue: originItem.initialValue,
-            width: originItem.width,
-            index: originItem.index,
-            readonly: originItem.readonly,
-            colSize: originItem.colSize,
-            colProps: originItem.colProps,
-            rowProps: originItem.rowProps,
-            className: originItem.className,
-            tooltip: originItem.tooltip,
-            dependencies: originItem.dependencies,
-            proFieldProps: originItem.proFieldProps,
-            ignoreFormItem: originItem.ignoreFormItem,
-            getFieldProps: originItem.fieldProps
-              ? () =>
-                  runFunction(
-                    originItem.fieldProps,
-                    formRef.current,
-                    {
+            const item = omitUndefined({
+              title,
+              label: title,
+              name: originItem.name,
+              valueType: runFunction(originItem.valueType, {}),
+              key: originItem.key || originItem.dataIndex || index,
+              columns: originItem.columns,
+              valueEnum: originItem.valueEnum,
+              dataIndex: originItem.dataIndex || originItem.key,
+              initialValue: originItem.initialValue,
+              width: originItem.width,
+              index: originItem.index,
+              readonly: originItem.readonly,
+              colSize: originItem.colSize,
+              colProps: originItem.colProps,
+              rowProps: originItem.rowProps,
+              className: originItem.className,
+              tooltip: originItem.tooltip,
+              dependencies: originItem.dependencies,
+              proFieldProps: originItem.proFieldProps,
+              ignoreFormItem: originItem.ignoreFormItem,
+              getFieldProps: originItem.fieldProps
+                ? () =>
+                    runFunction(originItem.fieldProps, formRef.current, {
                       ...originItem,
                       type,
                       rowIndex,
-                    } as any,
-                  )
-              : undefined,
-            getFormItemProps: originItem.formItemProps
-              ? () =>
-                  runFunction(
-                    originItem.formItemProps,
-                    formRef.current,
-                    {
+                    } as any)
+                : undefined,
+              getFormItemProps: originItem.formItemProps
+                ? () =>
+                    runFunction(originItem.formItemProps, formRef.current, {
                       ...originItem,
                       type,
                       rowIndex,
-                    } as any,
-                  )
-              : undefined,
-            render: originItem.render,
-            formItemRender: originItem.formItemRender,
-            renderText: originItem.renderText,
-            request: originItem.request,
-            params: originItem.params,
-            transform: originItem.transform,
-            convertValue: originItem.convertValue,
-            debounceTime: originItem.debounceTime,
-            defaultKeyWords: originItem.defaultKeyWords,
-          }) as ItemType<any, any>;
+                    } as any)
+                : undefined,
+              render: originItem.render,
+              formItemRender: originItem.formItemRender,
+              renderText: originItem.renderText,
+              request: originItem.request,
+              params: originItem.params,
+              transform: originItem.transform,
+              convertValue: originItem.convertValue,
+              debounceTime: originItem.debounceTime,
+              defaultKeyWords: originItem.defaultKeyWords,
+            }) as ItemType<any, any>;
 
-          return renderValueType(item, {
-            action,
-            type,
-            originItem,
-            formRef,
-            genItems: contextBoundGenItems,
+            return renderValueType(item, {
+              action,
+              type,
+              originItem,
+              formRef,
+              genItems: contextBoundGenItems,
+            });
+          })
+          .filter((field) => {
+            return Boolean(field);
           });
-        })
-        .filter((field) => {
-          return Boolean(field);
-        });
       },
     );
 

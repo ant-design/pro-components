@@ -61,11 +61,7 @@ export type ProFormPropsType<T, ValueType = 'text'> =
 export type ProFormLayoutType = ProFormPropsType<any>['layoutType'];
 
 export type FormFieldType =
-  | 'group'
-  | 'formList'
-  | 'formSet'
-  | 'divider'
-  | 'dependency';
+  'group' | 'formList' | 'formSet' | 'divider' | 'dependency';
 
 export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
   T,

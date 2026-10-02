@@ -299,10 +299,7 @@ type FieldPropsTypeBase<
 
 /** 泛型：仅 progress | money | percent | image 时有属性，否则 never */
 export type ProFieldValueObject<Type> = Type extends
-  | 'progress'
-  | 'money'
-  | 'percent'
-  | 'image'
+  'progress' | 'money' | 'percent' | 'image'
   ? {
       type: Type;
       status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
@@ -384,8 +381,7 @@ export type ProFieldRequestData<U = any> = (
 ) => Promise<RequestOptionsType[]>;
 
 export type ProFieldValueEnumType =
-  | ProSchemaValueEnumMap
-  | ProSchemaValueEnumObj;
+  ProSchemaValueEnumMap | ProSchemaValueEnumObj;
 /**
  * ProFieldValueObjectType 对象，用于描述值为 'progress' | 'money' | 'percent' | 'image' 类型的 ProField 的属性。
  * @typedef {Object} ProFieldValueObjectType
@@ -442,8 +438,7 @@ export type ProFieldValueObjectType = {
 
 /** `PureProField` / `ProFormField` 的 `valueType`：全部字符串类型，或 money/percent 等对象简写 */
 export type ProFieldValueTypeInput =
-  | ProFieldValueType
-  | ProFieldValueObjectType;
+  ProFieldValueType | ProFieldValueObjectType;
 
 /**
  * 支持 Map 和 Record<string,any>
@@ -486,12 +481,7 @@ export type ProTableEditableFnType<T> = (
 // 支持的变形，还未完全支持完毕
 /** 支持的变形，还未完全支持完毕 */
 export type ProSchemaComponentTypes =
-  | 'form'
-  | 'list'
-  | 'descriptions'
-  | 'table'
-  | 'cardList'
-  | undefined;
+  'form' | 'list' | 'descriptions' | 'table' | 'cardList' | undefined;
 
 /**
  * Pro 系列组件 Action 公共字段。所有 Pro 组件 actionRef 暴露的最小集合，
@@ -529,9 +519,7 @@ export type ProCoreActionType<
 > = ProCoreActionBase & EditableUtil & T;
 
 export type ProSchemaFieldProps<T> =
-  | Record<string, any>
-  | T
-  | Partial<InputProps>;
+  Record<string, any> | T | Partial<InputProps>;
 
 /** 各个组件公共支持的 render */
 export type ProSchema<

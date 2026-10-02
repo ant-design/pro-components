@@ -1,9 +1,9 @@
 import type { FormListActionType } from '@ant-design/pro-components';
 import { ProForm, ProFormList, ProFormText } from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
-import { waitForWaitTime } from '../util';
 import React from 'react';
 import { describe, expect, it, vi } from 'vitest';
+import { waitForWaitTime } from '../util';
 
 describe('ProFormList actionRef guards & callbacks (#8939)', () => {
   it('actionRef.add/remove 应触发 actionGuard 与 onAfterAdd/onAfterRemove', async () => {
@@ -45,9 +45,9 @@ describe('ProFormList actionRef guards & callbacks (#8939)', () => {
     await waitForWaitTime(100);
 
     // beforeRemoveRow 第二参数为 remove 时的 count(移除前行数)
-    expect(beforeRemoveRow).toHaveBeenCalledWith(1, 1);
+    expect(beforeRemoveRow).toHaveBeenCalledWith(1, 2);
     // onAfterRemove 第二参数为移除后的 count
-    expect(onAfterRemove).toHaveBeenCalledWith(1, 0);
+    expect(onAfterRemove).toHaveBeenCalledWith(1, 1);
     expect(actionRef.current?.getList()?.length).toBe(1);
   });
 

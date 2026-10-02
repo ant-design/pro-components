@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { BetaSchemaForm } from '../../src';
 
@@ -28,9 +27,12 @@ describe('#8561 SchemaForm formList title 拿不到 index', () => {
             columns: [
               {
                 // #8561 期望 title 函数可以拿到 schema + 第四个参数 rowIndex
-                title: (schema: any, type: any, dom: any, rowIndex?: number) => (
-                  <div>{`院区名称${rowIndex ?? '-'}`}</div>
-                ),
+                title: (
+                  schema: any,
+                  type: any,
+                  dom: any,
+                  rowIndex?: number,
+                ) => <div>{`院区名称${rowIndex ?? '-'}`}</div>,
                 dataIndex: 'displayName',
                 colProps: { span: 24 },
               },
@@ -47,9 +49,9 @@ describe('#8561 SchemaForm formList title 拿不到 index', () => {
     // 两行数据，title 应携带各自的行号
     expect(getAllByText('院区名称0').length).toBe(1);
     expect(getAllByText('院区名称1').length).toBe(1);
-    expect(container.querySelectorAll('.ant-form-item-control-input').length).toBeGreaterThan(
-      0,
-    );
+    expect(
+      container.querySelectorAll('.ant-form-item-control-input').length,
+    ).toBeGreaterThan(0);
   });
 
   it('fieldProps / formItemProps 函数在 formList 子列中可以拿到 config.rowIndex', () => {

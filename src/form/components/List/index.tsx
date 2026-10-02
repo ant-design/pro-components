@@ -126,8 +126,6 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children' | 'rules'> &
   } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'>;
 
 function ProFormList<T>(props: ProFormListProps<T>) {
-  /** 保存 Form.List 原始 action，供 useImperativeHandle 与渲染函数消费 */
-  const actionRefs = useRef<FormListOperation>();
   /** 保存经过 actionGuard 包装、带 onAfterAdd/onAfterRemove 回调的 action（#8939） */
   const guardedActionRef = useRef<FormListOperation>();
   const context = useContext(ConfigProvider.ConfigContext);
@@ -210,9 +208,14 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     actionRef,
     () =>
       ({
-        // 使用带 actionGuard 与 onAfterAdd/onAfterRemove 的包装 action，
-        // 保证 actionRef.add/remove 与内置按钮行为一致（#8939）
-        ...guardedActionRef.current,
+        // 每次调用都转发到最新一轮渲染生成的 action，避免列表长度变化后
+        // actionRef 仍捕获旧 count，导致 guard 与 after 回调收到过期值（#8939）。
+        add: (...args: Parameters<FormListOperation['add']>) =>
+          guardedActionRef.current?.add(...args),
+        remove: (...args: Parameters<FormListOperation['remove']>) =>
+          guardedActionRef.current?.remove(...args),
+        move: (...args: Parameters<FormListOperation['move']>) =>
+          guardedActionRef.current?.move(...args),
         get: (index: number) => {
           return proFormContext.formRef!.current!.getFieldValue([
             ...name,
@@ -293,8 +296,6 @@ function ProFormList<T>(props: ProFormListProps<T>) {
         >
           <Form.List rules={rules} {...rest} name={name}>
             {(fields, action, meta) => {
-              // 将 action 暴露给外部
-              actionRefs.current = action;
               return (
                 <RowWrapper>
                   <ProFormListContainer
@@ -323,7 +324,7 @@ function ProFormList<T>(props: ProFormListProps<T>) {
                     min={min}
                     max={max}
                     count={fields.length}
-        onAfterAdd={(defaultValue, insertIndex, count) => {
+                    onAfterAdd={(defaultValue, insertIndex, count) => {
                       validateIfNeeded();
                       onAfterAdd?.(defaultValue, insertIndex, count);
                     }}

@@ -1,9 +1,14 @@
 import type { FormListActionType } from '@ant-design/pro-components';
-import { ProForm, ProFormDependency, ProFormList, ProFormText } from '@ant-design/pro-components';
+import {
+  ProForm,
+  ProFormDependency,
+  ProFormList,
+  ProFormText,
+} from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
-import { waitForWaitTime } from '../util';
 import React from 'react';
 import { describe, expect, it } from 'vitest';
+import { waitForWaitTime } from '../util';
 
 describe('ProFormList copy with preserve={false} children (#8208)', () => {
   it('条件渲染销毁后,复制/中间插入行时 preserve={false} 的子字段值应保留', async () => {
@@ -42,10 +47,18 @@ describe('ProFormList copy with preserve={false} children (#8208)', () => {
     });
     await waitForWaitTime(500);
 
-    const inputs = html.baseElement.querySelectorAll<HTMLInputElement>('input.ant-input');
+    const inputs =
+      html.baseElement.querySelectorAll<HTMLInputElement>('input.ant-input');
     // 3 行 x 2 字段
     expect(inputs.length).toBe(6);
     // 顺序为 duration(printerStatus 前),值应完整:插入行 1,顺移行 2
-    expect(Array.from(inputs).map((i) => i.value)).toEqual(['1', 'idle', '1', 'idle', '2', 'idle']);
+    expect(Array.from(inputs).map((i) => i.value)).toEqual([
+      '1',
+      'idle',
+      '1',
+      'idle',
+      '2',
+      'idle',
+    ]);
   });
 });

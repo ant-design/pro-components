@@ -1,9 +1,9 @@
 import type { FormListActionType } from '@ant-design/pro-components';
 import { ProForm, ProFormList, ProFormText } from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
-import { waitForWaitTime } from '../util';
 import React from 'react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import { waitForWaitTime } from '../util';
 
 describe('ProFormList 条件卸载重挂载 (#8896)', () => {
   it('isChecked 切换 false→true 后 ProFormList 子项应重新渲染', async () => {
@@ -110,9 +110,10 @@ describe('ProFormList 条件卸载重挂载 (#8896)', () => {
     });
     await waitForWaitTime(300);
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(2);
-    expect(
-      actionRef.current?.getList?.().map((i: any) => i.name),
-    ).toEqual(['111', 'btn-2']);
+    expect(actionRef.current?.getList?.()?.map((i: any) => i.name)).toEqual([
+      '111',
+      'btn-2',
+    ]);
 
     consoleSpy.mockRestore();
   });
