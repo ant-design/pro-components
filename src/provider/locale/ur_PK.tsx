@@ -79,6 +79,10 @@ const urPK: ProLocale = {
     open: 'کھلا',
     close: 'بند',
   },
+  captcha: {
+    getCaptcha: 'تصدیقی کوڈ حاصل کریں',
+    retryAfter: '{count} سیکنڈ میں دوبارہ کوشش کریں',
+  },
 };
 
 export default urPK;

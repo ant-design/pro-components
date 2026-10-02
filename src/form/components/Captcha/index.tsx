@@ -2,6 +2,7 @@
 import { Button, Form, Input } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import React, { useEffect, useImperativeHandle, useState } from 'react';
+import { useIntl } from '../../../provider';
 import type { ProFormFieldItemProps } from '../../typing';
 import { warpField } from '../FormItem/warpField';
 
@@ -42,6 +43,7 @@ export type CaptFieldRef = {
 const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
   (props, ref: any) => {
     const form = Form.useFormInstance();
+    const intl = useIntl();
     const [count, setCount] = useState<number>(props.countDown || 60);
     const [timing, setTiming] = useState(false);
     const [loading, setLoading] = useState<boolean>();
@@ -54,12 +56,20 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
       phoneName,
       fieldProps,
       onTiming,
-      captchaTextRender = (paramsTiming, paramsCount) => {
-        return paramsTiming ? `${paramsCount} 秒后重新获取` : '获取验证码';
-      },
+      // #8899: 默认文案走 i18n（captcha.getCaptcha / captcha.retryAfter），
+      // 传入 captchaTextRender 时仍优先用户自定义
+      captchaTextRender,
       captchaProps,
       ...restProps
     } = props;
+
+    const defaultCaptchaText = (paramsTiming: boolean, paramsCount: number) => {
+      return paramsTiming
+        ? intl
+            .getMessage('captcha.retryAfter', '{count} 秒后重新获取')
+            ?.replace('{count}', String(paramsCount))
+        : intl.getMessage('captcha.getCaptcha', '获取验证码');
+    };
 
     const onGetCaptcha = async (mobile: string) => {
       try {
@@ -150,7 +160,7 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
             }
           }}
         >
-          {captchaTextRender(timing, count)}
+          {(captchaTextRender ?? defaultCaptchaText)(timing, count)}
         </Button>
       </div>
     );

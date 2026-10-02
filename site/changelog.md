@@ -4,6 +4,18 @@
 
 ### 🐛 问题修复
 
+- BetaSchemaForm
+  - 🐞 修复 `layoutType="Embed"` 独立使用时 `onValuesChange`、`onFinish` 等回调不生效，并保持嵌套在已有 Form 内时仅透传字段 [#8727](https://github.com/ant-design/pro-components/issues/8727)
+  - ✅ 锁定 Form 与 LightFilter 布局切换回归 [#8850](https://github.com/ant-design/pro-components/issues/8850)
+- ProFormCaptcha
+  - 🐞 为全部内置语言补齐验证码按钮与倒计时默认文案 [#8899](https://github.com/ant-design/pro-components/issues/8899)
+- ProTable
+  - 🐞 保留 `Table.EXPAND_COLUMN` 的显式位置，并锁定 Tabs 内列宽与省略、valueEnum 格式化省略回归 [#8913](https://github.com/ant-design/pro-components/issues/8913) [#8747](https://github.com/ant-design/pro-components/issues/8747) [#8694](https://github.com/ant-design/pro-components/issues/8694)
+  - 📚 补充 `onCell` rowSpan/colSpan 合并单元格文档与示例 [#8701](https://github.com/ant-design/pro-components/issues/8701)
+- ProLayout
+  - ✅ 锁定 `layout="mix"`、`splitMenus` 与 `siderMenuType="sub"` 组合下的子菜单渲染 [#9310](https://github.com/ant-design/pro-components/issues/9310)
+- 密度选择器
+  - 💄 让多语言密度菜单按文案内容自适应宽度 [#9619](https://github.com/ant-design/pro-components/issues/9619)
 - 统一编辑字段中的自定义日期格式解析与 URL 同步的秒/毫秒时间戳回显 [#8863](https://github.com/ant-design/pro-components/issues/8863) [#8810](https://github.com/ant-design/pro-components/issues/8810)
 - 在 `omitNil=false` 时保留空字段，透传字段级失焦校验，并使 ellipsis tooltip 与格式化后的显示文本一致 [#8044](https://github.com/ant-design/pro-components/issues/8044) [#8380](https://github.com/ant-design/pro-components/issues/8380) [#8542](https://github.com/ant-design/pro-components/issues/8542)
 - 支持受控搜索值刷新 Select 请求且避免空搜索重复请求，正确处理 QueryFilter hidden 字段与响应式垂直布局 [#8801](https://github.com/ant-design/pro-components/issues/8801) [#8780](https://github.com/ant-design/pro-components/issues/8780) [#8928](https://github.com/ant-design/pro-components/issues/8928) [#8397](https://github.com/ant-design/pro-components/issues/8397) [#8836](https://github.com/ant-design/pro-components/issues/8836)

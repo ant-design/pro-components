@@ -20,9 +20,7 @@ const DensityIcon = React.forwardRef<
         onClick: ({ key }) => {
           counter.setTableSize?.(key as DensitySize);
         },
-        style: {
-          width: 80,
-        },
+        // #9619: 不设固定宽度，多语言（长文本）下菜单宽度随内容自适应
         items: [
           {
             key: 'large',

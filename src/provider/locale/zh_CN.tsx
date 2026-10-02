@@ -84,6 +84,10 @@ const zhCN = {
     open: '打开',
     close: '关闭',
   },
+  captcha: {
+    getCaptcha: '获取验证码',
+    retryAfter: '{count} 秒后重新获取',
+  },
 } as const;
 
 /** 所有 locale 共享的基准类型，由 zh-CN 推断得出。 */

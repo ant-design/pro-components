@@ -687,10 +687,30 @@ const ProTable = <
       proFilter,
       proSort,
     };
-    return genProColumnToColumn<T>({
+    const generatedColumns = genProColumnToColumn<T>({
       columns: propsColumns,
       context: columnContext,
-    }).sort(columnSort(counter.columnsMap ?? {}));
+    });
+    // Table.EXPAND_COLUMN / Table.SELECTION_COLUMN are identity markers used by
+    // antd and therefore cannot be cloned just to attach a sortable index. Sort
+    // regular columns, then put them back into the non-marker slots so explicit
+    // marker positions in `columns` remain unchanged (#8913).
+    const sortedRegularColumns = generatedColumns
+      .filter(
+        (column) =>
+          column !== Table.EXPAND_COLUMN && column !== Table.SELECTION_COLUMN,
+      )
+      .sort(columnSort(counter.columnsMap ?? {}));
+    let regularIndex = 0;
+    return generatedColumns.map((column) => {
+      if (
+        column === Table.EXPAND_COLUMN ||
+        column === Table.SELECTION_COLUMN
+      ) {
+        return column;
+      }
+      return sortedRegularColumns[regularIndex++];
+    });
   }, [
     propsColumns,
     counter?.sortKeyColumns,

@@ -79,6 +79,10 @@ const ptBR: ProLocale = {
     open: 'abrir',
     close: 'fechar',
   },
+  captcha: {
+    getCaptcha: 'Obter código de verificação',
+    retryAfter: 'Tentar novamente em {count}s',
+  },
 };
 
 export default ptBR;

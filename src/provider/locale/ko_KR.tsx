@@ -79,6 +79,10 @@ const koKR: ProLocale = {
     open: '열림',
     close: '닫힘',
   },
+  captcha: {
+    getCaptcha: '인증번호 받기',
+    retryAfter: '{count}초 후 재시도',
+  },
 };
 
 export default koKR;

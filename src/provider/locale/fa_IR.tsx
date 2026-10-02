@@ -79,6 +79,10 @@ const faIR: ProLocale = {
     open: 'باز',
     close: 'بسته',
   },
+  captcha: {
+    getCaptcha: 'دریافت کد تأیید',
+    retryAfter: 'تلاش مجدد در {count} ثانیه',
+  },
 };
 
 export default faIR;

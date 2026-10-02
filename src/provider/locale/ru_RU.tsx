@@ -79,6 +79,10 @@ const ruRU: ProLocale = {
     open: 'Открыть',
     close: 'Закрыть',
   },
+  captcha: {
+    getCaptcha: 'Получить код подтверждения',
+    retryAfter: 'Повторить через {count} с',
+  },
 };
 
 export default ruRU;
