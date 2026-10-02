@@ -152,6 +152,12 @@ export const parseValueToDay = (
     if (ts) {
       return ts;
     }
+    // 兼容历史行为：格式只描述日期时，允许输入包含额外时间部分并截取日期。
+    // 时间戳已在上面优先识别，不会被 YYYY 等格式误解为年份。
+    for (const currentFormatter of formatters) {
+      const legacy = dayjs(value, currentFormatter);
+      if (legacy.isValid()) return legacy;
+    }
     const parsed = dayjs(value);
     return parsed.isValid() ? parsed : null;
   }

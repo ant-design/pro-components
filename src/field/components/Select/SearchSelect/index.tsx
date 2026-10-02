@@ -114,6 +114,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     className,
     disabled,
     options,
+    request,
     fetchData,
     resetData,
     prefixCls: customizePrefixCls,
@@ -347,6 +348,9 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         if (showSearch && effectiveAutoClearSearchValue) {
           // 选择结果只清空可见搜索框，不重置已完成请求的远端关键字。
           // 显式清空输入仍由 handleSearch 触发对应请求。
+          if (!request && searchValue) {
+            fetchData(undefined);
+          }
           effectiveOnSearch?.('');
           setSearchValue('');
         } else if (showSearch && !effectiveAutoClearSearchValue) {
