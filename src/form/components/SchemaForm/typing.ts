@@ -61,11 +61,7 @@ export type ProFormPropsType<T, ValueType = 'text'> =
 export type ProFormLayoutType = ProFormPropsType<any>['layoutType'];
 
 export type FormFieldType =
-  | 'group'
-  | 'formList'
-  | 'formSet'
-  | 'divider'
-  | 'dependency';
+  'group' | 'formList' | 'formSet' | 'divider' | 'dependency';
 
 export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
   T,
@@ -157,7 +153,14 @@ export type ProFormRenderValueTypeHelpers<T, ValueType> = {
   originItem: ProFormColumnsType<T, ValueType>;
   type: ProSchemaComponentTypes;
   formRef: React.MutableRefObject<FormInstance<any> | undefined>;
-  genItems: (items: ProFormColumnsType<T, ValueType>[]) => React.ReactNode[];
+  /**
+   * @param listContext #8561 formList 按行求值时携带的行号上下文，
+   *   函数式 title / fieldProps / formItemProps 可拿到 rowIndex
+   */
+  genItems: (
+    items: ProFormColumnsType<T, ValueType>[],
+    listContext?: { rowIndex?: number },
+  ) => React.ReactNode[];
 } & Pick<FormSchema<T, ValueType>, 'action'>;
 
 export type ItemType<T, ValueType> = Omit<

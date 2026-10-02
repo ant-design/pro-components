@@ -16,6 +16,11 @@
 - Add regression coverage for throttled remote Select results [#6766](https://github.com/ant-design/pro-components/issues/6766)
 - ProForm
   - 🐞 Export `ProFormGroup` directly so SSR/ESM bundlers do not read a partially initialized `ProForm.Group` during module evaluation [#8543](https://github.com/ant-design/pro-components/issues/8543)
+- ProFormList
+  - 🐞 Route `actionRef.add` and `actionRef.remove` through `actionGuard`, `onAfterAdd`, and `onAfterRemove` [#8939](https://github.com/ant-design/pro-components/issues/8939)
+  - ✅ Add regressions for copying `preserve={false}` fields, conditional remounts, and first-submit transforms [#8208](https://github.com/ant-design/pro-components/issues/8208) [#8896](https://github.com/ant-design/pro-components/issues/8896) [#8700](https://github.com/ant-design/pro-components/issues/8700)
+- BetaSchemaForm
+  - 🆕 Pass the current row index to function props in `formList` sub-columns [#8561](https://github.com/ant-design/pro-components/issues/8561)
 
 ### 📖 Documentation
 

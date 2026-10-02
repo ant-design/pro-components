@@ -268,6 +268,8 @@ export type ProFormListItemProps = ProFromListCommonProps & {
   formInstance: FormInstance;
   action: FormListOperation;
   actionGuard?: FormListActionGuard;
+  /** 同步 actionGuard 包装后的 action,供外层 actionRef 使用(#8939) */
+  guardedActionRef?: React.MutableRefObject<FormListOperation | undefined>;
   prefixCls: string;
   fields: FormListFieldData[];
   meta: {
@@ -339,11 +341,7 @@ function renderActionIcon({
         <LoadingOutlined />
       ) : (
         <Icon
-          className={clsx(
-            `${prefixCls}-action-icon`,
-            actionClassName,
-            hashId,
-          )}
+          className={clsx(`${prefixCls}-action-icon`, actionClassName, hashId)}
           onClick={onClick}
         />
       )}

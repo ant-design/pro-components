@@ -1,4 +1,4 @@
-﻿import type { FormProps } from 'antd';
+import type { FormProps } from 'antd';
 import { Form } from 'antd';
 import React, {
   useCallback,
@@ -104,92 +104,112 @@ function BetaSchemaForm<T, ValueType = 'text'>(
    * 生成子项，方便被 table 接入
    *
    * @param items
+   * @param listContext #8561 formList 按行求值时携带的行号上下文，
+   *   供函数式 title / fieldProps / formItemProps 消费
    */
   const genItems: ProFormRenderValueTypeHelpers<T, ValueType>['genItems'] =
-    useRefFunction((items: ProFormColumnsType<T, ValueType>[]) => {
-      return items
-        .filter((originItem) => {
-          return !(originItem.hideInForm && type === 'form');
-        })
-        .sort((a, b) => {
-          if (b.order || a.order) {
-            return (b.order || 0) - (a.order || 0);
-          }
-          return (b.index || 0) - (a.index || 0);
-        })
-        .map((originItem, index) => {
-          const title = runFunction(
-            originItem.title,
-            originItem,
-            'form',
-            <LabelIconTip
-              label={originItem.title as string}
-              tooltip={originItem.tooltip}
-            />,
-          );
+    useRefFunction(
+      (
+        items: ProFormColumnsType<T, ValueType>[],
+        listContext?: { rowIndex?: number },
+      ) => {
+        const rowIndex = listContext?.rowIndex;
+        /**
+         * #8561 带行号递归（formList > group > field 等多层嵌套）时，
+         * helpers 里的 genItems 保持行号上下文，保证 rowIndex 不在中间层丢失
+         */
+        const contextBoundGenItems =
+          rowIndex !== undefined
+            ? (
+                its: ProFormColumnsType<T, ValueType>[],
+                nestedContext?: { rowIndex?: number },
+              ) => genItems(its, nestedContext ?? { rowIndex })
+            : genItems;
+        return items
+          .filter((originItem) => {
+            return !(originItem.hideInForm && type === 'form');
+          })
+          .sort((a, b) => {
+            if (b.order || a.order) {
+              return (b.order || 0) - (a.order || 0);
+            }
+            return (b.index || 0) - (a.index || 0);
+          })
+          .map((originItem, index) => {
+            const title = runFunction(
+              originItem.title,
+              originItem,
+              'form',
+              <LabelIconTip
+                label={originItem.title as string}
+                tooltip={originItem.tooltip}
+              />,
+              rowIndex,
+            );
 
-          const item = omitUndefined({
-            title,
-            label: title,
-            name: originItem.name,
-            valueType: runFunction(originItem.valueType, {}),
-            key: originItem.key || originItem.dataIndex || index,
-            columns: originItem.columns,
-            valueEnum: originItem.valueEnum,
-            dataIndex: originItem.dataIndex || originItem.key,
-            initialValue: originItem.initialValue,
-            width: originItem.width,
-            index: originItem.index,
-            readonly: originItem.readonly,
-            // #8397:hidden 需要透传到字段级 props,QueryFilter 依据它跳过 Col 占位
-            hidden: originItem.hidden,
-            colSize: originItem.colSize,
-            colProps: originItem.colProps,
-            rowProps: originItem.rowProps,
-            className: originItem.className,
-            tooltip: originItem.tooltip,
-            dependencies: originItem.dependencies,
-            proFieldProps: originItem.proFieldProps,
-            ignoreFormItem: originItem.ignoreFormItem,
-            getFieldProps: originItem.fieldProps
-              ? () =>
-                  runFunction(
-                    originItem.fieldProps,
-                    formRef.current,
-                    originItem,
-                  )
-              : undefined,
-            getFormItemProps: originItem.formItemProps
-              ? () =>
-                  runFunction(
-                    originItem.formItemProps,
-                    formRef.current,
-                    originItem,
-                  )
-              : undefined,
-            render: originItem.render,
-            formItemRender: originItem.formItemRender,
-            renderText: originItem.renderText,
-            request: originItem.request,
-            params: originItem.params,
-            transform: originItem.transform,
-            convertValue: originItem.convertValue,
-            debounceTime: originItem.debounceTime,
-            defaultKeyWords: originItem.defaultKeyWords,
-          }) as ItemType<any, any>;
+            const item = omitUndefined({
+              title,
+              label: title,
+              name: originItem.name,
+              valueType: runFunction(originItem.valueType, {}),
+              key: originItem.key || originItem.dataIndex || index,
+              columns: originItem.columns,
+              valueEnum: originItem.valueEnum,
+              dataIndex: originItem.dataIndex || originItem.key,
+              initialValue: originItem.initialValue,
+              width: originItem.width,
+              index: originItem.index,
+              readonly: originItem.readonly,
+              // #8397:hidden 需要透传到字段级 props,QueryFilter 依据它跳过 Col 占位
+              hidden: originItem.hidden,
+              colSize: originItem.colSize,
+              colProps: originItem.colProps,
+              rowProps: originItem.rowProps,
+              className: originItem.className,
+              tooltip: originItem.tooltip,
+              dependencies: originItem.dependencies,
+              proFieldProps: originItem.proFieldProps,
+              ignoreFormItem: originItem.ignoreFormItem,
+              getFieldProps: originItem.fieldProps
+                ? () =>
+                    runFunction(originItem.fieldProps, formRef.current, {
+                      ...originItem,
+                      type,
+                      rowIndex,
+                    } as any)
+                : undefined,
+              getFormItemProps: originItem.formItemProps
+                ? () =>
+                    runFunction(originItem.formItemProps, formRef.current, {
+                      ...originItem,
+                      type,
+                      rowIndex,
+                    } as any)
+                : undefined,
+              render: originItem.render,
+              formItemRender: originItem.formItemRender,
+              renderText: originItem.renderText,
+              request: originItem.request,
+              params: originItem.params,
+              transform: originItem.transform,
+              convertValue: originItem.convertValue,
+              debounceTime: originItem.debounceTime,
+              defaultKeyWords: originItem.defaultKeyWords,
+            }) as ItemType<any, any>;
 
-          return renderValueType(item, {
-            action,
-            type,
-            originItem,
-            formRef,
-            genItems,
+            return renderValueType(item, {
+              action,
+              type,
+              originItem,
+              formRef,
+              genItems: contextBoundGenItems,
+            });
+          })
+          .filter((field) => {
+            return Boolean(field);
           });
-        })
-        .filter((field) => {
-          return Boolean(field);
-        });
-    });
+      },
+    );
 
   const onValuesChange: FormProps<T>['onValuesChange'] = useCallback(
     (changedValues: any, values: T) => {
