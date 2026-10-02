@@ -3,7 +3,8 @@ import type { FormInstance, FormProps, StepsProps } from 'antd';
 import { useContext, useEffect, useImperativeHandle, useRef } from 'react';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import { StepFormProvide, StepsFormProps, StepsFormProvide } from './index';
+import { StepFormProvide, StepsFormProvide } from './index';
+import type { StepsFormProps } from './index';
 const { noteOnce } = warning;
 
 export type StepFormProps<T = Record<string, any>, U = Record<string, any>> = {
@@ -20,8 +21,19 @@ function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
   const context = useContext(StepsFormProvide);
   const stepContext = useContext(StepFormProvide);
 
-  const props = { ...stepNativeProps, ...stepContext } as StepFormProps<T> &
-    StepsFormProps<any>;
+  /**
+   * #9021:StepsForm 会把外层 item 的 props(含 children)放进
+   * StepFormProvide context。当 StepForm 被自定义组件包裹时,
+   * context 里的 children 是包装组件从外层接收的,
+   * 若 context 覆盖元素自身 props,内部显式声明的渲染逻辑会被覆盖。
+   * 只让元素自身书写的 children 优先，其余上下文属性（尤其是计算后的 step）
+   * 仍由 StepsForm 控制。
+   */
+  const props = {
+    ...stepNativeProps,
+    ...stepContext,
+    children: stepNativeProps.children ?? stepContext?.children,
+  } as StepFormProps<T> & StepsFormProps<any>;
   const {
     onFinish,
     step,
@@ -84,6 +96,8 @@ function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
         if (context && context?.formArrayRef) {
           context.formArrayRef.current[step || 0] = formRef;
         }
+        // #8108:通知 StepsForm 实例已初始化,刷新外层 formRef 的 imperative handle
+        context?.onFormInit?.();
         restProps?.onInit?.(_, form);
       }}
       layout="vertical"
