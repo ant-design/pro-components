@@ -57,13 +57,11 @@ export const reorderNestedColumns = (
   const dragIdx = siblings.indexOf(id as string);
   const targetIdx = siblings.indexOf(targetId as string);
   if (dragIdx < 0 || targetIdx < 0) return undefined;
-  const isDownWard = dropPosition >= dragIdx;
   siblings.splice(dragIdx, 1);
-  if (dropPosition === 0) {
-    siblings.unshift(id as string);
-  } else {
-    siblings.splice(isDownWard ? targetIdx : targetIdx + 1, 0, id as string);
-  }
+  const targetIndexAfterRemoval = targetIdx - (dragIdx < targetIdx ? 1 : 0);
+  const insertIndex =
+    dropPosition === 0 ? targetIndexAfterRemoval : targetIndexAfterRemoval + 1;
+  siblings.splice(insertIndex, 0, id as string);
   const newMap = { ...columnsMap };
   siblings.forEach((key, order) => {
     newMap[key] = { ...(newMap[key] || {}), order };

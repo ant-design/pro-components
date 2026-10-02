@@ -48,10 +48,23 @@ describe('#8133 grouped child column order', () => {
       treeMap,
       [parent],
       'E',
-      'B',
+      'C',
       0,
     );
     expect(movedFirst).toMatchObject({
+      B: { order: 0 },
+      E: { order: 1 },
+      C: { order: 2 },
+    });
+    const movedToListStart = reorderNestedColumns(
+      movedFirst!,
+      treeMap,
+      [parent],
+      'E',
+      'B',
+      0,
+    );
+    expect(movedToListStart).toMatchObject({
       E: { order: 0 },
       B: { order: 1 },
       C: { order: 2 },
