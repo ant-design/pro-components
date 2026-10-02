@@ -12,6 +12,9 @@ export const genProLayoutBaseMenuStyle: GenerateStyle<
   const menuToken = mode.includes('horizontal')
     ? token.layout?.header
     : token.layout?.sider;
+  const menuTitleColor = mode.includes('horizontal')
+    ? undefined
+    : token.layout?.sider?.colorTextMenuTitle;
 
   return {
     [`${token.componentCls}`]: {
@@ -147,7 +150,10 @@ export const genProLayoutBaseMenuStyle: GenerateStyle<
       '&-group': {
         [`${token.antCls}-menu-item-group-title`]: {
           fontSize: 12,
-          color: token.colorTextLabel,
+          color:
+            menuTitleColor ||
+            menuToken?.colorTextMenuSecondary ||
+            token.colorTextLabel,
           [token.iconCls]: {
             marginInlineEnd: 8,
           },
