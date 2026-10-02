@@ -4,6 +4,12 @@
 
 ### 🐛 问题修复
 
+- 修复 EditableProTable 函数式 `rowKey` 下嵌套子行表单路径错误，并补充 ProFormList 嵌套表格的受控写法回归测试 [#8893](https://github.com/ant-design/pro-components/issues/8893) [#6508](https://github.com/ant-design/pro-components/issues/6508)
+- 统一 `convertValue` / `transform` 的整表数据、嵌套列表和 ProTable 列转换语义 [#8907](https://github.com/ant-design/pro-components/issues/8907) [#8480](https://github.com/ant-design/pro-components/issues/8480) [#9120](https://github.com/ant-design/pro-components/issues/9120) [#9032](https://github.com/ant-design/pro-components/issues/9032)
+- 修复只读空数组、Digit 前后缀及数字 valueEnum 回显问题 [#8848](https://github.com/ant-design/pro-components/issues/8848) [#8844](https://github.com/ant-design/pro-components/issues/8844) [#8517](https://github.com/ant-design/pro-components/issues/8517)
+- 修复 TreeSelect 自定义打开回调覆盖内部状态的问题，并补充虚拟滚动与 halfChecked 使用说明 [#9138](https://github.com/ant-design/pro-components/issues/9138) [#8876](https://github.com/ant-design/pro-components/issues/8876) [#8869](https://github.com/ant-design/pro-components/issues/8869)
+- 补充 ProFormSelect 远程请求节流结果的回归测试 [#6766](https://github.com/ant-design/pro-components/issues/6766)
+
 - ProForm
   - 🐞 `ProFormGroup` 改为直接导出，避免 SSR/ESM 打包器在模块初始化阶段读取未完成的 `ProForm.Group` [#8543](https://github.com/ant-design/pro-components/issues/8543)
 

@@ -26,6 +26,7 @@ import type {
   ProSchemaComponentTypes,
   ProTableEditableFnType,
   RowEditableConfig,
+  SearchConvertKeyFn,
   SearchTransformKeyFn,
 } from '../utils';
 import type { AlertRenderType } from './components/Alert';
@@ -121,6 +122,12 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     ellipsis?: ProEllipsis;
     /** @name 是否拷贝 */
     copyable?: boolean;
+
+    /** 获取时将数据转化为编辑组件接收的格式 */
+    convertValue?: SearchConvertKeyFn;
+
+    /** 提交或保存时转化字段值 */
+    transform?: SearchTransformKeyFn;
 
     /** 在查询表单中隐藏 */
     search?:

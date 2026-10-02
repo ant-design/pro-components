@@ -92,6 +92,10 @@ const CellRenderFromItem = <T extends AnyObject>(
   } = props;
 
   const editableForm = ProForm.useFormInstance();
+  const convertValueTypeRef = React.useRef<{
+    source: string;
+    target: string;
+  }>();
 
   const key = recordKey || index;
   const realIndex = useMemo(
@@ -166,6 +170,38 @@ const CellRenderFromItem = <T extends AnyObject>(
     formItemProps.initialValue = prefixName
       ? (formItemProps?.initialValue ?? columnProps?.initialValue)
       : (text ?? formItemProps?.initialValue ?? columnProps?.initialValue);
+    if (columnProps?.convertValue) {
+      const userGetValueProps = formItemProps.getValueProps;
+      formItemProps.getValueProps = (value: any) => {
+        const getValueType = (item: any) => {
+          if (item === null) return 'null';
+          if (Array.isArray(item)) return 'array';
+          return typeof item;
+        };
+        const valueType = getValueType(value);
+        const cachedTypes = convertValueTypeRef.current;
+        const shouldReuseComponentValue =
+          cachedTypes &&
+          cachedTypes.source !== cachedTypes.target &&
+          valueType === cachedTypes.target;
+        const convertedValue = shouldReuseComponentValue
+          ? value
+          : (columnProps.convertValue?.(
+              value,
+              formItemName,
+              editableForm?.getFieldsValue?.(true),
+            ) ?? value);
+        if (!shouldReuseComponentValue) {
+          convertValueTypeRef.current = {
+            source: valueType,
+            target: getValueType(convertedValue),
+          };
+        }
+        return userGetValueProps
+          ? userGetValueProps(convertedValue)
+          : { value: convertedValue };
+      };
+    }
     let fieldDom: React.ReactNode = (
       <ProFormField
         cacheForSwr
@@ -332,6 +368,8 @@ function cellRenderToFromItem<T extends AnyObject>(
       : undefined,
     params: runFunction(columnProps?.params, rowData, columnProps),
     readonly: columnProps?.readonly,
+    convertValue: columnProps?.convertValue,
+    transform: columnProps?.transform,
     text:
       valueType === 'index' || valueType === 'indexBorder'
         ? config.index

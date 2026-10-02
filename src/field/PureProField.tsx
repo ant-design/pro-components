@@ -33,7 +33,9 @@ export const pureRenderRead: ProFieldRenderText = (
     if (
       typeof dataValue !== 'boolean' &&
       typeof dataValue !== 'number' &&
-      !dataValue
+      (dataValue == null ||
+        dataValue === '' ||
+        (Array.isArray(dataValue) && dataValue.length === 0))
     ) {
       const { fieldProps, render } = props;
       if (render) {
