@@ -38,13 +38,16 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
     ...rest
   } = props;
 
-  const normalizedOptions = useMemo(() => {
+  const { normalizedOptions, normalizedValue } = useMemo(() => {
     const currentValue = fieldProps?.value;
     const sample = Array.isArray(currentValue) ? currentValue[0] : currentValue;
-    if (typeof sample !== 'number') return options;
+    if (typeof sample !== 'number') {
+      return { normalizedOptions: options, normalizedValue: currentValue };
+    }
 
     const valueKey = fieldProps?.fieldNames?.value ?? 'value';
     const childrenKey = fieldProps?.fieldNames?.options ?? 'options';
+    const normalizedStringValues = new Map<string, number>();
     const normalize = (items: RequestOptionsType[]): RequestOptionsType[] => {
       const numericValues = new Set(
         items
@@ -60,6 +63,7 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
           rawValue !== '' &&
           String(numericValue) === rawValue &&
           !numericValues.has(numericValue);
+        if (canNormalize) normalizedStringValues.set(rawValue, numericValue);
         return {
           ...item,
           ...(canNormalize ? { [valueKey]: numericValue } : {}),
@@ -69,7 +73,17 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
         };
       });
     };
-    return normalize(options);
+    const nextOptions = normalize(options);
+    const normalizeSelectedValue = (value: unknown) =>
+      typeof value === 'string' && normalizedStringValues.has(value)
+        ? normalizedStringValues.get(value)
+        : value;
+    return {
+      normalizedOptions: nextOptions,
+      normalizedValue: Array.isArray(currentValue)
+        ? currentValue.map(normalizeSelectedValue)
+        : normalizeSelectedValue(currentValue),
+    };
   }, [fieldProps?.fieldNames, fieldProps?.value, options]);
 
   const dom = (
@@ -93,6 +107,7 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
       placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
       label={label}
       {...fieldProps}
+      value={normalizedValue}
       fetchDataOnSearch={fieldProps?.fetchDataOnSearch ?? fetchDataOnSearch}
       options={normalizedOptions}
     />

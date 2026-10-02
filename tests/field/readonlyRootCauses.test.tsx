@@ -114,4 +114,22 @@ describe('readonly value normalization (#8848, #8844, #8710, #8517)', () => {
       'Canonical',
     );
   });
+
+  it('keeps mixed numeric multi-select values aligned with normalized options', () => {
+    const { container } = render(
+      <ProForm submitter={false} initialValues={{ status: [1, '2'] }}>
+        <ProFormSelect
+          name="status"
+          mode="multiple"
+          options={[
+            { label: 'One', value: '1' },
+            { label: 'Two', value: '2' },
+          ]}
+        />
+      </ProForm>,
+    );
+    const selectText = container.querySelector('.ant-select')?.textContent;
+    expect(selectText).toContain('One');
+    expect(selectText).toContain('Two');
+  });
 });
