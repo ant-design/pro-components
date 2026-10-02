@@ -268,6 +268,50 @@ describe('ModalForm', () => {
     });
   });
 
+  it('📦 forceRender connects useForm before the first open', async () => {
+    const consoleError = vi
+      .spyOn(console, 'error')
+      .mockImplementation(() => {});
+
+    const Demo = () => {
+      const [form] = Form.useForm();
+      const [open, setOpen] = useState(false);
+
+      return (
+        <>
+          <Button
+            onClick={() => {
+              form.setFieldsValue({ name: 'Alice' });
+              setOpen(true);
+            }}
+          >
+            Edit
+          </Button>
+          <ModalForm
+            form={form}
+            open={open}
+            onOpenChange={setOpen}
+            modalProps={{ forceRender: true }}
+          >
+            <ProFormText name="name" />
+          </ModalForm>
+        </>
+      );
+    };
+
+    const wrapper = render(<Demo />);
+    fireEvent.click(wrapper.getByText('Edit'));
+
+    await waitFor(() => {
+      expect(wrapper.getByDisplayValue('Alice')).toBeTruthy();
+    });
+    expect(
+      consoleError.mock.calls.some(([message]) =>
+        String(message).includes('is not connected to any Form element'),
+      ),
+    ).toBe(false);
+  });
+
   it('📦 ModalForm destroyOnHidden', async () => {
     const wrapper = render(
       <ModalForm

@@ -18,22 +18,25 @@ ProComponents 3.0 is a major version upgrade that includes some breaking changes
 | antd       | `>= 4.20.0`  | `>= 6.0.0`              |
 | React      | `>= 16.9.0`  | `>= 18.0.0`             |
 
-#### Sub-package Version Alignment
+#### v3 Uses a Single Package
 
-| Package Name                 | 2.x Latest | 3.0 Start Version |
-| ---------------------------- | ---------- | ----------------- |
-| @ant-design/pro-components   | 2.8.10     | 3.0.0-beta.1      |
-| @ant-design/pro-card         | 2.10.0     | 3.0.0-beta.1      |
-| @ant-design/pro-descriptions | 2.6.10     | 3.0.0-beta.1      |
-| @ant-design/pro-field        | 3.1.0      | 3.0.0-beta.1      |
-| @ant-design/pro-form         | 2.32.0     | 3.0.0-beta.1      |
-| @ant-design/pro-layout       | 7.22.7     | 3.0.0-beta.1      |
-| @ant-design/pro-list         | 2.6.10     | 3.0.0-beta.1      |
-| @ant-design/pro-provider     | 2.16.2     | 3.0.0-beta.1      |
-| @ant-design/pro-table        | 3.21.0     | 3.0.0-beta.1      |
-| @ant-design/pro-utils        | 2.18.0     | 3.0.0-beta.1      |
+ProComponents v3 only publishes `@ant-design/pro-components`. There are no v3
+releases of the standalone `@ant-design/pro-form`, `@ant-design/pro-table`,
+`@ant-design/pro-layout`, or other `@ant-design/pro-*` packages. The latest
+standalone packages on npm belong to the v2 dependency tree and their peer
+dependencies only cover antd 4/5, so they must not be mixed with antd 6.
 
-Please upgrade all sub-packages to the same 3.0.x tag synchronously to avoid duplicate imports and type conflicts during compilation.
+Import components from the single package:
+
+```tsx | pure
+import { ProForm, ProLayout, ProTable } from '@ant-design/pro-components';
+```
+
+Remove direct dependencies on every standalone `@ant-design/pro-*` package and
+keep only `@ant-design/pro-components`. If `pnpm why @ant-design/pro-form` still
+finds a standalone package, inspect upstream dependencies such as Umi plugins.
+For Umi projects, upgrade to at least Umi 4.6.2 before moving to
+ProComponents v3.
 
 ### Codebase Preparation Suggestions
 
@@ -47,16 +50,116 @@ Please upgrade all sub-packages to the same 3.0.x tag synchronously to avoid dup
 Taking `pnpm` as an example (please replace with corresponding commands if using `npm` or `yarn`):
 
 ```bash
-pnpm up antd@^6.0.0
-pnpm up @ant-design/pro-components@^3.0.0-beta.1
+pnpm add antd@^6 @ant-design/pro-components@beta
 pnpm install
 ```
+
+Verify that the project no longer contains a v2 standalone dependency tree:
+
+```bash
+pnpm why @ant-design/pro-components
+pnpm why @ant-design/pro-form
+pnpm why @ant-design/pro-layout
+```
+
+Do not use `overrides` or `resolutions` to replace a dependency's required v2
+package with v3. Their package layouts and runtime requirements differ; upgrade
+the dependency that brings in v2 instead.
 
 ### Risk Warning
 
 - 3.0 completely removes the compatibility logic for antd@4. Mixing 2.x and 3.x components in the same package will trigger unexpected style and runtime errors.
 - React 18 concurrent features may expose issues with old side effect patterns. Please pay special attention to undeclared dependencies in `useEffect` or synchronous side effects.
 - If your build tool relies on old configurations of `less-loader` or `babel-plugin-import`, please check if they support the Token system of antd 5 after the upgrade.
+
+## Installation and Build Troubleshooting
+
+### antd 6 peer warnings or two ProComponents trees in node_modules
+
+The v3 package declares `antd: ^6.0.0`. If an install check still reports antd
+4/5 peer warnings for `@ant-design/pro-form`, `@ant-design/pro-layout`, or other
+standalone packages, the dependency tree still contains v2 packages. Locate the
+source first:
+
+```bash
+pnpm why @ant-design/pro-components
+pnpm why @ant-design/pro-form
+pnpm why @ant-design/pro-layout
+pnpm list antd --depth 10
+```
+
+Umi projects usually need Umi and `@umijs/plugins` 4.6.2 or later before the
+old lockfile tree is removed and installed again. Do not use `overrides` to
+replace the v2 package required by Umi with v3; Umi would load incompatible
+exports at runtime.
+
+### `Can't resolve 'rc-util'`
+
+This error comes from the v2 standalone packages. v3 directly declares
+`@rc-component/util`, so a normal v3 install does not require an application to
+add `rc-util`. Use `pnpm why rc-util` to find the old package and upgrade the
+whole group. For an application that must stay on v2, let the package manager
+install the `rc-util@^5` declared by each package and check that the build does
+not exclude it; adding it to the application is only a temporary v2 workaround.
+
+### A build fails after upgrading only ProTable
+
+The v2 standalone packages use coordinated internal versions and cannot be
+upgraded one at a time across generations. For example,
+`@ant-design/pro-table@2.80.8` installs the v1 Form, Field, Card, and Utils
+packages. Mixing those with newer Layout/Form packages expands the dependency
+tree and creates compile conflicts. Upgrade `@ant-design/pro-components` as a
+unit. If the application must stay on v2, restore the previously verified
+group from the lockfile instead of raising a single package.
+
+### Umi 3 fails with `symbol.charCodeAt is not a function`
+
+This error occurs when the Umi 3 build pipeline processes
+`path-to-regexp@8`, which is brought in by v2
+`@ant-design/pro-layout@7.20.1+`. The long-term fix is Umi 4.6.2+ with
+ProComponents v3. If Umi 3 must be retained temporarily, restore a verified v2
+lockfile; `7.20.0` is the last Layout release that uses
+`path-to-regexp@2.4.0`. Do not override only `path-to-regexp`, because its v2
+and v8 APIs are incompatible.
+
+### Next.js 14 throws while reading `Group`
+
+App Router files are Server Components by default. Put interactive form code
+behind a client boundary and prefer named components so that Next.js import
+optimization does not split a dot subcomponent incorrectly:
+
+```tsx | pure
+'use client';
+
+import {
+  LoginForm,
+  ProFormGroup,
+  ProFormText,
+} from '@ant-design/pro-components';
+
+export default function LoginPage() {
+  return (
+    <LoginForm>
+      <ProFormGroup>
+        <ProFormText name="username" />
+      </ProFormGroup>
+    </LoginForm>
+  );
+}
+```
+
+For App Router, also configure `@ant-design/nextjs-registry` in the root layout
+as described in the antd Next.js guide. v3 exports `ProFormGroup` directly, so
+module initialization does not have to read `ProForm.Group`.
+
+### antd 4 is blocked by a `ColorPicker` import
+
+This is a historical publishing problem in
+`@ant-design/pro-components@2.4.4`: its broad `^` ranges can resolve
+`@ant-design/pro-field@2.14.6`. A verifiable v2 baseline is
+`@ant-design/pro-components@2.6.42`, which pins
+`@ant-design/pro-field@2.14.1`. Upgrade the package as a unit and commit the
+lockfile. Do not install `pro-field@2.14.6` separately in an antd 4 project.
 
 ## Removed Deprecated APIs
 
@@ -549,7 +652,7 @@ interface DataType {
 
 - Generic components like `ProTable` and `ProForm` have stricter derivation for columns/fields, reducing `any`.
 - New `columnsState` and `search` APIs have complete type declarations, facilitating automatic editor prompts.
-- Type declarations of all sub-packages are merged into the `es/` directory to avoid multiple duplicates in `node_modules`.
+- The single package publishes all component declarations, avoiding duplicate standalone package types in `node_modules`.
 
 If you encounter type errors after migration, please prioritize checking whether custom encapsulations explicitly declare old types of 2.x (such as `ProColumns<any>`); if necessary, just add generic parameters.
 
@@ -580,8 +683,7 @@ Prioritize using the project's current package manager to maintain consistency. 
 
 ```bash
 # Upgrade core dependencies
-pnpm up antd@^6.0.0
-pnpm up @ant-design/pro-components@^3.0.0-beta.1
+pnpm add antd@^6 @ant-design/pro-components@beta
 
 # Synchronize installation lock version
 pnpm install

@@ -28,7 +28,8 @@ order: 2
 
 ### 包版本变更
 
-所有子包版本统一为 `3.0.0-beta.1`
+v3 只发布 `@ant-design/pro-components` 单体包；npm 上的独立子包仍属于 v2，不能与
+antd 6 混装。
 
 ## 迁移检查清单
 
@@ -72,7 +73,7 @@ grep -r "plain" src/
 
 # 更新依赖
 npm install antd@^6.0.0
-npm install @ant-design/pro-components@^3.0.0-beta.1
+npm install @ant-design/pro-components@beta
 ```
 
 ## 回滚方案

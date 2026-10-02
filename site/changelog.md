@@ -1,5 +1,21 @@
 # Changelog
 
+## 未发布
+
+### 🐛 问题修复
+
+- ProForm
+  - 🐞 `ProFormGroup` 改为直接导出，避免 SSR/ESM 打包器在模块初始化阶段读取未完成的 `ProForm.Group` [#8543](https://github.com/ant-design/pro-components/issues/8543)
+
+### 📖 文档
+
+- 📖 明确 v3 仅发布 `@ant-design/pro-components` 单体包，补充 antd 6、Umi、Next.js、`rc-util`、`path-to-regexp` 和 antd 4 的安装构建排查 [#9629](https://github.com/ant-design/pro-components/issues/9629)
+- 📖 增加 ModalForm 首次打开前安全调用 `setFieldsValue` 的 `forceRender` 示例与时序说明 [#9628](https://github.com/ant-design/pro-components/issues/9628)
+
+### ✅ 测试
+
+- ✅ 增加 LoginForm/ProFormGroup SSR 和 ModalForm 首次打开前写值回归测试
+
 ## [3.1.15-2] - 2026-09-27
 
 ### 🆕 新特性

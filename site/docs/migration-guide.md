@@ -18,22 +18,22 @@ ProComponents 3.0 是一个主要版本升级，包含了一些破坏性变更�
 | antd  | `>= 4.20.0` | `>= 6.0.0`   |
 | React | `>= 16.9.0` | `>= 18.0.0`  |
 
-#### 子包版本对齐
+#### v3 使用单体包
 
-| 包名                         | 2.x 最新版 | 3.0 起始版   |
-| ---------------------------- | ---------- | ------------ |
-| @ant-design/pro-components   | 2.8.10     | 3.0.0-beta.1 |
-| @ant-design/pro-card         | 2.10.0     | 3.0.0-beta.1 |
-| @ant-design/pro-descriptions | 2.6.10     | 3.0.0-beta.1 |
-| @ant-design/pro-field        | 3.1.0      | 3.0.0-beta.1 |
-| @ant-design/pro-form         | 2.32.0     | 3.0.0-beta.1 |
-| @ant-design/pro-layout       | 7.22.7     | 3.0.0-beta.1 |
-| @ant-design/pro-list         | 2.6.10     | 3.0.0-beta.1 |
-| @ant-design/pro-provider     | 2.16.2     | 3.0.0-beta.1 |
-| @ant-design/pro-table        | 3.21.0     | 3.0.0-beta.1 |
-| @ant-design/pro-utils        | 2.18.0     | 3.0.0-beta.1 |
+ProComponents v3 只发布 `@ant-design/pro-components`，不再发布
+`@ant-design/pro-form`、`@ant-design/pro-table`、`@ant-design/pro-layout` 等独立子包的
+v3 版本。npm 上这些独立子包的最新版属于 v2 依赖树，其 peerDependencies 只覆盖
+antd 4/5，不能和 antd 6 混装。
 
-所有子包请同步升级至相同的 3.0.x 标签，避免编译期重复引入和类型冲突。
+请从单体包导入组件：
+
+```tsx | pure
+import { ProForm, ProLayout, ProTable } from '@ant-design/pro-components';
+```
+
+升级时删除业务项目对所有 `@ant-design/pro-*` 独立子包的直接依赖，只保留
+`@ant-design/pro-components`。如果 `pnpm why @ant-design/pro-form` 仍显示子包，继续
+检查 Umi 插件等上游依赖；Umi 项目至少升级到 4.6.2，再迁移到 ProComponents v3。
 
 ### 代码库准备建议
 
@@ -47,16 +47,104 @@ ProComponents 3.0 是一个主要版本升级，包含了一些破坏性变更�
 以下以 `pnpm` 为例（如使用 `npm` 或 `yarn` 请替换为对应命令）：
 
 ```bash
-pnpm up antd@^6.0.0
-pnpm up @ant-design/pro-components@^3.0.0-beta.1
+pnpm add antd@^6 @ant-design/pro-components@beta
 pnpm install
 ```
+
+安装后用以下命令确认同一项目中没有残留 v2 子包：
+
+```bash
+pnpm why @ant-design/pro-components
+pnpm why @ant-design/pro-form
+pnpm why @ant-design/pro-layout
+```
+
+不要用 `overrides` 或 `resolutions` 把依赖方要求的 v2 强制替换成 v3。两者的包结构和
+运行时要求不同；应先升级引入 v2 的依赖方。
 
 ### 风险提示
 
 - 3.0 完全移除了 antd@4 兼容逻辑，一旦在同一个包内混用 2.x 与 3.x 组件会触发不可预期的样式和运行时错误。
 - React 18 并发特性会让旧的副作用写法暴露问题，请特别关注 `useEffect` 中未声明的依赖或者同步副作用。
 - 如果你的构建工具依赖于 `less-loader` 或 `babel-plugin-import` 的旧配置，请在升级后核对它们是否已支持 antd 5 的 Token 体系。
+
+## 安装与构建排查
+
+### antd 6 peerDependencies 或 node_modules 出现两套 ProComponents
+
+v3 根包声明 `antd: ^6.0.0`。如果安装检查仍列出 `@ant-design/pro-form`、
+`@ant-design/pro-layout` 等包的 antd 4/5 peer 警告，说明依赖树中还存在 v2 子包，
+并非 v3 根包缺少 antd 6 peer。先定位来源：
+
+```bash
+pnpm why @ant-design/pro-components
+pnpm why @ant-design/pro-form
+pnpm why @ant-design/pro-layout
+pnpm list antd --depth 10
+```
+
+Umi 项目通常需要先升级 Umi 和 `@umijs/plugins` 到 4.6.2 或更高版本，再删除
+lockfile 中的旧依赖树并重新安装。不要用 `overrides` 把 Umi 需要的 v2 强制替换成
+v3；这会让 Umi 在运行时加载不兼容的导出。
+
+### `Can't resolve 'rc-util'`
+
+这条错误来自 v2 子包。v3 已改为直接声明 `@rc-component/util`，正常安装不需要
+业务项目补 `rc-util`。先用 `pnpm why rc-util` 找到旧子包并按上节完成整组升级。
+仍维护 v2 项目时，应让包管理器安装各子包声明的 `rc-util@^5`，并检查构建配置是否
+错误地把它排除；把 `rc-util` 加为业务依赖只能作为锁定 v2 的临时措施。
+
+### 只升级 ProTable 后构建失败
+
+v2 独立子包之间有精确的内部版本配套，不能只把 `@ant-design/pro-table` 升到另一个
+代际。例如 `@ant-design/pro-table@2.80.8` 会安装 v1 的 Form、Field、Card 和 Utils，
+与较新的 Layout/Form 混装会显著扩大依赖树并产生编译冲突。优先升级
+`@ant-design/pro-components` 整包；必须留在 v2 时，恢复 lockfile 中原来整组版本，
+不要单独提升一个子包。
+
+### Umi 3 构建时报 `symbol.charCodeAt is not a function`
+
+该报错对应 Umi 3 构建链处理 v2 `@ant-design/pro-layout@7.20.1+` 带入的
+`path-to-regexp@8`。长期方案是升级到 Umi 4.6.2+ 和 ProComponents v3。短期必须保留
+Umi 3 时，可以把完整 v2 依赖组回退到已验证的 lockfile；最后一个仍使用
+`path-to-regexp@2.4.0` 的 Layout 版本是 `7.20.0`。不要只覆盖
+`path-to-regexp`，因为 v2 与 v8 的 API 不兼容。
+
+### Next.js 14 中读取 `Group` 时报错
+
+App Router 页面默认是 Server Component。使用表单交互的文件需要声明客户端边界，
+并优先使用具名组件，避免点号子组件被 Next.js 的导入优化拆错：
+
+```tsx | pure
+'use client';
+
+import {
+  LoginForm,
+  ProFormGroup,
+  ProFormText,
+} from '@ant-design/pro-components';
+
+export default function LoginPage() {
+  return (
+    <LoginForm>
+      <ProFormGroup>
+        <ProFormText name="username" />
+      </ProFormGroup>
+    </LoginForm>
+  );
+}
+```
+
+App Router 还应按 antd 的 Next.js 指南在根布局中配置
+`@ant-design/nextjs-registry`。v3 的 `ProFormGroup` 使用直接导出，避免模块初始化时读取
+`ProForm.Group`。
+
+### antd 4 项目被 `ColorPicker` 导入阻断
+
+这是旧版 `@ant-design/pro-components@2.4.4` 使用宽松 `^` 子包范围后解析到
+`@ant-design/pro-field@2.14.6` 引起的历史发布问题。可验证的 v2 配套基线是
+`@ant-design/pro-components@2.6.42`，它精确锁定 `@ant-design/pro-field@2.14.1`；
+升级整包并提交 lockfile。不要在 antd 4 项目中单独安装 `pro-field@2.14.6`。
 
 ## 已移除的废弃 API
 
@@ -549,7 +637,7 @@ interface DataType {
 
 - `ProTable`、`ProForm` 等泛型组件对列/字段的推导更严格，减少 `any`。
 - 新的 `columnsState`、`search` API 带有完善的类型声明，便于编辑器自动提示。
-- 所有子包的类型声明合并到 `es/` 目录，避免 `node_modules` 多份重复。
+- 所有组件的类型声明由单体包统一发布，避免 `node_modules` 出现多份子包类型。
 
 迁移后若遇到类型报错，请优先检查自定义封装是否显式声明了 2.x 的老类型（例如 `ProColumns<any>`）；必要时补充泛型参数即可。
 
@@ -580,8 +668,7 @@ interface DataType {
 
 ```bash
 # 升级核心依赖
-pnpm up antd@^6.0.0
-pnpm up @ant-design/pro-components@^3.0.0-beta.1
+pnpm add antd@^6 @ant-design/pro-components@beta
 
 # 同步安装锁定版本
 pnpm install

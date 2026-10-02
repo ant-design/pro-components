@@ -1,5 +1,11 @@
 // @vitest-environment node
-import { DrawerForm, ModalForm, ProForm } from '@ant-design/pro-components';
+import {
+  DrawerForm,
+  LoginForm,
+  ModalForm,
+  ProForm,
+  ProFormGroup,
+} from '@ant-design/pro-components';
 import { renderToString } from 'react-dom/server';
 import { expect, test } from 'vitest';
 
@@ -29,4 +35,7 @@ test('ssr', () => {
   expect(renderToString(<ProForm />)).toBeDefined();
   expect(renderToString(<ModalForm />)).toBeDefined();
   expect(renderToString(<DrawerForm />)).toBeDefined();
+  expect(renderToString(<LoginForm />)).toBeDefined();
+  expect(renderToString(<ProFormGroup />)).toBeDefined();
+  expect(ProFormGroup).toBe(ProForm.Group);
 });
