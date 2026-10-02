@@ -35,9 +35,6 @@ describe('#8780 select request no redundant fetch on select', () => {
     request.mockClear();
 
     // 打开下拉并选中一项(未经搜索输入)
-    const input = container.querySelector(
-      'input.ant-select-input',
-    ) as HTMLInputElement;
     fireEvent.mouseDown(container.querySelector('.ant-select')!);
     const option = await waitFor(() => {
       const el = document.querySelector(
