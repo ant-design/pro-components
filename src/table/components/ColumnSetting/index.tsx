@@ -35,6 +35,42 @@ type ColumnSettingProps<T = any> = SettingOptionType & {
   columns: (TableColumnType<T> & { index?: number })[];
 };
 
+type ColumnSettingTreeNode = DataNode & {
+  parentKey?: React.Key;
+  children?: ColumnSettingTreeNode[];
+};
+
+export const reorderNestedColumns = (
+  columnsMap: Record<string, ColumnsState>,
+  treeMap: Map<string, ColumnSettingTreeNode> | undefined,
+  treeList: ColumnSettingTreeNode[] | undefined,
+  id: React.Key,
+  targetId: React.Key,
+  dropPosition: number,
+): Record<string, ColumnsState> | undefined => {
+  const dragNode = treeMap?.get(id as string);
+  const parentNodeKey = dragNode?.parentKey;
+  const siblings = (
+    parentNodeKey ? treeMap?.get(parentNodeKey as string)?.children : treeList
+  )?.map((node) => node.key as string);
+  if (!siblings) return undefined;
+  const dragIdx = siblings.indexOf(id as string);
+  const targetIdx = siblings.indexOf(targetId as string);
+  if (dragIdx < 0 || targetIdx < 0) return undefined;
+  const isDownWard = dropPosition >= dragIdx;
+  siblings.splice(dragIdx, 1);
+  if (dropPosition === 0) {
+    siblings.unshift(id as string);
+  } else {
+    siblings.splice(isDownWard ? targetIdx : targetIdx + 1, 0, id as string);
+  }
+  const newMap = { ...columnsMap };
+  siblings.forEach((key, order) => {
+    newMap[key] = { ...(newMap[key] || {}), order };
+  });
+  return newMap;
+};
+
 const ToolTipIcon: React.FC<{
   title: string;
   columnKey: string | number;
@@ -248,33 +284,15 @@ const CheckboxList: React.FC<{
       );
       // 嵌套子列：sortKeyColumns 找不到时，走同级重排
       if (findIndex < 0 || targetIndex < 0) {
-        const dragNode = treeDataConfig.map?.get(id as string);
-        const parentNodeKey = dragNode?.parentKey;
-        // 兄弟节点（与拖拽节点同父），按树展示顺序
-        const siblings = (
-          parentNodeKey
-            ? treeDataConfig.map?.get(parentNodeKey)?.children
-            : treeDataConfig.list
-        )?.map((node) => node.key as string);
-        if (!siblings) return;
-        const dragIdx = siblings.indexOf(id as string);
-        const targetIdx = siblings.indexOf(targetId as string);
-        if (dragIdx < 0 || targetIdx < 0) return;
-        const isDownWard = dropPosition >= dragIdx;
-        siblings.splice(dragIdx, 1);
-        if (dropPosition === 0) {
-          siblings.unshift(id as string);
-        } else {
-          siblings.splice(
-            isDownWard ? targetIdx : targetIdx + 1,
-            0,
-            id as string,
-          );
-        }
-        siblings.forEach((key, order) => {
-          newMap[key] = { ...(newMap[key] || {}), order };
-        });
-        setColumnsMap(newMap);
+        const nestedMap = reorderNestedColumns(
+          columnsMap,
+          treeDataConfig.map as Map<string, ColumnSettingTreeNode> | undefined,
+          treeDataConfig.list as ColumnSettingTreeNode[] | undefined,
+          id,
+          targetId,
+          dropPosition,
+        );
+        if (nestedMap) setColumnsMap(nestedMap);
         return;
       }
       const isDownWard = dropPosition >= findIndex;

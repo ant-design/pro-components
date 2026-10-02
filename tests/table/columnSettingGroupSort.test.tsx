@@ -1,6 +1,7 @@
 import { ProTable } from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import { reorderNestedColumns } from '../../src/table/components/ColumnSetting';
 import { waitForWaitTime } from '../util';
 
 const columns: any[] = [
@@ -24,6 +25,42 @@ const columns: any[] = [
  * 而不是保持 columns 源数组顺序。
  */
 describe('#8133 grouped child column order', () => {
+  it('reorders nested siblings with the same calculation used by drag and drop', () => {
+    const parent = { key: 'group', children: [] as any[] };
+    const children = ['B', 'C', 'E'].map((key) => ({
+      key,
+      parentKey: 'group',
+    }));
+    parent.children = children;
+    const treeMap = new Map<string, any>([
+      ['group', parent],
+      ...children.map((node) => [node.key, node] as [string, any]),
+    ]);
+
+    const movedDown = reorderNestedColumns({}, treeMap, [parent], 'B', 'E', 2);
+    expect(movedDown).toMatchObject({
+      C: { order: 0 },
+      E: { order: 1 },
+      B: { order: 2 },
+    });
+    const movedFirst = reorderNestedColumns(
+      movedDown!,
+      treeMap,
+      [parent],
+      'E',
+      'B',
+      0,
+    );
+    expect(movedFirst).toMatchObject({
+      E: { order: 0 },
+      B: { order: 1 },
+      C: { order: 2 },
+    });
+    expect(
+      reorderNestedColumns({}, treeMap, [parent], 'missing', 'B', 1),
+    ).toBeUndefined();
+  });
+
   it('children render in columnsMap order when orders are set', async () => {
     const wrapper = render(
       <ProTable
