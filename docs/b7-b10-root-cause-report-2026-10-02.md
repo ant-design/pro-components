@@ -56,7 +56,7 @@ Resolution:
 
 - Compose the user open callback with TreeSelect's internal state update.
 - Lock remote Select search so a throttled request result is rendered without stale local filtering.
-- Document `virtual: false` / `listHeight` for old virtual-list versions and the upgrade path for #9138.
+- Document `virtual: false` as a compatibility fallback and the upgrade path for #9138.
 - Document that associated checking omits half-checked parents from value and that `extra.allCheckedNodes` or `treeCheckStrictly` is required for #8869.
 
 Regression: `tests/field/selectDataFlow.test.tsx`.

@@ -331,7 +331,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 `fieldProps.onOpenChange` 只用于监听开关变化，组件会继续维护内部 `open` 状态，无需额外传入 `open`。
 
-大量树节点被虚拟滚动截断时，请先升级到最新的 antd / `rc-virtual-list`。旧版本可临时使用 `fieldProps={{ virtual: false }}`，或按实际行高设置 `listHeight`。
+大量树节点被虚拟滚动截断时，请先升级到最新的 antd / `rc-virtual-list`。旧版本可临时使用 `fieldProps={{ virtual: false }}` 作为兼容方案。
 
 关联勾选（`treeCheckStrictly: false`）不会把半选父节点放入 value。需要半选信息时，可从 `onChange` 第三个参数的 `extra.allCheckedNodes` 推导；开启 `treeCheckStrictly` 后父子节点将改为独立选择。
 

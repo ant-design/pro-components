@@ -7,7 +7,8 @@
 - Fix nested child form paths when EditableProTable uses a function `rowKey`, with regression coverage for controlled tables inside ProFormList [#8893](https://github.com/ant-design/pro-components/issues/8893) [#6508](https://github.com/ant-design/pro-components/issues/6508)
 - Align whole-entity, nested-list, and ProTable column semantics across the `convertValue` / `transform` pipeline [#8907](https://github.com/ant-design/pro-components/issues/8907) [#8480](https://github.com/ant-design/pro-components/issues/8480) [#9120](https://github.com/ant-design/pro-components/issues/9120) [#9032](https://github.com/ant-design/pro-components/issues/9032)
 - Fix empty arrays, Digit affixes, and numeric valueEnum labels in read/edit display paths [#8848](https://github.com/ant-design/pro-components/issues/8848) [#8844](https://github.com/ant-design/pro-components/issues/8844) [#8517](https://github.com/ant-design/pro-components/issues/8517)
-- Preserve TreeSelect internal open state with user callbacks and document virtual scrolling and half-checked behavior [#9138](https://github.com/ant-design/pro-components/issues/9138) [#8876](https://github.com/ant-design/pro-components/issues/8876) [#8869](https://github.com/ant-design/pro-components/issues/8869) [#6766](https://github.com/ant-design/pro-components/issues/6766)
+- Preserve TreeSelect internal open state with user callbacks and document virtual scrolling and half-checked behavior [#9138](https://github.com/ant-design/pro-components/issues/9138) [#8876](https://github.com/ant-design/pro-components/issues/8876) [#8869](https://github.com/ant-design/pro-components/issues/8869)
+- Add regression coverage for throttled remote Select results [#6766](https://github.com/ant-design/pro-components/issues/6766)
 
 ## [3.1.15-2] - 2026-09-27
 

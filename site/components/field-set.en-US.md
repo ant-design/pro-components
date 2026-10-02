@@ -332,7 +332,7 @@ Same as [tree-select](https://ant.design/components/tree-select/). Both request 
 
 `fieldProps.onOpenChange` observes open state changes. The component still maintains its internal `open` state, so you do not need to pass `open` separately.
 
-If virtual scrolling clips the final tree nodes, first upgrade antd and `rc-virtual-list`. On older versions, use `fieldProps={{ virtual: false }}` or set a `listHeight` that matches the actual row height.
+If virtual scrolling clips the final tree nodes, first upgrade antd and `rc-virtual-list`. On older versions, use `fieldProps={{ virtual: false }}` as a compatibility fallback.
 
 Associated checking (`treeCheckStrictly: false`) does not add half-checked parents to the value. Derive them from the third `onChange` argument, `extra.allCheckedNodes`, or enable `treeCheckStrictly` when independent parent and child selection is acceptable.
 

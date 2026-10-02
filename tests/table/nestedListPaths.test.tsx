@@ -4,11 +4,11 @@ import {
   ProForm,
   ProFormList,
 } from '@ant-design/pro-components';
-import { act, cleanup, render, waitFor } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
-type Row = { id: string; title: string; children?: Row[] };
+type Row = { id: React.Key; title: string; children?: Row[] };
 
 afterEach(cleanup);
 
@@ -119,6 +119,47 @@ describe('nested list and editable table paths (#8893, #6508)', () => {
           children: [{ id: 'c1', title: 'Child' }],
         },
       ]);
+    });
+  });
+
+  it('keeps parent key zero when a cached child is saved', async () => {
+    const actionRef = React.createRef<ActionType>();
+    const onChange = vi.fn();
+    const { container } = render(
+      <EditableProTable<Row>
+        rowKey="id"
+        actionRef={actionRef}
+        defaultValue={[{ id: 0, title: 'Parent' }]}
+        onChange={onChange}
+        recordCreatorProps={false}
+        expandable={{ defaultExpandAllRows: true }}
+        editable={{}}
+        columns={columns}
+      />,
+    );
+    await waitFor(() => expect(actionRef.current).toBeTruthy());
+    act(() => {
+      actionRef.current?.addEditRecord?.(
+        { id: 1, title: 'Child' },
+        { parentKey: 0, newRecordType: 'cache' },
+      );
+    });
+    const childInput = await waitFor(() => {
+      const input = Array.from(container.querySelectorAll('input')).find(
+        (item) => item.value === 'Child',
+      );
+      expect(input).toBeTruthy();
+      return input!;
+    });
+    fireEvent.click(childInput.closest('tr')!.querySelector('a')!);
+    await waitFor(() => {
+      const nextValue = onChange.mock.lastCall?.[0];
+      expect(nextValue).toHaveLength(1);
+      expect(nextValue?.[0]).toMatchObject({
+        id: 0,
+        title: 'Parent',
+        children: [{ id: 1, title: 'Child' }],
+      });
     });
   });
 });

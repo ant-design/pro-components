@@ -269,7 +269,7 @@ function flattenRecordsToMap<RecordType>(
       map_row_parentKey: parentKey,
     };
     delete (newRecord as any)[childrenColumnName];
-    if (!parentKey) {
+    if (parentKey == null) {
       delete newRecord.map_row_parentKey;
     }
     kvMap.set(recordKey, newRecord);
@@ -322,7 +322,7 @@ function rebuildTreeStructure<RecordType>(
       const parentKeyStr =
         map_row_parentKey != null ? String(map_row_parentKey) : null;
 
-      if (!parentKeyStr) {
+      if (parentKeyStr == null) {
         return;
       }
 
@@ -347,7 +347,7 @@ function rebuildTreeStructure<RecordType>(
       const parentKeyStr =
         map_row_parentKey != null ? String(map_row_parentKey) : null;
 
-      if (!parentKeyStr) {
+      if (parentKeyStr == null) {
         return;
       }
 
@@ -374,7 +374,7 @@ function rebuildTreeStructure<RecordType>(
   addNewRecordToChildren(action === 'update');
 
   map.forEach((value) => {
-    if (!value.map_row_parentKey) {
+    if (value.map_row_parentKey == null) {
       const { map_row_key, ...rest } = value;
       const record =
         map_row_key && childrenMap.has(map_row_key)
@@ -1436,7 +1436,7 @@ export function useEditableArray<RecordType extends AnyObject>(
   const validateCanAddRecord = useRefFunction(
     (options?: AddLineOptions): boolean => {
       if (
-        options?.parentKey &&
+        options?.parentKey != null &&
         !dataSourceKeyIndexMapRef.current.has(
           recordKeyToString(options?.parentKey).toString(),
         )
@@ -1576,7 +1576,8 @@ export function useEditableArray<RecordType extends AnyObject>(
       // 用 isSameRecordKey 替代 ===：RecordKey 可能是 number/string/array，直接 === 在
       // number↔string 混用或数组场景下永远 false，会导致新增行被错误地走"更新"分支而非"插入"分支
       const isNewLine =
-        !options?.parentKey && isSameRecordKey(options?.recordKey, recordKey);
+        options?.parentKey == null &&
+        isSameRecordKey(options?.recordKey, recordKey);
 
       if (isNewLine) {
         // 新增行：editRow 仅包含用户在 form 中填过的字段，必须 merge 上 originRow
