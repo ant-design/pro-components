@@ -816,7 +816,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                           convertedValue = convertValue(
                             value,
                             namePath,
-                            allValues,
+                            formRef.current?.getFieldsValue?.(true) ?? allValues,
                           );
                         } catch {
                           // The form store may already contain the component

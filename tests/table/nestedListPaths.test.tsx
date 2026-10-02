@@ -87,7 +87,7 @@ describe('nested list and editable table paths (#8893, #6508)', () => {
   it('keeps index zero as a valid parent key in name mode', async () => {
     const actionRef = React.createRef<ActionType>();
     const formRef = React.createRef<ProFormInstance>();
-    render(
+    const { findByText } = render(
       <ProForm
         formRef={formRef}
         submitter={false}
@@ -104,6 +104,7 @@ describe('nested list and editable table paths (#8893, #6508)', () => {
         />
       </ProForm>,
     );
+    await findByText('Parent');
     await waitFor(() => expect(actionRef.current).toBeTruthy());
     act(() => {
       actionRef.current?.addEditRecord?.(

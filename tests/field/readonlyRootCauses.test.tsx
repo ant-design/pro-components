@@ -97,4 +97,21 @@ describe('readonly value normalization (#8848, #8844, #8710, #8517)', () => {
     expect(select).toBeTruthy();
     expect(select?.textContent).toContain('已完成');
   });
+
+  it('does not collapse distinct numeric-looking option values', () => {
+    const { container } = render(
+      <ProForm submitter={false} initialValues={{ status: 1 }}>
+        <ProFormSelect
+          name="status"
+          options={[
+            { label: 'Leading zero', value: '01' },
+            { label: 'Canonical', value: '1' },
+          ]}
+        />
+      </ProForm>,
+    );
+    expect(container.querySelector('.ant-select')?.textContent).toContain(
+      'Canonical',
+    );
+  });
 });

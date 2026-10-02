@@ -1510,6 +1510,8 @@ export function useEditableArray<RecordType extends AnyObject>(
         typeof options?.parentKey === 'function'
           ? (options.parentKey as any)()
           : options?.parentKey;
+      // In name mode getRowKey intentionally uses the form index path, so the
+      // parent key must stay in that same key space while rebuilding the tree.
 
       const isDataSourceMode =
         options?.newRecordType === 'dataSource' ||

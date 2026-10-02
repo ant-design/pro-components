@@ -45,22 +45,30 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
 
     const valueKey = fieldProps?.fieldNames?.value ?? 'value';
     const childrenKey = fieldProps?.fieldNames?.options ?? 'options';
-    const normalize = (items: RequestOptionsType[]): RequestOptionsType[] =>
-      items.map((item) => {
+    const normalize = (items: RequestOptionsType[]): RequestOptionsType[] => {
+      const numericValues = new Set(
+        items
+          .map((item) => item[valueKey])
+          .filter((value): value is number => typeof value === 'number'),
+      );
+      return items.map((item) => {
         const rawValue = item[valueKey];
         const nested = item[childrenKey] ?? item.children;
+        const numericValue = Number(rawValue);
+        const canNormalize =
+          typeof rawValue === 'string' &&
+          rawValue !== '' &&
+          String(numericValue) === rawValue &&
+          !numericValues.has(numericValue);
         return {
           ...item,
-          ...(typeof rawValue === 'string' &&
-          rawValue !== '' &&
-          !Number.isNaN(Number(rawValue))
-            ? { [valueKey]: Number(rawValue) }
-            : {}),
+          ...(canNormalize ? { [valueKey]: numericValue } : {}),
           ...(Array.isArray(nested)
             ? { [childrenKey]: normalize(nested) }
             : {}),
         };
       });
+    };
     return normalize(options);
   }, [fieldProps?.fieldNames, fieldProps?.value, options]);
 

@@ -8,7 +8,7 @@ import {
 } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 afterEach(cleanup);
 
@@ -48,6 +48,10 @@ describe('convertValue and transform pipeline (#8907, #8480, #9120, #9032)', () 
 
   it('passes the whole entity to convertValue', async () => {
     const formRef = React.createRef<ProFormInstance>();
+    const convertValue = vi.fn((_value, _path, entity) => [
+      entity?.startDate,
+      entity?.endDate,
+    ]);
     const { container } = render(
       <ProForm
         formRef={formRef}
@@ -56,10 +60,8 @@ describe('convertValue and transform pipeline (#8907, #8480, #9120, #9032)', () 
       >
         <ProFormFieldSet
           name="range"
-          convertValue={(_value, _path, entity) => [
-            entity?.startDate,
-            entity?.endDate,
-          ]}
+          convertValue={convertValue}
+          transform={(value) => ({ range: value })}
         >
           <ProFormText fieldProps={{ 'data-testid': 'start' }} />
           <ProFormText fieldProps={{ 'data-testid': 'end' }} />
@@ -74,6 +76,17 @@ describe('convertValue and transform pipeline (#8907, #8480, #9120, #9032)', () 
         '2026-10-02',
       );
     });
+    formRef.current?.setFieldValue?.('range', ['2026-10-01', '2026-10-02']);
+    convertValue.mockClear();
+    formRef.current?.getFieldFormatValue?.('range');
+    expect(convertValue).toHaveBeenLastCalledWith(
+      expect.anything(),
+      expect.anything(),
+      expect.objectContaining({
+        startDate: '2026-10-01',
+        endDate: '2026-10-02',
+      }),
+    );
   });
 
   it('keeps child transforms inside nested ProFormList paths', async () => {
@@ -128,5 +141,28 @@ describe('convertValue and transform pipeline (#8907, #8480, #9120, #9032)', () 
     expect(formRef.current?.getFieldsFormatValue?.()).toEqual({
       amountInCents: 1200,
     });
+  });
+
+  it('applies a column convertValue to an editable cell', async () => {
+    const { container } = render(
+      <ProTable
+        rowKey="id"
+        search={false}
+        options={false}
+        pagination={false}
+        dataSource={[{ id: '1', code: 'abc' }]}
+        editable={{ editableKeys: ['1'] }}
+        columns={[
+          {
+            title: '编码',
+            dataIndex: 'code',
+            convertValue: (value) => value?.toUpperCase(),
+          },
+        ]}
+      />,
+    );
+    await waitFor(() =>
+      expect(container.querySelector('input')).toHaveValue('ABC'),
+    );
   });
 });
