@@ -90,4 +90,45 @@ describe('#8801 ProFormSelect controlled searchValue triggers request', () => {
       { timeout: 1500 },
     );
   });
+
+  it('synchronizes controlled searchValue for local options without fetching', async () => {
+    const Wrapper = () => {
+      const [searchValue, setSearchValue] = React.useState('Alpha');
+      return (
+        <div>
+          <ProFormSelect
+            name="local"
+            options={[
+              { label: 'Alpha option', value: 'alpha' },
+              { label: 'Beta option', value: 'beta' },
+            ]}
+            fieldProps={{
+              showSearch: true,
+              searchValue,
+              fetchDataOnSearch: false,
+            }}
+          />
+          <button onClick={() => setSearchValue('Beta')}>show beta</button>
+        </div>
+      );
+    };
+
+    const { container, getByText } = render(<Wrapper />);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
+
+    await waitFor(() => {
+      const options = Array.from(
+        document.querySelectorAll('.ant-select-item-option-content'),
+      ).map((node) => node.textContent);
+      expect(options).toEqual(['Alpha option']);
+    });
+
+    fireEvent.click(getByText('show beta'));
+    await waitFor(() => {
+      const options = Array.from(
+        document.querySelectorAll('.ant-select-item-option-content'),
+      ).map((node) => node.textContent);
+      expect(options).toEqual(['Beta option']);
+    });
+  });
 });

@@ -172,10 +172,12 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   useEffect(() => {
     if (controlledSearchValue === lastControlledSearchValue.current) return;
     lastControlledSearchValue.current = controlledSearchValue;
-    if (fetchDataOnSearch) {
+    // 本地 options 也依赖 useFieldFetchData 的 keyWords 做过滤；没有远程
+    // request 时可直接同步。远程 request 仍尊重 fetchDataOnSearch=false。
+    if (fetchDataOnSearch || !hasRemoteRequest) {
       fetchData?.(controlledSearchValue);
     }
-  }, [controlledSearchValue, fetchData, fetchDataOnSearch]);
+  }, [controlledSearchValue, fetchData, fetchDataOnSearch, hasRemoteRequest]);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
