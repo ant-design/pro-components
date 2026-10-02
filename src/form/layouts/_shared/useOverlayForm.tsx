@@ -1,5 +1,6 @@
 import { merge, useControlledState } from '@rc-component/util';
 import React, {
+  useEffect,
   useImperativeHandle,
   useLayoutEffect,
   useRef,
@@ -182,6 +183,15 @@ export function useOverlayForm<T = Record<string, any>>({
    */
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(propsFormRef, () => formRef.current, []);
+
+  // 保留历史行为：受控弹层初始为 open 时通知一次。只在挂载时执行，
+  // 避免 trigger 已通知后，propsOpen 的 false -> true 变化再次重复通知。
+  useEffect(() => {
+    if (propsOpen) {
+      onOpenChange?.(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // trigger 克隆：注入 onClick 以切换 open
   const triggerDom = trigger
