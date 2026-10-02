@@ -113,6 +113,7 @@ export const field: ProSchemaRenderValueTypeFunction<any, any> = (
       <ProFormDependency
         name={item.dependencies || []}
         key={item.key as React.Key}
+        hidden={item.hidden}
       >
         {getField}
       </ProFormDependency>

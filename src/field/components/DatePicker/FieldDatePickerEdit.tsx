@@ -37,7 +37,16 @@ export function FieldDatePickerEdit(props: Props, ref: React.Ref<unknown>) {
     placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
   } = fieldProps;
 
-  const dayValue = parseValueToDay(value) as dayjs.Dayjs;
+  /**
+   * #8863:字符串值需按 picker 的 format 解析,
+   * 如 '23/3/2024' + format: 'DD/MM/YYYY',不传 formatter 时
+   * dayjs 走 ISO 解析会得到 Invalid Date。
+   */
+  const parserFormat =
+    typeof fieldProps.format === 'string' || Array.isArray(fieldProps.format)
+      ? fieldProps.format
+      : format;
+  const dayValue = parseValueToDay(value, parserFormat) as dayjs.Dayjs;
 
   const dom = (
     <DatePicker

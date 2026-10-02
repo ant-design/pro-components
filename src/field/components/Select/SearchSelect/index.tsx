@@ -87,6 +87,9 @@ export interface SearchSelectProps<T = Record<string, any>> extends Omit<
   /** 清空数据 */
   resetData: () => void;
 
+  /** 上层 useFieldFetchData 是否由 request 驱动 */
+  hasRemoteRequest?: boolean;
+
   /**
    * 当搜索关键词发生变化时是否请求远程数据
    *
@@ -114,6 +117,8 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     className,
     disabled,
     options,
+    request,
+    hasRemoteRequest = false,
     fetchData,
     resetData,
     prefixCls: customizePrefixCls,
@@ -155,6 +160,24 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       selectRef?.current?.focus();
     }
   }, [restProps.autoFocus]);
+
+  // #8801:受控 searchValue 变化时同步触发 request(keyWords) 重新请求。
+  // 仅响应外部 prop 变化:初次挂载(searchValue 为 undefined)跳过;
+  // 用户输入路径已由 onSearch → fetchData 覆盖,这里负责编程式更新
+  // (如下拉收起时外部清空搜索词,期望以 keyWords='' 重新拉取全量数据)。
+  const controlledSearchValue = showSearchConfig?.searchValue ?? propsSearchValue;
+  const lastControlledSearchValue = useRef(
+    controlledSearchValue ?? defaultSearchValue,
+  );
+  useEffect(() => {
+    if (controlledSearchValue === lastControlledSearchValue.current) return;
+    lastControlledSearchValue.current = controlledSearchValue;
+    // 本地 options 也依赖 useFieldFetchData 的 keyWords 做过滤；没有远程
+    // request 时可直接同步。远程 request 仍尊重 fetchDataOnSearch=false。
+    if (fetchDataOnSearch || !hasRemoteRequest) {
+      fetchData?.(controlledSearchValue);
+    }
+  }, [controlledSearchValue, fetchData, fetchDataOnSearch, hasRemoteRequest]);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
@@ -331,7 +354,11 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       onChange={(value, optionList, ...rest) => {
         // 将搜索框置空 和 antd 行为保持一致
         if (showSearch && effectiveAutoClearSearchValue) {
-          fetchData(undefined);
+          // 选择结果只清空可见搜索框，不重置已完成请求的远端关键字。
+          // 显式清空输入仍由 handleSearch 触发对应请求。
+          if (!request && !hasRemoteRequest && searchValue) {
+            fetchData(undefined);
+          }
           effectiveOnSearch?.('');
           setSearchValue('');
         } else if (showSearch && !effectiveAutoClearSearchValue) {

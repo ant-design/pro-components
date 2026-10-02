@@ -44,7 +44,12 @@ export function FieldDatePickerLightEdit(
 
   const { disabled, value } = fieldProps;
 
-  const dayValue = parseValueToDay(value) as dayjs.Dayjs;
+  /** #8863:字符串值按 format 解析,避免非 ISO 格式(如 '23/3/2024')解析失败 */
+  const parserFormat =
+    typeof fieldProps.format === 'string' || Array.isArray(fieldProps.format)
+      ? fieldProps.format
+      : format;
+  const dayValue = parseValueToDay(value, parserFormat) as dayjs.Dayjs;
 
   const handleLabelClick = () => {
     if (disabled) return;
