@@ -61,11 +61,7 @@ export type ProFormPropsType<T, ValueType = 'text'> =
 export type ProFormLayoutType = ProFormPropsType<any>['layoutType'];
 
 export type FormFieldType =
-  | 'group'
-  | 'formList'
-  | 'formSet'
-  | 'divider'
-  | 'dependency';
+  'group' | 'formList' | 'formSet' | 'divider' | 'dependency';
 
 export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
   T,
@@ -78,6 +74,8 @@ export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
      * @param 默认为 1
      */
     colSize?: number;
+    /** 隐藏字段并跳过 QueryFilter 的栅格占位 */
+    hidden?: boolean;
     /** 是否只读模式 */
     readonly?: boolean;
     /** 搜索表单的默认值 */

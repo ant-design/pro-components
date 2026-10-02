@@ -1,12 +1,8 @@
 import { render } from '@testing-library/react';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { describe, expect, it, vi } from 'vitest';
-import {
-  BetaSchemaForm,
-  ProConfigProvider,
-  ProProvider,
-} from '../../src';
 import type { ProFormColumnsType } from '../../src';
+import { BetaSchemaForm, ProProvider } from '../../src';
 
 /**
  * #9148:自定义 valueType(ProProvider.valueTypeMap)的 formItemRender
@@ -14,7 +10,11 @@ import type { ProFormColumnsType } from '../../src';
  */
 describe('#9148 custom valueType formItemRender props', () => {
   it('formItemRender receives fieldProps and request in props', () => {
-    const formItemRender = vi.fn(() => <input data-testid="custom" />);
+    const formItemRender = vi.fn(
+      (_text: unknown, _props: Record<string, any>) => (
+        <input data-testid="custom" />
+      ),
+    );
     const request = vi.fn().mockResolvedValue([]);
 
     const columns: ProFormColumnsType<any, 'my'>[] = [
@@ -41,10 +41,7 @@ describe('#9148 custom valueType formItemRender props', () => {
             },
           }}
         >
-          <BetaSchemaForm<any, 'my'>
-            columns={columns}
-            submitter={false}
-          />
+          <BetaSchemaForm<any, 'my'> columns={columns} submitter={false} />
         </ProProvider.Provider>
       );
     };

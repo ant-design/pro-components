@@ -1,6 +1,5 @@
-import { act, fireEvent, render } from '@testing-library/react';
-import { Button } from 'antd';
-import React, { useState } from 'react';
+import { act, render } from '@testing-library/react';
+import { useState } from 'react';
 import { describe, expect, it } from 'vitest';
 import { ModalForm, ProFormText } from '../../src';
 
@@ -14,7 +13,7 @@ import { ModalForm, ProFormText } from '../../src';
 describe('#8834 ModalForm initialValues across opens', () => {
   it('uncontrolled form: second open shows new initialValues', async () => {
     let setOpen: (open: boolean) => void;
-    let setValues: (v: Record<string, string>) => void;
+    let setValues: (v: { name: string }) => void;
 
     const Demo = () => {
       const [open, setOpenState] = useState(false);
@@ -74,7 +73,7 @@ describe('#8834 ModalForm initialValues across opens', () => {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const { Form } = await import('antd');
     let setOpen: (open: boolean) => void;
-    let setValues: (v: Record<string, string>) => void;
+    let setValues: (v: { name: string }) => void;
 
     const Demo = () => {
       const [form] = Form.useForm();

@@ -133,7 +133,10 @@ function BetaSchemaForm<T, ValueType = 'text'>(
             label: title,
             name: originItem.name,
             valueType: runFunction(originItem.valueType, {}),
-            key: originItem.key || originItem.dataIndex || index,
+            key:
+              originItem.key ||
+              (originItem.dataIndex as React.Key | React.Key[] | undefined) ||
+              index,
             columns: originItem.columns,
             valueEnum: originItem.valueEnum,
             dataIndex: originItem.dataIndex || originItem.key,
