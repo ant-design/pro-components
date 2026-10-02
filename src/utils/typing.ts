@@ -290,7 +290,7 @@ type FieldPropsTypeBase<
         type: ComponentsType;
         isEditable?: boolean;
         rowKey?: string;
-        rowIndex: number;
+        rowIndex?: number;
         entity: Entity;
       },
     ) => FieldPropsType | Record<string, any>)
@@ -590,7 +590,7 @@ export type ProSchema<
           type: ComponentsType;
           isEditable?: boolean;
           rowKey?: string;
-          rowIndex: number;
+          rowIndex?: number;
           entity: Entity;
         },
       ) => FormItemProps & ExtraFormItemProps);
