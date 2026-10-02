@@ -99,8 +99,7 @@ const CheckboxListItem: React.FC<{
   title?: React.ReactNode;
   fixed?: boolean | 'left' | 'right';
   showListItemOption?: boolean;
-  isLeaf?: boolean;
-}> = ({ columnKey, isLeaf, title, className, fixed, showListItemOption }) => {
+}> = ({ columnKey, title, className, fixed, showListItemOption }) => {
   const intl = useIntl();
   const { hashId } = useContext(ProProvider);
 
@@ -137,8 +136,7 @@ const CheckboxListItem: React.FC<{
       <div className={clsx(`${className}-list-item-title`, hashId)}>
         {title}
       </div>
-      {/* #8988: isLeaf 只影响树的展开语义，不再屏蔽固定/拖拽选项。
-          分组节点（有 children）同样允许固定，叶子列也不受嵌套层级影响 */}
+      {/* #8988: 分组节点和叶子列都允许固定。 */}
       {showListItemOption ? dom : null}
     </span>
   );

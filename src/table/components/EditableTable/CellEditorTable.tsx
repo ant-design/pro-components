@@ -103,7 +103,7 @@ export function CellEditorTable<
               : undefined,
           children: item.children
             ? (item.children.map((child, childIndex) =>
-                wrapColumn(child, childIndex),
+                wrapColumn(child as ProColumns<any, ValueType>, childIndex),
               ) as ProColumns<any, ValueType>['children'])
             : undefined,
           onCell: (record: any, rowIndex: any) => ({

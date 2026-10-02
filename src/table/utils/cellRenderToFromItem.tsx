@@ -189,11 +189,6 @@ const CellRenderFromItem = <T extends AnyObject>(
           columnProps?.fieldProps,
           ...needProps,
         )}
-        // #9032 列级 transform/convertValue 透传给编辑单元格：
-        // 注册到 form 的 valueType 映射后，行保存(getFieldsFormatValue)与
-        // ProForm 提交链路会自动执行列配置的值转换
-        transform={columnProps?.transform}
-        convertValue={columnProps?.convertValue}
         {...proFieldProps}
       />
     );

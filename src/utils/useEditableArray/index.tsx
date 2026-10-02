@@ -444,7 +444,11 @@ function rebuildTreeStructure<RecordType>(
   // childrenMap（内部仍带 map_row_key），所以无论当前记录是否带内部键都要递归处理 children。
   const stripInternalKeys = (records: RecordType[]): RecordType[] =>
     records.map((item: any) => {
-      const { map_row_key, isNewRecord, ...rest } = item ?? {};
+      const {
+        map_row_key: _map_row_key,
+        isNewRecord: _isNewRecord,
+        ...rest
+      } = item ?? {};
       const children = rest[childrenColumnName];
       if (Array.isArray(children)) {
         return {
@@ -1271,8 +1275,9 @@ export function useEditableArray<RecordType extends AnyObject>(
         // 无法确认时，回退到「从 originRow 反查 index」
         let rowPathKey = indexKey?.toString();
         if (rowPathKey == null || rowPathKey === recordKeyStr) {
-          rowPathKey =
-            defaultGetRealIndex(originRow)?.toString() ?? recordKeyStr ?? '';
+          // eslint-disable-next-line @typescript-eslint/no-use-before-define
+          const fallbackRealIndex = defaultGetRealIndex(originRow);
+          rowPathKey = fallbackRealIndex?.toString() ?? recordKeyStr ?? '';
         }
         const namePath = normalizeNamePath(
           props.tableName,
@@ -1404,11 +1409,7 @@ export function useEditableArray<RecordType extends AnyObject>(
    * 获取当前编辑的行数据
    */
   const getCurrentEditRow = useRefFunction(
-    (
-      value: RecordType,
-      values: RecordType,
-      dataSource: RecordType[],
-    ): RecordType => {
+    (value: RecordType, values: RecordType): RecordType => {
       const valueKeys = Object.keys(value || {});
       if (valueKeys.length === 0) {
         return newLineRecordCache?.defaultValue || ({} as RecordType);
@@ -1449,7 +1450,7 @@ export function useEditableArray<RecordType extends AnyObject>(
         props.dataSource,
         values,
       );
-      const editRow = getCurrentEditRow(value, values, updatedDataSource);
+      const editRow = getCurrentEditRow(value, values);
 
       propsOnValuesChange.run(editRow, updatedDataSource);
     },

@@ -1156,6 +1156,12 @@ const ProviderTableContainer = <
       : props.ErrorBoundary || ErrorBoundary;
 
   const context = useContext(ProConfigContext);
+  // Keep this context value stable across parent/keepalive renders. Recreating
+  // the map invalidates every ProField consumer in an already mounted table.
+  const mergedValueTypeMap = useMemo(
+    () => ({ ...context.valueTypeMap, ...ValueTypeToComponent }),
+    [context.valueTypeMap],
+  );
   return (
     <TableProvider
       initValue={{
@@ -1167,10 +1173,7 @@ const ProviderTableContainer = <
         defaultSize: (props.defaultSize as any) || undefined,
       }}
     >
-      <ProConfigProvider
-        valueTypeMap={{ ...context.valueTypeMap, ...ValueTypeToComponent }}
-        needDeps
-      >
+      <ProConfigProvider valueTypeMap={mergedValueTypeMap} needDeps>
         <ErrorComponent>
           <ProTable<DataType, Params, ValueType>
             defaultClassName={`${getPrefixCls('pro-table')}`}
