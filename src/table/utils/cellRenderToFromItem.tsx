@@ -144,9 +144,21 @@ const CellRenderFromItem = <T extends AnyObject>(
           rowKey: rowName,
           rowIndex: index,
           isEditable: true,
+          // #9184 formItemProps 为函数时,用户常通过 config.entry 读取行内其它字段的
+          // 实时值来计算动态 rules(如 required)。旧实现 entry/entity 是进入编辑时的
+          // rowData 快照,不随表单值更新,导致动态必填标识不刷新。
+          // 这里改为 getter,每次读取都从 form 取当前行值。
+          get entry() {
+            const liveRow = editableForm?.getFieldValue(rowName);
+            return liveRow ?? rowData;
+          },
+          get entity() {
+            const liveRow = editableForm?.getFieldValue(rowName);
+            return liveRow ?? rowData;
+          },
         },
       ] as const,
-    [columnProps, editableForm, index, rowName],
+    [columnProps, editableForm, index, rowName, rowData],
   );
 
   const generateFormItem = useCallback(() => {
@@ -177,6 +189,11 @@ const CellRenderFromItem = <T extends AnyObject>(
           columnProps?.fieldProps,
           ...needProps,
         )}
+        // #9032 列级 transform/convertValue 透传给编辑单元格：
+        // 注册到 form 的 valueType 映射后，行保存(getFieldsFormatValue)与
+        // ProForm 提交链路会自动执行列配置的值转换
+        transform={columnProps?.transform}
+        convertValue={columnProps?.convertValue}
         {...proFieldProps}
       />
     );

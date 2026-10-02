@@ -238,44 +238,98 @@ function flattenRecordsToMap<RecordType>(
     RecordType & { map_row_key?: string; map_row_parentKey?: React.Key }
   >();
 
-  records.forEach((record, index) => {
-    // 历史实现：用 `parentIndex * 10 + index` 把"全局扁平后的位置"传给 getRowKey 的第二参数，
-    // 用于嵌套树场景下当 rowKey 退化到 index 时仍尽量保持唯一性。
-    // 这种拼法在「兄弟节点超过 9 个」时会哈希冲突（如父1的第10个孩子和父2的第0个孙都是 20），
-    // 但 editor-table 等测试已经依赖了这种 index 的具体值（重建 dataSource 时反查 map），
-    // 直接改成 `index` 会让保存编辑后丢行（`saveEditable should save and quit editing` 测试）。
-    // → 暂保留原实现，待用 path 字符串替代上层 map 的 key 维度后再彻底重构。
+  // #8893 name 模式（或 rowKey 缺失）下 getRowKey 会退化为 index，父与子的 key 可能
+  // 完全相同（如顶层第 0 行与其第 0 个子行都是 '0'）。旧实现直接互相覆盖：
+  //  - 先子后父 → 父覆盖子，rebuild 丢整棵 children；
+  //  - 先父后子 → 子覆盖父，rebuild 的父子挂接产生自引用（children 里包含自己）→ 深递归爆栈。
+  // 这里先用递归方式为冲突的 key 追加父 key 后缀，保证 map 中每个槽位唯一，
+  // 且 map_row_key / map_row_parentKey 全程指向去重后的 key，rebuild 才能正确重建树。
+  const fillRecords = (
+    list: RecordType[],
+    parentSlotKey: string | undefined,
+    parentIndexInner: number | undefined,
+  ) => {
+    list.forEach((record, index) => {
+      // 历史实现：用 `parentIndex * 10 + index` 把"全局扁平后的位置"传给 getRowKey 的第二参数，
+      // 用于嵌套树场景下当 rowKey 退化到 index 时仍尽量保持唯一性。
+      // 这种拼法在「兄弟节点超过 9 个」时会哈希冲突（如父1的第10个孩子和父2的第0个孙都是 20），
+      // 但 editor-table 等测试已经依赖了这种 index 的具体值（重建 dataSource 时反查 map），
+      // 直接改成 `index` 会让保存编辑后丢行（`saveEditable should save and quit editing` 测试）。
+      // → 暂保留原实现，待用 path 字符串替代上层 map 的 key 维度后再彻底重构。
+      const eachIndex = (parentIndexInner || 0) * 10 + index;
+      const rawKey = getRowKey(record, eachIndex).toString();
+      const recordKey = kvMap.has(rawKey)
+        ? `${rawKey}#${parentSlotKey ?? 'top'}`
+        : rawKey;
+
+      const newRecord = {
+        ...record,
+        map_row_key: recordKey,
+        map_row_parentKey: parentSlotKey,
+      };
+      delete (newRecord as any)[childrenColumnName];
+      if (parentSlotKey === undefined) {
+        delete newRecord.map_row_parentKey;
+      }
+      kvMap.set(recordKey, newRecord);
+
+      const hasChildren =
+        record &&
+        typeof record === 'object' &&
+        childrenColumnName in record;
+
+      if (hasChildren) {
+        const children = (record as any)[childrenColumnName] || [];
+        fillRecords(children, recordKey, eachIndex);
+      }
+    });
+  };
+
+  fillRecords(records, parentKey?.toString(), parentIndex);
+
+  return kvMap;
+}
+
+/**
+ * 按业务 rowKey（getRowKey(record, -1) 的返回值）在树中定位父记录，
+ * 并返回该记录在 flattenRecordsToMap 里的 map key。
+ *
+ * #8893 name 模式下 flatten 的 key 是数组 index，而用户传入的 parentKey 是
+ * 业务 id，两者对不上会导致 rebuildTreeStructure 把 children 全部丢弃；
+ * 本方法以与 flatten 完全一致的 eachIndex 计算路径，保证 key 匹配。
+ * 找不到时返回 undefined（调用方回退为原始 parentKey，保持旧行为）。
+ */
+function resolveFlattenParentKey<RecordType>(
+  records: RecordType[],
+  getRowKey: GetRowKey<RecordType>,
+  childrenColumnName: string,
+  parentKey: React.Key,
+  parentIndex?: number,
+): string | undefined {
+  for (let index = 0; index < records.length; index++) {
+    const record = records[index];
     const eachIndex = (parentIndex || 0) * 10 + index;
     const recordKey = getRowKey(record, eachIndex).toString();
-
-    const hasChildren =
-      record && typeof record === 'object' && childrenColumnName in record;
-
-    if (hasChildren) {
-      const children = (record as any)[childrenColumnName] || [];
-      const childrenMap = flattenRecordsToMap(
+    // getRowKey(record, -1) 返回业务 key（不受 name 模式 index 回退影响）
+    if (String(getRowKey(record, -1)) === String(parentKey)) {
+      return recordKey;
+    }
+    const children =
+      record &&
+      typeof record === 'object' &&
+      (record as any)[childrenColumnName];
+    if (Array.isArray(children)) {
+      const found = resolveFlattenParentKey(
         children,
         getRowKey,
         childrenColumnName,
-        recordKey,
+        parentKey,
         eachIndex,
       );
-      childrenMap.forEach((value, key) => kvMap.set(key, value));
+      if (found !== undefined) return found;
     }
-
-    const newRecord = {
-      ...record,
-      map_row_key: recordKey,
-      map_row_parentKey: parentKey,
-    };
-    delete (newRecord as any)[childrenColumnName];
-    if (!parentKey) {
-      delete newRecord.map_row_parentKey;
-    }
-    kvMap.set(recordKey, newRecord);
-  });
-
-  return kvMap;
+  }
+  return undefined;
 }
 
 /**
@@ -384,7 +438,24 @@ function rebuildTreeStructure<RecordType>(
     }
   });
 
-  return result;
+  // #8893 子记录的 map_row_key / isNewRecord 只在 rebuild 反查时有用，产出前必须清掉，
+  // 否则会泄漏进 dataSource / 表单提交值（用户可见的脏字段）。
+  // 注意：顶层记录的 map_row_key 在上方 forEach 已剥离，但它的 children 来自
+  // childrenMap（内部仍带 map_row_key），所以无论当前记录是否带内部键都要递归处理 children。
+  const stripInternalKeys = (records: RecordType[]): RecordType[] =>
+    records.map((item: any) => {
+      const { map_row_key, isNewRecord, ...rest } = item ?? {};
+      const children = rest[childrenColumnName];
+      if (Array.isArray(children)) {
+        return {
+          ...rest,
+          [childrenColumnName]: stripInternalKeys(children),
+        } as RecordType;
+      }
+      return rest as RecordType;
+    });
+
+  return stripInternalKeys(result);
 }
 
 /**
@@ -1029,14 +1100,38 @@ export function useEditableArray<RecordType extends AnyObject>(
 
   /**
    * 查找记录
+   * #8662/#7859/#8861 递归搜索嵌套 children：旧实现只查顶层 dataSource，
+   * 子行永远查不到 —— onValuesChange 的 record 丢失业务 id、取消编辑时
+   * 因快照查不到被误判为新增行而触发 onDelete。
    */
   const findRecordByKey = useRefFunction(
     (recordKey: React.Key): RecordType | null => {
-      return (
-        props.dataSource?.find((recordData, index) => {
-          return props.getRowKey(recordData, index) === recordKey;
-        }) ?? null
-      );
+      const recordKeyStr = recordKey?.toString();
+      if (recordKeyStr == null) return null;
+      // #8662 用 visited 防止循环引用的 children 导致无限递归
+      const visited = new Set<unknown>();
+      const walk = (records?: RecordType[]): RecordType | null => {
+        if (!records || visited.has(records)) return null;
+        visited.add(records);
+        for (let i = 0; i < records.length; i++) {
+          const recordData = records[i];
+          if (
+            props.getRowKey(recordData, -1)?.toString() === recordKeyStr ||
+            props.getRowKey(recordData, i)?.toString() === recordKeyStr
+          ) {
+            return recordData;
+          }
+          const children =
+            props.childrenColumnName &&
+            (recordData as any)?.[props.childrenColumnName];
+          if (Array.isArray(children)) {
+            const found = walk(children);
+            if (found) return found;
+          }
+        }
+        return null;
+      };
+      return walk(props.dataSource) ?? null;
     },
   );
 
@@ -1316,10 +1411,8 @@ export function useEditableArray<RecordType extends AnyObject>(
       );
 
       if (existsInDataSource) {
-        const foundRow = dataSource.find((item, index) => {
-          const key = props.getRowKey(item, index)?.toString();
-          return key === recordKey;
-        });
+        // #7859/#8861 递归查找（含嵌套 children），子行也能拿到完整业务字段（如 id）
+        const foundRow = findRecordByKey(recordKey);
         return foundRow || newLineRecordData;
       }
 
@@ -1501,13 +1594,31 @@ export function useEditableArray<RecordType extends AnyObject>(
         options?.newRecordType === 'dataSource' ||
         (props.tableName && options?.newRecordType !== 'cache');
       if (isDataSourceMode) {
+        /**
+         * #8893 parentKey 是业务 rowKey（如 id），而 flattenRecordsToMap 在
+         * name 模式（或 rowKey 缺失回退 index）下父记录的 map key 是 index，
+         * 两者不一致会让 rebuildTreeStructure 匹配不到父节点、丢掉全部 children。
+         * 这里用与 flatten 一致的路径把 parentKey 换算成父记录的 map key。
+         */
+        const flattenParentKey =
+          parentKeyValue !== undefined &&
+          parentKeyValue !== null &&
+          props.dataSource?.length
+            ? resolveFlattenParentKey(
+                props.dataSource,
+                props.getRowKey,
+                props.childrenColumnName || 'children',
+                parentKeyValue as React.Key,
+              )
+            : undefined;
         const actionProps = {
           data: props.dataSource,
           getRowKey: props.getRowKey,
           row: {
             ...row,
             map_row_parentKey: parentKeyValue
-              ? recordKeyToString(parentKeyValue)?.toString()
+              ? (flattenParentKey ??
+                recordKeyToString(parentKeyValue)?.toString())
               : undefined,
           },
           key: recordKey,
@@ -1722,6 +1833,45 @@ export function useEditableArray<RecordType extends AnyObject>(
     return [renderResult.save, renderResult.delete, renderResult.cancel];
   };
 
+  /**
+   * #8930 name 模式下，过滤/分页会让展示 index 与 dataSource 的真实 index 错位，
+   * 表单字段的 namePath 如果用展示 index 会读写到错误的行。
+   * 默认实现：按业务 rowKey 在 dataSource（含嵌套 children）中反查真实 index；
+   * 嵌套行返回其在同级数组内的局部 index（namePath 的父级路径段由 subName 提供）。
+   * 用户显式传入 getRealIndex 时优先使用用户的。
+   */
+  const defaultGetRealIndex = useRefFunction(
+    (record: RecordType): number | undefined => {
+      if (!props.tableName) return undefined;
+      const recordKey = props.getRowKey(record, -1);
+      // rowKey 未配置时 getRowKey 会退化为 index（此处为 -1），
+      // 所有行都会命中同一个 key，反查结果无意义，直接跳过
+      if (recordKey == null || recordKey === -1) return undefined;
+      const recordKeyStr = recordKey.toString();
+      const walk = (records: RecordType[]): number | undefined => {
+        for (let i = 0; i < records.length; i++) {
+          const item = records[i];
+          // 注意：name 模式下 getRowKey(item, i) 返回的是 index 字符串，
+          // 业务 key 必须通过 getRowKey(item, -1) 获取（与 buildDataSourceKeyIndexMap 约定一致）
+          if (props.getRowKey(item, -1)?.toString() === recordKeyStr) {
+            return i;
+          }
+          const children =
+            props.childrenColumnName &&
+            (item as any)?.[props.childrenColumnName];
+          if (Array.isArray(children)) {
+            const found = walk(children);
+            if (found !== undefined) return found;
+          }
+        }
+        return undefined;
+      };
+      return walk(props.dataSource || []);
+    },
+  );
+
+  const getRealIndex = props.getRealIndex ?? defaultGetRealIndex;
+
   return {
     editableKeys,
     setEditableRowKeys,
@@ -1734,7 +1884,7 @@ export function useEditableArray<RecordType extends AnyObject>(
     newLineRecord: newLineRecordCache,
     preEditableKeys: editableKeysRef,
     onValuesChange,
-    getRealIndex: props.getRealIndex,
+    getRealIndex,
   };
 }
 
