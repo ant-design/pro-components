@@ -109,7 +109,9 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
         {...modalProps}
         modalRender={(modalNode) => (
           <div onClick={(event) => event.stopPropagation()}>
-            {modalProps?.modalRender?.(modalNode) ?? modalNode}
+            {modalProps?.modalRender
+              ? modalProps.modalRender(modalNode)
+              : modalNode}
           </div>
         )}
         open={open}
