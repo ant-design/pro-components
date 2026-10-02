@@ -159,7 +159,7 @@ describe('EditableProTable nested row edit (#8662/#7859/#8861)', () => {
     // (输入过程 debounce 会触发多次,record.title 取决于 debounce 窗口,只验证 id 归属)
     const withId = [...records].reverse().find((r) => r?.id === 'c1');
     expect(withId).toBeTruthy();
-    expect(withId.title).toContain('子行 1');
+    expect(withId.title).toBe('子行 1 改');
 
     html.unmount();
   });

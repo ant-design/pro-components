@@ -320,4 +320,53 @@ describe('#8988 multi-level header in ColumnSetting', () => {
 
     wrapper.unmount();
   });
+
+  it('checking a deep leaf restores every hidden ancestor', async () => {
+    const wrapper = render(
+      <ProTable
+        columns={columns}
+        dataSource={[{ A: '1', B: '2', C1: '3', C2: '4', D: '5' }]}
+        rowKey="A"
+        search={false}
+      />,
+    );
+    await openSetting(wrapper);
+    await expandByTitle('GroupL2');
+    await expandByTitle('GroupL3');
+
+    const headers = () =>
+      Array.from(wrapper.container.querySelectorAll('.ant-table-thead th')).map(
+        (th) => th.textContent,
+      );
+    const l2 = visibleTreeItems().find(
+      (node) => node.textContent === 'GroupL2',
+    );
+    act(() => {
+      fireEvent.click(l2?.querySelector('.ant-tree-checkbox') as HTMLElement);
+    });
+    await waitForWaitTime(300);
+    expect(headers()).toEqual(['A', 'D']);
+
+    for (const title of ['GroupL2', 'GroupL3']) {
+      const node = visibleTreeItems().find(
+        (item) => item.textContent === title,
+      );
+      if (node?.getAttribute('aria-expanded') === 'false') {
+        act(() => {
+          fireEvent.click(
+            node.querySelector('.ant-tree-switcher') as HTMLElement,
+          );
+        });
+        await waitForWaitTime(200);
+      }
+    }
+    const c1 = visibleTreeItems().find((node) => node.textContent === 'C1');
+    expect(c1).toBeTruthy();
+    act(() => {
+      fireEvent.click(c1?.querySelector('.ant-tree-checkbox') as HTMLElement);
+    });
+    await waitForWaitTime(300);
+    expect(headers()).toEqual(['A', 'GroupL2', 'D', 'GroupL3', 'C1']);
+    wrapper.unmount();
+  });
 });

@@ -13,7 +13,7 @@
 
 | 场景 | 修复前 | 修复后 | 验证方式 |
 | --- | ---: | ---: | --- |
-| 100 个 `editableKeys` 的单次命中查询 | `Array.some` 中位数 100.16 ns | `Set.has` 中位数 35.54 ns | 同机 8 轮、每轮 2,000,000 次，提升 2.82 倍；`node scripts/benchmarks/tableEditableLookup.mjs` |
+| 100 个 `editableKeys` 的单次命中查询 | `Array.some` 中位数 300.61 ns | `Set.has` 中位数 59.48 ns | 同机 8 轮、每轮 2,000,000 次，提升 5.05 倍；`node scripts/benchmarks/tableEditableLookup.mjs` |
 | 200 行普通 `ellipsis: true` | 200 个 `Typography.Text` 及其省略测量链 | 0 个 `Typography`，200 个原生 ellipsis 单元格 | `tests/table/ellipsisNative.test.tsx` |
 | DragSortTable 重新取数 | 4 个稳定性用例中表头或表体 DOM 被替换，4/4 失败 | 原 DOM 节点全部保留，4/4 通过 | `dragSortComponentStability` 与 `dragSortScrollStability` |
 | 行选择后的滚动位置 | 表体重挂后滚动位置归零 | `scrollLeft=180`、`scrollTop=40` 均保持 | `dragSortScrollStability.test.tsx` |
@@ -76,6 +76,6 @@ const columns: ProColumns<Row>[] = [
 ## 回归命令
 
 ```powershell
-pnpm exec vitest run tests/table/dragSort.test.tsx tests/table/dragSortComponentStability.test.tsx tests/table/dragSortScrollStability.test.tsx tests/table/columnSettingBehavior.test.tsx tests/table/columnSettingGroup.test.tsx tests/table/columnSettingGroupSort.test.tsx tests/table/cellEditorGroup.test.tsx tests/table/editableFilterIndex.test.tsx tests/table/nestedEditableRow.test.tsx tests/table/recordCreatorTiming.test.tsx tests/table/dynamicFormRules.test.tsx tests/table/ellipsisNative.test.tsx tests/table/providerValueTypeMapStable.test.tsx
+pnpm exec vitest run tests/table/dragSort.test.tsx tests/table/dragSortComponentStability.test.tsx tests/table/dragSortScrollStability.test.tsx tests/table/columnSettingBehavior.test.tsx tests/table/columnSettingGroup.test.tsx tests/table/columnSettingGroupSort.test.tsx tests/table/cellEditorGroup.test.tsx tests/table/editableFilterIndex.test.tsx tests/table/editableNameParentKey.test.tsx tests/table/nestedEditableRow.test.tsx tests/table/recordCreatorTiming.test.tsx tests/table/dynamicFormRules.test.tsx tests/table/ellipsisNative.test.tsx tests/table/providerValueTypeMapStable.test.tsx
 node scripts/benchmarks/tableEditableLookup.mjs
 ```

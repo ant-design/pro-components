@@ -80,4 +80,35 @@ describe('#8880 CellEditorTable with grouped header', () => {
 
     wrapper.unmount();
   });
+
+  it('keeps duplicate child dataIndex columns isolated by their parent path', async () => {
+    const wrapper = render(
+      <CellEditorTable<Row>
+        rowKey="id"
+        columns={[
+          {
+            title: 'Primary',
+            key: 'primary',
+            children: [
+              { title: 'Name', key: 'primary-name', dataIndex: 'name' },
+            ],
+          },
+          {
+            title: 'Secondary',
+            key: 'secondary',
+            children: [
+              { title: 'Name again', key: 'secondary-name', dataIndex: 'name' },
+            ],
+          },
+        ]}
+        value={[{ id: 1, name: 'Alice', age: 20 }]}
+      />,
+    );
+    await waitForWaitTime(300);
+    const cells = wrapper.container.querySelectorAll('tr.ant-table-row td');
+    act(() => fireEvent.doubleClick(cells[0]));
+    await waitForWaitTime(300);
+    expect(wrapper.container.querySelectorAll('input')).toHaveLength(1);
+    wrapper.unmount();
+  });
 });

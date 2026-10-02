@@ -431,9 +431,9 @@ export function buildEditableTableRowKey<DataType extends Record<string, any>>(
       return (record as any)?.[rowKeyStr];
     }
     if (name) {
-      // #8893 name 模式优先取业务 key：旧实现无条件退化为 index，
-      // 嵌套树场景父子的 index key 会冲突（父第0行/子第0行都是 '0'），
-      // 导致 flatten 树重建丢 children。业务 key 缺失时才回退 index。
+      // Editable wrapper callbacks operate on business row keys. The inner
+      // EditableProTable converts those keys to array indexes for form paths.
+      // Falling back to a local tree index here would collide across levels.
       const businessKey = (record as any)?.[rowKeyStr];
       return businessKey ?? index?.toString() ?? '';
     }

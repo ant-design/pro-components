@@ -304,6 +304,24 @@ const CheckboxList: React.FC<{
   const onCheckTree = useRefFunction((e) => {
     const newColumnMap = { ...columnsMap };
 
+    const syncAncestorShow = (key: string | number) => {
+      const parentKey = treeDataConfig.map?.get(key)?.parentKey;
+      if (!parentKey) return;
+      if (e.checked) {
+        newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: true };
+        syncAncestorShow(parentKey);
+        return;
+      }
+      const siblings = treeDataConfig.map?.get(parentKey)?.children ?? [];
+      const allSiblingsUnchecked = siblings.every(
+        (sibling) => newColumnMap[sibling.key as string]?.show === false,
+      );
+      if (allSiblingsUnchecked) {
+        newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: false };
+        syncAncestorShow(parentKey);
+      }
+    };
+
     const loopSetShow = (key: string | number) => {
       const newSetting = { ...newColumnMap[key] };
       newSetting.show = e.checked;
@@ -320,23 +338,7 @@ const CheckboxList: React.FC<{
       // 否则读到的仍是旧值，导致 allSiblingsUnchecked 判断出错。
       newColumnMap[key] = newSetting;
 
-      // 勾选方向：子节点选中时父节点自动设为 true
-      // 取消方向：检查所有兄弟节点是否已全部取消，若是则父节点也取消
-      const parentKey = treeDataConfig.map?.get(key)?.parentKey;
-      if (parentKey) {
-        if (e.checked) {
-          newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: true };
-        } else {
-          const siblings = treeDataConfig.map?.get(parentKey)?.children ?? [];
-          const allSiblingsUnchecked = siblings.every((sibling) => {
-            const siblingState = newColumnMap[sibling.key as string];
-            return siblingState && siblingState.show === false;
-          });
-          if (allSiblingsUnchecked) {
-            newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: false };
-          }
-        }
-      }
+      syncAncestorShow(key);
     };
     loopSetShow(e.node.key);
     setColumnsMap({ ...newColumnMap });
@@ -470,7 +472,8 @@ const CheckboxList: React.FC<{
       height={listHeight}
       treeData={treeDataConfig.list?.map(
         ({
-          disabled: _disabled /* 不透传 disabled，使子节点禁用时也可以拖动调整顺序 */,
+          disabled:
+            _disabled /* 不透传 disabled，使子节点禁用时也可以拖动调整顺序 */,
           ...config
         }) => config,
       )}
@@ -579,8 +582,12 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
     key?: any;
   })[] = props.columns;
   const { checkedReset = true } = props;
-  const { columnsMap, setColumnsMap, clearPersistenceStorage, setSortKeyColumns } =
-    counter;
+  const {
+    columnsMap,
+    setColumnsMap,
+    clearPersistenceStorage,
+    setSortKeyColumns,
+  } = counter;
 
   /**
    * 设置全部选中，或全部未选中
@@ -650,8 +657,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   }, [columnsMap, localColumns]);
 
   // 是否全部列都已选中
-  const allChecked =
-    unCheckedKeys.length === 0 && localColumns.length > 0;
+  const allChecked = unCheckedKeys.length === 0 && localColumns.length > 0;
 
   // 是否部分选中（indeterminate）
   const indeterminate =
