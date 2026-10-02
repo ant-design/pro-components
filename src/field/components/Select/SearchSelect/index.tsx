@@ -345,12 +345,8 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       onChange={(value, optionList, ...rest) => {
         // 将搜索框置空 和 antd 行为保持一致
         if (showSearch && effectiveAutoClearSearchValue) {
-          // #8780/#8928:选中值后清空搜索词,仅当之前确实有搜索词时才重新请求。
-          // keyWords 本来就是空(未输入直接选择)时再触发 fetchData(undefined)
-          // 只会产生一次与挂载时完全相同的多余 request。
-          if (searchValue) {
-            fetchData(undefined);
-          }
+          // 选择结果只清空可见搜索框，不重置已完成请求的远端关键字。
+          // 显式清空输入仍由 handleSearch 触发对应请求。
           effectiveOnSearch?.('');
           setSearchValue('');
         } else if (showSearch && !effectiveAutoClearSearchValue) {

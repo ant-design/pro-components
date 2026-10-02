@@ -359,7 +359,8 @@ function processNestedObjectTransforms(
         // 检查是否有任何子属性被转换为对象（会被添加到 rootLevelMerges）
         // 如果 nested 为空或只包含被转换的属性，我们不保留这个对象
         const hasRemainingContent =
-          Object.keys(nested).length > 0 || omitNil === false;
+          Object.keys(nested).length > 0 ||
+          (omitNil === false && Object.keys(itemValue).length === 0);
         if (hasRemainingContent) {
           currentResult[entityKey] = nested;
         }

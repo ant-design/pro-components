@@ -19,6 +19,7 @@ describe('#8397 BetaSchemaForm QueryFilter hidden', () => {
         title: '隐藏字段',
         dataIndex: 'hiddenField',
         hidden: true,
+        dependencies: ['visible'],
       },
       {
         title: '可见字段2',
@@ -38,7 +39,7 @@ describe('#8397 BetaSchemaForm QueryFilter hidden', () => {
     const hiddenItems = container.querySelectorAll(
       '.ant-form-item.ant-form-item-hidden',
     );
-    expect(hiddenItems.length).toBe(1);
+    expect(hiddenItems.length).toBe(2);
 
     // 核心断言:hidden 字段不产生栅格占位 Col。
     // QueryFilter 行的直接子 Col 中,只有 2 个字段 Col + 1 个 actions Col;
@@ -52,5 +53,25 @@ describe('#8397 BetaSchemaForm QueryFilter hidden', () => {
     rowCols.forEach((col) => {
       expect(col.querySelector('.ant-form-item-hidden')).toBeNull();
     });
+  });
+
+  it('does not count hidden columns toward the collapse budget', () => {
+    const columns: ProFormColumnsType[] = [
+      { title: '隐藏字段', dataIndex: 'hidden', hidden: true },
+      { title: '可见字段A', dataIndex: 'visibleA' },
+      { title: '可见字段B', dataIndex: 'visibleB' },
+    ];
+
+    const { container } = render(
+      <BetaSchemaForm
+        layoutType="QueryFilter"
+        defaultCollapsed
+        defaultFormItemsNumber={2}
+        columns={columns}
+      />,
+    );
+
+    expect(container.querySelector('input[id$="_visibleA"]')).toBeTruthy();
+    expect(container.querySelector('input[id$="_visibleB"]')).toBeTruthy();
   });
 });

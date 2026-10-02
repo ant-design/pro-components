@@ -3,6 +3,7 @@ import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { BetaSchemaForm } from '../../src';
 import type { ProFormColumnsType } from '../../src';
+import { getSpanConfig } from '../../src/form/layouts/QueryFilter';
 
 /**
  * #8836:QueryFilter 响应式 span 对象({xs:1,...})时,vertical 布局
@@ -35,5 +36,25 @@ describe('#8836 QueryFilter responsive span keeps vertical layout', () => {
       '.ant-form-item-horizontal',
     );
     expect(horizontalItems.length).toBe(0);
+  });
+
+  it('keeps vertical layout above the configured xxl breakpoint', () => {
+    const result = getSpanConfig(
+      'vertical',
+      2000,
+      { xs: 1, sm: 2, md: 2, lg: 3, xl: 3, xxl: 4 },
+      {
+        breakpoints: {} as any,
+        configSpanBreakpoints: {
+          xs: 0,
+          sm: 576,
+          md: 768,
+          lg: 992,
+          xl: 1200,
+          xxl: 1600,
+        },
+      },
+    );
+    expect(result).toEqual({ span: 4, layout: 'vertical' });
   });
 });

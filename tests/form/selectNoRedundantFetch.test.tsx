@@ -8,8 +8,8 @@ import { ProFormSelect } from '../../src';
  * 不应触发一次多余的 request(keyWords 相同、数据已在本地)。
  */
 describe('#8780 select request no redundant fetch on select', () => {
-  it('selecting without prior search does not re-fetch', async () => {
-    const request = vi.fn(async () => [
+  it('selecting a typed remote result does not reset and re-fetch', async () => {
+    const request = vi.fn(async (_params?: { keyWords?: string }) => [
       { label: 'A', value: 'a' },
       { label: 'B', value: 'b' },
     ]);
@@ -32,10 +32,20 @@ describe('#8780 select request no redundant fetch on select', () => {
     await waitFor(() => {
       expect(request).toHaveBeenCalledTimes(1);
     });
+
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
+    const input = container.querySelector(
+      'input.ant-select-input',
+    ) as HTMLInputElement;
+    fireEvent.change(input, { target: { value: 'A' } });
+    await waitFor(() => {
+      expect(
+        request.mock.calls.some(([params]) => params?.keyWords === 'A'),
+      ).toBe(true);
+    });
     request.mockClear();
 
-    // 打开下拉并选中一项(未经搜索输入)
-    fireEvent.mouseDown(container.querySelector('.ant-select')!);
+    // 选择远端搜索结果时，只清空可见输入，不重新请求空关键字。
     const option = await waitFor(() => {
       const el = document.querySelector(
         '.ant-select-dropdown [title="A"], .ant-select-item-option',

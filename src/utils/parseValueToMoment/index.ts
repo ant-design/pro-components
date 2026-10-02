@@ -59,7 +59,7 @@ export function normalizeSerializedDayjsLike(
 
 export const parseValueToDay = (
   value: DateValue,
-  formatter?: string,
+  formatter?: string | readonly string[],
 ): dayjs.Dayjs | dayjs.Dayjs[] | null | undefined => {
   if (isNil(value)) {
     return value as null | undefined;
@@ -123,31 +123,30 @@ export const parseValueToDay = (
       return parsed.isValid() ? parsed : null;
     };
 
-    if (formatter) {
-      const strict = dayjs(value, formatter);
-      if (strict.isValid()) {
-        return strict;
-      }
+    const formatters =
+      typeof formatter === 'string'
+        ? [formatter]
+        : Array.isArray(formatter)
+          ? formatter.filter((item): item is string => typeof item === 'string')
+          : [];
+    for (const currentFormatter of formatters) {
+      const strict = dayjs(value, currentFormatter, true);
+      if (strict.isValid()) return strict;
       /**
        * #8863:customParseFormat 对 `MM`/`DD` 等两位占位符要求严格位数,
        * 值为 `23/3/2024` + format `DD/MM/YYYY` 时解析失败。
        * 降级为单位数宽容形式(`M`/`D`/`H`/`m`/`s`)重试一次。
        */
-      const lenientFormatter = formatter.replace(
+      const lenientFormatter = currentFormatter.replace(
         /(MM|DD|HH|mm|ss)/g,
         (token) => token[0],
       );
-      if (lenientFormatter !== formatter) {
-        const lenient = dayjs(value, lenientFormatter);
+      if (lenientFormatter !== currentFormatter) {
+        const lenient = dayjs(value, lenientFormatter, true);
         if (lenient.isValid()) {
           return lenient;
         }
       }
-      const ts = parseTimestampString(value);
-      if (ts) {
-        return ts;
-      }
-      return null;
     }
     const ts = parseTimestampString(value);
     if (ts) {
@@ -173,8 +172,14 @@ export const parseValueToDay = (
     }
   }
 
-  const fallback = formatter
-    ? dayjs(value as any, formatter)
+  const fallbackFormatter: string | string[] | undefined =
+    typeof formatter === 'string'
+      ? formatter
+      : formatter
+        ? [...formatter]
+        : undefined;
+  const fallback = fallbackFormatter
+    ? dayjs(value as any, fallbackFormatter)
     : dayjs(value as any);
   return fallback.isValid() ? fallback : null;
 };

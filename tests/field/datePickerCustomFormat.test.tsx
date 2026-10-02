@@ -15,6 +15,19 @@ describe('#8863 DatePicker custom format parsing', () => {
     expect(
       (parseValueToDay('23/3/2024', 'DD/MM/YYYY') as any)?.format('YYYY-MM-DD'),
     ).toBe('2024-03-23');
+    expect(
+      (parseValueToDay('23/03/2024', ['DD/MM/YYYY']) as any)?.format(
+        'YYYY-MM-DD',
+      ),
+    ).toBe('2024-03-23');
+    expect(
+      (parseValueToDay('1728403200', 'YYYY') as any)?.valueOf(),
+    ).toBe(1728403200000);
+    expect(
+      (parseValueToDay('2024-03-23', 'YYYY-MM-DD HH:mm:ss') as any)?.format(
+        'YYYY-MM-DD HH:mm:ss',
+      ),
+    ).toBe('2024-03-23 00:00:00');
     // 两位数不受影响
     expect(
       (parseValueToDay('23/03/2024', 'DD/MM/YYYY') as any)?.format('YYYY-MM-DD'),

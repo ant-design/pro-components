@@ -94,4 +94,21 @@ describe('#8044 ProFormDigit nil submit semantics', () => {
     const values = onFinish.mock.calls[0][0];
     expect(values).toEqual({ newTitle: 't', price: null });
   });
+
+  it('does not retain a consumed nested container when omitNil=false', async () => {
+    const onFinish = vi.fn().mockResolvedValue(true);
+    render(
+      <ProForm onFinish={onFinish} omitNil={false}>
+        <ProFormText
+          name={['user', 'name']}
+          initialValue="Ada"
+          transform={(value) => ({ displayName: value })}
+        />
+      </ProForm>,
+    );
+
+    fireEvent.click(screen.getByText('提 交'));
+    await waitFor(() => expect(onFinish).toHaveBeenCalled());
+    expect(onFinish.mock.calls[0][0]).toEqual({ displayName: 'Ada' });
+  });
 });
