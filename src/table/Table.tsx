@@ -109,7 +109,7 @@ function getEditableDataSource<T>({
   const { options: newLineOptions } = newLineConfig;
   const childrenName = childrenColumnName || 'children';
 
-  if (newLineOptions?.parentKey) {
+  if (newLineOptions?.parentKey != null) {
     const newRow = {
       ...defaultValue,
       map_row_parentKey: recordKeyToString(

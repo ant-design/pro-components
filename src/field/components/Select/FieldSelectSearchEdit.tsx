@@ -1,6 +1,6 @@
 import type { GetRef, SelectProps } from 'antd';
 import { Select, Spin } from 'antd';
-import React from 'react';
+import React, { useMemo } from 'react';
 import type { IntlType } from '../../../provider';
 import type { RequestOptionsType } from '../../../utils';
 import type { ProFieldFC } from '../../types';
@@ -38,6 +38,45 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
     ...rest
   } = props;
 
+  const normalizedOptions = useMemo(() => {
+    const currentValue = fieldProps?.value;
+    const selectedNumericValues = new Set(
+      (Array.isArray(currentValue) ? currentValue : [currentValue]).filter(
+        (value): value is number => typeof value === 'number',
+      ),
+    );
+    if (!selectedNumericValues.size) return options;
+
+    const valueKey = fieldProps?.fieldNames?.value ?? 'value';
+    const childrenKey = fieldProps?.fieldNames?.options ?? 'options';
+    const normalize = (items: RequestOptionsType[]): RequestOptionsType[] => {
+      const numericValues = new Set(
+        items
+          .map((item) => item[valueKey])
+          .filter((value): value is number => typeof value === 'number'),
+      );
+      return items.map((item) => {
+        const rawValue = item[valueKey];
+        const nested = item[childrenKey] ?? item.children;
+        const numericValue = Number(rawValue);
+        const canNormalize =
+          typeof rawValue === 'string' &&
+          rawValue !== '' &&
+          String(numericValue) === rawValue &&
+          selectedNumericValues.has(numericValue) &&
+          !numericValues.has(numericValue);
+        return {
+          ...item,
+          ...(canNormalize ? { [valueKey]: numericValue } : {}),
+          ...(Array.isArray(nested)
+            ? { [childrenKey]: normalize(nested) }
+            : {}),
+        };
+      });
+    };
+    return normalize(options);
+  }, [fieldProps?.fieldNames, fieldProps?.value, options]);
+
   const dom = (
     <SearchSelect
       key="SearchSelect"
@@ -60,7 +99,7 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
       label={label}
       {...fieldProps}
       fetchDataOnSearch={fieldProps?.fetchDataOnSearch ?? fetchDataOnSearch}
-      options={options}
+      options={normalizedOptions}
     />
   );
 

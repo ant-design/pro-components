@@ -78,15 +78,15 @@ export function FieldTreeSelectEdit({
     <Spin spinning={loading}>
       <TreeSelect<string | undefined>
         open={open}
-        onOpenChange={(isOpen) => {
-          fieldProps?.onOpenChange?.(isOpen);
-          setOpen(isOpen);
-        }}
         ref={treeSelectRef}
         popupMatchSelectWidth
         placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
         {...fieldProps}
         treeData={options}
+        onOpenChange={(isOpen) => {
+          fieldProps?.onOpenChange?.(isOpen);
+          setOpen(isOpen);
+        }}
         showSearch={
           showSearch
             ? {
