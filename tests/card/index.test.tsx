@@ -2,6 +2,7 @@ import { ProCard } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
 import { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { genProCardStyle } from '../../src/card/components/Card/style';
 
 vi.mock('antd/lib/grid/hooks/useBreakpoint');
 
@@ -10,6 +11,16 @@ afterEach(() => {
 });
 
 describe('Card', () => {
+  it('uses the antd Card header font size token (#8929)', () => {
+    const style = genProCardStyle({
+      componentCls: '.pro-card',
+      components: { Card: { headerFontSize: 22 } },
+      fontSizeLG: 16,
+    } as any) as Record<string, any>;
+
+    expect(style['.pro-card']['.pro-card-title'].fontSize).toBe(22);
+  });
+
   it('🥩 collapsible onCollapse', async () => {
     const fn = vi.fn();
 

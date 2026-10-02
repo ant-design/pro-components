@@ -10,7 +10,7 @@ const genActiveStyle = (token: ProCardToken) => ({
   borderColor: token.controlOutline,
 });
 
-const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
+export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
   const { componentCls } = token;
   return {
     [componentCls]: {
@@ -177,7 +177,9 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       [`${componentCls}-title`]: {
         color: token.colorText,
         fontWeight: token.fontWeightStrong,
-        fontSize: token.fontSizeLG,
+        fontSize:
+          (token.components?.Card?.headerFontSize as number | undefined) ??
+          token.fontSizeLG,
         lineHeight: token.lineHeight,
       },
 

@@ -7,6 +7,7 @@ import type React from 'react';
 import { useContext, useEffect, useMemo, useRef } from 'react';
 import { ProProvider } from '../index';
 import type { ProTokenType } from '../typing/layoutToken';
+import { mergeComponentTokens } from '../utils/merge';
 
 /**
  * 把一个颜色设置一下透明度
@@ -45,6 +46,8 @@ export type UseStyleResult = {
 
 export type ProAliasToken = GlobalToken &
   ProTokenType & {
+    /** Component tokens configured through antd ConfigProvider. */
+    components?: Record<string, Record<string, unknown>>;
     themeId: number;
     /**
      * pro 的 className
@@ -149,13 +152,27 @@ export function useStyle(
 
   const { token: antdToken, hashId, theme } = antdTheme.useToken();
 
-  const { getPrefixCls, csp, iconPrefixCls } = useContext(
-    AntdConfigProvider.ConfigContext,
-  );
+  const {
+    getPrefixCls,
+    csp,
+    iconPrefixCls,
+    theme: antdThemeConfig,
+  } = useContext(AntdConfigProvider.ConfigContext);
 
   // 如果不在 ProProvider 里面，就用 antd 的
   if (!token.layout) {
     token = { ...antdToken } as any;
+  }
+
+  // antd theme.useToken() only returns global tokens. Keep component tokens
+  // namespaced so Pro components can consume their antd counterpart without
+  // leaking fields from unrelated components into the global token (#8929).
+  const componentTokens = antdThemeConfig?.components;
+  if (componentTokens) {
+    token = {
+      ...token,
+      components: mergeComponentTokens(token.components, componentTokens),
+    } as any;
   }
 
   token.proComponentsCls = token.proComponentsCls ?? `.${getPrefixCls('pro')}`;
