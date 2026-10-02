@@ -92,4 +92,37 @@ describe('#8561 SchemaForm formList title 拿不到 index', () => {
     expect([...new Set(fieldPropsRowIndexes)].sort()).toEqual([0, 1, 2]);
     expect([...new Set(formItemPropsRowIndexes)].sort()).toEqual([0, 1, 2]);
   });
+
+  it('nested formList columns use the inner row index', () => {
+    const columns = [
+      {
+        valueType: 'formList',
+        dataIndex: 'groups',
+        initialValue: [{ members: [{ name: 'a' }, { name: 'b' }] }],
+        columns: [
+          {
+            valueType: 'formList',
+            dataIndex: 'members',
+            columns: [
+              {
+                dataIndex: 'name',
+                title: (
+                  _schema: any,
+                  _type: any,
+                  _dom: any,
+                  rowIndex?: number,
+                ) => `成员${rowIndex}`,
+              },
+            ],
+          },
+        ],
+      },
+    ];
+
+    const { getAllByText } = render(
+      <BetaSchemaForm columns={columns as any} />,
+    );
+    expect(getAllByText('成员0')).toHaveLength(1);
+    expect(getAllByText('成员1')).toHaveLength(1);
+  });
 });

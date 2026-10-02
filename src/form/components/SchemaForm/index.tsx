@@ -120,8 +120,10 @@ function BetaSchemaForm<T, ValueType = 'text'>(
          */
         const contextBoundGenItems =
           rowIndex !== undefined
-            ? (its: ProFormColumnsType<T, ValueType>[]) =>
-                genItems(its, { rowIndex })
+            ? (
+                its: ProFormColumnsType<T, ValueType>[],
+                nestedContext?: { rowIndex?: number },
+              ) => genItems(its, nestedContext ?? { rowIndex })
             : genItems;
         return items
           .filter((originItem) => {

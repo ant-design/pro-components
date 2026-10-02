@@ -49,6 +49,16 @@ describe('ProFormList actionRef guards & callbacks (#8939)', () => {
     // onAfterRemove 第二参数为移除后的 count
     expect(onAfterRemove).toHaveBeenCalledWith(1, 1);
     expect(actionRef.current?.getList()?.length).toBe(1);
+
+    // 连续调用时使用即时更新的行数；批量删除按实际索引数扣减。
+    const firstAdd = actionRef.current?.add({ name: '3333' });
+    const secondAdd = actionRef.current?.add({ name: '4444' });
+    await Promise.all([firstAdd, secondAdd]);
+    expect(onAfterAdd).toHaveBeenLastCalledWith({ name: '4444' }, undefined, 3);
+
+    await actionRef.current?.remove([1, 2]);
+    expect(beforeRemoveRow).toHaveBeenLastCalledWith([1, 2], 3);
+    expect(onAfterRemove).toHaveBeenLastCalledWith([1, 2], 1);
   });
 
   it('actionRef.add 被 beforeAddRow 拦截时不新增也不触发 onAfterAdd', async () => {
