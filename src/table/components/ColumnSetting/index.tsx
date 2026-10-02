@@ -69,6 +69,14 @@ export const reorderNestedColumns = (
   return newMap;
 };
 
+export const hasReorderableSiblings = (
+  nodes: ColumnSettingTreeNode[] | undefined,
+): boolean => {
+  if (!nodes?.length) return false;
+  if (nodes.length > 1) return true;
+  return nodes.some((node) => hasReorderableSiblings(node.children));
+};
+
 const ToolTipIcon: React.FC<{
   title: string;
   columnKey: string | number;
@@ -442,8 +450,9 @@ const CheckboxList: React.FC<{
       itemHeight={24}
       draggable={
         draggable &&
-        !!treeDataConfig.list?.length &&
-        treeDataConfig.list?.length > 1
+        hasReorderableSiblings(
+          treeDataConfig.list as ColumnSettingTreeNode[] | undefined,
+        )
       }
       checkable={checkable}
       onDragOver={onTreeDragOver}

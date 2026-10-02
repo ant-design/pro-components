@@ -83,8 +83,7 @@ export type RecordCreatorProps<DataSourceType> = {
   newRecordType?: 'dataSource' | 'cache';
   /** 要增加到哪个节点下，一般用于多重嵌套表格 */
   parentKey?:
-    | React.Key
-    | ((index: number, dataSource: DataSourceType[]) => React.Key);
+    React.Key | ((index: number, dataSource: DataSourceType[]) => React.Key);
 };
 
 export type EditableProTableProps<
@@ -193,8 +192,7 @@ function RecordCreator<T = Record<string, any>>(
                 dataSource as T[],
               )
             : parentKey;
-        actionRef.current.addEditRecord((nextRecord ??
-          {}) as any, {
+        actionRef.current.addEditRecord((nextRecord ?? {}) as any, {
           position,
           newRecordType,
           parentKey: nextParentKey as React.Key,
@@ -478,8 +476,7 @@ function EditableTable<
         // name 模式：需要保留正在编辑的行
         const currentFormValues = formRef.current.getFieldsValue() || {};
         const currentList = get(currentFormValues, namePath) as
-          | DataType[]
-          | undefined;
+          DataType[] | undefined;
 
         if (currentList && Array.isArray(currentList)) {
           // 构建新的表单值，保留正在编辑的行
@@ -608,7 +605,8 @@ function EditableTable<
     const rowKeyName = [props.name].flat(1).filter(Boolean) as NamePath;
     // 非 name 模式：rowKeyName 为空，从表单顶层拿所有字段，值是 Record<rowKey, DataType>
     if (rowKeyName.length === 0) {
-      const rowData = formRef.current?.getFieldsValue() as Record<string, DataType> | undefined;
+      const rowData = formRef.current?.getFieldsValue() as
+        Record<string, DataType> | undefined;
       if (!rowData) return undefined;
       // getFieldsValue() 返回的永远是对象，按 key 排列后取 values
       return Object.keys(rowData).map((key) => rowData[key]);
@@ -696,13 +694,11 @@ function EditableTable<
       config?: Parameters<ProFormInstance['validateFields']>[1],
     ) => {
       const tableName = [props.name].flat(1).filter(Boolean) as (
-        | string
-        | number
+        string | number
       )[];
       const normalizedNameList = nameList?.map((name) => {
         const path = (Array.isArray(name) ? name : [name]) as (
-          | string
-          | number
+          string | number
         )[];
         const alreadyPrefixed = tableName.every(
           (segment, index) => path[index] === segment,
@@ -857,9 +853,7 @@ function EditableTable<
         const editableKeys = props.editable?.editableKeys;
         if (
           editableKeys?.length &&
-          !editableKeys.some(
-            (key) => key?.toString() === recordKey?.toString(),
-          )
+          !editableKeys.some((key) => key?.toString() === recordKey?.toString())
         ) {
           return [];
         }
@@ -913,12 +907,15 @@ function EditableTable<
       })
     : null;
 
+  const actionContextValue = useMemo(
+    () => ({ actionRef, dataSource: value }),
+    [value],
+  );
+
   return (
     <>
       {virtualValidationFields}
-      <EditableTableActionContext.Provider
-        value={{ actionRef, dataSource: value }}
-      >
+      <EditableTableActionContext.Provider value={actionContextValue}>
         <ProTable<DataType, Params, ValueType>
           search={false}
           options={false}

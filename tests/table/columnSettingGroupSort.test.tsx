@@ -1,7 +1,10 @@
 import { ProTable } from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { reorderNestedColumns } from '../../src/table/components/ColumnSetting';
+import {
+  hasReorderableSiblings,
+  reorderNestedColumns,
+} from '../../src/table/components/ColumnSetting';
 import { waitForWaitTime } from '../util';
 
 const columns: any[] = [
@@ -25,6 +28,17 @@ const columns: any[] = [
  * 而不是保持 columns 源数组顺序。
  */
 describe('#8133 grouped child column order', () => {
+  it('enables dragging when a single root group has reorderable children', () => {
+    expect(
+      hasReorderableSiblings([
+        { key: 'group', children: [{ key: 'B' }, { key: 'C' }] },
+      ]),
+    ).toBe(true);
+    expect(
+      hasReorderableSiblings([{ key: 'group', children: [{ key: 'B' }] }]),
+    ).toBe(false);
+  });
+
   it('reorders nested siblings with the same calculation used by drag and drop', () => {
     const parent = { key: 'group', children: [] as any[] };
     const children = ['B', 'C', 'E'].map((key) => ({

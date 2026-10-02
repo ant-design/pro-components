@@ -1,5 +1,5 @@
-import { EditableProTable } from '@ant-design/pro-components';
-import { render } from '@testing-library/react';
+import { EditableProTable, ProForm } from '@ant-design/pro-components';
+import { fireEvent, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -161,6 +161,61 @@ describe('EditableProTable nested row edit (#8662/#7859/#8861)', () => {
     expect(withId).toBeTruthy();
     expect(withId.title).toBe('子行 1 改');
 
+    html.unmount();
+  });
+
+  it('name 模式取消子行编辑时恢复完整嵌套路径', async () => {
+    const user = userEvent.setup();
+    const formRef = React.createRef<any>();
+    const Demo = () => {
+      const [editableKeys, setEditableKeys] = React.useState<React.Key[]>([]);
+      return (
+        <ProForm formRef={formRef} initialValues={{ table: nestedData }}>
+          <EditableProTable<Row>
+            name="table"
+            rowKey="id"
+            expandable={{ defaultExpandAllRows: true }}
+            recordCreatorProps={false}
+            editable={{ editableKeys, onChange: setEditableKeys }}
+            columns={[
+              { title: '标题', dataIndex: 'title' },
+              {
+                title: '操作',
+                valueType: 'option',
+                render: (_, row) => [
+                  <a
+                    key="edit"
+                    data-testid={`name-edit-${row.id}`}
+                    onClick={() => setEditableKeys([row.id])}
+                  >
+                    编辑
+                  </a>,
+                ],
+              },
+            ]}
+          />
+        </ProForm>
+      );
+    };
+    const html = render(<Demo />);
+    await waitForWaitTime(400);
+    await user.click(html.getByTestId('name-edit-c1'));
+    await waitForWaitTime(300);
+    const input = html.baseElement.querySelector(
+      '.ant-table-row input',
+    ) as HTMLInputElement;
+    fireEvent.change(input, { target: { value: '临时标题' } });
+    await waitForWaitTime(200);
+    await user.click(html.getByText('取消'));
+    await waitForWaitTime(400);
+
+    expect(
+      formRef.current.getFieldValue(['table', 0, 'children', 0, 'title']),
+    ).toBe('子行 1');
+    expect(formRef.current.getFieldValue(['table', '0_0'])).toBeUndefined();
+    expect(
+      formRef.current.getFieldValue(['table', '0,children,0']),
+    ).toBeUndefined();
     html.unmount();
   });
 });
