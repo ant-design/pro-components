@@ -15,7 +15,7 @@ import {
 } from 'antd';
 import { clsx } from 'clsx';
 import type { ReactNode } from 'react';
-import React, { useContext, useEffect, useMemo } from 'react';
+import React, { useContext, useEffect, useLayoutEffect, useMemo } from 'react';
 import type { GenerateStyle } from '../../../provider';
 import { ProConfigProvider, ProProvider } from '../../../provider';
 import { RouteContext } from '../../context/RouteContext';
@@ -29,6 +29,9 @@ import { PageLoading } from '../PageLoading';
 import type { PageContainerToken, pageContainerToken } from './style';
 import { useStyle } from './style';
 import { useStylish } from './style/stylish';
+
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */
@@ -178,9 +181,7 @@ const renderPageHeader = (
             </div>
           )}
           {extraContent && (
-            <div
-              className={clsx(`${prefixedClassName}-extraContent`, hashId)}
-            >
+            <div className={clsx(`${prefixedClassName}-extraContent`, hashId)}>
               {extraContent}
             </div>
           )}
@@ -328,7 +329,9 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
   } = props;
   const value = useContext(RouteContext);
   /** 告诉 props 是否存在 footerBar */
-  useEffect(() => {
+  // Register before the browser paints so ProLayout does not render one frame
+  // with content padding and then remove it after PageContainer mounts (#8712).
+  useIsomorphicLayoutEffect(() => {
     if (!value || !value?.setHasPageContainer) {
       return () => {};
     }

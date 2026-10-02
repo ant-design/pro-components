@@ -80,6 +80,29 @@ describe('mobile BasicLayout', () => {
     });
   });
 
+  it('📱 locks page scrolling while the inline drawer is open (#8748)', async () => {
+    document.body.style.overflow = 'auto';
+    const html = render(
+      <ProLayout {...defaultProps} getContainer={false} collapsed={false}>
+        welcome
+      </ProLayout>,
+    );
+
+    await html.findAllByText('welcome');
+    expect(document.body.style.overflow).toBe('hidden');
+
+    html.rerender(
+      <ProLayout {...defaultProps} getContainer={false} collapsed>
+        welcome
+      </ProLayout>,
+    );
+
+    await waitFor(() => {
+      expect(document.body.style.overflow).toBe('auto');
+    });
+    document.body.style.removeProperty('overflow');
+  });
+
   it('📱 layout=mix', async () => {
     const html = render(
       <ProLayout

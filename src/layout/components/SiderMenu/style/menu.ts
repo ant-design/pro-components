@@ -149,10 +149,7 @@ export const genProLayoutBaseMenuStyle: GenerateStyle<
           fontSize: 12,
           // #8976 分组标题颜色应消费 sider 的 colorTextMenuSecondary，
           // 与菜单项 colorTextMenu 一致地从 layout token 取值
-          color:
-            menuToken?.colorTextMenuSecondary ||
-            token.colorTextMenuSecondary ||
-            token.colorTextLabel,
+          color: menuToken?.colorTextMenuSecondary || token.colorTextLabel,
           [token.iconCls]: {
             marginInlineEnd: 8,
           },
