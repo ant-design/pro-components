@@ -41,7 +41,7 @@ export function CellEditorTable<
   const rowKey = props.rowKey || 'id';
 
   // ============================ RowKey ============================
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // oxlint-disable-next-line react-hooks/exhaustive-deps
   const getRowKey = useMemo(
     () => buildEditableTableRowKey<DataType>(rowKey, props.name),
     [props.name, rowKey],
@@ -148,7 +148,7 @@ export function CellEditorTable<
         wrapColumn(item, columnIndex),
       ) as ProColumns<any, ValueType>[] | undefined) ?? []
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // oxlint-disable-next-line react-hooks/exhaustive-deps
   }, [
     props.columns,
     activeColumnId,

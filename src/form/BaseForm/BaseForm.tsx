@@ -827,7 +827,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
       // 保留错误可见性（console.error），同时避免 async 事件回调里 re-throw
       // 造成的 unhandled rejection（会中断用户页面）。若需要感知失败，
       // 推荐在 onFinish 内部自行 try/catch。
-      // eslint-disable-next-line no-console
+      // oxlint-disable-next-line no-console
       console.error('[ProForm] onFinish error:', error);
     }
   });

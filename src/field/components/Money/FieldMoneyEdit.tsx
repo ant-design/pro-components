@@ -71,10 +71,10 @@ export function FieldMoneyEdit(props: Props, ref: React.Ref<unknown>) {
       formatter={(value) => {
         if (value && moneySymbol) {
           const formattedNumber = getFormateValue(value)
-            // eslint-disable-next-line no-control-regex -- \u0001 作为占位符避免组/小数分隔符冲突
+            // oxlint-disable-next-line no-control-regex -- \u0001 作为占位符避免组/小数分隔符冲突
             .replace(/,/g, '\u0001')
             .replace(/\./g, decimalSeparator)
-            // eslint-disable-next-line no-control-regex -- 同上
+            // oxlint-disable-next-line no-control-regex -- 同上
             .replace(/\u0001/g, groupSeparator);
           if (suffixAffix) {
             return `${formattedNumber}${suffixSpacing}${moneySymbol}`;

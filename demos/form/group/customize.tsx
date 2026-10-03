@@ -1,4 +1,4 @@
-﻿/* eslint-disable no-param-reassign */ import {
+﻿/* oxlint-disable no-param-reassign */ import {
   CopyOutlined,
   DeleteOutlined,
   HeartOutlined,

@@ -234,7 +234,7 @@ function useContainer(props: UseContainerProps = {}) {
    *    或 `columnsMap` 拿数据，加进来只会让 context value 因 columns 引用频繁变化
    *    而触发整片消费者无意义重渲染。
    */
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // oxlint-disable-next-line react-hooks/exhaustive-deps
   const renderValue = useMemo(
     () => ({
       setAction: (newAction?: ActionType) => {
@@ -270,7 +270,7 @@ function useContainer(props: UseContainerProps = {}) {
     // propsRef / rootDomRef 是 useRef，引用永远稳定，不需要加入 deps
     // setKeyWords 是 useState setter，引用永远稳定
     // 只有真正的 state 值变化才需要重建 context value
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // oxlint-disable-next-line react-hooks/exhaustive-deps
     [columnsMap, keyWords, tableSize, defaultColumnKeyMap],
   );
 

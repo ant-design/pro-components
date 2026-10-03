@@ -402,7 +402,7 @@ function EditableTable<
   // 设置 ref
   // actionRef 是 useRef 返回的稳定对象，其引用永远不变，
   // 将 actionRef.current 放入 deps 无效（ref 变化不触发 effect），应使用空数组。
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // oxlint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(rest.actionRef, () => actionRef.current, []);
 
   // 在 name 模式下，如果没有传递 value prop，尝试从表单值中获取初始值
