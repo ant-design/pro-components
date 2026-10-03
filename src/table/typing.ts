@@ -487,6 +487,11 @@ export type ActionType = ProCoreActionType & {
   focus?: () => void;
   fullScreen?: () => void;
   setPageInfo?: (page: Partial<PageInfo>) => void;
+  /** 获取当前服务端排序和筛选参数 */
+  getSortFilter?: () => {
+    sort: Record<string, SortOrder>;
+    filter: Record<string, FilterValue>;
+  };
   /**
    * 对齐 antd Table ScrollConfig
    * - number: 作为 top 处理

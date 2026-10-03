@@ -663,6 +663,7 @@ const ProTable = <
         : resetValues;
       setFormSearchWithRef((nextSearch ?? {}) as any);
     },
+    getSortFilter: () => ({ sort: proSort, filter: proFilter }),
     editableUtils,
     scrollTo: (arg) => (antTableRef as any)?.current?.scrollTo?.(arg),
   });
