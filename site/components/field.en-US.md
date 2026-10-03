@@ -11,6 +11,10 @@ It is an atomic information component that standardizes field definitions across
 
 ## DEMO
 
+### Issue regression scenarios
+
+<code src="../../demos/field/issue-regression-gallery.tsx" title="Search, data flow, and read-only rendering"></code>
+
 <code src="../../demos/field/base.tsx" ></code>
 
 <code src="../../demos/field/_base-test.tsx" debug></code>

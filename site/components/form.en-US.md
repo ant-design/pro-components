@@ -17,6 +17,10 @@ Step-by-step forms, Modal forms, Drawer forms, Query forms, lightweight filters,
 - If you want to listen to a value, it is recommended to use `onValuesChange`. Keeping a unidirectional data flow is a great benefit for both developers and maintainers
 - ProForm is not magic: it is just a thin wrapper around antd's Form—use `Form.Item` for custom controls and mix freely.
 
+## Issue regression scenarios
+
+<code src="../../demos/form/issue-regression-gallery.tsx" title="Initialization, list conversion, and request refresh"></code>
+
 ```tsx | pure
 // Set overall default values
 <ProForm initialValues={obj} />

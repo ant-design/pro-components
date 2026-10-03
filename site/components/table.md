@@ -18,6 +18,10 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 当你的表格需要与服务端进行交互或者需要多种单元格样式时，ProTable 是不二选择。
 
+## Issue 回归场景
+
+<code src="../../demos/table/issue-regression-gallery.tsx" background="var(--main-bg-color)" title="游标分页、状态读取与可编辑拖拽"></code>
+
 ## API
 
 ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，并且封装了一些行为。这里只列出与 antd Table 不同的 API。

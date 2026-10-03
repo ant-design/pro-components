@@ -18,6 +18,10 @@ Built on ProForm, **ProTable** can switch query UI modes (for example full `Quer
 
 When your **tables** need to interact with the server or need rich cell renderers, ProTable is a good fit.
 
+## Issue regression scenarios
+
+<code src="../../demos/table/issue-regression-gallery.tsx" background="var(--main-bg-color)" title="Cursor pagination, state inspection, and editable drag sorting"></code>
+
 ## API
 
 ProTable puts a layer of wrapping on top of antd's Table, supports some presets, and encapsulates some behaviors. Only **APIs** that differ from antd Table are listed here.

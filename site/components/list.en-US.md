@@ -15,6 +15,10 @@ When you need a standard list presentation, or need to flexibly switch between l
 
 ## Code demo
 
+### Issue regression scenarios
+
+<code src="../../demos/list/issue-regression-gallery.tsx" background="var(--main-bg-color)" title="Display controls and live pagination state"></code>
+
 ### Basic usage
 
 <code src="../../demos/list/basic.tsx" background="var(--main-bg-color)"></code>

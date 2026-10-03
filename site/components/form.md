@@ -17,6 +17,10 @@ ProForm 在原来的 Form 的基础上增加了一些语法糖和更多的布局
 - 如果想要监听某个值，建议使用 `onValuesChange`。保持单向的数据流无论对开发者还是维护者都大有裨益
 - ProForm 没有「魔法」：`ProForm` 只是对 antd `Form` 的薄封装；自定义控件用 `Form.Item` 包裹后与 Pro 表单项混用即可。
 
+## Issue 回归场景
+
+<code src="../../demos/form/issue-regression-gallery.tsx" title="初始化、列表转换与请求刷新"></code>
+
 ```tsx | pure
 // 设置整体默认值
 <ProForm initialValues={obj} />

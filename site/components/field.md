@@ -11,6 +11,10 @@ title: ProField 原子组件
 
 ## DEMO
 
+### Issue 回归场景
+
+<code src="../../demos/field/issue-regression-gallery.tsx" title="搜索、数据流与只读展示"></code>
+
 <code src="../../demos/field/base.tsx" ></code>
 
 <code src="../../demos/field/_base-test.tsx" debug></code>
