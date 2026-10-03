@@ -14,10 +14,7 @@ import type React from 'react';
 import type { CSSProperties, Key } from 'react';
 import type { ProCardProps } from '../card';
 import type { ProFieldEmptyText } from '../field';
-import type {
-  ProFormProps,
-  QueryFilterProps,
-} from '../form';
+import type { ProFormProps, QueryFilterProps } from '../form';
 import type {
   LabelTooltipType,
   ProCoreActionType,
@@ -114,6 +111,9 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
      * @param 默认为 1
      */
     colSize?: number;
+
+    /** 表单控件宽度。与表格共用 columns 时，可用它覆盖表格列宽 width */
+    formWidth?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
     /** 搜索表单的默认值 */
     initialValue?: any;

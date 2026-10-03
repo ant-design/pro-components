@@ -158,6 +158,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
               dataIndex: originItem.dataIndex || originItem.key,
               initialValue: originItem.initialValue,
               width: originItem.width,
+              formWidth: originItem.formWidth,
               index: originItem.index,
               readonly: originItem.readonly,
               // #8397:hidden 需要透传到字段级 props,QueryFilter 依据它跳过 Col 占位

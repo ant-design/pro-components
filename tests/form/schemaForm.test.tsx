@@ -72,6 +72,25 @@ afterEach(() => {
 });
 
 describe('SchemaForm', () => {
+  it('uses formWidth instead of the shared table width (#9061)', () => {
+    const { container } = render(
+      <BetaSchemaForm
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            width: 80,
+            formWidth: 328,
+          },
+        ]}
+      />,
+    );
+
+    expect(container.querySelector('.ant-input-affix-wrapper')).toHaveStyle({
+      width: '328px',
+    });
+  });
+
   it('formats date values inside a schema formList (#9663)', async () => {
     const onFinish = vi.fn();
     const wrapper = render(
