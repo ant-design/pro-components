@@ -13,6 +13,10 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 页面中需要承载内容时，可以使用 ProLayout 来减少布局成本。
 
+## Issue 回归场景
+
+<code src="../../demos/layout/issue-regression-gallery.tsx" iframe="560" title="移动端、导航主题与组件 token"></code>
+
 ## API
 
 ### ProLayout

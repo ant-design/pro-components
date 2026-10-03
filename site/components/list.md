@@ -15,6 +15,10 @@ ProList 基于 ProTable 实现，可以认为是 ProTable 的一个特例，将�
 
 ## 代码演示
 
+### Issue 回归场景
+
+<code src="../../demos/list/issue-regression-gallery.tsx" background="var(--main-bg-color)" title="展示控制与实时分页状态"></code>
+
 ### 枚举属性切换
 
 通过 Segmented 分段选择器切换 `itemLayout`、`variant`、`split` 属性。

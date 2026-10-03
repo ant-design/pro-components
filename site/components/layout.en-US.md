@@ -15,6 +15,10 @@ ProLayout provides a standard, yet flexible, middle and backend layout, with one
 
 ProLayout can be used to reduce layout costs when content needs to be carried on a page.
 
+## Issue regression scenarios
+
+<code src="../../demos/layout/issue-regression-gallery.tsx" iframe="560" title="Mobile layout, navigation theme, and component tokens"></code>
+
 ### Use with umi plugins
 
 ProLayout works best with umi. umi automatically injects the routes from config.ts into the configured layout for us, so we don't have to write the menus by hand.
