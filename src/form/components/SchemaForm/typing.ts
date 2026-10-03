@@ -33,6 +33,9 @@ export type ExtraProColumnType = {
    */
   width?: string | number;
 
+  /** 表单控件宽度。与表格共用 columns 时，可用它覆盖 width */
+  formWidth?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
   name?: NamePath | NamePath[];
   defaultKeyWords?: string;
 } & Pick<ProFormGridConfig, 'rowProps' | 'colProps'>;
