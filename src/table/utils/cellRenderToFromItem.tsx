@@ -268,16 +268,17 @@ const CellRenderFromItem = <T extends AnyObject>(
     // 导致 Form.Item 内部校验状态丢失。此处直接内联 JSX 是正确做法。
     return (
       <InlineErrorFormItem
+        key={formItemName.join('-')}
+        name={formItemName}
+        {...formItemProps}
+        errorType={columnProps?.errorType ?? 'popover'}
         popoverProps={{
           getPopupContainer:
             (formContext.getPopupContainer as PopoverProps['getPopupContainer']) ||
             (() =>
               (counter.rootDomRef.current || document.body) as HTMLElement),
+          ...columnProps?.popoverProps,
         }}
-        key={formItemName.join('-')}
-        errorType="popover"
-        name={formItemName}
-        {...formItemProps}
       >
         {fieldDom}
       </InlineErrorFormItem>

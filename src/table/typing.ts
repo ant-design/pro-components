@@ -1,4 +1,4 @@
-import type { SpinProps, TableProps } from 'antd';
+import type { PopoverProps, SpinProps, TableProps } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { SearchProps } from 'antd/lib/input';
@@ -161,6 +161,12 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
 
     /** @name 可编辑表格是否可编辑 */
     editable?: boolean | ProTableEditableFnType<T>;
+
+    /** 可编辑单元格的校验错误展示方式，默认为 popover */
+    errorType?: 'popover' | 'default';
+
+    /** errorType 为 popover 时传递给 Popover 的属性 */
+    popoverProps?: PopoverProps;
 
     /**
      * 用于 ProList，指定该列映射到列表项的哪个插槽位置
