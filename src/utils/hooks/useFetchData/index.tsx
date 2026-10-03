@@ -47,9 +47,7 @@ export function useFetchData<T, U = Record<string, any>>(props: {
     fetchData,
     {
       revalidateOnFocus: false,
-      ...(props.dedupingInterval === undefined
-        ? {}
-        : { dedupingInterval: props.dedupingInterval }),
+      dedupingInterval: props.dedupingInterval ?? 2000,
       shouldRetryOnError: false,
       onError: () => {
         // 这里可以添加错误处理逻辑
