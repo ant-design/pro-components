@@ -94,6 +94,7 @@ export function useActionType<T>(
     onCleanSelected: () => void;
     resetAll: () => void;
     editableUtils: UseEditableUtilType;
+    getSortFilter: NonNullable<ActionType['getSortFilter']>;
     /** 透传给 ActionType 的滚动能力 */
     scrollTo?: ActionType['scrollTo'];
   },
@@ -131,6 +132,7 @@ export function useActionType<T>(
     clearSelected: () => props.onCleanSelected(),
     setPageInfo: (rest: Parameters<typeof action.setPageInfo>[0]) =>
       action.setPageInfo(rest),
+    getSortFilter: props.getSortFilter,
     // 透出 scrollTo（如上层提供）
     scrollTo: props.scrollTo,
   });
