@@ -23,6 +23,8 @@ import {
 import ProTable from '../../Table';
 import type { ActionType, ProTableProps } from '../../typing';
 import { resolveTableViewDefaultDom } from '../../utils';
+import DragSortTable from '../DragSortTable';
+import type { DragSortProps } from '../DragSortTable';
 
 export type EditableFormInstance<T = any> = ProFormInstance<T> & {
   /**
@@ -117,7 +119,7 @@ export type EditableProTableProps<
   controlled?: boolean;
   /** FormItem 的设置 */
   formItemProps?: Omit<FormItemProps, 'children' | 'name'>;
-};
+} & DragSortProps<T>;
 
 const EditableTableActionContext = React.createContext<
   | {
@@ -385,6 +387,9 @@ function EditableTable<
     defaultValue,
     onChange: _onChange,
     editableFormRef,
+    dragSortKey,
+    dragSortHandlerRender,
+    onDragSortEnd,
     // @ts-ignore
     autoFocus: _autoFocus,
     ...rest
@@ -820,6 +825,32 @@ function EditableTable<
     },
   );
 
+  const handleDragSortEnd = useRefFunction(
+    async (
+      beforeIndex: number,
+      afterIndex: number,
+      newDataSource: DataType[],
+    ) => {
+      setValue(newDataSource);
+
+      if (props.name && formRef.current) {
+        const editingKeysSet = createEditingKeysSet(
+          props.editable?.editableKeys,
+        );
+        const namePath = [props.name].flat(1).filter(Boolean) as string[];
+        syncFormValuesExcludingEditing(
+          newDataSource,
+          editingKeysSet,
+          namePath,
+        );
+      }
+
+      // 拖拽不是表单字段变更，因此受控和非受控模式都在这里通知 value 顺序变化。
+      props.onChange?.(newDataSource);
+      await onDragSortEnd?.(beforeIndex, afterIndex, newDataSource);
+    },
+  );
+
   /**
    * 构建可编辑属性
    *
@@ -911,12 +942,22 @@ function EditableTable<
     () => ({ actionRef, dataSource: value }),
     [value],
   );
+  const EditableTableComponent = (
+    dragSortKey ? DragSortTable : ProTable
+  ) as typeof ProTable;
+  const dragSortProps: DragSortProps<DataType> = dragSortKey
+    ? {
+        dragSortKey,
+        dragSortHandlerRender,
+        onDragSortEnd: handleDragSortEnd,
+      }
+    : {};
 
   return (
     <>
       {virtualValidationFields}
       <EditableTableActionContext.Provider value={actionContextValue}>
-        <ProTable<DataType, Params, ValueType>
+        <EditableTableComponent<DataType, Params, ValueType>
           search={false}
           options={false}
           pagination={false}
@@ -924,6 +965,7 @@ function EditableTable<
           revalidateOnFocus={false}
           {...rest}
           {...buttonRenderProps}
+          {...dragSortProps}
           tableLayout="fixed"
           actionRef={actionRef}
           onChange={onTableChange}
