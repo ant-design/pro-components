@@ -12,8 +12,8 @@ import type {
   TableCurrentDataSource,
 } from 'antd/lib/table/interface';
 import { clsx } from 'clsx';
-import isEmpty from 'lodash-es/isEmpty';
-import isEqual from 'lodash-es/isEqual';
+import isEmpty from 'es-toolkit/compat/isEmpty';
+import isEqual from 'es-toolkit/compat/isEqual';
 import React, {
   Key,
   useCallback,

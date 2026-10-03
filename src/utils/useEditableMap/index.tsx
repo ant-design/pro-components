@@ -1,6 +1,6 @@
 import { get, useControlledState } from '@rc-component/util';
 import { message } from 'antd';
-import set from 'lodash-es/set';
+import set from 'es-toolkit/compat/set';
 import type React from 'react';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useRefFunction } from '..';
@@ -22,7 +22,7 @@ const normalizeKeyToString = (recordKey: RecordKey): string =>
   String(recordKeyToString(recordKey));
 
 /**
- * 把 RecordKey 转成 lodash set/get 用的路径数组，统一为 string 段。
+ * 把 RecordKey 转成 set/get 用的路径数组，统一为 string 段。
  * 例如：'name' → ['name']，['address','city'] → ['address','city']，123 → ['123']
  */
 const recordKeyToPath = (recordKey: RecordKey): (string | number)[] => {
@@ -63,7 +63,7 @@ function editableRowByKey<RecordType extends Record<string, any>>({
   if (value === undefined) {
     return { ...data, ...row };
   }
-  // lodash set 会原地修改对象，先做浅拷贝避免污染调用方的引用。
+  // set 会原地修改对象，先做浅拷贝避免污染调用方的引用。
   return set({ ...data }, path, value);
 }
 

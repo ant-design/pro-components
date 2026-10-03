@@ -21,7 +21,7 @@ import {
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import dayjs from 'dayjs';
-import { pick } from 'lodash-es';
+import pick from 'es-toolkit/compat/pick';
 import React, { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';

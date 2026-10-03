@@ -1,5 +1,6 @@
 import { get } from '@rc-component/util';
-import { cloneDeep, set } from 'lodash-es';
+import cloneDeep from 'es-toolkit/compat/cloneDeep';
+import set from 'es-toolkit/compat/set';
 import React from 'react';
 import { isNil } from '../isNil';
 import type { SearchTransformKeyFn } from '../typing';
@@ -171,7 +172,7 @@ function processDotPathTransforms(
       }
     } else {
       // 如果返回原始值，直接替换。
-      // 用 lodash-es/set 替代手写的 setIn 循环：
+      // 用兼容 Lodash 语义的 set 替代手写的 setIn 循环：
       //  - 旧实现 `if (current[key] === undefined)` 漏判 null / false 等假值，
       //    遇到 `{ user: null }` + 路径 `'user.profile.name'` 会在 `null['profile']` 抛 TypeError；
       //  - 旧实现 `typeof nextKey === 'number' ? [] : {}` 决定容器类型也是凭路径推断，
@@ -190,7 +191,7 @@ function processDotPathTransforms(
  *  - 中间任意一段不是对象（缺失 / null / 原始值 / 函数等） → 视为找不到，返回 undefined；
  *  - 最终落点必须是 function 才返回，否则返回 undefined。
  *
- * 旧实现是 28 行手写循环，这里改用 `lodash-es/get` 一行实现：`get` 在路径走不下去时
+ * 旧实现是 28 行手写循环，这里改用路径读取：`get` 在路径走不下去时
  * 返回 undefined，与原循环里 `nestedTransforms = null; break;` 行为等价。
  *
  * @param currentTransforms - 当前转换配置
