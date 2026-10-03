@@ -25,6 +25,7 @@ import type {
   ProFieldProps,
   ProFormInstanceType,
   ProRequestData,
+  SearchConvertKeyFn,
   SearchTransformKeyFn,
 } from '../../utils';
 import type { ProFieldValueType } from '../../utils/typing';
@@ -63,6 +64,13 @@ type ProFormRef<T> = ProFormInstance<T> & {
   nativeElement?: HTMLElement;
   /** 聚焦方法 */
   focus?: () => void;
+};
+
+type ListConvertValueEntry = {
+  name: NamePath;
+  convertValue: SearchConvertKeyFn;
+  sourceType?: string;
+  targetType?: string;
 };
 
 export type CommonFormProps<
@@ -644,6 +652,92 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     >
   >({});
 
+  const listConvertValueRef = useRef(
+    new Map<string, ListConvertValueEntry>(),
+  );
+
+  useEffect(() => {
+    const getValueType = (value: unknown) =>
+      Array.isArray(value) ? 'array' : value === null ? 'null' : typeof value;
+    const convertOne = (
+      entry: ListConvertValueEntry,
+      value: any,
+      allValues: any,
+    ) => {
+      const valueType = getValueType(value);
+      if (
+        entry.sourceType !== entry.targetType &&
+        valueType === entry.targetType
+      ) {
+        return value;
+      }
+      const converted = entry.convertValue(value, entry.name, allValues);
+      entry.sourceType = valueType;
+      entry.targetType = getValueType(converted);
+      return converted;
+    };
+
+    const patchInstance = (instance?: FormInstance) => {
+      if (!instance?.setFieldsValue || !instance?.setFieldValue) return;
+
+      const originalSetFieldsValue = instance.setFieldsValue;
+      const originalSetFieldValue = instance.setFieldValue;
+      const setFieldsValue: FormInstance['setFieldsValue'] = (values) => {
+        let nextValues = values;
+        listConvertValueRef.current.forEach((entry) => {
+          const incomingValue = get(
+            values,
+            entry.name as (string | number)[],
+          );
+          if (incomingValue === undefined) return;
+          const converted = convertOne(entry, incomingValue, {
+            ...instance.getFieldsValue(true),
+            ...values,
+          });
+          if (!Object.is(converted, incomingValue)) {
+            nextValues = namePathSet(
+              { ...nextValues },
+              entry.name as (string | number)[],
+              converted,
+            );
+          }
+        });
+        originalSetFieldsValue.call(instance, nextValues);
+      };
+      const setFieldValue: FormInstance['setFieldValue'] = (
+        fieldName,
+        value,
+      ) => {
+        const nameKey = JSON.stringify([fieldName].flat(1));
+        const entry = listConvertValueRef.current.get(nameKey);
+        const converted = entry
+          ? convertOne(entry, value, instance.getFieldsValue(true))
+          : value;
+        originalSetFieldValue.call(instance, fieldName, converted);
+      };
+
+      instance.setFieldsValue = setFieldsValue;
+      instance.setFieldValue = setFieldValue;
+      return () => {
+        if (instance.setFieldsValue === setFieldsValue) {
+          instance.setFieldsValue = originalSetFieldsValue;
+        }
+        if (instance.setFieldValue === setFieldValue) {
+          instance.setFieldValue = originalSetFieldValue;
+        }
+      };
+    };
+
+    const instances = [formRef.current, form].filter(
+      (instance, index, allInstances): instance is FormInstance =>
+        !!instance && allInstances.indexOf(instance) === index,
+    );
+    const cleanups = instances.map(patchInstance);
+    return () => {
+      cleanups.forEach((cleanup) => cleanup?.());
+    };
+  }, [form]);
+
   /** 使用 callback 的类型 */
   const transformKey = useRefFunction(
     (values: any, paramsOmitNil: boolean, parentKey?: NamePath) => {
@@ -853,6 +947,18 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
               { valueType = 'text', dateFormat, convertValue, transform },
             ) => {
               if (!Array.isArray(name)) return;
+
+              if (valueType === 'formList') {
+                const nameKey = JSON.stringify(name);
+                if (convertValue) {
+                  listConvertValueRef.current.set(nameKey, {
+                    name,
+                    convertValue,
+                  });
+                } else {
+                  listConvertValueRef.current.delete(nameKey);
+                }
+              }
 
               // Store transform function in the correct nested structure
               if (transform) {
