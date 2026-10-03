@@ -53,39 +53,24 @@ const ProFormListValueConverter: React.FC<{
 }> = ({ children, convertValue, form, name }) => {
   const value = form.getFieldValue(name);
   const [, forceRender] = React.useReducer((count) => count + 1, 0);
-  const convertedValueRef = useRef<unknown>();
-  const convertValueTypeRef = useRef<{ source: string; target: string }>();
-  const getValueType = (currentValue: unknown) => {
-    if (currentValue === null) return 'null';
-    if (Array.isArray(currentValue)) return 'array';
-    return typeof currentValue;
-  };
-  const valueType = getValueType(value);
-  const cachedTypes = convertValueTypeRef.current;
-  const shouldReuseComponentValue =
-    convertedValueRef.current === value ||
-    (cachedTypes &&
-      cachedTypes.source !== cachedTypes.target &&
-      valueType === cachedTypes.target);
+  const initialValueConvertedRef = useRef(false);
   const convertedValue =
-    value === undefined || shouldReuseComponentValue
+    value === undefined || initialValueConvertedRef.current
       ? value
       : convertValue(value, name, form.getFieldsValue(true));
   const shouldConvert =
     value !== undefined &&
-    !shouldReuseComponentValue &&
+    !initialValueConvertedRef.current &&
     !Object.is(convertedValue, value);
 
   React.useLayoutEffect(() => {
-    if (!shouldConvert) return;
-    convertValueTypeRef.current = {
-      source: valueType,
-      target: getValueType(convertedValue),
-    };
-    convertedValueRef.current = convertedValue;
-    form.setFieldValue(name, convertedValue);
-    forceRender();
-  }, [convertedValue, form, name, shouldConvert, valueType]);
+    if (value === undefined || initialValueConvertedRef.current) return;
+    initialValueConvertedRef.current = true;
+    if (shouldConvert) {
+      form.setFieldValue(name, convertedValue);
+      forceRender();
+    }
+  }, [convertedValue, form, name, shouldConvert, value]);
 
   return shouldConvert ? null : children;
 };

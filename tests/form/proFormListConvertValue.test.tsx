@@ -4,9 +4,9 @@ import {
   ProFormText,
   type ProFormInstance,
 } from '@ant-design/pro-components';
-import { act, render, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { createRef } from 'react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 const toList = (value: Record<string, string>) =>
   Object.entries(value).map(([key, itemValue]) => ({
@@ -92,5 +92,31 @@ describe('ProFormList convertValue (#8702)', () => {
       expect(html.getByDisplayValue('third')).toBeTruthy();
       expect(html.getByDisplayValue('three')).toBeTruthy();
     });
+  });
+
+  it('does not convert array values again after a user edit', async () => {
+    const convertValue = vi.fn((value: { text: string }[]) =>
+      value.map((item) => ({ value: item.text })),
+    );
+    const html = render(
+      <ProForm
+        submitter={false}
+        initialValues={{ items: [{ text: 'initial' }] }}
+      >
+        <ProFormList name="items" convertValue={convertValue}>
+          <ProFormText name="value" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    const input = await html.findByDisplayValue('initial');
+    expect(convertValue).toHaveBeenCalledTimes(1);
+
+    fireEvent.change(input, { target: { value: 'edited' } });
+
+    await waitFor(() => {
+      expect(html.getByDisplayValue('edited')).toBeTruthy();
+    });
+    expect(convertValue).toHaveBeenCalledTimes(1);
   });
 });
