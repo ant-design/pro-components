@@ -157,7 +157,7 @@ describe('utils', () => {
       const fetchData = useDebounceFn(async () => fn(), wait);
       useEffect(() => {
         fetchData.run();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        // oxlint-disable-next-line react-hooks/exhaustive-deps
       }, []);
       return (
         <div
@@ -227,7 +227,7 @@ describe('utils', () => {
 
       useEffect(() => {
         fetchData.run().catch(catchFn);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        // oxlint-disable-next-line react-hooks/exhaustive-deps
       }, []);
       return <div />;
     };

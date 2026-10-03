@@ -415,7 +415,7 @@ const ProFormListItem: React.FC<
       return listContext.listName.slice(0, -1);
     }
     return listContext.listName;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // oxlint-disable-next-line react-hooks/exhaustive-deps
   }, [listContext.listName, listContext.name, originName]);
 
   /** 当前行的字段路径，供 getCurrentRowData/setCurrentRowData/copyIcon/options.record 复用 */

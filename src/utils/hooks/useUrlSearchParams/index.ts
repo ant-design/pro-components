@@ -175,7 +175,7 @@ export function useUrlSearchParams(
       return;
     }
     redirectToNewSearchParams({ ...initial, ...params });
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- 对齐 @umijs/use-params：仅随 params / disabled 同步
+    // oxlint-disable-next-line react-hooks/exhaustive-deps -- 对齐 @umijs/use-params：仅随 params / disabled 同步
   }, [config.disabled, params]);
 
   const setParams = (newParams: Record<string, string | number>) => {

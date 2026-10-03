@@ -103,7 +103,6 @@ describe('#8834 ModalForm initialValues across opens', () => {
   });
 
   it('external form instance: second open shows new initialValues (#8834)', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const { Form } = await import('antd');
     let setOpen: (open: boolean) => void;
     let setValues: (v: { name: string }) => void;

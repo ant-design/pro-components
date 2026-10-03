@@ -1,0 +1,68 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript"],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/lib/**",
+    "**/es/**",
+    "**/coverage/**",
+    "**/.vscode/**",
+    "**/.umi/**",
+    "**/.github/**",
+    "**/scripts/**",
+    "**/server/**",
+    "**/*.md",
+    "**/*.json",
+    "typings.d.ts",
+    "webpack.config.js",
+    "site-dumi-plugin.ts"
+  ],
+  "rules": {
+    "no-console": "off",
+    "no-empty": "off",
+    "no-loss-of-precision": "off",
+    "no-prototype-builtins": "off",
+    "no-unescaped-entities": "off",
+    "no-unsafe-optional-chaining": "off",
+    "no-useless-escape": "off",
+    "react/display-name": "off",
+    "react/globals": "off",
+    "react/immutability": "off",
+    "react/no-unescaped-entities": "off",
+    "react/preserve-manual-memoization": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/refs": "off",
+    "react/set-state-in-effect": "off",
+    "react/use-memo": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "typescript/ban-ts-comment": "off",
+    "typescript/dot-notation": "warn",
+    "typescript/no-empty-object-type": "off",
+    "typescript/no-explicit-any": "off",
+    "typescript/no-unsafe-function-type": "off",
+    "no-unreachable": "off",
+    "no-use-before-define": "warn",
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["tests/**/*.ts", "tests/**/*.tsx"],
+      "rules": {
+        "no-unused-vars": "off"
+      }
+    }
+  ]
+}

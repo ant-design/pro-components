@@ -1281,8 +1281,8 @@ export function useEditableArray<RecordType extends AnyObject>(
         // 优先使用完整的真实路径。嵌套行会得到
         // `[parentIndex, childrenColumnName, childIndex, ...]`，必须保留数组段；
         // Array#toString 会错误地产生单个 `0,children,1` 字段名。
-        // eslint-disable-next-line @typescript-eslint/no-use-before-define
         let rowPathKey: React.Key | React.Key[] | undefined =
+          // oxlint-disable-next-line no-use-before-define
           props.getRealIndex?.(originRow) ?? defaultGetRealIndex(originRow);
         if (rowPathKey == null) {
           const mappedIndexKey = indexKey?.toString();
@@ -1868,7 +1868,7 @@ export function useEditableArray<RecordType extends AnyObject>(
       cancelEditable,
       index: row.index,
       tableName: props.tableName,
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
+      // oxlint-disable-next-line no-use-before-define
       rowNamePath: props.getRealIndex?.(row) ?? defaultGetRealIndex(row) ?? key,
       newLineConfig: newLineRecordCache,
       onCancel: actionCancelRef,

@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
+/* oxlint-disable no-unused-expressions */
 import type { ActionType } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import {
@@ -121,7 +121,7 @@ describe('BasicTable', () => {
         </TableDropdown.Button>
         <TableDropdown
           key="tableDropdown"
-          // eslint-disable-next-line react/no-children-prop
+          // oxlint-disable-next-line react/no-children-prop
           children="其他操作"
           menus={[
             { key: 'edit', name: '编辑' },
