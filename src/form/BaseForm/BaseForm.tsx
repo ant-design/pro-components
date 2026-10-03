@@ -657,11 +657,6 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   );
 
   useEffect(() => {
-    const instance = formRef.current;
-    if (!instance?.setFieldsValue || !instance?.setFieldValue) return;
-
-    const originalSetFieldsValue = instance.setFieldsValue;
-    const originalSetFieldValue = instance.setFieldValue;
     const getValueType = (value: unknown) =>
       Array.isArray(value) ? 'array' : value === null ? 'null' : typeof value;
     const convertOne = (
@@ -681,45 +676,67 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
       entry.targetType = getValueType(converted);
       return converted;
     };
-    const setFieldsValue: FormInstance['setFieldsValue'] = (values) => {
-      let nextValues = values;
-      listConvertValueRef.current.forEach((entry) => {
-        const incomingValue = get(values, entry.name as (string | number)[]);
-        if (incomingValue === undefined) return;
-        const converted = convertOne(entry, incomingValue, {
-          ...instance.getFieldsValue(true),
-          ...values,
-        });
-        if (!Object.is(converted, incomingValue)) {
-          nextValues = namePathSet(
-            { ...nextValues },
+
+    const patchInstance = (instance?: FormInstance) => {
+      if (!instance?.setFieldsValue || !instance?.setFieldValue) return;
+
+      const originalSetFieldsValue = instance.setFieldsValue;
+      const originalSetFieldValue = instance.setFieldValue;
+      const setFieldsValue: FormInstance['setFieldsValue'] = (values) => {
+        let nextValues = values;
+        listConvertValueRef.current.forEach((entry) => {
+          const incomingValue = get(
+            values,
             entry.name as (string | number)[],
-            converted,
           );
+          if (incomingValue === undefined) return;
+          const converted = convertOne(entry, incomingValue, {
+            ...instance.getFieldsValue(true),
+            ...values,
+          });
+          if (!Object.is(converted, incomingValue)) {
+            nextValues = namePathSet(
+              { ...nextValues },
+              entry.name as (string | number)[],
+              converted,
+            );
+          }
+        });
+        originalSetFieldsValue.call(instance, nextValues);
+      };
+      const setFieldValue: FormInstance['setFieldValue'] = (
+        fieldName,
+        value,
+      ) => {
+        const nameKey = JSON.stringify([fieldName].flat(1));
+        const entry = listConvertValueRef.current.get(nameKey);
+        const converted = entry
+          ? convertOne(entry, value, instance.getFieldsValue(true))
+          : value;
+        originalSetFieldValue.call(instance, fieldName, converted);
+      };
+
+      instance.setFieldsValue = setFieldsValue;
+      instance.setFieldValue = setFieldValue;
+      return () => {
+        if (instance.setFieldsValue === setFieldsValue) {
+          instance.setFieldsValue = originalSetFieldsValue;
         }
-      });
-      originalSetFieldsValue.call(instance, nextValues);
-    };
-    const setFieldValue: FormInstance['setFieldValue'] = (fieldName, value) => {
-      const nameKey = JSON.stringify([fieldName].flat(1));
-      const entry = listConvertValueRef.current.get(nameKey);
-      const converted = entry
-        ? convertOne(entry, value, instance.getFieldsValue(true))
-        : value;
-      originalSetFieldValue.call(instance, fieldName, converted);
+        if (instance.setFieldValue === setFieldValue) {
+          instance.setFieldValue = originalSetFieldValue;
+        }
+      };
     };
 
-    instance.setFieldsValue = setFieldsValue;
-    instance.setFieldValue = setFieldValue;
+    const instances = [formRef.current, form].filter(
+      (instance, index, allInstances): instance is FormInstance =>
+        !!instance && allInstances.indexOf(instance) === index,
+    );
+    const cleanups = instances.map(patchInstance);
     return () => {
-      if (instance.setFieldsValue === setFieldsValue) {
-        instance.setFieldsValue = originalSetFieldsValue;
-      }
-      if (instance.setFieldValue === setFieldValue) {
-        instance.setFieldValue = originalSetFieldValue;
-      }
+      cleanups.forEach((cleanup) => cleanup?.());
     };
-  }, []);
+  }, [form]);
 
   /** 使用 callback 的类型 */
   const transformKey = useRefFunction(

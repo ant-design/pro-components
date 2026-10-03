@@ -5,6 +5,7 @@ import {
   type ProFormInstance,
 } from '@ant-design/pro-components';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { Form } from 'antd';
 import { createRef } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -118,5 +119,37 @@ describe('ProFormList convertValue (#8702)', () => {
       expect(html.getByDisplayValue('edited')).toBeTruthy();
     });
     expect(convertValue).toHaveBeenCalledTimes(1);
+  });
+
+  it('converts writes made through an external FormInstance', async () => {
+    const TestForm = () => {
+      const [form] = Form.useForm();
+      return (
+        <>
+          <button
+            type="button"
+            onClick={() =>
+              form.setFieldsValue({ configs: { external: 'value' } })
+            }
+          >
+            update
+          </button>
+          <ProForm form={form} submitter={false}>
+            <ProFormList name="configs" convertValue={toList}>
+              <ProFormText name="key" />
+              <ProFormText name="value" />
+            </ProFormList>
+          </ProForm>
+        </>
+      );
+    };
+    const html = render(<TestForm />);
+
+    fireEvent.click(html.getByText('update'));
+
+    await waitFor(() => {
+      expect(html.getByDisplayValue('external')).toBeTruthy();
+      expect(html.getByDisplayValue('value')).toBeTruthy();
+    });
   });
 });
