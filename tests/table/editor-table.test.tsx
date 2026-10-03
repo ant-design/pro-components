@@ -2941,8 +2941,11 @@ describe('EditorProTable', () => {
       editableFormRef.current!.validateFields([1]),
     ).rejects.toBeTruthy();
 
-    await waitFor(() => expect(getPopupContainer).toHaveBeenCalled());
-    popupContainer.remove();
+    try {
+      await waitFor(() => expect(getPopupContainer).toHaveBeenCalled());
+    } finally {
+      popupContainer.remove();
+    }
   });
 
   it('🐛 #9553 validates editable rows outside the virtual viewport', async () => {
