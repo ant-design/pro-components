@@ -409,6 +409,31 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
+  it('refreshes request values when params return to a cached value (#8375)', async () => {
+    let requestCount = 0;
+    const request = vi.fn(async (params: Record<string, any>) => {
+      requestCount += 1;
+      const id = params.id as number;
+      return { content: `${id}-${requestCount}` };
+    });
+    const renderForm = (id: number) => (
+      <ProForm request={request} params={{ id }}>
+        <ProFormText name="content" />
+      </ProForm>
+    );
+    const wrapper = render(renderForm(0));
+
+    expect(await wrapper.findByDisplayValue('0-1')).toBeTruthy();
+
+    wrapper.rerender(renderForm(1));
+    expect(await wrapper.findByDisplayValue('1-2')).toBeTruthy();
+
+    wrapper.rerender(renderForm(0));
+    expect(await wrapper.findByDisplayValue('0-3')).toBeTruthy();
+    expect(request).toHaveBeenCalledTimes(3);
+    wrapper.unmount();
+  });
+
   it('📦 request rewrite initialsValue', async () => {
     const wrapper = render(
       <ProForm
