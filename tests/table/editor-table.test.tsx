@@ -2877,6 +2877,74 @@ describe('EditorProTable', () => {
     });
   });
 
+  it('🐛 #8786 displays editable validation errors inline', async () => {
+    const editableFormRef =
+      React.createRef<EditableFormInstance<DataSourceType>>();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        editableFormRef={editableFormRef}
+        recordCreatorProps={false}
+        rowKey="id"
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            errorType: 'default',
+            formItemProps: {
+              rules: [{ required: true, message: '请填写标题' }],
+            },
+          },
+        ]}
+        value={[{ id: 1, title: '' }]}
+        editable={{ type: 'multiple', editableKeys: [1] }}
+      />,
+    );
+
+    await expect(
+      editableFormRef.current!.validateFields([1]),
+    ).rejects.toBeTruthy();
+
+    await waitFor(() => {
+      expect(
+        wrapper.container.querySelector('.ant-form-item-explain-error'),
+      ).toHaveTextContent('请填写标题');
+    });
+  });
+
+  it('🐛 #8786 forwards editable error popover props', async () => {
+    const editableFormRef =
+      React.createRef<EditableFormInstance<DataSourceType>>();
+    const popupContainer = document.createElement('div');
+    document.body.appendChild(popupContainer);
+    const getPopupContainer = vi.fn(() => popupContainer);
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        editableFormRef={editableFormRef}
+        recordCreatorProps={false}
+        rowKey="id"
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            popoverProps: { getPopupContainer, open: true },
+            formItemProps: {
+              rules: [{ required: true, message: '请填写标题' }],
+            },
+          },
+        ]}
+        value={[{ id: 1, title: '' }]}
+        editable={{ type: 'multiple', editableKeys: [1] }}
+      />,
+    );
+
+    await expect(
+      editableFormRef.current!.validateFields([1]),
+    ).rejects.toBeTruthy();
+
+    await waitFor(() => expect(getPopupContainer).toHaveBeenCalled());
+    popupContainer.remove();
+  });
+
   it('🐛 #9553 validates editable rows outside the virtual viewport', async () => {
     const editableFormRef = React.createRef<
       EditableFormInstance<DataSourceType>
