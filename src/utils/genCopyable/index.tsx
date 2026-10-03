@@ -1,6 +1,6 @@
 import type { TooltipProps } from 'antd';
 import { Typography } from 'antd';
-import isObject from 'lodash-es/isObject';
+import isObject from 'es-toolkit/compat/isObject';
 import React from 'react';
 
 export type ProEllipsisTooltip = {
