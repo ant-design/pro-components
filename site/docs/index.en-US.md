@@ -10,6 +10,8 @@ nav:
 
 # Documentation Writing Guide
 
+- [ProConfigProvider: themes, localization, and custom value types](/docs/pro-config-provider)
+
 ## Documentation Structure Standards
 
 ### 1. Component Documentation Structure
