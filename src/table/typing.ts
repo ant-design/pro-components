@@ -1,4 +1,9 @@
-import type { PopoverProps, SpinProps, TableProps } from 'antd';
+import type {
+  PopoverProps,
+  SpinProps,
+  TablePaginationConfig,
+  TableProps,
+} from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { SearchProps } from 'antd/lib/input';
@@ -37,13 +42,20 @@ export type PageInfo = {
   pageSize: number;
   total: number;
   current: number;
+  nextToken?: string;
 };
 
 export type RequestData<T> = {
   data: T[] | undefined;
   success?: boolean;
   total?: number;
+  nextToken?: string;
 } & Record<string, any>;
+
+export type ProTablePaginationConfig = TablePaginationConfig & {
+  /** @name 分页模式。cursor 模式仅显示上一页/下一页 */
+  type?: 'offset' | 'cursor';
+};
 
 export type UseFetchDataAction<T = any> = {
   dataSource: T[];
@@ -312,6 +324,7 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
     params: U & {
       pageSize?: number;
       current?: number;
+      nextToken?: string;
       keyword?: string;
     },
     sort: Record<string, SortOrder>,
@@ -484,7 +497,9 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
    * 未设置 scroll.y 时 ProTable 通过捕获相补挂（仅水平方向生效）
    */
   onScroll?: React.UIEventHandler<HTMLDivElement>;
-} & Omit<TableProps<DataSource>, 'columns' | 'rowSelection'>;
+  /** @name 分页配置，cursor 模式使用 request 返回的 nextToken 顺序翻页 */
+  pagination?: false | ProTablePaginationConfig;
+} & Omit<TableProps<DataSource>, 'columns' | 'pagination' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {
   /** 原生 DOM 元素引用 */
@@ -584,6 +599,7 @@ export type UseFetchProps = {
         pageSize?: number;
         defaultCurrent?: number;
         defaultPageSize?: number;
+        type?: 'offset' | 'cursor';
       }
     | false;
 

@@ -9,9 +9,10 @@ import type { PageInfo, UseFetchProps } from '../typing';
  */
 const mergeOptionAndPageInfo = ({ pageInfo }: UseFetchProps) => {
   if (pageInfo) {
-    const { current, defaultCurrent, pageSize, defaultPageSize } = pageInfo;
+    const { current, defaultCurrent, pageSize, defaultPageSize, type } =
+      pageInfo;
     return {
-      current: current || defaultCurrent || 1,
+      current: type === 'cursor' ? 1 : current || defaultCurrent || 1,
       total: 0,
       pageSize: pageSize || defaultPageSize || 20,
     };
@@ -49,7 +50,8 @@ export function usePageInfo(options: UseFetchProps) {
     if (
       newPageInfo.current !== pageInfo.current ||
       newPageInfo.pageSize !== pageInfo.pageSize ||
-      newPageInfo.total !== pageInfo.total
+      newPageInfo.total !== pageInfo.total ||
+      newPageInfo.nextToken !== pageInfo.nextToken
     ) {
       setPageInfoState(newPageInfo as PageInfo);
     }
