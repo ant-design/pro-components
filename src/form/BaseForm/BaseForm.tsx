@@ -587,6 +587,10 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     request,
     params,
     proFieldKey: formKey,
+    // Request values are the source of truth for the active params. Returning
+    // to a recently used params value must revalidate instead of restoring a
+    // stale form snapshot from SWR's deduplication window (#8375).
+    dedupingInterval: 0,
   });
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);

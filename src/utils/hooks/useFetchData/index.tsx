@@ -12,6 +12,7 @@ export function useFetchData<T, U = Record<string, any>>(props: {
   proFieldKey?: React.Key;
   params?: U;
   request?: ProRequestData<T, U>;
+  dedupingInterval?: number;
 }): [T | undefined, boolean] {
   const abortRef = useRef<AbortController | null>(null);
   /** Key 是用来缓存请求的，如果不在是有问题 */
@@ -46,6 +47,7 @@ export function useFetchData<T, U = Record<string, any>>(props: {
     fetchData,
     {
       revalidateOnFocus: false,
+      dedupingInterval: props.dedupingInterval ?? 2000,
       shouldRetryOnError: false,
       onError: () => {
         // 这里可以添加错误处理逻辑
