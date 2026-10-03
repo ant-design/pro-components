@@ -42,7 +42,7 @@ const valueTypeMap = {
   badgeText: {
     render: (text: unknown) => <Tag color="blue">{String(text ?? '')}</Tag>,
     formItemRender: (_text: unknown, props: any) => (
-      <Input value={props.value} onChange={props.onChange} />
+      <Input {...props.fieldProps} />
     ),
   },
 };
@@ -56,7 +56,7 @@ export default () => (
 );
 ```
 
-To get complete TypeScript suggestions for custom strings, augment the ProComponents value type in your application or use a local type assertion.
+Custom strings are outside the built in `ProFieldValueType` union, so the example uses a local type assertion on the column.
 
 ## API
 

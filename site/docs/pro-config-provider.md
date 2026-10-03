@@ -42,7 +42,7 @@ const valueTypeMap = {
   badgeText: {
     render: (text: unknown) => <Tag color="blue">{String(text ?? '')}</Tag>,
     formItemRender: (_text: unknown, props: any) => (
-      <Input value={props.value} onChange={props.onChange} />
+      <Input {...props.fieldProps} />
     ),
   },
 };
@@ -56,7 +56,7 @@ export default () => (
 );
 ```
 
-若要获得自定义字符串的完整 TypeScript 提示，可在业务项目中扩展 ProComponents 的 valueType 类型，或在局部声明中使用类型断言。
+自定义字符串不在内置 `ProFieldValueType` 联合类型中，因此示例在 column 上使用了局部类型断言。
 
 ## API
 
