@@ -10,6 +10,8 @@ nav:
 
 # 文档编写指南
 
+- [ProConfigProvider：主题、国际化与自定义 valueType](/docs/pro-config-provider)
+
 ## 文档结构规范
 
 ### 1. 组件文档结构
