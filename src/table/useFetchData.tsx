@@ -25,7 +25,7 @@ const MIN_POLLING_INTERVAL_MS = 2000;
 /**
  * useFetchData hook 用来获取数据并控制数据的状态和分页
  * @template T
- * @param {(undefined | ((params?: { pageSize: number; current: number }) => Promise<DataSource>))} getData - 获取数据的函数，参数为分页参数，
+ * @param {(undefined | ((params?: { pageSize: number; current?: number; nextToken?: string }) => Promise<DataSource>))} getData - 获取数据的函数，参数为分页参数，
  * 返回一个 Promise 类型的 T 类型的数据
  * @param {(undefined | any[])} defaultData - 默认的数据
  * @param {UseFetchProps} options - 配置项，包括了默认的分页参数、格式化数据的函数等
@@ -34,7 +34,11 @@ const MIN_POLLING_INTERVAL_MS = 2000;
 const useFetchData = <DataSource extends RequestData<any>>(
   getData:
     | undefined
-    | ((params?: { pageSize: number; current: number }) => Promise<DataSource>),
+    | ((params?: {
+        pageSize?: number;
+        current?: number;
+        nextToken?: string;
+      }) => Promise<DataSource>),
   defaultData: any[] | undefined,
   options: UseFetchProps,
 ): UseFetchDataAction => {
@@ -146,12 +150,30 @@ const useFetchData = <DataSource extends RequestData<any>>(
    * @type {[PageInfo, React.Dispatch<React.SetStateAction<PageInfo>>]}
    */
   const [pageInfo, setPageInfo] = usePageInfo(options);
+  const isCursorPagination =
+    options.pageInfo !== false && options.pageInfo.type === 'cursor';
+  /** 每一页请求所需的游标。下标 0 表示第一页，因此固定为 undefined。 */
+  const cursorHistoryRef = useRef<Array<string | undefined>>([undefined]);
 
   const [pollingLoading, setPollingLoading] = useState(false);
 
   // Batching update  https://github.com/facebook/react/issues/14259
-  const setDataAndLoading = (newData: DataSource[], dataTotal: number) => {
+  const setDataAndLoading = (
+    newData: DataSource[],
+    dataTotal: number,
+    nextToken?: string,
+  ) => {
     setTableDataList(newData);
+    if (isCursorPagination) {
+      const current = pageInfo.current || 1;
+      cursorHistoryRef.current[current] = nextToken;
+      cursorHistoryRef.current.length = current + 1;
+      setPageInfo({
+        nextToken,
+        total: current * pageInfo.pageSize + (nextToken ? 1 : 0),
+      });
+      return;
+    }
     if (pageInfo?.total !== dataTotal) {
       // 旧实现 `setPageInfo({ ...pageInfo, total: ... })` 会用 fetchList 启动时
       // 捕获的 pageInfo 快照（含 current / pageSize）覆盖回去：如果用户在 await 期间
@@ -205,17 +227,24 @@ const useFetchData = <DataSource extends RequestData<any>>(
 
     const { pageSize, current } = pageInfo || {};
     try {
+      const cursor = cursorHistoryRef.current[(current || 1) - 1];
       const pageParams =
-        options?.pageInfo !== false
-          ? {
-              current,
-              pageSize,
-            }
-          : undefined;
+        options?.pageInfo === false
+          ? undefined
+          : isCursorPagination
+            ? {
+                pageSize,
+                ...(cursor === undefined ? {} : { nextToken: cursor }),
+              }
+            : {
+                current,
+                pageSize,
+              };
       const {
         data = [],
         success,
         total = 0,
+        nextToken,
         ...rest
       } = (await getData?.(pageParams)) || {};
       // 如果被取消了，直接返回
@@ -233,8 +262,11 @@ const useFetchData = <DataSource extends RequestData<any>>(
       if (signal?.aborted) {
         return [];
       }
-      setDataAndLoading(responseData, total);
-      onLoad?.(responseData, rest);
+      setDataAndLoading(responseData, total, nextToken);
+      onLoad?.(
+        responseData,
+        nextToken === undefined ? rest : { ...rest, nextToken },
+      );
       return responseData;
     } catch (e) {
       // 如果被取消了，直接返回
@@ -381,6 +413,11 @@ const useFetchData = <DataSource extends RequestData<any>>(
   useEffect(() => {
     const { current, pageSize } = pageInfo || {};
 
+    // cursor 模式修改 pageSize 时由下方专门的 effect 清空游标并回到第一页。
+    if (isCursorPagination && prePageSize && prePageSize !== pageSize) {
+      return;
+    }
+
     // 上次的页码为空、或者两次页码相同、且 pageSize 也未变化时，
     // 说明本次重渲染并非真正的翻页，直接返回不重请求。
     if (
@@ -425,6 +462,17 @@ const useFetchData = <DataSource extends RequestData<any>>(
     if (!prePageSize) {
       return;
     }
+    if (isCursorPagination) {
+      cursorHistoryRef.current = [undefined];
+      abortFetch();
+      if (pageInfo.current !== 1) {
+        setPageInfo({ current: 1, nextToken: undefined });
+        return;
+      }
+      setPageInfo({ nextToken: undefined });
+      fetchListDebounce.run(false);
+      return;
+    }
     abortFetch();
     fetchListDebounce.run(false);
   }, [pageInfo?.pageSize]);
@@ -436,16 +484,26 @@ const useFetchData = <DataSource extends RequestData<any>>(
    */
   useDeepCompareEffect(() => {
     abortFetch();
-    fetchListDebounce.run(false);
     if (!manual) {
       // 如果 manual 标志未设置，则将 manualRequestRef 设置为 false。
       // 用于跟踪当前的请求是否是手动发起的。
       manualRequestRef.current = false;
     }
+    if (isCursorPagination) {
+      cursorHistoryRef.current = [undefined];
+      if (pageInfo.current !== 1) {
+        setPageInfo({ current: 1, nextToken: undefined });
+      } else {
+        setPageInfo({ nextToken: undefined });
+        fetchListDebounce.run(false);
+      }
+    } else {
+      fetchListDebounce.run(false);
+    }
     return () => {
       abortFetch();
     };
-  }, [...effects, manual]);
+  }, [...effects, manual, isCursorPagination]);
 
   return {
     /**
@@ -510,10 +568,12 @@ const useFetchData = <DataSource extends RequestData<any>>(
       const { pageInfo: optionPageInfo } = options || {};
       const { defaultCurrent = 1, defaultPageSize = 20 } = optionPageInfo || {};
       const initialPageInfo = {
-        current: defaultCurrent,
+        current: isCursorPagination ? 1 : defaultCurrent,
         total: 0,
         pageSize: defaultPageSize,
+        nextToken: undefined,
       };
+      if (isCursorPagination) cursorHistoryRef.current = [undefined];
       setPageInfo(initialPageInfo);
     },
     /**

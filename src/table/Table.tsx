@@ -223,7 +223,10 @@ function useMergedPagination<T>({
       propsPagination === false ? false : { ...(propsPagination || {}) };
     const pageConfig = {
       ...action.pageInfo,
-      setPageInfo: ({ pageSize, current }: PageInfo) => {
+      setPageInfo: ({
+        pageSize = action.pageInfo.pageSize,
+        current = action.pageInfo.current,
+      }: Partial<PageInfo>) => {
         const { pageInfo } = action;
         if (pageSize === pageInfo.pageSize || pageInfo.current === 1) {
           action.setPageInfo({ pageSize, current });
@@ -412,7 +415,7 @@ const ProTable = <
   /** 需要初始化 不然默认可能报错 这里取了 defaultCurrent 和 current 为了保证不会重复刷新 */
   const fetchPagination =
     typeof propsPagination === 'object'
-      ? (propsPagination as TablePaginationConfig)
+      ? propsPagination
       : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
 
   const counter = useContext(TableContext);

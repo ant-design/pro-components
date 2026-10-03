@@ -16,6 +16,7 @@ import type {
   ProColumns,
   ProColumnType,
   ProSorter,
+  ProTablePaginationConfig,
   UseFetchDataAction,
 } from '../typing';
 
@@ -35,7 +36,7 @@ export const checkUndefinedOrNull = (value: any) =>
  * @param intl
  */
 export function mergePagination<T>(
-  pagination: TablePaginationConfig | boolean | undefined,
+  pagination: ProTablePaginationConfig | boolean | undefined,
   pageInfo: UseFetchDataAction<T>['pageInfo'] & {
     setPageInfo: any;
   },
@@ -44,9 +45,37 @@ export function mergePagination<T>(
   if (pagination === false) {
     return false;
   }
-  const { total, current, pageSize, setPageInfo } = pageInfo;
-  const defaultPagination: TablePaginationConfig =
+  const { total, current, pageSize, nextToken, setPageInfo } = pageInfo;
+  const defaultPagination: ProTablePaginationConfig =
     typeof pagination === 'object' ? pagination : {};
+
+  if (defaultPagination.type === 'cursor') {
+    const {
+      type: _type,
+      itemRender,
+      onChange,
+      ...cursorPagination
+    } = defaultPagination;
+    return {
+      ...cursorPagination,
+      current,
+      pageSize,
+      showQuickJumper: false,
+      showSizeChanger: false,
+      showTotal: undefined,
+      total: current * pageSize + (nextToken ? 1 : 0),
+      itemRender: (page, itemType, element) => {
+        if (itemType !== 'prev' && itemType !== 'next') return null;
+        return itemRender?.(page, itemType, element) ?? element;
+      },
+      onChange: (page: number) => {
+        onChange?.(page, pageSize);
+        if (current !== page) setPageInfo({ current: page });
+      },
+    };
+  }
+
+  const { type: _type, ...offsetPagination } = defaultPagination;
 
   return {
     showTotal: (all, range) =>
@@ -57,7 +86,7 @@ export function mergePagination<T>(
         '条/总共',
       )} ${all} ${intl.getMessage('pagination.total.item', '条')}`,
     total,
-    ...(defaultPagination as TablePaginationConfig),
+    ...(offsetPagination as TablePaginationConfig),
     current:
       pagination !== true && pagination
         ? (pagination.current ?? current)
