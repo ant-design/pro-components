@@ -20,7 +20,7 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 ## Issue 回归场景
 
-<code src="../../demos/table/issue-regression-gallery.tsx" background="var(--main-bg-color)" title="游标分页、状态读取与可编辑拖拽"></code>
+<code src="../../demos/table/issue-regression-gallery.tsx" background="var(--main-bg-color)" title="状态读取与可编辑拖拽"></code>
 
 ## API
 

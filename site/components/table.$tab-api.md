@@ -109,6 +109,8 @@ formItemRender: (
 
 ### 表格功能
 
+<code src="../../demos/table/cursor-pagination.tsx" background="var(--main-bg-color)" title="游标分页"></code>
+
 <code src="../../demos/table/batch-option.tsx" background="var(--main-bg-color)" title="表格批量操作"></code>
 
 <code src="../../demos/table/table-nested.tsx" background="var(--main-bg-color)" title="嵌套表格"></code>

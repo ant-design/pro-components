@@ -20,7 +20,7 @@ When your **tables** need to interact with the server or need rich cell renderer
 
 ## Issue regression scenarios
 
-<code src="../../demos/table/issue-regression-gallery.tsx" background="var(--main-bg-color)" title="Cursor pagination, state inspection, and editable drag sorting"></code>
+<code src="../../demos/table/issue-regression-gallery.tsx" background="var(--main-bg-color)" title="State inspection and editable drag sorting"></code>
 
 ## API
 
