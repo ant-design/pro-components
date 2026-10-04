@@ -121,6 +121,9 @@ const InlineErrorFormItemPopover: React.FC<{
     return <>{input}</>;
   }
 
+  // 只有自定义组件（非原生 DOM 元素）才需要包装，确保 rc-trigger 事件正确注入
+  const shouldWrap = React.isValidElement(input) && typeof input.type !== 'string';
+
   return (
     <>
       {/* 不能把 Fragment 作为 Popover 的直接 child：rc-trigger 会向 child 注入
@@ -156,7 +159,11 @@ const InlineErrorFormItemPopover: React.FC<{
         )}
         {...popoverProps}
       >
-        <span style={{ display: 'inline-block', width: '100%' }}>{input}</span>
+        {shouldWrap ? (
+          <span style={{ display: 'inline-block', width: '100%' }}>{input}</span>
+        ) : (
+          input
+        )}
       </Popover>
     </>
   );
