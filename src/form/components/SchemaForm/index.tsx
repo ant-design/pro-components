@@ -13,7 +13,6 @@ import {
   LabelIconTip,
   omitUndefined,
   runFunction,
-  stringify,
   useDeepCompareMemo,
   useLatest,
   useReactiveRef,
@@ -63,7 +62,10 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     layoutType = 'Form',
     type = 'form',
     action,
-    shouldUpdate = (pre, next) => stringify(pre) !== stringify(next),
+    // antd Form returns a new values object for a real field update. Comparing
+    // the references preserves the existing "rebuild on any change" behavior
+    // without serializing the complete form twice for every keystroke.
+    shouldUpdate = (pre, next) => pre !== next,
     formRef: propsFormRef,
     ...restProps
   } = props;

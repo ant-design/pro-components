@@ -23,30 +23,20 @@ import userEvent from '@testing-library/user-event';
 import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { act, useEffect, useRef } from 'react';
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  vi,
-} from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { TEST_INITIAL_URL } from '../testConstants';
 import { waitForWaitTime } from '../util';
 
 describe('ProForm', () => {
-  beforeAll(() => vi.useFakeTimers());
-  afterAll(() => vi.useRealTimers());
-
   beforeEach(() => {
+    vi.useFakeTimers();
     // 重置 URL 状态以避免测试间状态污染
     window.history.replaceState({}, '', TEST_INITIAL_URL);
   });
 
   afterEach(() => {
     cleanup();
+    vi.useRealTimers();
   });
 
   it('📦 submit props actionsRender=false', async () => {
@@ -373,6 +363,7 @@ describe('ProForm', () => {
   });
 
   it('📦 onFinish support params and request', async () => {
+    vi.useRealTimers();
     const wrapper = render(
       <ProForm
         request={async (params) => {
@@ -410,6 +401,7 @@ describe('ProForm', () => {
   });
 
   it('refreshes request values when params return to a cached value (#8375)', async () => {
+    vi.useRealTimers();
     let requestCount = 0;
     const request = vi.fn(async (params: Record<string, any>) => {
       requestCount += 1;
@@ -435,6 +427,7 @@ describe('ProForm', () => {
   });
 
   it('📦 request rewrite initialsValue', async () => {
+    vi.useRealTimers();
     const wrapper = render(
       <ProForm
         request={async () => {

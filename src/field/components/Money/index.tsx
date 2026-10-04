@@ -1,5 +1,6 @@
 ﻿import React, { useCallback, useMemo } from 'react';
-import { intlMap as allIntlMap, useIntl } from '../../../provider';
+import { useIntl } from '../../../provider';
+import { getRuntimeIntl } from '../../../provider/intlRuntime';
 import {
   isProFieldEditOrUpdateMode,
   isProFieldReadMode,
@@ -34,10 +35,8 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   ref,
 ) => {
   const precision = fieldProps?.precision ?? DefaultPrecisionCont;
-  let intl = useIntl();
-  if (locale && allIntlMap[locale as 'zh-CN']) {
-    intl = allIntlMap[locale as 'zh-CN'];
-  }
+  const contextIntl = useIntl();
+  const intl = locale ? getRuntimeIntl(locale) : contextIntl;
   const placeholderValue =
     placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
 

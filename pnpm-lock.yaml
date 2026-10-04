@@ -50,9 +50,6 @@ importers:
       '@dnd-kit/utilities':
         specifier: ^3.2.2
         version: 3.2.2(react@18.3.1)
-      '@emotion/css':
-        specifier: ^11.13.5
-        version: 11.13.5
       '@rc-component/form':
         specifier: ^1.8.6
         version: 1.8.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -65,9 +62,6 @@ importers:
       '@rc-component/util':
         specifier: ^1.13.0
         version: 1.13.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@umijs/route-utils':
-        specifier: ^4.0.3
-        version: 4.0.3
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -80,15 +74,9 @@ importers:
       path-to-regexp:
         specifier: ^8.4.2
         version: 8.4.2
-      react-draggable:
-        specifier: ~4.4.6
-        version: 4.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       safe-stable-stringify:
         specifier: ^2.5.0
         version: 2.5.0
-      swr:
-        specifier: ^2.5.1
-        version: 2.5.1(react@18.3.1)
     devDependencies:
       '@ant-design/antd-theme-variable':
         specifier: ^1.0.0
@@ -115,6 +103,9 @@ importers:
         specifier: ^7.29.8
         version: 7.29.8
       '@emotion/babel-plugin':
+        specifier: ^11.13.5
+        version: 11.13.5
+      '@emotion/css':
         specifier: ^11.13.5
         version: 11.13.5
       '@rsbuild/plugin-react':
@@ -285,6 +276,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      react-draggable:
+        specifier: ~4.4.6
+        version: 4.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-markdown:
         specifier: ^10.1.0
         version: 10.1.0(@types/react@18.3.31)(react@18.3.1)

@@ -93,6 +93,16 @@ describe('💵 ProFormMoney', () => {
     expect(getMoneyInput(container).value).toBe('$ 44.33');
   });
 
+  it('💵 keeps money symbols for locales outside the runtime message set', () => {
+    const { container } = render(
+      <ProForm>
+        <ProFormMoney name="amount" initialValue={44.33} locale="fr-FR" />
+      </ProForm>,
+    );
+
+    expect(getMoneyInput(container).value).toBe('44,33\u00a0€');
+  });
+
   it('💵 moneySymbol with custom symbol', async () => {
     const fn = vi.fn();
     const { container } = render(

@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
-import useSWR from 'swr';
+import { useRequestData } from '../useRequestData';
 
-let testId = 0;
+let requestId = 0;
 
 export type ProRequestData<T, U = Record<string, any>> = (
   params: U,
@@ -15,13 +15,10 @@ export function useFetchData<T, U = Record<string, any>>(props: {
   dedupingInterval?: number;
 }): [T | undefined, boolean] {
   const abortRef = useRef<AbortController | null>(null);
-  /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
-    if (props.proFieldKey) {
-      return props.proFieldKey.toString();
-    }
-    testId += 1;
-    return testId.toString();
+    if (props.proFieldKey) return props.proFieldKey.toString();
+    requestId += 1;
+    return requestId.toString();
   });
 
   const fetchData = async () => {
@@ -29,36 +26,20 @@ export function useFetchData<T, U = Record<string, any>>(props: {
     const abort = new AbortController();
     abortRef.current = abort;
     try {
-      if (!props.request) {
-        return undefined;
-      }
-      const response = await props.request(props.params as U, abort.signal);
-      return response;
+      if (!props.request) return undefined;
+      return await props.request(props.params as U, abort.signal);
     } catch (error: any) {
-      if (error.name === 'AbortError') {
-        return undefined;
-      }
+      if (error.name === 'AbortError') return undefined;
       throw error;
     }
   };
 
-  const { data, isValidating } = useSWR(
-    props.request ? [cacheKey, props.params] : null,
-    fetchData,
-    {
-      revalidateOnFocus: false,
-      dedupingInterval: props.dedupingInterval ?? 2000,
-      shouldRetryOnError: false,
-      onError: () => {
-        // 这里可以添加错误处理逻辑
-      },
-    },
-  );
+  const { data, isValidating } = useRequestData({
+    key: props.request ? [cacheKey, props.params] : null,
+    fetcher: fetchData,
+    dedupingInterval: props.dedupingInterval ?? 2000,
+  });
 
-  // 如果没有请求，返回 [undefined, false]
-  if (!props.request) {
-    return [undefined, false];
-  }
-
+  if (!props.request) return [undefined, false];
   return [data, isValidating];
 }
