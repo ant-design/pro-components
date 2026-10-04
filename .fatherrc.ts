@@ -31,8 +31,8 @@ export default defineConfig({
     externals: {
       react: 'React',
       'react-dom': 'ReactDOM',
-      '^/antd/.*': 'antd',
-      '^/dayjs/.*': 'dayjs',
+      antd: 'antd',
+      dayjs: 'dayjs',
     },
     targets,
   },
