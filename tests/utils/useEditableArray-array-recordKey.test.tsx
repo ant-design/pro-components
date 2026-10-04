@@ -5,7 +5,7 @@ import {
   render,
   waitFor,
 } from '@testing-library/react';
-import { Form } from 'antd';
+import { App, Form } from 'antd';
 import React, { useState } from 'react';
 import {
   afterAll,
@@ -52,7 +52,7 @@ describe('useEditableArray - Array recordKey Support', () => {
   /**
    * 测试组件：用于测试数组 recordKey 功能
    */
-  const TestComponent: React.FC<{
+  const InnerComponent: React.FC<{
     onSave?: (
       key: RecordKey,
       record: TestRecordType & { index?: number },
@@ -102,6 +102,14 @@ describe('useEditableArray - Array recordKey Support', () => {
       </Form>
     );
   };
+
+  const TestComponent: React.FC<
+    React.ComponentProps<typeof InnerComponent>
+  > = (props) => (
+    <App>
+      <InnerComponent {...props} />
+    </App>
+  );
 
   it('📝 保存时应该正确处理数组 recordKey（嵌套字段）', async () => {
     // 测试数组 recordKey 的处理逻辑

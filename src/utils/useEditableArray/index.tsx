@@ -6,7 +6,7 @@ import {
   useControlledState,
 } from '@rc-component/util';
 import type { FormInstance, FormProps } from 'antd';
-import { Form, Popconfirm, message } from 'antd';
+import { App, Form, Popconfirm } from 'antd';
 import type { AnyObject } from 'antd/lib/_util/type';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { GetRowKey } from 'antd/lib/table/interface';
@@ -32,10 +32,13 @@ const { noteOnce } = rcWarning;
 
 /**
  * 显示警告信息
- * @param messageStr
+ * 使用 `App.useApp()` 获取 message 实例，以消费 ConfigProvider 动态主题。
  */
-const warning = (messageStr: React.ReactNode) => {
-  return message.warning(messageStr);
+const useWarning = () => {
+  const { message } = App.useApp();
+  return useRefFunction((messageStr: React.ReactNode) => {
+    return message.warning(messageStr);
+  });
 };
 
 /** 无 cell 级编辑键时复用的空数组，避免每格渲染分配 */
@@ -513,6 +516,7 @@ export function editableRowByKey<RecordType>(
  * 保存按钮的dom
  *
  * @param ActionRenderConfig
+ * @param ref
  */
 export function SaveEditableAction<T>(
   {
@@ -850,6 +854,7 @@ export function useEditableArray<RecordType extends AnyObject>(
 
   // Internationalization
   const intl = useIntl();
+  const warning = useWarning();
 
   /**
    * 点击开始编辑之前的保存数据用的

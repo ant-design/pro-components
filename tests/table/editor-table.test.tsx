@@ -16,7 +16,7 @@ import {
   render,
   waitFor,
 } from '@testing-library/react';
-import { Input, InputNumber } from 'antd';
+import { App, Input, InputNumber } from 'antd';
 import crypto from 'crypto';
 import React from 'react';
 import {
@@ -302,20 +302,22 @@ describe('EditorProTable', () => {
       changedDataSource = value;
     });
     const wrapper = render(
-      <ProForm
-        initialValues={{
-          table: defaultData,
-        }}
-      >
-        <div>render</div>
-        <EditableProTable<DataSourceType>
-          rowKey="id"
-          name="table"
-          onChange={onChange}
-          actionRef={actionRef}
-          columns={columns}
-        />
-      </ProForm>,
+      <App>
+        <ProForm
+          initialValues={{
+            table: defaultData,
+          }}
+        >
+          <div>render</div>
+          <EditableProTable<DataSourceType>
+            rowKey="id"
+            name="table"
+            onChange={onChange}
+            actionRef={actionRef}
+            columns={columns}
+          />
+        </ProForm>
+      </App>,
     );
 
     await waitForWaitTime(100);
@@ -2263,16 +2265,18 @@ describe('EditorProTable', () => {
 
   it('📝 EditableProTable support onlyOneLineEditorAlertMessage', async () => {
     const wrapper = render(
-      <EditableProTable<DataSourceType>
-        rowKey="id"
-        columns={columns}
-        value={defaultData}
-        editable={{
-          type: 'single',
-          editableKeys: [624748504],
-          onlyOneLineEditorAlertMessage: '只能编辑一行',
-        }}
-      />,
+      <App>
+        <EditableProTable<DataSourceType>
+          rowKey="id"
+          columns={columns}
+          value={defaultData}
+          editable={{
+            type: 'single',
+            editableKeys: [624748504],
+            onlyOneLineEditorAlertMessage: '只能编辑一行',
+          }}
+        />
+      </App>,
     );
     await waitForWaitTime(100);
 

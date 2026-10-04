@@ -38,6 +38,7 @@
   - 🐞 恢复 `showActions`、`showExtra` 与卡片操作区位置，并锁定栅格间距和实时分页回归 [#7421](https://github.com/ant-design/pro-components/issues/7421) [#8387](https://github.com/ant-design/pro-components/issues/8387) [#7862](https://github.com/ant-design/pro-components/issues/7862)
 - ProTable
   - 🆕 增加 `options.setting.listItemTitleRender`，支持列设置标题自适应渲染 [#9620](https://github.com/ant-design/pro-components/issues/9620)
+- 🐞 将 `useEditableMap`、`useEditableArray` 与 `SettingDrawer` 中的 antd 静态 `message` 调用替换为 `App.useApp()`，以正确消费动态主题上下文
 
 ### 📖 文档
 

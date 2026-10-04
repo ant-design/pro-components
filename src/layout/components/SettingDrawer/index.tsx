@@ -7,13 +7,13 @@ import {
 import { omit, useControlledState } from '@rc-component/util';
 import {
   Alert,
+  App,
   Button,
   Divider,
   Drawer,
   DrawerProps,
   List,
   Switch,
-  message,
 } from 'antd';
 import { clsx } from 'clsx';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
@@ -191,6 +191,7 @@ const genCopySettingJson = (settingState: MergerSettingsType<ProSettings>) =>
 
 /**
  * 可视化配置组件
+ * 使用 `App.useApp()` 获取 message 实例，需要业务方在外层包裹 `<App />`。
  *
  * @param props
  */
@@ -220,6 +221,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     themeOnly,
     drawerProps,
   } = props;
+  const { message } = App.useApp();
   const firstRender = useRef<boolean>(true);
 
   const [open, setOpenInner] = useControlledState(false, props.collapse);

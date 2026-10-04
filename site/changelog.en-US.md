@@ -37,6 +37,7 @@
   - 🐞 Restore `showActions`, `showExtra`, and card action placement, and lock grid gutter and live pagination regressions [#7421](https://github.com/ant-design/pro-components/issues/7421) [#8387](https://github.com/ant-design/pro-components/issues/8387) [#7862](https://github.com/ant-design/pro-components/issues/7862)
 - ProTable
   - 🆕 Add `options.setting.listItemTitleRender` for adaptive column-setting titles [#9620](https://github.com/ant-design/pro-components/issues/9620)
+- 🐞 Replace antd static `message` calls with `App.useApp()` in `useEditableMap`, `useEditableArray`, and `SettingDrawer` to consume dynamic theme context correctly
 
 ### 📖 Documentation
 

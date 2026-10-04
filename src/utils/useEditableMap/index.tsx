@@ -1,5 +1,5 @@
 import { get, useControlledState } from '@rc-component/util';
-import { message } from 'antd';
+import { App } from 'antd';
 import set from 'es-toolkit/compat/set';
 import type React from 'react';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
@@ -33,12 +33,13 @@ const recordKeyToPath = (recordKey: RecordKey): (string | number)[] => {
 
 /**
  * 显示警告信息（仅在 single 模式拦截重复编辑时调用）。
- * NOTE: 使用 antd `message` 静态方法在 antd 5 下无法消费 ConfigProvider 的主题，
- *       但替换为 `App.useApp()` 需要业务方在外层包裹 `<App />`，会有破坏性。
- *       这里保留静态方法兼容历史调用，建议消费方自行包裹 `<App />` 以获得正确主题。
+ * 使用 `App.useApp()` 获取 message 实例，以消费 ConfigProvider 动态主题。
  */
-const warning = (messageStr: React.ReactNode) => {
-  message.warning(messageStr);
+const useWarning = () => {
+  const { message } = App.useApp();
+  return useRefFunction((messageStr: React.ReactNode) => {
+    message.warning(messageStr);
+  });
 };
 
 /**
@@ -106,6 +107,7 @@ export function useEditableMap<
 
   // Internationalization
   const intl = useIntl();
+  const warning = useWarning();
 
   const [editableKeys, setEditableRowKeysInner] = useControlledState<
     React.Key[]
