@@ -28,6 +28,8 @@
   ],
   "scripts": {
     "build": "father build",
+    "analyze:bundle": "node ./scripts/performance/measureBundleSize.mjs",
+    "benchmark:selection": "node ./scripts/performance/selectionBenchmark.mjs",
     "changelog": "node ./scripts/changelogs.mjs",
     "check:declarations": "node ./scripts/checkDeclarations.mjs",
     "check:published-types": "tsc -p ./scripts/fixtures/published-types/tsconfig.json",

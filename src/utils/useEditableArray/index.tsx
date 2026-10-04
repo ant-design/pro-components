@@ -25,7 +25,6 @@ import { useDebounceFn, useRefFunction } from '..';
 import { useIntl } from '../../provider';
 import { ProFormContext } from '../components/ProFormContext';
 import { conversionMomentValue } from '../conversionMomentValue';
-import { useDeepCompareEffect } from '../hooks/useDeepCompareEffect';
 import { usePrevious } from '../hooks/usePrevious';
 import { merge } from '../merge';
 import useLazyKVMap from '../useLazyKVMap';
@@ -906,10 +905,9 @@ export function useEditableArray<RecordType extends AnyObject>(
     undefined,
   );
 
-  // 注意：必须用同步的 useDeepCompareEffect，不能再用 debounce 版本——后者会让短时间内
-  // 多次更新 dataSource 时 Map 处于过期状态，cancelEditable / saveEditable / validateCanAddRecord
-  // 通过 dataSourceKeyIndexMapRef 反查映射 key 时会拿到旧映射，新增/删除场景下偶发查不到。
-  useDeepCompareEffect(() => {
+  // 数据源引用变化后同步重建索引。普通 useEffect 避免在 render 阶段深度遍历大型
+  // dataSource；深比较在数据变化时还会先扫描一次再重建 Map，产生重复 O(n) 工作。
+  useEffect(() => {
     const nextKeyIndexMap = buildDataSourceKeyIndexMap();
     dataSourceKeyIndexMapRef.current = nextKeyIndexMap;
 

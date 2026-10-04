@@ -1,6 +1,6 @@
 ﻿import type { AnyObject } from 'antd/lib/_util/type';
 import type { GetRowKey } from 'antd/lib/table/interface';
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 
 type LazyMapCache<RecordType> = {
   data?: readonly RecordType[];
@@ -16,43 +16,49 @@ const useLazyKVMap = <RecordType extends AnyObject = AnyObject>(
 ) => {
   const mapCacheRef = useRef<LazyMapCache<RecordType>>({});
 
-  function getRecordByKey(key: React.Key): RecordType | undefined {
-    function dig(
-      records: readonly RecordType[],
-      kv: Map<React.Key, RecordType>,
-    ) {
-      records.forEach((record, index) => {
-        const rowKey = getRowKey(record, index);
-        kv.set(rowKey, record);
+  const getRecordByKey = useCallback(
+    (key: React.Key): RecordType | undefined => {
+      function dig(
+        records: readonly RecordType[],
+        kv: Map<React.Key, RecordType>,
+      ) {
+        records.forEach((record, index) => {
+          const rowKey = getRowKey(record, index);
+          kv.set(rowKey, record);
 
-        if (
-          record &&
-          typeof record === 'object' &&
-          childrenColumnName in record
-        ) {
-          dig(((record as any)[childrenColumnName] || []) as RecordType[], kv);
-        }
-      });
-    }
-    if (
-      !mapCacheRef.current ||
-      mapCacheRef.current.data !== data ||
-      mapCacheRef.current.childrenColumnName !== childrenColumnName ||
-      mapCacheRef.current.getRowKey !== getRowKey
-    ) {
-      const kvMap = new Map<React.Key, RecordType>();
-      dig(data, kvMap);
+          if (
+            record &&
+            typeof record === 'object' &&
+            childrenColumnName in record
+          ) {
+            dig(
+              ((record as any)[childrenColumnName] || []) as RecordType[],
+              kv,
+            );
+          }
+        });
+      }
+      if (
+        !mapCacheRef.current ||
+        mapCacheRef.current.data !== data ||
+        mapCacheRef.current.childrenColumnName !== childrenColumnName ||
+        mapCacheRef.current.getRowKey !== getRowKey
+      ) {
+        const kvMap = new Map<React.Key, RecordType>();
+        dig(data, kvMap);
 
-      mapCacheRef.current = {
-        data,
-        childrenColumnName,
-        kvMap,
-        getRowKey,
-      };
-    }
+        mapCacheRef.current = {
+          data,
+          childrenColumnName,
+          kvMap,
+          getRowKey,
+        };
+      }
 
-    return mapCacheRef.current.kvMap?.get(key);
-  }
+      return mapCacheRef.current.kvMap?.get(key);
+    },
+    [childrenColumnName, data, getRowKey],
+  );
 
   return [getRecordByKey] as const;
 };

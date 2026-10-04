@@ -26,11 +26,10 @@ function useSelection<RecordType>(
   }>,
   Set<React.Key>,
 ] {
-  const { getRowKey, data } = config;
+  const { getRowKey, getRecordByKey } = config;
 
   const controlledKeys = rowSelection?.selectedRowKeys as
-    | React.Key[]
-    | undefined;
+    React.Key[] | undefined;
   const [innerKeys, setInnerKeys] = React.useState<React.Key[]>(
     controlledKeys || [],
   );
@@ -72,20 +71,15 @@ function useSelection<RecordType>(
         const nextKeys = Array.from(next);
 
         // Fire callbacks similar to antd rowSelection
-        const selectedRows = data.filter((item, idx) =>
-          next.has(getRowKey(item, idx)),
-        );
+        const selectedRows = nextKeys
+          .map((selectedKey) => getRecordByKey(selectedKey))
+          .filter((item): item is RecordType => item !== undefined);
         rowSelection?.onChange?.(nextKeys, selectedRows, {
           type: 'multiple',
           selectedRows,
           selectedRowKeys: nextKeys,
         } as any);
-        rowSelection?.onSelect?.(
-          record,
-          checked,
-          data.filter((item, idx) => next.has(getRowKey(item, idx))),
-          {} as any,
-        );
+        rowSelection?.onSelect?.(record, checked, selectedRows, {} as any);
 
         if (!controlledKeys) {
           return nextKeys;
@@ -93,7 +87,7 @@ function useSelection<RecordType>(
         return prevKeys;
       });
     },
-    [data, getRowKey, rowSelection, controlledKeys],
+    [controlledKeys, getRecordByKey, rowSelection],
   );
 
   const selectItemRender = React.useCallback(
