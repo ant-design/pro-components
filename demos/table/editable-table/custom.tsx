@@ -20,19 +20,22 @@ const waitTime = (time: number = 100) => {
 };
 
 
-const TagList: React.FC<{
-  value?: {
-    key: string;
-    label: string;
-  }[];
-  onChange?: (
-    value: {
+const TagList = React.forwardRef<
+  HTMLDivElement,
+  {
+    value?: {
       key: string;
       label: string;
-    }[],
-  ) => void;
-}> = ({ value, onChange }) => {
-  const ref = useRef<InputRef | null>(null);
+    }[];
+    onChange?: (
+      value: {
+        key: string;
+        label: string;
+      }[],
+    ) => void;
+  }
+>(({ value, onChange }, ref) => {
+  const inputRef = useRef<InputRef | null>(null);
   const [newTags, setNewTags] = useState<
     {
       key: string;
@@ -62,12 +65,12 @@ const TagList: React.FC<{
   };
 
   return (
-    <Space>
+    <Space ref={ref}>
       {(value || []).concat(newTags).map((item) => (
         <Tag key={item.key}>{item.label}</Tag>
       ))}
       <Input
-        ref={ref}
+        ref={inputRef}
         type="text"
         size="small"
         style={{ width: 78 }}
@@ -78,7 +81,8 @@ const TagList: React.FC<{
       />
     </Space>
   );
-};
+});
+TagList.displayName = 'TagList';
 
 type DataSourceType = {
   id: React.Key;
