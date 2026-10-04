@@ -1,14 +1,7 @@
 ﻿import { useControlledState } from '@rc-component/util';
 import type { GetRef, SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
-import React, {
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
-import useSWR from 'swr';
+import React, { useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { useIntl } from '../../../provider';
 import {
   nanoid,
@@ -19,6 +12,7 @@ import {
   useDeepCompareEffect,
   useDeepCompareMemo,
   useRefFunction,
+  useRequestData,
 } from '../../../utils';
 import {
   isProFieldEditOrUpdateMode,
@@ -211,29 +205,20 @@ export const useFieldFetchData = (
     data,
     mutate: setLocaleData,
     isValidating,
-  } = useSWR(
-    () => {
-      if (!props.request) {
-        return null;
-      }
-
-      return swrKey;
-    },
-    ([, params, kw]) =>
-      props.request!(
+  } = useRequestData<SelectOptionType>({
+    key: props.request ? [...swrKey] : null,
+    fetcher: () => {
+      const [, params, kw] = swrKey;
+      return props.request!(
         {
           ...params,
           keyWords: kw,
         },
         props,
-      ),
-    {
-      revalidateIfStale: !cacheForSwr,
-      revalidateOnReconnect: cacheForSwr,
-      shouldRetryOnError: false,
-      revalidateOnFocus: false,
+      );
     },
-  );
+    revalidateOnMount: !cacheForSwr,
+  });
 
   const resOptions = useMemo(() => {
     const opt = options?.map((item) => {

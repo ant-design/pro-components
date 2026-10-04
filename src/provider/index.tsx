@@ -9,9 +9,9 @@ import zh_CN from 'antd/lib/locale/zh_CN';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import React, { useContext, useEffect, useMemo } from 'react';
-import { SWRConfig, useSWRConfig } from 'swr';
+import { RequestCacheProvider } from '../utils/hooks/useRequestData';
 import type { IntlType } from './intl';
-import { findIntlKeyByAntdLocaleKey, intlMap, zhCNIntl } from './intl';
+import { getRuntimeIntl, zhCNIntlRuntime } from './intlRuntime';
 import type { DeepPartial, ProTokenType } from './typing/layoutToken';
 import { getLayoutDesignToken } from './typing/layoutToken';
 import type { ProAliasToken } from './useStyle';
@@ -87,16 +87,11 @@ export const resolveProConfigHashed = (
 const resolveIntl = (
   propsIntl: IntlType | undefined,
   parentIntl: IntlType | undefined,
-  antdLocaleName: string | undefined,
+  antdLocaleName?: string,
 ): IntlType => {
   if (propsIntl) return propsIntl;
   if (parentIntl && parentIntl.locale !== 'default') return parentIntl;
-  if (antdLocaleName) {
-    const key = findIntlKeyByAntdLocaleKey(antdLocaleName);
-    const found = key ? intlMap[key as keyof typeof intlMap] : undefined;
-    if (found) return found;
-  }
-  return zhCNIntl;
+  return getRuntimeIntl(antdLocaleName);
 };
 
 /**
@@ -216,7 +211,7 @@ export type ConfigContextPropsType = {
 /* Creating a context object with the default values. */
 const ProConfigContext = React.createContext<ConfigContextPropsType>({
   intl: {
-    ...zhCNIntl,
+    ...zhCNIntlRuntime,
     locale: 'default',
   },
   valueTypeMap: {},
@@ -239,19 +234,6 @@ export const { Consumer: ConfigConsumer } = ProConfigContext;
  * @date 2022-11-28
  * @returns null
  */
-const CacheClean = () => {
-  const { cache } = useSWRConfig();
-
-  useEffect(() => {
-    return () => {
-      // is a map
-      // @ts-ignore
-      cache.clear();
-    };
-  }, []);
-  return null;
-};
-
 /**
  * 用于配置 Pro 的组件,分装之后会简单一些
  * @param props
@@ -417,10 +399,7 @@ const ConfigProviderContainer: React.FC<{
     return (
       <AntdConfigProvider {...restConfig} theme={themeConfig}>
         <ProConfigContext.Provider value={proConfigContextValue}>
-          <>
-            {autoClearCache && <CacheClean />}
-            {children}
-          </>
+          <>{children}</>
         </ProConfigContext.Provider>
       </AntdConfigProvider>
     );
@@ -434,11 +413,7 @@ const ConfigProviderContainer: React.FC<{
 
   if (!autoClearCache) return configProviderDom;
 
-  return (
-    <SWRConfig value={{ provider: () => new Map() }}>
-      {configProviderDom}
-    </SWRConfig>
-  );
+  return <RequestCacheProvider>{configProviderDom}</RequestCacheProvider>;
 };
 
 /**
@@ -521,18 +496,9 @@ export const ProConfigProvider: React.FC<{
 export function useIntl(): IntlType {
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
   const { intl } = useContext(ProConfigContext);
-
-  if (intl && intl.locale !== 'default') {
-    return intl;
-  }
-
-  if (locale?.locale) {
-    return (
-      intlMap[findIntlKeyByAntdLocaleKey(locale.locale) as 'zh-CN'] || zhCNIntl
-    );
-  }
-
-  return zhCNIntl;
+  return intl && intl.locale !== 'default'
+    ? intl
+    : getRuntimeIntl(locale?.locale);
 }
 
 ProConfigContext.displayName = 'ProProvider';

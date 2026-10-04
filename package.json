@@ -22,6 +22,86 @@
   "unpkg": "dist/pro-components.min.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./es/index.d.ts",
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./table": {
+      "types": "./es/table/index.d.ts",
+      "import": "./es/table/index.js",
+      "require": "./lib/table/index.js"
+    },
+    "./table/core": {
+      "types": "./es/table/core.d.ts",
+      "import": "./es/table/core.js",
+      "require": "./lib/table/core.js"
+    },
+    "./table/editable": {
+      "types": "./es/table/editable.d.ts",
+      "import": "./es/table/editable.js",
+      "require": "./lib/table/editable.js"
+    },
+    "./table/drag-sort": {
+      "types": "./es/table/drag-sort.d.ts",
+      "import": "./es/table/drag-sort.js",
+      "require": "./lib/table/drag-sort.js"
+    },
+    "./form": {
+      "types": "./es/form/index.d.ts",
+      "import": "./es/form/index.js",
+      "require": "./lib/form/index.js"
+    },
+    "./layout": {
+      "types": "./es/layout/index.d.ts",
+      "import": "./es/layout/index.js",
+      "require": "./lib/layout/index.js"
+    },
+    "./card": {
+      "types": "./es/card/index.d.ts",
+      "import": "./es/card/index.js",
+      "require": "./lib/card/index.js"
+    },
+    "./descriptions": {
+      "types": "./es/descriptions/index.d.ts",
+      "import": "./es/descriptions/index.js",
+      "require": "./lib/descriptions/index.js"
+    },
+    "./field": {
+      "types": "./es/field/index.d.ts",
+      "import": "./es/field/index.js",
+      "require": "./lib/field/index.js"
+    },
+    "./list": {
+      "types": "./es/list/index.d.ts",
+      "import": "./es/list/index.js",
+      "require": "./lib/list/index.js"
+    },
+    "./provider": {
+      "types": "./es/provider/index.d.ts",
+      "import": "./es/provider/index.js",
+      "require": "./lib/provider/index.js"
+    },
+    "./locale": {
+      "types": "./es/provider/intl.d.ts",
+      "import": "./es/provider/intl.js",
+      "require": "./lib/provider/intl.js"
+    },
+    "./skeleton": {
+      "types": "./es/skeleton/index.d.ts",
+      "import": "./es/skeleton/index.js",
+      "require": "./lib/skeleton/index.js"
+    },
+    "./utils": {
+      "types": "./es/utils/index.d.ts",
+      "import": "./es/utils/index.js",
+      "require": "./lib/utils/index.js"
+    },
+    "./es/*": "./es/*",
+    "./lib/*": "./lib/*",
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist",
     "lib",
@@ -77,19 +157,15 @@
     "@dnd-kit/modifiers": "^9.0.0",
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
-    "@emotion/css": "^11.13.5",
     "@rc-component/form": "^1.8.6",
     "@rc-component/resize-observer": "^1.1.2",
     "@rc-component/table": "^1.12.0",
     "@rc-component/util": "^1.13.0",
-    "@umijs/route-utils": "^4.0.3",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.23",
     "es-toolkit": "^1.52.0",
     "path-to-regexp": "^8.4.2",
-    "react-draggable": "~4.4.6",
-    "safe-stable-stringify": "^2.5.0",
-    "swr": "^2.5.1"
+    "safe-stable-stringify": "^2.5.0"
   },
   "devDependencies": {
     "@ant-design/antd-theme-variable": "^1.0.0",
@@ -100,6 +176,7 @@
     "@babel/preset-react": "^7.29.7",
     "@babel/preset-typescript": "^7.29.7",
     "@babel/traverse": "^7.29.8",
+    "@emotion/css": "^11.13.5",
     "@emotion/babel-plugin": "^11.13.5",
     "@rsbuild/plugin-react": "^2.1.1",
     "@rslib/core": "1.0.3",
@@ -157,6 +234,7 @@
     "query-string": "^9.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-draggable": "~4.4.6",
     "react-markdown": "^10.1.0",
     "react-syntax-highlighter": "^16.1.1",
     "remark": "^15.0.1",

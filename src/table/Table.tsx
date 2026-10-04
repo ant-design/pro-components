@@ -76,6 +76,12 @@ import {
   type TableColumnContext,
 } from './utils/genProColumnToColumn';
 
+const tableGridContextValue = {
+  grid: false,
+  colProps: undefined,
+  rowProps: undefined,
+} as const;
+
 function getEditableDataSource<T>({
   dataSource,
   editableUtils,
@@ -1021,13 +1027,7 @@ const ProTable = <
   const needsScrollCapture = Boolean(onScroll) && !props.scroll?.y;
 
   const getBaseTableDom = () => (
-    <GridContext.Provider
-      value={{
-        grid: false,
-        colProps: undefined,
-        rowProps: undefined,
-      }}
-    >
+    <GridContext.Provider value={tableGridContextValue}>
       {needsScrollCapture ? (
         <div
           style={{ display: 'contents' }}

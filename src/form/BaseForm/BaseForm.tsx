@@ -479,15 +479,19 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     });
   }, []);
 
+  const proFormContextValue = useMemo(
+    () => ({ ...formatValues, formRef: formInstanceRef }),
+    [formatValues],
+  );
+  const gridContextValue = useMemo(
+    () => ({ grid, colProps }),
+    [grid, colProps],
+  );
+
   return (
-    <ProFormContext.Provider
-      value={{
-        ...formatValues,
-        formRef: formInstanceRef,
-      }}
-    >
+    <ProFormContext.Provider value={proFormContextValue}>
       <ConfigProvider componentSize={rest.size || componentSize}>
-        <GridContext.Provider value={{ grid, colProps }}>
+        <GridContext.Provider value={gridContextValue}>
           {rest.component !== false && (
             <input
               type="text"
