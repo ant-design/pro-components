@@ -63,6 +63,50 @@ describe('Card', () => {
     expect(onClick).toHaveBeenCalledOnce();
   });
 
+  it('inherits ConfigProvider card / global variant', () => {
+    const { rerender, container, unmount } = render(
+      <ConfigProvider card={{ variant: 'borderless' }}>
+        <ProCard title="卡片">内容</ProCard>
+      </ConfigProvider>,
+    );
+    let card = container.querySelector('.ant-pro-card');
+    expect(card).toHaveClass('ant-card');
+    expect(card).not.toHaveClass('ant-card-bordered');
+    expect(card).not.toHaveClass('ant-pro-card-border');
+
+    rerender(
+      <ConfigProvider variant="borderless">
+        <ProCard title="卡片">内容</ProCard>
+      </ConfigProvider>,
+    );
+    card = container.querySelector('.ant-pro-card');
+    expect(card).not.toHaveClass('ant-card-bordered');
+
+    rerender(
+      <ConfigProvider card={{ variant: 'borderless' }}>
+        <ProCard title="卡片" variant="outlined">
+          内容
+        </ProCard>
+      </ConfigProvider>,
+    );
+    card = container.querySelector('.ant-pro-card');
+    expect(card).toHaveClass('ant-card-bordered');
+    unmount();
+  });
+
+  it('applies ConfigProvider card variant on legacy path', () => {
+    const wrapper = render(
+      <ConfigProvider card={{ variant: 'borderless' }}>
+        <ProCard ghost title="幽灵">
+          内容
+        </ProCard>
+      </ConfigProvider>,
+    );
+    const card = wrapper.container.querySelector('.ant-pro-card');
+    expect(card).toHaveClass('ant-pro-card-legacy');
+    expect(card).not.toHaveClass('ant-pro-card-border');
+  });
+
   it('keeps collapsible on the antd Card path (fold is behavior, not a skin fork)', () => {
     const wrapper = render(
       <ProCard title="可折叠" collapsible>

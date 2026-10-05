@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+### 🐛 Bug Fixes
+
+- ProCard
+  - 🐞 Pass through omitted `variant` to antd Card so it follows ConfigProvider `card.variant` / global `variant` (no hard-coded `outlined`)
+
 ## [3.1.15-5] - 2026-10-05
 
 ### 🐛 Bug Fixes

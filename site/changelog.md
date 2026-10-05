@@ -1,5 +1,12 @@
 # Changelog
 
+## 未发布
+
+### 🐛 问题修复
+
+- ProCard
+  - 🐞 未传 `variant` 时透传给 antd Card，跟随 `ConfigProvider` 的 `card.variant` / 全局 `variant`（不再写死 `outlined`）
+
 ## [3.1.15-5] - 2026-10-05
 
 ### 🐛 问题修复

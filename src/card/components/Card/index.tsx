@@ -12,6 +12,28 @@ import useStyle from './style';
 
 const { useBreakpoint } = Grid;
 
+/**
+ * 对齐 antd Card → useVariant('card', variant) 的合并顺序：
+ * props > card.variant > 全局 variant > outlined
+ * （不含 Form VariantContext；antd 路径会再交给 AntdCard 处理完整语义）
+ */
+const resolveCardVariant = (
+  customVariant: CardProps['variant'],
+  cardVariant: CardProps['variant'] | undefined,
+  globalVariant: string | undefined,
+) => {
+  if (customVariant !== undefined) {
+    return customVariant;
+  }
+  if (cardVariant !== undefined) {
+    return cardVariant;
+  }
+  if (globalVariant === 'borderless' || globalVariant === 'outlined') {
+    return globalVariant;
+  }
+  return 'outlined';
+};
+
 // 子卡片元素类型：props 形如 CardProps，组件类型用 React.JSXElementConstructor 收紧，
 // 比 any 安全，但仍允许 React.cloneElement / element.type?.isProCard 这类访问。
 type ProCardChildType = React.ReactElement<
@@ -58,8 +80,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     ...rest
   } = props;
 
-  const variant = customVariant ?? 'outlined';
-
   const mergedStyles = {
     header: styles?.header,
     body: styles?.body,
@@ -69,7 +89,17 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     actions: styles?.actions,
     cover: styles?.cover,
   };
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const {
+    getPrefixCls,
+    card: cardConfig,
+    variant: configVariant,
+  } = useContext(ConfigProvider.ConfigContext);
+  // legacy 边框对齐 antd useVariant；antd 路径仍透传 customVariant 给 AntdCard
+  const mergedVariant = resolveCardVariant(
+    customVariant,
+    cardConfig?.variant,
+    configVariant,
+  );
   // 用于 loading 占位 padding 兜底（body padding 被显式置 0 时使用 token.paddingLG）
   const { token } = proTheme.useToken();
 
@@ -241,6 +271,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const antdCardSize =
     size === 'small' ? 'small' : size === 'default' ? 'medium' : undefined;
 
+  // antd 路径：variant 透传，ConfigProvider 交给 AntdCard / useVariant。
+  // legacy：边框 class 用与 antd 相同的 mergedVariant（!== borderless 即有边）。
   const cardCls = clsx(
     `${prefixCls}`,
     className,
@@ -250,7 +282,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     {
       // 主路径依赖 ant-card；仅 legacy 打标供样式选择
       [`${prefixCls}-legacy`]: !useAntdCard,
-      [`${prefixCls}-border`]: variant === 'outlined',
+      [`${prefixCls}-border`]: !useAntdCard && mergedVariant !== 'borderless',
       [`${prefixCls}-box-shadow`]: boxShadow,
       [`${prefixCls}-contain-card`]: containProCard,
       [`${prefixCls}-loading`]: loading,
@@ -454,7 +486,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         hoverable={hoverable}
         size={antdCardSize}
         type={type === 'default' ? undefined : type}
-        variant={variant}
+        variant={customVariant}
         onClick={(event) => {
           if (
             event.target instanceof Element &&
