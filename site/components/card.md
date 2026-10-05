@@ -18,6 +18,8 @@ atomId: ProCard
 - 需要进行卡片内切分布局时。
 - 需要卡片可折叠时。
 
+基础 ProCard 直接复用 antd Card 的皮肤和 token，因此 `variant`、边框、圆角与 `hoverable` 阴影会随 antd Card 保持一致。启用嵌套布局、`split`、`ghost`、折叠、选中或页签等 ProCard 特有能力时，组件会保留原有组合行为。
+
 ## 代码演示
 
 ### 枚举属性切换

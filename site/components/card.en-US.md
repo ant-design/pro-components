@@ -18,6 +18,8 @@ In-page container cards that provide standard card styles, card segmentation and
 - When in-card split layout is required.
 - When the card is required to be foldable.
 
+A basic ProCard uses the antd Card skin and tokens directly, so its `variant`, border, radius, and `hoverable` shadow stay aligned with antd Card. ProCard keeps its existing composition behavior when nested layout, `split`, `ghost`, collapse, checked, or tabs features are enabled.
+
 ## Code demo
 
 ### Enum property switch

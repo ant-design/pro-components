@@ -1,5 +1,6 @@
 import { ProCard } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
+import { ConfigProvider } from 'antd';
 import { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { genProCardStyle } from '../../src/card/components/Card/style';
@@ -18,7 +19,81 @@ describe('Card', () => {
       fontSizeLG: 16,
     } as any) as Record<string, any>;
 
-    expect(style['.pro-card']['.pro-card-title'].fontSize).toBe(22);
+    expect(
+      style['.pro-card']['&.pro-card-legacy > .pro-card-header .pro-card-title']
+        .fontSize,
+    ).toBe(22);
+  });
+
+  it('uses antd Card for the basic visual path (#9738)', () => {
+    const onClick = vi.fn();
+    const wrapper = render(
+      <ConfigProvider theme={{ cssVar: { key: 'pro-card-test' } }}>
+        <ProCard
+          title="标题"
+          extra={<button type="button">操作</button>}
+          hoverable
+          variant="outlined"
+          onClick={onClick}
+        >
+          内容
+        </ProCard>
+      </ConfigProvider>,
+    );
+    const card = wrapper.container.querySelector('.ant-pro-card');
+
+    expect(card).toHaveClass('ant-card');
+    expect(card).toHaveClass('ant-card-hoverable');
+    expect(card).toHaveClass('ant-pro-card-antd-card');
+    expect(
+      card?.querySelector('.ant-card-head.ant-pro-card-header'),
+    ).toBeTruthy();
+    expect(
+      card?.querySelector('.ant-card-body.ant-pro-card-body'),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.getByRole('button', { name: '操作' }).click();
+    });
+    expect(onClick).not.toHaveBeenCalled();
+
+    act(() => {
+      card?.querySelector<HTMLElement>('.ant-card-body')?.click();
+    });
+    expect(onClick).toHaveBeenCalledOnce();
+  });
+
+  it('keeps ProCard specific behavior on the compatibility path (#9738)', () => {
+    const wrapper = render(
+      <ProCard title="可折叠" collapsible>
+        内容
+      </ProCard>,
+    );
+    const card = wrapper.container.querySelector('.ant-pro-card');
+
+    expect(card).toHaveClass('ant-pro-card-legacy');
+    expect(card).not.toHaveClass('ant-card');
+  });
+
+  it('keeps layout on the parent and uses antd Card for basic children (#9738)', () => {
+    const onParentClick = vi.fn();
+    const wrapper = render(
+      <ProCard onClick={onParentClick}>
+        <ProCard title="子卡片" extra={<button type="button">子操作</button>}>
+          内容
+        </ProCard>
+      </ProCard>,
+    );
+    const cards = wrapper.container.querySelectorAll('.ant-pro-card');
+
+    expect(cards[0]).toHaveClass('ant-pro-card-legacy');
+    expect(cards[1]).toHaveClass('ant-pro-card-antd-card');
+    expect(cards[1]).toHaveClass('ant-card');
+
+    act(() => {
+      wrapper.getByRole('button', { name: '子操作' }).click();
+    });
+    expect(onParentClick).not.toHaveBeenCalled();
   });
 
   it('🥩 collapsible onCollapse', async () => {
