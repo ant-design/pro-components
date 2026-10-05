@@ -127,22 +127,21 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      [`&&${componentCls}-legacy${componentCls}-split > ${componentCls}-body`]:
-        {
-          paddingBlock: 0,
-          paddingInline: 0,
-        },
+      // 布局样式：AntdCard 与 legacy 共用
+      [`&&${componentCls}-split > ${componentCls}-body`]: {
+        paddingBlock: 0,
+        paddingInline: 0,
+      },
 
-      [`&&${componentCls}-legacy${componentCls}-contain-card > ${componentCls}-body`]:
-        {
-          display: 'flex',
-        },
+      [`&&${componentCls}-contain-card > ${componentCls}-body`]: {
+        display: 'flex',
+      },
 
-      [`&${componentCls}-legacy ${componentCls}-body-direction-column`]: {
+      [`& ${componentCls}-body-direction-column`]: {
         flexDirection: 'column',
       },
 
-      [`&${componentCls}-legacy ${componentCls}-body-wrap`]: {
+      [`& ${componentCls}-body-wrap`]: {
         flexWrap: 'wrap',
       },
 
@@ -152,11 +151,27 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
             paddingBlockEnd: token.padding,
             borderBlockEnd: 0,
           },
-
-          '&-body': {
-            display: 'none',
-          },
         },
+      },
+
+      // collapsible 收起：直接藏 body（无高度动画）；布局壳由 shell 显隐
+      [`&&${componentCls}-collapse${componentCls}-collapsible:not(${componentCls}-contain-card):not(${componentCls}-split) > ${componentCls}-body`]:
+        {
+          display: 'none',
+        },
+
+      // 仅 collapsed（无 collapsible）：内容已卸载，藏空 body（legacy；antd 走 inline style）
+      [`&&${componentCls}-legacy${componentCls}-collapse:not(${componentCls}-collapsible) > ${componentCls}-body`]:
+        {
+          display: 'none',
+        },
+
+      // 布局壳折叠：display:contents 保留 flex 子节点；收起用 none 隐藏且不卸载
+      [` ${componentCls}-collapse-shell`]: {
+        display: 'contents',
+      },
+      [` ${componentCls}-collapse-shell-collapsed`]: {
+        display: 'none',
       },
 
       [`&${componentCls}-legacy > ${componentCls}-header`]: {
@@ -200,7 +215,8 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      [`&${componentCls}-legacy ${componentCls}-collapsible-icon`]: {
+      // 折叠图标：AntdCard / legacy 共用
+      [` ${componentCls}-collapsible-icon`]: {
         marginInlineEnd: token.marginXS,
         color: token.colorIconHover,
         ':hover': {
@@ -267,6 +283,13 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           paddingBlock: token.paddingXS,
         },
       },
+
+      // collapsible + legacy：body padding 清零（须在 size-small body 规则之后，避免被小尺寸 padding 盖掉）
+      [`&&${componentCls}-collapsible${componentCls}-legacy > ${componentCls}-body`]:
+        {
+          paddingBlock: 0,
+          paddingInline: 0,
+        },
     },
 
     [`${componentCls}-tabs`]: {

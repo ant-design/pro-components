@@ -12,8 +12,7 @@ export type ProCardType = CardType & {
   Group: typeof Group;
 };
 
-// 用 forwardRef 透传 ref，避免用户用 <ProCard.Group ref={...}> 时 ref 丢失。
-// 底层 Card 本身就是 forwardRef，这里保持一致。
+// Group：显式布局容器（body padding: 0）；嵌套逻辑仍由 Card 处理。
 const Group = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const { styles, ...rest } = props;
   return (

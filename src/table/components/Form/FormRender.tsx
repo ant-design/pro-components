@@ -3,6 +3,7 @@ import type { FormItemProps } from 'antd';
 import { ConfigProvider, Table } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
+import ProCard from '../../../card';
 import type {
   BaseQueryFilterProps,
   ProFormInstance,
@@ -196,19 +197,21 @@ const FormRender = <T, U = any>({
   };
 
   return (
-    <div
-      className={clsx(hashId, {
-        [getPrefixCls('pro-card')]: true,
-        [`${getPrefixCls('pro-card')}-border`]: !!bordered,
-        [`${getPrefixCls('pro-card')}-bordered`]: !!bordered,
-        [`${getPrefixCls('pro-card')}-ghost`]: !!ghost,
-        [className]: true,
+    <ProCard
+      // 搜索区复用 ProCard（基础路径即 antd Card），与表格区皮肤对齐。
+      // QueryFilter 自带 padding，body 置 0 避免与 Card 默认 padding 叠加。
+      variant={bordered ? 'outlined' : 'borderless'}
+      ghost={ghost}
+      className={clsx(hashId, className, {
         [formClassName]: isForm,
         [getPrefixCls(`pro-table-search-${toLowerLine(competentName)}`)]: true,
         [`${className}-ghost`]: ghost,
         [(searchConfig as { className: string })?.className]:
           searchConfig !== false && searchConfig?.className,
       })}
+      styles={{
+        body: { padding: 0 },
+      }}
     >
       <BetaSchemaForm<U>
         key={competentName}
@@ -250,7 +253,7 @@ const FormRender = <T, U = any>({
         }}
         initialValues={formConfig?.initialValues}
       />
-    </div>
+    </ProCard>
   );
 };
 
