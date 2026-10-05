@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.1.15-5] - 2026-10-05
+
+### 🐛 Bug Fixes
+
+- ProCard
+  - 🐞 Align the basic card skin with antd `Card` (`ant-pro-card` + `ant-card`) and remove `ant-pro-card-antd-card` [#9740](https://github.com/ant-design/pro-components/pull/9740)
+  - 🐞 Expand the antd path so `collapsible` / `tabs` / nested layouts no longer force `legacy`; collapse hides via CSS while keeping layout-shell children mounted, and only the current card header toggles collapse [#9742](https://github.com/ant-design/pro-components/pull/9742)
+- ProTable
+  - 🐞 Use a real `ProCard` for the search form shell, aligned with `cardBordered` [#9742](https://github.com/ant-design/pro-components/pull/9742)
+- InlineErrorFormItem
+  - 🐞 Auto-open the validation popover when errors appear, and use hover-only trigger so input focus is not interrupted
+
+### ⚡️ Performance
+
+- ⚡️ Remove `swr` and `route-utils` runtime costs; menu routing now uses a built-in lightweight implementation [#9739](https://github.com/ant-design/pro-components/pull/9739)
+
 ## [3.1.15-4] - 2026-10-04
 
 ### 🐛 Bug Fixes

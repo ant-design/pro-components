@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.1.15-5] - 2026-10-05
+
+### 🐛 问题修复
+
+- ProCard
+  - 🐞 基础卡片对齐 antd `Card` 皮肤（`ant-pro-card` + `ant-card`），移除 `ant-pro-card-antd-card` [#9740](https://github.com/ant-design/pro-components/pull/9740)
+  - 🐞 扩大 antd 路径：`collapsible` / `tabs` / 嵌套布局不再强制 `legacy`；折叠用 CSS 显隐并保留布局壳子树；仅响应本卡 header [#9742](https://github.com/ant-design/pro-components/pull/9742)
+- ProTable
+  - 🐞 搜索表单外层改为真实 `ProCard`，与 `cardBordered` 对齐 [#9742](https://github.com/ant-design/pro-components/pull/9742)
+- InlineErrorFormItem
+  - 🐞 校验错误出现时自动打开 popover，并改为仅 hover 触发以免干扰输入聚焦
+
+### ⚡️ 性能
+
+- ⚡️ 移除 `swr` 与 `route-utils` 运行时成本，菜单路由改为内置轻量实现 [#9739](https://github.com/ant-design/pro-components/pull/9739)
+
 ## [3.1.15-4] - 2026-10-04
 
 ### 🐛 问题修复
