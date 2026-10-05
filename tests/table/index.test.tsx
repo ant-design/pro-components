@@ -1582,11 +1582,13 @@ describe('BasicTable', () => {
 
     expect(
       !!html.baseElement.querySelector(
-        '.ant-pro-table-search-query-filter.ant-pro-card-bordered',
+        '.ant-pro-table-search-query-filter.ant-pro-card.ant-card',
       ),
     ).toBeTruthy();
     expect(
-      !!html.baseElement.querySelector('.ant-pro-card.ant-pro-card-border'),
+      !!html.baseElement.querySelector(
+        '.ant-pro-table-search.ant-pro-card.ant-card-bordered',
+      ),
     ).toBeTruthy();
   });
 
@@ -1612,10 +1614,10 @@ describe('BasicTable', () => {
     );
     expect(
       !!html.baseElement.querySelector('.ant-pro-card.ant-card-bordered'),
-    ).toBeFalsy();
+    ).toBeTruthy();
     expect(
       !!html.baseElement.querySelector(
-        '.ant-pro-table-search-query-filter.ant-pro-card-bordered',
+        '.ant-pro-table-search-query-filter.ant-pro-card.ant-card-bordered',
       ),
     ).toBeTruthy();
   });

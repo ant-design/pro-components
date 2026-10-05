@@ -127,22 +127,21 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      [`&&${componentCls}-legacy${componentCls}-split > ${componentCls}-body`]:
-        {
-          paddingBlock: 0,
-          paddingInline: 0,
-        },
+      // 布局样式：AntdCard 与 legacy 共用
+      [`&&${componentCls}-split > ${componentCls}-body`]: {
+        paddingBlock: 0,
+        paddingInline: 0,
+      },
 
-      [`&&${componentCls}-legacy${componentCls}-contain-card > ${componentCls}-body`]:
-        {
-          display: 'flex',
-        },
+      [`&&${componentCls}-contain-card > ${componentCls}-body`]: {
+        display: 'flex',
+      },
 
-      [`&${componentCls}-legacy ${componentCls}-body-direction-column`]: {
+      [`& ${componentCls}-body-direction-column`]: {
         flexDirection: 'column',
       },
 
-      [`&${componentCls}-legacy ${componentCls}-body-wrap`]: {
+      [`& ${componentCls}-body-wrap`]: {
         flexWrap: 'wrap',
       },
 
@@ -200,7 +199,8 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      [`&${componentCls}-legacy ${componentCls}-collapsible-icon`]: {
+      // 折叠图标：AntdCard / legacy 共用
+      [` ${componentCls}-collapsible-icon`]: {
         marginInlineEnd: token.marginXS,
         color: token.colorIconHover,
         ':hover': {

@@ -44,7 +44,7 @@ describe('Card', () => {
 
     expect(card).toHaveClass('ant-card');
     expect(card).toHaveClass('ant-card-hoverable');
-    expect(card).toHaveClass('ant-pro-card-antd-card');
+    expect(card).not.toHaveClass('ant-pro-card-legacy');
     expect(
       card?.querySelector('.ant-card-head.ant-pro-card-header'),
     ).toBeTruthy();
@@ -63,7 +63,7 @@ describe('Card', () => {
     expect(onClick).toHaveBeenCalledOnce();
   });
 
-  it('keeps ProCard specific behavior on the compatibility path (#9738)', () => {
+  it('keeps collapsible on the antd Card path (fold is behavior, not a skin fork)', () => {
     const wrapper = render(
       <ProCard title="可折叠" collapsible>
         内容
@@ -71,11 +71,11 @@ describe('Card', () => {
     );
     const card = wrapper.container.querySelector('.ant-pro-card');
 
-    expect(card).toHaveClass('ant-pro-card-legacy');
-    expect(card).not.toHaveClass('ant-card');
+    expect(card).toHaveClass('ant-card');
+    expect(card).not.toHaveClass('ant-pro-card-legacy');
   });
 
-  it('keeps layout on the parent and uses antd Card for basic children (#9738)', () => {
+  it('uses antd Card for nested layout shell; children stay on antd Card too', () => {
     const onParentClick = vi.fn();
     const wrapper = render(
       <ProCard onClick={onParentClick}>
@@ -86,14 +86,32 @@ describe('Card', () => {
     );
     const cards = wrapper.container.querySelectorAll('.ant-pro-card');
 
-    expect(cards[0]).toHaveClass('ant-pro-card-legacy');
-    expect(cards[1]).toHaveClass('ant-pro-card-antd-card');
+    // 外层为布局壳，仍走 antd Card；不再因 contain 进入 legacy
+    expect(cards[0]).toHaveClass('ant-pro-card-contain-card');
+    expect(cards[0]).toHaveClass('ant-card');
+    expect(cards[0]).not.toHaveClass('ant-pro-card-legacy');
     expect(cards[1]).toHaveClass('ant-card');
+    expect(cards[1]).not.toHaveClass('ant-pro-card-legacy');
 
     act(() => {
       wrapper.getByRole('button', { name: '子操作' }).click();
     });
     expect(onParentClick).not.toHaveBeenCalled();
+  });
+
+  it('keeps ghost on the legacy skin path', () => {
+    const wrapper = render(
+      <ProCard ghost>
+        <ProCard title="子卡片">内容</ProCard>
+      </ProCard>,
+    );
+    const cards = wrapper.container.querySelectorAll('.ant-pro-card');
+
+    expect(cards[0]).toHaveClass('ant-pro-card-legacy');
+    expect(cards[0]).toHaveClass('ant-pro-card-ghost');
+    expect(cards[0]).not.toHaveClass('ant-card');
+    expect(cards[1]).toHaveClass('ant-card');
+    expect(cards[1]).not.toHaveClass('ant-pro-card-legacy');
   });
 
   it('🥩 collapsible onCollapse', async () => {
@@ -338,6 +356,9 @@ describe('Card', () => {
         }}
       />,
     );
+    const card = wrapper.container.querySelector('.ant-pro-card');
+    expect(card).toHaveClass('ant-card');
+    expect(card).not.toHaveClass('ant-pro-card-legacy');
     act(() => {
       wrapper.baseElement
         .querySelectorAll<HTMLDivElement>('.ant-pro-card-tabs .ant-tabs-tab')[1]
