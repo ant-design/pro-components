@@ -366,9 +366,13 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   ) : null;
 
   // 可折叠内容区高度过渡（motion token）。
-  // 嵌套布局壳不包 panel：body 上的 flex/方向依赖直接子节点。
+  // - 仅 collapsible 时做高度动画
+  // - collapsed 仍可单独生效（无 collapsible 时直接显隐，兼容旧用法）
+  // - 嵌套布局壳不做高度动画：body flex 依赖直接子节点
   const wrapCollapsePanel = (content: React.ReactNode) => {
-    if (!collapsible) return content;
+    if (!collapsible) {
+      return collapsed ? null : content;
+    }
     if (isLayoutShell) {
       return collapsed ? null : content;
     }

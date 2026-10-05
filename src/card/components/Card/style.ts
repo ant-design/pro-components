@@ -154,6 +154,12 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
+      // 仅 collapsed、无 collapsible：内容已卸载，隐藏空 body 避免留白
+      [`&&${componentCls}-legacy${componentCls}-collapse:not(${componentCls}-collapsible) > ${componentCls}-body`]:
+        {
+          display: 'none',
+        },
+
       // 内容区折叠：grid 0fr/1fr + motion token。
       // 动画过程保持 overflow:hidden；完全展开后再 resting 放开裁剪。
       [` ${componentCls}-collapse-panel`]: {

@@ -165,7 +165,7 @@ describe('Card', () => {
   it('🥩 collapsible collapsed', async () => {
     const wrapper = render(
       <ProCard title="可折叠" headerBordered collapsed>
-        内容
+        <span data-testid="collapsed-body">内容</span>
       </ProCard>,
     );
     await wrapper.findAllByText('可折叠');
@@ -174,11 +174,13 @@ describe('Card', () => {
         '.ant-pro-card-collapse',
       ),
     ).toBeTruthy();
+    // collapsed 可单独生效（无需 collapsible）
+    expect(wrapper.queryByTestId('collapsed-body')).toBeNull();
 
     act(() => {
       wrapper.rerender(
         <ProCard title="可打开" headerBordered collapsed={false}>
-          内容
+          <span data-testid="collapsed-body">内容</span>
         </ProCard>,
       );
     });
@@ -189,6 +191,7 @@ describe('Card', () => {
         '.ant-pro-card-collapse',
       ),
     ).toBeFalsy();
+    expect(wrapper.getByTestId('collapsed-body')).toBeTruthy();
   });
 
   it('🥩 collapsible icon custom render with defaultCollapsed', async () => {
