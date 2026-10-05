@@ -151,11 +151,30 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
             paddingBlockEnd: token.padding,
             borderBlockEnd: 0,
           },
-
-          '&-body': {
-            display: 'none',
-          },
         },
+      },
+
+      // 内容区折叠：grid 0fr/1fr + motion token；两路径共用
+      [` ${componentCls}-collapse-panel`]: {
+        display: 'grid',
+        gridTemplateRows: '0fr',
+        transition: `grid-template-rows ${token.motionDurationMid} ${token.motionEaseInOut}`,
+        [`&${componentCls}-collapse-panel-active`]: {
+          gridTemplateRows: '1fr',
+        },
+        [`> ${componentCls}-collapse-panel-content`]: {
+          overflow: 'hidden',
+          minHeight: 0,
+        },
+        '@media (prefers-reduced-motion: reduce)': {
+          transition: 'none',
+        },
+      },
+
+      // 折叠收起时去掉 body 内边距，避免高度为 0 仍留白
+      [`&&${componentCls}-collapse > ${componentCls}-body`]: {
+        paddingBlock: 0,
+        paddingInline: 0,
       },
 
       [`&${componentCls}-legacy > ${componentCls}-header`]: {

@@ -425,4 +425,23 @@ describe('Card', () => {
       wrapper.container.querySelector('.ant-pro-card-actions'),
     ).toBeNull();
   });
+
+  it('keeps body mounted with collapse panel motion when collapsed', () => {
+    const wrapper = render(
+      <ProCard title="可折叠" collapsible defaultCollapsed>
+        <span data-testid="body-text">内容</span>
+      </ProCard>,
+    );
+    const card = wrapper.container.querySelector('.ant-pro-card');
+    const panel = wrapper.container.querySelector(
+      '.ant-pro-card-collapse-panel',
+    );
+
+    expect(card).toHaveClass('ant-pro-card-collapsible');
+    expect(card).toHaveClass('ant-pro-card-collapse');
+    expect(panel).toBeTruthy();
+    expect(panel).not.toHaveClass('ant-pro-card-collapse-panel-active');
+    expect(panel).toHaveAttribute('aria-hidden', 'true');
+    expect(wrapper.getByTestId('body-text')).toBeTruthy();
+  });
 });

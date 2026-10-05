@@ -260,6 +260,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       [`${prefixCls}-size-${size}`]: size,
       [`${prefixCls}-type-${type}`]: type,
       [`${prefixCls}-collapse`]: collapsed,
+      [`${prefixCls}-collapsible`]: Boolean(collapsible),
       [`${prefixCls}-checked`]: checked,
     },
   );
@@ -347,6 +348,23 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     />
   ) : null;
 
+  // 可折叠时内容保持挂载，用 token 驱动的高度过渡；非折叠不包一层 DOM
+  const wrapCollapsePanel = (content: React.ReactNode) => {
+    if (!collapsible) return content;
+    return (
+      <div
+        className={clsx(`${prefixCls}-collapse-panel`, hashId, {
+          [`${prefixCls}-collapse-panel-active`]: !collapsed,
+        })}
+        aria-hidden={collapsed}
+      >
+        <div className={clsx(`${prefixCls}-collapse-panel-content`, hashId)}>
+          {content}
+        </div>
+      </div>
+    );
+  };
+
   if (useAntdCard) {
     const antdTitle =
       title || collapsibleButton ? (
@@ -383,10 +401,10 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
               : null),
             ...(headerCollapsible ? { cursor: 'pointer' } : null),
           },
-          // tabs / 布局壳自行控制内边距，避免与 Card body 默认 padding 叠加
+          // tabs / 布局壳自行控制内边距；折叠收起时去掉 body padding，避免留白条
           body: {
             ...mergedStyles.body,
-            ...(tabs || isLayoutShell ? { padding: 0 } : null),
+            ...(tabs || isLayoutShell || collapsed ? { padding: 0 } : null),
           },
           extra: mergedStyles.extra,
           title: mergedStyles.title,
@@ -442,10 +460,24 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           rest.onClick?.(event);
         }}
       >
-        {collapsed ? null : antdBodyContent}
+        {wrapCollapsePanel(antdBodyContent)}
       </AntdCard>,
     );
   }
+
+  const legacyBodyContent = tabs ? (
+    loading ? (
+      <div className={bodyCls} style={mergedStyles.body}>
+        {loadingDOM}
+      </div>
+    ) : (
+      tabsNode
+    )
+  ) : (
+    <div className={bodyCls} style={mergedStyles.body}>
+      {loading ? loadingDOM : childrenModified}
+    </div>
+  );
 
   return wrapSSR(
     <div
@@ -490,19 +522,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           {cover}
         </div>
       )}
-      {tabs ? (
-        loading ? (
-          <div className={bodyCls} style={mergedStyles.body}>
-            {loadingDOM}
-          </div>
-        ) : (
-          tabsNode
-        )
-      ) : (
-        <div className={bodyCls} style={mergedStyles.body}>
-          {loading ? loadingDOM : childrenModified}
-        </div>
-      )}
+      {wrapCollapsePanel(legacyBodyContent)}
       {actions && !collapsed ? (
         <Actions
           actions={actions}
