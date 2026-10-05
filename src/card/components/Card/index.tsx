@@ -412,6 +412,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         }}
         title={antdTitle}
         extra={extra}
+        // 折叠时一并隐藏 cover / actions，与 legacy 路径保持一致
         cover={collapsed ? undefined : cover}
         actions={
           collapsed ? undefined : (actions as React.ReactNode[] | undefined)
@@ -502,7 +503,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           {loading ? loadingDOM : childrenModified}
         </div>
       )}
-      {actions ? (
+      {actions && !collapsed ? (
         <Actions
           actions={actions}
           prefixCls={prefixCls}

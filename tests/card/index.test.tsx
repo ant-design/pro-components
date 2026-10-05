@@ -387,4 +387,42 @@ describe('Card', () => {
     expect(actionsUl?.style.marginTop).toBe('10px');
     wrapper.unmount();
   });
+
+  it('hides actions when collapsed on antd Card path', () => {
+    const wrapper = render(
+      <ProCard
+        title="可折叠"
+        collapsible
+        defaultCollapsed
+        actions={[<a key="setting">设置</a>]}
+      >
+        内容
+      </ProCard>,
+    );
+    const card = wrapper.container.querySelector('.ant-pro-card');
+    expect(card).toHaveClass('ant-card');
+    expect(card).not.toHaveClass('ant-pro-card-legacy');
+    expect(
+      wrapper.container.querySelector('.ant-pro-card-actions'),
+    ).toBeNull();
+  });
+
+  it('hides actions when collapsed on legacy path', () => {
+    const wrapper = render(
+      <ProCard
+        title="可折叠"
+        ghost
+        collapsible
+        defaultCollapsed
+        actions={[<a key="setting">设置</a>]}
+      >
+        内容
+      </ProCard>,
+    );
+    const card = wrapper.container.querySelector('.ant-pro-card');
+    expect(card).toHaveClass('ant-pro-card-legacy');
+    expect(
+      wrapper.container.querySelector('.ant-pro-card-actions'),
+    ).toBeNull();
+  });
 });
