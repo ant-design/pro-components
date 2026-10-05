@@ -191,13 +191,6 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           paddingBlock: token.paddingSM,
         },
 
-      // collapsible + legacy：padding 在 panel-content，body 清零
-      [`&&${componentCls}-collapsible${componentCls}-legacy > ${componentCls}-body`]:
-        {
-          paddingBlock: 0,
-          paddingInline: 0,
-        },
-
       [`&${componentCls}-legacy > ${componentCls}-header`]: {
         display: 'flex',
         alignItems: 'center',
@@ -307,6 +300,13 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           paddingBlock: token.paddingXS,
         },
       },
+
+      // collapsible + legacy：body padding 清零（须在 size-small body 规则之后，避免被小尺寸 padding 盖掉）
+      [`&&${componentCls}-collapsible${componentCls}-legacy > ${componentCls}-body`]:
+        {
+          paddingBlock: 0,
+          paddingInline: 0,
+        },
     },
 
     [`${componentCls}-tabs`]: {
