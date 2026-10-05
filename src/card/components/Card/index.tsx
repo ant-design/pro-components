@@ -2,7 +2,7 @@ import { RightOutlined } from '@ant-design/icons';
 import { omit, useControlledState } from '@rc-component/util';
 import { Card as AntdCard, ConfigProvider, Grid, Tabs } from 'antd';
 import { clsx } from 'clsx';
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { proTheme } from '../../../provider';
 import { LabelIconTip, useRefFunction } from '../../../utils';
 import type { Breakpoint, CardProps, Gutter } from '../../typing';
@@ -86,6 +86,23 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     defaultCollapsed,
     controlCollapsed,
   );
+
+  // 展开动画结束后再放开 overflow，避免打断 grid 高度过渡又裁切展开内容
+  const [collapseRestingOpen, setCollapseRestingOpen] = useState(
+    () => !(controlCollapsed ?? defaultCollapsed),
+  );
+  if (collapsed && collapseRestingOpen) {
+    setCollapseRestingOpen(false);
+  }
+
+  // reduced-motion 下无 transitionend，展开后需立刻放开 overflow
+  useEffect(() => {
+    if (collapsed || typeof window === 'undefined') return;
+    const media = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+    if (media?.matches) {
+      setCollapseRestingOpen(true);
+    }
+  }, [collapsed]);
 
   /**
    * 使用 useRefFunction 包装回调，确保引用稳定
@@ -359,10 +376,24 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       <div
         className={clsx(`${prefixCls}-collapse-panel`, hashId, {
           [`${prefixCls}-collapse-panel-active`]: !collapsed,
+          [`${prefixCls}-collapse-panel-resting`]:
+            !collapsed && collapseRestingOpen,
         })}
         aria-hidden={collapsed}
+        onTransitionEnd={(event) => {
+          if (event.target !== event.currentTarget) return;
+          if (event.propertyName !== 'grid-template-rows') return;
+          if (!collapsed) {
+            setCollapseRestingOpen(true);
+          }
+        }}
       >
-        <div className={clsx(`${prefixCls}-collapse-panel-content`, hashId)}>
+        <div
+          className={clsx(`${prefixCls}-collapse-panel-content`, hashId, {
+            // 可折叠时 body 自身 padding 置 0，内边距挪到 panel 内随高度一起动
+            [`${prefixCls}-collapse-panel-content-padded`]: !tabs,
+          })}
+        >
           {content}
         </div>
       </div>
@@ -405,10 +436,10 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
               : null),
             ...(headerCollapsible ? { cursor: 'pointer' } : null),
           },
-          // tabs / 布局壳自行控制内边距；折叠收起时去掉 body padding，避免留白条
+          // tabs / 布局壳 / 可折叠：body padding 置 0（可折叠由 panel-content 承担内边距）
           body: {
             ...mergedStyles.body,
-            ...(tabs || isLayoutShell || collapsed ? { padding: 0 } : null),
+            ...(tabs || isLayoutShell || collapsible ? { padding: 0 } : null),
           },
           extra: mergedStyles.extra,
           title: mergedStyles.title,

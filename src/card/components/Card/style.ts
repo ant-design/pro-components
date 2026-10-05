@@ -154,7 +154,8 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      // 内容区折叠：grid 0fr/1fr + motion token；展开态不裁剪、不压扁内容高度
+      // 内容区折叠：grid 0fr/1fr + motion token。
+      // 动画过程保持 overflow:hidden；完全展开后再 resting 放开裁剪。
       [` ${componentCls}-collapse-panel`]: {
         display: 'grid',
         gridTemplateRows: '0fr',
@@ -166,22 +167,31 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           overflow: 'hidden',
           minHeight: 0,
         },
-        // 展开后恢复可见溢出与自然高度，避免 Select/阴影被裁、子项被压扁
-        [`&${componentCls}-collapse-panel-active > ${componentCls}-collapse-panel-content`]:
+        [`&${componentCls}-collapse-panel-resting > ${componentCls}-collapse-panel-content`]:
           {
             overflow: 'visible',
-            minHeight: 'auto',
           },
+        [`> ${componentCls}-collapse-panel-content-padded`]: {
+          paddingInline: token.paddingLG,
+          paddingBlock: token.padding,
+        },
         '@media (prefers-reduced-motion: reduce)': {
           transition: 'none',
         },
       },
 
-      // 折叠收起时去掉 body 内边距，避免高度为 0 仍留白
-      [`&&${componentCls}-collapse > ${componentCls}-body`]: {
-        paddingBlock: 0,
-        paddingInline: 0,
-      },
+      [`&&${componentCls}-size-small ${componentCls}-collapse-panel-content-padded`]:
+        {
+          paddingInline: token.paddingSM,
+          paddingBlock: token.paddingSM,
+        },
+
+      // legacy 折叠时同步去掉 body 内边距（padding 已在 panel-content）
+      [`&&${componentCls}-collapsible${componentCls}-legacy > ${componentCls}-body`]:
+        {
+          paddingBlock: 0,
+          paddingInline: 0,
+        },
 
       [`&${componentCls}-legacy > ${componentCls}-header`]: {
         display: 'flex',
