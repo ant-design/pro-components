@@ -220,26 +220,26 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     return element;
   });
 
-  // 基础卡片直接复用 antd Card 的样式管线，自动跟随 Card token、cssVar、
-  // variant 和 hover 阴影。涉及 ProCard 特有布局或交互时继续走兼容实现。
-  const useAntdCard =
-    !containProCard &&
-    !split &&
-    !collapsible &&
-    !collapsibleIconRender &&
-    controlCollapsed === undefined &&
-    !defaultCollapsed &&
-    !tabs &&
-    !ghost &&
-    checked === undefined &&
-    !onChecked &&
-    !headerBordered &&
-    !boxShadow &&
-    !React.isValidElement(loading) &&
-    (!layout || layout === 'default') &&
-    !wrap &&
-    !direction &&
-    (!actions || Array.isArray(actions));
+  // 嵌套 / split 只影响 body 排布，不退出 AntdCard。
+  // wrap、direction 仅在嵌套时生效，单独出现不算布局壳，避免叶子卡片被清 padding。
+  const isLayoutShell = containProCard || Boolean(split);
+
+  // 无法对齐 antd Card 皮肤时走 legacy（ghost / checked / boxShadow 等）。
+  // collapsible、tabs、嵌套属于行为或布局，不因此切换皮肤。
+  const needsLegacySkin =
+    ghost ||
+    checked !== undefined ||
+    Boolean(onChecked) ||
+    boxShadow ||
+    React.isValidElement(loading) ||
+    (Boolean(layout) && layout !== 'default') ||
+    Boolean(actions && !Array.isArray(actions));
+
+  const useAntdCard = !needsLegacySkin;
+
+  // ProCard 仍对外使用 size="default"；antd 6+ 已弃用，传给 Card 时用 medium
+  const antdCardSize =
+    size === 'small' ? 'small' : size === 'default' ? 'medium' : undefined;
 
   const cardCls = clsx(
     `${prefixCls}`,
@@ -248,7 +248,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     hashId,
     classNames?.root,
     {
-      [`${prefixCls}-antd-card`]: useAntdCard,
+      // 主路径依赖 ant-card；仅 legacy 打标供样式选择
       [`${prefixCls}-legacy`]: !useAntdCard,
       [`${prefixCls}-border`]: variant === 'outlined',
       [`${prefixCls}-box-shadow`]: boxShadow,
@@ -260,6 +260,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       [`${prefixCls}-size-${size}`]: size,
       [`${prefixCls}-type-${type}`]: type,
       [`${prefixCls}-collapse`]: collapsed,
+      [`${prefixCls}-collapsible`]: Boolean(collapsible),
       [`${prefixCls}-checked`]: checked,
     },
   );
@@ -331,8 +332,70 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const extraCls = clsx(`${prefixCls}-extra`, hashId, classNames?.extra);
 
   const rootStyle = { ...mergedStyles.root, ...style };
+  const headerCollapsible =
+    collapsible === true || collapsible === 'header';
+
+  // tabs 继续走 Pro API + antd Tabs，不迁到 Card.tabList
+  const tabsNode = tabs ? (
+    <Tabs
+      onChange={tabs.onChange}
+      {...omit(tabs, ['cardProps'])}
+      items={ModifyTabItemsContent}
+      className={clsx(`${prefixCls}-tabs`, hashId, {
+        // #9052：ghost 时去掉 tab 内容区 padding
+        [`${prefixCls}-tabs-ghost`]: tabs.cardProps?.ghost,
+      })}
+    />
+  ) : null;
+
+  // collapsed：收起；collapsible：可交互。布局壳用 display 显隐，保留子树状态。
+  // 内容区不做高度动画，与最初行为一致（CSS 直接藏 body / shell）。
+  const wrapCollapseContent = (content: React.ReactNode) => {
+    if (isLayoutShell) {
+      return (
+        <div
+          className={clsx(`${prefixCls}-collapse-shell`, hashId, {
+            [`${prefixCls}-collapse-shell-collapsed`]: collapsed,
+          })}
+          aria-hidden={collapsed}
+        >
+          {content}
+        </div>
+      );
+    }
+
+    // 无 collapsible 时：collapsed 只收起普通 body；tabs 仍渲染（与历史 DOM 一致）
+    if (!collapsible) {
+      if (collapsed && !tabs) {
+        return null;
+      }
+      return content;
+    }
+
+    return content;
+  };
 
   if (useAntdCard) {
+    const antdTitle =
+      title || collapsibleButton ? (
+        <>
+          {collapsibleButton}
+          {title ? (
+            <LabelIconTip
+              label={title}
+              tooltip={tooltip}
+              subTitle={subTitle}
+            />
+          ) : null}
+        </>
+      ) : undefined;
+
+    const antdBodyContent = tabs
+      ? loading
+        ? loadingDOM
+        : tabsNode
+      : childrenModified;
+
     return wrapSSR(
       <AntdCard
         {...omit(rest, ['prefixCls', 'colSpan'])}
@@ -340,32 +403,56 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         className={cardCls}
         style={rootStyle}
         styles={{
-          header: mergedStyles.header,
-          body: mergedStyles.body,
+          header: {
+            ...mergedStyles.header,
+            // Pro 默认无 header 底边；仅 headerBordered / inner 保留
+            ...(!headerBordered && type !== 'inner'
+              ? { borderBottom: 'none' }
+              : null),
+            ...(headerCollapsible ? { cursor: 'pointer' } : null),
+          },
+          // tabs / 布局壳：body 去 padding；折叠用 CSS 显隐，不再挪 padding
+          body: {
+            ...mergedStyles.body,
+            ...(tabs || isLayoutShell ? { padding: 0 } : null),
+            // antd 路径：仅 collapsed 且无 tabs 时藏空 body（tabs 在 body 内需可见）
+            ...(collapsed && !collapsible && !tabs
+              ? { display: 'none' }
+              : null),
+          },
           extra: mergedStyles.extra,
           title: mergedStyles.title,
           actions: mergedStyles.actions,
           cover: mergedStyles.cover,
         }}
         classNames={{
-          header: clsx(`${prefixCls}-header`, hashId, classNames?.header),
+          header: clsx(
+            `${prefixCls}-header`,
+            hashId,
+            classNames?.header,
+            {
+              [`${prefixCls}-header-border`]:
+                headerBordered || type === 'inner',
+              [`${prefixCls}-header-collapsible`]: headerCollapsible,
+            },
+          ),
           body: bodyCls,
           extra: extraCls,
           title: titleCls,
           actions: clsx(`${prefixCls}-actions`, hashId, classNames?.actions),
           cover: clsx(`${prefixCls}-cover`, hashId, classNames?.cover),
         }}
-        title={
-          title ? (
-            <LabelIconTip label={title} tooltip={tooltip} subTitle={subTitle} />
-          ) : undefined
-        }
+        title={antdTitle}
         extra={extra}
-        cover={cover}
-        actions={actions as React.ReactNode[] | undefined}
-        loading={Boolean(loading)}
+        // 折叠时隐藏 cover / actions（两路径一致）
+        cover={collapsed ? undefined : cover}
+        actions={
+          collapsed ? undefined : (actions as React.ReactNode[] | undefined)
+        }
+        // tabs 用自定义 Loading，避免与 antd Card skeleton 叠用
+        loading={!collapsed && Boolean(loading) && !tabs}
         hoverable={hoverable}
-        size={size}
+        size={antdCardSize}
         type={type === 'default' ? undefined : type}
         variant={variant}
         onClick={(event) => {
@@ -376,10 +463,23 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             event.stopPropagation();
             return;
           }
+          if (
+            headerCollapsible &&
+            event.target instanceof Element
+          ) {
+            const header = event.target.closest(`.${prefixCls}-header`);
+            // 仅响应本卡 header，忽略嵌套 ProCard 的 header 冒泡
+            if (
+              header &&
+              header.closest(`.${prefixCls}`) === event.currentTarget
+            ) {
+              setCollapsed(!collapsed);
+            }
+          }
           rest.onClick?.(event);
         }}
       >
-        {childrenModified}
+        {wrapCollapseContent(antdBodyContent)}
       </AntdCard>,
     );
   }
@@ -430,26 +530,17 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       {tabs ? (
         loading ? (
           <div className={bodyCls} style={mergedStyles.body}>
-            {loadingDOM}
+            {wrapCollapseContent(loadingDOM)}
           </div>
         ) : (
-          <Tabs
-            onChange={tabs.onChange}
-            {...omit(tabs, ['cardProps'])}
-            items={ModifyTabItemsContent}
-            className={clsx(`${prefixCls}-tabs`, hashId, {
-              // #9052 tabs.cardProps.ghost：去掉 tab 内容区 padding，
-              // 与顶层 ghost 语义一致（内容区无 padding、透明背景）
-              [`${prefixCls}-tabs-ghost`]: tabs.cardProps?.ghost,
-            })}
-          />
+          wrapCollapseContent(tabsNode)
         )
       ) : (
         <div className={bodyCls} style={mergedStyles.body}>
-          {loading ? loadingDOM : childrenModified}
+          {wrapCollapseContent(loading ? loadingDOM : childrenModified)}
         </div>
       )}
-      {actions ? (
+      {actions && !collapsed ? (
         <Actions
           actions={actions}
           prefixCls={prefixCls}

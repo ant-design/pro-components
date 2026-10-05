@@ -17,6 +17,9 @@ describe('#9052 ProCard tabs cardProps ghost', () => {
       />,
     );
 
+    const card = container.querySelector('.ant-pro-card');
+    expect(card).toHaveClass('ant-card');
+    expect(card).not.toHaveClass('ant-pro-card-legacy');
     const tabs = container.querySelector('.ant-pro-card-tabs');
     expect(tabs?.classList.contains('ant-pro-card-tabs-ghost')).toBe(true);
   });
@@ -32,6 +35,9 @@ describe('#9052 ProCard tabs cardProps ghost', () => {
       />,
     );
 
+    const card = container.querySelector('.ant-pro-card');
+    expect(card).toHaveClass('ant-card');
+    expect(card).not.toHaveClass('ant-pro-card-legacy');
     const tabs = container.querySelector('.ant-pro-card-tabs');
     expect(tabs?.classList.contains('ant-pro-card-tabs-ghost')).toBe(false);
   });
