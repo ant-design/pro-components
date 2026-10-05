@@ -154,14 +154,13 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      // 仅 collapsed、无 collapsible：内容已卸载，隐藏空 body 避免留白
+      // 仅 collapsed（无 collapsible）：内容已卸载，藏空 body
       [`&&${componentCls}-legacy${componentCls}-collapse:not(${componentCls}-collapsible) > ${componentCls}-body`]:
         {
           display: 'none',
         },
 
-      // 内容区折叠：grid 0fr/1fr + motion token。
-      // 动画过程保持 overflow:hidden；完全展开后再 resting 放开裁剪。
+      // 高度折叠：grid 0fr/1fr + motion token；resting 后放开 overflow
       [` ${componentCls}-collapse-panel`]: {
         display: 'grid',
         gridTemplateRows: '0fr',
@@ -192,7 +191,7 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           paddingBlock: token.paddingSM,
         },
 
-      // legacy 折叠时同步去掉 body 内边距（padding 已在 panel-content）
+      // collapsible + legacy：padding 在 panel-content，body 清零
       [`&&${componentCls}-collapsible${componentCls}-legacy > ${componentCls}-body`]:
         {
           paddingBlock: 0,

@@ -87,7 +87,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     controlCollapsed,
   );
 
-  // 展开动画结束后再放开 overflow，避免打断 grid 高度过渡又裁切展开内容
+  // collapsed 收起过程中先关掉 resting，避免 overflow:visible 打断高度过渡
   const [collapseRestingOpen, setCollapseRestingOpen] = useState(
     () => !(controlCollapsed ?? defaultCollapsed),
   );
@@ -95,7 +95,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     setCollapseRestingOpen(false);
   }
 
-  // reduced-motion 下无 transitionend，展开后需立刻放开 overflow
+  // prefers-reduced-motion 时往往没有 transitionend
   useEffect(() => {
     if (collapsed || typeof window === 'undefined') return;
     const media = window.matchMedia?.('(prefers-reduced-motion: reduce)');
@@ -365,10 +365,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     />
   ) : null;
 
-  // 可折叠内容区高度过渡（motion token）。
-  // - 仅 collapsible 时做高度动画
-  // - collapsed 仍可单独生效（无 collapsible 时直接显隐，兼容旧用法）
-  // - 嵌套布局壳不做高度动画：body flex 依赖直接子节点
+  // collapsed：收起内容；collapsible：是否可交互并做高度动画（motion token）。
+  // 仅 collapsed、或嵌套布局壳：直接显隐，避免打断 body flex 子节点。
   const wrapCollapsePanel = (content: React.ReactNode) => {
     if (!collapsible) {
       return collapsed ? null : content;
@@ -394,7 +392,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       >
         <div
           className={clsx(`${prefixCls}-collapse-panel-content`, hashId, {
-            // 可折叠时 body 自身 padding 置 0，内边距挪到 panel 内随高度一起动
+            // body padding 已置 0，改由 panel 承担，随高度一起收展
             [`${prefixCls}-collapse-panel-content-padded`]: !tabs,
           })}
         >
@@ -440,7 +438,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
               : null),
             ...(headerCollapsible ? { cursor: 'pointer' } : null),
           },
-          // tabs / 布局壳 / 可折叠：body padding 置 0（可折叠由 panel-content 承担内边距）
+          // tabs / 布局壳 / collapsible：body 去 padding（后者改由 panel-content 提供）
           body: {
             ...mergedStyles.body,
             ...(tabs || isLayoutShell || collapsible ? { padding: 0 } : null),
@@ -469,12 +467,12 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         }}
         title={antdTitle}
         extra={extra}
-        // 折叠时一并隐藏 cover / actions，与 legacy 路径保持一致
+        // 折叠时隐藏 cover / actions（两路径一致）
         cover={collapsed ? undefined : cover}
         actions={
           collapsed ? undefined : (actions as React.ReactNode[] | undefined)
         }
-        // tabs 使用自定义 Loading，避免与 antd Card skeleton 冲突
+        // tabs 用自定义 Loading，避免与 antd Card skeleton 叠用
         loading={!collapsed && Boolean(loading) && !tabs}
         hoverable={hoverable}
         size={antdCardSize}
@@ -493,7 +491,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             event.target instanceof Element &&
             event.target.closest(`.${prefixCls}-header`)
           ) {
-            // 受控折叠与 legacy 一致：基于当前渲染值取反
+            // 受控折叠：按当前渲染值取反（与 legacy 一致）
             setCollapsed(!collapsed);
           }
           rest.onClick?.(event);
@@ -557,7 +555,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         )
       ) : (
         <div className={bodyCls} style={mergedStyles.body}>
-          {/* panel 放在 body 内，避免打断 legacy `> body` 样式 */}
+          {/* panel 放在 body 内，保留 legacy `> body` 选择器 */}
           {wrapCollapsePanel(loading ? loadingDOM : childrenModified)}
         </div>
       )}

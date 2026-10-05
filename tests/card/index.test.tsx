@@ -174,7 +174,7 @@ describe('Card', () => {
         '.ant-pro-card-collapse',
       ),
     ).toBeTruthy();
-    // collapsed 可单独生效（无需 collapsible）
+    // collapsed 无需 collapsible 也可收起内容
     expect(wrapper.queryByTestId('collapsed-body')).toBeNull();
 
     act(() => {
