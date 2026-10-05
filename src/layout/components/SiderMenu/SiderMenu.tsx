@@ -499,6 +499,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               height: '100%',
               width: '100%',
               opacity: hideMenuWhenCollapsedClassName ? 0 : 1,
+              pointerEvents: hideMenuWhenCollapsedClassName ? 'none' : undefined,
             }}
           >
             {menuDomItems}

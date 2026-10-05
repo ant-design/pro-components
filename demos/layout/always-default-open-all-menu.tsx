@@ -76,7 +76,6 @@ const Demo = () => (
       }}
       menu={{
         defaultOpenAll: true,
-        hideMenuWhenCollapsed: true,
         ignoreFlatMenu: true,
       }}
     >
