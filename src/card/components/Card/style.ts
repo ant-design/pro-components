@@ -26,12 +26,15 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       marginInline: 0,
       paddingBlock: 0,
       paddingInline: 0,
-      backgroundColor: token.colorBgContainer,
-      borderRadius: token.borderRadiusLG,
-      transition: 'all 0.3s',
-      ...resetComponent?.(token),
 
-      '&-box-shadow': {
+      [`&${componentCls}-legacy`]: {
+        ...resetComponent?.(token),
+        backgroundColor: token.colorBgContainer,
+        borderRadius: token.borderRadiusLG,
+        transition: 'all 0.3s',
+      },
+
+      [`&${componentCls}-legacy${componentCls}-box-shadow`]: {
         boxShadow: token.boxShadowTertiary,
         borderColor: 'transparent',
       },
@@ -64,11 +67,11 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      '&-border': {
+      [`&${componentCls}-legacy${componentCls}-border`]: {
         border: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
       },
 
-      '&-hoverable': {
+      [`&${componentCls}-legacy${componentCls}-hoverable`]: {
         cursor: 'pointer',
         transition: 'box-shadow 0.3s, border-color 0.3s',
 
@@ -82,7 +85,7 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      '&-checked': {
+      [`&${componentCls}-legacy${componentCls}-checked`]: {
         ...genActiveStyle(token),
         '&::after': {
           visibility: 'visible',
@@ -100,11 +103,11 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      '&:focus': {
+      [`&${componentCls}-legacy:focus`]: {
         ...genActiveStyle(token),
       },
 
-      '&&-ghost': {
+      [`&&${componentCls}-legacy${componentCls}-ghost`]: {
         backgroundColor: 'transparent',
         border: 'none',
         boxShadow: 'none',
@@ -124,24 +127,26 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      '&&-split > &-body': {
-        paddingBlock: 0,
-        paddingInline: 0,
-      },
+      [`&&${componentCls}-legacy${componentCls}-split > ${componentCls}-body`]:
+        {
+          paddingBlock: 0,
+          paddingInline: 0,
+        },
 
-      '&&-contain-card > &-body': {
-        display: 'flex',
-      },
+      [`&&${componentCls}-legacy${componentCls}-contain-card > ${componentCls}-body`]:
+        {
+          display: 'flex',
+        },
 
-      [`${componentCls}-body-direction-column`]: {
+      [`&${componentCls}-legacy ${componentCls}-body-direction-column`]: {
         flexDirection: 'column',
       },
 
-      [`${componentCls}-body-wrap`]: {
+      [`&${componentCls}-legacy ${componentCls}-body-wrap`]: {
         flexWrap: 'wrap',
       },
 
-      '&&-collapse': {
+      [`&&${componentCls}-legacy${componentCls}-collapse`]: {
         [`> ${componentCls}`]: {
           '&-header': {
             paddingBlockEnd: token.padding,
@@ -154,7 +159,7 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      [`${componentCls}-header`]: {
+      [`&${componentCls}-legacy > ${componentCls}-header`]: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -174,26 +179,28 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      [`${componentCls}-title`]: {
-        color: token.colorText,
-        fontWeight: token.fontWeightStrong,
-        fontSize:
-          (token.components?.Card?.headerFontSize as number | undefined) ??
-          token.fontSizeLG,
-        lineHeight: token.lineHeight,
-      },
+      [`&${componentCls}-legacy > ${componentCls}-header ${componentCls}-title`]:
+        {
+          color: token.colorText,
+          fontWeight: token.fontWeightStrong,
+          fontSize:
+            (token.components?.Card?.headerFontSize as number | undefined) ??
+            token.fontSizeLG,
+          lineHeight: token.lineHeight,
+        },
 
-      [`${componentCls}-extra`]: {
-        color: token.colorText,
-      },
+      [`&${componentCls}-legacy > ${componentCls}-header ${componentCls}-extra`]:
+        {
+          color: token.colorText,
+        },
 
-      [`${componentCls}-type-inner`]: {
-        [`${componentCls}-header`]: {
+      [`&${componentCls}-legacy${componentCls}-type-inner`]: {
+        [`> ${componentCls}-header`]: {
           backgroundColor: token.colorFillAlter,
         },
       },
 
-      [`${componentCls}-collapsible-icon`]: {
+      [`&${componentCls}-legacy ${componentCls}-collapsible-icon`]: {
         marginInlineEnd: token.marginXS,
         color: token.colorIconHover,
         ':hover': {
@@ -205,7 +212,7 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      [`${componentCls}-cover`]: {
+      [`&${componentCls}-legacy > ${componentCls}-cover`]: {
         overflow: 'hidden',
         borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
         '& > *': {
@@ -217,7 +224,7 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      [`${componentCls}-body`]: {
+      [`&${componentCls}-legacy > ${componentCls}-body`]: {
         display: 'block',
         boxSizing: 'border-box',
         height: '100%',
@@ -231,26 +238,22 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      '&&-size-small': {
-        [componentCls]: {
-          '&-header': {
-            paddingInline: token.paddingSM,
-            paddingBlock: token.paddingXS,
-            paddingBlockEnd: 0,
+      [`&&${componentCls}-legacy${componentCls}-size-small`]: {
+        [`> ${componentCls}-header`]: {
+          paddingInline: token.paddingSM,
+          paddingBlock: token.paddingXS,
+          paddingBlockEnd: 0,
 
-            '&-border': {
-              paddingBlockEnd: token.paddingXS,
-            },
+          [`&${componentCls}-header-border`]: {
+            paddingBlockEnd: token.paddingXS,
           },
-
-          '&-title': {
-            fontSize: token.fontSize,
-          },
-
-          '&-body': {
-            paddingInline: token.paddingSM,
-            paddingBlock: token.paddingSM,
-          },
+        },
+        [`> ${componentCls}-header ${componentCls}-title`]: {
+          fontSize: token.fontSize,
+        },
+        [`> ${componentCls}-body`]: {
+          paddingInline: token.paddingSM,
+          paddingBlock: token.paddingSM,
         },
         [` ${componentCls}-divider`]: {
           marginBlock: token.marginLG,

@@ -1,6 +1,6 @@
 import { RightOutlined } from '@ant-design/icons';
 import { omit, useControlledState } from '@rc-component/util';
-import { ConfigProvider, Grid, Tabs } from 'antd';
+import { Card as AntdCard, ConfigProvider, Grid, Tabs } from 'antd';
 import { clsx } from 'clsx';
 import React, { useCallback, useContext } from 'react';
 import { proTheme } from '../../../provider';
@@ -220,6 +220,27 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     return element;
   });
 
+  // 基础卡片直接复用 antd Card 的样式管线，自动跟随 Card token、cssVar、
+  // variant 和 hover 阴影。涉及 ProCard 特有布局或交互时继续走兼容实现。
+  const useAntdCard =
+    !containProCard &&
+    !split &&
+    !collapsible &&
+    !collapsibleIconRender &&
+    controlCollapsed === undefined &&
+    !defaultCollapsed &&
+    !tabs &&
+    !ghost &&
+    checked === undefined &&
+    !onChecked &&
+    !headerBordered &&
+    !boxShadow &&
+    !React.isValidElement(loading) &&
+    (!layout || layout === 'default') &&
+    !wrap &&
+    !direction &&
+    (!actions || Array.isArray(actions));
+
   const cardCls = clsx(
     `${prefixCls}`,
     className,
@@ -227,6 +248,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     hashId,
     classNames?.root,
     {
+      [`${prefixCls}-antd-card`]: useAntdCard,
+      [`${prefixCls}-legacy`]: !useAntdCard,
       [`${prefixCls}-border`]: variant === 'outlined',
       [`${prefixCls}-box-shadow`]: boxShadow,
       [`${prefixCls}-contain-card`]: containProCard,
@@ -308,6 +331,58 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const extraCls = clsx(`${prefixCls}-extra`, hashId, classNames?.extra);
 
   const rootStyle = { ...mergedStyles.root, ...style };
+
+  if (useAntdCard) {
+    return wrapSSR(
+      <AntdCard
+        {...omit(rest, ['prefixCls', 'colSpan'])}
+        ref={ref}
+        className={cardCls}
+        style={rootStyle}
+        styles={{
+          header: mergedStyles.header,
+          body: mergedStyles.body,
+          extra: mergedStyles.extra,
+          title: mergedStyles.title,
+          actions: mergedStyles.actions,
+          cover: mergedStyles.cover,
+        }}
+        classNames={{
+          header: clsx(`${prefixCls}-header`, hashId, classNames?.header),
+          body: bodyCls,
+          extra: extraCls,
+          title: titleCls,
+          actions: clsx(`${prefixCls}-actions`, hashId, classNames?.actions),
+          cover: clsx(`${prefixCls}-cover`, hashId, classNames?.cover),
+        }}
+        title={
+          title ? (
+            <LabelIconTip label={title} tooltip={tooltip} subTitle={subTitle} />
+          ) : undefined
+        }
+        extra={extra}
+        cover={cover}
+        actions={actions as React.ReactNode[] | undefined}
+        loading={Boolean(loading)}
+        hoverable={hoverable}
+        size={size}
+        type={type === 'default' ? undefined : type}
+        variant={variant}
+        onClick={(event) => {
+          if (
+            event.target instanceof Element &&
+            event.target.closest(`.${prefixCls}-extra`)
+          ) {
+            event.stopPropagation();
+            return;
+          }
+          rest.onClick?.(event);
+        }}
+      >
+        {childrenModified}
+      </AntdCard>,
+    );
+  }
 
   return wrapSSR(
     <div
