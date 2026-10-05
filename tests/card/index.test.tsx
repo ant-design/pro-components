@@ -445,6 +445,35 @@ describe('Card', () => {
     expect(panel).toBeTruthy();
     expect(panel).not.toHaveClass('ant-pro-card-collapse-panel-active');
     expect(panel).toHaveAttribute('aria-hidden', 'true');
+    expect(panel).toHaveAttribute('inert');
     expect(wrapper.getByTestId('body-text')).toBeTruthy();
+  });
+
+  it('keeps nested children mounted when layout shell collapses', () => {
+    const wrapper = render(
+      <ProCard collapsible defaultCollapsed>
+        <ProCard title="子卡片">
+          <input data-testid="nested-input" defaultValue="draft" />
+        </ProCard>
+      </ProCard>,
+    );
+    const shell = wrapper.container.querySelector(
+      '.ant-pro-card-collapse-shell',
+    );
+    expect(shell).toHaveClass('ant-pro-card-collapse-shell-collapsed');
+    expect(wrapper.getByTestId('nested-input')).toHaveValue('draft');
+  });
+
+  it('does not pad collapse panel when ghost', () => {
+    const wrapper = render(
+      <ProCard ghost collapsible>
+        内容
+      </ProCard>,
+    );
+    expect(
+      wrapper.container.querySelector(
+        '.ant-pro-card-collapse-panel-content-padded',
+      ),
+    ).toBeNull();
   });
 });

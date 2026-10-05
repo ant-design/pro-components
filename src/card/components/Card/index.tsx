@@ -365,15 +365,43 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     />
   ) : null;
 
-  // collapsed：收起内容；collapsible：是否可交互并做高度动画（motion token）。
-  // 仅 collapsed、或嵌套布局壳：直接显隐，避免打断 body flex 子节点。
+  // collapsed：收起；collapsible：可交互 + 高度动画。
+  // 布局壳始终挂载并用 display 显隐，保留子树状态且不打断 body flex。
   const wrapCollapsePanel = (content: React.ReactNode) => {
+    if (isLayoutShell) {
+      return (
+        <div
+          className={clsx(`${prefixCls}-collapse-shell`, hashId, {
+            [`${prefixCls}-collapse-shell-collapsed`]: collapsed,
+          })}
+          aria-hidden={collapsed}
+          {...(collapsed
+            ? ({ inert: '' } as React.HTMLAttributes<HTMLDivElement>)
+            : null)}
+        >
+          {content}
+        </div>
+      );
+    }
+
     if (!collapsible) {
       return collapsed ? null : content;
     }
-    if (isLayoutShell) {
-      return collapsed ? null : content;
-    }
+
+    const bodyPadding = mergedStyles.body?.padding;
+    const panelPadded =
+      !tabs &&
+      !ghost &&
+      bodyPadding === undefined;
+    const panelContentStyle =
+      !tabs &&
+      !ghost &&
+      bodyPadding != null &&
+      bodyPadding !== 0 &&
+      bodyPadding !== '0px'
+        ? { padding: bodyPadding }
+        : undefined;
+
     return (
       <div
         className={clsx(`${prefixCls}-collapse-panel`, hashId, {
@@ -382,6 +410,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             !collapsed && collapseRestingOpen,
         })}
         aria-hidden={collapsed}
+        {...(collapsed
+          ? ({ inert: '' } as React.HTMLAttributes<HTMLDivElement>)
+          : null)}
         onTransitionEnd={(event) => {
           if (event.target !== event.currentTarget) return;
           if (event.propertyName !== 'grid-template-rows') return;
@@ -392,9 +423,10 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       >
         <div
           className={clsx(`${prefixCls}-collapse-panel-content`, hashId, {
-            // body padding 已置 0，改由 panel 承担，随高度一起收展
-            [`${prefixCls}-collapse-panel-content-padded`]: !tabs,
+            // body 已去 padding；默认内边距由 panel 承担（ghost / 显式 0 不加）
+            [`${prefixCls}-collapse-panel-content-padded`]: panelPadded,
           })}
+          style={panelContentStyle}
         >
           {content}
         </div>

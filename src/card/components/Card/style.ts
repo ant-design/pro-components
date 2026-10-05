@@ -160,6 +160,14 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           display: 'none',
         },
 
+      // 布局壳折叠：display:contents 保留 flex 子节点；收起用 none 隐藏且不卸载
+      [` ${componentCls}-collapse-shell`]: {
+        display: 'contents',
+      },
+      [` ${componentCls}-collapse-shell-collapsed`]: {
+        display: 'none',
+      },
+
       // 高度折叠：grid 0fr/1fr + motion token；resting 后放开 overflow
       [` ${componentCls}-collapse-panel`]: {
         display: 'grid',
