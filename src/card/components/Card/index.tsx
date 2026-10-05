@@ -348,9 +348,13 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     />
   ) : null;
 
-  // 可折叠时内容保持挂载，用 token 驱动的高度过渡；非折叠不包一层 DOM
+  // 可折叠内容区高度过渡（motion token）。
+  // 嵌套布局壳不包 panel：body 上的 flex/方向依赖直接子节点。
   const wrapCollapsePanel = (content: React.ReactNode) => {
     if (!collapsible) return content;
+    if (isLayoutShell) {
+      return collapsed ? null : content;
+    }
     return (
       <div
         className={clsx(`${prefixCls}-collapse-panel`, hashId, {
@@ -465,20 +469,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     );
   }
 
-  const legacyBodyContent = tabs ? (
-    loading ? (
-      <div className={bodyCls} style={mergedStyles.body}>
-        {loadingDOM}
-      </div>
-    ) : (
-      tabsNode
-    )
-  ) : (
-    <div className={bodyCls} style={mergedStyles.body}>
-      {loading ? loadingDOM : childrenModified}
-    </div>
-  );
-
   return wrapSSR(
     <div
       className={cardCls}
@@ -522,7 +512,20 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           {cover}
         </div>
       )}
-      {wrapCollapsePanel(legacyBodyContent)}
+      {tabs ? (
+        loading ? (
+          <div className={bodyCls} style={mergedStyles.body}>
+            {wrapCollapsePanel(loadingDOM)}
+          </div>
+        ) : (
+          wrapCollapsePanel(tabsNode)
+        )
+      ) : (
+        <div className={bodyCls} style={mergedStyles.body}>
+          {/* panel 放在 body 内，避免打断 legacy `> body` 样式 */}
+          {wrapCollapsePanel(loading ? loadingDOM : childrenModified)}
+        </div>
+      )}
       {actions && !collapsed ? (
         <Actions
           actions={actions}

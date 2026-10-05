@@ -154,7 +154,7 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      // 内容区折叠：grid 0fr/1fr + motion token；两路径共用
+      // 内容区折叠：grid 0fr/1fr + motion token；展开态不裁剪、不压扁内容高度
       [` ${componentCls}-collapse-panel`]: {
         display: 'grid',
         gridTemplateRows: '0fr',
@@ -166,6 +166,12 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           overflow: 'hidden',
           minHeight: 0,
         },
+        // 展开后恢复可见溢出与自然高度，避免 Select/阴影被裁、子项被压扁
+        [`&${componentCls}-collapse-panel-active > ${componentCls}-collapse-panel-content`]:
+          {
+            overflow: 'visible',
+            minHeight: 'auto',
+          },
         '@media (prefers-reduced-motion: reduce)': {
           transition: 'none',
         },
