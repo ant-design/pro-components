@@ -383,8 +383,9 @@ function cellRenderToFromItem<T extends AnyObject>(
     : [];
   /**
    * 生成公用的 proField dom 配置
+   * record 为表格行数据透传字段，不在 ProFormFieldProps 公共类型上，用交叉类型补全
    */
-  const proFieldProps = {
+  const proFieldProps: ProFormFieldProps & { record?: T } = {
     valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
     dependencies: columnProps?.dependencies ? [dependencies] : undefined,
@@ -407,7 +408,7 @@ function cellRenderToFromItem<T extends AnyObject>(
       emptyText: config.columnEmptyText,
       proFieldKey: columnKey ? `table-field-${columnKey}` : undefined,
     },
-  } as ProFormFieldProps;
+  };
 
   /** 只读模式直接返回就好了，不需要处理 formItem */
   if (config.mode !== 'edit') {

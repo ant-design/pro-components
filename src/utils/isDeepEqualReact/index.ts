@@ -59,8 +59,18 @@ export function isDeepEqualReact(
     }
 
     if (ArrayBuffer.isView(a) && ArrayBuffer.isView(b)) {
-      const aView = a as ArrayBufferView & ArrayLike<number>;
-      const bView = b as ArrayBufferView & ArrayLike<number>;
+      // DataView 没有可索引的 length，需按字节比较
+      if (a instanceof DataView || b instanceof DataView) {
+        if (!(a instanceof DataView && b instanceof DataView)) return false;
+        if (a.byteLength !== b.byteLength) return false;
+        for (i = a.byteLength; i-- !== 0; ) {
+          if (a.getUint8(i) !== b.getUint8(i)) return false;
+        }
+        return true;
+      }
+      const aView = a as ArrayBufferView & ArrayLike<unknown>;
+      const bView = b as ArrayBufferView & ArrayLike<unknown>;
+      if (!('length' in aView) || !('length' in bView)) return false;
       length = aView.length;
       if (length != bView.length) return false;
       for (i = length; i-- !== 0; ) if (aView[i] !== bView[i]) return false;
