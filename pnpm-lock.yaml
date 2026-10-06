@@ -82,7 +82,7 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       '@babel/core':
-        specifier: ^7.29.7
+        specifier: '>=7.29.6 <8'
         version: 7.29.7
       '@babel/parser':
         specifier: ^7.29.9
@@ -202,7 +202,7 @@ importers:
         specifier: ^0.31.1
         version: 0.31.1(@types/react@18.3.31)(dumi@2.4.50(@babel/core@7.29.7)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@swc/helpers@0.5.23)(@types/node@26.6.4)(@types/react@18.3.31)(@typescript/typescript6@6.0.2)(jiti@2.7.0)(lightningcss@1.33.0)(prettier@3.9.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rolldown@1.2.12)(rollup@4.64.0)(tsx@4.23.15)(type-fest@4.41.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       esbuild:
-        specifier: ^0.28.2
+        specifier: '>=0.25.0'
         version: 0.28.2
       execa:
         specifier: ^10.0.1
@@ -17957,7 +17957,7 @@ snapshots:
       jest-environment-jsdom: 26.6.2
       jest-environment-node: 26.6.2
       jest-get-type: 26.3.0
-      jest-jasmine2: 26.6.3
+      jest-jasmine2: 26.6.3(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.23))(@types/node@26.6.4)(@typescript/typescript6@6.0.2))
       jest-regex-util: 26.0.0
       jest-resolve: 26.6.2
       jest-util: 26.6.2
@@ -18053,7 +18053,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  jest-jasmine2@26.6.3:
+  jest-jasmine2@26.6.3(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.23))(@types/node@26.6.4)(@typescript/typescript6@6.0.2)):
     dependencies:
       '@babel/traverse': 7.29.8
       '@jest/environment': 26.6.2
@@ -18074,7 +18074,11 @@ snapshots:
       pretty-format: 26.6.2
       throat: 5.0.0
     transitivePeerDependencies:
+      - bufferutil
+      - canvas
       - supports-color
+      - ts-node
+      - utf-8-validate
 
   jest-leak-detector@26.6.2:
     dependencies:
