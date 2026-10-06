@@ -62,7 +62,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
     onChange,
     value,
     mode,
-    defaultValue,
+    defaultValue: _defaultValue,
     labelVariant,
     size,
     showSearch,

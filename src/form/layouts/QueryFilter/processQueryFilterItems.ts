@@ -88,7 +88,6 @@ export function processQueryFilterItems({
   let totalSpan = 0;
   let itemLength = 0;
   let totalSize = 0;
-  let currentSpan = 0;
 
   const processedList: ProcessedQueryFilterItem[] = flatItems.map(
     (item, index) => {

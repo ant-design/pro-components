@@ -1256,6 +1256,52 @@ export function useEditableArray<RecordType extends AnyObject>(
   });
 
   /**
+   * #8930 name 模式下，过滤/分页会让展示 index 与 dataSource 的真实 index 错位，
+   * 表单字段的 namePath 如果用展示 index 会读写到错误的行。
+   * 默认实现：按业务 rowKey 在 dataSource（含嵌套 children）中反查完整路径；
+   * 嵌套行返回 `[父索引, childrenColumnName, 子索引, ...]`。
+   * 用户显式传入 getRealIndex 时优先使用用户的。
+   */
+  const defaultGetRealIndex = useRefFunction(
+    (record: RecordType): number | React.Key[] | undefined => {
+      if (!props.tableName) return undefined;
+      const recordKey = props.getRowKey(record, -1);
+      // rowKey 未配置时 getRowKey 会退化为 index（此处为 -1），
+      // 所有行都会命中同一个 key，反查结果无意义，直接跳过
+      if (recordKey == null || recordKey === -1) return undefined;
+      const recordKeyStr = recordKey.toString();
+      const walk = (
+        records: RecordType[],
+        parentPath: React.Key[] = [],
+      ): React.Key[] | undefined => {
+        for (let i = 0; i < records.length; i++) {
+          const item = records[i];
+          // 注意：name 模式下 getRowKey(item, i) 返回的是 index 字符串，
+          // 业务 key 必须通过 getRowKey(item, -1) 获取（与 buildDataSourceKeyIndexMap 约定一致）
+          if (props.getRowKey(item, -1)?.toString() === recordKeyStr) {
+            return [...parentPath, i];
+          }
+          const children =
+            props.childrenColumnName &&
+            (item as any)?.[props.childrenColumnName];
+          if (Array.isArray(children)) {
+            const found = walk(children, [
+              ...parentPath,
+              i,
+              props.childrenColumnName || 'children',
+            ]);
+            if (found !== undefined) return found;
+          }
+        }
+        return undefined;
+      };
+      const path = walk(props.dataSource || []);
+      if (!path) return undefined;
+      return path.length === 1 ? Number(path[0]) : path;
+    },
+  );
+
+  /**
    * cancelEditable 子步骤 3：把 form 中该行的字段恢复为编辑前的快照（name 模式）
    * 或直接清空（非 name 模式），并重置 preEditRowRef
    */
@@ -1285,7 +1331,6 @@ export function useEditableArray<RecordType extends AnyObject>(
         // `[parentIndex, childrenColumnName, childIndex, ...]`，必须保留数组段；
         // Array#toString 会错误地产生单个 `0,children,1` 字段名。
         let rowPathKey: React.Key | React.Key[] | undefined =
-          // oxlint-disable-next-line no-use-before-define
           props.getRealIndex?.(originRow) ?? defaultGetRealIndex(originRow);
         if (rowPathKey == null) {
           const mappedIndexKey = indexKey?.toString();
@@ -1375,8 +1420,8 @@ export function useEditableArray<RecordType extends AnyObject>(
   );
 
   const propsOnValuesChange = useDebounceFn(async (...rest: any[]) => {
-    //@ts-ignore
-    props.onValuesChange?.(...rest);
+    const [record, dataSource] = rest as [RecordType, RecordType[]];
+    props.onValuesChange?.(record, dataSource);
   }, 64);
 
   /**
@@ -1871,7 +1916,6 @@ export function useEditableArray<RecordType extends AnyObject>(
       cancelEditable,
       index: row.index,
       tableName: props.tableName,
-      // oxlint-disable-next-line no-use-before-define
       rowNamePath: props.getRealIndex?.(row) ?? defaultGetRealIndex(row) ?? key,
       newLineConfig: newLineRecordCache,
       onCancel: actionCancelRef,
@@ -1905,52 +1949,6 @@ export function useEditableArray<RecordType extends AnyObject>(
       });
     return [renderResult.save, renderResult.delete, renderResult.cancel];
   };
-
-  /**
-   * #8930 name 模式下，过滤/分页会让展示 index 与 dataSource 的真实 index 错位，
-   * 表单字段的 namePath 如果用展示 index 会读写到错误的行。
-   * 默认实现：按业务 rowKey 在 dataSource（含嵌套 children）中反查完整路径；
-   * 嵌套行返回 `[父索引, childrenColumnName, 子索引, ...]`。
-   * 用户显式传入 getRealIndex 时优先使用用户的。
-   */
-  const defaultGetRealIndex = useRefFunction(
-    (record: RecordType): number | React.Key[] | undefined => {
-      if (!props.tableName) return undefined;
-      const recordKey = props.getRowKey(record, -1);
-      // rowKey 未配置时 getRowKey 会退化为 index（此处为 -1），
-      // 所有行都会命中同一个 key，反查结果无意义，直接跳过
-      if (recordKey == null || recordKey === -1) return undefined;
-      const recordKeyStr = recordKey.toString();
-      const walk = (
-        records: RecordType[],
-        parentPath: React.Key[] = [],
-      ): React.Key[] | undefined => {
-        for (let i = 0; i < records.length; i++) {
-          const item = records[i];
-          // 注意：name 模式下 getRowKey(item, i) 返回的是 index 字符串，
-          // 业务 key 必须通过 getRowKey(item, -1) 获取（与 buildDataSourceKeyIndexMap 约定一致）
-          if (props.getRowKey(item, -1)?.toString() === recordKeyStr) {
-            return [...parentPath, i];
-          }
-          const children =
-            props.childrenColumnName &&
-            (item as any)?.[props.childrenColumnName];
-          if (Array.isArray(children)) {
-            const found = walk(children, [
-              ...parentPath,
-              i,
-              props.childrenColumnName || 'children',
-            ]);
-            if (found !== undefined) return found;
-          }
-        }
-        return undefined;
-      };
-      const path = walk(props.dataSource || []);
-      if (!path) return undefined;
-      return path.length === 1 ? Number(path[0]) : path;
-    },
-  );
 
   const getRealIndex = props.getRealIndex ?? defaultGetRealIndex;
 

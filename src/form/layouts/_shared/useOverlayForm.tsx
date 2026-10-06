@@ -181,7 +181,6 @@ export function useOverlayForm<T = Record<string, any>>({
    * deps 必须是 []：formRef.current 是 mutable value，变化不会触发更新，
    * 用它做依赖项毫无意义。
    */
-  // oxlint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(propsFormRef, () => formRef.current, []);
 
   // 保留历史行为：受控弹层初始为 open 时通知一次。只在挂载时执行，
@@ -190,7 +189,6 @@ export function useOverlayForm<T = Record<string, any>>({
     if (propsOpen) {
       onOpenChange?.(true);
     }
-    // oxlint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // trigger 克隆：注入 onClick 以切换 open

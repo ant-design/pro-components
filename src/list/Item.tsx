@@ -129,10 +129,10 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
     subTitle,
     content,
     itemTitleRender,
-    prefixCls: _prefixCls, // oxlint-disable-line no-unused-vars
+    prefixCls: _prefixCls,
     actions,
-    item: _item, // oxlint-disable-line no-unused-vars
-    recordKey: _recordKey, // oxlint-disable-line no-unused-vars
+    item: _item,
+    recordKey: _recordKey,
     avatar,
     cardProps,
     description,

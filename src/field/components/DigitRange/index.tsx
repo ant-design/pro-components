@@ -28,7 +28,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
   },
   ref,
 ) => {
-  const { value, defaultValue, onChange, id } = fieldProps;
+  const { value, defaultValue, onChange } = fieldProps;
   const intl = useIntl();
 
   const { token } = proTheme.useToken();

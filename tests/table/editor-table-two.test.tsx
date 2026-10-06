@@ -236,7 +236,6 @@ const EditorProTableDemo = (
       ]}
       columns={columns.map((item) => {
         if (props.hideRules) {
-          // oxlint-disable-next-line no-param-reassign
           delete item.formItemProps;
         }
         return item;

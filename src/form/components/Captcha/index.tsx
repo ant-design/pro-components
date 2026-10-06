@@ -51,8 +51,8 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
     const inputRef = React.useRef<any>(null);
     // 这么写是为了防止restProps中 带入 onChange, defaultValue, rules props tabUtil
     const {
-      rules,
-      name,
+      rules: _rules,
+      name: _name,
       phoneName,
       fieldProps,
       onTiming,

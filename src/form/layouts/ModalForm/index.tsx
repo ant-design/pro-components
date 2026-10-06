@@ -73,7 +73,6 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     setOpen,
     loading,
     footerDomRef,
-    footerRef,
     triggerDom,
     submitterConfig,
     contentRender,

@@ -46,8 +46,8 @@ const WithValueFomFiledProps = React.forwardRef<
     : undefined;
 
   const isProFormComponent =
-    // @ts-ignore
-    filedChildren?.type?.displayName !== 'ProFormComponent';
+    (filedChildren?.type as { displayName?: string } | undefined)
+      ?.displayName !== 'ProFormComponent';
 
   const isValidElementForFiledChildren = !React.isValidElement(filedChildren);
 
@@ -73,8 +73,7 @@ const WithValueFomFiledProps = React.forwardRef<
   const omitOnBlurAndOnChangeProps = useDeepCompareMemo(
     () =>
       omit(
-        // @ts-ignore
-        childFieldProps || {},
+        (childFieldProps || {}) as Record<string, any>,
         ['onBlur', 'onChange'],
       ),
     [childFieldProps],

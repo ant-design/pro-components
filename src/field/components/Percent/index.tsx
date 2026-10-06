@@ -19,9 +19,6 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (props, ref) => {
   const {
     text,
     mode,
-    render,
-    formItemRender,
-    fieldProps,
     placeholder,
     showSymbol: propsShowSymbol,
   } = props;

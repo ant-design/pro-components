@@ -356,7 +356,7 @@ const ProFormListItem: React.FC<
   }
 > = (props) => {
   const {
-    creatorButtonProps,
+    creatorButtonProps: _creatorButtonProps,
     deleteIconProps,
     copyIconProps,
     arrowSort,
@@ -366,9 +366,9 @@ const ProFormListItem: React.FC<
     itemRender,
     alwaysShowItemLabel,
     prefixCls,
-    creatorRecord,
+    creatorRecord: _creatorRecord,
     action,
-    actionGuard,
+    actionGuard: _actionGuard,
     children,
     actionRender,
     fields,
@@ -415,7 +415,6 @@ const ProFormListItem: React.FC<
       return listContext.listName.slice(0, -1);
     }
     return listContext.listName;
-    // oxlint-disable-next-line react-hooks/exhaustive-deps
   }, [listContext.listName, listContext.name, originName]);
 
   /** 当前行的字段路径，供 getCurrentRowData/setCurrentRowData/copyIcon/options.record 复用 */

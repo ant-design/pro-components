@@ -283,4 +283,36 @@ describe('💵 ProFormMoney', () => {
     // 前置符号 + 逗号分组保持不变
     expect(html.baseElement.textContent).toContain('¥1,234.56');
   });
+
+  it('💵 de-DE edit: group/decimal swap must not leave placeholder or swapped wrong', () => {
+    const { container } = render(
+      <ProForm submitter={false}>
+        <ProFormMoney
+          name="amount"
+          initialValue={1234567.89}
+          locale="de-DE"
+          customSymbol="€"
+        />
+      </ProForm>,
+    );
+    const value = getMoneyInput(container).value;
+    // de-DE：千分位为 `.`，小数为 `,`；占位符不得残留
+    expect(value).toContain('1.234.567,89');
+    expect(value).not.toContain('\u0001');
+    expect(value).toMatch(/€/);
+  });
+
+  it('💵 fr-FR edit large number matches separator swap contract', () => {
+    const { container } = render(
+      <ProForm submitter={false}>
+        <ProFormMoney name="amount" initialValue={1234567.89} locale="fr-FR" />
+      </ProForm>,
+    );
+    const value = getMoneyInput(container).value;
+    // fr-FR 编辑态：窄空格/空格分组 + 逗号小数（具体空白字符随 Intl）
+    expect(value.replace(/[\s\u00a0\u202f]/g, ' ')).toMatch(
+      /1 234 567,89/,
+    );
+    expect(value).not.toContain('\u0001');
+  });
 });

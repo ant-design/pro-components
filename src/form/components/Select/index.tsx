@@ -208,7 +208,6 @@ const WrappedProFormSelect = ProFormSelect as (<
 
 WrappedProFormSelect.SearchSelect = ProFormSearchSelect;
 
-// @ts-ignore
-WrappedProFormSelect.displayName = 'ProFormComponent';
+Object.assign(WrappedProFormSelect, { displayName: 'ProFormComponent' });
 
 export default WrappedProFormSelect;

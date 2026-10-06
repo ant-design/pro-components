@@ -31,7 +31,6 @@ export const resizeWindow = (x: number, y: number) => {
   window.innerHeight = y;
   window.dispatchEvent(new Event('resize'));
 };
-/* oxlint-disable no-param-reassign */
 const NO_EXIST = { __NOT_EXIST: true };
 
 export function spyElementPrototypes(

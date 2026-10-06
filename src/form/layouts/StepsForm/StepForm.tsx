@@ -38,8 +38,8 @@ function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
     onFinish,
     step,
     formRef: propFormRef,
-    title,
-    stepProps,
+    title: _title,
+    stepProps: _stepProps,
     ...restProps
   } = props;
 

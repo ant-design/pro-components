@@ -165,6 +165,8 @@ describe('EditableProTable nested row edit (#8662/#7859/#8861)', () => {
   });
 
   it('name 模式取消子行编辑时恢复完整嵌套路径', async () => {
+    // 回归：defaultGetRealIndex 声明顺序调整后，取消仍须按
+    // [parentIndex, children, childIndex] 写回，不能写成 "0,children,0" 单字段。
     const user = userEvent.setup();
     const formRef = React.createRef<any>();
     const Demo = () => {

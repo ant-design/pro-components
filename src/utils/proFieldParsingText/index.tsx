@@ -9,11 +9,10 @@ import { ProFieldValueEnumType, ProSchemaValueEnumMap } from '../typing';
  * @param obj
  */
 function getType(obj: any) {
-  // @ts-ignore
-  const type = Object.prototype.toString
+  const match = Object.prototype.toString
     .call(obj)
-    .match(/^\[object (.*)]$/)[1]
-    .toLowerCase();
+    .match(/^\[object (.*)]$/);
+  const type = (match?.[1] ?? 'Unknown').toLowerCase();
   if (type === 'string' && typeof obj === 'object') return 'object'; // Let "new String('')" return 'object'
   if (obj === null) return 'null'; // PhantomJS has type "DOMWindow" for null
   if (obj === undefined) return 'undefined'; // PhantomJS has type "DOMWindow" for undefined

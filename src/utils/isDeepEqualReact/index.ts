@@ -59,12 +59,11 @@ export function isDeepEqualReact(
     }
 
     if (ArrayBuffer.isView(a) && ArrayBuffer.isView(b)) {
-      // @ts-ignore
-      length = a.length;
-      // @ts-ignore
-      if (length != b.length) return false;
-      // @ts-ignore
-      for (i = length; i-- !== 0; ) if (a[i] !== b[i]) return false;
+      const aView = a as ArrayBufferView & ArrayLike<number>;
+      const bView = b as ArrayBufferView & ArrayLike<number>;
+      length = aView.length;
+      if (length != bView.length) return false;
+      for (i = length; i-- !== 0; ) if (aView[i] !== bView[i]) return false;
       return true;
     }
 
