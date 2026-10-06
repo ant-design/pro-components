@@ -138,11 +138,10 @@ export function columnRender<T extends AnyObject>({
     subName,
     columnProps: {
       ...columnProps,
-      // 为了兼容性，原来写了个错别字
-      // @ts-ignore
+      // 为了兼容性，原来写了个错别字 entry，保留并与 entity 同值
       entry: rowData,
       entity: rowData,
-    },
+    } as ProColumns<T> & { entity: T; entry?: T },
     counter,
     columnEmptyText,
     type,

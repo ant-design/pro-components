@@ -17,8 +17,8 @@ const InputNumberPopover: React.ForwardRefExoticComponent<
   function InputNumberPopoverInner(
     {
       contentRender: content,
-      numberFormatOptions,
-      numberPopoverRender,
+      numberFormatOptions: _numberFormatOptions,
+      numberPopoverRender: _numberPopoverRender,
       open,
       onOpenChange,
       ...rest

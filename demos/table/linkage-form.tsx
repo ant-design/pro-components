@@ -1,4 +1,4 @@
-/* oxlint-disable no-console */ import { PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 import { Button, Input, Select } from 'antd';
@@ -39,7 +39,6 @@ const MySelect: React.FC<{
         { label: '二月', value: 2 },
       ]);
     }
-    // oxlint-disable-next-line react-hooks/exhaustive-deps
   }, [JSON.stringify(state)]);
 
   return (

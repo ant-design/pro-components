@@ -30,8 +30,9 @@ const FieldSetType = {
 export function defaultGetValueFromEvent(valuePropName: string, ...args: any) {
   const event = args[0];
   if (event && event.target && valuePropName in event.target) {
-    // @ts-ignore
-    return (event.target as HTMLInputElement)[valuePropName];
+    return (event.target as HTMLInputElement & Record<string, unknown>)[
+      valuePropName
+    ];
   }
   return event;
 }
@@ -45,8 +46,8 @@ const FieldSet: React.FC<ProFormFieldSetProps> = (props) => {
     fieldProps,
     space,
     type = 'space',
-    transform,
-    convertValue,
+    transform: _transform,
+    convertValue: _convertValue,
     ...rest
   } = props;
   /**
@@ -71,9 +72,10 @@ const FieldSet: React.FC<ProFormFieldSetProps> = (props) => {
     if (React.isValidElement(item)) {
       itemIndex += 1;
       const index = itemIndex;
+      const itemProps = item.props as { readonly?: boolean } | undefined;
       const isProFromItem =
-        // @ts-ignore
-        item?.type?.displayName === 'ProFormComponent' || item?.props?.readonly;
+        (item?.type as { displayName?: string } | undefined)?.displayName ===
+          'ProFormComponent' || itemProps?.readonly;
       const forkProps = isProFromItem
         ? {
             key: index,

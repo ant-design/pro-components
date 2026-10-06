@@ -12,13 +12,11 @@ import type { NamePath } from 'antd/lib/form/interface';
 import { clsx } from 'clsx';
 import type dayjs from 'dayjs';
 import React, {
-  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
-  useState,
 } from 'react';
 import { ProConfigProvider } from '../../provider';
 import type {
@@ -35,7 +33,6 @@ import {
   isDeepEqualReact,
   nanoid,
   ProFormContext,
-  runFunction,
   transformKeySubmitValue,
   useFetchData,
   usePrevious,
@@ -343,9 +340,9 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     children,
     contentRender,
     submitter,
-    fieldProps,
-    formItemProps,
-    groupProps,
+    fieldProps: _fieldProps,
+    formItemProps: _formItemProps,
+    groupProps: _groupProps,
     formatValue,
     transformKey,
     formRef: propsFormRef,
@@ -358,7 +355,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     onUrlSyncReset,
     onReset,
     omitNil = true,
-    isKeyPressSubmit,
+    isKeyPressSubmit: _isKeyPressSubmit,
     autoFocusFirstInput = true,
     grid,
     rowProps,
@@ -519,29 +516,29 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     isKeyPressSubmit,
     syncToUrlAsImportant = false,
     syncToInitialValues = true,
-    children,
-    contentRender,
-    submitter,
+    children: _children,
+    contentRender: _contentRender,
+    submitter: _submitter,
     fieldProps,
     proFieldProps,
     formItemProps,
     groupProps,
     dateFormatter = 'string',
     formRef: propsFormRef,
-    onInit,
+    onInit: _onInit,
     form,
     formComponentType,
     skipFieldRules,
-    onReset,
-    grid,
-    rowProps,
-    colProps,
-    omitNil = true,
+    onReset: _onReset,
+    grid: _grid,
+    rowProps: _rowProps,
+    colProps: _colProps,
+    omitNil: _omitNil = true,
     request,
     params,
     initialValues,
     formKey = requestFormCacheId,
-    readonly,
+    readonly: _readonly,
     onLoadingChange,
     loading: propsLoading,
     loadingRender,
@@ -831,7 +828,6 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
       // 保留错误可见性（console.error），同时避免 async 事件回调里 re-throw
       // 造成的 unhandled rejection（会中断用户页面）。若需要感知失败，
       // 推荐在 onFinish 内部自行 try/catch。
-      // oxlint-disable-next-line no-console
       console.error('[ProForm] onFinish error:', error);
     }
   });

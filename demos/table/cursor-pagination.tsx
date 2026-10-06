@@ -74,8 +74,6 @@ export default () => (
           current?: number;
           nextToken?: string;
         },
-        sort,
-        filter,
       ) => {
         const index = Number(params.nextToken ?? 0);
         return {

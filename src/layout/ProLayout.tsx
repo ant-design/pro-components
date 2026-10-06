@@ -559,7 +559,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const {
     fixSiderbar,
-    navTheme,
+    navTheme: _navTheme,
     layout: propsLayout,
     ...rest
   } = {

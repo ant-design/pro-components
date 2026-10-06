@@ -119,6 +119,11 @@ export type EditableProTableProps<
   controlled?: boolean;
   /** FormItem 的设置 */
   formItemProps?: Omit<FormItemProps, 'children' | 'name'>;
+  /**
+   * 内部剥离：部分调用方会透传 autoFocus，需避免落到 antd Table
+   * @internal
+   */
+  autoFocus?: boolean;
 } & DragSortProps<T>;
 
 const EditableTableActionContext = React.createContext<
@@ -390,7 +395,6 @@ function EditableTable<
     dragSortKey,
     dragSortHandlerRender,
     onDragSortEnd,
-    // @ts-ignore
     autoFocus: _autoFocus,
     ...rest
   } = props;
@@ -402,7 +406,6 @@ function EditableTable<
   // 设置 ref
   // actionRef 是 useRef 返回的稳定对象，其引用永远不变，
   // 将 actionRef.current 放入 deps 无效（ref 变化不触发 effect），应使用空数组。
-  // oxlint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(rest.actionRef, () => actionRef.current, []);
 
   // 在 name 模式下，如果没有传递 value prop，尝试从表单值中获取初始值

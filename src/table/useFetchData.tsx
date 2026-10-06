@@ -357,7 +357,6 @@ const useFetchData = <DataSource extends RequestData<any>>(
           typeof needPolling === 'number' &&
           needPolling < MIN_POLLING_INTERVAL_MS
         ) {
-          // oxlint-disable-next-line no-console
           console.warn(
             `[ProTable] polling=${needPolling}ms is below the minimum interval ${MIN_POLLING_INTERVAL_MS}ms and has been clamped to ${MIN_POLLING_INTERVAL_MS}ms. Lower values are not supported to avoid request pile-up.`,
           );

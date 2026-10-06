@@ -62,7 +62,7 @@ const InlineErrorFormItemPopover: React.FC<{
   input: React.ReactNode;
 }> = ({ popoverProps, input }) => {
   const { status, errors = [], warnings = [] } = Form.Item.useStatus();
-  const [open, setOpen] = useState<boolean | undefined>(false);
+  const [, setOpen] = useState<boolean | undefined>(false);
   // 校验中保持上一次的消息，避免 loading 抖动
   const [messages, setMessages] = useState<{
     errors: React.ReactNode[];

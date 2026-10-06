@@ -99,7 +99,6 @@ function DragSortTable<
         }
         return item;
       }),
-    // oxlint-disable-next-line react-hooks/exhaustive-deps
     [otherProps.columns, dragSortKey],
   );
 

@@ -29,14 +29,6 @@ import type { ContainerType } from '../Store/Provide';
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
 /**
- * 拼接用于编辑的 key
- *
- * @deprecated 请使用 buildNamePath，spellNamePath 是历史命名，保留以兼容外部引用
- */
-export const spellNamePath = (...rest: any[]): React.Key[] =>
-  buildNamePath(...rest);
-
-/**
  * 拼接用于编辑的表单字段路径（name path）
  */
 export const buildNamePath = (...rest: any[]): React.Key[] => {
@@ -51,6 +43,14 @@ export const buildNamePath = (...rest: any[]): React.Key[] => {
     });
 };
 
+/**
+ * 拼接用于编辑的 key
+ *
+ * @deprecated 请使用 buildNamePath，spellNamePath 是历史命名，保留以兼容外部引用
+ */
+export const spellNamePath = (...rest: any[]): React.Key[] =>
+  buildNamePath(...rest);
+
 type CellRenderFromItemProps<T extends AnyObject> = {
   text: string | number | (string | number)[];
   valueType: ProColumnType['valueType'];
@@ -59,6 +59,8 @@ type CellRenderFromItemProps<T extends AnyObject> = {
   columnEmptyText?: ProFieldEmptyText;
   columnProps?: ProColumnType<T> & {
     entity: T;
+    /** @deprecated 历史拼写兼容，请用 entity */
+    entry?: T;
   };
   type?: ProSchemaComponentTypes;
   // 行的唯一 key
@@ -69,7 +71,8 @@ type CellRenderFromItemProps<T extends AnyObject> = {
    */
   prefixName?: string;
   counter: ReturnType<ContainerType>;
-  proFieldProps: ProFormFieldProps;
+  /** 由 cellRenderToFromItem 生成后传入内部组件；外层入口调用时可不传 */
+  proFieldProps?: ProFormFieldProps;
   subName: string[];
   editableUtils: UseEditableUtilType;
 };
@@ -380,8 +383,9 @@ function cellRenderToFromItem<T extends AnyObject>(
     : [];
   /**
    * 生成公用的 proField dom 配置
+   * record 为表格行数据透传字段，不在 ProFormFieldProps 公共类型上，用交叉类型补全
    */
-  const proFieldProps: ProFormFieldProps = {
+  const proFieldProps: ProFormFieldProps & { record?: T } = {
     valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
     dependencies: columnProps?.dependencies ? [dependencies] : undefined,
@@ -399,7 +403,6 @@ function cellRenderToFromItem<T extends AnyObject>(
     mode: config.mode,
     formItemRender: undefined,
     valueType: valueType as ProFieldValueType,
-    // @ts-ignore
     record: rowData,
     proFieldProps: {
       emptyText: config.columnEmptyText,

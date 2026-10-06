@@ -94,8 +94,7 @@ const getDifferentSetting = (
   (Object.keys(state) as StateKey[]).forEach((key) => {
     if (
       state[key] !== defaultSettings[key] &&
-      //@ts-ignore
-      key !== 'collapse'
+      key !== ('collapse' as StateKey)
     ) {
       stateObj[key as 'navTheme'] = state[key as 'navTheme'];
     } else {
@@ -634,8 +633,8 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                       message.success(
                         formatMessage({ id: 'app.setting.copyinfo' }),
                       );
-                    } catch (error) {
-                      // console.log(error);
+                    } catch {
+                      // clipboard write may fail in insecure contexts
                     }
                   }}
                 >
