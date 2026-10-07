@@ -1,12 +1,12 @@
 import { get, set } from '@rc-component/util';
 import type { FormItemProps } from 'antd';
 import { Form } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
 import { merge } from 'lodash-es';
 import React, { useContext, useMemo } from 'react';
 import { isDeepEqualReact, ProFormContext } from '../../../utils';
-import type { ProFormInstance } from '../../BaseForm';
-import { FormListContext } from '../List';
+import type { NamePath } from '../../../utils/antdTypes';
+import type { ProFormInstance } from '../../BaseForm/typing';
+import { FormListContext } from '../List/FormListContext';
 
 declare type RenderChildren<Values = any> = (
   values: Record<string, any>,

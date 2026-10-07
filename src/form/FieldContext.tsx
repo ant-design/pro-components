@@ -1,14 +1,14 @@
 import type { FormItemProps } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
 import React from 'react';
 import type {
   ProFieldProps,
   SearchConvertKeyFn,
   SearchTransformKeyFn,
-} from '../utils';
+} from '../utils/typing';
+import type { NamePath } from '../utils/antdTypes';
 import type { ProFieldValueType } from '../utils/typing';
-import type { CommonFormProps } from './BaseForm';
-import type { FieldProps, ProFormGroupProps } from './typing';
+import type { ProFormRef } from './BaseForm/typing';
+import type { FieldProps, ProFormGridConfig, ProFormGroupProps } from './typing';
 
 export type FiledContextProps = {
   fieldProps?: FieldProps<unknown>;
@@ -27,7 +27,8 @@ export type FiledContextProps = {
     },
   ) => void;
   /** Form 组件的类型 */
-  formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter' | 'LightFilter' | (string & {});
+  formComponentType?:
+    'DrawerForm' | 'ModalForm' | 'QueryFilter' | 'LightFilter' | (string & {});
   /** 获取表单实例计数器 */
   formKey?: string;
 
@@ -40,7 +41,11 @@ export type FiledContextProps = {
    * 会阻塞当前步提交。仅 StepsForm 内部使用。
    */
   skipFieldRules?: boolean;
-} & Pick<CommonFormProps, 'formRef' | 'grid'>;
+  formRef?:
+    | React.MutableRefObject<ProFormRef<Record<string, any>> | undefined>
+    | React.RefObject<ProFormRef<Record<string, any>> | undefined>;
+  grid?: ProFormGridConfig['grid'];
+};
 
 const FieldContext = React.createContext<FiledContextProps>({});
 

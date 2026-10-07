@@ -1,10 +1,12 @@
 ﻿import type { ButtonProps, InputProps } from 'antd';
 import { Button, Form, Input } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
 import React, { useEffect, useImperativeHandle, useState } from 'react';
 import { useIntl } from '../../../provider';
+import type { NamePath } from '../../../utils/antdTypes';
 import type { ProFormFieldItemProps } from '../../typing';
 import { warpField } from '../FormItem/warpField';
+import type { CaptFieldRef } from './typing';
+export type { CaptFieldRef } from './typing';
 
 export type ProFormCaptchaProps = ProFormFieldItemProps<InputProps> & {
   /** @name 倒计时的秒数 */
@@ -27,17 +29,6 @@ export type ProFormCaptchaProps = ProFormFieldItemProps<InputProps> & {
 
   value?: any;
   onChange?: any;
-};
-
-export type CaptFieldRef = {
-  /** 原生 DOM 元素引用 */
-  nativeElement: HTMLDivElement;
-  /** 聚焦方法 */
-  focus: () => void;
-  /** 开始计时 */
-  startTiming: () => void;
-  /** 结束计时 */
-  endTiming: () => void;
 };
 
 const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(

@@ -1,7 +1,6 @@
 import { toArray, useControlledState } from '@rc-component/util';
 import type { FormInstance, StepsProps } from 'antd';
 import { Button, Col, ConfigProvider, Form, Row, Space, Steps } from 'antd';
-import type { FormProviderProps } from 'antd/lib/form/context';
 import { clsx } from 'clsx';
 import React, {
   useCallback,
@@ -13,11 +12,13 @@ import React, {
 } from 'react';
 import { ProConfigProvider, useIntl } from '../../../provider';
 import { merge, useRefFunction } from '../../../utils';
+import type { FormProviderProps } from '../../../utils/antdTypes';
 import type { ProFormInstance } from '../../BaseForm';
 import type { SubmitterProps } from '../../BaseForm/Submitter';
 import type { ProFormProps } from '../ProForm';
-import type { StepFormProps } from './StepForm';
+import type { StepFormProps } from './StepForm.types';
 import StepForm from './StepForm';
+import { StepFormProvide, StepsFormProvide } from './context';
 import { useStyle } from './style';
 
 /**
@@ -115,31 +116,7 @@ type StepsFormProps<T = Record<string, any>> = {
   }) => React.ReactNode;
 } & Omit<FormProviderProps, 'children'>;
 
-export const StepsFormProvide = React.createContext<
-  | {
-      regForm: (name: string, props: StepsFormProps<any>) => void;
-      unRegForm: (name: string) => void;
-      onFormFinish: (name: string, formData: any) => void;
-      /** 分步表单实例初始化完成(#8108),触发外层 formRef 重新同步 */
-      onFormInit: () => void;
-      keyArray: string[];
-      formArrayRef: React.MutableRefObject<
-        React.MutableRefObject<FormInstance<any> | undefined>[]
-      >;
-      loading: boolean;
-      setLoading: (loading: boolean) => void;
-      lastStep: boolean;
-      formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
-      next: () => void;
-      /** 当前步骤下标，从 0 开始 */
-      current: number;
-      /** 已注册的分步数量 */
-      stepCount: number;
-      /** 跳转到指定步，不触发表单校验；越界则忽略 */
-      setCurrent: (index: number) => void;
-    }
-  | undefined
->(undefined);
+export { StepFormProvide, StepsFormProvide };
 
 /**
  * 获取 StepsForm 上下文（current / setCurrent / stepCount / loading 等），须在 StepsForm 内使用
@@ -205,10 +182,6 @@ const StepsLayoutStrategy: Record<
 /**
  * 给  StepForm 传递信息
  */
-export const StepFormProvide = React.createContext<StepFormProps<any> | null>(
-  null,
-);
-
 function StepsForm<T = Record<string, any>>(
   props: StepsFormProps<T> & {
     children: React.ReactNode;
@@ -365,8 +338,7 @@ function StepsForm<T = Record<string, any>>(
       },
       getStepFormInstance: (index: number) => {
         return formArrayRef.current[index]?.current as
-          | ProFormInstance
-          | undefined;
+          ProFormInstance | undefined;
       },
       resetSteps: () => {
         formDataRef.current.clear();

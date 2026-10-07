@@ -31,7 +31,7 @@ export type {
   ProFormUploadButtonProps,
   ProFormUploadDraggerProps,
 } from './components';
-export { FormListContext } from './components/List';
+export { FormListContext } from './components/List/FormListContext';
 export { FieldContext } from './FieldContext';
 export * from './layouts';
 export type {

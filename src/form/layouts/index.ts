@@ -21,4 +21,4 @@ export type {
 export { useStepsFormContext } from './StepsForm';
 export { ProForm };
 
-export const ProFormGroup = ProForm.Group;
+export { default as ProFormGroup } from '../components/FormItem/Group';
