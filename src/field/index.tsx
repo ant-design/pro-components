@@ -9,7 +9,7 @@ import FieldDigitRange from './components/DigitRange';
 import FieldFromNow from './components/FromNow';
 import FieldImage from './components/Image';
 import FieldIndexColumn from './components/IndexColumn';
-import FieldMoney, { FieldMoneyProps } from './components/Money';
+import FieldMoney, { type FieldMoneyProps } from './components/Money';
 import FieldOptions from './components/Options';
 import FieldPassword from './components/Password';
 import FieldPercent from './components/Percent';
@@ -29,17 +29,13 @@ import FieldText from './components/Text';
 import FieldTextArea from './components/TextArea';
 import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
 import FieldTreeSelect from './components/TreeSelect';
-import {
-  ProFieldEmptyText,
-  ProFieldMoneyProps,
-  ProFieldPropsType,
-  PureProField,
-} from './PureProField';
+import type { ProFieldEmptyText, ProFieldPropsType } from './types';
+
+export type ProFieldMoneyProps = FieldMoneyProps;
 
 export type {
   FieldMoneyProps,
   ProFieldEmptyText,
-  ProFieldMoneyProps,
   ProFieldPropsType,
 };
 
@@ -75,7 +71,6 @@ export {
   FieldTreeSelect,
   ProField,
   ProFieldBadgeColor,
-  PureProField,
   defaultRenderText,
   proFieldParsingValueEnumToArray,
 };
