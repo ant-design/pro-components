@@ -39,21 +39,12 @@ export function isProFieldDualRender(
   );
 }
 
-export interface CreateProFieldOptions {
-  /**
-   * 为 true 时，当 valueType 在 context.valueTypeMap 中注册过，
-   * 将对应标志传给 pickProProps，使自定义 valueType 的 props 少被过滤
-   */
-  pickProPropsWithValueTypeMap: boolean;
-}
-
 /**
  * @param render 单函数时读写共用（兼容旧用法）；对象时分别指定只读 / 编辑渲染
  * 显式返回组件类型，避免 PropsWithoutRef 对带索引签名的 ProFieldPropsType 执行 Omit 后丢失具名属性。
  */
 export function createProField(
   render: ProFieldRenderText | ProFieldDualRender,
-  options: CreateProFieldOptions,
 ): React.ForwardRefExoticComponent<
   ProFieldPropsType & React.RefAttributes<any>
 > {
@@ -104,9 +95,9 @@ export function createProField(
       );
     }, [value, restFieldProps, onChangeCallBack, onBlurCallBack, injectedOnBlur]);
 
-    const customValueType =
-      options.pickProPropsWithValueTypeMap &&
-      Object.keys(context.valueTypeMap || {}).includes(String(valueType));
+    const customValueType = Object.keys(context.valueTypeMap || {}).includes(
+      String(valueType),
+    );
 
     // #9002 显式传入的 valueType 不再被 valueEnum/request 智能推断覆盖：
     // 仅当调用方未设置 valueType（缺省 'text'）时才允许推断为 select 等类型，

@@ -1,5 +1,5 @@
 ﻿import React, { useContext, useMemo } from 'react';
-import { PureProField } from '../../../field';
+import { ProField } from '../../../field';
 import type { ProSchema } from '../../../utils';
 import { runFunction, useRefFunction } from '../../../utils';
 import type { ProFieldValueTypeInput } from '../../../utils';
@@ -118,7 +118,7 @@ const BaseProFormField = React.forwardRef<
   }
 
   return (
-    <PureProField
+    <ProField
       ref={forwardedRef}
       text={fieldProps?.[valuePropName]}
       render={render as any}

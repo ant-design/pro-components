@@ -37,6 +37,11 @@ import { wrapProFieldLight } from './internal/ProFieldLightWrapper';
 import { createProField, type ProFieldRenderText } from './ProFieldCore';
 import type { ProFieldRenderProps } from './types';
 
+const withoutEmptyText = ({
+  emptyText: _emptyText,
+  ...renderProps
+}: ProFieldRenderProps): ProFieldRenderProps => renderProps;
+
 const defaultRenderTextByObject = (
   text: ProFieldTextType,
   valueType: ProFieldValueObjectType,
@@ -436,7 +441,9 @@ export const defaultRenderRead: ProFieldRenderText = (
     if (
       typeof dataValue !== 'boolean' &&
       typeof dataValue !== 'number' &&
-      !dataValue
+      (dataValue == null ||
+        dataValue === '' ||
+        (Array.isArray(dataValue) && dataValue.length === 0))
     ) {
       const { fieldProps, render } = props;
       if (render) {
@@ -446,31 +453,43 @@ export const defaultRenderRead: ProFieldRenderText = (
     }
   }
 
-  delete props.emptyText;
+  const renderProps = withoutEmptyText(props);
 
   if (typeof valueType === 'object') {
-    return defaultRenderTextByObject(dataValue, valueType, props);
+    return defaultRenderTextByObject(dataValue, valueType, renderProps);
   }
 
   const customValueTypeConfig =
     valueTypeMap && valueTypeMap[valueType as string];
   if (customValueTypeConfig) {
-    delete props.ref;
-    return customValueTypeConfig.render?.(
+    const {
+      render: _render,
+      formItemRender: _formItemRender,
+      ...customProps
+    } = renderProps;
+    const readDom = customValueTypeConfig.render?.(
       dataValue,
       {
         text: dataValue as React.ReactNode,
-        ...props,
+        ...customProps,
         mode: mode || 'read',
       },
       <>{dataValue}</>,
     );
+    if (renderProps.render && valueType !== 'option') {
+      return renderProps.render(
+        dataValue,
+        { text: dataValue as React.ReactNode, ...customProps },
+        readDom as React.JSX.Element,
+      );
+    }
+    return readDom;
   }
 
   return renderDefaultValueTypeLeaf(
     dataValue,
     valueType as ProFieldValueType,
-    props,
+    renderProps,
   );
 };
 
@@ -481,30 +500,42 @@ export const defaultRenderEdit: ProFieldRenderText = (
   props,
   valueTypeMap,
 ) => {
-  delete props.emptyText;
+  const renderProps = withoutEmptyText(props);
 
   if (typeof valueType === 'object') {
-    return defaultRenderTextByObject(dataValue, valueType, props);
+    return defaultRenderTextByObject(dataValue, valueType, renderProps);
   }
 
   const customValueTypeConfig =
     valueTypeMap && valueTypeMap[valueType as string];
   if (customValueTypeConfig) {
-    delete props.ref;
-    return customValueTypeConfig.formItemRender?.(
+    const {
+      render: _render,
+      formItemRender: _formItemRender,
+      ...customProps
+    } = renderProps;
+    const dom = customValueTypeConfig.formItemRender?.(
       dataValue,
       {
         text: dataValue as React.ReactNode,
-        ...props,
+        ...customProps,
       },
       <>{dataValue}</>,
     );
+    if (renderProps.formItemRender) {
+      return renderProps.formItemRender(
+        dataValue,
+        { text: dataValue as React.ReactNode, ...customProps },
+        dom as React.JSX.Element,
+      );
+    }
+    return dom;
   }
 
   return renderDefaultValueTypeLeaf(
     dataValue,
     valueType as ProFieldValueType,
-    props,
+    renderProps,
   );
 };
 
@@ -521,9 +552,7 @@ export const defaultRenderText: ProFieldRenderText = (
     : defaultRenderRead(dataValue, valueType, props, valueTypeMap);
 };
 
-export const ProField = createProField(
-  { renderRead: defaultRenderRead, renderEdit: defaultRenderEdit },
-  {
-    pickProPropsWithValueTypeMap: true,
-  },
-);
+export const ProField = createProField({
+  renderRead: defaultRenderRead,
+  renderEdit: defaultRenderEdit,
+});

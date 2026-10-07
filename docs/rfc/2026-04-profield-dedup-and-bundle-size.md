@@ -8,8 +8,8 @@
 | **阶段 1 实现** | `src/field/ValueTypeToComponent.tsx` 内 `sameRenderPair`；备忘见 `docs/internal/profield-bundle-notes.md`                                                                 |
 | **阶段 2 实现** | `src/field/internal/fieldMode.ts`：`isProFieldReadMode`、`isProFieldEditOrUpdateMode`、`isProFieldEditOnlyMode`（原仅为 `mode === 'edit'` 的交互分支保持不变，不含 `update`） |
 | **类型分层** | `src/utils/typing.ts`：`ProFieldValueType`、`ProFieldSchemaLayoutValueType`、`ProFieldBuiltinValueType`；`ValueTypeToComponent` 映射为 `Record<ProFieldBuiltinValueType, …>` |
-| **范围**   | `src/field`（`PureProField` / `ProFieldCore`、`ValueTypeToComponent.tsx`、各 `components/*`）、与 ProField 耦合的 `src/form/components/Field` 等                          |
-| **相关文件** | `src/field/ValueTypeToComponent.tsx`、`src/field/PureProField.tsx`、`src/field/ProFieldCore.tsx`、`src/field/components/`**、`src/form/components/Field/index.tsx` |
+| **范围**   | `src/field`（`ProField` / `ProFieldCore`、`ValueTypeToComponent.tsx`、各 `components/*`）、与 ProField 耦合的 `src/form/components/Field` 等                          |
+| **相关文件** | `src/field/ValueTypeToComponent.tsx`、`src/field/AllProField.tsx`、`src/field/ProFieldCore.tsx`、`src/field/components/`**、`src/form/components/Field/index.tsx` |
 
 
 ## 摘要
@@ -26,7 +26,7 @@
 | `**ValueTypeToComponent` 双轨** | 多数 `valueType` 在 `ValueTypeToComponent.tsx` 中同时定义 `render` 与 `formItemRender`，二者常为实现相同的 JSX，仅复制粘贴两份。                    |
 | **字段子组件形态相近**                 | `components/Digit`、`components/Text`、`components/Select` 等在「接 `text` / `fieldProps` / `mode`」等模式上重复相似逻辑，缺少薄层工厂或共享 hook。 |
 | **依赖与导入粒度**                   | 单文件集中 `import` 多类 antd/rc 组件时，若未保持 **按需路径** 或 **可被分析的死代码消除**，易放大用户侧 bundle；需对照现有 father / 用户 bundler 行为验证。              |
-| **与 `src/form` 的边界**          | `ProFormField` → `PureProField` 与 Schema 路径共享规则，但历史上「表单专用 props」与「只读展示」分叉，易产生两套近似分支。                                    |
+| **与 `src/form` 的边界**          | `ProFormField` → `ProField` 与 Schema 路径共享规则；表单和展示已统一到同一个渲染器。                                    |
 
 
 ### 只读（read）与编辑（edit）：能不能分开看？
@@ -36,7 +36,7 @@
 
 | 层次                            | 现状             | 说明                                                                                                                                                                                                                                                                                              |
 | ----------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Core 调度**                   | **已分开**        | `src/field/ProFieldCore.tsx` 中 `createProField` 支持传入 **双函数**：`{ renderRead, renderEdit }`（类型 `ProFieldDualRender`）；运行时按 `effectiveMode` **只调用其一**，注释明确：**避免在单函数内反复判断 mode**。`PureProField`（`PureProField.tsx`）已使用 `createProField({ renderRead: pureRenderRead, renderEdit: pureRenderEdit })`。 |
+| **Core 调度**                   | **已分开**        | `src/field/ProFieldCore.tsx` 中 `createProField` 支持传入 **双函数**：`{ renderRead, renderEdit }`（类型 `ProFieldDualRender`）；运行时按 `effectiveMode` **只调用其一**。`ProField` 使用这一套读写渲染函数。 |
 | `**ValueTypeToComponent` 映射** | **名义双轨、常实质重复** | 每个 `valueType` 同时写 `render`（表格/描述等 **读展示**）与 `formItemRender`（表单 **编辑**）。很多条目里两段 JSX **是同一个 `FieldXxx`、同一套 props**，属于 **同一展示组件写了两遍**，去重目标应是 **合并为工厂** `(props) => ({ render: …, formItemRender: … })`，而不是把「读」「写」当成两套无关实现。                                                                       |
 | **字段子组件 `components/*`**      | **单文件内分支**     | 如 `Digit`、`Select` 等常见写法是 **一个组件文件** 内 `if (mode === 'read')` / `else`：只读与编辑 **共享 import 与类型**，便于就近改。若分支过长，可 **同目录** 抽 `FooRead` / `FooEdit` 子组件 **仅提升可读性**，对外仍导出原 `Foo`；是否拆文件属个案，不是本 RFC 的硬性要求。                                                                                                |
 

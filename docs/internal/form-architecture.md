@@ -6,7 +6,7 @@
 
 - **`src/form/typing/layout.ts`** — `ProFormGridConfig`（栅格/行列）。
 - **`src/form/typing.ts`** — `ProFormFieldItemProps`、`ExtendsProps`、`ProFormGroupProps`、`ProFormItemCreateConfig` 等（与 `layout.ts` 组合使用）。
-- **`src/form/typing.ts`** — 从 `../utils/typing` re-export `ProFieldValueType`、`ProFieldValueTypeInput`、`ProFieldBuiltinValueType` 等；业务侧记 **`ProFieldValueTypeInput`** 为 PureProField / ProFormField 的 `valueType` 入参别名。
+- **`src/form/typing.ts`** — 从 `../utils/typing` re-export `ProFieldValueType`、`ProFieldValueTypeInput`、`ProFieldBuiltinValueType` 等；业务侧记 **`ProFieldValueTypeInput`** 为 ProField / ProFormField 的 `valueType` 入参别名。
 - **未并入本目录**：`CommonFormProps` 等仍定义在 `BaseForm/BaseForm.tsx` 附近；Schema 列类型见 `components/SchemaForm/typing.ts`。
 
 ## 主数据流
