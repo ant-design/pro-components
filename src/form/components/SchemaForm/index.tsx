@@ -4,6 +4,7 @@ import React, {
   useCallback,
   useContext,
   useImperativeHandle,
+  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -43,7 +44,9 @@ const FormLayoutType = {
   QueryFilter,
   LightFilter,
   StepForm: ProStepsForm.StepForm,
-  StepsForm: StepsForm,
+  StepsForm: (props: any) => (
+    <StepsForm {...props} SchemaForm={BetaSchemaForm} />
+  ),
   ModalForm,
   Embed,
   Form: ProForm,
@@ -150,7 +153,9 @@ function BetaSchemaForm<T, ValueType = 'text'>(
             label: title,
             name: originItem.name,
             valueType: runFunction(originItem.valueType, {}),
-            key: originItem.key || originItem.dataIndex || index,
+            key: (originItem.key ?? originItem.dataIndex ?? index) as
+              | React.Key
+              | React.Key[],
             columns: originItem.columns,
             valueEnum: originItem.valueEnum,
             dataIndex: originItem.dataIndex || originItem.key,
@@ -263,11 +268,13 @@ function BetaSchemaForm<T, ValueType = 'text'>(
   }, [formRef.current]);
 
   const context = useContext(ProConfigContext);
+  const valueTypeMap = useMemo(
+    () => ({ ...context.valueTypeMap, ...ValueTypeToComponent }),
+    [context.valueTypeMap],
+  );
 
   return (
-    <ProConfigProvider
-      valueTypeMap={{ ...context.valueTypeMap, ...ValueTypeToComponent }}
-    >
+    <ProConfigProvider valueTypeMap={valueTypeMap}>
       <FormRenderComponents
         {...specificProps}
         {...restProps}

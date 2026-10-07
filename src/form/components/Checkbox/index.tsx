@@ -1,17 +1,25 @@
 import { omit } from '@rc-component/util';
 import type { CheckboxProps, CheckboxRef } from 'antd';
 import { Checkbox } from 'antd';
-import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import React from 'react';
-import { FieldCheckbox } from '../../../field';
+import FieldCheckbox from '../../../field/components/Checkbox';
 import { ProConfigProvider } from '../../../provider';
+import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
 import { runFunction } from '../../../utils';
+import type { CheckboxGroupProps } from '../../../utils/antdTypes';
 import type {
   ProFormFieldItemProps,
   ProFormFieldRemoteProps,
 } from '../../typing';
 import ProFormField from '../Field';
 import warpField from '../FormItem/warpField';
+
+const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
+  checkbox: {
+    render: (text, props) => <FieldCheckbox {...props} text={text} />,
+    formItemRender: (text, props) => <FieldCheckbox {...props} text={text} />,
+  },
+};
 
 export type ProFormCheckboxGroupProps = ProFormFieldItemProps<
   CheckboxGroupProps,
@@ -23,16 +31,7 @@ export type ProFormCheckboxGroupProps = ProFormFieldItemProps<
 
 const CheckboxGroup: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
   ({ options, fieldProps, proFieldProps, valueEnum, ...rest }, ref) => (
-    <ProConfigProvider
-      valueTypeMap={{
-        checkbox: {
-          render: (text, props) => <FieldCheckbox {...props} text={text} />,
-          formItemRender: (text, props) => (
-            <FieldCheckbox {...props} text={text} />
-          ),
-        },
-      }}
-    >
+    <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
       <ProFormField
         ref={ref}
         valueType="checkbox"

@@ -1,5 +1,4 @@
 import type { FormInstance, FormProps } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
 import type {
   ProCoreActionType,
   ProSchema,
@@ -7,6 +6,7 @@ import type {
   SearchConvertKeyFn,
   SearchTransformKeyFn,
 } from '../../../utils';
+import type { NamePath } from '../../../utils/antdTypes';
 import type { CommonFormProps } from '../../BaseForm';
 import type {
   DrawerFormProps,
@@ -61,11 +61,7 @@ export type ProFormPropsType<T, ValueType = 'text'> =
 export type ProFormLayoutType = ProFormPropsType<any>['layoutType'];
 
 export type FormFieldType =
-  | 'group'
-  | 'formList'
-  | 'formSet'
-  | 'divider'
-  | 'dependency';
+  'group' | 'formList' | 'formSet' | 'divider' | 'dependency';
 
 export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
   T,
@@ -80,6 +76,8 @@ export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
     colSize?: number;
     /** 是否只读模式 */
     readonly?: boolean;
+    /** 隐藏字段并让 QueryFilter 跳过对应的布局占位 */
+    hidden?: boolean;
     /** 搜索表单的默认值 */
     initialValue?: any;
     /**

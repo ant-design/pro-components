@@ -1,9 +1,31 @@
 import type { InputNumberProps } from 'antd';
 import React from 'react';
-import { FieldMoney, FieldMoneyProps } from '../../../field';
+import FieldMoney, {
+  type FieldMoneyProps,
+} from '../../../field/components/Money';
 import { ProConfigProvider } from '../../../provider';
+import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
+
+const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
+  money: {
+    render: (text, props) => (
+      <FieldMoney
+        {...props}
+        placeholder={props.placeholder as string}
+        text={text}
+      />
+    ),
+    formItemRender: (text, props) => (
+      <FieldMoney
+        {...props}
+        placeholder={props.placeholder as string}
+        text={text}
+      />
+    ),
+  },
+};
 
 export type ProFormMoneyProps = ProFormFieldItemProps<
   Omit<FieldMoneyProps, 'valueType' | 'text'> & InputNumberProps<number>
@@ -24,26 +46,7 @@ const ProFormMoney: React.ForwardRefRenderFunction<any, ProFormMoneyProps> = (
   ref,
 ) => {
   return (
-    <ProConfigProvider
-      valueTypeMap={{
-        money: {
-          render: (text, props) => (
-            <FieldMoney
-              {...props}
-              placeholder={props.placeholder as string}
-              text={text}
-            />
-          ),
-          formItemRender: (text, props) => (
-            <FieldMoney
-              {...props}
-              placeholder={props.placeholder as string}
-              text={text}
-            />
-          ),
-        },
-      }}
-    >
+    <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
       <ProFormField
         valueType={{
           type: 'money',

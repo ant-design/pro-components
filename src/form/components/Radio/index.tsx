@@ -4,6 +4,7 @@ import { Radio } from 'antd';
 import React from 'react';
 import FieldRadio from '../../../field/components/Radio';
 import { ProConfigProvider } from '../../../provider';
+import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
 import { runFunction } from '../../../utils';
 import type {
   ProFormFieldItemProps,
@@ -11,6 +12,21 @@ import type {
 } from '../../typing';
 import ProField from '../Field';
 import warpField from '../FormItem/warpField';
+
+const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
+  radio: {
+    render: (text, props) => <FieldRadio {...props} text={text} />,
+    formItemRender: (text, props) => <FieldRadio {...props} text={text} />,
+  },
+  radioButton: {
+    render: (text, props) => (
+      <FieldRadio radioType="button" {...props} text={text} />
+    ),
+    formItemRender: (text, props) => (
+      <FieldRadio radioType={'button'} {...props} text={text} />
+    ),
+  },
+};
 
 export type ProFormRadioGroupProps = ProFormFieldItemProps<
   RadioGroupProps,
@@ -35,25 +51,7 @@ const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
     ref: any,
   ) => {
     return (
-      <ProConfigProvider
-        valueTypeMap={{
-          radio: {
-            render: (text, props) => <FieldRadio {...props} text={text} />,
-            formItemRender: (text, props) => (
-              <FieldRadio {...props} text={text} />
-            ),
-          },
-          radioButton: {
-            render: (text, props) => {
-              console.log(props);
-              return <FieldRadio radioType={'button'} {...props} text={text} />;
-            },
-            formItemRender: (text, props) => (
-              <FieldRadio radioType={'button'} {...props} text={text} />
-            ),
-          },
-        }}
-      >
+      <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
         <ProField
           valueType={radioType === 'button' ? 'radioButton' : 'radio'}
           ref={ref}

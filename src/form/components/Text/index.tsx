@@ -1,11 +1,20 @@
 import { omit, useControlledState } from '@rc-component/util';
+import type { InputRef } from 'antd';
 import { Form, Popover, PopoverProps, type InputProps } from 'antd';
-import type { InputRef, PasswordProps } from 'antd/lib/input';
 import React, { useCallback, useState } from 'react';
-import { FieldPassword } from '../../../field';
+import FieldPassword from '../../../field/components/Password';
 import { ProConfigProvider } from '../../../provider';
+import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
+import type { PasswordProps } from '../../../utils/antdTypes';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
+
+const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
+  password: {
+    render: (text, props) => <FieldPassword {...props} text={text} />,
+    formItemRender: (text, props) => <FieldPassword {...props} text={text} />,
+  },
+};
 
 const valueType = 'text' as const;
 /**
@@ -125,16 +134,7 @@ const Password: React.FC<
 
   if (fieldProps?.statusRender && rest.name) {
     return (
-      <ProConfigProvider
-        valueTypeMap={{
-          password: {
-            render: (text, props) => <FieldPassword {...props} text={text} />,
-            formItemRender: (text, props) => (
-              <FieldPassword {...props} text={text} />
-            ),
-          },
-        }}
-      >
+      <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
         <PassWordStrength
           name={rest.name}
           statusRender={fieldProps?.statusRender}
@@ -176,16 +176,7 @@ const Password: React.FC<
   }
 
   return (
-    <ProConfigProvider
-      valueTypeMap={{
-        password: {
-          render: (text, props) => <FieldPassword {...props} text={text} />,
-          formItemRender: (text, props) => (
-            <FieldPassword {...props} text={text} />
-          ),
-        },
-      }}
-    >
+    <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
       <ProField
         valueType="password"
         fieldProps={fieldProps}

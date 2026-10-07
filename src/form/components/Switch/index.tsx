@@ -1,9 +1,17 @@
 import type { SwitchProps } from 'antd';
 import React from 'react';
-import { FieldSwitch } from '../../../field';
+import FieldSwitch from '../../../field/components/Switch';
 import { ProConfigProvider } from '../../../provider';
+import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
+
+const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
+  switch: {
+    render: (text, props) => <FieldSwitch {...props} text={text} />,
+    formItemRender: (text, props) => <FieldSwitch {...props} text={text} />,
+  },
+};
 
 export type ProFormSwitchProps = Omit<
   ProFormFieldItemProps<SwitchProps, HTMLElement>,
@@ -23,16 +31,7 @@ const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
     ref: any,
   ) => {
     return (
-      <ProConfigProvider
-        valueTypeMap={{
-          switch: {
-            render: (text, props) => <FieldSwitch {...props} text={text} />,
-            formItemRender: (text, props) => (
-              <FieldSwitch {...props} text={text} />
-            ),
-          },
-        }}
-      >
+      <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
         <ProField
           valueType="switch"
           fieldProps={{

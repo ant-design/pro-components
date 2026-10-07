@@ -1,9 +1,29 @@
 import type { InputNumberProps } from 'antd';
 import React from 'react';
-import { FieldDigit } from '../../../field';
+import FieldDigit from '../../../field/components/Digit';
 import { ProConfigProvider } from '../../../provider';
+import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
+
+const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
+  digit: {
+    render: (text, props) => (
+      <FieldDigit
+        {...props}
+        text={text}
+        placeholder={props.placeholder as string}
+      />
+    ),
+    formItemRender: (text, props) => (
+      <FieldDigit
+        {...props}
+        text={text}
+        placeholder={props.placeholder as string}
+      />
+    ),
+  },
+};
 
 export type ProFormDigitProps = ProFormFieldItemProps<
   InputNumberProps<number>
@@ -26,26 +46,7 @@ const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (
   ref,
 ) => {
   return (
-    <ProConfigProvider
-      valueTypeMap={{
-        digit: {
-          render: (text, props) => (
-            <FieldDigit
-              {...props}
-              text={text}
-              placeholder={props.placeholder as string}
-            />
-          ),
-          formItemRender: (text, props) => (
-            <FieldDigit
-              {...props}
-              text={text}
-              placeholder={props.placeholder as string}
-            />
-          ),
-        },
-      }}
-    >
+    <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
       <ProFormField
         valueType="digit"
         fieldProps={{
