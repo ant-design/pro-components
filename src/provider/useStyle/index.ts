@@ -1,12 +1,13 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+import type { GlobalToken } from 'antd';
 import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
-import type { GlobalToken } from 'antd/lib/theme/interface';
 import type React from 'react';
 import { useContext, useEffect, useMemo, useRef } from 'react';
-import { ProProvider } from '../index';
-import type { ProTokenType } from '../typing/layoutToken';
+import { ProConfigContext as ProProvider } from '../context';
+import type { ProAliasToken } from '../typing/aliasToken';
+export type { ProAliasToken } from '../typing/aliasToken';
 
 /**
  * 把一个颜色设置一下透明度
@@ -15,8 +16,7 @@ import type { ProTokenType } from '../typing/layoutToken';
  * @param alpha {0-1}
  * @returns rgba {string}
  */
-export const setAlpha = (baseColor: string, alpha: number) =>
-  new TinyColor(baseColor).setAlpha(alpha).toRgbString();
+export { setAlpha } from '../utils/setAlpha';
 
 /**
  * 把一个颜色修改一些明度
@@ -42,29 +42,6 @@ export type UseStyleResult = {
   wrapSSR: (node: React.ReactElement) => React.ReactElement;
   hashId: string;
 };
-
-export type ProAliasToken = GlobalToken &
-  ProTokenType & {
-    themeId: number;
-    /**
-     * pro 的 className
-     * @type {string}
-     * @example .ant-pro
-     */
-    proComponentsCls: string;
-    /**
-     * antd 的 className
-     * @type {string}
-     * @example .ant
-     */
-    antCls: string;
-    /**
-     * antd 图标的 className，跟随 ConfigProvider 的 iconPrefixCls
-     * @type {string}
-     * @example .anticon
-     */
-    iconCls: string;
-  };
 
 export const resetComponent = (token: ProAliasToken): CSSObject => ({
   boxSizing: 'border-box',
@@ -144,38 +121,42 @@ export function useStyle(
   componentName: string,
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ) {
-  let { token = {} as Record<string, any> as ProAliasToken, hashed } =
-    useContext(ProProvider);
+  const { token: contextToken, hashed } = useContext(ProProvider);
 
   const { token: antdToken, hashId, theme } = antdTheme.useToken();
 
-  const { getPrefixCls, csp, iconPrefixCls, theme: antdThemeConfig } =
-    useContext(AntdConfigProvider.ConfigContext);
-
-  // 如果不在 ProProvider 里面，就用 antd 的
-  if (!token.layout) {
-    token = { ...antdToken } as any;
-  }
+  const {
+    getPrefixCls,
+    csp,
+    iconPrefixCls,
+    theme: antdThemeConfig,
+  } = useContext(AntdConfigProvider.ConfigContext);
 
   // #8929: 透传 antd 组件级 token（theme.components.*）进 pro token。
   // antd 的 theme.useToken() 只返回全局 token，Pro 组件（如 ProCard 标题
   // 消费 components.Card.headerFontSize）需要在这里补齐组件 token 才能生效。
-  const componentTokens = (antdThemeConfig as any)?.components;
-  if (componentTokens) {
-    token = {
-      ...token,
-      ...Object.values(componentTokens).reduce(
-        (acc, comp) => Object.assign(acc, comp),
-        {},
-      ),
-    } as any;
-  }
-
-  token.proComponentsCls = token.proComponentsCls ?? `.${getPrefixCls('pro')}`;
-
-  token.antCls = `.${getPrefixCls()}`;
-
-  token.iconCls = `.${iconPrefixCls}`;
+  const componentTokens = antdThemeConfig?.components;
+  const token = useMemo(() => {
+    const resolvedToken = {
+      ...(contextToken.layout ? contextToken : antdToken),
+    } as ProAliasToken;
+    const mergedComponentTokens: Record<string, unknown> = {};
+    if (componentTokens) {
+      Object.values(componentTokens).forEach((componentToken) => {
+        if (componentToken && typeof componentToken === 'object') {
+          Object.assign(mergedComponentTokens, componentToken);
+        }
+      });
+    }
+    return {
+      ...resolvedToken,
+      ...mergedComponentTokens,
+      proComponentsCls:
+        resolvedToken.proComponentsCls ?? `.${getPrefixCls('pro')}`,
+      antCls: `.${getPrefixCls()}`,
+      iconCls: `.${iconPrefixCls}`,
+    };
+  }, [contextToken, antdToken, componentTokens, getPrefixCls, iconPrefixCls]);
 
   // Register styles (side effect only in v2)
   // Keep path sensitive to both antd theme and Pro token updates.

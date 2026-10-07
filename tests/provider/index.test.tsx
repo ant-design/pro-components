@@ -2,6 +2,7 @@ import {
   ProConfigProvider,
   ProForm,
   ProFormMoney,
+  ProProvider,
   createIntl,
   useStyle,
   zhTWIntl,
@@ -9,6 +10,7 @@ import {
 import { cleanup, render } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
 import { afterEach, describe, expect, it } from 'vitest';
+import { useContext } from 'react';
 import { resolveProConfigHashed } from '../../src/provider';
 
 afterEach(() => {
@@ -16,6 +18,43 @@ afterEach(() => {
 });
 
 describe('ProConfigProvider', () => {
+  it('keeps a parent prefix when a nested provider adds value types', () => {
+    const prefixes: string[] = [];
+    const ReadPrefix = () => {
+      const { token } = useContext(ProProvider);
+      prefixes.push(token.proComponentsCls);
+      return null;
+    };
+
+    render(
+      <ProConfigProvider prefixCls="custom-pro">
+        <ReadPrefix />
+        <ProConfigProvider needDeps valueTypeMap={{}}>
+          <ReadPrefix />
+        </ProConfigProvider>
+      </ProConfigProvider>,
+    );
+
+    expect(prefixes).toEqual(['.custom-pro', '.custom-pro']);
+  });
+
+  it('does not mutate the token exposed through context', () => {
+    const ReadStyle = () => {
+      const { token } = useContext(ProProvider);
+      Object.freeze(token);
+      useStyle('FrozenProviderToken', () => []);
+      return null;
+    };
+
+    expect(() =>
+      render(
+        <ProConfigProvider>
+          <ReadStyle />
+        </ProConfigProvider>,
+      ),
+    ).not.toThrow();
+  });
+
   it('🐛 #8473 preserves the parent ConfigProvider hashed setting', () => {
     expect(resolveProConfigHashed(undefined, undefined, '', true)).toBe(false);
     expect(resolveProConfigHashed(undefined, undefined, 'css-parent', true)).toBe(
