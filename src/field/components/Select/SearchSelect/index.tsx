@@ -6,11 +6,12 @@ import React, {
   useContext,
   useEffect,
   useImperativeHandle,
+  useMemo,
   useRef,
   useState,
 } from 'react';
 import type { RequestOptionsType } from '../../../../utils';
-import { nanoid } from '../../../../utils';
+import { nanoid } from '../../../../utils/nanoid';
 
 export type LabeledValue = {
   key?: string;
@@ -28,6 +29,13 @@ export type DataValueType<T> = KeyLabel & T;
 
 /** 可能单选，可能多选 */
 export type DataValuesType<T> = DataValueType<T> | DataValueType<T>[];
+
+/**
+ * 可做 String() 弱比较的基础类型
+ * #8517: 对象 valueEnum 的数字 key 经 Object.entries 字符串化后,
+ * option value ("2") 与业务数据值 (number 2) 严格相等失败,导致编辑态显示原始数字。
+ */
+type PrimitiveMatchableValue = string | number | boolean;
 
 export interface SearchSelectProps<T = Record<string, any>> extends Omit<
   SelectProps<KeyLabel | KeyLabel[]>,
@@ -87,9 +95,6 @@ export interface SearchSelectProps<T = Record<string, any>> extends Omit<
   /** 清空数据 */
   resetData: () => void;
 
-  /** 上层 useFieldFetchData 是否由 request 驱动 */
-  hasRemoteRequest?: boolean;
-
   /**
    * 当搜索关键词发生变化时是否请求远程数据
    *
@@ -117,8 +122,6 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     className,
     disabled,
     options,
-    request,
-    hasRemoteRequest = false,
     fetchData,
     resetData,
     prefixCls: customizePrefixCls,
@@ -166,18 +169,14 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   // 用户输入路径已由 onSearch → fetchData 覆盖,这里负责编程式更新
   // (如下拉收起时外部清空搜索词,期望以 keyWords='' 重新拉取全量数据)。
   const controlledSearchValue = showSearchConfig?.searchValue ?? propsSearchValue;
-  const lastControlledSearchValue = useRef(
-    controlledSearchValue ?? defaultSearchValue,
-  );
+  const lastControlledSearchValue = useRef(controlledSearchValue);
   useEffect(() => {
     if (controlledSearchValue === lastControlledSearchValue.current) return;
     lastControlledSearchValue.current = controlledSearchValue;
-    // 本地 options 也依赖 useFieldFetchData 的 keyWords 做过滤；没有远程
-    // request 时可直接同步。远程 request 仍尊重 fetchDataOnSearch=false。
-    if (fetchDataOnSearch || !hasRemoteRequest) {
+    if (fetchDataOnSearch) {
       fetchData?.(controlledSearchValue);
     }
-  }, [controlledSearchValue, fetchData, fetchDataOnSearch, hasRemoteRequest]);
+  }, [controlledSearchValue, fetchData, fetchDataOnSearch]);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
@@ -232,6 +231,76 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     return [];
   };
 
+  /**
+   * #8517: 收集全部叶子选项的 value,用于对受控 value 做弱匹配修正。
+   * 仅当严格匹配不存在、但 String() 弱匹配存在时才替换,保证:
+   * - value 与 option 类型一致的老用法完全不受影响;
+   * - 只影响回显(label 解析),不改变 onChange 输出与表单提交值。
+   */
+  const flatOptionValues = useMemo(() => {
+    const values = new Map<string, PrimitiveMatchableValue>();
+    const traverse = (opts: RequestOptionsType[]) => {
+      opts?.forEach((item) => {
+        const itemValue = item[valuePropsName];
+        if (
+          item.options &&
+          (item.optionType === 'optGroup' || (item.options as any)?.length)
+        ) {
+          traverse(item.options);
+          return;
+        }
+        if (
+          typeof itemValue === 'string' ||
+          typeof itemValue === 'number' ||
+          typeof itemValue === 'boolean'
+        ) {
+          // 首个出现的优先(与 Select 选中匹配顺序一致)
+          if (!values.has(String(itemValue))) {
+            values.set(String(itemValue), itemValue);
+          }
+        }
+      });
+    };
+    traverse(options || []);
+    return values;
+  }, [options, valuePropsName]);
+
+  /** #8517: 弱匹配修正单个 value(见 flatOptionValues 注释) */
+  const alignValueToOptions = (
+    value: unknown,
+  ): PrimitiveMatchableValue | undefined => {
+    if (
+      typeof value !== 'string' &&
+      typeof value !== 'number' &&
+      typeof value !== 'boolean'
+    ) {
+      return undefined;
+    }
+    // 严格相等命中时不需要修正
+    if ([...flatOptionValues.values()].includes(value)) return value;
+    const coerced = flatOptionValues.get(String(value));
+    return coerced;
+  };
+
+  /** #8517: 对受控 value(单选/多选)做弱匹配修正,仅影响回显 */
+  const alignedValue = useMemo(() => {
+    const { value: propsValue } = restProps;
+    if (propsValue == null) return propsValue;
+    if (Array.isArray(propsValue)) {
+      const aligned = propsValue.map((item) => {
+        const result = alignValueToOptions(item);
+        return result === undefined ? item : result;
+      });
+      // 全部未命中时保持原值,避免产生新引用触发多余渲染
+      return aligned.every((item, i) => item === propsValue[i])
+        ? propsValue
+        : aligned;
+    }
+    const result = alignValueToOptions(propsValue);
+    return result === undefined ? propsValue : result;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [restProps.value, flatOptionValues]);
+
   const genOptions = (
     mapOptions: RequestOptionsType[],
   ): DefaultOptionType[] => {
@@ -270,16 +339,6 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       } as DefaultOptionType;
     });
   };
-  const handleSearch = showSearch
-    ? (value: string) => {
-        if (fetchDataOnSearch) {
-          fetchData(value);
-        }
-        effectiveOnSearch?.(value);
-        setSearchValue(value);
-      }
-    : undefined;
-
   return (
     <Select<any>
       ref={selectRef}
@@ -288,13 +347,11 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       autoClearSearchValue={effectiveAutoClearSearchValue}
       disabled={disabled}
       mode={mode}
-      showSearch={
-        showSearchConfig
-          ? { ...showSearchConfig, onSearch: handleSearch }
-          : showSearch
-      }
+      showSearch={showSearch}
       searchValue={
-        mode === 'multiple' && !effectiveAutoClearSearchValue && !focused
+        mode === 'multiple' &&
+        !effectiveAutoClearSearchValue &&
+        !focused
           ? ''
           : searchValue
       }
@@ -309,6 +366,8 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         }
       }}
       {...restProps}
+      // #8517: 弱匹配修正后的回显 value(仅回显,onChange/提交值保持用户数据类型)
+      value={alignedValue}
       filterOption={
         effectiveFilterOption == false
           ? false
@@ -329,7 +388,9 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
                   label: option?.data_title,
                 });
               }
-              const optionFilterProps = Array.isArray(effectiveOptionFilterProp)
+              const optionFilterProps = Array.isArray(
+                effectiveOptionFilterProp,
+              )
                 ? effectiveOptionFilterProp
                 : [effectiveOptionFilterProp];
               return !!(
@@ -350,13 +411,24 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
               );
             }
       } // 这里使用pro-components的过滤逻辑
-      onSearch={handleSearch}
+      onSearch={
+        showSearch
+          ? (value) => {
+              if (fetchDataOnSearch) {
+                fetchData(value);
+              }
+              effectiveOnSearch?.(value);
+              setSearchValue(value);
+            }
+          : undefined
+      }
       onChange={(value, optionList, ...rest) => {
         // 将搜索框置空 和 antd 行为保持一致
         if (showSearch && effectiveAutoClearSearchValue) {
-          // 选择结果只清空可见搜索框，不重置已完成请求的远端关键字。
-          // 显式清空输入仍由 handleSearch 触发对应请求。
-          if (!request && !hasRemoteRequest && searchValue) {
+          // #8780/#8928:选中值后清空搜索词,仅当之前确实有搜索词时才重新请求。
+          // keyWords 本来就是空(未输入直接选择)时再触发 fetchData(undefined)
+          // 只会产生一次与挂载时完全相同的多余 request。
+          if (searchValue) {
             fetchData(undefined);
           }
           effectiveOnSearch?.('');
@@ -442,7 +514,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
           fetchData(undefined);
           // 同时清空搜索值
           if (showSearch) {
-            effectiveOnSearch?.('');
+            onSearch?.('');
             setSearchValue('');
           }
         }

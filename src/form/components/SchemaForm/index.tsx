@@ -1,4 +1,4 @@
-import type { FormProps } from 'antd';
+﻿import type { FormProps } from 'antd';
 import { Form } from 'antd';
 import React, {
   useCallback,
@@ -13,6 +13,7 @@ import {
   LabelIconTip,
   omitUndefined,
   runFunction,
+  stringify,
   useDeepCompareMemo,
   useLatest,
   useReactiveRef,
@@ -42,7 +43,9 @@ const FormLayoutType = {
   QueryFilter,
   LightFilter,
   StepForm: ProStepsForm.StepForm,
-  StepsForm: StepsForm,
+  StepsForm: (props: any) => (
+    <StepsForm {...props} SchemaForm={BetaSchemaForm} />
+  ),
   ModalForm,
   Embed,
   Form: ProForm,
@@ -62,10 +65,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     layoutType = 'Form',
     type = 'form',
     action,
-    // antd Form returns a new values object for a real field update. Comparing
-    // the references preserves the existing "rebuild on any change" behavior
-    // without serializing the complete form twice for every keystroke.
-    shouldUpdate = (pre, next) => pre !== next,
+    shouldUpdate = (pre, next) => stringify(pre) !== stringify(next),
     formRef: propsFormRef,
     ...restProps
   } = props;
@@ -122,10 +122,8 @@ function BetaSchemaForm<T, ValueType = 'text'>(
          */
         const contextBoundGenItems =
           rowIndex !== undefined
-            ? (
-                its: ProFormColumnsType<T, ValueType>[],
-                nestedContext?: { rowIndex?: number },
-              ) => genItems(its, nestedContext ?? { rowIndex })
+            ? (its: ProFormColumnsType<T, ValueType>[]) =>
+                genItems(its, { rowIndex })
             : genItems;
         return items
           .filter((originItem) => {
@@ -149,68 +147,75 @@ function BetaSchemaForm<T, ValueType = 'text'>(
               rowIndex,
             );
 
-            const item = omitUndefined({
-              title,
-              label: title,
-              name: originItem.name,
-              valueType: runFunction(originItem.valueType, {}),
-              key: originItem.key || originItem.dataIndex || index,
-              columns: originItem.columns,
-              valueEnum: originItem.valueEnum,
-              dataIndex: originItem.dataIndex || originItem.key,
-              initialValue: originItem.initialValue,
-              width: originItem.width,
-              formWidth: originItem.formWidth,
-              index: originItem.index,
-              readonly: originItem.readonly,
-              // #8397:hidden 需要透传到字段级 props,QueryFilter 依据它跳过 Col 占位
-              hidden: originItem.hidden,
-              colSize: originItem.colSize,
-              colProps: originItem.colProps,
-              rowProps: originItem.rowProps,
-              className: originItem.className,
-              tooltip: originItem.tooltip,
-              dependencies: originItem.dependencies,
-              proFieldProps: originItem.proFieldProps,
-              ignoreFormItem: originItem.ignoreFormItem,
-              getFieldProps: originItem.fieldProps
-                ? () =>
-                    runFunction(originItem.fieldProps, formRef.current, {
+          const item = omitUndefined({
+            title,
+            label: title,
+            name: originItem.name,
+            valueType: runFunction(originItem.valueType, {}),
+            key: originItem.key || originItem.dataIndex || index,
+            columns: originItem.columns,
+            valueEnum: originItem.valueEnum,
+            dataIndex: originItem.dataIndex || originItem.key,
+            initialValue: originItem.initialValue,
+            width: originItem.width,
+            index: originItem.index,
+            readonly: originItem.readonly,
+            // #8397:hidden 需要透传到字段级 props,QueryFilter 依据它跳过 Col 占位
+            hidden: originItem.hidden,
+            colSize: originItem.colSize,
+            colProps: originItem.colProps,
+            rowProps: originItem.rowProps,
+            className: originItem.className,
+            tooltip: originItem.tooltip,
+            dependencies: originItem.dependencies,
+            proFieldProps: originItem.proFieldProps,
+            ignoreFormItem: originItem.ignoreFormItem,
+            getFieldProps: originItem.fieldProps
+              ? () =>
+                  runFunction(
+                    originItem.fieldProps,
+                    formRef.current,
+                    {
                       ...originItem,
                       type,
                       rowIndex,
-                    } as any)
-                : undefined,
-              getFormItemProps: originItem.formItemProps
-                ? () =>
-                    runFunction(originItem.formItemProps, formRef.current, {
+                    } as any,
+                  )
+              : undefined,
+            getFormItemProps: originItem.formItemProps
+              ? () =>
+                  runFunction(
+                    originItem.formItemProps,
+                    formRef.current,
+                    {
                       ...originItem,
                       type,
                       rowIndex,
-                    } as any)
-                : undefined,
-              render: originItem.render,
-              formItemRender: originItem.formItemRender,
-              renderText: originItem.renderText,
-              request: originItem.request,
-              params: originItem.params,
-              transform: originItem.transform,
-              convertValue: originItem.convertValue,
-              debounceTime: originItem.debounceTime,
-              defaultKeyWords: originItem.defaultKeyWords,
-            }) as ItemType<any, any>;
+                    } as any,
+                  )
+              : undefined,
+            render: originItem.render,
+            formItemRender: originItem.formItemRender,
+            renderText: originItem.renderText,
+            request: originItem.request,
+            params: originItem.params,
+            transform: originItem.transform,
+            convertValue: originItem.convertValue,
+            debounceTime: originItem.debounceTime,
+            defaultKeyWords: originItem.defaultKeyWords,
+          }) as ItemType<any, any>;
 
-            return renderValueType(item, {
-              action,
-              type,
-              originItem,
-              formRef,
-              genItems: contextBoundGenItems,
-            });
-          })
-          .filter((field) => {
-            return Boolean(field);
+          return renderValueType(item, {
+            action,
+            type,
+            originItem,
+            formRef,
+            genItems: contextBoundGenItems,
           });
+        })
+        .filter((field) => {
+          return Boolean(field);
+        });
       },
     );
 

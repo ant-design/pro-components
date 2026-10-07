@@ -1,9 +1,8 @@
 import { RightOutlined } from '@ant-design/icons';
 import { omit, useControlledState } from '@rc-component/util';
-import { ConfigProvider, Skeleton } from 'antd';
+import { ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
 import React, {
-  createContext,
   useCallback,
   useContext,
   useMemo,
@@ -12,7 +11,8 @@ import React, {
 } from 'react';
 import { ProConfigProvider, proTheme } from '../../../provider';
 import { useRefFunction } from '../../../utils';
-import CheckCard from './index';
+import CheckCard from './Core';
+import { CardLoading, CheckCardGroupContext } from './shared';
 import { useStyle } from './style';
 
 export type CheckCardValueType = string | number | boolean;
@@ -22,9 +22,7 @@ export type CheckCardValueType = string | number | boolean;
  * It can be an array of CheckCardValueTypes, a single CheckCardValueType, or undefined.
  */
 export type CheckGroupValueType =
-  | CheckCardValueType[]
-  | CheckCardValueType
-  | undefined;
+  CheckCardValueType[] | CheckCardValueType | undefined;
 
 /**
  * Represents an option for a CheckCard component.
@@ -121,16 +119,7 @@ export interface AbstractCheckCardGroupProps {
   children?: React.ReactNode;
 }
 
-export const CardLoading: React.FC<{
-  prefixCls: string;
-  hashId: string;
-}> = ({ prefixCls, hashId }) => {
-  return (
-    <div className={clsx(`${prefixCls}-loading-content`, hashId)}>
-      <Skeleton loading active paragraph={{ rows: 4 }} title={false} />
-    </div>
-  );
-};
+export { CardLoading, CheckCardGroupContext };
 
 export interface CheckCardGroupProps extends AbstractCheckCardGroupProps {
   /**
@@ -199,9 +188,6 @@ export type CheckCardGroupContextType = {
   /** 注销一个值（子卡片卸载时调用） */
   cancelValue?: (value: CheckCardValueType) => void;
 };
-
-export const CheckCardGroupContext =
-  createContext<CheckCardGroupContextType | null>(null);
 
 /**
  * SubCheckCardGroup component.
@@ -374,8 +360,7 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
 
     if (options && options.length > 0) {
       const optionValue = stateValue as
-        | CheckCardValueType[]
-        | CheckCardValueType;
+        CheckCardValueType[] | CheckCardValueType;
 
       const renderOptions = (list: CheckCardOptionType[]) => {
         return list.map((option) => {

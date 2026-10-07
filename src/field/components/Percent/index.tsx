@@ -1,5 +1,5 @@
 ﻿import React, { useMemo } from 'react';
-import { useIntl } from '../../../provider';
+import { useFieldIntl as useIntl } from '../../internal/useFieldIntl';
 import {
   isProFieldEditOrUpdateMode,
   isProFieldReadMode,
@@ -19,6 +19,9 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (props, ref) => {
   const {
     text,
     mode,
+    render,
+    formItemRender,
+    fieldProps,
     placeholder,
     showSymbol: propsShowSymbol,
   } = props;

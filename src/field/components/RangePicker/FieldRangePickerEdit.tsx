@@ -2,7 +2,7 @@
 import dayjs from 'dayjs';
 import React from 'react';
 import type { IntlType } from '../../../provider';
-import { parseValueToDay } from '../../../utils';
+import { parseValueToDay } from '../../../utils/parseValueToMoment';
 import type { ProFieldFC } from '../../types';
 
 type Props = Parameters<
@@ -32,14 +32,7 @@ export function FieldRangePickerEdit(props: Props, ref: React.Ref<unknown>) {
   } = props;
 
   /** #8863:字符串值按 format 解析,避免非 ISO 格式(如 '23/3/2024')解析失败 */
-  const parserFormat =
-    typeof fieldProps.format === 'string' || Array.isArray(fieldProps.format)
-      ? fieldProps.format
-      : format;
-  const dayValue = parseValueToDay(
-    fieldProps.value,
-    parserFormat,
-  ) as dayjs.Dayjs[];
+  const dayValue = parseValueToDay(fieldProps.value, format) as dayjs.Dayjs[];
 
   const dom = (
     <DatePicker.RangePicker

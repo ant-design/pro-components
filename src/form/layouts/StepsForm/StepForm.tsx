@@ -1,20 +1,12 @@
 import { omit, warning } from '@rc-component/util';
-import type { FormInstance, FormProps, StepsProps } from 'antd';
+import type { FormInstance } from 'antd';
 import { useContext, useEffect, useImperativeHandle, useRef } from 'react';
-import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import { StepFormProvide, StepsFormProvide } from './index';
-import type { StepsFormProps } from './index';
+import type { StepFormProps } from './StepForm.types';
+import { StepFormProvide, StepsFormProvide } from './context';
 const { noteOnce } = warning;
 
-export type StepFormProps<T = Record<string, any>, U = Record<string, any>> = {
-  step?: number;
-  stepProps?: NonNullable<StepsProps['items']>[number];
-  index?: number;
-  // #9101 支持传入 Form.useForm() 实例（运行时经 restProps 透传给 BaseForm），
-  // 共享实例时非当前步字段通过 skipFieldRules 跳过校验
-} & Omit<FormProps<T>, 'onFinish'> &
-  Omit<CommonFormProps<T, U>, 'submitter' | 'form'>;
+export type { StepFormProps } from './StepForm.types';
 
 function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
   const formRef = useRef<FormInstance | undefined>();
@@ -26,24 +18,22 @@ function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
    * StepFormProvide context。当 StepForm 被自定义组件包裹时,
    * context 里的 children 是包装组件从外层接收的,
    * 若 context 覆盖元素自身 props,内部显式声明的渲染逻辑会被覆盖。
-   * 只让元素自身书写的 children 优先，其余上下文属性（尤其是计算后的 step）
-   * 仍由 StepsForm 控制。
+   * 元素自身书写的 props(含 children)必须优先。
    */
-  const props = {
-    ...stepNativeProps,
-    ...stepContext,
-    children: stepNativeProps.children ?? stepContext?.children,
-  } as StepFormProps<T> & StepsFormProps<any>;
+  const props = { ...stepContext, ...stepNativeProps } as StepFormProps<T>;
   const {
     onFinish,
     step,
     formRef: propFormRef,
-    title: _title,
-    stepProps: _stepProps,
+    title,
+    stepProps,
     ...restProps
   } = props;
 
-  noteOnce(!restProps.submitter, 'StepForm 不包含提交按钮，请在 StepsForm 上');
+  noteOnce(
+    !('submitter' in restProps && restProps.submitter),
+    'StepForm 不包含提交按钮，请在 StepsForm 上',
+  );
 
   /** 重置 formRef */
   useImperativeHandle(propFormRef, () => formRef.current, [

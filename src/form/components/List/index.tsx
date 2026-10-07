@@ -5,14 +5,8 @@ import {
   DeleteOutlined,
 } from '@ant-design/icons';
 import { warning } from '@rc-component/util';
-import type { ColProps, FormInstance } from 'antd';
+import type { ColProps, FormListOperation } from 'antd';
 import { ConfigProvider, Form } from 'antd';
-import type {
-  FormListFieldData,
-  FormListOperation,
-  FormListProps,
-} from 'antd/lib/form/FormList';
-import type { NamePath } from 'antd/lib/form/interface';
 import { clsx } from 'clsx';
 import type { ReactNode } from 'react';
 import React, {
@@ -23,11 +17,13 @@ import React, {
   useRef,
 } from 'react';
 import { useIntl } from '../../../provider';
-import type { LabelTooltipType, SearchConvertKeyFn } from '../../../utils';
+import type { LabelTooltipType } from '../../../utils';
 import { ProFormContext } from '../../../utils';
+import type { FormListProps } from '../../../utils/antdTypes';
 import FieldContext from '../../FieldContext';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormGridConfig } from '../../typing';
+import { FormListContext } from './FormListContext';
 import { ProFormListContainer } from './ListContainer';
 import type {
   ChildrenItemFunction,
@@ -37,43 +33,6 @@ import type {
 import { useStyle } from './style';
 
 const { noteOnce } = warning;
-
-const FormListContext = React.createContext<
-  | (FormListFieldData & {
-      listName: NamePath;
-    })
-  | Record<string, any>
->({});
-
-const ProFormListValueConverter: React.FC<{
-  children: ReactNode;
-  convertValue: SearchConvertKeyFn;
-  form: FormInstance;
-  name: NamePath;
-}> = ({ children, convertValue, form, name }) => {
-  const value = form.getFieldValue(name);
-  const [, forceRender] = React.useReducer((count) => count + 1, 0);
-  const initialValueConvertedRef = useRef(false);
-  const convertedValue =
-    value === undefined || initialValueConvertedRef.current
-      ? value
-      : convertValue(value, name, form.getFieldsValue(true));
-  const shouldConvert =
-    value !== undefined &&
-    !initialValueConvertedRef.current &&
-    !Object.is(convertedValue, value);
-
-  React.useLayoutEffect(() => {
-    if (value === undefined || initialValueConvertedRef.current) return;
-    initialValueConvertedRef.current = true;
-    if (shouldConvert) {
-      form.setFieldValue(name, convertedValue);
-      forceRender();
-    }
-  }, [convertedValue, form, name, shouldConvert, value]);
-
-  return shouldConvert ? null : children;
-};
 
 export type FormListActionType<T = any> = FormListOperation & {
   get: (index: number) => T | undefined;
@@ -95,8 +54,6 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children' | 'rules'> &
      * <ProForm.Group title="标题"  tooltip={{icon:<Info/>,title:自定义提示信息}}>
      */
     tooltip?: LabelTooltipType;
-    /** 将后端值转换为 Form.List 使用的数组值 */
-    convertValue?: SearchConvertKeyFn;
     /**
      * @name 行操作的钩子配置
      *
@@ -158,6 +115,8 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children' | 'rules'> &
   } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'>;
 
 function ProFormList<T>(props: ProFormListProps<T>) {
+  /** 保存 Form.List 原始 action，供 useImperativeHandle 与渲染函数消费 */
+  const actionRefs = useRef<FormListOperation>();
   /** 保存经过 actionGuard 包装、带 onAfterAdd/onAfterRemove 回调的 action（#8939） */
   const guardedActionRef = useRef<FormListOperation>();
   const context = useContext(ConfigProvider.ConfigContext);
@@ -170,7 +129,6 @@ function ProFormList<T>(props: ProFormListProps<T>) {
 
   const {
     transform,
-    convertValue,
     actionRender,
     creatorButtonProps,
     label,
@@ -222,7 +180,6 @@ function ProFormList<T>(props: ProFormListProps<T>) {
   const { ColWrapper, RowWrapper } = useGridHelpers({ colProps, rowProps });
 
   const proFormContext = useContext(ProFormContext);
-  const formInstance = Form.useFormInstance();
 
   // 处理 list 的嵌套
   const name = useMemo(() => {
@@ -238,34 +195,13 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     return [listContext.name, rest.name].flat(1);
   }, [listContext.name, rest.name]);
 
-  const fieldValueTypeName = useMemo(() => {
-    const nameArray = [props.name]
-      .flat(1)
-      .filter((itemName) => itemName !== undefined);
-    if (listContext.listName === undefined) return nameArray;
-    if (
-      nameArray[0] === listContext.name &&
-      Array.isArray(listContext.listName)
-    ) {
-      return [...listContext.listName.slice(0, -1), ...nameArray];
-    }
-    return [listContext.listName, props.name]
-      .flat(1)
-      .filter((itemName) => itemName !== undefined);
-  }, [listContext.listName, listContext.name, props.name]);
-
   useImperativeHandle(
     actionRef,
     () =>
       ({
-        // 每次调用都转发到最新一轮渲染生成的 action，避免列表长度变化后
-        // actionRef 仍捕获旧 count，导致 guard 与 after 回调收到过期值（#8939）。
-        add: (...args: Parameters<FormListOperation['add']>) =>
-          guardedActionRef.current?.add(...args),
-        remove: (...args: Parameters<FormListOperation['remove']>) =>
-          guardedActionRef.current?.remove(...args),
-        move: (...args: Parameters<FormListOperation['move']>) =>
-          guardedActionRef.current?.move(...args),
+        // 使用带 actionGuard 与 onAfterAdd/onAfterRemove 的包装 action，
+        // 保证 actionRef.add/remove 与内置按钮行为一致（#8939）
+        ...guardedActionRef.current,
         get: (index: number) => {
           return proFormContext.formRef!.current!.getFieldValue([
             ...name,
@@ -297,21 +233,14 @@ function ProFormList<T>(props: ProFormListProps<T>) {
 
     // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
     // 写一个 ts 比较麻烦，用 any 顶一下
-    setFieldValueType(fieldValueTypeName, {
-      valueType: 'formList',
-      convertValue,
-      transform,
-    });
-    return () => {
-      setFieldValueType(fieldValueTypeName, { valueType: 'formList' });
-    };
-  }, [
-    convertValue,
-    fieldValueTypeName,
-    props.name,
-    setFieldValueType,
-    transform,
-  ]);
+    setFieldValueType(
+      [props.name].flat(1).filter((itemName) => itemName !== undefined),
+      {
+        valueType: 'formList',
+        transform,
+      },
+    );
+  }, [props.name, setFieldValueType, transform]);
 
   /** 当 isValidateList=true 时触发校验，提取消除 onAfterAdd/onAfterRemove 里的重复判断 */
   const validateIfNeeded = () => {
@@ -351,69 +280,56 @@ function ProFormList<T>(props: ProFormListProps<T>) {
               : undefined
           }
         >
-          {(() => {
-            const listDom = (
-              <Form.List rules={rules} {...rest} name={name}>
-                {(fields, action, meta) => {
-                  return (
-                    <RowWrapper>
-                      <ProFormListContainer
-                        name={name}
-                        guardedActionRef={guardedActionRef}
-                        readonly={!!readonly}
-                        originName={rest.name}
-                        copyIconProps={copyIconProps}
-                        deleteIconProps={deleteIconProps}
-                        arrowSort={arrowSort}
-                        upIconProps={upIconProps}
-                        downIconProps={downIconProps}
-                        formInstance={proFormContext.formRef!.current!}
-                        prefixCls={baseClassName}
-                        meta={meta}
-                        fields={fields}
-                        itemContainerRender={itemContainerRender}
-                        itemRender={itemRender}
-                        fieldExtraRender={fieldExtraRender}
-                        creatorButtonProps={creatorButtonProps}
-                        creatorRecord={creatorRecord}
-                        actionRender={actionRender}
-                        action={action}
-                        actionGuard={actionGuard}
-                        alwaysShowItemLabel={alwaysShowItemLabel}
-                        min={min}
-                        max={max}
-                        count={fields.length}
-                        onAfterAdd={(defaultValue, insertIndex, count) => {
-                          validateIfNeeded();
-                          onAfterAdd?.(defaultValue, insertIndex, count);
-                        }}
-                        onAfterRemove={(index, count) => {
-                          if (count === 0) validateIfNeeded();
-                          onAfterRemove?.(index, count);
-                        }}
-                        containerClassName={containerClassName}
-                        containerStyle={containerStyle}
-                      >
-                        {children}
-                      </ProFormListContainer>
-                      <Form.ErrorList errors={meta.errors} />
-                    </RowWrapper>
-                  );
-                }}
-              </Form.List>
-            );
-            return convertValue ? (
-              <ProFormListValueConverter
-                convertValue={convertValue}
-                form={formInstance}
-                name={fieldValueTypeName}
-              >
-                {listDom}
-              </ProFormListValueConverter>
-            ) : (
-              listDom
-            );
-          })()}
+          <Form.List rules={rules} {...rest} name={name}>
+            {(fields, action, meta) => {
+              // 将 action 暴露给外部
+              actionRefs.current = action;
+              return (
+                <RowWrapper>
+                  <ProFormListContainer
+                    name={name}
+                    guardedActionRef={guardedActionRef}
+                    readonly={!!readonly}
+                    originName={rest.name}
+                    copyIconProps={copyIconProps}
+                    deleteIconProps={deleteIconProps}
+                    arrowSort={arrowSort}
+                    upIconProps={upIconProps}
+                    downIconProps={downIconProps}
+                    formInstance={proFormContext.formRef!.current!}
+                    prefixCls={baseClassName}
+                    meta={meta}
+                    fields={fields}
+                    itemContainerRender={itemContainerRender}
+                    itemRender={itemRender}
+                    fieldExtraRender={fieldExtraRender}
+                    creatorButtonProps={creatorButtonProps}
+                    creatorRecord={creatorRecord}
+                    actionRender={actionRender}
+                    action={action}
+                    actionGuard={actionGuard}
+                    alwaysShowItemLabel={alwaysShowItemLabel}
+                    min={min}
+                    max={max}
+                    count={fields.length}
+                    onAfterAdd={(defaultValue, insertIndex, count) => {
+                      validateIfNeeded();
+                      onAfterAdd?.(defaultValue, insertIndex, count);
+                    }}
+                    onAfterRemove={(index, count) => {
+                      if (count === 0) validateIfNeeded();
+                      onAfterRemove?.(index, count);
+                    }}
+                    containerClassName={containerClassName}
+                    containerStyle={containerStyle}
+                  >
+                    {children}
+                  </ProFormListContainer>
+                  <Form.ErrorList errors={meta.errors} />
+                </RowWrapper>
+              );
+            }}
+          </Form.List>
         </Form.Item>
       </div>
     </ColWrapper>,

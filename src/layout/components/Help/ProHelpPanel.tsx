@@ -9,15 +9,10 @@ import type { ProHelpDataSource } from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';
 import { ProHelpContentPanel } from './ProHelpContentPanel';
 import { ProHelpSelect } from './Search';
+import { SelectKeyProvide } from './SelectKeyProvide';
 import { useStyle } from './style';
 
-export const SelectKeyProvide = React.createContext<{
-  selectedKey: string | undefined;
-  setSelectedKey: (key: string | undefined) => void;
-}>({
-  selectedKey: undefined,
-  setSelectedKey: () => {},
-});
+export { SelectKeyProvide };
 
 export type ProHelpPanelProps = {
   /**
@@ -110,9 +105,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   const setSelectedKey = useCallback(
     (
       updater:
-        | string
-        | undefined
-        | ((prev: string | undefined) => string | undefined),
+        string | undefined | ((prev: string | undefined) => string | undefined),
     ) => {
       setSelectedKeyInner((prev) => {
         const next =

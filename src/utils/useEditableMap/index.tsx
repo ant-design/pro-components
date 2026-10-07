@@ -1,10 +1,10 @@
 import { get, useControlledState } from '@rc-component/util';
-import { App } from 'antd';
+import { message } from 'antd';
 import set from 'es-toolkit/compat/set';
 import type React from 'react';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
-import { useRefFunction } from '..';
-import { useIntl } from '../../provider';
+import { useIntl } from '../../provider/useIntl';
+import { useRefFunction } from '../hooks/useRefFunction';
 import type {
   ActionRenderConfig,
   ActionTypeText,
@@ -22,7 +22,7 @@ const normalizeKeyToString = (recordKey: RecordKey): string =>
   String(recordKeyToString(recordKey));
 
 /**
- * 把 RecordKey 转成 set/get 用的路径数组，统一为 string 段。
+ * 把 RecordKey 转成 lodash set/get 用的路径数组，统一为 string 段。
  * 例如：'name' → ['name']，['address','city'] → ['address','city']，123 → ['123']
  */
 const recordKeyToPath = (recordKey: RecordKey): (string | number)[] => {
@@ -33,13 +33,12 @@ const recordKeyToPath = (recordKey: RecordKey): (string | number)[] => {
 
 /**
  * 显示警告信息（仅在 single 模式拦截重复编辑时调用）。
- * 使用 `App.useApp()` 获取 message 实例，以消费 ConfigProvider 动态主题。
+ * NOTE: 使用 antd `message` 静态方法在 antd 5 下无法消费 ConfigProvider 的主题，
+ *       但替换为 `App.useApp()` 需要业务方在外层包裹 `<App />`，会有破坏性。
+ *       这里保留静态方法兼容历史调用，建议消费方自行包裹 `<App />` 以获得正确主题。
  */
-const useWarning = () => {
-  const { message } = App.useApp();
-  return useRefFunction((messageStr: React.ReactNode) => {
-    message.warning(messageStr);
-  });
+const warning = (messageStr: React.ReactNode) => {
+  message.warning(messageStr);
 };
 
 /**
@@ -64,7 +63,7 @@ function editableRowByKey<RecordType extends Record<string, any>>({
   if (value === undefined) {
     return { ...data, ...row };
   }
-  // set 会原地修改对象，先做浅拷贝避免污染调用方的引用。
+  // lodash set 会原地修改对象，先做浅拷贝避免污染调用方的引用。
   return set({ ...data }, path, value);
 }
 
@@ -107,7 +106,6 @@ export function useEditableMap<
 
   // Internationalization
   const intl = useIntl();
-  const warning = useWarning();
 
   const [editableKeys, setEditableRowKeysInner] = useControlledState<
     React.Key[]
@@ -206,14 +204,14 @@ export function useEditableMap<
 
       // 保存编辑前的数据到 Map（按 recordKey 索引，多行场景互不干扰）
       const snapshot =
-        recordValue ?? get(props.dataSource, recordKeyToPath(recordKey)) ?? null;
+        recordValue ??
+        get(props.dataSource, recordKeyToPath(recordKey)) ??
+        null;
       preEditRowRefs.current.set(keyStr, snapshot);
 
       const currentKeys = editableKeysRef.current;
       const newKeys =
-        editableType === 'single'
-          ? [keyStr]
-          : [...(currentKeys || []), keyStr];
+        editableType === 'single' ? [keyStr] : [...(currentKeys || []), keyStr];
 
       setEditableRowKeys(newKeys);
       return true;

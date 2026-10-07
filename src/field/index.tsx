@@ -1,44 +1,14 @@
-import { ProField, defaultRenderText } from './AllProField';
-import FieldCascader from './components/Cascader';
-import FieldCheckbox from './components/Checkbox';
-import FieldCode from './components/Code';
-import FieldColorPicker from './components/ColorPicker';
-import FieldDatePicker from './components/DatePicker';
-import FieldDigit from './components/Digit';
-import FieldDigitRange from './components/DigitRange';
-import FieldFromNow from './components/FromNow';
-import FieldImage from './components/Image';
-import FieldIndexColumn from './components/IndexColumn';
-import FieldMoney, { type FieldMoneyProps } from './components/Money';
-import FieldOptions from './components/Options';
-import FieldPassword from './components/Password';
-import FieldPercent from './components/Percent';
-import FieldProgress from './components/Progress';
-import FieldRadio from './components/Radio';
-import FieldRangePicker from './components/RangePicker';
-import FieldRate from './components/Rate';
-import FieldSecond from './components/Second';
-import FieldSegmented from './components/Segmented';
-import FieldSelect, {
-  proFieldParsingValueEnumToArray,
-} from './components/Select';
-import FieldSlider from './components/Slider';
-import FieldStatus, { ProFieldBadgeColor } from './components/Status';
-import FieldSwitch from './components/Switch';
-import FieldText from './components/Text';
-import FieldTextArea from './components/TextArea';
-import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
-import FieldTreeSelect from './components/TreeSelect';
-import type { ProFieldEmptyText, ProFieldPropsType } from './types';
-
-export type ProFieldMoneyProps = FieldMoneyProps;
-
+export { ProField, defaultRenderText } from './AllProField';
+export { default as FieldIndexColumn } from './components/IndexColumn';
 export type {
   FieldMoneyProps,
-  ProFieldEmptyText,
-  ProFieldPropsType,
-};
-
+  FieldMoneyProps as ProFieldMoneyProps,
+} from './components/Money';
+export {
+  default as FieldStatus,
+  ProFieldBadgeColor,
+} from './components/Status';
+export { default as FieldText } from './components/Text';
 export {
   FieldCascader,
   FieldCheckbox,
@@ -49,7 +19,6 @@ export {
   FieldDigitRange,
   FieldFromNow,
   FieldImage,
-  FieldIndexColumn,
   FieldMoney,
   FieldOptions,
   FieldPassword,
@@ -62,15 +31,15 @@ export {
   FieldSegmented,
   FieldSelect,
   FieldSlider,
-  FieldStatus,
   FieldSwitch,
-  FieldText,
   FieldTextArea,
   FieldTimePicker,
   FieldTimeRangePicker,
   FieldTreeSelect,
-  ProField,
-  ProFieldBadgeColor,
-  defaultRenderText,
-  proFieldParsingValueEnumToArray,
-};
+  preloadAllProFieldValueTypes,
+  preloadProFieldValueType,
+} from './FieldLoaders';
+export { proFieldParsingValueEnumToArray } from './internal/valueEnumToArray';
+export { createProField } from './ProFieldCore';
+export type { ProFieldDualRender, ProFieldRenderText } from './ProFieldCore';
+export type { ProFieldEmptyText, ProFieldPropsType } from './types';

@@ -1,6 +1,6 @@
 ﻿import type { CascaderProps } from 'antd';
 import React, { useContext } from 'react';
-import { FieldCascader } from '../../../field';
+import FieldCascader from '../../../field/components/Cascader';
 import { ProConfigProvider } from '../../../provider';
 import FieldContext from '../../FieldContext';
 import type {

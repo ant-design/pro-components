@@ -1,6 +1,7 @@
 ﻿import { useControlledState } from '@rc-component/util';
 import React, { useCallback, useRef } from 'react';
-import { proTheme, useIntl } from '../../../provider';
+import { proTheme } from '../../../provider/useStyle';
+import { useFieldIntl as useIntl } from '../../internal/useFieldIntl';
 import {
   isProFieldEditOrUpdateMode,
   isProFieldReadMode,
@@ -28,7 +29,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
   },
   ref,
 ) => {
-  const { value, defaultValue, onChange } = fieldProps;
+  const { value, defaultValue, onChange, id } = fieldProps;
   const intl = useIntl();
 
   const { token } = proTheme.useToken();

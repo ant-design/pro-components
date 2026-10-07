@@ -1,7 +1,7 @@
 ﻿import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
 import React from 'react';
-import { parseValueToDay } from '../../../utils';
+import { parseValueToDay } from '../../../utils/parseValueToMoment';
 import type { ProFieldFC } from '../../types';
 
 type Props = Parameters<
