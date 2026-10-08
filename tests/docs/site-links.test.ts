@@ -7,10 +7,10 @@ const root = path.resolve(__dirname, '../..');
 describe('documentation links', () => {
   it('🐛 #9632 keeps valueEnum links on the generated schema-form page', () => {
     const files = [
-      'site/components/table.md',
-      'site/components/table.en-US.md',
-      'site/components/list.md',
-      'site/components/list.en-US.md',
+      'site/zh-CN/components/table/index.mdx',
+      'site/en-US/components/table/index.mdx',
+      'site/zh-CN/components/list.mdx',
+      'site/en-US/components/list.mdx',
     ];
     const docs = files
       .map((file) => fs.readFileSync(path.join(root, file), 'utf8'))

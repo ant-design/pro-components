@@ -1,0 +1,17 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "介绍"
+  },
+  {
+    "type": "file",
+    "name": "api-changes",
+    "label": "API 变更总结"
+  },
+  {
+    "type": "file",
+    "name": "migration-guide",
+    "label": "迁移指南"
+  }
+]

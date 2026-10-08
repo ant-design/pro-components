@@ -1,0 +1,271 @@
+---
+title: Demos
+order: 0
+---
+
+
+## Code Demo
+
+### Basic Usage
+
+
+```tsx file="<root>/demos/table/single.tsx" title="Query Table" preview
+```
+```tsx file="<root>/demos/table/normal.tsx" title="Table without Search Form" preview
+```
+```tsx file="<root>/demos/table/data-source.tsx" title="Using DataSource" preview
+```
+```tsx file="<root>/demos/table/no-title.tsx" title="Table without ToolBar" preview
+```
+
+### Search filter type switch
+
+Use a segmented control to toggle `search.filterType` between the full query form (`query`) and lightweight filter (`light`).
+
+
+```tsx file="<root>/demos/table/enum-filter-type.tsx" title="Search filter type switch" preview
+```
+
+### Search & Filter
+
+
+```tsx file="<root>/demos/table/no-option.tsx" title="Query Table (No Buttons)" preview
+```
+```tsx file="<root>/demos/table/light-filter.tsx" title="Lightweight Filter" preview
+```
+```tsx file="<root>/demos/table/search.tsx" title="Built-in keyWords Search" preview
+```
+```tsx file="<root>/demos/table/search-option.tsx" title="Custom Search Options" preview
+```
+```tsx file="<root>/demos/table/open-rules.tsx" title="Required Query Form" preview
+```
+
+Try to use initialValue to solve the problem, required fields are more frustrating.
+
+### Search Form Customization
+
+When the built-in form items don't meet our basic needs, we need to customize the default components, which we can use with `fieldProps` and `formItemRender`.
+
+`fieldProps` can pass the props through and set the select style and multi-select issues.
+
+`formItemRender` does the rewriting logic, passing in item and props for rendering, but note that we have to assign `value` and `onChange` to the props, otherwise the form won't get the parameters.
+
+```tsx | pure
+formItemRender: (
+  _,
+  { type, defaultRender, formItemProps, fieldProps, ...rest },
+  form,
+) => {
+  if (type === 'form') {
+    return null;
+  }
+  const status = form.getFieldValue('state');
+  if (status !== 'open') {
+    return <Input {...fieldProps} placeholder="Please enter" />;
+  }
+  return defaultRender(_);
+};
+```
+
+The definition of `formItemRender`, the exact value of which can be seen by opening the console.
+
+```tsx | pure
+ formItemRender?: (
+    item: ProColumns<T>,
+    config: {
+      value?: any;
+      onSelect?: (value: any) => void;
+      type: ProTableTypes;
+      defaultRender: (newItem: ProColumns<any>) => JSX.Element | null;
+    },
+    form: FormInstance,
+  ) => JSX.Element | false | null;
+```
+
+
+```tsx file="<root>/demos/table/linkage-form.tsx" title="Dynamic Linkage Search" preview
+```
+```tsx file="<root>/demos/table/form.tsx" title="Manipulating Query Forms with formRef" preview
+```
+
+#### Why you should not manually wire `value` / `onChange`
+
+Fields wrapped by ProTable's search Form get `value` (or `valuePropName`) and `onChange` (or `trigger`) injected — the Form owns the synchronization. Practically:
+
+- Do not rely on component `onChange` for aggregation (use Form `onValuesChange` instead). You may still subscribe to `onChange` when needed.
+- Do not control values with raw `value` / `defaultValue` on widgets; defaults belong in Form `initialValues`. `initialValues` is not reactive — use `setFieldsValue`.
+- Prefer `form.setFieldsValue` over scattering `useState`.
+
+#### Why does `defaultValue` look ignored?
+
+Child fields are switched to controlled mode, so standalone `defaultValue` will not behave as usual. Prefer Form `initialValues` (via `search.defaultCollapsed`/`form` configs as documented) or imperative updates through `formRef`.
+
+### Table Features
+
+
+```tsx file="<root>/demos/table/batch-option.tsx" title="Batch Operations" preview
+```
+```tsx file="<root>/demos/table/table-nested.tsx" title="Nested Tables" preview
+```
+```tsx file="<root>/demos/table/fixed-selection-column.tsx" title="Fixed Selection Column" preview
+```
+```tsx file="<root>/demos/table/split.tsx" title="Left-Right Structure" preview
+```
+```tsx file="<root>/demos/table/polling.tsx" title="Table Polling" preview
+```
+```tsx file="<root>/demos/table/date-formatter.tsx" title="dateFormatter - Date Formatting" preview
+```
+
+### Toolbar Customization
+
+Configure toolbar rendering using the `toolbar` property extension.
+
+
+```tsx file="<root>/demos/table/list-toolbar.tsx" title="Toolbar Customization" preview
+```
+```tsx file="<root>/demos/table/render-table.tsx" title="Table Body Customization" preview
+```
+
+### Card Table
+
+For branded layouts you can bend the defaults: configure the outer card via `cardProps` (often `cardProps.title` for the heading) and put primary actions in `headerTitle` (see demo).
+
+
+```tsx file="<root>/demos/table/card-title.tsx" preview
+```
+
+### Value Type Examples
+
+#### valueType - Date
+
+
+```tsx file="<root>/demos/table/value-type-date.tsx" preview
+```
+
+#### valueType - Numeric
+
+
+```tsx file="<root>/demos/table/value-type-number.tsx" preview
+```
+
+#### valueType - Style
+
+
+```tsx file="<root>/demos/table/value-type.tsx" preview
+```
+
+#### valueType - Selection
+
+
+```tsx file="<root>/demos/table/value-type-select.tsx" preview
+```
+
+#### Custom valueType
+
+
+```tsx file="<root>/demos/table/customization-value-type.tsx" preview
+```
+
+### Internationalization
+
+ProTable ships default strings for the toolbar/query area. Below is **the shape of messages** overridable through `createIntl`; pair it with antd `ConfigProvider` locale exactly as shown in `intl.tsx`.
+
+```typescript | pure
+export const proTableIntlShape = {
+  tableForm: {
+    search: 'Query',
+    reset: 'Reset',
+    submit: 'Submit',
+    collapsed: 'Expand',
+    expand: 'Collapse',
+    inputPlaceholder: 'Please enter',
+    selectPlaceholder: 'Please select',
+  },
+  alert: { clear: 'Clear' },
+  tableToolBar: {
+    leftPin: 'Pin to left',
+    rightPin: 'Pin to right',
+    noPin: 'Unpinned',
+    leftFixedTitle: 'Fixed the left',
+    rightFixedTitle: 'Fixed the right',
+    noFixedTitle: 'Not Fixed',
+    reset: 'Reset',
+    columnDisplay: 'Column Display',
+    columnSetting: 'Settings',
+    fullScreen: 'Full Screen',
+    exitFullScreen: 'Exit Full Screen',
+    reload: 'Refresh',
+    density: 'Density',
+    densityDefault: 'Default',
+    densityLarger: 'Larger',
+    densityMiddle: 'Middle',
+    densitySmall: 'Compact',
+  },
+};
+```
+
+
+```tsx file="<root>/demos/table/intl.tsx" title="Internationalization" preview
+```
+
+### RTL (النسخة العربية)
+
+RTL means right-to-left.
+
+
+```tsx file="<root>/demos/table/rtl-table.tsx" preview
+```
+
+### Theme
+
+
+```tsx file="<root>/demos/table/theme.tsx" title="Dark Theme / Compact Theme" preview="iframe-follow" height="550"
+```
+
+### Custom Error Boundaries
+
+
+```tsx file="<root>/demos/table/error-boundaries.tsx" preview="iframe-follow" height="572"
+```
+```tsx file="<root>/demos/table/error-boundaries-false.tsx" title="Disable Error Boundary" preview="iframe-follow" height="462"
+```
+```tsx file="<root>/demos/table/config-provider.tsx" preview
+```
+```tsx file="<root>/demos/table/_single-test.tsx" preview
+```
+
+### Extra demos
+
+Column state (`columnsState`), custom column-setting icon, and `contentWords`-style items.
+
+
+```tsx file="<root>/demos/table/dynamic-columns-state.tsx" title="Controlled columnsState" preview
+```
+```tsx file="<root>/demos/table/columns-setting-custom-icon.tsx" title="Custom column setting icon" preview
+```
+```tsx file="<root>/demos/table/content-words-item.tsx" title="Custom content search fields" preview
+```
+
+## List ToolBar
+
+Customize the table toolbar area.
+
+### Examples
+
+
+```tsx file="<root>/demos/table/list-toolbar/basic.tsx" title="Basic Usage" preview
+```
+```tsx file="<root>/demos/table/list-toolbar/no-title.tsx" title="No Title" preview
+```
+```tsx file="<root>/demos/table/list-toolbar/multiple-line.tsx" title="Double Row Layout" preview
+```
+```tsx file="<root>/demos/table/list-toolbar/tabs.tsx" title="With Tabs" preview
+```
+```tsx file="<root>/demos/table/list-toolbar/menu.tsx" title="Title Dropdown Menu" preview
+```
+
+#### EditableProTable inside ProForm
+
+
+```tsx file="<root>/demos/table/edit-table-rules.tsx" title="Editable table with column validation in ProForm" preview
+```

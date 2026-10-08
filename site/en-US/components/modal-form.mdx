@@ -1,0 +1,88 @@
+---
+title: Modal/DrawerForm
+---
+
+
+# Modal/DrawerForm - Floating Forms
+
+ModalForm and DrawerForm are a variant of ProForm, which is still a form in essence. So you can't customize the footer with `footer`, if you want to define the footer you need to use `submitter.render` to customize it. These two forms behave like ProForm and can be modified directly from ProForm.
+
+ModalForm and DrawerForm both provide triggers to reduce state usage, if you need to use state control you can use `open` and `onOpenChange` to control opening and closing.
+
+## Modal Forms
+
+
+```tsx file="<root>/demos/form/modal-form/modal-form.tsx" title="ModalForm" preview
+```
+
+## Drawer Forms
+
+
+```tsx file="<root>/demos/form/modal-form/drawer-form.tsx" title="DrawerForm" preview
+```
+
+## Nested Drawer Forms
+
+
+```tsx file="<root>/demos/form/modal-form/drawer-form-nested.tsx" title="Nested Drawer Forms" preview
+```
+
+### Debug: Close while loading (Modal + Drawer)
+
+
+```tsx file="<root>/demos/form/modal-form/_modal-form-request-destroy.tsx" title="Debug: destroyOnHidden + request (Modal & Drawer)" preview
+```
+
+## Custom Modal Forms' Button
+
+
+```tsx file="<root>/demos/form/modal-form/modal-form-submitter.tsx" title="Custom Modal submitter" preview
+```
+
+## Use open and onOpenChange
+
+
+```tsx file="<root>/demos/form/modal-form/open-on-open-change.tsx" title="Controlled open" preview
+```
+
+## Reset Form
+
+
+```tsx file="<root>/demos/form/modal-form/modal-form-reset.tsx" title="Reset after submit" preview
+```
+
+## API
+
+### ModalForm
+
+ModalForm combines Modal and ProForm to reduce tedious state management.
+
+| Parameters    | Description                                                                                                                                    | Type                                                        | Default |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------- |
+| trigger       | The dom used to trigger the Modal to open, usually the button                                                                                  | `JSX.Element`                                               | -       |
+| open          | whether to open                                                                                                                                | `boolean`                                                   | -       |
+| onOpenChange  | trigger when open changes                                                                                                                      | `(open:boolean)=>void`                                      | -       |
+| modalProps    | Modal's props, used in the same way as [antd](https://ant.design/components/modal/). Note: 'open' is not supported, please use the global open | `Omit<ModalProps, 'open'>`                                  | -       |
+| title         | The title of the popup box                                                                                                                     | `ModalProps['title']`                                       | -       |
+| width         | The width of the modal                                                                                                                         | `ModalProps['width']`                                       | -       |
+| onFinish      | Triggered when submitting data. If returns a truthy value, it will close the modal (and reset form if `destroyOnHidden` is enabled)            | `(values: any) => Promise<any>`                             | -       |
+| submitTimeout | Disable timeout for the Cancel button when submitting data (ms)                                                                                | `number`                                                    | -       |
+| submitter     | Submit button configurations in the same way as [ProForm](https://procomponents.ant.design/components/form)                                    | [ProForm](https://procomponents.ant.design/components/form) | -       |
+
+### DrawerForm
+
+DrawerForm combines Drawer and ProForm to reduce tedious state management.
+
+| Parameters    | Description                                                                                                                                      | Type                                               | Default |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------- | ------- |
+| trigger       | The dom used to trigger the opening of the Modal, typically the button                                                                           | `JSX.Element`                                      | -       |
+| open          | whether to open                                                                                                                                  | `boolean`                                          | -       |
+| onOpenChange  | trigger when open changes                                                                                                                        | `(open:boolean)=>void`                             | -       |
+| drawerProps   | Drawer's props, used in the same way as [antd](https://ant.design/components/drawer/). Note: 'open' is not supported, please use the global open | `Omit<DrawerProps, 'open'>`                        | -       |
+| title         | The title of the drawer                                                                                                                          | `DrawerProps['title']`                             | -       |
+| size          | Size of the drawer                                                                                                                               | `DrawerProps['size']`                              | -       |
+| width         | Width of the drawer, deprecated, please use `size`                                                                                               | `DrawerProps['size']`                              | -       |
+| resizable     | Whether to use antd native drag resize (ignored when `resize` is set)                                                                            | `DrawerProps['resizable']`                         | -       |
+| resize        | Whether to allow drag resize. When set to `true`, default config will be used                                                                    | `CustomizeResizeType \| boolean`                   | `false` |
+| onFinish      | Triggered when submitting data. If returns a truthy value, it will close the drawer (and reset form if `destroyOnHidden` is enabled)             | `(values: any) => Promise<any>`                    | -       |
+| submitTimeout | Disable timeout for the Cancel button when submitting data (ms)                                                                                  | `number`                                           | -       |

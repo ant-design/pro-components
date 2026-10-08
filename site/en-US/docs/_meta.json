@@ -1,0 +1,17 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "Introduction"
+  },
+  {
+    "type": "file",
+    "name": "api-changes",
+    "label": "API Changes"
+  },
+  {
+    "type": "file",
+    "name": "migration-guide",
+    "label": "Migration Guide"
+  }
+]

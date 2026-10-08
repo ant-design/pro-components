@@ -1,0 +1,177 @@
+---
+title: Demos
+order: 0
+---
+
+
+# ProLayout - Advanced Layout
+
+ProLayout provides a standard, yet flexible, middle and backend layout, with one-click layout switching and automatic menu generation. It can be used with PageContainer to automatically generate breadcrumbs, page headers, and provide a low-cost solution to access the footer toolbar.
+
+## Code Demo
+
+### Enum property switch
+
+Use a segmented control to toggle `layout`, `contentWidth`, `siderMenuType`, and other enum props side by side.
+
+
+```tsx file="<root>/demos/layout/enum-switch.tsx" title="Enum property switch" preview="iframe-follow" height="750"
+```
+
+### Basic Usage
+
+
+```tsx file="<root>/demos/layout/base.tsx" title="Basic Usage" preview="iframe-follow" height="650"
+```
+
+### Common layout toggles
+
+
+```tsx file="<root>/demos/layout/api.tsx" title="Layout prop toggles" preview="iframe-follow" height="720"
+```
+
+### Navigation Modes
+
+
+```tsx file="<root>/demos/layout/sider-mode.tsx" title="Sidebar Navigation (Default)" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/top-mode.tsx" title="Top Navigation" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/mix-mode.tsx" title="Mixed Navigation" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/classicMode.tsx" title="Classic Navigation" preview="iframe-follow" height="650"
+```
+
+### Menu Configuration
+
+
+```tsx file="<root>/demos/layout/collapsed-show-title.tsx" title="Show Title When Collapsed" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/menu-group.tsx" title="Non-grouped Menu" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/search-menu.tsx" title="Search Menu" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/site-menu.tsx" title="Expand menu — site map" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/multiple-menu-one-path.tsx" title="Multiple Routes for One Menu" preview="iframe-follow" height="650"
+```
+
+### Open All Menus by Default
+
+Set `defaultOpenAll` on `menu` to expand every submenu on first render.
+
+
+```tsx file="<root>/demos/layout/default-open-all-menu.tsx" preview="iframe-follow" height="650"
+```
+
+### Always expand all submenus
+
+After toggling collapse repeatedly, `defaultOpenAll` may stop matching user intent. Set `ignoreFlatMenu` on `menu` to ignore manually collapsed state and keep the “expand all” behavior. This runs before render, so it does not apply to async menus.
+
+
+```tsx file="<root>/demos/layout/always-default-open-all-menu.tsx" preview="iframe-follow" height="650"
+```
+
+### Load Menu from Server
+
+ProLayout provides a powerful menu, but this necessarily encapsulates a lot of behavior, leading to dissatisfaction for users who need some special logic. So we provide a number of APIs that are expected to satisfy the vast majority of our clients in this way.
+
+The main APIs used to load menu from the server are `menuDataRender` and `menuRender`, `menuDataRender` controls the current menu data and `menuRender` controls the menu's dom node.
+
+
+```tsx file="<root>/demos/layout/dynamic-menu.tsx" preview="iframe-follow" height="650"
+```
+
+### Customize Menu Content
+
+With `menuItemRender`, `subMenuItemRender`, `title`, `logo`, `menuHeaderRender` you can customize the menu style very easily. If you are really not satisfied, you can use `menuRender` to fully customize it.
+
+
+```tsx file="<root>/demos/layout/customize-menu.tsx" preview="iframe-follow" height="650"
+```
+
+### Custom Footer
+
+ProLayout does not provide footer by default, if you want to have the same style as Pro official website, you need to introduce a footer by yourself.
+
+
+```tsx file="<root>/demos/layout/footer.tsx" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/footer-global-tools.tsx" title="Footer Toolbar & Announcements" preview="iframe-follow" height="650"
+```
+
+### Layout Nesting & Navigation
+
+
+```tsx file="<root>/demos/layout/nested-layout.tsx" title="Nested Layout" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/top-breadcrumb.tsx" title="Breadcrumb on Top" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/immersive-navigation.tsx" title="Multi-level Navigation" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/immersive-navigation-top.tsx" title="Immersive Navigation" preview="iframe-follow" height="650"
+```
+
+### Cross-site navigation
+
+> For the default card layout, each item should have `desc` set to a truthy value. For grouped layout, each item should include `children` with length greater than 0.
+
+
+```tsx file="<root>/demos/layout/app-list-group.tsx" title="App list — grouped mode" preview="iframe-follow" height="650"
+```
+
+### Theme & Style Customization
+
+
+```tsx file="<root>/demos/layout/theme.tsx" title="Modify Style via Token" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/dark.tsx" title="Dark Theme" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/background-context.tsx" title="Page background and overall mood" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/design-menu-css.tsx" title="Customize Menu Style" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/design-sider-menu.tsx" title="Sider width 256px" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/page-simplify.tsx" title="Simplify hierarchy via page background and cards" preview="iframe-follow" height="650"
+```
+
+### Extra demos
+
+Examples that were previously not wired in the docs: `ConfigProvider` prefix, `breadcrumbRender`, `menuRender`, grouped `appList`, nested top layout, etc.
+
+
+```tsx file="<root>/demos/layout/config-provider.tsx" title="ConfigProvider prefixCls + ProLayout" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/menu-group-complex.tsx" title="Grouped menu (complex-menu.ts + menu.type=group)" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/hide-menu.tsx" title="Custom menuRender (sider container width)" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/top-menu-nested.tsx" title="Top layout nested inner ProLayout" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/breadcrumbs-repeat.tsx" title="breadcrumbRender: prepend home" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/app-list-group-simple.tsx" title="App list — grouped (minimal data)" preview="iframe-follow" height="650"
+```
+
+### Others
+
+
+```tsx file="<root>/demos/layout/customize-collapsed.tsx" title="Customized Collapse" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/custom-sider.tsx" title="Custom area below sider menu" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/menu-icons.tsx" title="Menu icons (SVG / React)" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/ghost.tsx" title="Ghost Mode" preview="iframe-follow" height="650"
+```
+
+### Error boundaries
+
+
+```tsx file="<root>/demos/layout/error-boundaries.tsx" title="Built-in error handling to avoid white screens" preview="iframe-follow" height="650"
+```
+```tsx file="<root>/demos/layout/_debug-demo.tsx" title="Dark compact theme" preview="iframe-follow" height="550"
+```
+```tsx file="<root>/demos/layout/split-menus.tsx" title="splitMenus" preview="iframe-follow" height="650"
+```

@@ -39,7 +39,8 @@ screenshot
 .changelogs
 .changelog.md
 packages/components/src/version.ts
-.dumi/tmp
-.dumi/tmp-production
+# Rspress
+node_modules/.rspress
+doc_build
 server
 .turbopack

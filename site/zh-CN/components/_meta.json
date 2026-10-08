@@ -1,0 +1,132 @@
+[
+  {
+    "type": "section-header",
+    "label": "架构设计"
+  },
+  {
+    "type": "file",
+    "name": "index",
+    "label": "组件设计"
+  },
+  {
+    "type": "section-header",
+    "label": "布局"
+  },
+  {
+    "type": "dir",
+    "name": "layout",
+    "label": "ProLayout 高级布局"
+  },
+  {
+    "type": "file",
+    "name": "page-container",
+    "label": "PageContainer 页容器"
+  },
+  {
+    "type": "file",
+    "name": "card",
+    "label": "ProCard 高级卡片"
+  },
+  {
+    "type": "file",
+    "name": "statistic-card",
+    "label": "StatisticCard 指标卡"
+  },
+  {
+    "type": "file",
+    "name": "check-card",
+    "label": "CheckCard 多选卡片"
+  },
+  {
+    "type": "section-header",
+    "label": "数据录入"
+  },
+  {
+    "type": "file",
+    "name": "form",
+    "label": "ProForm 高级表单"
+  },
+  {
+    "type": "file",
+    "name": "field-set",
+    "label": "ProFormFields 表单页"
+  },
+  {
+    "type": "file",
+    "name": "group",
+    "label": "ProFormList 数据结构化"
+  },
+  {
+    "type": "file",
+    "name": "dependency",
+    "label": "ProFormDependency 数据联动"
+  },
+  {
+    "type": "file",
+    "name": "schema-form",
+    "label": "Schema Form JSON 表单"
+  },
+  {
+    "type": "file",
+    "name": "query-filter",
+    "label": "Query/LightFilter 筛选表单"
+  },
+  {
+    "type": "file",
+    "name": "steps-form",
+    "label": "StepsForm 分步表单"
+  },
+  {
+    "type": "file",
+    "name": "modal-form",
+    "label": "Modal/Drawer 浮层表单"
+  },
+  {
+    "type": "file",
+    "name": "login-form",
+    "label": "LoginForm/Page 登录表单"
+  },
+  {
+    "type": "section-header",
+    "label": "数据展示"
+  },
+  {
+    "type": "dir",
+    "name": "table",
+    "label": "ProTable 高级表格"
+  },
+  {
+    "type": "file",
+    "name": "editable-table",
+    "label": "EditableProTable 可编辑表格"
+  },
+  {
+    "type": "file",
+    "name": "drag-sort-table",
+    "label": "DragSortTable 拖动排序表格"
+  },
+  {
+    "type": "file",
+    "name": "list",
+    "label": "ProList 高级列表"
+  },
+  {
+    "type": "file",
+    "name": "descriptions",
+    "label": "ProDescriptions 定义列表"
+  },
+  {
+    "type": "section-header",
+    "label": "通用"
+  },
+  {
+    "type": "file",
+    "name": "skeleton",
+    "label": "ProSkeleton 骨架屏"
+  },
+  {
+    "type": "file",
+    "name": "field",
+    "label": "ProField 原子组件"
+  }
+]

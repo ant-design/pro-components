@@ -14,14 +14,13 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "paths": {
-      "@@/*": [".dumi/tmp/*"],
       "@ant-design/pro-components": ["src"],
       "src": ["src"],
       "src/*": ["src/*"]
     }
   },
   "include": [
-    ".dumirc.ts",
+    "rspress.config.ts",
     "vitest.config.mts",
     "tests/**/**/*.tsx",
     "tests/**/**/*.ts",

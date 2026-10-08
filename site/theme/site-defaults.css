@@ -1,0 +1,123 @@
+/* 站点全局默认样式：由 scripts/gen-site-css.mjs 从 site/theme/*.less 与原 .dumirc.ts styles 生成 */
+
+.markdown a[target='_blank']:not(:has(svg))::after {
+  content: '';
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  margin-inline-start: 0.25em;
+  vertical-align: -0.125em;
+  background-color: currentcolor;
+  mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xMCAxaDF2NGgtMVYzLjRMNi43IDYuNyA2IDZsNC00VjF6TTIgM2gzdjFIM3Y2aDZWOGgxdjNhMSAxIDAgMDEtMSAxSDNhMSAxIDAgMDEtMS0xVjRhMSAxIDAgMDExLTF6Ii8+PC9zdmc+');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xMCAxaDF2NGgtMVYzLjRMNi43IDYuNyA2IDZsNC00VjF6TTIgM2gzdjFIM3Y2aDZWOGgxdjNhMSAxIDAgMDEtMSAxSDNhMSAxIDAgMDEtMS0xVjRhMSAxIDAgMDExLTF6Ii8+PC9zdmc+');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+[data-theme='dark'] .markdown a[target='_blank']:not(:has(svg))::after {
+  mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xMSAxSDd2MWgyLjU5TDUuMjkgNi4yOWwuNzEuNzFMMTAgMi41OVY1aDFWMXpNMSAzdjhoOFY2SDh2NEgyVjRoNFYzSDF6Ii8+PC9zdmc+');
+  -webkit-mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xMSAxSDd2MWgyLjU5TDUuMjkgNi4yOWwuNzEuNzFMMTAgMi41OVY1aDFWMXpNMSAzdjhoOFY2SDh2NEgyVjRoNFYzSDF6Ii8+PC9zdmc+');
+}
+
+.markdown a[target='_blank'] svg {
+  fill: currentcolor;
+  stroke: currentcolor;
+  vertical-align: -0.125em;
+}
+
+.markdown a[target='_blank'] svg :is(path, polygon, circle, rect):not([fill='none']) {
+  fill: currentcolor;
+}
+
+.markdown a[target='_blank'] svg :is(path, polygon, circle, rect)[stroke]:not([stroke='none']) {
+  stroke: currentcolor;
+}
+
+
+
+.otk-task-list-simple {
+  padding: 0 4px;
+}
+
+.otk-task-list-simple-content {
+  height: 0;
+}
+
+
+/* ── 组件文档排版（对齐原 .dumirc.ts styles 注入规则） ── */
+.markdown table {
+  table-layout: fixed;
+}
+
+.rspress-doc h2 {
+  margin-top: 40px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.rspress-doc h2:first-child {
+  margin-top: 0;
+}
+
+.rspress-doc h3 {
+  margin-top: 28px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.rspress-doc h4 {
+  margin-top: 22px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.rspress-doc p {
+  margin: 12px 0;
+  line-height: 1.75;
+  max-width: 960px;
+}
+
+.rspress-doc ul,
+.rspress-doc ol {
+  margin: 12px 0 16px;
+  padding-left: 1.25em;
+  line-height: 1.75;
+}
+
+/* 代码块（对齐 .dumi/global.less 暗色代码样式，Rspress 用 [data-theme='dark']） */
+[data-theme='dark'] .markdown pre[class*='language-'],
+[data-theme='dark'] .markdown code[class*='language-'] {
+  color: #d6e4ff;
+  background: #141414;
+  text-shadow: none;
+}
+
+[data-theme='dark'] .markdown :not(pre) > code {
+  color: #d6e4ff;
+  background: #262626;
+}
+
+/* 表格行分隔（对齐 .dumi/global.less） */
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.markdown table th,
+.markdown table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.markdown table th {
+  background: #fafafa;
+  font-weight: 600;
+}
+
+.markdown table tr:last-child td {
+  border-bottom: none;
+}

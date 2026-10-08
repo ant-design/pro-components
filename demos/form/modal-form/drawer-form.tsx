@@ -27,7 +27,9 @@ const Demo = () => {
       name="modal-form-drawer-form-demo"
       title="Create New Form"
       resize={{
-        maxWidth: window.innerWidth * 0.8,
+        // SSG（静态生成）阶段无 window，需兜底
+        maxWidth:
+          typeof window === 'undefined' ? 800 : window.innerWidth * 0.8,
         minWidth: 300,
       }}
       form={form}

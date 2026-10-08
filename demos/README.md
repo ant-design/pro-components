@@ -26,4 +26,4 @@
 
 ## 文档站排版
 
-组件文档页（`site/components/**`）的全局排版由 `.dumirc.ts` 中 `styles` 注入：标题层级、正文行高、与 dumi 示例块（`.dumi-default-previewer`）的间距。调整文档视觉时优先改该处，避免在每个 demo 内重复写内联 `padding`。
+组件文档页（`site/{zh-CN,en-US}/components/**`）的全局排版由 `site/theme/site-defaults.css` 注入：标题层级、正文行高、与 Rspress 预览块的间距。调整文档视觉时优先改该处，避免在每个 demo 内重复写内联 `padding`。
