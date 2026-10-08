@@ -249,6 +249,7 @@ Same as [select](https://ant.design/components/select/). Both request and valueE
 | ------------ | ------------------------------------------------------------------------------- | ------------------------------------------- | ------- |
 | valueEnum    | Enumeration of current values [valueEnum](/components/table#valueenum)          | `Record`                                    | -       |
 | request      | Enumerate data from network requests                                            | `()=>Promise<{[key:string`\|`number]:any}>` | -       |
+| fetchDataOnSearch | Whether searching re-triggers `request`; set to `false` to fetch once on init and filter locally | `boolean` | `true` |
 | debounceTime | Debounce time, used in conjunction with `request`                               | `number`                                    | -       |
 | params       | Parameters for initiating network requests, used in conjunction with `request`. | `Record`                                    | -       |
 | fieldProps   | Props of Ant Design component                                                   | `SelectProps `                              | -       |
