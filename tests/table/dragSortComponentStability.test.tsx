@@ -1,6 +1,6 @@
 import { DragSortTable } from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { describe, expect, it } from 'vitest';
 import { waitForWaitTime } from '../util';
 

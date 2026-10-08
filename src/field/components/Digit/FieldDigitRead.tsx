@@ -19,15 +19,14 @@ export function FieldDigitRead(
     ...(fieldProps?.intlProps || {}),
   }).format(Number(text) as number);
 
-  const dom = !fieldProps?.stringMode ? (
+  const dom = (
     <span ref={ref as React.Ref<HTMLSpanElement>}>
-      {/* #8844 只读模式渲染 prefix/suffix,与编辑态 InputNumber 展示对齐 */}
       {fieldProps?.prefix}
-      {fieldProps?.formatter?.(digit) || digit}
+      {!fieldProps?.stringMode
+        ? fieldProps?.formatter?.(digit) || digit
+        : text}
       {fieldProps?.suffix}
     </span>
-  ) : (
-    <span>{text}</span>
   );
 
   if (render) {

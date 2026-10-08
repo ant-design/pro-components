@@ -38,6 +38,24 @@ export const shallowMergeOneLevel = <T extends Record<string, any>>(
   return result as T;
 };
 
+export const mergeComponentTokens = (
+  ...sources: Array<
+    Record<string, Record<string, unknown> | undefined> | undefined
+  >
+) => {
+  const result: Record<string, Record<string, unknown>> = {};
+  sources.forEach((source) => {
+    Object.entries(source || {}).forEach(([componentName, componentToken]) => {
+      if (!componentToken) return;
+      result[componentName] = {
+        ...result[componentName],
+        ...componentToken,
+      };
+    });
+  });
+  return result;
+};
+
 /**
  * @deprecated 名字误导（会被误以为是 lodash.merge 的递归深合并）。
  * 请改用语义更明确的 `shallowMergeOneLevel`。本别名仅为兼容老调用点，下个大版本移除。

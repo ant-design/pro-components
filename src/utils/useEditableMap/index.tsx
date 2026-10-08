@@ -1,6 +1,6 @@
 import { get, useControlledState } from '@rc-component/util';
 import { message } from 'antd';
-import set from 'lodash-es/set';
+import set from 'es-toolkit/compat/set';
 import type React from 'react';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useIntl } from '../../provider/useIntl';

@@ -3,13 +3,8 @@
   "plugins": ["react", "typescript"],
   "env": {
     "browser": true,
-    "es2021": true,
+    "es6": true,
     "node": true
-  },
-  "settings": {
-    "react": {
-      "version": "18.3"
-    }
   },
   "ignorePatterns": [
     "**/node_modules/**",
@@ -20,60 +15,63 @@
     "**/.vscode/**",
     "**/.umi/**",
     "**/.github/**",
+    "**/scripts/**",
     "**/server/**",
     "**/*.md",
     "**/*.json",
     "typings.d.ts",
     "webpack.config.js",
-    "site-dumi-plugin.ts",
-    ".dumi/**",
-    ".temp/**",
-    "packages/**"
+    "site-dumi-plugin.ts"
   ],
-  "categories": {
-    "correctness": "warn"
-  },
   "rules": {
     "no-console": "off",
     "no-empty": "off",
-    "no-useless-escape": "off",
+    "no-loss-of-precision": "off",
     "no-prototype-builtins": "off",
+    "no-unescaped-entities": "off",
     "no-unsafe-optional-chaining": "off",
+    "no-useless-escape": "off",
+    "react/display-name": "off",
+    "react/globals": "off",
+    "react/immutability": "off",
+    "react/no-unescaped-entities": "off",
+    "react/preserve-manual-memoization": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/refs": "off",
+    "react/set-state-in-effect": "off",
+    "react/use-memo": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "typescript/ban-ts-comment": "off",
+    "typescript/dot-notation": "warn",
+    "typescript/await-thenable": "off",
+    "typescript/no-base-to-string": "off",
+    "typescript/no-empty-object-type": "off",
+    "typescript/no-explicit-any": "off",
+    "typescript/no-floating-promises": "off",
+    "typescript/no-misused-spread": "off",
+    "typescript/no-redundant-type-constituents": "off",
+    "typescript/no-unsafe-function-type": "off",
+    "typescript/no-unsafe-unary-minus": "off",
+    "typescript/no-useless-default-assignment": "off",
+    "typescript/require-array-sort-compare": "off",
+    "typescript/restrict-template-expressions": "off",
+    "typescript/unbound-method": "off",
+    "no-unreachable": "off",
+    "no-use-before-define": "warn",
     "no-unused-vars": [
       "warn",
       {
         "argsIgnorePattern": "^_",
-        "varsIgnorePattern": "^_",
-        "caughtErrorsIgnorePattern": "^_"
+        "caughtErrorsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
       }
-    ],
-    "react/no-unescaped-entities": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/display-name": "off",
-    "react/exhaustive-deps": "off",
-    "typescript/no-explicit-any": "off",
-    "typescript/ban-ts-comment": "off",
-    "typescript/ban-types": "off",
-    "typescript/no-empty-object-type": "off",
-    "typescript/no-unsafe-function-type": "off",
-    "typescript/no-use-before-define": "warn",
-    "typescript/dot-notation": "warn",
-    "react/refs": "off",
-    "react/immutability": "off",
-    "react/set-state-in-effect": "off",
-    "react/set-state-in-render": "off",
-    "react/preserve-manual-memoization": "off",
-    "react/use-memo": "off",
-    "react/memo-dependencies": "off",
-    "react/no-deriving-state-in-effects": "off",
-    "react/purity": "off"
+    ]
   },
   "overrides": [
     {
-      "files": ["tests/**/*.ts", "tests/**/*.tsx", "demos/**/*.ts", "demos/**/*.tsx"],
+      "files": ["tests/**/*.ts", "tests/**/*.tsx"],
       "rules": {
-        "no-unused-vars": "off",
-        "typescript/no-explicit-any": "off"
+        "no-unused-vars": "off"
       }
     }
   ]

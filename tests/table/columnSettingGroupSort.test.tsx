@@ -1,7 +1,10 @@
 import { ProTable } from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
-import React from 'react';
 import { describe, expect, it } from 'vitest';
+import {
+  hasReorderableSiblings,
+  reorderNestedColumns,
+} from '../../src/table/components/ColumnSetting';
 import { waitForWaitTime } from '../util';
 
 const columns: any[] = [
@@ -25,6 +28,66 @@ const columns: any[] = [
  * 而不是保持 columns 源数组顺序。
  */
 describe('#8133 grouped child column order', () => {
+  it('enables dragging when a single root group has reorderable children', () => {
+    expect(
+      hasReorderableSiblings([
+        { key: 'group', children: [{ key: 'B' }, { key: 'C' }] },
+      ]),
+    ).toBe(true);
+    expect(
+      hasReorderableSiblings([{ key: 'group', children: [{ key: 'B' }] }]),
+    ).toBe(false);
+  });
+
+  it('reorders nested siblings with the same calculation used by drag and drop', () => {
+    const parent = { key: 'group', children: [] as any[] };
+    const children = ['B', 'C', 'E'].map((key) => ({
+      key,
+      parentKey: 'group',
+    }));
+    parent.children = children;
+    const treeMap = new Map<string, any>([
+      ['group', parent],
+      ...children.map((node) => [node.key, node] as [string, any]),
+    ]);
+
+    const movedDown = reorderNestedColumns({}, treeMap, [parent], 'B', 'E', 2);
+    expect(movedDown).toMatchObject({
+      C: { order: 0 },
+      E: { order: 1 },
+      B: { order: 2 },
+    });
+    const movedFirst = reorderNestedColumns(
+      movedDown!,
+      treeMap,
+      [parent],
+      'E',
+      'C',
+      0,
+    );
+    expect(movedFirst).toMatchObject({
+      B: { order: 0 },
+      E: { order: 1 },
+      C: { order: 2 },
+    });
+    const movedToListStart = reorderNestedColumns(
+      movedFirst!,
+      treeMap,
+      [parent],
+      'E',
+      'B',
+      0,
+    );
+    expect(movedToListStart).toMatchObject({
+      E: { order: 0 },
+      B: { order: 1 },
+      C: { order: 2 },
+    });
+    expect(
+      reorderNestedColumns({}, treeMap, [parent], 'missing', 'B', 1),
+    ).toBeUndefined();
+  });
+
   it('children render in columnsMap order when orders are set', async () => {
     const wrapper = render(
       <ProTable
@@ -45,9 +108,9 @@ describe('#8133 grouped child column order', () => {
     await waitForWaitTime(300);
 
     const headers = () =>
-      Array.from(
-        wrapper.container.querySelectorAll('.ant-table-thead th'),
-      ).map((th) => th.textContent);
+      Array.from(wrapper.container.querySelectorAll('.ant-table-thead th')).map(
+        (th) => th.textContent,
+      );
 
     // B C E 按 order 升序 → B, C, E(源顺序,order 恰好一致)
     expect(headers()).toEqual(['A', 'GroupL2', 'D', 'B', 'C', 'E']);
@@ -75,9 +138,9 @@ describe('#8133 grouped child column order', () => {
     await waitForWaitTime(300);
 
     const headers = () =>
-      Array.from(
-        wrapper.container.querySelectorAll('.ant-table-thead th'),
-      ).map((th) => th.textContent);
+      Array.from(wrapper.container.querySelectorAll('.ant-table-thead th')).map(
+        (th) => th.textContent,
+      );
 
     expect(headers()).toEqual(['A', 'GroupL2', 'D', 'E', 'C', 'B']);
 
@@ -96,9 +159,9 @@ describe('#8133 grouped child column order', () => {
     await waitForWaitTime(300);
 
     const headers = () =>
-      Array.from(
-        wrapper.container.querySelectorAll('.ant-table-thead th'),
-      ).map((th) => th.textContent);
+      Array.from(wrapper.container.querySelectorAll('.ant-table-thead th')).map(
+        (th) => th.textContent,
+      );
 
     expect(headers()).toEqual(['A', 'GroupL2', 'D', 'B', 'C', 'E']);
 

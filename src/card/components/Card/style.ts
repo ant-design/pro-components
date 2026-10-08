@@ -10,7 +10,7 @@ const genActiveStyle = (token: ProCardToken) => ({
   borderColor: token.controlOutline,
 });
 
-const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
+export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
   const { componentCls } = token;
   return {
     [componentCls]: {
@@ -26,12 +26,15 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       marginInline: 0,
       paddingBlock: 0,
       paddingInline: 0,
-      backgroundColor: token.colorBgContainer,
-      borderRadius: token.borderRadiusLG,
-      transition: 'all 0.3s',
-      ...resetComponent?.(token),
 
-      '&-box-shadow': {
+      [`&${componentCls}-legacy`]: {
+        ...resetComponent?.(token),
+        backgroundColor: token.colorBgContainer,
+        borderRadius: token.borderRadiusLG,
+        transition: 'all 0.3s',
+      },
+
+      [`&${componentCls}-legacy${componentCls}-box-shadow`]: {
         boxShadow: token.boxShadowTertiary,
         borderColor: 'transparent',
       },
@@ -64,11 +67,11 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      '&-border': {
+      [`&${componentCls}-legacy${componentCls}-border`]: {
         border: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
       },
 
-      '&-hoverable': {
+      [`&${componentCls}-legacy${componentCls}-hoverable`]: {
         cursor: 'pointer',
         transition: 'box-shadow 0.3s, border-color 0.3s',
 
@@ -82,7 +85,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      '&-checked': {
+      [`&${componentCls}-legacy${componentCls}-checked`]: {
         ...genActiveStyle(token),
         '&::after': {
           visibility: 'visible',
@@ -100,11 +103,11 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      '&:focus': {
+      [`&${componentCls}-legacy:focus`]: {
         ...genActiveStyle(token),
       },
 
-      '&&-ghost': {
+      [`&&${componentCls}-legacy${componentCls}-ghost`]: {
         backgroundColor: 'transparent',
         border: 'none',
         boxShadow: 'none',
@@ -124,37 +127,54 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      '&&-split > &-body': {
+      // 布局样式：AntdCard 与 legacy 共用
+      [`&&${componentCls}-split > ${componentCls}-body`]: {
         paddingBlock: 0,
         paddingInline: 0,
       },
 
-      '&&-contain-card > &-body': {
+      [`&&${componentCls}-contain-card > ${componentCls}-body`]: {
         display: 'flex',
       },
 
-      [`${componentCls}-body-direction-column`]: {
+      [`& ${componentCls}-body-direction-column`]: {
         flexDirection: 'column',
       },
 
-      [`${componentCls}-body-wrap`]: {
+      [`& ${componentCls}-body-wrap`]: {
         flexWrap: 'wrap',
       },
 
-      '&&-collapse': {
+      [`&&${componentCls}-legacy${componentCls}-collapse`]: {
         [`> ${componentCls}`]: {
           '&-header': {
             paddingBlockEnd: token.padding,
             borderBlockEnd: 0,
           },
-
-          '&-body': {
-            display: 'none',
-          },
         },
       },
 
-      [`${componentCls}-header`]: {
+      // collapsible 收起：直接藏 body（无高度动画）；布局壳由 shell 显隐
+      [`&&${componentCls}-collapse${componentCls}-collapsible:not(${componentCls}-contain-card):not(${componentCls}-split) > ${componentCls}-body`]:
+        {
+          display: 'none',
+        },
+
+      // 仅 collapsed（无 collapsible）：内容已卸载，藏空 body（legacy；antd 走 inline style）
+      [`&&${componentCls}-legacy${componentCls}-collapse:not(${componentCls}-collapsible) > ${componentCls}-body`]:
+        {
+          display: 'none',
+        },
+
+      // 布局壳折叠：display:contents 保留 flex 子节点；收起用 none 隐藏且不卸载
+      [` ${componentCls}-collapse-shell`]: {
+        display: 'contents',
+      },
+      [` ${componentCls}-collapse-shell-collapsed`]: {
+        display: 'none',
+      },
+
+      [`&${componentCls}-legacy > ${componentCls}-header`]: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -174,26 +194,29 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      [`${componentCls}-title`]: {
-        color: token.colorText,
-        fontWeight: token.fontWeightStrong,
-        // #8929: 优先消费 antd Card 组件 token（components.Card.headerFontSize），
-        // 缺省回退全局 fontSizeLG，保持与 antd Card 标题规格一致
-        fontSize: (token as any).headerFontSize || token.fontSizeLG,
-        lineHeight: token.lineHeight,
-      },
+      [`&${componentCls}-legacy > ${componentCls}-header ${componentCls}-title`]:
+        {
+          color: token.colorText,
+          fontWeight: token.fontWeightStrong,
+          fontSize:
+            (token.components?.Card?.headerFontSize as number | undefined) ??
+            token.fontSizeLG,
+          lineHeight: token.lineHeight,
+        },
 
-      [`${componentCls}-extra`]: {
-        color: token.colorText,
-      },
+      [`&${componentCls}-legacy > ${componentCls}-header ${componentCls}-extra`]:
+        {
+          color: token.colorText,
+        },
 
-      [`${componentCls}-type-inner`]: {
-        [`${componentCls}-header`]: {
+      [`&${componentCls}-legacy${componentCls}-type-inner`]: {
+        [`> ${componentCls}-header`]: {
           backgroundColor: token.colorFillAlter,
         },
       },
 
-      [`${componentCls}-collapsible-icon`]: {
+      // 折叠图标：AntdCard / legacy 共用
+      [` ${componentCls}-collapsible-icon`]: {
         marginInlineEnd: token.marginXS,
         color: token.colorIconHover,
         ':hover': {
@@ -205,7 +228,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      [`${componentCls}-cover`]: {
+      [`&${componentCls}-legacy > ${componentCls}-cover`]: {
         overflow: 'hidden',
         borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
         '& > *': {
@@ -217,7 +240,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      [`${componentCls}-body`]: {
+      [`&${componentCls}-legacy > ${componentCls}-body`]: {
         display: 'block',
         boxSizing: 'border-box',
         height: '100%',
@@ -231,26 +254,22 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
-      '&&-size-small': {
-        [componentCls]: {
-          '&-header': {
-            paddingInline: token.paddingSM,
-            paddingBlock: token.paddingXS,
-            paddingBlockEnd: 0,
+      [`&&${componentCls}-legacy${componentCls}-size-small`]: {
+        [`> ${componentCls}-header`]: {
+          paddingInline: token.paddingSM,
+          paddingBlock: token.paddingXS,
+          paddingBlockEnd: 0,
 
-            '&-border': {
-              paddingBlockEnd: token.paddingXS,
-            },
+          [`&${componentCls}-header-border`]: {
+            paddingBlockEnd: token.paddingXS,
           },
-
-          '&-title': {
-            fontSize: token.fontSize,
-          },
-
-          '&-body': {
-            paddingInline: token.paddingSM,
-            paddingBlock: token.paddingSM,
-          },
+        },
+        [`> ${componentCls}-header ${componentCls}-title`]: {
+          fontSize: token.fontSize,
+        },
+        [`> ${componentCls}-body`]: {
+          paddingInline: token.paddingSM,
+          paddingBlock: token.paddingSM,
         },
         [` ${componentCls}-divider`]: {
           marginBlock: token.marginLG,
@@ -264,6 +283,13 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           paddingBlock: token.paddingXS,
         },
       },
+
+      // collapsible + legacy：body padding 清零（须在 size-small body 规则之后，避免被小尺寸 padding 盖掉）
+      [`&&${componentCls}-collapsible${componentCls}-legacy > ${componentCls}-body`]:
+        {
+          paddingBlock: 0,
+          paddingInline: 0,
+        },
     },
 
     [`${componentCls}-tabs`]: {

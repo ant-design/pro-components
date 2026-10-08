@@ -2,9 +2,18 @@ import { Summary } from '@rc-component/table';
 import { noteOnce, useControlledState } from '@rc-component/util';
 import type { TablePaginationConfig } from 'antd';
 import { ConfigProvider, Table } from 'antd';
+import type {
+  FilterValue as AntFilterValue,
+  SorterResult,
+} from 'antd/es/table/interface';
+import type {
+  GetRowKey,
+  SortOrder,
+  TableCurrentDataSource,
+} from 'antd/lib/table/interface';
 import { clsx } from 'clsx';
-import isEmpty from 'lodash-es/isEmpty';
-import isEqual from 'lodash-es/isEqual';
+import isEmpty from 'es-toolkit/compat/isEmpty';
+import isEqual from 'es-toolkit/compat/isEqual';
 import React, {
   Key,
   useCallback,
@@ -36,13 +45,6 @@ import {
   useEditableArray,
   useRefFunction,
 } from '../utils';
-import type {
-  FilterValue as AntFilterValue,
-  GetRowKey,
-  SorterResult,
-  SortOrder,
-  TableCurrentDataSource,
-} from '../utils/antdTypes';
 import Alert from './components/Alert';
 import { TableContext, TableProvider } from './Store/Provide';
 import { useStyle } from './style';
@@ -73,6 +75,12 @@ import {
   genProColumnToColumn,
   type TableColumnContext,
 } from './utils/genProColumnToColumn';
+
+const tableGridContextValue = {
+  grid: false,
+  colProps: undefined,
+  rowProps: undefined,
+} as const;
 
 function getEditableDataSource<T>({
   dataSource,
@@ -107,7 +115,7 @@ function getEditableDataSource<T>({
   const { options: newLineOptions } = newLineConfig;
   const childrenName = childrenColumnName || 'children';
 
-  if (newLineOptions?.parentKey) {
+  if (newLineOptions?.parentKey != null) {
     const newRow = {
       ...defaultValue,
       map_row_parentKey: recordKeyToString(
@@ -221,7 +229,10 @@ function useMergedPagination<T>({
       propsPagination === false ? false : { ...(propsPagination || {}) };
     const pageConfig = {
       ...action.pageInfo,
-      setPageInfo: ({ pageSize, current }: PageInfo) => {
+      setPageInfo: ({
+        pageSize = action.pageInfo.pageSize,
+        current = action.pageInfo.current,
+      }: Partial<PageInfo>) => {
         const { pageInfo } = action;
         if (pageSize === pageInfo.pageSize || pageInfo.current === 1) {
           action.setPageInfo({ pageSize, current });
@@ -410,7 +421,7 @@ const ProTable = <
   /** 需要初始化 不然默认可能报错 这里取了 defaultCurrent 和 current 为了保证不会重复刷新 */
   const fetchPagination =
     typeof propsPagination === 'object'
-      ? (propsPagination as TablePaginationConfig)
+      ? propsPagination
       : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
 
   const counter = useContext(TableContext);
@@ -661,6 +672,7 @@ const ProTable = <
         : resetValues;
       setFormSearchWithRef((nextSearch ?? {}) as any);
     },
+    getSortFilter: () => ({ sort: proSort, filter: proFilter }),
     editableUtils,
     scrollTo: (arg) => (antTableRef as any)?.current?.scrollTo?.(arg),
   });
@@ -685,10 +697,30 @@ const ProTable = <
       proFilter,
       proSort,
     };
-    return genProColumnToColumn<T>({
+    const generatedColumns = genProColumnToColumn<T>({
       columns: propsColumns,
       context: columnContext,
-    }).sort(columnSort(counter.columnsMap ?? {}));
+    });
+    // Table.EXPAND_COLUMN / Table.SELECTION_COLUMN are identity markers used by
+    // antd and therefore cannot be cloned just to attach a sortable index. Sort
+    // regular columns, then put them back into the non-marker slots so explicit
+    // marker positions in `columns` remain unchanged (#8913).
+    const sortedRegularColumns = generatedColumns
+      .filter(
+        (column) =>
+          column !== Table.EXPAND_COLUMN && column !== Table.SELECTION_COLUMN,
+      )
+      .sort(columnSort(counter.columnsMap ?? {}));
+    let regularIndex = 0;
+    return generatedColumns.map((column) => {
+      if (
+        column === Table.EXPAND_COLUMN ||
+        column === Table.SELECTION_COLUMN
+      ) {
+        return column;
+      }
+      return sortedRegularColumns[regularIndex++];
+    });
   }, [
     propsColumns,
     counter?.sortKeyColumns,
@@ -770,9 +802,9 @@ const ProTable = <
       }
       // 判断search.onSearch返回值决定是否更新formSearch
       if (options && options.search) {
-        const { name = 'keyword' } = (
-          options.search === true ? {} : options.search
-        ) as { name?: string };
+        const { name = 'keyword' } = (options.search === true
+          ? {}
+          : options.search) as { name?: string };
 
         /** 如果传入的 onSearch 返回值为 false，则不要把options.search.name对应的值set到formSearch */
         const success = (options.search as OptionSearchProps)?.onSearch?.(
@@ -995,22 +1027,13 @@ const ProTable = <
   const needsScrollCapture = Boolean(onScroll) && !props.scroll?.y;
 
   const getBaseTableDom = () => (
-    <GridContext.Provider
-      value={{
-        grid: false,
-        colProps: undefined,
-        rowProps: undefined,
-      }}
-    >
+    <GridContext.Provider value={tableGridContextValue}>
       {needsScrollCapture ? (
         <div
           style={{ display: 'contents' }}
           onScrollCapture={(e) => {
             // 只转发水平滚动（rc-table 内部已处理纵向场景）
-            if (
-              (e.target as HTMLElement).scrollWidth >
-              (e.target as HTMLElement).clientWidth
-            ) {
+            if ((e.target as HTMLElement).scrollWidth > (e.target as HTMLElement).clientWidth) {
               onScroll?.(e as unknown as React.UIEvent<HTMLDivElement>);
             }
           }}
@@ -1071,7 +1094,7 @@ const ProTable = <
     return useCardForTable || useCardForList;
   }, [cardProps, props.name, type, notNeedCardDom]);
 
-  const resolvedCardProps = cardProps === false ? {} : (cardProps ?? {});
+  const resolvedCardProps = cardProps === false ? {} : cardProps ?? {};
 
   const tableAreaDom = useCard ? (
     <ProCard
@@ -1157,15 +1180,12 @@ const ProviderTableContainer = <
       : props.ErrorBoundary || ErrorBoundary;
 
   const context = useContext(ProConfigContext);
-
-  // #8054/#9150: valueTypeMap 引用必须稳定。之前每次渲染都新建对象,
-  // keepalive 路由切换(外层 ProLayout/ProConfigProvider 重渲染)时,
-  // 新引用触发 ProConfigProvider 重建 context,导致已挂载页面的 ProTable 整树重渲染。
+  // Keep this context value stable across parent/keepalive renders. Recreating
+  // the map invalidates every ProField consumer in an already mounted table.
   const mergedValueTypeMap = useMemo(
     () => ({ ...context.valueTypeMap, ...ValueTypeToComponent }),
     [context.valueTypeMap],
   );
-
   return (
     <TableProvider
       initValue={{

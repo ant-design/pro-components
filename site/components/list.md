@@ -15,6 +15,10 @@ ProList 基于 ProTable 实现，可以认为是 ProTable 的一个特例，将�
 
 ## 代码演示
 
+### Issue 回归场景
+
+<code src="../../demos/list/issue-regression-gallery.tsx" background="var(--main-bg-color)" title="展示控制与实时分页状态"></code>
+
 ### 枚举属性切换
 
 通过 Segmented 分段选择器切换 `itemLayout`、`variant`、`split` 属性。
@@ -149,7 +153,7 @@ ProList 基于 ProTable 封装，支持两种列配置方式：
 | loading            | 是否加载中                                                                                                                                                      | `boolean` \| `{ spinning?: boolean }`                                                                                                                                                                        | `false`            |
 | split              | 是否有分割线                                                                                                                                                    | `boolean`                                                                                                                                                                                                    | `true`             |
 | variant            | 列表外观变体                                                                                                                                                    | `'outlined'` \| `'borderless'` \| `'filled'`                                                                                                                                                                  | `'borderless'`    |
-| showActions        | 何时展示操作区（actions），`'hover'` 时悬浮列表项才显示，CardList 模式下不生效                                                                                   | `'hover'` \| `'always'`                                                                                                                                                                                       | `'always'`         |
+| showActions        | 何时展示操作区（actions），`'hover'` 时悬浮或聚焦列表项才显示                                                                                                  | `'hover'` \| `'always'`                                                                                                                                                                                       | `'always'`         |
 | showExtra          | 何时展示附属内容（aside 插槽映射的 extra 区域），`'hover'` 时悬浮列表项才显示，CardList 模式下不生效                                                             | `'hover'` \| `'always'`                                                                                                                                                                                       | `'always'`         |
 | footer             | 列表底部                                                                                                                                                        | `ReactNode`                                                                                                                                                                                                  | -                  |
 | grid               | 栅格配置，开启后以卡片模式渲染                                                                                                                                  | `ListGridType`                                                                                                                                                                                               | -                  |

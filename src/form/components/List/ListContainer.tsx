@@ -1,6 +1,7 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { omit } from '@rc-component/util';
 import { Button } from 'antd';
+import type { FormListOperation } from 'antd/lib/form/FormList';
 import { clsx } from 'clsx';
 import type { CSSProperties } from 'react';
 import { useContext, useMemo, useRef, useState } from 'react';
@@ -18,18 +19,21 @@ import { ProFormListItem } from './ListItem';
  */
 async function wrapWithGuard<TArgs extends any[]>(
   args: TArgs,
-  guard: ((...params: [...TArgs, number]) => boolean | Promise<boolean>) | undefined,
-  count: number,
+  guard:
+    ((...params: [...TArgs, number]) => boolean | Promise<boolean>) | undefined,
+  countRef: React.MutableRefObject<number>,
   doAction: (...args: TArgs) => any,
+  getNextCount: (count: number, args: TArgs) => number,
   afterCallback?: (...params: [...TArgs, number]) => void,
-  countDelta: number = 0,
 ): Promise<any> {
   if (guard) {
-    const success = await guard(...args, count);
+    const success = await guard(...args, countRef.current);
     if (!success) return false;
   }
+  const count = getNextCount(countRef.current, args);
   const res = doAction(...args);
-  afterCallback?.(...args, count + countDelta);
+  countRef.current = count;
+  afterCallback?.(...args, count);
   return res;
 }
 
@@ -54,6 +58,8 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
   } = props;
   const { hashId } = useContext(ProProvider);
   const fieldKeyMap = useRef(new Map<string, string>());
+  const countRef = useRef(fields.length);
+  countRef.current = fields.length;
   const [loading, setLoading] = useState(false);
 
   const uuidFields = useMemo(() => {
@@ -74,13 +80,45 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
    */
   const wrapperAction = useMemo(() => {
     const wrapAction = { ...action };
-    const count = uuidFields.length;
-
-    wrapAction.add = (...args) =>
-      wrapWithGuard(args, actionGuard?.beforeAddRow, count, action.add, onAfterAdd, 1);
+    wrapAction.add = (...args) => {
+      // 固定可选 insertIndex 的参数槽，确保末尾追加的 count 始终是第三参。
+      const normalizedArgs: Parameters<FormListOperation['add']> = [
+        args[0],
+        args[1],
+      ];
+      return wrapWithGuard(
+        normalizedArgs,
+        actionGuard?.beforeAddRow,
+        countRef,
+        action.add,
+        (count) => count + 1,
+        onAfterAdd,
+      );
+    };
 
     wrapAction.remove = (...args) =>
-      wrapWithGuard(args, actionGuard?.beforeRemoveRow, count, action.remove, onAfterRemove, -1);
+      wrapWithGuard(
+        args,
+        actionGuard?.beforeRemoveRow,
+        countRef,
+        action.remove,
+        (count, [index]) => {
+          const indexes = Array.isArray(index) ? index : [index];
+          const removedCount = new Set(
+            indexes.filter(
+              (item) => Number.isInteger(item) && item >= 0 && item < count,
+            ),
+          ).size;
+          return Math.max(0, count - removedCount);
+        },
+        onAfterRemove,
+      );
+
+    // 同步给外层 ProFormList 的 actionRef，保证 actionRef.add/remove
+    // 与内置按钮走同一套 guard 与回调（#8939）
+    if (guardedActionRef) {
+      guardedActionRef.current = wrapAction;
+    }
 
     // 同步给外层 ProFormList 的 actionRef，保证 actionRef.add/remove
     // 与内置按钮走同一套 guard 与回调（#8939）

@@ -14,7 +14,7 @@ import { ProForm } from '../../../layouts/ProForm';
  * - 独立使用：渲染 Form 容器（submitter=false，不附加额外 UI），
  *   保证 onValuesChange、校验、提交能力可用
  */
-const Embed = <T, U>(props: ProFormProps<T, U>) => {
+const Embed = <T,>(props: ProFormProps<T>) => {
   const { children, ...rest } = props;
   // Form.useFormInstance() 在 <Form> 内部返回其实例，外部返回 undefined
   const parentForm = Form.useFormInstance();
@@ -24,11 +24,10 @@ const Embed = <T, U>(props: ProFormProps<T, U>) => {
   }
 
   return (
-    <ProForm<T, U> submitter={false} {...rest}>
-      {children}
+    <ProForm<T> submitter={false} {...rest}>
+      {children as React.ReactNode}
     </ProForm>
   );
 };
 
 export default Embed as React.FC<ProFormProps<any>>;
-

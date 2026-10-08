@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { BetaSchemaForm } from '../../src';
 
@@ -28,9 +27,12 @@ describe('#8561 SchemaForm formList title 拿不到 index', () => {
             columns: [
               {
                 // #8561 期望 title 函数可以拿到 schema + 第四个参数 rowIndex
-                title: (schema: any, type: any, dom: any, rowIndex?: number) => (
-                  <div>{`院区名称${rowIndex ?? '-'}`}</div>
-                ),
+                title: (
+                  schema: any,
+                  type: any,
+                  dom: any,
+                  rowIndex?: number,
+                ) => <div>{`院区名称${rowIndex ?? '-'}`}</div>,
                 dataIndex: 'displayName',
                 colProps: { span: 24 },
               },
@@ -47,9 +49,9 @@ describe('#8561 SchemaForm formList title 拿不到 index', () => {
     // 两行数据，title 应携带各自的行号
     expect(getAllByText('院区名称0').length).toBe(1);
     expect(getAllByText('院区名称1').length).toBe(1);
-    expect(container.querySelectorAll('.ant-form-item-control-input').length).toBeGreaterThan(
-      0,
-    );
+    expect(
+      container.querySelectorAll('.ant-form-item-control-input').length,
+    ).toBeGreaterThan(0);
   });
 
   it('fieldProps / formItemProps 函数在 formList 子列中可以拿到 config.rowIndex', () => {
@@ -89,5 +91,38 @@ describe('#8561 SchemaForm formList title 拿不到 index', () => {
     // 函数式 props 拿到的 rowIndex 覆盖所有行（重渲染会多次调用，取去重集合）
     expect([...new Set(fieldPropsRowIndexes)].sort()).toEqual([0, 1, 2]);
     expect([...new Set(formItemPropsRowIndexes)].sort()).toEqual([0, 1, 2]);
+  });
+
+  it('nested formList columns use the inner row index', () => {
+    const columns = [
+      {
+        valueType: 'formList',
+        dataIndex: 'groups',
+        initialValue: [{ members: [{ name: 'a' }, { name: 'b' }] }],
+        columns: [
+          {
+            valueType: 'formList',
+            dataIndex: 'members',
+            columns: [
+              {
+                dataIndex: 'name',
+                title: (
+                  _schema: any,
+                  _type: any,
+                  _dom: any,
+                  rowIndex?: number,
+                ) => `成员${rowIndex}`,
+              },
+            ],
+          },
+        ],
+      },
+    ];
+
+    const { getAllByText } = render(
+      <BetaSchemaForm columns={columns as any} />,
+    );
+    expect(getAllByText('成员0')).toHaveLength(1);
+    expect(getAllByText('成员1')).toHaveLength(1);
   });
 });

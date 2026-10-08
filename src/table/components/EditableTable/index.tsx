@@ -2,6 +2,8 @@ import { PlusOutlined } from '@ant-design/icons';
 import { get, set, useControlledState } from '@rc-component/util';
 import type { ButtonProps, FormItemProps } from 'antd';
 import { Button, Form } from 'antd';
+import type { NamePath } from 'antd/lib/form/interface';
+import type { GetRowKey } from 'antd/lib/table/interface';
 import React, {
   useContext,
   useEffect,
@@ -18,10 +20,11 @@ import {
   useDeepCompareEffect,
   useRefFunction,
 } from '../../../utils';
-import type { GetRowKey, NamePath } from '../../../utils/antdTypes';
 import ProTable from '../../Table';
 import type { ActionType, ProTableProps } from '../../typing';
 import { resolveTableViewDefaultDom } from '../../utils';
+import DragSortTable from '../DragSortTable';
+import type { DragSortProps } from '../DragSortTable';
 
 export type EditableFormInstance<T = any> = ProFormInstance<T> & {
   /**
@@ -116,7 +119,12 @@ export type EditableProTableProps<
   controlled?: boolean;
   /** FormItem 的设置 */
   formItemProps?: Omit<FormItemProps, 'children' | 'name'>;
-};
+  /**
+   * 内部剥离：部分调用方会透传 autoFocus，需避免落到 antd Table
+   * @internal
+   */
+  autoFocus?: boolean;
+} & DragSortProps<T>;
 
 const EditableTableActionContext = React.createContext<
   | {
@@ -384,7 +392,9 @@ function EditableTable<
     defaultValue,
     onChange: _onChange,
     editableFormRef,
-    // @ts-ignore
+    dragSortKey,
+    dragSortHandlerRender,
+    onDragSortEnd,
     autoFocus: _autoFocus,
     ...rest
   } = props;
@@ -396,7 +406,6 @@ function EditableTable<
   // 设置 ref
   // actionRef 是 useRef 返回的稳定对象，其引用永远不变，
   // 将 actionRef.current 放入 deps 无效（ref 变化不触发 effect），应使用空数组。
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(rest.actionRef, () => actionRef.current, []);
 
   // 在 name 模式下，如果没有传递 value prop，尝试从表单值中获取初始值
@@ -819,6 +828,32 @@ function EditableTable<
     },
   );
 
+  const handleDragSortEnd = useRefFunction(
+    async (
+      beforeIndex: number,
+      afterIndex: number,
+      newDataSource: DataType[],
+    ) => {
+      setValue(newDataSource);
+
+      if (props.name && formRef.current) {
+        const editingKeysSet = createEditingKeysSet(
+          props.editable?.editableKeys,
+        );
+        const namePath = [props.name].flat(1).filter(Boolean) as string[];
+        syncFormValuesExcludingEditing(
+          newDataSource,
+          editingKeysSet,
+          namePath,
+        );
+      }
+
+      // 拖拽不是表单字段变更，因此受控和非受控模式都在这里通知 value 顺序变化。
+      props.onChange?.(newDataSource);
+      await onDragSortEnd?.(beforeIndex, afterIndex, newDataSource);
+    },
+  );
+
   /**
    * 构建可编辑属性
    *
@@ -906,13 +941,26 @@ function EditableTable<
       })
     : null;
 
+  const actionContextValue = useMemo(
+    () => ({ actionRef, dataSource: value }),
+    [value],
+  );
+  const EditableTableComponent = (
+    dragSortKey ? DragSortTable : ProTable
+  ) as typeof ProTable;
+  const dragSortProps: DragSortProps<DataType> = dragSortKey
+    ? {
+        dragSortKey,
+        dragSortHandlerRender,
+        onDragSortEnd: handleDragSortEnd,
+      }
+    : {};
+
   return (
     <>
       {virtualValidationFields}
-      <EditableTableActionContext.Provider
-        value={{ actionRef, dataSource: value }}
-      >
-        <ProTable<DataType, Params, ValueType>
+      <EditableTableActionContext.Provider value={actionContextValue}>
+        <EditableTableComponent<DataType, Params, ValueType>
           search={false}
           options={false}
           pagination={false}
@@ -920,6 +968,7 @@ function EditableTable<
           revalidateOnFocus={false}
           {...rest}
           {...buttonRenderProps}
+          {...dragSortProps}
           tableLayout="fixed"
           actionRef={actionRef}
           onChange={onTableChange}

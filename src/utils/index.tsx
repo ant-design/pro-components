@@ -40,6 +40,7 @@ import { usePrevious } from './hooks/usePrevious';
 import { useReactiveRef } from './hooks/useReactiveRef';
 import { useRefCallback } from './hooks/useRefCallback';
 import { useRefFunction } from './hooks/useRefFunction';
+import { useRequestData } from './hooks/useRequestData';
 import { useUrlSearchParams } from './hooks/useUrlSearchParams';
 import { isBrowser } from './isBrowser';
 import { isDeepEqualReact } from './isDeepEqualReact';
@@ -86,13 +87,13 @@ export {
   dateArrayFormatter,
   dateFormatterMap,
   DropdownFooter,
-  getLightFilterRangeDisplayFormat,
   editableRowByKey,
   ErrorBoundary,
   FieldLabel,
   FilterDropdown,
   genCopyable,
   getFieldPropsOrFormItemProps,
+  getLightFilterRangeDisplayFormat,
   InlineErrorFormItem,
   isBrowser,
   isDeepEqualReact,
@@ -137,6 +138,7 @@ export {
   useReactiveRef,
   useRefCallback,
   useRefFunction,
+  useRequestData,
   useStyle,
   useUrlSearchParams,
 };

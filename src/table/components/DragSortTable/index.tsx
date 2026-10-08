@@ -11,7 +11,7 @@ import { resolveTableViewDefaultDom } from '../../utils';
 import { useDragSort } from '../../utils/useDragSort';
 import { useStyle } from './style';
 
-export type DragTableProps<T, U> = {
+export type DragSortProps<T> = {
   /** @name 拖动排序列key值 如配置此参数，则会在该 key 对应的行显示拖拽排序把手，允许拖拽排序 */
   dragSortKey?: string;
   /** @name 渲染自定义拖动排序把手的函数 如配置了 dragSortKey 但未配置此参数，则使用默认把手图标 */
@@ -22,13 +22,16 @@ export type DragTableProps<T, U> = {
     afterIndex: number,
     newDataSource: T[],
   ) => Promise<void> | void;
-} & ProTableProps<T, U>;
+};
+
+export type DragTableProps<T, U, ValueType = 'text'> = DragSortProps<T> &
+  ProTableProps<T, U, ValueType>;
 
 function DragSortTable<
   T extends Record<string, any>,
   U extends ParamsType = ParamsType,
   ValueType = 'text',
->(props: DragTableProps<T, U>) {
+>(props: DragTableProps<T, U, ValueType>) {
   const {
     rowKey,
     dragSortKey,
@@ -38,6 +41,7 @@ function DragSortTable<
     defaultData,
     dataSource: originDataSource,
     onLoad,
+    tableViewRender,
     ...otherProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -95,7 +99,6 @@ function DragSortTable<
         }
         return item;
       }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [otherProps.columns, dragSortKey],
   );
 
@@ -115,13 +118,14 @@ function DragSortTable<
       columns={processedColumns}
       onLoad={wrapOnload}
       rowKey={rowKey}
-      tableViewRender={(_, defaultDom) => {
-        return (
-          <DndContext>{resolveTableViewDefaultDom(defaultDom)}</DndContext>
-        );
-      }}
       dataSource={dataSource}
       components={components}
+      tableViewRender={(tableProps, defaultDom) => {
+        const tableDom =
+          tableViewRender?.(tableProps, defaultDom) ??
+          resolveTableViewDefaultDom(defaultDom);
+        return <DndContext>{tableDom}</DndContext>;
+      }}
       onDataSourceChange={onDataSourceChange}
     />,
   );

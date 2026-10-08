@@ -1,4 +1,5 @@
 import {
+  ProForm,
   ProFormText,
   QueryFilter,
 } from '@ant-design/pro-components';
@@ -43,9 +44,18 @@ describe('QueryFilter grid mode (#8253)', () => {
 
     // grid 模式下 items 仍以数组传给 contentRender,QueryFilterContent 渲染
     // 一个自己的 Row;BaseForm 不应再包一层 Row 导致双重栅格
-    const rows = container.querySelectorAll('.ant-row');
-    // QueryFilter 自身渲染一个 Row(可能包含 submitter Col);
-    // ProFormText 顶层也有 ant-row 结构(form-item 内部),但顶层直接子级只应有一个 Row
-    expect(rows.length).toBeGreaterThan(0);
+    const queryFilterRow = container.querySelector('.ant-pro-query-filter-row');
+    expect(queryFilterRow).not.toBeNull();
+    expect(queryFilterRow?.parentElement).not.toHaveClass('ant-row');
+  });
+
+  it('preserves the BaseForm row for regular ProForm grid layouts', () => {
+    const { container } = render(
+      <ProForm grid submitter={false}>
+        <ProFormText label="a" name="a" />
+      </ProForm>,
+    );
+
+    expect(container.querySelector('form > .ant-row')).not.toBeNull();
   });
 });

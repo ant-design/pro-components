@@ -5,7 +5,7 @@ import {
   render,
   waitFor,
 } from '@testing-library/react';
-import { Form } from 'antd';
+import { App, Form } from 'antd';
 import React, { useState } from 'react';
 import {
   afterAll,
@@ -49,7 +49,7 @@ describe('useEditableMap', () => {
   /**
    * 测试组件：用于测试 useEditableMap
    */
-  const TestComponent: React.FC<{
+  const InnerComponent: React.FC<{
     onCancel?: (
       key: RecordKey,
       record: TestRecordType & { index?: number },
@@ -164,6 +164,14 @@ describe('useEditableMap', () => {
       </Form>
     );
   };
+
+  const TestComponent: React.FC<
+    React.ComponentProps<typeof InnerComponent>
+  > = (props) => (
+    <App>
+      <InnerComponent {...props} />
+    </App>
+  );
 
   it('📝 应该正确初始化', () => {
     const wrapper = render(<TestComponent />);

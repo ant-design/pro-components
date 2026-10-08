@@ -1,14 +1,13 @@
 import type { TablePaginationConfig } from 'antd';
-import type React from 'react';
-import { type ReactElement, Key, useRef } from 'react';
-import type { IntlType } from '../../provider';
-import type { UseEditableUtilType } from '../../utils';
 import type {
   FilterValue as AntFilterValue,
-  GetRowKey,
   SorterResult,
   SortOrder,
-} from '../../utils/antdTypes';
+} from 'antd/lib/table/interface';
+import type React from 'react';
+import { type ReactElement, Key } from 'react';
+import type { IntlType } from '../../provider';
+import type { UseEditableUtilType } from '../../utils';
 import type {
   ActionType,
   Bordered,
@@ -17,6 +16,7 @@ import type {
   ProColumns,
   ProColumnType,
   ProSorter,
+  ProTablePaginationConfig,
   UseFetchDataAction,
 } from '../typing';
 
@@ -36,7 +36,7 @@ export const checkUndefinedOrNull = (value: any) =>
  * @param intl
  */
 export function mergePagination<T>(
-  pagination: TablePaginationConfig | boolean | undefined,
+  pagination: ProTablePaginationConfig | boolean | undefined,
   pageInfo: UseFetchDataAction<T>['pageInfo'] & {
     setPageInfo: any;
   },
@@ -45,9 +45,37 @@ export function mergePagination<T>(
   if (pagination === false) {
     return false;
   }
-  const { total, current, pageSize, setPageInfo } = pageInfo;
-  const defaultPagination: TablePaginationConfig =
+  const { total, current, pageSize, nextToken, setPageInfo } = pageInfo;
+  const defaultPagination: ProTablePaginationConfig =
     typeof pagination === 'object' ? pagination : {};
+
+  if (defaultPagination.type === 'cursor') {
+    const {
+      type: _type,
+      itemRender,
+      onChange,
+      ...cursorPagination
+    } = defaultPagination;
+    return {
+      ...cursorPagination,
+      current,
+      pageSize,
+      showQuickJumper: false,
+      showSizeChanger: false,
+      showTotal: undefined,
+      total: current * pageSize + (nextToken ? 1 : 0),
+      itemRender: (page, itemType, element) => {
+        if (itemType !== 'prev' && itemType !== 'next') return null;
+        return itemRender?.(page, itemType, element) ?? element;
+      },
+      onChange: (page: number) => {
+        onChange?.(page, pageSize);
+        if (current !== page) setPageInfo({ current: page });
+      },
+    };
+  }
+
+  const { type: _type, ...offsetPagination } = defaultPagination;
 
   return {
     showTotal: (all, range) =>
@@ -58,7 +86,7 @@ export function mergePagination<T>(
         '条/总共',
       )} ${all} ${intl.getMessage('pagination.total.item', '条')}`,
     total,
-    ...(defaultPagination as TablePaginationConfig),
+    ...(offsetPagination as TablePaginationConfig),
     current:
       pagination !== true && pagination
         ? (pagination.current ?? current)
@@ -95,25 +123,15 @@ export function useActionType<T>(
     onCleanSelected: () => void;
     resetAll: () => void;
     editableUtils: UseEditableUtilType;
+    getSortFilter: NonNullable<ActionType['getSortFilter']>;
     /** 透传给 ActionType 的滚动能力 */
     scrollTo?: ActionType['scrollTo'];
   },
 ) {
-  /**
-   * #7862: 保持 ref 指向的对象恒定、每次 render 原地更新字段。
-   * 旧实现每次 render 都生成新对象赋给 ref.current，导致未随内部
-   * Table 重渲染的父组件（如 ProList）持有的引用停留在挂载快照，
-   * pageInfo.total 始终为初始值 0。
-   */
-  const isFirstRun = useRef(true);
-  const userActionRef = useRef<ActionType>();
-  if (isFirstRun.current) {
-    userActionRef.current = {} as ActionType;
-    isFirstRun.current = false;
-  }
-  const userAction = userActionRef.current as ActionType;
   /** 这里生成action的映射，保证 action 总是使用的最新 只需要渲染一次即可 */
-  Object.assign(userAction, props.editableUtils, {
+  const userAction = ref.current ?? ({} as ActionType);
+  Object.assign(userAction, {
+    ...props.editableUtils,
     pageInfo: action.pageInfo,
     nativeElement: props.nativeElement,
     focus: props.focus,
@@ -143,6 +161,7 @@ export function useActionType<T>(
     clearSelected: () => props.onCleanSelected(),
     setPageInfo: (rest: Parameters<typeof action.setPageInfo>[0]) =>
       action.setPageInfo(rest),
+    getSortFilter: props.getSortFilter,
     // 透出 scrollTo（如上层提供）
     scrollTo: props.scrollTo,
   });
@@ -423,7 +442,7 @@ export function resolveTableViewDefaultDom(
  *
  * 规则与 Table.tsx useRowKey / EditableTable getRowKey 保持一致：
  *  - index === -1 时（内部标识新行）直接取字段值，不走 index fallback
- *  - name 模式下使用 index.toString() 作为 key（便于转换为数组索引）
+ *  - name 模式下使用 index.toString() 作为 key（与 ProTable 内部 rowKey 保持一致）
  *  - 否则取 rowKey 字段值，fallback 到 index.toString()
  *
  * rowKey 类型兼容 antd TableProps.rowKey 的完整联合类型：
@@ -431,11 +450,15 @@ export function resolveTableViewDefaultDom(
  * number / symbol 类型在运行时作为属性名使用（通过 String() 转换）。
  */
 export function buildEditableTableRowKey<DataType extends Record<string, any>>(
-  rowKey: string | number | symbol | GetRowKey<DataType>,
+  rowKey:
+    | string
+    | number
+    | symbol
+    | import('antd/lib/table/interface').GetRowKey<DataType>,
   name: any,
-): GetRowKey<DataType> {
+): import('antd/lib/table/interface').GetRowKey<DataType> {
   if (typeof rowKey === 'function') {
-    return rowKey as GetRowKey<DataType>;
+    return rowKey as import('antd/lib/table/interface').GetRowKey<DataType>;
   }
   const rowKeyStr = String(rowKey);
   return (record: DataType, index?: number): React.Key => {
@@ -443,11 +466,7 @@ export function buildEditableTableRowKey<DataType extends Record<string, any>>(
       return (record as any)?.[rowKeyStr];
     }
     if (name) {
-      // #8893 name 模式优先取业务 key：旧实现无条件退化为 index，
-      // 嵌套树场景父子的 index key 会冲突（父第0行/子第0行都是 '0'），
-      // 导致 flatten 树重建丢 children。业务 key 缺失时才回退 index。
-      const businessKey = (record as any)?.[rowKeyStr];
-      return businessKey ?? index?.toString() ?? '';
+      return index?.toString() ?? '';
     }
     return (record as any)?.[rowKeyStr] ?? index?.toString() ?? '';
   };
@@ -462,7 +481,7 @@ export function resolveEditingPayloadForRowEditableOnChange<
 >(
   keys: Key[],
   dataSource: readonly DataType[] | undefined,
-  getRowKey: GetRowKey<DataType>,
+  getRowKey: import('antd/lib/table/interface').GetRowKey<DataType>,
   editableType: 'single' | 'multiple' | undefined,
   childrenColumnName = 'children',
 ): DataType | DataType[] {

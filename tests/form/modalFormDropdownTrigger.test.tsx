@@ -52,14 +52,13 @@ describe('#9624 ModalForm trigger inside Dropdown-like parent', () => {
     });
 
     expect(triggerClick).toHaveBeenCalledTimes(1);
-    // 曾收到 true(无论时序上是否夹带 false,最终必须是打开状态)
-    expect(opens).toContain(true);
+    expect(opens.at(-1)).toBe(true);
 
     // Modal 已打开且渲染了表单
     const input = document.querySelector(
       'input[id$="_name"]',
     ) as HTMLInputElement;
-    expect(input).toBeTruthy();
+    expect(input.closest('.ant-modal')).not.toHaveAttribute('aria-hidden', 'true');
 
     // 点击 Modal 内部区域不重复触发 trigger onClick
     await act(async () => {

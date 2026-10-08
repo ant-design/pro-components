@@ -1,19 +1,19 @@
 import { composeRef, getNodeRef, omit, supportRef } from '@rc-component/util';
 import type { FormItemProps } from 'antd';
 import { Form } from 'antd';
+import type { NamePath } from 'antd/lib/form/interface';
 import React, { useContext, useEffect, useMemo } from 'react';
+import type { ProFieldValueType } from '../../../utils';
 import {
   omitUndefined,
   ProFormContext,
+  SearchConvertKeyFn,
+  SearchTransformKeyFn,
   useDeepCompareMemo,
   useRefFunction,
 } from '../../../utils';
-import type { NamePath } from '../../../utils/antdTypes';
 import FieldContext from '../../FieldContext';
-import { FormListContext } from '../List/FormListContext';
-import type { ProFormItemHelpFunction, ProFormItemProps } from './typing';
-
-export type { ProFormItemHelpFunction, ProFormItemProps } from './typing';
+import { FormListContext } from '../List';
 
 const FormItemProvide = React.createContext<{
   name?: NamePath;
@@ -46,8 +46,8 @@ const WithValueFomFiledProps = React.forwardRef<
     : undefined;
 
   const isProFormComponent =
-    // @ts-ignore
-    filedChildren?.type?.displayName !== 'ProFormComponent';
+    (filedChildren?.type as { displayName?: string } | undefined)
+      ?.displayName !== 'ProFormComponent';
 
   const isValidElementForFiledChildren = !React.isValidElement(filedChildren);
 
@@ -73,8 +73,7 @@ const WithValueFomFiledProps = React.forwardRef<
   const omitOnBlurAndOnChangeProps = useDeepCompareMemo(
     () =>
       omit(
-        // @ts-ignore
-        childFieldProps || {},
+        (childFieldProps || {}) as Record<string, any>,
         ['onBlur', 'onChange'],
       ),
     [childFieldProps],
@@ -158,6 +157,39 @@ const WithValueFomFiledProps = React.forwardRef<
 });
 WithValueFomFiledProps.displayName = 'WithValueFomFiledProps';
 
+/** 函数式 help：接收字段校验消息，返回自定义的帮助内容 */
+export type ProFormItemHelpFunction = (params: {
+  errors: React.ReactNode[];
+  warnings: React.ReactNode[];
+}) => React.ReactNode;
+
+type WarpFormItemProps = {
+  /** @name 前置的dom * */
+  addonBefore?: React.ReactNode;
+  /** @name 后置的dom * */
+  addonAfter?: React.ReactNode;
+  /**
+   * 包裹的样式，一般没用
+   */
+  addonWarpStyle?: React.CSSProperties;
+  /**
+   * @name 获取时转化值，一般用于将数据格式化为组件接收的格式
+   * @param value 字段的值
+   * @param namePath 字段的name
+   * @param entity 整个表单的数据
+   * @returns 字段新的值
+   *
+   *
+   * @example a,b => [a,b]     convertValue: (value,namePath)=> value.split(",")
+   * @example string => json   convertValue: (value,namePath)=> JSON.parse(value)
+   * @example number => date   convertValue: (value,namePath)=> Dayjs(value)
+   * @example YYYY-MM-DD => date   convertValue: (value,namePath)=> Dayjs(value,"YYYY-MM-DD")
+   * @example  string => object   convertValue: (value,namePath)=> { return {value,label:value} }
+   */
+  convertValue?: SearchConvertKeyFn;
+  help?: React.ReactNode | ProFormItemHelpFunction;
+};
+
 /**
  * 读取 Form.Item 校验消息的桥接组件。
  *
@@ -198,14 +230,7 @@ const FormItemChildrenShell = React.forwardRef<
   FormItemChildrenShellProps & Record<string, any>
 >(
   (
-    {
-      addonBefore,
-      addonAfter,
-      addonWarpStyle,
-      help: helpFn,
-      children,
-      ...controlProps
-    },
+    { addonBefore, addonAfter, addonWarpStyle, help: helpFn, children, ...controlProps },
     ref,
   ) => {
     // 只有子组件支持 ref 时才注入（与 antd Form.Item 的 supportRef 判断一致），
@@ -283,7 +308,6 @@ const WarpFormItem: React.FC<ProFormItemProps> = ({
   help,
   ...props
 }) => {
-  /** #9120:convertValue 第三个参数(entity)需要整表数据 */
   const proFormContext = React.useContext(ProFormContext);
   const convertValueTypeRef = React.useRef<{
     source: string;
@@ -303,17 +327,7 @@ const WarpFormItem: React.FC<ProFormItemProps> = ({
             cachedTypes &&
             cachedTypes.source !== cachedTypes.target &&
             valueType === cachedTypes.target;
-          let entity: Record<string, any> | undefined;
-          try {
-            // #9120 entity:整表数据(true: 包含未注册 Form.Item 的字段,
-            // 如通过 initialValues/setFieldsValue 写入的 startDate)。
-            // ProFormContext.formRef 是 BaseForm 内部维护的实时 form 实例,
-            // 挂载即可用,无时序问题
-            const instance = proFormContext?.formRef?.current as any;
-            entity = instance?.getFieldsValue?.(true);
-          } catch {
-            entity = undefined;
-          }
+          const entity = proFormContext?.formRef?.current?.getFieldsValue?.(true);
           const newValue = shouldReuseComponentValue
             ? value
             : (convertValue?.(value, props.name!, entity) ?? value);
@@ -371,6 +385,29 @@ const WarpFormItem: React.FC<ProFormItemProps> = ({
   );
 };
 
+export type ProFormItemProps = Omit<FormItemProps, keyof WarpFormItemProps> & {
+  ignoreFormItem?: boolean;
+  valueType?: ProFieldValueType;
+  /**
+   * @name 提交时转化值，一般用于将值转化为提交的数据
+   * @param value 字段的值
+   * @param namePath 从根到当前字段的路径（string[]），如 `['user','profile','name']`
+   * @param allValues 根级表单对象（与 `transformKeySubmitValue` 中传入的 values 同源引用，提交转换过程中会随其它字段一并变化）
+   * @returns 字段新的值，如果返回对象，会和所有值 merge 一次
+   *
+   * @example {name:[a,b] => {name:a,b }    transform: (value,namePath,allValues)=> value.join(",")
+   * @example {name: string => { newName:string }    transform: (value,namePath,allValues)=> { newName:value }
+   * @example {name:dayjs} => {name:string transform: (value,namePath,allValues)=> value.format("YYYY-MM-DD")
+   * @example {name:dayjs}=> {name:时间戳} transform: (value,namePath,allValues)=> value.valueOf()
+   * @example {name:{value,label}} => { name:string} transform: (value,namePath,allValues)=> value.value
+   * @example {name:{value,label}} => { valueName,labelName  } transform: (value,namePath,allValues)=> { valueName:value.value, labelName:value.name }
+   */
+  transform?: SearchTransformKeyFn;
+  dataFormat?: string;
+  proFormFieldKey?: any;
+  fieldProps?: Record<string, any>;
+} & WarpFormItemProps;
+
 const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   const {
     valueType,
@@ -414,9 +451,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
       // 字段 name 应当是「相对列表」的路径。静态 children（name="answer"）需要
       // 手动补上行索引；render-prop 场景用户已按 antd 惯例传入 [index, 'answer']，
       // 不再重复补索引，否则会生成 items.0.0.answer 的双重索引（#9129/#9238）。
-      const [firstSegment] = Array.isArray(props.name)
-        ? props.name
-        : [props.name];
+      const [firstSegment] = Array.isArray(props.name) ? props.name : [props.name];
       if (firstSegment === formListField.name) {
         return Array.isArray(props.name) ? props.name : [props.name];
       }

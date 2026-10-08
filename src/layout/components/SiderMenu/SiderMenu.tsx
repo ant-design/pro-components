@@ -346,6 +346,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         isMobile={isMobile}
         collapsed={originCollapsed}
         className={`${baseClassName}-collapsed-button`}
+        aria-label={originCollapsed ? 'expand' : 'collapse'}
         onClick={() => {
           onCollapse?.(!originCollapsed);
         }}
@@ -498,6 +499,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               height: '100%',
               width: '100%',
               opacity: hideMenuWhenCollapsedClassName ? 0 : 1,
+              pointerEvents: hideMenuWhenCollapsedClassName ? 'none' : undefined,
             }}
           >
             {menuDomItems}

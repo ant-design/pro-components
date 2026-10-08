@@ -5,8 +5,6 @@ import type {
   ColorPickerProps,
   DatePickerProps,
   DividerProps,
-  FormInstance,
-  FormItemProps,
   ImageProps,
   InputNumberProps,
   InputProps,
@@ -16,25 +14,20 @@ import type {
   RateProps,
   SegmentedProps,
   SelectProps,
-  SliderRangeProps,
   SliderSingleProps,
   SpaceProps,
   SwitchProps,
   TimeRangePickerProps,
   TreeSelectProps,
 } from 'antd';
+import type { RangePickerProps } from 'antd/lib/date-picker';
+import type { FormInstance, FormItemProps } from 'antd/lib/form';
+import type { NamePath } from 'antd/lib/form/interface';
+import type { PasswordProps, TextAreaProps } from 'antd/lib/input';
+import type { SliderRangeProps } from 'antd/lib/slider';
 import type { ReactNode } from 'react';
-import type {
-  NamePath,
-  PasswordProps,
-  RangePickerProps,
-  TextAreaProps,
-} from './antdTypes';
+import type { ProSchemaValueEnumType } from '../provider';
 import type { UseEditableUtilType } from './useEditableArray';
-import type {
-  ProSchemaValueEnumMap,
-  ProSchemaValueEnumObj,
-} from './valueEnumType';
 
 // 兼容 antd 6.x 版本
 export type LabelTooltipType = any;
@@ -284,7 +277,7 @@ export type ProFieldBuiltinValueType = Exclude<
   ProFieldSchemaLayoutValueType
 >;
 
-/** fieldProps：保留组件属性提示，同时允许自定义字段属性 */
+/** fieldProps：固定类型、函数 `(form, config) => …` 或宽松 Record */
 type FieldPropsTypeBase<
   Entity = Record<string, any>,
   ComponentsType = 'text',
@@ -297,11 +290,12 @@ type FieldPropsTypeBase<
         type: ComponentsType;
         isEditable?: boolean;
         rowKey?: string;
-        rowIndex: number;
+        rowIndex?: number;
         entity: Entity;
       },
-    ) => FieldPropsType & Record<string, unknown>)
-  | (FieldPropsType & Record<string, unknown>);
+    ) => FieldPropsType | Record<string, any>)
+  | FieldPropsType
+  | Record<string, any>;
 
 /** 泛型：仅 progress | money | percent | image 时有属性，否则 never */
 export type ProFieldValueObject<Type> = Type extends
@@ -321,7 +315,7 @@ export type ProFieldValueObject<Type> = Type extends
     }
   : never;
 
-/** ProColumns / ProSchema：`valueType` + 按泛型 ValueType 收窄的 `fieldProps` */
+/** ProColumns / ProSchema：`valueType` + 按类型收窄的 `fieldProps` */
 type ValueTypeWithFieldPropsBase<
   Entity = Record<string, any>,
   ComponentsType = 'form',
@@ -442,7 +436,7 @@ export type ProFieldValueObjectType = {
   width?: number;
 };
 
-/** `ProField` / `ProFormField` 的 `valueType`：全部字符串类型，或 money/percent 等对象简写 */
+/** `PureProField` / `ProFormField` 的 `valueType`：全部字符串类型，或 money/percent 等对象简写 */
 export type ProFieldValueTypeInput =
   ProFieldValueType | ProFieldValueObjectType;
 
@@ -451,10 +445,15 @@ export type ProFieldValueTypeInput =
  *
  * @name ValueEnum 的类型
  */
-export type {
-  ProSchemaValueEnumMap,
-  ProSchemaValueEnumObj,
-} from './valueEnumType';
+export type ProSchemaValueEnumMap = Map<
+  string | number | boolean,
+  ProSchemaValueEnumType | ReactNode
+>;
+
+export type ProSchemaValueEnumObj = Record<
+  string,
+  ProSchemaValueEnumType | ReactNode
+>;
 
 export type ProFieldTextType =
   | React.ReactNode
@@ -467,18 +466,11 @@ export type SearchTransformKeyFn = (
   namePath: string[],
   allValues: any,
 ) => any;
-/**
- * 获取时转化值
- * @param value 字段当前值
- * @param field 字段 name
- * @param entity 整个表单/行数据(#9120),配合 transform 做跨字段还原
- *   (如 startDate+endDate => [start,end])
- */
 export type SearchConvertKeyFn = (
   value: any,
   field: NamePath,
   entity?: Record<string, any>,
-) => string | boolean | Record<string, any> | any;
+) => any;
 
 export type ProTableEditableFnType<T> = (
   value: any,
@@ -598,7 +590,7 @@ export type ProSchema<
           type: ComponentsType;
           isEditable?: boolean;
           rowKey?: string;
-          rowIndex: number;
+          rowIndex?: number;
           entity: Entity;
         },
       ) => FormItemProps & ExtraFormItemProps);

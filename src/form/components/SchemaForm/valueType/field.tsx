@@ -15,13 +15,14 @@ export const field: ProSchemaRenderValueTypeFunction<any, any> = (
     ...omit(item, [
       'dataIndex',
       'width',
+      'formWidth',
       'render',
       'formItemRender',
       'renderText',
       'title',
     ]),
     name: item.name || item.key || item.dataIndex,
-    width: item.width as 'md',
+    width: (item.formWidth ?? item.width) as 'md',
     render: item?.render
       ? (dom, entity, renderIndex) =>
           item?.render?.(dom, entity, renderIndex, action?.current, {
@@ -113,6 +114,7 @@ export const field: ProSchemaRenderValueTypeFunction<any, any> = (
       <ProFormDependency
         name={item.dependencies || []}
         key={item.key as React.Key}
+        hidden={item.hidden}
       >
         {getField}
       </ProFormDependency>

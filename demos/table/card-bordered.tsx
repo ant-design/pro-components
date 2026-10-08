@@ -1,7 +1,7 @@
 import { PlusOutlined } from '@ant-design/icons';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import { Button, message, Space, Switch } from 'antd';
+import { Button, Space, Switch } from 'antd';
 import React, { useRef, useState } from 'react';
 
 const valueEnum: Record<number, string> = {

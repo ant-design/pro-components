@@ -1,13 +1,13 @@
 import { RightOutlined } from '@ant-design/icons';
 import { useControlledState } from '@rc-component/util';
 import { ConfigProvider, Skeleton } from 'antd';
+import type { ExpandableConfig } from 'antd/lib/table/interface';
 import { clsx } from 'clsx';
 import React, { memo, useContext, useMemo } from 'react';
 import type { CheckCardProps } from '../card';
 import { CheckCard } from '../card';
 import { ProProvider } from '../provider';
 import { useRefFunction } from '../utils';
-import type { ExpandableConfig } from '../utils/antdTypes';
 import type { GetComponentProps } from './index';
 import type { ListGridType } from './ProListBase';
 import {
@@ -129,10 +129,10 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
     subTitle,
     content,
     itemTitleRender,
-    prefixCls: _prefixCls, // eslint-disable-line @typescript-eslint/no-unused-vars
+    prefixCls: _prefixCls,
     actions,
-    item: _item, // eslint-disable-line @typescript-eslint/no-unused-vars
-    recordKey: _recordKey, // eslint-disable-line @typescript-eslint/no-unused-vars
+    item: _item,
+    recordKey: _recordKey,
     avatar,
     cardProps,
     description,
@@ -322,10 +322,13 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
     [className]: className,
   });
 
-  // #7421: showExtra='hover' 时 extra 默认隐藏，悬浮列表项后显示
-  const extraClassName = clsx(hashId, {
-    [`${defaultClassName}-extra`]: showExtra === 'hover',
-  });
+  // #7421:showExtra='hover' 时增加隐藏容器；默认路径保留原始节点结构。
+  const renderedExtra =
+    showExtra === 'hover' && extra !== null && extra !== undefined ? (
+      <div className={clsx(hashId, `${defaultClassName}-extra`)}>{extra}</div>
+    ) : (
+      extra
+    );
 
   return (
     <BaseListItem
@@ -334,7 +337,7 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
       })}
       {...rest}
       actions={actionsArray}
-      extra={!!extra && <div className={extraClassName}>{extra}</div>}
+      extra={renderedExtra}
       {...onRow?.(record, index)}
       {...itemProps}
       onClick={(e: React.MouseEvent<HTMLDivElement>) => {
@@ -365,7 +368,6 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
               } as RenderExpandIconProps<RecordType>)}
           </div>
           {headerDom}
-          {extraDom}
         </div>
         {needExpanded && (content || expandedRowDom) && (
           <div className={clsx(`${className}-content`, hashId)}>

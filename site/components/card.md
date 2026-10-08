@@ -18,6 +18,8 @@ atomId: ProCard
 - 需要进行卡片内切分布局时。
 - 需要卡片可折叠时。
 
+基础 ProCard 直接复用 antd Card 的皮肤和 token。未传 `variant` 时透传给 antd Card，跟随 `ConfigProvider` 的 `card.variant` / 全局 `variant`（与 antd Card 一致），**不会**在 ProCard 内写死默认值。`card.className` / `style` / `classNames` / `styles` 同样由底层 Card 合并。仅 `ghost`、`checked`、`boxShadow` 等走 legacy 皮时，边框才由 ProCard 自行解析 ConfigProvider。
+
 ## 代码演示
 
 ### 枚举属性切换
@@ -130,7 +132,7 @@ atomId: ProCard
 
 ### 带边框
 
-配置 `variant` 属性控制卡片边框样式，`outlined` 为带边框，`borderless` 为无边框。
+配置 `variant` 属性控制卡片边框样式，`outlined` 为带边框，`borderless` 为无边框。未传时跟随 `ConfigProvider`（与 antd Card 一致）。
 
 <code src="../../demos/card/bordered.tsx" background="var(--main-bg-color)" title="带边框"></code>
 
@@ -184,7 +186,7 @@ ProCard 兼容 antd Card API，以下 props 与 antd Card 保持一致。
 | split                 | 拆分卡片的方式                                                                                                                 | `vertical` \| `horizontal`                                          | -            |        |
 | actions               | 操作按钮                                                                                                                       | `React.ReactNode[] \| React.ReactNode`                              | -            |        |
 | ghost                 | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。                                                                 | `boolean`                                                           | false        |        |
-| variant               | 卡片变体，与 antd Card variant 一致                                                                                            | `'outlined' \| 'borderless'`                                        | -            |        |
+| variant               | 卡片变体，与 antd Card 一致；未传时跟随 ConfigProvider（`card.variant` → 全局 `variant` → antd 默认） | `'outlined' \| 'borderless'`                                        | -            |        |
 | boxShadow             | 是否显示卡片阴影                                                                                                               | `boolean`                                                           | -            |        |
 | styles                | 语义化 styles，结构同 antd Card                                                                                                | `{ root?, header?, body?, extra?, title?, actions?, cover? }`       | -            |        |
 | headerBordered        | 页头是否有分割线                                                                                                               | `boolean`                                                           | false        |        |
@@ -198,10 +200,7 @@ ProCard 兼容 antd Card API，以下 props 与 antd Card 保持一致。
 | ref                   | ProCard 的 ref                                                                                                                 | `React.Ref<HTMLDivElement \| undefined>`                            | -            |        |
 | checked               | 是否展示选中样式                                                                                                               | `boolean`                                                           | false        |        |
 | onChecked             | 选中改变                                                                                                                       | `(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void`         | -            |        |
-| boxShadow             | card的阴影                                                                                                                     | `boolean`                                                           | false        |        |
 | tabs                  | 标签栏配置                                                                                                                     | 见下面 ProCardTabs                                                  | -            |        |
-| variant               | 卡片变体类型，与 antd Card 一致                                                                                                | `'outlined' \| 'borderless'`                                        | `'outlined'` | 5.24.0 |
-| styles                | 自定义样式，结构与 antd Card 一致                                                                                             | `{ root?, header?, body?, extra?, title?, actions?, cover?: CSSProperties }` | -            |        |
 
 ### ProCardTabs
 

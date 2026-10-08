@@ -25,7 +25,7 @@ describe('#7813 DateTimeRangePicker submit value format', () => {
       );
     };
 
-    const { findByText } = render(<Demo />);
+    render(<Demo />);
 
     // 设置 dayjs 范围值(模拟用户选择)
     await act(async () => {

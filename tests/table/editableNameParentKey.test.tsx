@@ -118,6 +118,28 @@ describe('#8893 EditableProTable name mode child record', () => {
     wrapper.unmount();
   });
 
+  it('adds a grandchild to the collided child slot instead of the root', async () => {
+    const { wrapper, editable, submit } = await renderNameModeTable({
+      rowKey: 'id',
+    });
+
+    await act(async () => {
+      editable.addEditRecord?.(
+        { id: 'g1', title: 'Grandchild' },
+        { parentKey: 'c1', newRecordType: 'dataSource' },
+      );
+    });
+    await waitForWaitTime(300);
+
+    const after = await submit();
+    expect(after.list[0].children).toHaveLength(1);
+    expect(after.list[0].children[0].id).toBe('c1');
+    expect(
+      after.list[0].children[0].children?.map((row: any) => row.id),
+    ).toEqual(['g1']);
+    wrapper.unmount();
+  });
+
   it('case 2: name + function rowKey, addEditRecord(parentKey) keeps children', async () => {
     const { wrapper, editable, submit } = await renderNameModeTable({
       rowKey: (record) => String(record.id),

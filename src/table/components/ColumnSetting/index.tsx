@@ -5,7 +5,6 @@ import {
   VerticalAlignTopOutlined,
 } from '@ant-design/icons';
 import { omit } from '@rc-component/util';
-import type { CheckboxChangeEvent } from 'antd';
 import {
   Checkbox,
   ConfigProvider,
@@ -16,11 +15,12 @@ import {
   Tree,
   Typography,
 } from 'antd';
+import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
+import type { DataNode } from 'antd/lib/tree';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
 import { ProProvider, useIntl } from '../../../provider';
 import { runFunction, useRefFunction } from '../../../utils';
-import type { DataNode } from '../../../utils/antdTypes';
 import type { ColumnsState } from '../../Store/Provide';
 import { TableContext } from '../../Store/Provide';
 import type { ProColumns } from '../../typing';
@@ -33,6 +33,49 @@ type ColumnSettingProps<T = any> = SettingOptionType & {
   // 使用与 ToolBar 一致的类型，以便消费 index 等字段，
   // 同时与 GroupCheckboxList / CheckboxList 的内部 any cast 保持兼容。
   columns: (TableColumnType<T> & { index?: number })[];
+};
+
+type ColumnSettingTreeNode = DataNode &
+  Omit<TableColumnType<any>, 'children'> & {
+    parentKey?: string;
+    children?: ColumnSettingTreeNode[];
+  };
+
+export const reorderNestedColumns = (
+  columnsMap: Record<string, ColumnsState>,
+  treeMap: Map<string, ColumnSettingTreeNode> | undefined,
+  treeList: ColumnSettingTreeNode[] | undefined,
+  id: React.Key,
+  targetId: React.Key,
+  dropPosition: number,
+): Record<string, ColumnsState> | undefined => {
+  const dragNode = treeMap?.get(id as string);
+  const parentNodeKey = dragNode?.parentKey;
+  const siblings = (
+    parentNodeKey ? treeMap?.get(parentNodeKey as string)?.children : treeList
+  )?.map((node) => node.key as string);
+  if (!siblings) return undefined;
+  const dragIdx = siblings.indexOf(id as string);
+  const targetIdx = siblings.indexOf(targetId as string);
+  if (dragIdx < 0 || targetIdx < 0) return undefined;
+  siblings.splice(dragIdx, 1);
+  const targetIndexAfterRemoval = targetIdx - (dragIdx < targetIdx ? 1 : 0);
+  const insertIndex =
+    dropPosition === 0 ? targetIndexAfterRemoval : targetIndexAfterRemoval + 1;
+  siblings.splice(insertIndex, 0, id as string);
+  const newMap = { ...columnsMap };
+  siblings.forEach((key, order) => {
+    newMap[key] = { ...(newMap[key] || {}), order };
+  });
+  return newMap;
+};
+
+export const hasReorderableSiblings = (
+  nodes: ColumnSettingTreeNode[] | undefined,
+): boolean => {
+  if (!nodes?.length) return false;
+  if (nodes.length > 1) return true;
+  return nodes.some((node) => hasReorderableSiblings(node.children));
 };
 
 const ToolTipIcon: React.FC<{
@@ -97,10 +140,9 @@ const CheckboxListItem: React.FC<{
   columnKey: string | number;
   className?: string;
   title?: React.ReactNode;
-  fixed?: boolean | 'left' | 'right';
+  fixed?: TableColumnType<any>['fixed'];
   showListItemOption?: boolean;
-  isLeaf?: boolean;
-}> = ({ columnKey, isLeaf, title, className, fixed, showListItemOption }) => {
+}> = ({ columnKey, title, className, fixed, showListItemOption }) => {
   const intl = useIntl();
   const { hashId } = useContext(ProProvider);
 
@@ -137,8 +179,7 @@ const CheckboxListItem: React.FC<{
       <div className={clsx(`${className}-list-item-title`, hashId)}>
         {title}
       </div>
-      {/* #8988: isLeaf 只影响树的展开语义，不再屏蔽固定/拖拽选项。
-          分组节点（有 children）同样允许固定，叶子列也不受嵌套层级影响 */}
+      {/* #8988: 分组节点和叶子列都允许固定。 */}
       {showListItemOption ? dom : null}
     </span>
   );
@@ -175,7 +216,7 @@ const CheckboxList: React.FC<{
     const checkedKeys: string[] = [];
     const treeMap = new Map<
       string | number,
-      DataNode & { parentKey?: string }
+      ColumnSettingTreeNode
     >();
 
     const loopData = (
@@ -183,8 +224,8 @@ const CheckboxList: React.FC<{
       parentConfig?: ColumnsState & {
         columnKey: string;
       },
-    ): DataNode[] =>
-      data.map(({ key, dataIndex: _dataIndex, children, ...rest }) => {
+    ): ColumnSettingTreeNode[] =>
+      data.map(({ key, dataIndex, children, ...rest }) => {
         const columnKey = genColumnKey(
           key,
           [parentConfig?.columnKey, rest.index].filter(Boolean).join('-'),
@@ -194,8 +235,9 @@ const CheckboxList: React.FC<{
           checkedKeys.push(columnKey);
         }
 
-        const item: DataNode = {
+        const item: ColumnSettingTreeNode = {
           key: columnKey,
+          dataIndex,
           ...omit(rest, ['className']),
           selectable: false,
           disabled: config.disable === true,
@@ -252,33 +294,15 @@ const CheckboxList: React.FC<{
       );
       // 嵌套子列：sortKeyColumns 找不到时，走同级重排
       if (findIndex < 0 || targetIndex < 0) {
-        const dragNode = treeDataConfig.map?.get(id as string);
-        const parentNodeKey = dragNode?.parentKey;
-        // 兄弟节点（与拖拽节点同父），按树展示顺序
-        const siblings = (
-          parentNodeKey
-            ? treeDataConfig.map?.get(parentNodeKey)?.children
-            : treeDataConfig.list
-        )?.map((node) => node.key as string);
-        if (!siblings) return;
-        const dragIdx = siblings.indexOf(id as string);
-        const targetIdx = siblings.indexOf(targetId as string);
-        if (dragIdx < 0 || targetIdx < 0) return;
-        const isDownWard = dropPosition >= dragIdx;
-        siblings.splice(dragIdx, 1);
-        if (dropPosition === 0) {
-          siblings.unshift(id as string);
-        } else {
-          siblings.splice(
-            isDownWard ? targetIdx : targetIdx + 1,
-            0,
-            id as string,
-          );
-        }
-        siblings.forEach((key, order) => {
-          newMap[key] = { ...(newMap[key] || {}), order };
-        });
-        setColumnsMap(newMap);
+        const nestedMap = reorderNestedColumns(
+          columnsMap,
+          treeDataConfig.map as Map<string, ColumnSettingTreeNode> | undefined,
+          treeDataConfig.list as ColumnSettingTreeNode[] | undefined,
+          id,
+          targetId,
+          dropPosition,
+        );
+        if (nestedMap) setColumnsMap(nestedMap);
         return;
       }
       const isDownWard = dropPosition >= findIndex;
@@ -308,6 +332,24 @@ const CheckboxList: React.FC<{
   const onCheckTree = useRefFunction((e) => {
     const newColumnMap = { ...columnsMap };
 
+    const syncAncestorShow = (key: string | number) => {
+      const parentKey = treeDataConfig.map?.get(key)?.parentKey;
+      if (!parentKey) return;
+      if (e.checked) {
+        newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: true };
+        syncAncestorShow(parentKey);
+        return;
+      }
+      const siblings = treeDataConfig.map?.get(parentKey)?.children ?? [];
+      const allSiblingsUnchecked = siblings.every(
+        (sibling) => newColumnMap[sibling.key as string]?.show === false,
+      );
+      if (allSiblingsUnchecked) {
+        newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: false };
+        syncAncestorShow(parentKey);
+      }
+    };
+
     const loopSetShow = (key: string | number) => {
       const newSetting = { ...newColumnMap[key] };
       newSetting.show = e.checked;
@@ -324,26 +366,7 @@ const CheckboxList: React.FC<{
       // 否则读到的仍是旧值，导致 allSiblingsUnchecked 判断出错。
       newColumnMap[key] = newSetting;
 
-      // 勾选方向：子节点选中时父节点自动设为 true
-      // 取消方向：检查所有兄弟节点是否已全部取消，若是则父节点也取消
-      const parentKey = treeDataConfig.map?.get(key)?.parentKey;
-      if (parentKey) {
-        if (e.checked) {
-          newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: true };
-        } else {
-          const siblings = treeDataConfig.map?.get(parentKey)?.children ?? [];
-          const allSiblingsUnchecked = siblings.every((sibling) => {
-            const siblingState = newColumnMap[sibling.key as string];
-            return siblingState && siblingState.show === false;
-          });
-          if (allSiblingsUnchecked) {
-            newColumnMap[parentKey] = {
-              ...newColumnMap[parentKey],
-              show: false,
-            };
-          }
-        }
-      }
+      syncAncestorShow(key);
     };
     loopSetShow(e.node.key);
     setColumnsMap({ ...newColumnMap });
@@ -431,8 +454,9 @@ const CheckboxList: React.FC<{
       itemHeight={24}
       draggable={
         draggable &&
-        !!treeDataConfig.list?.length &&
-        treeDataConfig.list?.length > 1
+        hasReorderableSiblings(
+          treeDataConfig.list as ColumnSettingTreeNode[] | undefined,
+        )
       }
       checkable={checkable}
       onDragOver={onTreeDragOver}
@@ -452,12 +476,15 @@ const CheckboxList: React.FC<{
       checkedKeys={treeDataConfig.keys}
       showLine={false}
       titleRender={(_node) => {
-        const node = { ..._node, children: undefined };
+        const node: ColumnSettingTreeNode = {
+          ..._node,
+          children: undefined,
+        };
         if (!node.title) return null;
         const normalizedTitle = runFunction(node.title, node);
         // #9620: listItemTitleRender 允许自定义标题渲染（如取消固定宽度让长标题单行自适应）
         const wrappedTitle = listItemTitleRender ? (
-          listItemTitleRender(normalizedTitle, node as any)
+          listItemTitleRender(normalizedTitle, node)
         ) : (
           <Typography.Text
             style={{ width: 80 }}

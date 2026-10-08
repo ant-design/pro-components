@@ -1,6 +1,6 @@
 import { RightOutlined } from '@ant-design/icons';
 import { omit, useControlledState } from '@rc-component/util';
-import { ConfigProvider, Grid, Tabs } from 'antd';
+import { Card as AntdCard, ConfigProvider, Grid, Tabs } from 'antd';
 import { clsx } from 'clsx';
 import React, { useCallback, useContext } from 'react';
 import { proTheme } from '../../../provider';
@@ -11,6 +11,28 @@ import Loading from '../Loading';
 import useStyle from './style';
 
 const { useBreakpoint } = Grid;
+
+/**
+ * 对齐 antd Card → useVariant('card', variant) 的合并顺序：
+ * props > card.variant > 全局 variant > outlined
+ * （不含 Form VariantContext；antd 路径会再交给 AntdCard 处理完整语义）
+ */
+const resolveCardVariant = (
+  customVariant: CardProps['variant'],
+  cardVariant: CardProps['variant'] | undefined,
+  globalVariant: string | undefined,
+) => {
+  if (customVariant !== undefined) {
+    return customVariant;
+  }
+  if (cardVariant !== undefined) {
+    return cardVariant;
+  }
+  if (globalVariant === 'borderless' || globalVariant === 'outlined') {
+    return globalVariant;
+  }
+  return 'outlined';
+};
 
 // 子卡片元素类型：props 形如 CardProps，组件类型用 React.JSXElementConstructor 收紧，
 // 比 any 安全，但仍允许 React.cloneElement / element.type?.isProCard 这类访问。
@@ -58,8 +80,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     ...rest
   } = props;
 
-  const variant = customVariant ?? 'outlined';
-
   const mergedStyles = {
     header: styles?.header,
     body: styles?.body,
@@ -69,7 +89,17 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     actions: styles?.actions,
     cover: styles?.cover,
   };
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const {
+    getPrefixCls,
+    card: cardConfig,
+    variant: configVariant,
+  } = useContext(ConfigProvider.ConfigContext);
+  // legacy 边框对齐 antd useVariant；antd 路径仍透传 customVariant 给 AntdCard
+  const mergedVariant = resolveCardVariant(
+    customVariant,
+    cardConfig?.variant,
+    configVariant,
+  );
   // 用于 loading 占位 padding 兜底（body padding 被显式置 0 时使用 token.paddingLG）
   const { token } = proTheme.useToken();
 
@@ -220,6 +250,29 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     return element;
   });
 
+  // 嵌套 / split 只影响 body 排布，不退出 AntdCard。
+  // wrap、direction 仅在嵌套时生效，单独出现不算布局壳，避免叶子卡片被清 padding。
+  const isLayoutShell = containProCard || Boolean(split);
+
+  // 无法对齐 antd Card 皮肤时走 legacy（ghost / checked / boxShadow 等）。
+  // collapsible、tabs、嵌套属于行为或布局，不因此切换皮肤。
+  const needsLegacySkin =
+    ghost ||
+    checked !== undefined ||
+    Boolean(onChecked) ||
+    boxShadow ||
+    React.isValidElement(loading) ||
+    (Boolean(layout) && layout !== 'default') ||
+    Boolean(actions && !Array.isArray(actions));
+
+  const useAntdCard = !needsLegacySkin;
+
+  // ProCard 仍对外使用 size="default"；antd 6+ 已弃用，传给 Card 时用 medium
+  const antdCardSize =
+    size === 'small' ? 'small' : size === 'default' ? 'medium' : undefined;
+
+  // antd 路径：variant 透传，ConfigProvider 交给 AntdCard / useVariant。
+  // legacy：边框 class 用与 antd 相同的 mergedVariant（!== borderless 即有边）。
   const cardCls = clsx(
     `${prefixCls}`,
     className,
@@ -227,7 +280,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     hashId,
     classNames?.root,
     {
-      [`${prefixCls}-border`]: variant === 'outlined',
+      // 主路径依赖 ant-card；仅 legacy 打标供样式选择
+      [`${prefixCls}-legacy`]: !useAntdCard,
+      [`${prefixCls}-border`]: !useAntdCard && mergedVariant !== 'borderless',
       [`${prefixCls}-box-shadow`]: boxShadow,
       [`${prefixCls}-contain-card`]: containProCard,
       [`${prefixCls}-loading`]: loading,
@@ -237,6 +292,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       [`${prefixCls}-size-${size}`]: size,
       [`${prefixCls}-type-${type}`]: type,
       [`${prefixCls}-collapse`]: collapsed,
+      [`${prefixCls}-collapsible`]: Boolean(collapsible),
       [`${prefixCls}-checked`]: checked,
     },
   );
@@ -308,6 +364,157 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const extraCls = clsx(`${prefixCls}-extra`, hashId, classNames?.extra);
 
   const rootStyle = { ...mergedStyles.root, ...style };
+  const headerCollapsible =
+    collapsible === true || collapsible === 'header';
+
+  // tabs 继续走 Pro API + antd Tabs，不迁到 Card.tabList
+  const tabsNode = tabs ? (
+    <Tabs
+      onChange={tabs.onChange}
+      {...omit(tabs, ['cardProps'])}
+      items={ModifyTabItemsContent}
+      className={clsx(`${prefixCls}-tabs`, hashId, {
+        // #9052：ghost 时去掉 tab 内容区 padding
+        [`${prefixCls}-tabs-ghost`]: tabs.cardProps?.ghost,
+      })}
+    />
+  ) : null;
+
+  // collapsed：收起；collapsible：可交互。布局壳用 display 显隐，保留子树状态。
+  // 内容区不做高度动画，与最初行为一致（CSS 直接藏 body / shell）。
+  const wrapCollapseContent = (content: React.ReactNode) => {
+    if (isLayoutShell) {
+      return (
+        <div
+          className={clsx(`${prefixCls}-collapse-shell`, hashId, {
+            [`${prefixCls}-collapse-shell-collapsed`]: collapsed,
+          })}
+          aria-hidden={collapsed}
+        >
+          {content}
+        </div>
+      );
+    }
+
+    // 无 collapsible 时：collapsed 只收起普通 body；tabs 仍渲染（与历史 DOM 一致）
+    if (!collapsible) {
+      if (collapsed && !tabs) {
+        return null;
+      }
+      return content;
+    }
+
+    return content;
+  };
+
+  if (useAntdCard) {
+    const antdTitle =
+      title || collapsibleButton ? (
+        <>
+          {collapsibleButton}
+          {title ? (
+            <LabelIconTip
+              label={title}
+              tooltip={tooltip}
+              subTitle={subTitle}
+            />
+          ) : null}
+        </>
+      ) : undefined;
+
+    const antdBodyContent = tabs
+      ? loading
+        ? loadingDOM
+        : tabsNode
+      : childrenModified;
+
+    return wrapSSR(
+      <AntdCard
+        {...omit(rest, ['prefixCls', 'colSpan'])}
+        ref={ref}
+        className={cardCls}
+        style={rootStyle}
+        styles={{
+          header: {
+            ...mergedStyles.header,
+            // Pro 默认无 header 底边；仅 headerBordered / inner 保留
+            ...(!headerBordered && type !== 'inner'
+              ? { borderBottom: 'none' }
+              : null),
+            ...(headerCollapsible ? { cursor: 'pointer' } : null),
+          },
+          // tabs / 布局壳：body 去 padding；折叠用 CSS 显隐，不再挪 padding
+          body: {
+            ...mergedStyles.body,
+            ...(tabs || isLayoutShell ? { padding: 0 } : null),
+            // antd 路径：仅 collapsed 且无 tabs 时藏空 body（tabs 在 body 内需可见）
+            ...(collapsed && !collapsible && !tabs
+              ? { display: 'none' }
+              : null),
+          },
+          extra: mergedStyles.extra,
+          title: mergedStyles.title,
+          actions: mergedStyles.actions,
+          cover: mergedStyles.cover,
+        }}
+        classNames={{
+          header: clsx(
+            `${prefixCls}-header`,
+            hashId,
+            classNames?.header,
+            {
+              [`${prefixCls}-header-border`]:
+                headerBordered || type === 'inner',
+              [`${prefixCls}-header-collapsible`]: headerCollapsible,
+            },
+          ),
+          body: bodyCls,
+          extra: extraCls,
+          title: titleCls,
+          actions: clsx(`${prefixCls}-actions`, hashId, classNames?.actions),
+          cover: clsx(`${prefixCls}-cover`, hashId, classNames?.cover),
+        }}
+        title={antdTitle}
+        extra={extra}
+        // 折叠时隐藏 cover / actions（两路径一致）
+        cover={collapsed ? undefined : cover}
+        actions={
+          collapsed ? undefined : (actions as React.ReactNode[] | undefined)
+        }
+        // tabs 用自定义 Loading，避免与 antd Card skeleton 叠用
+        loading={!collapsed && Boolean(loading) && !tabs}
+        hoverable={hoverable}
+        size={antdCardSize}
+        type={type === 'default' ? undefined : type}
+        variant={customVariant}
+        onClick={(event) => {
+          if (
+            event.target instanceof Element &&
+            event.target.closest(`.${prefixCls}-extra`)
+          ) {
+            event.stopPropagation();
+            return;
+          }
+          if (
+            headerCollapsible &&
+            event.target instanceof Element
+          ) {
+            const header = event.target.closest(`.${prefixCls}-header`);
+            // 仅响应本卡 header，忽略嵌套 ProCard 的 header 冒泡
+            if (
+              header &&
+              header.closest(`.${prefixCls}`) === event.currentTarget
+            ) {
+              setCollapsed(!collapsed);
+            }
+          }
+          rest.onClick?.(event);
+        }}
+      >
+        {wrapCollapseContent(antdBodyContent)}
+      </AntdCard>,
+    );
+  }
 
   return wrapSSR(
     <div
@@ -355,26 +562,17 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       {tabs ? (
         loading ? (
           <div className={bodyCls} style={mergedStyles.body}>
-            {loadingDOM}
+            {wrapCollapseContent(loadingDOM)}
           </div>
         ) : (
-          <Tabs
-            onChange={tabs.onChange}
-            {...omit(tabs, ['cardProps'])}
-            items={ModifyTabItemsContent}
-            className={clsx(`${prefixCls}-tabs`, hashId, {
-              // #9052 tabs.cardProps.ghost：去掉 tab 内容区 padding，
-              // 与顶层 ghost 语义一致（内容区无 padding、透明背景）
-              [`${prefixCls}-tabs-ghost`]: tabs.cardProps?.ghost,
-            })}
-          />
+          wrapCollapseContent(tabsNode)
         )
       ) : (
         <div className={bodyCls} style={mergedStyles.body}>
-          {loading ? loadingDOM : childrenModified}
+          {wrapCollapseContent(loading ? loadingDOM : childrenModified)}
         </div>
       )}
-      {actions ? (
+      {actions && !collapsed ? (
         <Actions
           actions={actions}
           prefixCls={prefixCls}

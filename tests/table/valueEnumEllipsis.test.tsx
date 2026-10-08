@@ -37,8 +37,13 @@ describe('ProTable valueEnum + ellipsis (#8694)', () => {
     );
     await waitForWaitTime(300);
 
-    const text = html.baseElement.textContent ?? '';
-    expect(text).toContain('关闭');
-    expect(text).toContain('运行中');
+    const bodyCells = Array.from(
+      html.container.querySelectorAll<HTMLElement>('tbody .ant-table-cell'),
+    );
+    expect(bodyCells).toHaveLength(2);
+    expect(bodyCells[0].className).toContain('ant-table-cell-ellipsis');
+    expect(bodyCells[0].textContent).toContain('关闭');
+    expect(bodyCells[1].className).toContain('ant-table-cell-ellipsis');
+    expect(bodyCells[1].textContent).toContain('运行中');
   });
 });

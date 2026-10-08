@@ -1,9 +1,10 @@
 import type { BreadcrumbProps } from 'antd';
-import { match } from 'path-to-regexp';
 import type {
   BreadcrumbItemType,
-  BreadcrumbItemType as ItemType,
-} from '../../utils/antdTypes';
+  ItemType,
+} from 'antd/lib/breadcrumb/Breadcrumb';
+import type { ReactNode } from 'react';
+import { match } from 'path-to-regexp';
 import type { ProSettings } from '../defaultSettings';
 import type { ProLayoutProps } from '../ProLayout';
 import type { MenuDataItem, MessageDescriptor, WithFalse } from '../typing';
@@ -26,6 +27,13 @@ export type BreadcrumbProLayoutProps = {
   itemRender?: BreadcrumbProps['itemRender'];
 };
 
+type BreadcrumbRoute = ItemType & {
+  linkPath?: string;
+  path?: string;
+  breadcrumbName?: string;
+  title?: ReactNode;
+};
+
 // 渲染 Breadcrumb 子节点
 // Render the Breadcrumb child node
 const defaultItemRender: BreadcrumbProps['itemRender'] = (route, _, routes) => {
@@ -35,9 +43,7 @@ const defaultItemRender: BreadcrumbProps['itemRender'] = (route, _, routes) => {
 
   const last =
     routes.findIndex(
-      (i) =>
-        // @ts-ignore
-        i.linkPath === route.path,
+      (i) => (i as BreadcrumbRoute).linkPath === route.path,
     ) ===
     routes.length - 1;
 
@@ -167,8 +173,9 @@ export const getBreadcrumbProps = (
       {
         ...item,
         // 如果item.linkPath存在，则使用item.linkPath，否则使用item.path
-        // @ts-ignore
-        path: item.linkPath || item.path,
+        path:
+          (item as BreadcrumbRoute).linkPath ||
+          (item as BreadcrumbRoute).path,
       },
       ...rest,
     );

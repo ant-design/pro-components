@@ -73,7 +73,6 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     setOpen,
     loading,
     footerDomRef,
-    footerRef,
     triggerDom,
     submitterConfig,
     contentRender,
@@ -108,6 +107,13 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
         title={title}
         width={width || 800}
         {...modalProps}
+        modalRender={(modalNode) => (
+          <div onClick={(event) => event.stopPropagation()}>
+            {modalProps?.modalRender
+              ? modalProps.modalRender(modalNode)
+              : modalNode}
+          </div>
+        )}
         open={open}
         onCancel={(e) => {
           // 提交时 loading，阻止关闭

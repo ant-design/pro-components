@@ -45,6 +45,14 @@ describe('#8924 trigger stopPropagation preserved', () => {
     expect(triggerClick).toHaveBeenCalledTimes(1);
     // 由于 stopPropagation,父级 onClick 不应被触发
     expect(parentClick).not.toHaveBeenCalled();
+
+    const input = document.querySelector(
+      'input[id$="_name"]',
+    ) as HTMLInputElement;
+    await act(async () => {
+      fireEvent.click(input);
+    });
+    expect(parentClick).not.toHaveBeenCalled();
   });
 
   it('DrawerForm keeps user stopPropagation on trigger click', async () => {
@@ -72,6 +80,14 @@ describe('#8924 trigger stopPropagation preserved', () => {
       fireEvent.click(container.querySelector('#open-btn')!);
     });
 
+    expect(parentClick).not.toHaveBeenCalled();
+
+    const input = document.querySelector(
+      'input[id$="_name"]',
+    ) as HTMLInputElement;
+    await act(async () => {
+      fireEvent.click(input);
+    });
     expect(parentClick).not.toHaveBeenCalled();
   });
 });

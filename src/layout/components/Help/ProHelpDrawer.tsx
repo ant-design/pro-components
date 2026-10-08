@@ -49,7 +49,7 @@ export const ProHelpDrawer: React.FC<ProHelpDrawerProps> = ({
           padding: 0,
         },
       }}
-      maskClosable
+      mask={{ closable: true }}
       {...drawerProps}
       size={drawerProps.size ?? 720}
       open={drawerOpen}

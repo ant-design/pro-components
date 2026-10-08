@@ -382,7 +382,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           marginInline: 0,
           paddingBlock: 0,
           paddingInline: 0,
-          '&:hover': {
+          '&:hover, &:focus-within': {
             backgroundColor: 'transparent',
           },
 
@@ -439,13 +439,17 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         '&-show-action-hover': {
           [`${token.proComponentsCls}-list-item-action,
             ${token.proComponentsCls}-card-extra,
-            ${token.proComponentsCls}-card-actions`]: {
+            ${token.proComponentsCls}-card-actions,
+            ${token.proComponentsCls}-checkcard-extra,
+            ${token.proComponentsCls}-checkcard-actions`]: {
             display: 'none',
           },
           '&:hover': {
             [`${token.proComponentsCls}-list-item-action,
               ${token.proComponentsCls}-card-extra,
-              ${token.proComponentsCls}-card-actions`]: {
+              ${token.proComponentsCls}-card-actions,
+              ${token.proComponentsCls}-checkcard-extra,
+              ${token.proComponentsCls}-checkcard-actions`]: {
               display: 'flex',
               alignItems: 'center',
               gap: token.marginSM,

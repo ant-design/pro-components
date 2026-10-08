@@ -4,7 +4,6 @@ import React, {
   useCallback,
   useContext,
   useImperativeHandle,
-  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -123,8 +122,10 @@ function BetaSchemaForm<T, ValueType = 'text'>(
          */
         const contextBoundGenItems =
           rowIndex !== undefined
-            ? (its: ProFormColumnsType<T, ValueType>[]) =>
-                genItems(its, { rowIndex })
+            ? (
+                its: ProFormColumnsType<T, ValueType>[],
+                nestedContext?: { rowIndex?: number },
+              ) => genItems(its, nestedContext ?? { rowIndex })
             : genItems;
         return items
           .filter((originItem) => {
@@ -148,77 +149,68 @@ function BetaSchemaForm<T, ValueType = 'text'>(
               rowIndex,
             );
 
-          const item = omitUndefined({
-            title,
-            label: title,
-            name: originItem.name,
-            valueType: runFunction(originItem.valueType, {}),
-            key: (originItem.key ?? originItem.dataIndex ?? index) as
-              | React.Key
-              | React.Key[],
-            columns: originItem.columns,
-            valueEnum: originItem.valueEnum,
-            dataIndex: originItem.dataIndex || originItem.key,
-            initialValue: originItem.initialValue,
-            width: originItem.width,
-            index: originItem.index,
-            readonly: originItem.readonly,
-            // #8397:hidden 需要透传到字段级 props,QueryFilter 依据它跳过 Col 占位
-            hidden: originItem.hidden,
-            colSize: originItem.colSize,
-            colProps: originItem.colProps,
-            rowProps: originItem.rowProps,
-            className: originItem.className,
-            tooltip: originItem.tooltip,
-            dependencies: originItem.dependencies,
-            proFieldProps: originItem.proFieldProps,
-            ignoreFormItem: originItem.ignoreFormItem,
-            getFieldProps: originItem.fieldProps
-              ? () =>
-                  runFunction(
-                    originItem.fieldProps,
-                    formRef.current,
-                    {
+            const item = omitUndefined({
+              title,
+              label: title,
+              name: originItem.name,
+              valueType: runFunction(originItem.valueType, {}),
+              key: originItem.key || originItem.dataIndex || index,
+              columns: originItem.columns,
+              valueEnum: originItem.valueEnum,
+              dataIndex: originItem.dataIndex || originItem.key,
+              initialValue: originItem.initialValue,
+              width: originItem.width,
+              formWidth: originItem.formWidth,
+              index: originItem.index,
+              readonly: originItem.readonly,
+              // #8397:hidden 需要透传到字段级 props,QueryFilter 依据它跳过 Col 占位
+              hidden: originItem.hidden,
+              colSize: originItem.colSize,
+              colProps: originItem.colProps,
+              rowProps: originItem.rowProps,
+              className: originItem.className,
+              tooltip: originItem.tooltip,
+              dependencies: originItem.dependencies,
+              proFieldProps: originItem.proFieldProps,
+              ignoreFormItem: originItem.ignoreFormItem,
+              getFieldProps: originItem.fieldProps
+                ? () =>
+                    runFunction(originItem.fieldProps, formRef.current, {
                       ...originItem,
                       type,
                       rowIndex,
-                    } as any,
-                  )
-              : undefined,
-            getFormItemProps: originItem.formItemProps
-              ? () =>
-                  runFunction(
-                    originItem.formItemProps,
-                    formRef.current,
-                    {
+                    } as any)
+                : undefined,
+              getFormItemProps: originItem.formItemProps
+                ? () =>
+                    runFunction(originItem.formItemProps, formRef.current, {
                       ...originItem,
                       type,
                       rowIndex,
-                    } as any,
-                  )
-              : undefined,
-            render: originItem.render,
-            formItemRender: originItem.formItemRender,
-            renderText: originItem.renderText,
-            request: originItem.request,
-            params: originItem.params,
-            transform: originItem.transform,
-            convertValue: originItem.convertValue,
-            debounceTime: originItem.debounceTime,
-            defaultKeyWords: originItem.defaultKeyWords,
-          }) as ItemType<any, any>;
+                    } as any)
+                : undefined,
+              render: originItem.render,
+              formItemRender: originItem.formItemRender,
+              renderText: originItem.renderText,
+              request: originItem.request,
+              params: originItem.params,
+              transform: originItem.transform,
+              convertValue: originItem.convertValue,
+              debounceTime: originItem.debounceTime,
+              defaultKeyWords: originItem.defaultKeyWords,
+            }) as ItemType<any, any>;
 
-          return renderValueType(item, {
-            action,
-            type,
-            originItem,
-            formRef,
-            genItems: contextBoundGenItems,
+            return renderValueType(item, {
+              action,
+              type,
+              originItem,
+              formRef,
+              genItems: contextBoundGenItems,
+            });
+          })
+          .filter((field) => {
+            return Boolean(field);
           });
-        })
-        .filter((field) => {
-          return Boolean(field);
-        });
       },
     );
 
@@ -268,13 +260,11 @@ function BetaSchemaForm<T, ValueType = 'text'>(
   }, [formRef.current]);
 
   const context = useContext(ProConfigContext);
-  const valueTypeMap = useMemo(
-    () => ({ ...context.valueTypeMap, ...ValueTypeToComponent }),
-    [context.valueTypeMap],
-  );
 
   return (
-    <ProConfigProvider valueTypeMap={valueTypeMap}>
+    <ProConfigProvider
+      valueTypeMap={{ ...context.valueTypeMap, ...ValueTypeToComponent }}
+    >
       <FormRenderComponents
         {...specificProps}
         {...restProps}

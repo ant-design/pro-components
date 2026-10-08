@@ -1,4 +1,19 @@
-import type { SpinProps, TableProps } from 'antd';
+import type {
+  PopoverProps,
+  SpinProps,
+  TablePaginationConfig,
+  TableProps,
+} from 'antd';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { NamePath } from 'antd/lib/form/interface';
+import type { SearchProps } from 'antd/lib/input';
+import type {
+  ColumnFilterItem,
+  ColumnType,
+  CompareFn,
+  SorterResult,
+  SortOrder,
+} from 'antd/lib/table/interface';
 import type dayjs from 'dayjs';
 import type React from 'react';
 import type { CSSProperties, Key } from 'react';
@@ -16,16 +31,6 @@ import type {
   SearchConvertKeyFn,
   SearchTransformKeyFn,
 } from '../utils';
-import type {
-  ColumnFilterItem,
-  ColumnType,
-  CompareFn,
-  NamePath,
-  SearchProps,
-  SizeType,
-  SorterResult,
-  SortOrder,
-} from '../utils/antdTypes';
 import type { AlertRenderType } from './components/Alert';
 import type { SearchConfig, TableFormItem } from './components/Form/FormRender';
 import type { ListToolBarProps } from './components/ListToolBar';
@@ -37,13 +42,20 @@ export type PageInfo = {
   pageSize: number;
   total: number;
   current: number;
+  nextToken?: string;
 };
 
 export type RequestData<T> = {
   data: T[] | undefined;
   success?: boolean;
   total?: number;
+  nextToken?: string;
 } & Record<string, any>;
+
+export type ProTablePaginationConfig = TablePaginationConfig & {
+  /** @name 分页模式。cursor 模式仅显示上一页/下一页 */
+  type?: 'offset' | 'cursor';
+};
 
 export type UseFetchDataAction<T = any> = {
   dataSource: T[];
@@ -112,6 +124,9 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
      */
     colSize?: number;
 
+    /** 表单控件宽度。与表格共用 columns 时，可用它覆盖表格列宽 width */
+    formWidth?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
     /** 搜索表单的默认值 */
     initialValue?: any;
 
@@ -120,18 +135,10 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     /** @name 是否拷贝 */
     copyable?: boolean;
 
-    /**
-     * 获取时转化值，将数据格式化为组件接收的格式（编辑/表单模式生效）
-     *
-     * @example string => array  convertValue: (value) => value.split(",")
-     */
+    /** 获取时将数据转化为编辑组件接收的格式 */
     convertValue?: SearchConvertKeyFn;
 
-    /**
-     * 提交/行保存时转化值（serialize），可编辑表格行保存与查询表单提交均会执行
-     *
-     * @example 时间区间拆分  transform: (value) => ({ startTime: value[0], endTime: value[1] })
-     */
+    /** 提交或保存时转化字段值 */
     transform?: SearchTransformKeyFn;
 
     /** 在查询表单中隐藏 */
@@ -166,6 +173,12 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
 
     /** @name 可编辑表格是否可编辑 */
     editable?: boolean | ProTableEditableFnType<T>;
+
+    /** 可编辑单元格的校验错误展示方式，默认为 popover */
+    errorType?: 'popover' | 'default';
+
+    /** errorType 为 popover 时传递给 Popover 的属性 */
+    popoverProps?: PopoverProps;
 
     /**
      * 用于 ProList，指定该列映射到列表项的哪个插槽位置
@@ -311,6 +324,7 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
     params: U & {
       pageSize?: number;
       current?: number;
+      nextToken?: string;
       keyword?: string;
     },
     sort: Record<string, SortOrder>,
@@ -483,7 +497,9 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
    * 未设置 scroll.y 时 ProTable 通过捕获相补挂（仅水平方向生效）
    */
   onScroll?: React.UIEventHandler<HTMLDivElement>;
-} & Omit<TableProps<DataSource>, 'columns' | 'rowSelection'>;
+  /** @name 分页配置，cursor 模式使用 request 返回的 nextToken 顺序翻页 */
+  pagination?: false | ProTablePaginationConfig;
+} & Omit<TableProps<DataSource>, 'columns' | 'pagination' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {
   /** 原生 DOM 元素引用 */
@@ -492,6 +508,11 @@ export type ActionType = ProCoreActionType & {
   focus?: () => void;
   fullScreen?: () => void;
   setPageInfo?: (page: Partial<PageInfo>) => void;
+  /** 获取当前服务端排序和筛选参数 */
+  getSortFilter?: () => {
+    sort: Record<string, SortOrder>;
+    filter: Record<string, FilterValue>;
+  };
   /**
    * 对齐 antd Table ScrollConfig
    * - number: 作为 top 处理
@@ -578,6 +599,7 @@ export type UseFetchProps = {
         pageSize?: number;
         defaultCurrent?: number;
         defaultPageSize?: number;
+        type?: 'offset' | 'cursor';
       }
     | false;
 

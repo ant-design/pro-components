@@ -1,5 +1,5 @@
-import { transformRoute } from '@umijs/route-utils';
 import type { MenuDataItem, MessageDescriptor, Route } from '../typing';
+import { transformRoute } from './routeUtils';
 
 function fromEntries(iterable: any) {
   return [...iterable].reduce(
@@ -25,7 +25,6 @@ const getMenuData = (
     routes as Route[],
     menu?.locale || false,
     formatMessage,
-    true,
   );
 
   if (!menuDataRender) {

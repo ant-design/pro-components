@@ -1,7 +1,6 @@
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 import React from 'react';
-import type { AnyObject } from '../../src/utils/antdTypes';
 
 interface TableColumn {
   key: React.Key;
@@ -35,7 +34,7 @@ const dataSource: TableColumn[] = [
   },
 ];
 
-const columns: ProColumns<TableColumn, AnyObject>[] = [
+const columns: ProColumns<TableColumn>[] = [
   {
     title: '姓名',
     dataIndex: 'name',

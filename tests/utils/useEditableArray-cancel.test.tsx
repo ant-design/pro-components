@@ -6,7 +6,7 @@ import {
   waitFor,
   within,
 } from '@testing-library/react';
-import { Form } from 'antd';
+import { App, Form } from 'antd';
 import React, { useState } from 'react';
 import {
   afterAll,
@@ -46,7 +46,7 @@ describe('useEditableArray - Cancel Operation', () => {
   /**
    * 测试组件：用于测试取消操作
    */
-  const TestComponent: React.FC<{
+  const InnerComponent: React.FC<{
     onCancel?: (
       key: RecordKey,
       record: TestRecordType & { index?: number },
@@ -125,6 +125,14 @@ describe('useEditableArray - Cancel Operation', () => {
       </Form>
     );
   };
+
+  const TestComponent: React.FC<
+    React.ComponentProps<typeof InnerComponent>
+  > = (props) => (
+    <App>
+      <InnerComponent {...props} />
+    </App>
+  );
 
   it('📝 取消编辑时应该正确调用 onCancel 回调', async () => {
     const onCancel = vi.fn(
@@ -312,7 +320,7 @@ describe('useEditableArray - Cancel Operation', () => {
     const onCancel1 = vi.fn(async () => Promise.resolve());
     const onCancel2 = vi.fn(async () => Promise.resolve());
 
-    const TestComponentMultiple: React.FC<{
+    const InnerMultiple: React.FC<{
       onCancel?: (
         key: RecordKey,
         record: TestRecordType & { index?: number },
@@ -367,6 +375,14 @@ describe('useEditableArray - Cancel Operation', () => {
         </Form>
       );
     };
+
+    const TestComponentMultiple: React.FC<
+      React.ComponentProps<typeof InnerMultiple>
+    > = (props) => (
+      <App>
+        <InnerMultiple {...props} />
+      </App>
+    );
 
     const wrapper = render(
       <TestComponentMultiple
@@ -614,7 +630,7 @@ describe('useEditableArray - Cancel Operation', () => {
   it('📝 取消编辑时 preEditRowRef 应该被正确清理', async () => {
     const onCancel = vi.fn(async () => Promise.resolve());
 
-    const TestComponentWithRef: React.FC = () => {
+    const InnerWithRef: React.FC = () => {
       const [dataSource, setDataSource] = useState<TestRecordType[]>([
         { id: 1, name: 'test1', value: 'value1' },
       ]);
@@ -656,6 +672,12 @@ describe('useEditableArray - Cancel Operation', () => {
       );
     };
 
+    const TestComponentWithRef: React.FC = () => (
+      <App>
+        <InnerWithRef />
+      </App>
+    );
+
     const wrapper = render(<TestComponentWithRef />);
 
     act(() => {
@@ -682,7 +704,7 @@ describe('useEditableArray - Cancel Operation', () => {
     const onDelete = vi.fn(async () => Promise.resolve());
     const onCancel = vi.fn(async () => Promise.resolve());
 
-    const MultiEditActionComponent: React.FC = () => {
+    const InnerMultiEdit: React.FC = () => {
       const [dataSource, setDataSource] = useState<TestRecordType[]>([
         { id: 1, name: 'test1', value: 'value1' },
         { id: 2, name: 'test2', value: 'value2' },
@@ -735,6 +757,12 @@ describe('useEditableArray - Cancel Operation', () => {
         </Form>
       );
     };
+
+    const MultiEditActionComponent: React.FC = () => (
+      <App>
+        <InnerMultiEdit />
+      </App>
+    );
 
     const wrapper = render(<MultiEditActionComponent />);
 
@@ -799,7 +827,7 @@ describe('useEditableArray - Cancel Operation', () => {
   it('🐛 #9051 删除行时应清理 name 模式下的表单残值', async () => {
     let formInstance: ReturnType<typeof Form.useForm>[0] | undefined;
 
-    const DeleteRowComponent: React.FC = () => {
+    const InnerDeleteRow: React.FC = () => {
       const [form] = Form.useForm();
       const [dataSource, setDataSource] = useState<TestRecordType[]>([
         { id: 1, name: 'deleted-row', value: 'old-value' },
@@ -838,6 +866,12 @@ describe('useEditableArray - Cancel Operation', () => {
         </Form>
       );
     };
+
+    const DeleteRowComponent: React.FC = () => (
+      <App>
+        <InnerDeleteRow />
+      </App>
+    );
 
     const wrapper = render(<DeleteRowComponent />);
 

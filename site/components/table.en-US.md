@@ -18,6 +18,10 @@ Built on ProForm, **ProTable** can switch query UI modes (for example full `Quer
 
 When your **tables** need to interact with the server or need rich cell renderers, ProTable is a good fit.
 
+## Issue regression scenarios
+
+<code src="../../demos/table/issue-regression-gallery.tsx" background="var(--main-bg-color)" title="State inspection and editable drag sorting"></code>
+
 ## API
 
 ProTable puts a layer of wrapping on top of antd's Table, supports some presets, and encapsulates some behaviors. Only **APIs** that differ from antd Table are listed here.
@@ -295,7 +299,7 @@ If you want **client-side** sorting/filtering (and **do not** want to trigger `r
 | hideInSetting                          | Do not display in configuration tool                                                                                                                                                                                                         | `boolean`                                                                                             | -             |
 | filters                                | The filter menu item in the header. When the value is true, valueEnum is automatically generated                                                                                                                                             | `boolean` \| `object[]`                                                                               | false         |
 | onFilter                               | Filter the form, use the built-in ProTable when it is true, turn off local filtering when it is false                                                                                                                                        | `(value, record) => boolean` \| `false`                                                               | false         |
-| onCell                                 | Same as antd Table. Set cell props; returning `colSpan` / `rowSpan` merges cells (0 hides the cell), identical to the [antd colspan/rowspan demo](https://ant.design/components/table#components-table-demo-colspan-rowspan)                  | `(value: any, record: T, index: number) => React.HTMLAttributes<HTMLElement>`                          | -             |
+| onCell                                 | Same as antd Table. Set cell props; returning `colSpan` / `rowSpan` merges cells (0 hides the cell), identical to the [antd colspan/rowspan demo](https://ant.design/components/table#components-table-demo-colspan-rowspan)                  | `(record: T, index?: number) => React.TdHTMLAttributes<HTMLTableCellElement>`                          | -             |
 | request                                | Request enumeration from server                                                                                                                                                                                                              | [request](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)                | -             |
 | initialValue                           | Initial value of query form item                                                                                                                                                                                                             | `any`                                                                                                 | -             |
 | disable                                | Status of `disabled` in column settings                                                                                                                                                                                                      | `boolean` \| `{ checkbox: boolean; }`                                                                 | -             |

@@ -18,6 +18,10 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 当你的表格需要与服务端进行交互或者需要多种单元格样式时，ProTable 是不二选择。
 
+## Issue 回归场景
+
+<code src="../../demos/table/issue-regression-gallery.tsx" background="var(--main-bg-color)" title="状态读取与可编辑拖拽"></code>
+
 ## API
 
 ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，并且封装了一些行为。这里只列出与 antd Table 不同的 API。
@@ -302,7 +306,7 @@ ref.current?.cancelEditable(rowKey);
 | hideInSetting                          | 不在配置工具中显示                                                                                                                               | `boolean`                                                                                                           | -      |
 | filters                                | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成                                                                                        | `boolean` \| `object[]`                                                                                             | false  |
 | onFilter                               | 筛选表单，为 true 时使用 ProTable 自带的，为 false 时关闭本地筛选                                                                                | `(value, record) => boolean` \| `false`                                                                             | false  |
-| onCell                                 | 与 antd Table 相同，设置单元格属性，返回 `colSpan` / `rowSpan` 可实现合并单元格（值为 0 时不渲染该单元格），写法与 [antd 合并单元格示例](https://ant.design/components/table-cn#components-table-demo-colspan-rowspan) 完全一致 | `(value: any, record: T, index: number) => React.HTMLAttributes<HTMLElement>`                                        | -      |
+| onCell                                 | 与 antd Table 相同，设置单元格属性，返回 `colSpan` / `rowSpan` 可实现合并单元格（值为 0 时不渲染该单元格），写法与 [antd 合并单元格示例](https://ant.design/components/table-cn#components-table-demo-colspan-rowspan) 完全一致 | `(record: T, index?: number) => React.TdHTMLAttributes<HTMLTableCellElement>`                                        | -      |
 | request                                | 从服务器请求枚举                                                                                                                                 | [request](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)                              | -      |
 | initialValue                           | 查询表单项初始值                                                                                                                                 | `any`                                                                                                               | -      |
 | disable                                | 列设置中`disabled`的状态                                                                                                                         | `boolean` \| `{ checkbox: boolean; }`                                                                               | -      |

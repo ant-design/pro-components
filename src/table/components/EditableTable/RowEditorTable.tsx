@@ -23,7 +23,6 @@ export function RowEditorTable<
   const rowKey = props.rowKey || 'id';
 
   // ============================ RowKey ============================
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getRowKey = useMemo(
     () => buildEditableTableRowKey<DataType>(rowKey, props.name),
     [props.name, rowKey],
@@ -65,7 +64,6 @@ export function RowEditorTable<
           onFocus: cancelExitEditing,
         }),
       })) as ProColumns<any, ValueType>[]) ?? [],
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [props.columns, getRowKey, scheduleExitEditing, cancelExitEditing, handleEditableKeysChange],
   );
 

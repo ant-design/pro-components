@@ -1,7 +1,7 @@
 import { CellEditorTable } from '@ant-design/pro-components';
 import { fireEvent, render } from '@testing-library/react';
-import React, { act } from 'react';
-import { describe, expect, it } from 'vitest';
+import { act } from 'react';
+import { describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
 type Row = { id: number; name: string; age: number };
@@ -46,9 +46,7 @@ describe('#8880 CellEditorTable with grouped header', () => {
     await waitForWaitTime(300);
 
     // Name 列进入编辑态:出现输入框且值为 Alice
-    const input = wrapper.container.querySelector(
-      'input',
-    ) as HTMLInputElement;
+    const input = wrapper.container.querySelector('input') as HTMLInputElement;
     expect(input).toBeTruthy();
     expect(input.value).toBe('Alice');
 
@@ -76,12 +74,76 @@ describe('#8880 CellEditorTable with grouped header', () => {
       fireEvent.doubleClick(nameCell);
     });
     await waitForWaitTime(300);
-    const input = wrapper.container.querySelector(
-      'input',
-    ) as HTMLInputElement;
+    const input = wrapper.container.querySelector('input') as HTMLInputElement;
     expect(input).toBeTruthy();
     expect(input.value).toBe('Alice');
 
+    wrapper.unmount();
+  });
+
+  it('keeps duplicate child dataIndex columns isolated by their parent path', async () => {
+    const wrapper = render(
+      <CellEditorTable<Row>
+        rowKey="id"
+        columns={[
+          {
+            title: 'Primary',
+            key: 'primary',
+            children: [
+              { title: 'Name', key: 'primary-name', dataIndex: 'name' },
+            ],
+          },
+          {
+            title: 'Secondary',
+            key: 'secondary',
+            children: [
+              { title: 'Name again', key: 'secondary-name', dataIndex: 'name' },
+            ],
+          },
+        ]}
+        value={[{ id: 1, name: 'Alice', age: 20 }]}
+      />,
+    );
+    await waitForWaitTime(300);
+    const cells = wrapper.container.querySelectorAll('tr.ant-table-row td');
+    act(() => fireEvent.doubleClick(cells[0]));
+    await waitForWaitTime(300);
+    expect(wrapper.container.querySelectorAll('input')).toHaveLength(1);
+    wrapper.unmount();
+  });
+
+  it('preserves grouped child onCell props and handlers', async () => {
+    const onDoubleClick = vi.fn();
+    const wrapper = render(
+      <CellEditorTable<Row>
+        rowKey="id"
+        columns={[
+          {
+            title: 'Group',
+            children: [
+              {
+                title: 'Name',
+                dataIndex: 'name',
+                onCell: () => ({
+                  'data-testid': 'custom-cell',
+                  style: { color: 'rgb(255, 0, 0)' },
+                  onDoubleClick,
+                }),
+              },
+            ],
+          },
+        ]}
+        value={[{ id: 1, name: 'Alice', age: 20 }]}
+      />,
+    );
+    await waitForWaitTime(300);
+
+    const cell = wrapper.getByTestId('custom-cell');
+    expect(cell).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    act(() => fireEvent.doubleClick(cell));
+    await waitForWaitTime(300);
+    expect(onDoubleClick).toHaveBeenCalledTimes(1);
+    expect(wrapper.container.querySelector('input')).toHaveValue('Alice');
     wrapper.unmount();
   });
 });

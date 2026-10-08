@@ -9,6 +9,23 @@ import { ProFormSelect } from '../../src';
  * 而不是保留上一次搜索词的缓存结果。
  */
 describe('#8801 ProFormSelect controlled searchValue triggers request', () => {
+  it('uses the initial controlled searchValue for the first request', async () => {
+    const request = vi.fn(async () => []);
+    render(
+      <ProFormSelect
+        name="initial"
+        fieldProps={{ showSearch: true, searchValue: 'abc' }}
+        request={request}
+      />,
+    );
+
+    await waitFor(() => expect(request).toHaveBeenCalledTimes(1));
+    expect(request).toHaveBeenLastCalledWith(
+      expect.objectContaining({ keyWords: 'abc' }),
+      expect.anything(),
+    );
+  });
+
   it('programmatic searchValue change re-fetches with new keyWords', async () => {
     const request = vi.fn(
       async (params: { keyWords?: string }) =>
@@ -72,5 +89,46 @@ describe('#8801 ProFormSelect controlled searchValue triggers request', () => {
       },
       { timeout: 1500 },
     );
+  });
+
+  it('synchronizes controlled searchValue for local options without fetching', async () => {
+    const Wrapper = () => {
+      const [searchValue, setSearchValue] = React.useState('Alpha');
+      return (
+        <div>
+          <ProFormSelect
+            name="local"
+            options={[
+              { label: 'Alpha option', value: 'alpha' },
+              { label: 'Beta option', value: 'beta' },
+            ]}
+            fieldProps={{
+              showSearch: true,
+              searchValue,
+              fetchDataOnSearch: false,
+            }}
+          />
+          <button onClick={() => setSearchValue('Beta')}>show beta</button>
+        </div>
+      );
+    };
+
+    const { container, getByText } = render(<Wrapper />);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
+
+    await waitFor(() => {
+      const options = Array.from(
+        document.querySelectorAll('.ant-select-item-option-content'),
+      ).map((node) => node.textContent);
+      expect(options).toEqual(['Alpha option']);
+    });
+
+    fireEvent.click(getByText('show beta'));
+    await waitFor(() => {
+      const options = Array.from(
+        document.querySelectorAll('.ant-select-item-option-content'),
+      ).map((node) => node.textContent);
+      expect(options).toEqual(['Beta option']);
+    });
   });
 });

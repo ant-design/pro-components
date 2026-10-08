@@ -80,7 +80,7 @@ const getBreakpointsConfig = (token: {
  * @param width
  * @param breakpointsConfig 从 theme.useToken() 获取，支持 ConfigProvider 主题定制
  */
-const getSpanConfig = (
+export const getSpanConfig = (
   layout: FormProps['layout'],
   width: number,
   span: SpanConfig | undefined,
@@ -114,7 +114,7 @@ const getSpanConfig = (
       span: spanConfig?.[spanConfig.length - 1]
         ? 24 / (spanConfig[spanConfig.length - 1][1] as number)
         : 8,
-      layout: 'horizontal',
+      layout: layout || 'horizontal',
     };
   }
   return {
@@ -468,8 +468,8 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     defaultFormItemsNumber,
     span,
     searchGutter = 24,
-    searchText,
-    resetText,
+    searchText: _searchText,
+    resetText: _resetText,
     optionRender,
     collapseRender,
     onReset,
@@ -558,6 +558,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
         >
           <BaseForm
             isKeyPressSubmit
+            formComponentType="QueryFilter"
             preserve={preserve}
             {...rest}
             className={clsx(baseClassName, hashId, rest.className)}

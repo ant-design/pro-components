@@ -249,6 +249,7 @@ Same as [select](https://ant.design/components/select/). Both request and valueE
 | ------------ | ------------------------------------------------------------------------------- | ------------------------------------------- | ------- |
 | valueEnum    | Enumeration of current values [valueEnum](/components/table#valueenum)          | `Record`                                    | -       |
 | request      | Enumerate data from network requests                                            | `()=>Promise<{[key:string`\|`number]:any}>` | -       |
+| fetchDataOnSearch | Whether searching re-triggers `request`; set to `false` to fetch once on init and filter locally | `boolean` | `true` |
 | debounceTime | Debounce time, used in conjunction with `request`                               | `number`                                    | -       |
 | params       | Parameters for initiating network requests, used in conjunction with `request`. | `Record`                                    | -       |
 | fieldProps   | Props of Ant Design component                                                   | `SelectProps `                              | -       |
@@ -330,7 +331,11 @@ Same as [tree-select](https://ant.design/components/tree-select/). Both request 
 
 > Requesting remote data is more complicated, see [here](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params) for details.
 
-> When using `onOpenChange` in `fieldProps`, you need to separately manage the `open` state. For details, refer to [#8876](https://github.com/ant-design/pro-components/issues/8876)
+`fieldProps.onOpenChange` observes open state changes. The component still maintains its internal `open` state, so you do not need to pass `open` separately.
+
+If virtual scrolling clips the final tree nodes, first upgrade antd and `rc-virtual-list`. On older versions, use `fieldProps={{ virtual: false }}` as a compatibility fallback.
+
+Associated checking (`treeCheckStrictly: false`) does not add half-checked parents to the value. Derive them from the third `onChange` argument, `extra.allCheckedNodes`, or enable `treeCheckStrictly` when independent parent and child selection is acceptable.
 
 | Parameters   | Description                                                                     | Type                                        | Default |
 | ------------ | ------------------------------------------------------------------------------- | ------------------------------------------- | ------- |

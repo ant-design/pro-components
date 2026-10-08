@@ -3,31 +3,28 @@ import { cleanup, render } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import defaultProps from './defaultProps';
 
-afterEach(() => {
-  cleanup();
-});
+afterEach(cleanup);
 
 describe('navTheme realDark (#9168)', () => {
-  it('applies dark menu theme when navTheme=realDark', async () => {
+  it('applies the dark menu theme', async () => {
     const html = render(
       <ProLayout {...defaultProps} navTheme="realDark">
         welcome
       </ProLayout>,
     );
+
     await html.findAllByText('welcome');
-    // Sider Menu 拿到 theme="dark"，antd menu 渲染 dark 皮肤
-    const darkMenu = html.baseElement.querySelector('.ant-menu-dark');
-    expect(darkMenu).toBeTruthy();
+    expect(html.baseElement.querySelector('.ant-menu-dark')).toBeTruthy();
   });
 
-  it('keeps light menu theme by default', async () => {
+  it('keeps the menu light by default', async () => {
     const html = render(
       <ProLayout {...defaultProps} navTheme="light">
         welcome
       </ProLayout>,
     );
+
     await html.findAllByText('welcome');
-    const darkMenu = html.baseElement.querySelector('.ant-menu-dark');
-    expect(darkMenu).toBeNull();
+    expect(html.baseElement.querySelector('.ant-menu-dark')).toBeNull();
   });
 });

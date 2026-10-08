@@ -1,7 +1,6 @@
 import { EditableProTable } from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 

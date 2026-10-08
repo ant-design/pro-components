@@ -18,6 +18,8 @@ In-page container cards that provide standard card styles, card segmentation and
 - When in-card split layout is required.
 - When the card is required to be foldable.
 
+A basic ProCard reuses the antd Card skin and tokens. When `variant` is omitted it is passed through to antd Card and follows `ConfigProvider` `card.variant` / global `variant` (same as antd Card)—ProCard does **not** hard-code a default. `card.className` / `style` / `classNames` / `styles` are also merged by the underlying Card. Only legacy skins (`ghost`, `checked`, `boxShadow`, etc.) resolve ConfigProvider themselves for the border class.
+
 ## Code demo
 
 ### Enum property switch
@@ -142,7 +144,7 @@ The header is automatically hidden when there is no content.
 
 ### With border
 
-Configure the `variant` property to control card border style. Use `outlined` for bordered and `borderless` for borderless.
+Configure the `variant` property to control card border style. Use `outlined` for bordered and `borderless` for borderless. When omitted, it follows `ConfigProvider` (same as antd Card).
 
 <code src="../../demos/card/bordered.tsx" background="var(--main-bg-color)" title="With border"></code>
 
@@ -198,7 +200,7 @@ ProCard is compatible with antd Card API. The following props are consistent wit
 | split                 | Direction to split the card                                                                                                                                                   | `vertical` \| `horizontal`                                   | -            |         |
 | actions               | Card action group, located at the bottom of the card                                                                                                                          | `React.ReactNode[]` \| `React.ReactNode`                      | -            |         |
 | ghost                 | Ghost mode, that is, whether to cancel the padding of the card content area and the background color of the card.                                                             | `boolean`                                                    | false        |         |
-| variant               | Card variant, same as antd Card variant                                                                                                                                      | `'outlined' \| 'borderless'`                                 | -            |         |
+| variant               | Card variant, same as antd Card; when omitted follows ConfigProvider (`card.variant` → global `variant` → antd default) | `'outlined' \| 'borderless'`                                 | -            |         |
 | boxShadow             | Whether to show the card shadow                                                                                                                                              | `boolean`                                                    | -            |         |
 | styles                | Semantic styles, same structure as antd Card                                                                                                                                 | `{ root?, header?, body?, extra?, title?, actions?, cover? }`| -            |         |
 | headerBordered        | Whether the header has a dividing line                                                                                                                                        | `boolean`                                                    | false        |         |
@@ -209,8 +211,6 @@ ProCard is compatible with antd Card API. The following props are consistent wit
 | defaultCollapsed      | Default collapsing, invalid when controlled                                                                                                                                   | `boolean`                                                    | false        |         |
 | onCollapse            | Collapsed card event, invalid when controlled                                                                                                                                 | `(collapsed: boolean) => void`                               | -            |         |
 | tabs                  | Tab configuration                                                                                                                                                             | See below ProCardTabs                                       | -            |         |
-| variant               | Card variants, same as antd Card                                                                                                                                              | `'outlined'` \| `'borderless'`                               | `'outlined'` | 5.24.0  |
-| styles                | Custom styles, same structure as antd Card                                                                                                                                    | `{ root?, header?, body?, extra?, title?, actions?, cover?: CSSProperties }` | -            |         |
 
 ### ProCardTabs
 

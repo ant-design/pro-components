@@ -20,7 +20,7 @@ import {
 } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import dayjs from 'dayjs';
-import { pick } from 'lodash-es';
+import pick from 'es-toolkit/compat/pick';
 import React, { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { NamePath } from '../../src/utils/antdTypes';

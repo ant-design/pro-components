@@ -75,5 +75,25 @@ describe('List showActions / showExtra (#7421)', () => {
     expect(row?.className).not.toContain('ant-pro-list-row-show-action-hover');
     expect(row?.className).not.toContain('ant-pro-list-row-show-extra-hover');
     expect(row?.textContent).toContain('编辑');
+    expect(row?.textContent?.match(/编辑/g)).toHaveLength(1);
+  });
+
+  it('maps legacy metas actions into the card actions slot', () => {
+    const { container } = reactRender(
+      <ProList
+        grid={{ column: 1 }}
+        dataSource={[{ name: '名称' }]}
+        metas={{
+          title: { dataIndex: 'name' },
+          actions: {
+            cardActionProps: 'actions',
+            render: () => [<a key="edit">编辑</a>],
+          },
+        }}
+      />,
+    );
+
+    expect(container.querySelector('.ant-pro-checkcard-actions')).toBeTruthy();
+    expect(container.querySelector('.ant-pro-checkcard-extra')).toBeFalsy();
   });
 });

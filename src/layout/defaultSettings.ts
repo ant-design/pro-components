@@ -1,4 +1,4 @@
-import type { MenuDataItem } from '@umijs/route-utils';
+import type { Route } from './typing';
 
 export type ContentWidth = 'Fluid' | 'Fixed';
 
@@ -85,8 +85,8 @@ export type PureSettings = {
      */
     request?: (
       params: Record<string, any>,
-      defaultMenuData: MenuDataItem[],
-    ) => Promise<MenuDataItem[]>;
+      defaultMenuData: Route[],
+    ) => Promise<Route[]>;
 
     /**
      * @name 菜单聚合的模式

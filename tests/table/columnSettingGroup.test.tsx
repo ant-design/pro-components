@@ -1,6 +1,6 @@
 import { ProTable } from '@ant-design/pro-components';
 import { fireEvent, render } from '@testing-library/react';
-import React, { act } from 'react';
+import { act } from 'react';
 import { describe, expect, it } from 'vitest';
 import { waitForWaitTime } from '../util';
 
@@ -136,14 +136,20 @@ describe('#8988 multi-level header in ColumnSetting', () => {
       Array.from(wrapper.container.querySelectorAll('.ant-table-thead th')).map(
         (th) => th.textContent,
       );
-    expect(headers()).toEqual(['A', 'GroupL2', 'D', 'B', 'GroupL3', 'C1', 'C2']);
+    expect(headers()).toEqual([
+      'A',
+      'GroupL2',
+      'D',
+      'B',
+      'GroupL3',
+      'C1',
+      'C2',
+    ]);
 
     // 取消勾选 GroupL2 整组
     const l2 = visibleTreeItems().find((n) => n.textContent === 'GroupL2');
     act(() => {
-      fireEvent.click(
-        l2?.querySelector('.ant-tree-checkbox') as HTMLElement,
-      );
+      fireEvent.click(l2?.querySelector('.ant-tree-checkbox') as HTMLElement);
     });
     await waitForWaitTime(300);
     // 整组从表头移除
@@ -238,8 +244,7 @@ describe('#8988 multi-level header in ColumnSetting', () => {
 
     // 1) 取消 B
     await expandByTitle('GroupL2');
-    const itemB = () =>
-      visibleTreeItems().find((n) => n.textContent === 'B');
+    const itemB = () => visibleTreeItems().find((n) => n.textContent === 'B');
     act(() => {
       fireEvent.click(
         itemB()?.querySelector('.ant-tree-checkbox') as HTMLElement,
@@ -251,9 +256,7 @@ describe('#8988 multi-level header in ColumnSetting', () => {
     // 2) 取消 L3 分组 → L2 下全部隐藏 → L2 自动隐藏
     const l3 = visibleTreeItems().find((n) => n.textContent === 'GroupL3');
     act(() => {
-      fireEvent.click(
-        l3?.querySelector('.ant-tree-checkbox') as HTMLElement,
-      );
+      fireEvent.click(l3?.querySelector('.ant-tree-checkbox') as HTMLElement);
     });
     await waitForWaitTime(300);
     expect(headers()).toEqual(['A', 'D']);
@@ -310,13 +313,60 @@ describe('#8988 multi-level header in ColumnSetting', () => {
     // 再取消 L3 分组整组 → L2 下所有子项都隐藏 → L2 分组自动隐藏
     const l3 = visibleTreeItems().find((n) => n.textContent === 'GroupL3');
     act(() => {
-      fireEvent.click(
-        l3?.querySelector('.ant-tree-checkbox') as HTMLElement,
-      );
+      fireEvent.click(l3?.querySelector('.ant-tree-checkbox') as HTMLElement);
     });
     await waitForWaitTime(300);
     expect(headers()).toEqual(['A', 'D']);
 
+    wrapper.unmount();
+  });
+
+  it('checking a deep leaf restores every hidden ancestor', async () => {
+    const wrapper = render(
+      <ProTable
+        columns={columns}
+        dataSource={[{ A: '1', B: '2', C1: '3', C2: '4', D: '5' }]}
+        rowKey="A"
+        search={false}
+      />,
+    );
+    await openSetting(wrapper);
+    await expandByTitle('GroupL2');
+    await expandByTitle('GroupL3');
+
+    const headers = () =>
+      Array.from(wrapper.container.querySelectorAll('.ant-table-thead th')).map(
+        (th) => th.textContent,
+      );
+    const l2 = visibleTreeItems().find(
+      (node) => node.textContent === 'GroupL2',
+    );
+    act(() => {
+      fireEvent.click(l2?.querySelector('.ant-tree-checkbox') as HTMLElement);
+    });
+    await waitForWaitTime(300);
+    expect(headers()).toEqual(['A', 'D']);
+
+    for (const title of ['GroupL2', 'GroupL3']) {
+      const node = visibleTreeItems().find(
+        (item) => item.textContent === title,
+      );
+      if (node?.getAttribute('aria-expanded') === 'false') {
+        act(() => {
+          fireEvent.click(
+            node.querySelector('.ant-tree-switcher') as HTMLElement,
+          );
+        });
+        await waitForWaitTime(200);
+      }
+    }
+    const c1 = visibleTreeItems().find((node) => node.textContent === 'C1');
+    expect(c1).toBeTruthy();
+    act(() => {
+      fireEvent.click(c1?.querySelector('.ant-tree-checkbox') as HTMLElement);
+    });
+    await waitForWaitTime(300);
+    expect(headers()).toEqual(['A', 'GroupL2', 'D', 'GroupL3', 'C1']);
     wrapper.unmount();
   });
 });

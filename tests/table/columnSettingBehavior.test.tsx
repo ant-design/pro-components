@@ -117,27 +117,23 @@ describe('ColumnSetting behaviors', () => {
     ) as HTMLElement;
     expect(holder).toBeTruthy();
 
-    const rectSpy = vi
-      .spyOn(holder, 'getBoundingClientRect')
-      .mockReturnValue({
-        top: 0,
-        bottom: 280,
-        left: 0,
-        right: 200,
-        width: 200,
-        height: 280,
-        x: 0,
-        y: 0,
-        toJSON: () => ({}),
-      } as DOMRect);
+    const rectSpy = vi.spyOn(holder, 'getBoundingClientRect').mockReturnValue({
+      top: 0,
+      bottom: 280,
+      left: 0,
+      right: 200,
+      width: 200,
+      height: 280,
+      x: 0,
+      y: 0,
+      toJSON: () => ({}),
+    } as DOMRect);
 
     const rafCallbacks: FrameRequestCallback[] = [];
-    const rafSpy = vi
-      .spyOn(window, 'requestAnimationFrame')
-      .mockImplementation((cb) => {
-        rafCallbacks.push(cb);
-        return rafCallbacks.length;
-      });
+    vi.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
+      rafCallbacks.push(cb);
+      return rafCallbacks.length;
+    });
     vi.spyOn(window, 'cancelAnimationFrame').mockImplementation(() => {});
 
     // 模拟一次完整的 HTML5 拖拽：先 dragStart 让 rc-tree 记录拖拽节点。
@@ -185,5 +181,52 @@ describe('ColumnSetting behaviors', () => {
     expect(holder.scrollTop).toBe(before + 8);
 
     wrapper.unmount();
+  });
+
+  it('#8947 ReactNode 标题与持久化列状态不会写入循环对象', async () => {
+    const titleRef = React.createRef<HTMLSpanElement>();
+    const storageKey = 'column-setting-circular-title';
+    localStorage.removeItem(storageKey);
+    const wrapper = render(
+      <ProTable
+        columns={[
+          {
+            dataIndex: 'name',
+            title: <span ref={titleRef}>名称</span>,
+          },
+        ]}
+        dataSource={[{ id: 1, name: 'Alice' }]}
+        rowKey="id"
+        search={false}
+        columnsState={{
+          persistenceKey: storageKey,
+          persistenceType: 'localStorage',
+        }}
+      />,
+    );
+    await waitForWaitTime(300);
+    expect(titleRef.current).toBeTruthy();
+
+    fireEvent.click(
+      wrapper.container.querySelector(
+        '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
+      ) as HTMLElement,
+    );
+    await waitForWaitTime(200);
+    expect(() =>
+      fireEvent.click(
+        document.querySelector('.ant-tree-checkbox') as HTMLElement,
+      ),
+    ).not.toThrow();
+    await waitForWaitTime(100);
+
+    const persisted = localStorage.getItem(storageKey);
+    expect(persisted).toBeTruthy();
+    expect(JSON.parse(persisted!)).toEqual(
+      expect.objectContaining({ name: expect.any(Object) }),
+    );
+    expect(persisted).not.toContain('FiberNode');
+    wrapper.unmount();
+    localStorage.removeItem(storageKey);
   });
 });

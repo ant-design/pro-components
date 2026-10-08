@@ -31,10 +31,7 @@ describe('EditableProTable filter + name mode (#8930)', () => {
     const Demo = () => {
       const [editableKeys, setEditableKeys] = useState<React.Key[]>([]);
       return (
-        <ProForm
-          submitter={false}
-          initialValues={{ table: dataSource }}
-        >
+        <ProForm submitter={false} initialValues={{ table: dataSource }}>
           <EditableProTable<Row>
             rowKey="id"
             name="table"
@@ -115,7 +112,9 @@ describe('EditableProTable filter + name mode (#8930)', () => {
     // 进入编辑态
     await user.click(html.getByTestId('edit-2'));
     await waitFor(() => {
-      expect(html.baseElement.querySelector('.ant-table-cell input')).toBeTruthy();
+      expect(
+        html.baseElement.querySelector('.ant-table-cell input'),
+      ).toBeTruthy();
     });
 
     // 标题输入框当前值应该是 row-2 的 title,而不是展示 index 0 对应的 row-1
@@ -125,5 +124,96 @@ describe('EditableProTable filter + name mode (#8930)', () => {
     ).find((i) => !i.id) as HTMLInputElement;
     expect(titleInput).toBeTruthy();
     expect(titleInput.value).toBe('row-2');
+  });
+
+  it('过滤父行后使用完整源索引路径编辑嵌套子行', async () => {
+    const user = userEvent.setup();
+    const treeData: Array<Row & { children: Row[] }> = [
+      {
+        id: 'p1',
+        title: 'parent-1',
+        state: 'open',
+        children: [{ id: 'c1', title: 'child-1', state: 'open' }],
+      },
+      {
+        id: 'p2',
+        title: 'parent-2',
+        state: 'closed',
+        children: [{ id: 'c2', title: 'child-2', state: 'closed' }],
+      },
+    ];
+    const Demo = () => {
+      const [editableKeys, setEditableKeys] = useState<React.Key[]>([]);
+      return (
+        <ProForm submitter={false} initialValues={{ table: treeData }}>
+          <EditableProTable<Row>
+            rowKey="id"
+            name="table"
+            expandable={{ defaultExpandAllRows: true }}
+            recordCreatorProps={false}
+            editable={{ editableKeys, onChange: setEditableKeys }}
+            columns={[
+              { title: '标题', dataIndex: 'title' },
+              {
+                title: '状态',
+                dataIndex: 'state',
+                filters: true,
+                onFilter: true,
+                valueEnum: {
+                  open: { text: '进行中' },
+                  closed: { text: '已关闭' },
+                },
+              },
+              {
+                title: '操作',
+                valueType: 'option',
+                render: (_, row) => [
+                  <a
+                    key="edit"
+                    data-testid={`edit-${row.id}`}
+                    onClick={() => setEditableKeys([row.id])}
+                  >
+                    编辑
+                  </a>,
+                ],
+              },
+            ]}
+          />
+        </ProForm>
+      );
+    };
+    const html = render(<Demo />);
+    await waitFor(() => expect(html.getByText('child-2')).toBeTruthy());
+
+    await user.click(
+      html.baseElement.querySelector(
+        '.ant-table-filter-trigger',
+      ) as HTMLElement,
+    );
+    const closedOption = await waitFor(() => {
+      const option = Array.from(
+        html.baseElement.querySelectorAll(
+          '.ant-table-filter-dropdown .ant-dropdown-menu-item',
+        ),
+      ).find((element) => element.textContent?.includes('已关闭'));
+      expect(option).toBeTruthy();
+      return option as HTMLElement;
+    });
+    await user.click(closedOption);
+    const okButton = Array.from(
+      html.baseElement.querySelectorAll(
+        '.ant-table-filter-dropdown-btns button',
+      ),
+    ).find((element) => element.className.includes('primary')) as HTMLElement;
+    await user.click(okButton);
+    await waitFor(() => expect(html.queryByText('parent-1')).toBeNull());
+
+    await user.click(html.getByTestId('edit-c2'));
+    await waitFor(() => {
+      const input = Array.from(
+        html.baseElement.querySelectorAll('.ant-table-row-level-1 input'),
+      ).find((node) => (node as HTMLInputElement).value === 'child-2');
+      expect(input).toBeTruthy();
+    });
   });
 });

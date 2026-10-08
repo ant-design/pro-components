@@ -2,6 +2,7 @@ import { merge, useControlledState } from '@rc-component/util';
 import React, {
   useEffect,
   useImperativeHandle,
+  useLayoutEffect,
   useRef,
   useState,
 } from 'react';
@@ -23,7 +24,6 @@ export type UseOverlayFormOptions<T> = {
   formRef: React.MutableRefObject<ProFormInstance | undefined>;
   /** 用户从外部传入的 formRef（用于 useImperativeHandle 暴露） */
   propsFormRef?: React.MutableRefObject<any> | React.RefObject<any>;
-  onInit?: CommonFormProps<T>['onInit'];
   /** 是否在关闭时销毁并重置表单 */
   destroyOnHidden?: boolean;
   /** 提交超时（毫秒），超时期间禁用取消按钮 */
@@ -58,8 +58,8 @@ export type UseOverlayFormResult<T> = {
   onFinishHandle: (values: T) => Promise<any>;
   /** 关闭时重置表单，仅在 destroyOnHidden=true 时有效 */
   resetFields: () => void;
-  /** Synchronize form refs and flush the pending open notification. */
-  onFormInit: (values: T, form: ProFormInstance<any>) => void;
+  /** form 实例挂载完成回调（传给 BaseForm onInit 中调用），用于缓冲首次 onOpenChange */
+  onFormMount: () => void;
 };
 
 /**
@@ -78,7 +78,6 @@ export function useOverlayForm<T = Record<string, any>>({
   onOpenChange,
   formRef,
   propsFormRef,
-  onInit,
   destroyOnHidden,
   submitTimeout,
   onFinish,
@@ -110,7 +109,9 @@ export function useOverlayForm<T = Record<string, any>>({
    * 仅非受控(trigger 自管理状态)时保留 #8920 的缓冲语义。
    */
   const controlledRef = useRef(propsOpen !== undefined);
-  controlledRef.current = propsOpen !== undefined;
+  useLayoutEffect(() => {
+    controlledRef.current = propsOpen !== undefined;
+  }, [propsOpen]);
 
   const onOpenChangeCallback = useRefFunction((nextOpen: boolean) => {
     if (!formMountedRef.current && nextOpen && !controlledRef.current) {
@@ -133,16 +134,6 @@ export function useOverlayForm<T = Record<string, any>>({
     if (pending !== null) {
       onOpenChange?.(pending);
     }
-  });
-
-  const onFormInit = useRefFunction((values: T, form: ProFormInstance<any>) => {
-    if (propsFormRef) {
-      (propsFormRef as React.MutableRefObject<ProFormInstance<any>>).current =
-        form;
-    }
-    onInit?.(values, form);
-    formRef.current = form;
-    onFormMount();
   });
 
   /**
@@ -190,17 +181,15 @@ export function useOverlayForm<T = Record<string, any>>({
    * deps 必须是 []：formRef.current 是 mutable value，变化不会触发更新，
    * 用它做依赖项毫无意义。
    */
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(propsFormRef, () => formRef.current, []);
 
-  // 受控 propsOpen=true 时，立即通知外部感知初始打开状态
+  // 保留历史行为：受控弹层初始为 open 时通知一次。只在挂载时执行，
+  // 避免 trigger 已通知后，propsOpen 的 false -> true 变化再次重复通知。
   useEffect(() => {
     if (propsOpen) {
       onOpenChange?.(true);
     }
-    // 只关心 propsOpen 的初始值，不追踪 onOpenChange（引用可能每次变化）
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [propsOpen]);
+  }, []);
 
   // trigger 克隆：注入 onClick 以切换 open
   const triggerDom = trigger
@@ -289,6 +278,6 @@ export function useOverlayForm<T = Record<string, any>>({
     contentRender,
     onFinishHandle,
     resetFields,
-    onFormInit,
+    onFormMount,
   };
 }

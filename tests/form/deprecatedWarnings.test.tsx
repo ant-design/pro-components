@@ -1,58 +1,81 @@
 import {
   ProFormDateRangePicker,
   ProFormSelect,
+  ProTable,
   QueryFilter,
 } from '@ant-design/pro-components';
-import { render } from '@testing-library/react';
-import React from 'react';
+import { cleanup, render } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 afterEach(() => {
-  document.body.innerHTML = '';
+  cleanup();
+  vi.restoreAllMocks();
 });
 
-/**
- * #8830 / #8685 / #8091
- * antd v5 时代的废弃 API 警告(findDOMNode / Select bordered)。
- * 本仓库已升级 antd 6:findDOMNode 已被移除、bordered 已全量替换为 variant,
- * 这里渲染典型场景断言不再产生这些废弃警告(回归锁定)。
- */
-describe('deprecated API warnings are gone on antd 6 (#8830/#8685/#8091)', () => {
-  it('QueryFilter 渲染无 findDOMNode / bordered 废弃警告', () => {
-    const errorSpy = vi
-      .spyOn(console, 'error')
-      .mockImplementation(() => undefined);
-    const warnSpy = vi
-      .spyOn(console, 'warn')
-      .mockImplementation(() => undefined);
+const captureConsoleMessages = () => {
+  const errorSpy = vi
+    .spyOn(console, 'error')
+    .mockImplementation(() => undefined);
+  const warnSpy = vi
+    .spyOn(console, 'warn')
+    .mockImplementation(() => undefined);
+
+  return () =>
+    [...errorSpy.mock.calls, ...warnSpy.mock.calls]
+      .flat()
+      .map(String)
+      .join('\n');
+};
+
+const expectNoLegacyWarnings = (messages: string) => {
+  expect(messages).not.toMatch(/findDOMNode/i);
+  expect(messages).not.toMatch(/bordered.*deprecated/i);
+};
+
+describe('deprecated API warnings on antd 6', () => {
+  it('renders the ProTable search and options paths without warnings (#8830)', () => {
+    const getMessages = captureConsoleMessages();
+
+    render(
+      <ProTable
+        rowKey="id"
+        columns={[
+          { title: 'Name', dataIndex: 'name' },
+          {
+            title: 'Status',
+            dataIndex: 'status',
+            valueType: 'select',
+            valueEnum: { open: 'Open', closed: 'Closed' },
+          },
+        ]}
+        dataSource={[]}
+      />,
+    );
+
+    expectNoLegacyWarnings(getMessages());
+  });
+
+  it('renders QueryFilter fields without warnings (#8685, #8091)', () => {
+    const getMessages = captureConsoleMessages();
 
     render(
       <QueryFilter>
         <ProFormDateRangePicker
           name="date"
-          label="日期"
-          placeholder={['开始', '结束']}
+          label="Date"
+          placeholder={['Start', 'End']}
         />
         <ProFormSelect
           name="status"
-          label="任务状态"
+          label="Status"
           options={[
-            { label: '进行中', value: 'open' },
-            { label: '已关闭', value: 'closed' },
+            { label: 'Open', value: 'open' },
+            { label: 'Closed', value: 'closed' },
           ]}
         />
       </QueryFilter>,
     );
 
-    const allMessages = [
-      ...errorSpy.mock.calls.map((c) => String(c[0])),
-      ...warnSpy.mock.calls.map((c) => String(c[0])),
-    ].join('\n');
-
-    expect(allMessages).not.toContain('findDOMNode');
-    expect(allMessages).not.toContain('`bordered` is deprecated');
-
-    errorSpy.mockRestore();
-    warnSpy.mockRestore();
+    expectNoLegacyWarnings(getMessages());
   });
 });

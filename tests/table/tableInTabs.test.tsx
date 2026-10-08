@@ -58,14 +58,12 @@ describe('ProTable inside Tabs (#8747)', () => {
       'thead .ant-table-cell',
     ) as HTMLElement;
     expect(headerCell).toBeTruthy();
-    // 列宽样式生效（style 上有 width:100px 或 colgroup col 有 100）
-    const col = html.container.querySelector(
-      'colgroup col',
+    const col = html.container.querySelector('colgroup col') as HTMLElement;
+    expect(col?.style.width).toEqual('100px');
+
+    const bodyCell = html.container.querySelector(
+      'tbody .ant-table-cell',
     ) as HTMLElement;
-    const hasWidth =
-      headerCell.style.width === '100px' ||
-      col?.style?.width === '100px' ||
-      col?.getAttribute('width') === '100';
-    expect(hasWidth || headerCell.className.includes('ellipsis')).toBeTruthy();
+    expect(bodyCell.className).toContain('ant-table-cell-ellipsis');
   });
 });

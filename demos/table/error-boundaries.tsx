@@ -17,7 +17,6 @@ class CustomBoundary extends React.Component<
 
   componentDidCatch(error: any, errorInfo: ErrorInfo) {
     // You can also log the error to an error reporting service
-    // eslint-disable-next-line no-console
     console.error(error, errorInfo);
   }
 

@@ -25,13 +25,14 @@ export const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
       },
       // #8672: getContainer=false 的 inline 抽屉默认跟随文档流，
       // 高度塌陷导致移动端无法铺满视口；提升为 fixed 与 antd 默认抽屉一致
-      [`& ${token.antCls}-drawer-inline`]: {
-        position: 'fixed',
-        insetBlockStart: 0,
-        insetInlineStart: 0,
-        width: '100%',
-        height: '100%',
-      },
+      [`& ${token.proComponentsCls}-drawer-sider-root${token.antCls}-drawer-inline`]:
+        {
+          position: 'fixed',
+          insetBlockStart: 0,
+          insetInlineStart: 0,
+          width: '100%',
+          height: '100%',
+        },
       [token.componentCls]: {
         position: 'relative',
         boxSizing: 'border-box',

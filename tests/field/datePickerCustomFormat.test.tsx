@@ -15,6 +15,30 @@ describe('#8863 DatePicker custom format parsing', () => {
     expect(
       (parseValueToDay('23/3/2024', 'DD/MM/YYYY') as any)?.format('YYYY-MM-DD'),
     ).toBe('2024-03-23');
+    expect(
+      (parseValueToDay('23/03/2024', ['DD/MM/YYYY']) as any)?.format(
+        'YYYY-MM-DD',
+      ),
+    ).toBe('2024-03-23');
+    expect(
+      (parseValueToDay('1728403200', 'YYYY') as any)?.valueOf(),
+    ).toBe(1728403200000);
+    expect(
+      (parseValueToDay('2024-03-23', 'YYYY-MM-DD HH:mm:ss') as any)?.format(
+        'YYYY-MM-DD HH:mm:ss',
+      ),
+    ).toBe('2024-03-23 00:00:00');
+    expect(
+      (parseValueToDay('March 3, 2024', 'MMMM DD, YYYY') as any)?.format(
+        'YYYY-MM-DD',
+      ),
+    ).toBe('2024-03-03');
+    expect(parseValueToDay('31/02/2024', 'DD/MM/YYYY')).toBeNull();
+    // 非字符串输入也应兼容 string / string[] formatter 的兜底路径。
+    const invalidDate = new Date(Number.NaN);
+    expect(parseValueToDay(invalidDate, 'YYYY-MM-DD')).toBeNull();
+    expect(parseValueToDay(invalidDate, ['YYYY-MM-DD'])).toBeNull();
+    expect(parseValueToDay(invalidDate)).toBeNull();
     // 两位数不受影响
     expect(
       (parseValueToDay('23/03/2024', 'DD/MM/YYYY') as any)?.format('YYYY-MM-DD'),

@@ -1,6 +1,7 @@
 import { get } from '@rc-component/util';
 import type { PopoverProps } from 'antd';
 import { Form } from 'antd';
+import type { AnyObject } from 'antd/lib/_util/type';
 import React, {
   useCallback,
   useContext,
@@ -22,11 +23,25 @@ import {
   isDeepEqualReact,
   runFunction,
 } from '../../utils';
-import type { AnyObject } from '../../utils/antdTypes';
 import type { ProColumnType } from '../index';
 import type { ContainerType } from '../Store/Provide';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
+
+/**
+ * 拼接用于编辑的表单字段路径（name path）
+ */
+export const buildNamePath = (...rest: any[]): React.Key[] => {
+  return rest
+    .filter((index) => index !== undefined)
+    .flat(1)
+    .map((item) => {
+      if (typeof item === 'number') {
+        return item.toString();
+      }
+      return item;
+    });
+};
 
 /**
  * 拼接用于编辑的 key
@@ -36,21 +51,6 @@ const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 export const spellNamePath = (...rest: any[]): React.Key[] =>
   buildNamePath(...rest);
 
-/**
- * 拼接用于编辑的表单字段路径（name path）
- */
-export const buildNamePath = (...rest: any[]): React.Key[] => {
-  return rest
-    .filter((index) => index !== undefined)
-    .map((item) => {
-      if (typeof item === 'number') {
-        return item.toString();
-      }
-      return item;
-    })
-    .flat(1);
-};
-
 type CellRenderFromItemProps<T extends AnyObject> = {
   text: string | number | (string | number)[];
   valueType: ProColumnType['valueType'];
@@ -59,6 +59,8 @@ type CellRenderFromItemProps<T extends AnyObject> = {
   columnEmptyText?: ProFieldEmptyText;
   columnProps?: ProColumnType<T> & {
     entity: T;
+    /** @deprecated 历史拼写兼容，请用 entity */
+    entry?: T;
   };
   type?: ProSchemaComponentTypes;
   // 行的唯一 key
@@ -69,7 +71,8 @@ type CellRenderFromItemProps<T extends AnyObject> = {
    */
   prefixName?: string;
   counter: ReturnType<ContainerType>;
-  proFieldProps: ProFormFieldProps;
+  /** 由 cellRenderToFromItem 生成后传入内部组件；外层入口调用时可不传 */
+  proFieldProps?: ProFormFieldProps;
   subName: string[];
   editableUtils: UseEditableUtilType;
 };
@@ -93,17 +96,29 @@ const CellRenderFromItem = <T extends AnyObject>(
   } = props;
 
   const editableForm = ProForm.useFormInstance();
+  const convertValueTypeRef = React.useRef<{
+    source: string;
+    target: string;
+  }>();
 
   const key = recordKey || index;
   const realIndex = useMemo(
     () => editableUtils?.getRealIndex?.(rowData!) ?? index,
     [editableUtils, index, rowData],
   );
+  const rowPath = useMemo(
+    () =>
+      prefixName
+        ? Array.isArray(realIndex)
+          ? realIndex
+          : [...subName, realIndex]
+        : [key],
+    [key, prefixName, realIndex, subName],
+  );
   const [formItemName, setName] = useState<React.Key[]>(() =>
     buildNamePath(
       prefixName,
-      prefixName ? subName : [],
-      prefixName ? realIndex : key,
+      rowPath,
       columnProps?.key ?? columnProps?.dataIndex ?? index,
     ),
   );
@@ -115,8 +130,7 @@ const CellRenderFromItem = <T extends AnyObject>(
   useEffect(() => {
     const nextName = buildNamePath(
       prefixName,
-      prefixName ? subName : [],
-      prefixName ? realIndex : key,
+      rowPath,
       columnProps?.key ?? columnProps?.dataIndex ?? index,
     );
     // 用 functional update 读取最新 prev 值进行比较，避免把 formItemName
@@ -132,8 +146,7 @@ const CellRenderFromItem = <T extends AnyObject>(
     recordKey,
     prefixName,
     key,
-    subName,
-    realIndex,
+    rowPath,
   ]);
 
   const needProps = useMemo(
@@ -179,6 +192,38 @@ const CellRenderFromItem = <T extends AnyObject>(
     formItemProps.initialValue = prefixName
       ? (formItemProps?.initialValue ?? columnProps?.initialValue)
       : (text ?? formItemProps?.initialValue ?? columnProps?.initialValue);
+    if (columnProps?.convertValue) {
+      const userGetValueProps = formItemProps.getValueProps;
+      formItemProps.getValueProps = (value: any) => {
+        const getValueType = (item: any) => {
+          if (item === null) return 'null';
+          if (Array.isArray(item)) return 'array';
+          return typeof item;
+        };
+        const valueType = getValueType(value);
+        const cachedTypes = convertValueTypeRef.current;
+        const shouldReuseComponentValue =
+          cachedTypes &&
+          cachedTypes.source !== cachedTypes.target &&
+          valueType === cachedTypes.target;
+        const convertedValue = shouldReuseComponentValue
+          ? value
+          : (columnProps.convertValue?.(
+              value,
+              formItemName,
+              editableForm?.getFieldsValue?.(true),
+            ) ?? value);
+        if (!shouldReuseComponentValue) {
+          convertValueTypeRef.current = {
+            source: valueType,
+            target: getValueType(convertedValue),
+          };
+        }
+        return userGetValueProps
+          ? userGetValueProps(convertedValue)
+          : { value: convertedValue };
+      };
+    }
     let fieldDom: React.ReactNode = (
       <ProFormField
         cacheForSwr
@@ -190,11 +235,6 @@ const CellRenderFromItem = <T extends AnyObject>(
           columnProps?.fieldProps,
           ...needProps,
         )}
-        // #9032 列级 transform/convertValue 透传给编辑单元格：
-        // 注册到 form 的 valueType 映射后，行保存(getFieldsFormatValue)与
-        // ProForm 提交链路会自动执行列配置的值转换
-        transform={columnProps?.transform}
-        convertValue={columnProps?.convertValue}
         {...proFieldProps}
       />
     );
@@ -231,16 +271,17 @@ const CellRenderFromItem = <T extends AnyObject>(
     // 导致 Form.Item 内部校验状态丢失。此处直接内联 JSX 是正确做法。
     return (
       <InlineErrorFormItem
+        key={formItemName.join('-')}
+        name={formItemName}
+        {...formItemProps}
+        errorType={columnProps?.errorType ?? 'popover'}
         popoverProps={{
           getPopupContainer:
             (formContext.getPopupContainer as PopoverProps['getPopupContainer']) ||
             (() =>
               (counter.rootDomRef.current || document.body) as HTMLElement),
+          ...columnProps?.popoverProps,
         }}
-        key={formItemName.join('-')}
-        errorType="popover"
-        name={formItemName}
-        {...formItemProps}
       >
         {fieldDom}
       </InlineErrorFormItem>
@@ -342,8 +383,9 @@ function cellRenderToFromItem<T extends AnyObject>(
     : [];
   /**
    * 生成公用的 proField dom 配置
+   * record 为表格行数据透传字段，不在 ProFormFieldProps 公共类型上，用交叉类型补全
    */
-  const proFieldProps: ProFormFieldProps = {
+  const proFieldProps: ProFormFieldProps & { record?: T } = {
     valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
     dependencies: columnProps?.dependencies ? [dependencies] : undefined,
@@ -352,6 +394,8 @@ function cellRenderToFromItem<T extends AnyObject>(
       : undefined,
     params: runFunction(columnProps?.params, rowData, columnProps),
     readonly: columnProps?.readonly,
+    convertValue: columnProps?.convertValue,
+    transform: columnProps?.transform,
     text:
       valueType === 'index' || valueType === 'indexBorder'
         ? config.index
@@ -359,7 +403,6 @@ function cellRenderToFromItem<T extends AnyObject>(
     mode: config.mode,
     formItemRender: undefined,
     valueType: valueType as ProFieldValueType,
-    // @ts-ignore
     record: rowData,
     proFieldProps: {
       emptyText: config.columnEmptyText,

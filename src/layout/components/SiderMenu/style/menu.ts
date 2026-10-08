@@ -12,6 +12,9 @@ export const genProLayoutBaseMenuStyle: GenerateStyle<
   const menuToken = mode.includes('horizontal')
     ? token.layout?.header
     : token.layout?.sider;
+  const menuTitleColor = mode.includes('horizontal')
+    ? undefined
+    : token.layout?.sider?.colorTextMenuTitle;
 
   return {
     [`${token.componentCls}`]: {
@@ -147,9 +150,8 @@ export const genProLayoutBaseMenuStyle: GenerateStyle<
       '&-group': {
         [`${token.antCls}-menu-item-group-title`]: {
           fontSize: 12,
-          // #8976 分组标题颜色应消费 sider 的 colorTextMenuSecondary，
-          // 与菜单项 colorTextMenu 一致地从 layout token 取值
           color:
+            menuTitleColor ||
             menuToken?.colorTextMenuSecondary ||
             token.colorTextLabel,
           [token.iconCls]: {

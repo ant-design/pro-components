@@ -8,6 +8,7 @@ import {
 } from '@rc-component/util';
 import type { FormInstance, FormItemProps, FormProps } from 'antd';
 import { ConfigProvider, Form, Spin } from 'antd';
+import type { NamePath } from 'antd/lib/form/interface';
 import { clsx } from 'clsx';
 import type dayjs from 'dayjs';
 import React, {
@@ -20,9 +21,12 @@ import React, {
 import { ProConfigProvider } from '../../provider';
 import type {
   ProFieldProps,
+  ProFormInstanceType,
   ProRequestData,
+  SearchConvertKeyFn,
   SearchTransformKeyFn,
 } from '../../utils';
+import type { ProFieldValueType } from '../../utils/typing';
 import {
   autoFocusToFirstChild,
   conversionMomentValue,
@@ -35,9 +39,8 @@ import {
   useRefFunction,
   useStyle,
 } from '../../utils';
-import type { NamePath } from '../../utils/antdTypes';
-import type { ProFieldValueType } from '../../utils/typing';
-import { FormListContext } from '../components/List/FormListContext';
+import { useUrlSync } from './useUrlSync';
+import { FormListContext } from '../components/List';
 import FieldContext from '../FieldContext';
 import { GridContext, useGridHelpers } from '../helpers';
 import type {
@@ -48,14 +51,24 @@ import type {
 import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
 import type { SubmitterProps } from './Submitter';
 import Submitter from './Submitter';
-import { useUrlSync } from './useUrlSync';
-import type { ProFormInstance, ProFormRef, SyncToUrl } from './typing';
-
-export type { ProFormInstance } from './typing';
 
 const { noteOnce } = warning;
 
 // Define ProFormInstance and ProFormRef
+export type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
+type ProFormRef<T> = ProFormInstance<T> & {
+  /** 原生 DOM 元素引用 */
+  nativeElement?: HTMLElement;
+  /** 聚焦方法 */
+  focus?: () => void;
+};
+
+type ListConvertValueEntry = {
+  name: NamePath;
+  convertValue: SearchConvertKeyFn;
+  sourceType?: string;
+  targetType?: string;
+};
 
 export type CommonFormProps<
   T = Record<string, any>,
@@ -122,7 +135,7 @@ export type CommonFormProps<
   /**
    * @name 同步结果到 url 中
    * */
-  syncToUrl?: SyncToUrl<T>;
+  syncToUrl?: boolean | ((values: T, type: 'get' | 'set') => T);
 
   /**
    * @name 当 syncToUrl 为 true，在页面回显示时，以url上的参数为主，默认为false
@@ -218,14 +231,14 @@ export type BaseFormProps<T = Record<string, any>, U = Record<string, any>> = {
   /** 是否回车提交 */
   isKeyPressSubmit?: boolean;
   /** Form 组件的类型，内部使用 */
-  formComponentType?:
-    'DrawerForm' | 'ModalForm' | 'QueryFilter' | 'LightFilter';
+  formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter' | 'LightFilter';
   /**
    * 非当前分步的字段跳过 rules 校验（#9101），内部由 StepsForm 注入
    */
   skipFieldRules?: boolean;
 } & Omit<FormProps, 'onFinish'> &
   CommonFormProps<T, U>;
+
 
 /**
  * It takes a name path and converts it to an array.
@@ -249,11 +262,7 @@ const defaultExtraUrlParams = {} as Record<string, any>;
  */
 function buildFormatValues(
   getFormInstance: () => FormInstance<any> | undefined,
-  transformKey: (
-    values: any,
-    paramsOmitNil: boolean,
-    parentKey?: NamePath,
-  ) => any,
+  transformKey: (values: any, paramsOmitNil: boolean, parentKey?: NamePath) => any,
   omitNil: boolean,
 ) {
   return {
@@ -261,16 +270,10 @@ function buildFormatValues(
       const instance = getFormInstance();
       if (!instance) return {};
       const values = instance.getFieldsValue(allData!);
-      return transformKey(
-        values,
-        omitNilParam !== undefined ? omitNilParam : omitNil,
-      );
+      return transformKey(values, omitNilParam !== undefined ? omitNilParam : omitNil);
     },
 
-    getFieldFormatValue: (
-      paramsNameList: NamePath = [],
-      omitNilParam?: boolean,
-    ) => {
+    getFieldFormatValue: (paramsNameList: NamePath = [], omitNilParam?: boolean) => {
       const instance = getFormInstance();
       if (!instance) return undefined;
       const nameList = covertFormName(paramsNameList);
@@ -294,10 +297,7 @@ function buildFormatValues(
       return result;
     },
 
-    getFieldFormatValueObject: (
-      paramsNameList?: NamePath,
-      omitNilParam?: boolean,
-    ) => {
+    getFieldFormatValueObject: (paramsNameList?: NamePath, omitNilParam?: boolean) => {
       const instance = getFormInstance();
       if (!instance) return {};
       const nameList = covertFormName(paramsNameList);
@@ -308,21 +308,13 @@ function buildFormatValues(
       // fieldsValueType 匹配失败且极端情况下日期字段无法格式化为 string/number。
       const newNameList = nameList ? [...nameList] : [];
       newNameList.shift();
-      return transformKey(
-        obj,
-        omitNilParam !== undefined ? omitNilParam : omitNil,
-        newNameList,
-      );
+      return transformKey(obj, omitNilParam !== undefined ? omitNilParam : omitNil, newNameList);
     },
 
-    validateFieldsReturnFormatValue: async (
-      nameList?: NamePath[],
-      omitNilParam?: boolean,
-    ) => {
+    validateFieldsReturnFormatValue: async (nameList?: NamePath[], omitNilParam?: boolean) => {
       const instance = getFormInstance();
       if (!instance) return {};
-      if (!Array.isArray(nameList) && nameList)
-        throw new Error('nameList must be array');
+      if (!Array.isArray(nameList) && nameList) throw new Error('nameList must be array');
       const values = await instance.validateFields(nameList);
       const transformedKey = transformKey(
         values,
@@ -348,9 +340,9 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     children,
     contentRender,
     submitter,
-    fieldProps,
-    formItemProps,
-    groupProps,
+    fieldProps: _fieldProps,
+    formItemProps: _formItemProps,
+    groupProps: _groupProps,
     formatValue,
     transformKey,
     formRef: propsFormRef,
@@ -363,7 +355,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     onUrlSyncReset,
     onReset,
     omitNil = true,
-    isKeyPressSubmit,
+    isKeyPressSubmit: _isKeyPressSubmit,
     autoFocusFirstInput = true,
     grid,
     rowProps,
@@ -381,9 +373,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
   };
 
   /** 内部持有当前 FormInstance，供 useImperativeHandle 和 submitter 使用 */
-  const formInstanceRef = useRef<ProFormRef<any>>(
-    (form || formInstance) as any,
-  );
+  const formInstanceRef = useRef<ProFormRef<any>>((form || formInstance) as any);
 
   /**
    * 获取布局
@@ -404,10 +394,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
 
   const items = React.Children.toArray(children as any).map((item, index) => {
     if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
-      return autoFocusToFirstChild(
-        item,
-        autoFocusFirstInput,
-      ) as React.ReactElement;
+      return autoFocusToFirstChild(item, autoFocusFirstInput) as React.ReactElement;
     }
     return item;
   });
@@ -443,18 +430,14 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
       />
     );
 
-  // contentRender 的契约是接收 ReactNode[](#8253):
-  // QueryFilter/LightFilter 会在 contentRender 里做 items.flatMap 布局计算,
-  // 如果 grid 时把 items 包进单个 RowWrapper 元素,flatMap 将收到元素而非数组导致崩溃。
-  // grid 布局由 GridContext + 每个表单项的 ColWrapper 完成(见 warpField),
-  // 因此 contentRender 场景下保持数组形态传递。
-  const content = contentRender ? (
-    contentRender(items, submitterNode, formInstanceRef.current)
-  ) : grid ? (
-    <RowWrapper>{items}</RowWrapper>
-  ) : (
-    items
-  );
+  // QueryFilter/LightFilter 的 contentRender 会对 items 做 flatMap 布局计算，
+  // 需要保持数组形态；其他表单仍由 BaseForm 提供 grid Row 容器。
+  const isFilterForm =
+    formComponentType === 'QueryFilter' || formComponentType === 'LightFilter';
+  const wrapItems = grid && !isFilterForm ? <RowWrapper>{items}</RowWrapper> : items;
+  const content = contentRender
+    ? contentRender(wrapItems as any, submitterNode, formInstanceRef.current)
+    : wrapItems;
 
   const preInitialValues = usePrevious(props.initialValues);
 
@@ -478,11 +461,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     propsFormRef,
     () => ({
       ...formInstanceRef.current,
-      ...buildFormatValues(
-        () => formInstanceRef.current,
-        transformKey,
-        omitNil,
-      ),
+      ...buildFormatValues(() => formInstanceRef.current, transformKey, omitNil),
     }),
     [omitNil, transformKey, propsFormRef],
   );
@@ -497,15 +476,19 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     });
   }, []);
 
+  const proFormContextValue = useMemo(
+    () => ({ ...formatValues, formRef: formInstanceRef }),
+    [formatValues],
+  );
+  const gridContextValue = useMemo(
+    () => ({ grid, colProps }),
+    [grid, colProps],
+  );
+
   return (
-    <ProFormContext.Provider
-      value={{
-        ...formatValues,
-        formRef: formInstanceRef,
-      }}
-    >
+    <ProFormContext.Provider value={proFormContextValue}>
       <ConfigProvider componentSize={rest.size || componentSize}>
-        <GridContext.Provider value={{ grid, colProps }}>
+        <GridContext.Provider value={gridContextValue}>
           {rest.component !== false && (
             <input
               type="text"
@@ -533,29 +516,29 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     isKeyPressSubmit,
     syncToUrlAsImportant = false,
     syncToInitialValues = true,
-    children,
-    contentRender,
-    submitter,
+    children: _children,
+    contentRender: _contentRender,
+    submitter: _submitter,
     fieldProps,
     proFieldProps,
     formItemProps,
     groupProps,
     dateFormatter = 'string',
     formRef: propsFormRef,
-    onInit,
+    onInit: _onInit,
     form,
     formComponentType,
     skipFieldRules,
-    onReset,
-    grid,
-    rowProps,
-    colProps,
-    omitNil = true,
+    onReset: _onReset,
+    grid: _grid,
+    rowProps: _rowProps,
+    colProps: _colProps,
+    omitNil: _omitNil = true,
     request,
     params,
     initialValues,
     formKey = requestFormCacheId,
-    readonly,
+    readonly: _readonly,
     onLoadingChange,
     loading: propsLoading,
     loadingRender,
@@ -605,6 +588,10 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     request,
     params,
     proFieldKey: formKey,
+    // Request values are the source of truth for the active params. Returning
+    // to a recently used params value must revalidate instead of restoring a
+    // stale form snapshot from SWR's deduplication window (#8375).
+    dedupingInterval: 0,
   });
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -669,6 +656,92 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
       }
     >
   >({});
+
+  const listConvertValueRef = useRef(
+    new Map<string, ListConvertValueEntry>(),
+  );
+
+  useEffect(() => {
+    const getValueType = (value: unknown) =>
+      Array.isArray(value) ? 'array' : value === null ? 'null' : typeof value;
+    const convertOne = (
+      entry: ListConvertValueEntry,
+      value: any,
+      allValues: any,
+    ) => {
+      const valueType = getValueType(value);
+      if (
+        entry.sourceType !== entry.targetType &&
+        valueType === entry.targetType
+      ) {
+        return value;
+      }
+      const converted = entry.convertValue(value, entry.name, allValues);
+      entry.sourceType = valueType;
+      entry.targetType = getValueType(converted);
+      return converted;
+    };
+
+    const patchInstance = (instance?: FormInstance) => {
+      if (!instance?.setFieldsValue || !instance?.setFieldValue) return;
+
+      const originalSetFieldsValue = instance.setFieldsValue;
+      const originalSetFieldValue = instance.setFieldValue;
+      const setFieldsValue: FormInstance['setFieldsValue'] = (values) => {
+        let nextValues = values;
+        listConvertValueRef.current.forEach((entry) => {
+          const incomingValue = get(
+            values,
+            entry.name as (string | number)[],
+          );
+          if (incomingValue === undefined) return;
+          const converted = convertOne(entry, incomingValue, {
+            ...instance.getFieldsValue(true),
+            ...values,
+          });
+          if (!Object.is(converted, incomingValue)) {
+            nextValues = namePathSet(
+              { ...nextValues },
+              entry.name as (string | number)[],
+              converted,
+            );
+          }
+        });
+        originalSetFieldsValue.call(instance, nextValues);
+      };
+      const setFieldValue: FormInstance['setFieldValue'] = (
+        fieldName,
+        value,
+      ) => {
+        const nameKey = JSON.stringify([fieldName].flat(1));
+        const entry = listConvertValueRef.current.get(nameKey);
+        const converted = entry
+          ? convertOne(entry, value, instance.getFieldsValue(true))
+          : value;
+        originalSetFieldValue.call(instance, fieldName, converted);
+      };
+
+      instance.setFieldsValue = setFieldsValue;
+      instance.setFieldValue = setFieldValue;
+      return () => {
+        if (instance.setFieldsValue === setFieldsValue) {
+          instance.setFieldsValue = originalSetFieldsValue;
+        }
+        if (instance.setFieldValue === setFieldValue) {
+          instance.setFieldValue = originalSetFieldValue;
+        }
+      };
+    };
+
+    const instances = [formRef.current, form].filter(
+      (instance, index, allInstances): instance is FormInstance =>
+        !!instance && allInstances.indexOf(instance) === index,
+    );
+    const cleanups = instances.map(patchInstance);
+    return () => {
+      cleanups.forEach((cleanup) => cleanup?.());
+    };
+  }, [form]);
 
   /** 使用 callback 的类型 */
   const transformKey = useRefFunction(
@@ -755,7 +828,6 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
       // 保留错误可见性（console.error），同时避免 async 事件回调里 re-throw
       // 造成的 unhandled rejection（会中断用户页面）。若需要感知失败，
       // 推荐在 onFinish 内部自行 try/catch。
-      // eslint-disable-next-line no-console
       console.error('[ProForm] onFinish error:', error);
     }
   });
@@ -805,12 +877,20 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
    * 且 form 已挂载后才开始同步(首次初始化交给 antd)。
    */
   const prevPropsInitialValuesRef = useRef<typeof initialValues | undefined>(
-    undefined,
+    initialValues,
   );
+  const initialValuesEffectMountedRef = useRef(false);
   useEffect(() => {
-    if (request || !initialValues) return;
-    if (prevPropsInitialValuesRef.current === undefined) {
+    if (!initialValuesEffectMountedRef.current) {
       // 首次渲染:记录后跳过,交给 antd initialValues 初始化
+      initialValuesEffectMountedRef.current = true;
+      prevPropsInitialValuesRef.current = initialValues;
+      return;
+    }
+    if (
+      request ||
+      (formComponentType !== 'ModalForm' && formComponentType !== 'DrawerForm')
+    ) {
       prevPropsInitialValuesRef.current = initialValues;
       return;
     }
@@ -828,17 +908,15 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     }, {});
     formRef.current.setFieldsValue?.({
       ...clearedValues,
-      ...initialValues,
+      ...(initialValues || {}),
     });
-  }, [initialValues, request]);
+  }, [formComponentType, initialValues, request]);
 
   if (request && initialDataLoading) {
     if (loadingRender !== undefined) {
       return (
         <>
-          {typeof loadingRender === 'function'
-            ? loadingRender()
-            : loadingRender}
+          {typeof loadingRender === 'function' ? loadingRender() : loadingRender}
         </>
       );
     }
@@ -874,6 +952,18 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
             ) => {
               if (!Array.isArray(name)) return;
 
+              if (valueType === 'formList') {
+                const nameKey = JSON.stringify(name);
+                if (convertValue) {
+                  listConvertValueRef.current.set(nameKey, {
+                    name,
+                    convertValue,
+                  });
+                } else {
+                  listConvertValueRef.current.delete(nameKey);
+                }
+              }
+
               // Store transform function in the correct nested structure
               if (transform) {
                 transformKeyRef.current = namePathSet(
@@ -883,17 +973,20 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                     ? (value: any, namePath: string[], allValues: any) => {
                         let convertedValue = value;
                         try {
-                          // #9120 提交链路的 convertValue 同样携带整表数据(entity)
                           convertedValue = convertValue(
                             value,
                             namePath,
-                            allValues,
+                            formRef.current?.getFieldsValue?.(true) ?? allValues,
                           );
                         } catch {
                           // The form store may already contain the component
                           // value after user interaction (#9285).
                         }
-                        return transform(convertedValue, namePath, allValues);
+                        return transform(
+                          convertedValue,
+                          namePath,
+                          allValues,
+                        );
                       }
                     : transform,
                 );

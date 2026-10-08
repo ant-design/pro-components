@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-components",
-  "version": "3.1.15-2",
+  "version": "3.1.15-6",
   "description": "All-in-one package of @ant-design/pro-components",
   "keywords": [
     "antd",
@@ -15,11 +15,93 @@
     "url": "git+https://github.com/ant-design/pro-components.git"
   },
   "license": "MIT",
-  "sideEffects": ["**/field/initDayjs.*"],
+  "sideEffects": [
+    "**/initDayjs.*"
+  ],
   "main": "lib/index.js",
   "unpkg": "dist/pro-components.min.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./es/index.d.ts",
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./table": {
+      "types": "./es/table/index.d.ts",
+      "import": "./es/table/index.js",
+      "require": "./lib/table/index.js"
+    },
+    "./table/core": {
+      "types": "./es/table/core.d.ts",
+      "import": "./es/table/core.js",
+      "require": "./lib/table/core.js"
+    },
+    "./table/editable": {
+      "types": "./es/table/editable.d.ts",
+      "import": "./es/table/editable.js",
+      "require": "./lib/table/editable.js"
+    },
+    "./table/drag-sort": {
+      "types": "./es/table/drag-sort.d.ts",
+      "import": "./es/table/drag-sort.js",
+      "require": "./lib/table/drag-sort.js"
+    },
+    "./form": {
+      "types": "./es/form/index.d.ts",
+      "import": "./es/form/index.js",
+      "require": "./lib/form/index.js"
+    },
+    "./layout": {
+      "types": "./es/layout/index.d.ts",
+      "import": "./es/layout/index.js",
+      "require": "./lib/layout/index.js"
+    },
+    "./card": {
+      "types": "./es/card/index.d.ts",
+      "import": "./es/card/index.js",
+      "require": "./lib/card/index.js"
+    },
+    "./descriptions": {
+      "types": "./es/descriptions/index.d.ts",
+      "import": "./es/descriptions/index.js",
+      "require": "./lib/descriptions/index.js"
+    },
+    "./field": {
+      "types": "./es/field/index.d.ts",
+      "import": "./es/field/index.js",
+      "require": "./lib/field/index.js"
+    },
+    "./list": {
+      "types": "./es/list/index.d.ts",
+      "import": "./es/list/index.js",
+      "require": "./lib/list/index.js"
+    },
+    "./provider": {
+      "types": "./es/provider/index.d.ts",
+      "import": "./es/provider/index.js",
+      "require": "./lib/provider/index.js"
+    },
+    "./locale": {
+      "types": "./es/provider/intl.d.ts",
+      "import": "./es/provider/intl.js",
+      "require": "./lib/provider/intl.js"
+    },
+    "./skeleton": {
+      "types": "./es/skeleton/index.d.ts",
+      "import": "./es/skeleton/index.js",
+      "require": "./lib/skeleton/index.js"
+    },
+    "./utils": {
+      "types": "./es/utils/index.d.ts",
+      "import": "./es/utils/index.js",
+      "require": "./lib/utils/index.js"
+    },
+    "./es/*": "./es/*",
+    "./lib/*": "./lib/*",
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist",
     "lib",
@@ -27,8 +109,11 @@
     "guidelines"
   ],
   "scripts": {
-    "build": "father build",
+    "build": "rslib build --config rslib.config.mts",
+    "analyze:bundle": "node ./scripts/performance/measureBundleSize.mjs",
+    "benchmark:selection": "node ./scripts/performance/selectionBenchmark.mjs",
     "changelog": "node ./scripts/changelogs.mjs",
+    "check:build-outputs": "node ./scripts/checkBuildOutputs.mjs",
     "check:declarations": "node ./scripts/checkDeclarations.mjs",
     "check:cycles": "node ./scripts/checkCircularDependencies.mjs",
     "check:field-bundle": "node ./scripts/checkFieldTreeShaking.mjs",
@@ -44,8 +129,10 @@
     "docs:preview": "pnpm docs preview",
     "docs:create": "pnpm docs create",
     "docs:check": "pnpm docs check",
-    "prepublishOnly": "pnpm run check:safety && pnpm run check:cycles && pnpm run check:field-bundle && pnpm run test && pnpm run build && pnpm run check:declarations && pnpm run check:published-types",
-    "lint": "oxlint --fix ./ && npm run tsc",
+    "prepublishOnly": "pnpm run check:safety && pnpm run check:cycles && pnpm run check:field-bundle && pnpm run test && pnpm run build && pnpm run check:build-outputs && pnpm run check:declarations && pnpm run check:published-types",
+    "lint": "oxlint --type-aware --type-check .",
+    "lint:check": "oxlint .",
+    "lint:fix": "oxlint --fix .",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,yaml,json}\" --log-level warn",
     "createRelease": "node ./scripts/createRelease.mjs",
     "site": "npm run build && cross-env SITE_DEPLOY='TRUE' dumi build",
@@ -54,7 +141,8 @@
     "test:coverage": "cross-env TZ=UTC TEST_LOG=none vitest run --coverage",
     "test:ui": "cross-env TZ=UTC vitest --ui",
     "test:update": "cross-env TZ=UTC  vitest -u",
-    "tsc": "tsc --noEmit",
+    "tsc": "pnpm run typecheck",
+    "typecheck": "tsc --noEmit",
     "publish:beta": "npm publish --tag beta",
     "update:deps": "pnpm up --latest"
   },
@@ -71,17 +159,14 @@
     "@dnd-kit/modifiers": "^9.0.0",
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
-    "@emotion/css": "^11.13.5",
     "@rc-component/form": "^1.8.6",
     "@rc-component/resize-observer": "^1.1.2",
     "@rc-component/table": "^1.12.0",
     "@rc-component/util": "^1.13.0",
-    "@umijs/route-utils": "^4.0.3",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.23",
-    "lodash-es": "^4.18.1",
+    "es-toolkit": "^1.52.0",
     "path-to-regexp": "^8.4.2",
-    "react-draggable": "~4.4.6",
     "safe-stable-stringify": "^2.5.0",
     "swr": "^2.5.1"
   },
@@ -95,24 +180,27 @@
     "@babel/preset-typescript": "^7.29.7",
     "@babel/traverse": "^7.29.8",
     "@emotion/babel-plugin": "^11.13.5",
+    "@emotion/css": "^11.13.5",
+    "@rsbuild/plugin-react": "^2.1.1",
+    "@rslib/core": "1.0.3",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.6.7",
-    "@types/lodash-es": "^4.17.12",
-    "@types/node": "^26.6.3",
+    "@types/node": "^26.6.4",
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
     "@types/react-helmet": "^6.1.11",
     "@types/shallowequal": "^1.1.5",
     "@types/warning": "^3.0.4",
+    "@typescript/native": "npm:typescript@7.0.2",
     "@umijs/babel-preset-umi": "^3.5.43",
     "@umijs/doctor": "^1.2.1",
     "@umijs/plugin-analytics": "^0.2.4",
     "@umijs/test": "^3.5.43",
     "@umijs/test-utils": "^3.5.43",
-    "@umijs/utils": "^4.7.20",
+    "@umijs/utils": "^4.7.22",
     "@vitejs/plugin-legacy": "^8.2.3",
     "@vitest/browser": "^4.1.11",
     "@vitest/coverage-istanbul": "^4.1.11",
@@ -128,18 +216,18 @@
     "execa": "^10.0.1",
     "express": "^5.2.1",
     "fast-deep-equal": "^3.1.3",
-    "father": "^4.6.38",
     "gh-pages": "^6.3.0",
     "glob": "^13.0.6",
     "happy-dom": "^20.14.5",
     "identity-obj-proxy": "^3.0.0",
-    "inquirer": "^14.2.2",
+    "inquirer": "^14.2.3",
     "jest-canvas-mock": "^2.5.8",
     "mockdate": "^3.0.5",
     "nprogress": "^0.2.0",
     "nwsapi": "2.2.24",
     "octokit": "^5.0.5",
-    "oxlint": "^1.86.0",
+    "oxlint": "1.87.0",
+    "oxlint-tsgolint": "7.0.2003",
     "playwright": "^1.63.0",
     "polished": "^4.3.1",
     "prettier": "^3.9.9",
@@ -149,6 +237,7 @@
     "query-string": "^9.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-draggable": "~4.4.6",
     "react-markdown": "^10.1.0",
     "react-syntax-highlighter": "^16.1.1",
     "remark": "^15.0.1",
@@ -160,12 +249,12 @@
     "timezone-mock": "^1.4.3",
     "ts-node": "^10.9.2",
     "tsx": "^4.23.15",
-    "typescript": "^5.9.3",
-    "umi": "^4.7.20",
+    "typescript": "npm:@typescript/typescript6@6.0.2",
+    "umi": "^4.7.22",
     "umi-request": "^1.4.0",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.1.0",
-    "vite": "^8.3.1",
+    "vite": "^8.3.3",
     "vitest": "^4.1.11",
     "write-pkg": "^7.0.0",
     "xhr-mock": "^2.5.1",

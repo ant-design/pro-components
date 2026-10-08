@@ -1,6 +1,6 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { ProForm, ProFormText, StepsForm } from '../../src';
 
 /** 选择可见的文本输入框(跳过 antd Form 渲染的隐藏 input) */
@@ -19,6 +19,7 @@ const selectVisibleInput = (container: HTMLElement) =>
  */
 describe('#8380 validateTrigger onBlur', () => {
   it('ProFormText validates on blur', async () => {
+    const onBlur = vi.fn();
     const { container } = render(
       <ProForm>
         <ProFormText
@@ -26,6 +27,7 @@ describe('#8380 validateTrigger onBlur', () => {
           label="名称"
           validateTrigger="onBlur"
           rules={[{ required: true, message: '必填' }]}
+          fieldProps={{ onBlur }}
         />
       </ProForm>,
     );
@@ -40,6 +42,7 @@ describe('#8380 validateTrigger onBlur', () => {
     await waitFor(() => {
       expect(container.textContent).toContain('必填');
     });
+    expect(onBlur).toHaveBeenCalledTimes(1);
   });
 
   it('StepsForm StepForm validates on blur', async () => {
@@ -76,6 +79,7 @@ describe('#8380 validateTrigger onBlur', () => {
         <ProFormText
           name="name"
           label="名称"
+          initialValue="已有值"
           validateTrigger="onBlur"
           rules={[{ required: true, message: '必填' }]}
         />

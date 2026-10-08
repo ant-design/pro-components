@@ -1,5 +1,5 @@
 import { DragSortTable } from '@ant-design/pro-components';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import React, { useState } from 'react';
 import { describe, expect, it } from 'vitest';
 import { waitForWaitTime } from '../util';
@@ -53,5 +53,48 @@ describe('#8342 DragSortTable scroll.y header flicker', () => {
     // 头/体应是同一个 DOM 节点(未重挂载) —— 重挂载会导致闪烁
     expect(headerAfter).toBe(headerBefore);
     expect(bodyAfter).toBe(bodyBefore);
+  });
+
+  it('#8404 keeps both scroll axes when row selection changes', async () => {
+    const Demo = () => {
+      const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+      return (
+        <DragSortTable
+          rowKey="id"
+          dragSortKey="sort"
+          columns={Array.from({ length: 10 }, (_, index) => ({
+            dataIndex: index === 0 ? 'name' : `field-${index}`,
+            title: `Column ${index}`,
+            key: index === 0 ? 'sort' : `field-${index}`,
+            width: 160,
+          }))}
+          dataSource={makeData(20)}
+          rowSelection={{ selectedRowKeys, onChange: setSelectedRowKeys }}
+          scroll={{ x: 1600, y: 200 }}
+          search={false}
+          toolBarRender={false}
+          pagination={false}
+        />
+      );
+    };
+    const wrapper = render(<Demo />);
+    await waitForWaitTime(300);
+
+    const body = wrapper.container.querySelector(
+      '.ant-table-body',
+    ) as HTMLElement;
+    expect(body).toBeTruthy();
+    body.scrollLeft = 180;
+    body.scrollTop = 40;
+
+    const checkbox = wrapper.container.querySelector(
+      '.ant-table-tbody .ant-checkbox-input',
+    ) as HTMLInputElement;
+    fireEvent.click(checkbox);
+    await waitForWaitTime(200);
+
+    expect(wrapper.container.querySelector('.ant-table-body')).toBe(body);
+    expect(body.scrollLeft).toBe(180);
+    expect(body.scrollTop).toBe(40);
   });
 });

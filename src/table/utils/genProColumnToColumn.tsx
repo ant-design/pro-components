@@ -1,5 +1,7 @@
 import type { TableColumnType, TableProps } from 'antd';
 import { Table } from 'antd';
+import type { AnyObject } from 'antd/lib/_util/type';
+import type { SortOrder } from 'antd/lib/table/interface';
 import type { ProFieldEmptyText } from '../../field';
 import { proFieldParsingValueEnumToArray } from '../../field';
 import type { ProSchemaComponentTypes, UseEditableUtilType } from '../../utils';
@@ -8,7 +10,6 @@ import {
   omitUndefinedAndEmptyArr,
   runFunction,
 } from '../../utils';
-import type { AnyObject, SortOrder } from '../../utils/antdTypes';
 import type { ContainerType } from '../Store/Provide';
 import type { FilterValue, ProColumns } from '../typing';
 import {
@@ -16,12 +17,12 @@ import {
   defaultOnFilter,
   renderColumnsTitle,
 } from './columnRender';
-import { columnSort } from './columnSort';
 import {
   genColumnKey,
   parseProFilteredValue,
   parseProSortOrder,
 } from './index';
+import { columnSort } from './columnSort';
 
 type ColumnToColumnReturnType<T> = (TableColumnType<T> & {
   index?: number;
@@ -82,16 +83,13 @@ function parseColumnFilterSort<T>(
 
 const EMPTY_SUB_NAME: string[] = [];
 
-/**
- * 解析一行的业务 key：rowKey 为函数时直接调用（返回值即业务 key），
- * 否则按字段名读取（#8893：函数场景旧实现误把 key 值当字段名，永远取不到）。
- */
 function resolveRecordKey<T>(
   record: Record<string, any>,
   rowKey: TableColumnContext<T>['rowKey'],
+  index: number,
 ): unknown {
   if (typeof rowKey === 'function') {
-    return rowKey(record as T, -1);
+    return rowKey(record as T, index);
   }
   return record[String(rowKey ?? 'id')];
 }
@@ -107,18 +105,18 @@ function updateSubNameRecord<T>(
   }
   const record = rowData as Record<string, any>;
   const { childrenColumnName } = context;
-  const uniqueKey = resolveRecordKey(record, context.rowKey);
+  const uniqueKey = resolveRecordKey(record, context.rowKey, index);
   const children = record[childrenColumnName];
   // 无子行时不注册索引，查询侧统一回退共享空数组（避免每格分配）
   if (!children?.length) {
     return uniqueKey;
   }
   const parentInfo = subNameRecord.get(uniqueKey) || [];
-  children.forEach((item: any) => {
+  children.forEach((item: any, childIndex: number) => {
     const itemUniqueKey =
       item == null || typeof item !== 'object'
         ? item
-        : resolveRecordKey(item, context.rowKey);
+        : resolveRecordKey(item, context.rowKey, childIndex);
     if (!subNameRecord.has(itemUniqueKey)) {
       subNameRecord.set(
         itemUniqueKey,
@@ -258,7 +256,10 @@ export function genProColumnToColumn<T extends AnyObject>(params: {
             genProColumnToColumn({
               columns: children ?? [],
               context,
-              parents: { ...columnProps, key: columnKey } as ProColumns<T, any>,
+              parents: { ...columnProps, key: columnKey } as ProColumns<
+                T,
+                any
+              >,
             }).sort(columnSort(context.counter.columnsMap ?? {}))
           : undefined,
         onCell: createOnCell(columnProps, context),

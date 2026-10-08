@@ -44,7 +44,10 @@ export type ProListMeta<T> = Pick<
   key?: React.Key;
 };
 
-type ProListMetaAction<T> = ProListMeta<T>;
+type ProListMetaAction<T> = ProListMeta<T> & {
+  /** Map list actions to the card's `extra` or `actions` slot. */
+  cardActionProps?: 'extra' | 'actions';
+};
 
 type IfAny<T, Y, N> = 0 extends 1 & T ? Y : N;
 type IsAny<T> = IfAny<T, true, false>;
@@ -97,7 +100,7 @@ export type ProListProps<
     onRow?: GetComponentProps<RecordType>;
     onItem?: GetComponentProps<RecordType>;
     itemCardProps?: CheckCardProps;
-    /** #7421: 何时展示 actions，'hover' 时悬浮列表项才显示（CardList 模式下不生效） */
+    /** #7421: 何时展示 actions，'hover' 时悬浮或聚焦列表项才显示 */
     showActions?: 'hover' | 'always';
     /** #7421: 何时展示 extra，'hover' 时悬浮列表项才显示（CardList 模式下不生效） */
     showExtra?: 'hover' | 'always';
@@ -186,9 +189,7 @@ function InternalProList<
 
   const actionRef = useRef<ActionType>();
 
-  // #7862: 返回内部 actionRef 的实时引用（而非挂载时的快照），
-  // 保证 request 完成后用户 actionRef.current.pageInfo 拿到最新 total
-  useImperativeHandle(rest.actionRef, () => actionRef.current as ActionType);
+  useImperativeHandle(rest.actionRef, () => actionRef.current);
 
   // metas 废弃提示，仅在开发环境触发一次
   useEffect(() => {

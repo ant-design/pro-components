@@ -20,5 +20,7 @@ export type {
 } from './StepsForm';
 export { useStepsFormContext } from './StepsForm';
 export { ProForm };
-
+// Export the group component directly instead of reading a static property from
+// ProForm while this barrel is being evaluated. This keeps ESM/RSC bundlers
+// from observing a partially initialized ProForm export.
 export { default as ProFormGroup } from '../components/FormItem/Group';

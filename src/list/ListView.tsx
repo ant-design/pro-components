@@ -1,18 +1,15 @@
 import { get } from '@rc-component/util';
 import type { TableColumnType, TableProps } from 'antd';
 import { ConfigProvider } from 'antd';
+import type { AnyObject } from 'antd/lib/_util/type';
+import type { PaginationConfig } from 'antd/lib/pagination';
+import type { GetRowKey, TableRowSelection } from 'antd/lib/table/interface';
 import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import type { CheckCardProps } from '../card';
 import { ProProvider } from '../provider';
 import type { ActionType } from '../table';
 import { useRefFunction } from '../utils';
-import type {
-  AnyObject,
-  GetRowKey,
-  PaginationConfig,
-  TableRowSelection,
-} from '../utils/antdTypes';
 import useLazyKVMap from '../utils/useLazyKVMap';
 import usePagination from '../utils/usePagination';
 import useSelection from '../utils/useSelection';
@@ -25,6 +22,7 @@ import { ProListContainer } from './ProListBase';
 
 type ListSlotColumn<RecordType> = TableColumnType<RecordType> & {
   listSlot: string;
+  cardActionProps?: 'extra' | 'actions';
 };
 type Key = React.Key;
 
@@ -231,6 +229,13 @@ function ListView<RecordType extends AnyObject>(
       const rawData = Array.isArray(dataIndex)
         ? get(item, dataIndex as string[])
         : item[dataIndex];
+
+      if (
+        column.listSlot === 'actions' &&
+        column.cardActionProps === 'actions'
+      ) {
+        listItemProps.cardActionProps = 'actions';
+      }
 
       const data = column.render
         ? column.render(rawData, item, index)

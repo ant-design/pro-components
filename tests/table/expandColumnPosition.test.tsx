@@ -15,8 +15,8 @@ describe('ProTable EXPAND_COLUMN position (#8913)', () => {
       <ProTable
         columns={[
           { title: 'Name', dataIndex: 'name', key: 'name' },
-          Table.EXPAND_COLUMN,
           { title: 'Age', dataIndex: 'age', key: 'age' },
+          Table.EXPAND_COLUMN,
         ]}
         dataSource={[{ key: 1, name: '张三', age: 18 }]}
         rowKey="key"
@@ -31,9 +31,9 @@ describe('ProTable EXPAND_COLUMN position (#8913)', () => {
       'thead .ant-table-cell',
     );
     const titles = Array.from(headerCells).map((c) => c.textContent);
-    console.log('header cells:', JSON.stringify(titles));
-    // 展开列（无标题）应出现在 Name 与 Age 之间（第二列）
+    // 展开列（无标题）应出现在用户指定的第三列，而不是旧行为中的第二列
     expect(titles[0]).toContain('Name');
-    expect(titles[2]).toContain('Age');
+    expect(titles[1]).toContain('Age');
+    expect(titles[2]).toEqual('');
   });
 });

@@ -1,5 +1,5 @@
 import type { ProColumns } from '@ant-design/pro-components';
-import { CellEditorTable } from '@ant-design/pro-components';
+import { CellEditorTable, ProForm } from '@ant-design/pro-components';
 import { act, fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import { describe, expect, it, vi } from 'vitest';
@@ -43,9 +43,7 @@ describe('CellEditorTable', () => {
         />
       );
     };
-    const wrapper = render(
-      <Demo />,
-    );
+    const wrapper = render(<Demo />);
 
     fireEvent.doubleClick(wrapper.getByText('before'));
     const input = await wrapper.findByDisplayValue('before');
@@ -77,5 +75,27 @@ describe('CellEditorTable', () => {
     fireEvent.doubleClick(wrapper.getByText('locked'));
 
     expect(wrapper.queryByDisplayValue('locked')).toBeNull();
+  });
+
+  it('enters edit mode with the index row key used by name mode', async () => {
+    const wrapper = render(
+      <ProForm
+        submitter={false}
+        initialValues={{
+          rows: [{ id: 624748504, title: 'named row', readonly: 'locked' }],
+        }}
+      >
+        <CellEditorTable<RecordType>
+          name="rows"
+          columns={columns}
+          rowKey="id"
+          recordCreatorProps={false}
+        />
+      </ProForm>,
+    );
+
+    fireEvent.doubleClick(wrapper.getByText('named row'));
+
+    expect(await wrapper.findByDisplayValue('named row')).toBeTruthy();
   });
 });
