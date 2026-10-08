@@ -101,10 +101,8 @@ const InlineErrorFormItemPopover: React.FC<{
 
   return (
     <>
-      {/* 不能把 Fragment 作为 Popover 的直接 child：rc-trigger 会向 child 注入
-          onKeyDown 等事件，Fragment 无法承接，触发
-          "Invalid prop `onKeyDown` supplied to `React.Fragment`"（#9153）。
-          这里以 input 本体作为 trigger。 */}
+      {/* 字段组件不一定透传 rc-trigger 注入的事件和 ref，使用 DOM 节点
+          承接 Popover 的触发事件。 */}
       <Popover
         key="popover"
         open={!hasMessages ? false : open}
@@ -138,7 +136,7 @@ const InlineErrorFormItemPopover: React.FC<{
         )}
         {...popoverProps}
       >
-        {input}
+        <span style={{ display: 'inline-block', width: '100%' }}>{input}</span>
       </Popover>
     </>
   );
