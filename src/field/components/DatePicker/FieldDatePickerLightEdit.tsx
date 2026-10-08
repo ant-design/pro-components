@@ -2,7 +2,8 @@ import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
 import React from 'react';
 import type { IntlType } from '../../../provider';
-import { FieldLabel, parseValueToDay } from '../../../utils';
+import { FieldLabel } from '../../../utils/components/FieldLabel';
+import { parseValueToDay } from '../../../utils/parseValueToMoment';
 import type { ProFieldFC, ProFieldLightProps } from '../../types';
 
 type Props = Parameters<

@@ -4,6 +4,8 @@
 > 处理原则:**分诊优先 → 根因聚类 → 批量修复 → 测试验收 → 双语 Changelog**
 > 「全部处理完」= 每个 issue 必须落到以下出口之一:**已修复(带测试) / 已答疑(附文档) / 已排期(feature) / 已关闭(重复/无效/过期)**。任何 issue 不允许无人认领。
 
+> 2026-10-02 交付核验：下方勾选项仅表示此前已处理或分诊；86 个仍开放项的合并、发布、测试和回复状态见 [核验记录](docs/checked-issues-audit-2026-10-02.md)。
+
 ## 📊 总览
 
 | 维度 | 分布                                                                                                            |
@@ -32,7 +34,7 @@
 | B15  | ProLayout 菜单 / 主题 / SSR / 移动端               | 13   | P1     | 5d     |
 | B16  | EditableProTable 可编辑表格                        | 7    | P1     | 3d     |
 | B17  | 废弃 API 清理(findDOMNode / bordered)              | 3    | P2     | 1d     |
-| B18  | ProCard                                            | 5    | P2     | 2d     |
+| B18  | ProCard                                            | 4    | P2     | 2d     |
 | B19  | ProList                                            | 4    | P2     | 1d     |
 | B20  | 杂项(样式 / i18n / 文档站 / 表格渲染)              | 13   | P2     | 3d     |
 | B21  | 新特性评估(排期 / 招募 PR)                         | 19   | P3     | 评审会 |
@@ -53,14 +55,16 @@
 
 **根因方向**:子包 peerDependencies 与 antd v6 对齐、依赖声明(errors vs peers)、打包 external 配置。
 
-- [ ] #9629 子包 peerDependencies 不兼容 antd v6(全包核对 peer 范围)
-- [ ] #9348 安装 v3 后 node_modules 翻倍(umi 拉入 v2;输出 resolutions 指引文档 + 官方 FAQ)
-- [ ] #8931 评估 es-toolkit 替换 lodash-es(体积收益报告,再决定)
-- [ ] #8853 `Can't resolve 'rc-util'`(构建 external/依赖声明修复)
-- [ ] #8804 单独升级 pro-table 无法 build(版本联动核对)
-- [ ] #8543 next14 + antd 5.18 Login 表单报 `Cannot read 'Group'`(对齐 antd 导入方式)
-- [ ] #9034 path-to-regexp `symbol.charCodeAt is not a function`(路径非法输入防御)
-- [ ] #8204 pro-field 2.14.6 破坏 antd4 项目(老版本兼容回查)
+> 进度(2026-10-02):8 个已完成发布清单核验与处置(PR #9715)。v3 确认为单体包且 peer 为 antd ^6；独立子包均属 v2，文档已修正。#8543 补直接导出与 SSR 回归；其余历史版本问题给出可验证的依赖树、版本基线或升级路径。#8931 完成 7 个生产导入点盘点，转独立体积/语义基准批次。
+
+- [x] #9629 子包 peerDependencies 不兼容 antd v6(v3 单体包说明+依赖树诊断,PR #9715)
+- [x] #9348 安装 v3 后 node_modules 翻倍(Umi 4.6.2+升级路径,禁止强制 resolutions,PR #9715)
+- [x] #8931 评估 es-toolkit 替换 lodash-es(7 个生产导入点已盘点,转体积/语义基准批次)
+- [x] #8853 `Can't resolve 'rc-util'`(确认 v2 依赖；v3 直接声明 @rc-component/util,PR #9715)
+- [x] #8804 单独升级 pro-table 无法 build(确认 2.80.8 拉入 v1 子包,给出整组升级/回滚路径,PR #9715)
+- [x] #8543 next14 + antd 5.18 Login 表单报 `Cannot read 'Group'`(ProFormGroup 直接导出+SSR 回归,PR #9715)
+- [x] #9034 path-to-regexp `symbol.charCodeAt is not a function`(确认 7.20.1 起切 v8；Umi3 临时基线 7.20.0,PR #9715)
+- [x] #8204 pro-field 2.14.6 破坏 antd4 项目(确认 2.6.42/field 2.14.1 配套基线,PR #9715)
 
 ## B2 崩溃 / 报错 / 类型错误(P0,8 个)
 
@@ -83,7 +87,7 @@
 - [x] #8834 ModalForm `initialValue` 永远是上一次的值(BaseForm initialValues 同步 effect,commit 3c107394f)
 - [x] #8624 request + hooks 同用时 request/initialValue 取旧值(已验证+测试锁定)
 - [x] #9165 DrawerForm ProFormText initialValue 显示上次数据(同 #8834 修复)
-- [ ] #9628 ModalForm 拿 form 实例报 `Instance created by useForm is not connected`(答疑:Modal 懒挂载下符合 antd 设计)
+- [x] #9628 ModalForm 拿 form 实例报 `Instance created by useForm is not connected`(forceRender 最小示例+回归测试+替代时序说明,PR #9715)
 - [x] #9624 Dropdown 中 ModalForm 默认展开(受控死锁修复,PR #9710)
 - [x] #8753 next.js 集成 BetaSchemaForm ModalForm 打开后内容空白(同 #9210,PR #9214 已修,回归测试锁定)
 - [x] #8924 ModalForm 触发元素 stopPropagation 后点击任意处触发父级冒泡(行为正确,测试锁定)
@@ -143,60 +147,60 @@
 - [x] #8208 子项 `preserve={false}` 导致新增行丢值(当前版本已无法复现,回归测试锁定)
 - [x] #8896 第二个子项未渲染(当前版本已无法复现,回归测试锁定)
 - [x] #8561 BetaSchemaForm columns 为 formList 时 title 拿不到 index(已修复+测试:formList 子列按行求值,title 第 4 参/fieldProps/formItemProps 均可拿到 rowIndex)
-- [ ] #8893 与 Form 配合 name + 多行编辑新增子项配置问题
+- [x] #8893 与 Form 配合 name + 多行编辑新增子项配置问题（#9716：修复函数式 rowKey 的嵌套路径并补回归）
 - [x] #8702 ProFormList 支持 convertValue(feature 顺带)(已排期:方向确认,给出设计要点与替代方案,欢迎 PR)
-- [ ] #6508 ProFormList 嵌套 EditableTable 设置 editableKeys(老 issue,给示例或支持)
+- [x] #6508 ProFormList 嵌套 EditableTable 设置 editableKeys（#9716：给出受控嵌套写法并补回归）
 
 ## B8 transform / convertValue(P1,4 个)
 
-- [ ] #8907 ProFormFieldSet convertValue/transform 在新增/编辑表现不一致
-- [ ] #8480 StepsForm + Form.List + Tabs 时 DateTimeRangePicker transform 不触发
-- [ ] #9120 convertValue 建议传入整行数据(feature 顺带)
-- [ ] #9032 ProTable 支持 serialize/deserialize(feature 顺带)
+- [x] #8907 ProFormFieldSet convertValue/transform 在新增/编辑表现不一致（#9716：统一转换链路）
+- [x] #8480 StepsForm + Form.List + Tabs 时 DateTimeRangePicker transform 不触发（#9716：锁定嵌套列表转换）
+- [x] #9120 convertValue 建议传入整行数据（#9716：第三参数传完整 entity）
+- [x] #9032 ProTable 支持 serialize/deserialize（#9716：列级 convertValue/transform）
 
 ## B9 只读(read)模式(P1,4 个)
 
-- [ ] #8848 ProFormSelect readonly 空数组时什么都不显示(应显示 placeholder/-)
-- [ ] #8844 ProFormDigit readonly 不显示 prefix/suffix
-- [ ] #8710 ProFormCascader readonly label 显示错误
-- [ ] #8517 ProDescriptions valueType=select 值为 number 时不显示 text(valueEnum 键类型归一)
+- [x] #8848 ProFormSelect readonly 空数组时什么都不显示（#9716：按空值渲染）
+- [x] #8844 ProFormDigit readonly 不显示 prefix/suffix（#9716：含 stringMode）
+- [x] #8710 ProFormCascader readonly label 显示错误（当前实现已按路径解析，#9716 补回归）
+- [x] #8517 ProDescriptions valueType=select 值为 number 时不显示 text（#9716：数值键归一）
 
 ## B10 TreeSelect / Select 数据加载(P1,4 个)
 
-- [ ] #9138 ProFormTreeSelect 数据量大时底部被截断
-- [ ] #8876 ProFormTreeSelect onDropdownVisibleChange 后下拉无法展示
-- [ ] #8869 ProFormTreeSelect 取不到 halfChecked
-- [ ] #6766 ProFormSelect request 节流后返回数据不更新(2021 年老 issue)
+- [x] #9138 ProFormTreeSelect 数据量大时底部被截断（上游虚拟列表问题，#9716 给升级与配置方案）
+- [x] #8876 ProFormTreeSelect onDropdownVisibleChange 后下拉无法展示（#9716：合并用户回调与内部状态）
+- [x] #8869 ProFormTreeSelect 取不到 halfChecked（上游语义，#9716 给出可验证用法）
+- [x] #6766 ProFormSelect request 节流后返回数据不更新（当前实现已修复，#9716 补回归）
 
 ## B11 表格性能与稳定性(P1,7 个)
 
-- [ ] #8879 字段列多时分页切换卡顿、无 loading
-- [ ] #8886 30 列分页卡顿
-- [ ] #8868 ellipsis 数量多时渲染慢
-- [ ] #8170 列拖拽功能卡顿
-- [ ] #8054 keepalive 切换路由已加载页面 ProTable 重渲染一次
-- [ ] #9150 react-activation keepalive 切换后筛选栏概率不显示
-- [ ] #8053 Ellipsis `removeChild` crash(unmount 竞态)
+- [x] #8879 字段列多时分页切换卡顿、无 loading（#9717：热路径索引优化、loading 回归与性能记录）
+- [x] #8886 30 列分页卡顿（与 #8879 同根因，#9717 合并验证）
+- [x] #8868 ellipsis 数量多时渲染慢（原生 CSS 快路径已合入，#9717 复核 200 行 0 Typography）
+- [x] #8170 列拖拽功能卡顿（#9717：减少逐格编辑态查询与无效包装）
+- [x] #8054 keepalive 切换路由已加载页面 ProTable 重渲染一次（#9717：稳定 valueTypeMap 引用并补回归）
+- [x] #9150 react-activation keepalive 切换后筛选栏概率不显示（#9717：覆盖可确认 Provider 根因；原 issue 缺稳定复现）
+- [x] #8053 Ellipsis `removeChild` crash(unmount 竞态)（#9717：当前依赖组合连续替换数据无异常，补防回归）
 
 ## B12 DragSortTable 拖拽滚动(P1,4 个)
 
-- [ ] #8985 表格滚动时结束拖拽页面持续滚动
-- [ ] #8583 拖动表格导致滚动条向下无法停止(同根因)
-- [ ] #8342 scroll.y 重取数据后表头闪烁
-- [ ] #8404 每次选择行滚动条跳到最左/最上
+- [x] #8985 表格滚动时结束拖拽页面持续滚动（页面级 auto-scroll 已禁用，#9717 复核）
+- [x] #8583 拖动表格导致滚动条向下无法停止（同 #8985，#9717 合并验证）
+- [x] #8342 scroll.y 重取数据后表头闪烁（#9717：稳定 DndContext/components 身份）
+- [x] #8404 每次选择行滚动条跳到最左/最上（#9717：横纵滚动位置回归锁定）
 
 ## B13 列设置 ColumnSetting(P1,4 个)
 
-- [ ] #8947 点击设置异常(读 issue)
-- [ ] #8750 多次编辑后点空白无法收起下拉
-- [ ] #8841 列条目太多被遮挡切割(加滚动)
-- [ ] #9115 列设置拖拽无法触底滚动(长列表拖拽体验)
+- [x] #8947 点击设置循环 JSON 异常（#9717：只持久化列状态，ReactNode/Fiber 回归锁定）
+- [x] #8750 多次编辑后点空白无法收起下拉（#9717：三次切换后关闭回归）
+- [x] #8841 列条目太多被遮挡切割（#9717：Tree 高度约束与 listsHeight 配置）
+- [x] #9115 列设置拖拽无法触底滚动（#9717：边缘 rAF 自动滚动）
 
 ## B14 多级表头(P1,3 个)
 
-- [ ] #8988 多级表头分组 + 列显示异常
-- [ ] #8133 表头分组后列排序、拖动子级表头不生效
-- [ ] #8880 分组表头下 CellEditorTable 无法双击编辑
+- [x] #8988 多级表头分组 + 列显示异常（#9717：递归父子显隐）
+- [x] #8133 表头分组后列排序、拖动子级表头不生效（#9717：同级 order 递归消费）
+- [x] #8880 分组表头下 CellEditorTable 无法双击编辑（#9717：递归注入 onCell）
 
 ## B15 ProLayout 菜单 / 主题 / SSR / 移动端(P1,13 个)
 
@@ -216,13 +220,13 @@
 
 ## B16 EditableProTable 可编辑表格(P1,7 个)
 
-- [ ] #8930 editable + formItem 筛选后编辑错乱
-- [ ] #8662 嵌套表格二级内容 onCancel 后自动执行 onDelete
-- [ ] #7859 子列表格 onValuesChange 的 changevalue 拿不到 id
-- [ ] #8861 嵌套多层数据编辑时 onValueChange record 只有最外层 id
-- [ ] #8174 recordCreatorProps.record 触发时机
-- [ ] #9184 EditableProTable column formItemProps 问题
-- [ ] #9622 ProFormUploadButton 上传后列表不展示(需复现)
+- [x] #8930 editable + formItem 筛选后编辑错乱（#9717：业务 key 反查真实表单索引）
+- [x] #8662 嵌套表格二级内容 onCancel 后自动执行 onDelete（#9717：递归记录快照查找）
+- [x] #7859 子列表格 onValuesChange 的 changevalue 拿不到 id（#9717：回调保留子行业务 id）
+- [x] #8861 嵌套多层数据编辑时 onValueChange record 只有最外层 id（同 #7859，#9717）
+- [x] #8174 recordCreatorProps.record 触发时机（#9717：点击时惰性求值并读取最新数据）
+- [x] #9184 EditableProTable column formItemProps 问题（#9717：entry/entity 读取实时行值）
+- [x] #9622 ProFormUploadButton 上传后列表不展示（#9717：确认为嵌套 name + 固定 fileList 用法问题，给出最小示例）
 
 ## B17 废弃 API 清理(P2,3 个)
 
@@ -230,10 +234,10 @@
 - [ ] #8685 QueryFilter findDOMNode deprecated 警告
 - [ ] #8091 `[antd: Select] bordered is deprecated. Please use variant`
 
-## B18 ProCard(P2,5 个)
+## B18 ProCard(P2,4 个 open；#9052 已关闭)
 
 - [ ] #9125 ConfigProvider 对 CheckCard 不生效
-- [ ] #9052 TabPane 内容区 padding 无法去掉(`cardProps ghost` 不生效)
+- [x] #9052 TabPane 内容区 padding 无法去掉(`cardProps ghost` 不生效，已关闭，不计入本轮 20 个)
 - [ ] #8989 仅点击收缩图标才收缩(collapsible 触发位置,参考 antd)
 - [ ] #8932 gutter 只要中间 gap 不要两边
 - [ ] #8922 collapsible 支持配置折叠触发位置(与 #8989 同方向)
@@ -286,6 +290,8 @@
 - [x] #9626 自定义 optionRender 需求(答疑:已有 search.submitterColSpanProps 能力,关闭)
 
 ## B22 答疑与用法(P3,25 个,动作:回复 → 可沉淀的写进文档 → 2 周无回应关闭)
+
+> 2026-10-02 分诊：25 项的逐项答复、验证方式和转批次建议见 [B22 答疑分诊](docs/b22-issue-triage-2026-10-02.md)。其中 #9291/#8903/#8467/#8375/#8105/#7776/#9621 须先复现，#8745 转需求评估，#8528 补 API 文档；在回复与验证前不勾选完成。
 
 - [ ] #9291 layout 套 menu 污染菜单样式
 - [ ] #8912 renderFormItem 重写 onChange

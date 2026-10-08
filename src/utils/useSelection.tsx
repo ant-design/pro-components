@@ -1,6 +1,6 @@
 import { Checkbox, Radio } from 'antd';
-import type { GetRowKey, TableRowSelection } from 'antd/lib/table/interface';
 import React from 'react';
+import type { GetRowKey, TableRowSelection } from './antdTypes';
 
 type UseSelectionConfig<RecordType> = {
   getRowKey: GetRowKey<RecordType>;
@@ -29,8 +29,7 @@ function useSelection<RecordType>(
   const { getRowKey, data } = config;
 
   const controlledKeys = rowSelection?.selectedRowKeys as
-    | React.Key[]
-    | undefined;
+    React.Key[] | undefined;
   const [innerKeys, setInnerKeys] = React.useState<React.Key[]>(
     controlledKeys || [],
   );

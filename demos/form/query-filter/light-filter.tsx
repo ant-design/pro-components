@@ -1,8 +1,8 @@
 import { LightFilter } from '@ant-design/pro-components';
 import { Radio, Space, TreeSelect } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import dayjs from 'dayjs';
 import React from 'react';
+import type { SizeType } from '../../../src/utils/antdTypes';
 
 /** 树形选择数据 */
 const treeData = [
@@ -248,7 +248,11 @@ const Demo = () => {
         <LightFilter.digit name="count" label="数量" min={0} max={9999} />
         <LightFilter.slider name="range" label="范围" range />
         <LightFilter.slider name="slider" label="滑块" />
-        <LightFilter.input name="keyword" label="关键词" placeholder="请输入关键词" />
+        <LightFilter.input
+          name="keyword"
+          label="关键词"
+          placeholder="请输入关键词"
+        />
         <LightFilter.input
           name="address"
           label="地址"

@@ -1,7 +1,5 @@
 import type { TableColumnType, TableProps } from 'antd';
 import { Table } from 'antd';
-import type { AnyObject } from 'antd/lib/_util/type';
-import type { SortOrder } from 'antd/lib/table/interface';
 import type { ProFieldEmptyText } from '../../field';
 import { proFieldParsingValueEnumToArray } from '../../field';
 import type { ProSchemaComponentTypes, UseEditableUtilType } from '../../utils';
@@ -10,6 +8,7 @@ import {
   omitUndefinedAndEmptyArr,
   runFunction,
 } from '../../utils';
+import type { AnyObject, SortOrder } from '../../utils/antdTypes';
 import type { ContainerType } from '../Store/Provide';
 import type { FilterValue, ProColumns } from '../typing';
 import {
@@ -17,12 +16,12 @@ import {
   defaultOnFilter,
   renderColumnsTitle,
 } from './columnRender';
+import { columnSort } from './columnSort';
 import {
   genColumnKey,
   parseProFilteredValue,
   parseProSortOrder,
 } from './index';
-import { columnSort } from './columnSort';
 
 type ColumnToColumnReturnType<T> = (TableColumnType<T> & {
   index?: number;
@@ -259,10 +258,7 @@ export function genProColumnToColumn<T extends AnyObject>(params: {
             genProColumnToColumn({
               columns: children ?? [],
               context,
-              parents: { ...columnProps, key: columnKey } as ProColumns<
-                T,
-                any
-              >,
+              parents: { ...columnProps, key: columnKey } as ProColumns<T, any>,
             }).sort(columnSort(context.counter.columnsMap ?? {}))
           : undefined,
         onCell: createOnCell(columnProps, context),

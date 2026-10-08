@@ -1,5 +1,6 @@
 ﻿import React, { useCallback, useMemo } from 'react';
-import { intlMap as allIntlMap, useIntl } from '../../../provider';
+import { fieldIntlMap as allIntlMap } from '../../internal/fieldLocale';
+import { useFieldIntl as useIntl } from '../../internal/useFieldIntl';
 import {
   isProFieldEditOrUpdateMode,
   isProFieldReadMode,

@@ -1,6 +1,6 @@
 ﻿import type { FormInstance } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
 import React from 'react';
+import type { NamePath } from '../../antdTypes';
 
 export type ProFormInstanceType<T> = {
   /**

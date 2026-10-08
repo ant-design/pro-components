@@ -1,4 +1,4 @@
-import type { FormListFieldData } from 'antd/lib/form/FormList';
+import type { FormListFieldData } from 'antd';
 import { ProFormList } from '../../List';
 import type { ChildrenItemFunction } from '../../List/ListItem';
 import type { ProSchemaRenderValueTypeFunction } from '../typing';

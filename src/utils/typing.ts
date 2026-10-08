@@ -5,6 +5,8 @@ import type {
   ColorPickerProps,
   DatePickerProps,
   DividerProps,
+  FormInstance,
+  FormItemProps,
   ImageProps,
   InputNumberProps,
   InputProps,
@@ -14,20 +16,25 @@ import type {
   RateProps,
   SegmentedProps,
   SelectProps,
+  SliderRangeProps,
   SliderSingleProps,
   SpaceProps,
   SwitchProps,
   TimeRangePickerProps,
   TreeSelectProps,
 } from 'antd';
-import type { RangePickerProps } from 'antd/lib/date-picker';
-import type { FormInstance, FormItemProps } from 'antd/lib/form';
-import type { NamePath } from 'antd/lib/form/interface';
-import type { PasswordProps, TextAreaProps } from 'antd/lib/input';
-import type { SliderRangeProps } from 'antd/lib/slider';
 import type { ReactNode } from 'react';
-import type { ProSchemaValueEnumType } from '../provider';
+import type {
+  NamePath,
+  PasswordProps,
+  RangePickerProps,
+  TextAreaProps,
+} from './antdTypes';
 import type { UseEditableUtilType } from './useEditableArray';
+import type {
+  ProSchemaValueEnumMap,
+  ProSchemaValueEnumObj,
+} from './valueEnumType';
 
 // 兼容 antd 6.x 版本
 export type LabelTooltipType = any;
@@ -277,7 +284,7 @@ export type ProFieldBuiltinValueType = Exclude<
   ProFieldSchemaLayoutValueType
 >;
 
-/** fieldProps：固定类型、函数 `(form, config) => …` 或宽松 Record */
+/** fieldProps：保留组件属性提示，同时允许自定义字段属性 */
 type FieldPropsTypeBase<
   Entity = Record<string, any>,
   ComponentsType = 'text',
@@ -293,16 +300,12 @@ type FieldPropsTypeBase<
         rowIndex: number;
         entity: Entity;
       },
-    ) => FieldPropsType | Record<string, any>)
-  | FieldPropsType
-  | Record<string, any>;
+    ) => FieldPropsType & Record<string, unknown>)
+  | (FieldPropsType & Record<string, unknown>);
 
 /** 泛型：仅 progress | money | percent | image 时有属性，否则 never */
 export type ProFieldValueObject<Type> = Type extends
-  | 'progress'
-  | 'money'
-  | 'percent'
-  | 'image'
+  'progress' | 'money' | 'percent' | 'image'
   ? {
       type: Type;
       status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
@@ -318,7 +321,7 @@ export type ProFieldValueObject<Type> = Type extends
     }
   : never;
 
-/** ProColumns / ProSchema：`valueType` + 按类型收窄的 `fieldProps` */
+/** ProColumns / ProSchema：`valueType` + 按泛型 ValueType 收窄的 `fieldProps` */
 type ValueTypeWithFieldPropsBase<
   Entity = Record<string, any>,
   ComponentsType = 'form',
@@ -384,8 +387,7 @@ export type ProFieldRequestData<U = any> = (
 ) => Promise<RequestOptionsType[]>;
 
 export type ProFieldValueEnumType =
-  | ProSchemaValueEnumMap
-  | ProSchemaValueEnumObj;
+  ProSchemaValueEnumMap | ProSchemaValueEnumObj;
 /**
  * ProFieldValueObjectType 对象，用于描述值为 'progress' | 'money' | 'percent' | 'image' 类型的 ProField 的属性。
  * @typedef {Object} ProFieldValueObjectType
@@ -440,25 +442,19 @@ export type ProFieldValueObjectType = {
   width?: number;
 };
 
-/** `PureProField` / `ProFormField` 的 `valueType`：全部字符串类型，或 money/percent 等对象简写 */
+/** `ProField` / `ProFormField` 的 `valueType`：全部字符串类型，或 money/percent 等对象简写 */
 export type ProFieldValueTypeInput =
-  | ProFieldValueType
-  | ProFieldValueObjectType;
+  ProFieldValueType | ProFieldValueObjectType;
 
 /**
  * 支持 Map 和 Record<string,any>
  *
  * @name ValueEnum 的类型
  */
-export type ProSchemaValueEnumMap = Map<
-  string | number | boolean,
-  ProSchemaValueEnumType | ReactNode
->;
-
-export type ProSchemaValueEnumObj = Record<
-  string,
-  ProSchemaValueEnumType | ReactNode
->;
+export type {
+  ProSchemaValueEnumMap,
+  ProSchemaValueEnumObj,
+} from './valueEnumType';
 
 export type ProFieldTextType =
   | React.ReactNode
@@ -493,12 +489,7 @@ export type ProTableEditableFnType<T> = (
 // 支持的变形，还未完全支持完毕
 /** 支持的变形，还未完全支持完毕 */
 export type ProSchemaComponentTypes =
-  | 'form'
-  | 'list'
-  | 'descriptions'
-  | 'table'
-  | 'cardList'
-  | undefined;
+  'form' | 'list' | 'descriptions' | 'table' | 'cardList' | undefined;
 
 /**
  * Pro 系列组件 Action 公共字段。所有 Pro 组件 actionRef 暴露的最小集合，
@@ -536,9 +527,7 @@ export type ProCoreActionType<
 > = ProCoreActionBase & EditableUtil & T;
 
 export type ProSchemaFieldProps<T> =
-  | Record<string, any>
-  | T
-  | Partial<InputProps>;
+  Record<string, any> | T | Partial<InputProps>;
 
 /** 各个组件公共支持的 render */
 export type ProSchema<

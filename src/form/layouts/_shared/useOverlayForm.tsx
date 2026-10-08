@@ -23,6 +23,7 @@ export type UseOverlayFormOptions<T> = {
   formRef: React.MutableRefObject<ProFormInstance | undefined>;
   /** 用户从外部传入的 formRef（用于 useImperativeHandle 暴露） */
   propsFormRef?: React.MutableRefObject<any> | React.RefObject<any>;
+  onInit?: CommonFormProps<T>['onInit'];
   /** 是否在关闭时销毁并重置表单 */
   destroyOnHidden?: boolean;
   /** 提交超时（毫秒），超时期间禁用取消按钮 */
@@ -57,8 +58,8 @@ export type UseOverlayFormResult<T> = {
   onFinishHandle: (values: T) => Promise<any>;
   /** 关闭时重置表单，仅在 destroyOnHidden=true 时有效 */
   resetFields: () => void;
-  /** form 实例挂载完成回调（传给 BaseForm onInit 中调用），用于缓冲首次 onOpenChange */
-  onFormMount: () => void;
+  /** Synchronize form refs and flush the pending open notification. */
+  onFormInit: (values: T, form: ProFormInstance<any>) => void;
 };
 
 /**
@@ -77,6 +78,7 @@ export function useOverlayForm<T = Record<string, any>>({
   onOpenChange,
   formRef,
   propsFormRef,
+  onInit,
   destroyOnHidden,
   submitTimeout,
   onFinish,
@@ -131,6 +133,16 @@ export function useOverlayForm<T = Record<string, any>>({
     if (pending !== null) {
       onOpenChange?.(pending);
     }
+  });
+
+  const onFormInit = useRefFunction((values: T, form: ProFormInstance<any>) => {
+    if (propsFormRef) {
+      (propsFormRef as React.MutableRefObject<ProFormInstance<any>>).current =
+        form;
+    }
+    onInit?.(values, form);
+    formRef.current = form;
+    onFormMount();
   });
 
   /**
@@ -277,6 +289,6 @@ export function useOverlayForm<T = Record<string, any>>({
     contentRender,
     onFinishHandle,
     resetFields,
-    onFormMount,
+    onFormInit,
   };
 }

@@ -2,7 +2,7 @@ import RcResizeObserver from '@rc-component/resize-observer';
 import { useControlledState } from '@rc-component/util';
 import type { ColProps, FormItemProps, RowProps } from 'antd';
 import { Col, ConfigProvider, Form, Row, theme } from 'antd';
-import type { FormInstance, FormProps } from 'antd/lib/form/Form';
+import type { FormInstance, FormProps } from 'antd';
 import { clsx } from 'clsx';
 import type { ReactElement } from 'react';
 import React, { useCallback, useContext, useMemo, useState } from 'react';

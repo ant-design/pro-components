@@ -1,13 +1,13 @@
 import { RightOutlined } from '@ant-design/icons';
 import { useControlledState } from '@rc-component/util';
 import { ConfigProvider, Skeleton } from 'antd';
-import type { ExpandableConfig } from 'antd/lib/table/interface';
 import { clsx } from 'clsx';
 import React, { memo, useContext, useMemo } from 'react';
 import type { CheckCardProps } from '../card';
 import { CheckCard } from '../card';
 import { ProProvider } from '../provider';
 import { useRefFunction } from '../utils';
+import type { ExpandableConfig } from '../utils/antdTypes';
 import type { GetComponentProps } from './index';
 import type { ListGridType } from './ProListBase';
 import {

@@ -1,5 +1,4 @@
 import { ConfigProvider, Descriptions, Space } from 'antd';
-import type { DescriptionsItemType } from 'antd/es/descriptions';
 import { useContext, useEffect, useMemo } from 'react';
 import ValueTypeToComponent from '../field/ValueTypeToComponent';
 import ProForm from '../form';
@@ -11,6 +10,7 @@ import {
   stringify,
   useEditableMap,
 } from '../utils';
+import type { DescriptionsItemType } from '../utils/antdTypes';
 import { schemaToDescriptionsItem } from './schemaToDescriptionsItem';
 import type { ProDescriptionsActionType, ProDescriptionsProps } from './typing';
 import type { ProDescriptionsRequestResult } from './useFetchData';

@@ -1,8 +1,8 @@
 import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
 import { Button, ConfigProvider, Dropdown } from 'antd';
-import type { ItemType } from 'antd/lib/menu/interface';
 import { clsx } from 'clsx';
 import React, { useContext } from 'react';
+import type { ItemType } from '../../../utils/antdTypes';
 
 export type MenuItems = {
   name: React.ReactNode;

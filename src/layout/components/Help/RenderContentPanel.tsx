@@ -4,7 +4,7 @@ import type { AnchorHTMLAttributes } from 'react';
 import React, { useContext, useEffect, useRef } from 'react';
 import type { ProHelpDataSourceChildren } from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';
-import { SelectKeyProvide } from './ProHelpPanel';
+import { SelectKeyProvide } from './SelectKeyProvide';
 
 // HTML渲染组件，接收一个字符串形式的html作为props
 // 可选接收className作为组件的样式类名

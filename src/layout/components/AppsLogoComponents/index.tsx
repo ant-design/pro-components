@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 import React, { useMemo, useState } from 'react';
 import { AppsLogo } from './AppsLogo';
 import { DefaultContent } from './DefaultContent';
+import { defaultRenderLogo } from './defaultRenderLogo';
 import { SimpleContent } from './SimpleContent';
 import { useStyle } from './style/index';
 import type { AppItemProps, AppListProps } from './types';
@@ -13,17 +14,7 @@ import type { AppItemProps, AppListProps } from './types';
  * @param logo
  * @returns
  */
-export const defaultRenderLogo = (
-  logo: React.ReactNode | (() => React.ReactNode),
-): React.ReactNode => {
-  if (typeof logo === 'string') {
-    return <img width="auto" height={22} src={logo} alt="logo" />;
-  }
-  if (typeof logo === 'function') {
-    return logo();
-  }
-  return logo;
-};
+export { defaultRenderLogo };
 
 /**
  * 相关品牌额icon 列表。用于展示相关的品牌

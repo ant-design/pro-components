@@ -1,9 +1,9 @@
 import { toArray } from '@rc-component/util';
 import type { SpaceProps } from 'antd';
 import { Space } from 'antd';
-import type { GroupProps } from 'antd/lib/input';
 import React, { useCallback, useImperativeHandle } from 'react';
 import { runFunction, useRefFunction } from '../../../utils';
+import type { GroupProps } from '../../../utils/antdTypes';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormItemProps } from '../FormItem';
 import warpField from '../FormItem/warpField';

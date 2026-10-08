@@ -1,13 +1,14 @@
 import type { TablePaginationConfig } from 'antd';
-import type {
-  FilterValue as AntFilterValue,
-  SorterResult,
-  SortOrder,
-} from 'antd/lib/table/interface';
 import type React from 'react';
 import { type ReactElement, Key, useRef } from 'react';
 import type { IntlType } from '../../provider';
 import type { UseEditableUtilType } from '../../utils';
+import type {
+  FilterValue as AntFilterValue,
+  GetRowKey,
+  SorterResult,
+  SortOrder,
+} from '../../utils/antdTypes';
 import type {
   ActionType,
   Bordered,
@@ -323,11 +324,12 @@ export const parseServerDefaultColumnConfig = <T, Value>(
 
     // 当 column 启用服务端 filters 功能时，取出默认的筛选值
     if (column.filters && !isLocalFilter(column.filters, column.onFilter)) {
-      const defaultFilteredValue =
-        column.defaultFilteredValue as FilterValue | undefined;
+      const defaultFilteredValue = column.defaultFilteredValue as
+        FilterValue | undefined;
       // 没有 defaultFilteredValue 时不写入 null，
       // 避免 request 收到 { dataIndex: null }（#9161）
-      if (defaultFilteredValue != null) filter[dataIndex] = defaultFilteredValue;
+      if (defaultFilteredValue != null)
+        filter[dataIndex] = defaultFilteredValue;
     }
 
     // 当 column 启用服务端 sorter 功能时，取出默认的排序值
@@ -336,7 +338,8 @@ export const parseServerDefaultColumnConfig = <T, Value>(
         typeof column.sorter === 'string' ? column.sorter : dataIndex;
       // 没有 defaultSortOrder 时不写入 null，
       // 避免 request 收到 { dataIndex: null }（#9161）
-      if (column.defaultSortOrder != null) sort[sortKey] = column.defaultSortOrder;
+      if (column.defaultSortOrder != null)
+        sort[sortKey] = column.defaultSortOrder;
     }
   });
   return { sort, filter };
@@ -427,15 +430,11 @@ export function resolveTableViewDefaultDom(
  * number / symbol 类型在运行时作为属性名使用（通过 String() 转换）。
  */
 export function buildEditableTableRowKey<DataType extends Record<string, any>>(
-  rowKey:
-    | string
-    | number
-    | symbol
-    | import('antd/lib/table/interface').GetRowKey<DataType>,
+  rowKey: string | number | symbol | GetRowKey<DataType>,
   name: any,
-): import('antd/lib/table/interface').GetRowKey<DataType> {
+): GetRowKey<DataType> {
   if (typeof rowKey === 'function') {
-    return rowKey as import('antd/lib/table/interface').GetRowKey<DataType>;
+    return rowKey as GetRowKey<DataType>;
   }
   const rowKeyStr = String(rowKey);
   return (record: DataType, index?: number): React.Key => {
@@ -462,7 +461,7 @@ export function resolveEditingPayloadForRowEditableOnChange<
 >(
   keys: Key[],
   dataSource: readonly DataType[] | undefined,
-  getRowKey: import('antd/lib/table/interface').GetRowKey<DataType>,
+  getRowKey: GetRowKey<DataType>,
   editableType: 'single' | 'multiple' | undefined,
   childrenColumnName = 'children',
 ): DataType | DataType[] {
@@ -486,7 +485,6 @@ export function resolveEditingPayloadForRowEditableOnChange<
     .map((key) => kvMap.get(key))
     .filter((k): k is DataType => k !== undefined);
   const type = editableType || 'single';
-  const editingPayload =
-    type === 'single' ? editingRecords[0] : editingRecords;
+  const editingPayload = type === 'single' ? editingRecords[0] : editingRecords;
   return editingPayload as DataType | DataType[];
 }

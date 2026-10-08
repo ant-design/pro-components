@@ -1,9 +1,9 @@
 import type { BreadcrumbProps } from 'antd';
+import { match } from 'path-to-regexp';
 import type {
   BreadcrumbItemType,
-  ItemType,
-} from 'antd/lib/breadcrumb/Breadcrumb';
-import { match } from 'path-to-regexp';
+  BreadcrumbItemType as ItemType,
+} from '../../utils/antdTypes';
 import type { ProSettings } from '../defaultSettings';
 import type { ProLayoutProps } from '../ProLayout';
 import type { MenuDataItem, MessageDescriptor, WithFalse } from '../typing';

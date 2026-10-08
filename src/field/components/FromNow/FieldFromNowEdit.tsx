@@ -2,7 +2,7 @@
 import dayjs from 'dayjs';
 import React from 'react';
 import type { IntlType } from '../../../provider';
-import { parseValueToDay } from '../../../utils';
+import { parseValueToDay } from '../../../utils/parseValueToMoment';
 import type { ProFieldFC } from '../../types';
 
 type Props = Parameters<

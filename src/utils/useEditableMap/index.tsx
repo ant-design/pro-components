@@ -3,8 +3,8 @@ import { message } from 'antd';
 import set from 'lodash-es/set';
 import type React from 'react';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
-import { useRefFunction } from '..';
-import { useIntl } from '../../provider';
+import { useIntl } from '../../provider/useIntl';
+import { useRefFunction } from '../hooks/useRefFunction';
 import type {
   ActionRenderConfig,
   ActionTypeText,
@@ -204,14 +204,14 @@ export function useEditableMap<
 
       // 保存编辑前的数据到 Map（按 recordKey 索引，多行场景互不干扰）
       const snapshot =
-        recordValue ?? get(props.dataSource, recordKeyToPath(recordKey)) ?? null;
+        recordValue ??
+        get(props.dataSource, recordKeyToPath(recordKey)) ??
+        null;
       preEditRowRefs.current.set(keyStr, snapshot);
 
       const currentKeys = editableKeysRef.current;
       const newKeys =
-        editableType === 'single'
-          ? [keyStr]
-          : [...(currentKeys || []), keyStr];
+        editableType === 'single' ? [keyStr] : [...(currentKeys || []), keyStr];
 
       setEditableRowKeys(newKeys);
       return true;

@@ -1,6 +1,5 @@
-﻿import type { AnyObject } from 'antd/lib/_util/type';
-import type { GetRowKey } from 'antd/lib/table/interface';
-import React, { useRef } from 'react';
+﻿import React, { useRef } from 'react';
+import type { AnyObject, GetRowKey } from './antdTypes';
 
 type LazyMapCache<RecordType> = {
   data?: readonly RecordType[];

@@ -5,14 +5,8 @@ import {
   DeleteOutlined,
 } from '@ant-design/icons';
 import { warning } from '@rc-component/util';
-import type { ColProps } from 'antd';
+import type { ColProps, FormListOperation } from 'antd';
 import { ConfigProvider, Form } from 'antd';
-import type {
-  FormListFieldData,
-  FormListOperation,
-  FormListProps,
-} from 'antd/lib/form/FormList';
-import type { NamePath } from 'antd/lib/form/interface';
 import { clsx } from 'clsx';
 import type { ReactNode } from 'react';
 import React, {
@@ -25,9 +19,11 @@ import React, {
 import { useIntl } from '../../../provider';
 import type { LabelTooltipType } from '../../../utils';
 import { ProFormContext } from '../../../utils';
+import type { FormListProps } from '../../../utils/antdTypes';
 import FieldContext from '../../FieldContext';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormGridConfig } from '../../typing';
+import { FormListContext } from './FormListContext';
 import { ProFormListContainer } from './ListContainer';
 import type {
   ChildrenItemFunction,
@@ -37,13 +33,6 @@ import type {
 import { useStyle } from './style';
 
 const { noteOnce } = warning;
-
-const FormListContext = React.createContext<
-  | (FormListFieldData & {
-      listName: NamePath;
-    })
-  | Record<string, any>
->({});
 
 export type FormListActionType<T = any> = FormListOperation & {
   get: (index: number) => T | undefined;
@@ -323,7 +312,7 @@ function ProFormList<T>(props: ProFormListProps<T>) {
                     min={min}
                     max={max}
                     count={fields.length}
-        onAfterAdd={(defaultValue, insertIndex, count) => {
+                    onAfterAdd={(defaultValue, insertIndex, count) => {
                       validateIfNeeded();
                       onAfterAdd?.(defaultValue, insertIndex, count);
                     }}

@@ -1,23 +1,10 @@
 import type { SpinProps, TableProps } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import type { NamePath } from 'antd/lib/form/interface';
-import type { SearchProps } from 'antd/lib/input';
-import type {
-  ColumnFilterItem,
-  ColumnType,
-  CompareFn,
-  SorterResult,
-  SortOrder,
-} from 'antd/lib/table/interface';
 import type dayjs from 'dayjs';
 import type React from 'react';
 import type { CSSProperties, Key } from 'react';
 import type { ProCardProps } from '../card';
 import type { ProFieldEmptyText } from '../field';
-import type {
-  ProFormProps,
-  QueryFilterProps,
-} from '../form';
+import type { ProFormProps, QueryFilterProps } from '../form';
 import type {
   LabelTooltipType,
   ProCoreActionType,
@@ -29,6 +16,16 @@ import type {
   SearchConvertKeyFn,
   SearchTransformKeyFn,
 } from '../utils';
+import type {
+  ColumnFilterItem,
+  ColumnType,
+  CompareFn,
+  NamePath,
+  SearchProps,
+  SizeType,
+  SorterResult,
+  SortOrder,
+} from '../utils/antdTypes';
 import type { AlertRenderType } from './components/Alert';
 import type { SearchConfig, TableFormItem } from './components/Form/FormRender';
 import type { ListToolBarProps } from './components/ListToolBar';

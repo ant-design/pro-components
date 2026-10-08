@@ -4,9 +4,9 @@ import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button } from 'antd';
-import { SortOrder } from 'antd/es/table/interface';
 import { useRef, useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import type { SortOrder } from '../../src/utils/antdTypes';
 import { getFetchData } from './fixtures';
 
 afterEach(() => {

@@ -1,18 +1,14 @@
 ﻿import React, { useContext } from 'react';
+import { ProConfigContext } from '../provider/context';
 import type {
   ProFieldFCRenderProps,
   ProRenderFieldPropsType,
-} from '../provider';
-import ProConfigContext from '../provider';
-import {
-  omitUndefined,
-  pickProProps,
-  type ProFieldTextType,
-  type ProFieldValueTypeInput,
-  useDeepCompareMemo,
-  useRefFunction,
-} from '../utils';
-import './initDayjs';
+} from '../provider/typing/config';
+import useDeepCompareMemo from '../utils/hooks/useDeepCompareMemo';
+import { useRefFunction } from '../utils/hooks/useRefFunction';
+import { omitUndefined } from '../utils/omitUndefined';
+import { pickProProps } from '../utils/pickProProps';
+import type { ProFieldTextType, ProFieldValueTypeInput } from '../utils/typing';
 import type { ProFieldPropsType, ProFieldRenderProps } from './types';
 
 export type ProFieldRenderText = (
@@ -93,7 +89,13 @@ export function createProField(
           ...(injectedOnBlur ? { onBlur: onBlurCallBack } : {}),
         }
       );
-    }, [value, restFieldProps, onChangeCallBack, onBlurCallBack, injectedOnBlur]);
+    }, [
+      value,
+      restFieldProps,
+      onChangeCallBack,
+      onBlurCallBack,
+      injectedOnBlur,
+    ]);
 
     const customValueType = Object.keys(context.valueTypeMap || {}).includes(
       String(valueType),

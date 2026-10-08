@@ -1,5 +1,4 @@
 import { get } from '@rc-component/util';
-import type { AnyObject } from 'antd/lib/_util/type';
 import React from 'react';
 import { isMergeCell } from '.';
 import type { ProFieldEmptyText } from '../../field';
@@ -10,6 +9,7 @@ import type {
   UseEditableUtilType,
 } from '../../utils';
 import { LabelIconTip, genCopyable, isNil } from '../../utils';
+import type { AnyObject } from '../../utils/antdTypes';
 import type { ContainerType } from '../Store/Provide';
 import type { ActionType, ProColumns } from '../typing';
 import cellRenderToFromItem from './cellRenderToFromItem';

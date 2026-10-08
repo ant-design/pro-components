@@ -1,6 +1,5 @@
-import React from 'react';
-import type { AggregationColor } from 'antd/es/color-picker/color';
 import { ProForm, ProFormColorPicker } from '../../../src';
+import type { AggregationColor } from '../../../src/utils/antdTypes';
 
 /**
  * #8740:ProFormColorPicker fieldProps.onChange 应兼容 antd ColorPicker 的

@@ -1,6 +1,4 @@
 import { ConfigProvider } from 'antd';
-import type { SizeType as AntdSizeType } from 'antd/lib/config-provider/SizeContext';
-import type { TooltipPlacement } from 'antd/lib/tooltip';
 import { clsx } from 'clsx';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import {
@@ -10,6 +8,10 @@ import {
   getLightFilterRangeDisplayFormat,
   useRefFunction,
 } from '../../../../utils';
+import type {
+  SizeType as AntdSizeType,
+  TooltipPlacement,
+} from '../../../../utils/antdTypes';
 import type { LightFilterFooterRender } from '../../../typing';
 import { useStyle } from './style';
 

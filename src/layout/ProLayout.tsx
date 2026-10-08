@@ -2,8 +2,6 @@ import { omit, useControlledState, warning } from '@rc-component/util';
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps, WatermarkProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
-import type { AnyObject } from 'antd/lib/_util/type';
-import type { ItemType } from 'antd/lib/breadcrumb/Breadcrumb';
 import { clsx } from 'clsx';
 import type { CSSProperties } from 'react';
 import React, {
@@ -22,6 +20,10 @@ import {
   useDocumentTitle,
   useRefFunction,
 } from '../utils';
+import type {
+  AnyObject,
+  BreadcrumbItemType as ItemType,
+} from '../utils/antdTypes';
 import { Logo } from './assert/Logo';
 import { DefaultFooter as Footer } from './components/Footer';
 import type { HeaderViewProps } from './components/Header';
@@ -759,11 +761,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       return bgLayoutImgList?.map((item, index) => {
         return (
           <img
-            key={
-              item.src
-                ? `${item.src}-${index}`
-                : `bg-layout-${index}`
-            }
+            key={item.src ? `${item.src}-${index}` : `bg-layout-${index}`}
             src={item.src}
             alt=""
             style={{

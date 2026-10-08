@@ -5,6 +5,7 @@ import {
   VerticalAlignTopOutlined,
 } from '@ant-design/icons';
 import { omit } from '@rc-component/util';
+import type { CheckboxChangeEvent } from 'antd';
 import {
   Checkbox,
   ConfigProvider,
@@ -15,12 +16,11 @@ import {
   Tree,
   Typography,
 } from 'antd';
-import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
-import type { DataNode } from 'antd/lib/tree';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
 import { ProProvider, useIntl } from '../../../provider';
 import { runFunction, useRefFunction } from '../../../utils';
+import type { DataNode } from '../../../utils/antdTypes';
 import type { ColumnsState } from '../../Store/Provide';
 import { TableContext } from '../../Store/Provide';
 import type { ProColumns } from '../../typing';
@@ -337,7 +337,10 @@ const CheckboxList: React.FC<{
             return siblingState && siblingState.show === false;
           });
           if (allSiblingsUnchecked) {
-            newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: false };
+            newColumnMap[parentKey] = {
+              ...newColumnMap[parentKey],
+              show: false,
+            };
           }
         }
       }
@@ -477,7 +480,8 @@ const CheckboxList: React.FC<{
       height={listHeight}
       treeData={treeDataConfig.list?.map(
         ({
-          disabled: _disabled /* 不透传 disabled，使子节点禁用时也可以拖动调整顺序 */,
+          disabled:
+            _disabled /* 不透传 disabled，使子节点禁用时也可以拖动调整顺序 */,
           ...config
         }) => config,
       )}
@@ -591,8 +595,12 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
     key?: any;
   })[] = props.columns;
   const { checkedReset = true } = props;
-  const { columnsMap, setColumnsMap, clearPersistenceStorage, setSortKeyColumns } =
-    counter;
+  const {
+    columnsMap,
+    setColumnsMap,
+    clearPersistenceStorage,
+    setSortKeyColumns,
+  } = counter;
 
   /**
    * 设置全部选中，或全部未选中
@@ -662,8 +670,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   }, [columnsMap, localColumns]);
 
   // 是否全部列都已选中
-  const allChecked =
-    unCheckedKeys.length === 0 && localColumns.length > 0;
+  const allChecked = unCheckedKeys.length === 0 && localColumns.length > 0;
 
   // 是否部分选中（indeterminate）
   const indeterminate =

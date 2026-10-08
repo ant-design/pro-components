@@ -1,7 +1,7 @@
 import { LightFilter, ProFormText } from '@ant-design/pro-components';
 import { Button, Radio, Space } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import React from 'react';
+import type { SizeType } from '../../../src/utils/antdTypes';
 
 const Demo = () => {
   const [size, setSize] = React.useState<SizeType>('middle');

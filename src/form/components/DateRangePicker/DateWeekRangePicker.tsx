@@ -1,5 +1,5 @@
-import type { RangePickerProps } from 'antd/lib/date-picker';
 import React from 'react';
+import type { RangePickerProps } from '../../../utils/antdTypes';
 import type { ProFormFieldItemProps } from '../../typing';
 import { BaseDateRanger } from './BaseDateRanger';
 

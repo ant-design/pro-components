@@ -3,7 +3,6 @@ import { cleanup, render, waitFor } from '@testing-library/react';
 import { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-vi.mock('antd/lib/grid/hooks/useBreakpoint');
 
 afterEach(() => {
   cleanup();

@@ -25,9 +25,10 @@ import {
 } from '../../../utils';
 import type { ProSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
-import { gLocaleObject, getLanguage } from '../../locales';
+import { getLanguage } from '../../locales';
 import { genStringToTheme } from '../../utils/utils';
 import { BlockCheckbox } from './BlockCheckbox';
+import { getFormatMessage } from './getFormatMessage';
 import { GroupIcon } from './icon/group';
 import { SubIcon } from './icon/sub';
 import { LayoutSetting, renderLayoutSettingItem } from './LayoutChange';
@@ -109,21 +110,7 @@ const getDifferentSetting = (
   return stateObj;
 };
 
-export const getFormatMessage = (): ((data: {
-  id: string;
-  defaultMessage?: string;
-}) => string) => {
-  const formatMessage = ({
-    id,
-  }: {
-    id: string;
-    defaultMessage?: string;
-  }): string => {
-    const locales = gLocaleObject();
-    return locales[id];
-  };
-  return formatMessage;
-};
+export { getFormatMessage };
 
 /**
  * 初始化的时候需要做的工作

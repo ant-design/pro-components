@@ -19,11 +19,11 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { Button, Form } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
 import dayjs from 'dayjs';
 import { pick } from 'lodash-es';
 import React, { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import type { NamePath } from '../../src/utils/antdTypes';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {
@@ -1044,12 +1044,8 @@ describe('ProForm List', () => {
     // 1) 应有 3 个 input
     expect(input.length).toBe(3);
     // 2) action-copy / action-remove 按钮应都存在 3 个
-    expect(
-      html.baseElement.querySelectorAll('.action-copy').length,
-    ).toBe(3);
-    expect(
-      html.baseElement.querySelectorAll('.action-remove').length,
-    ).toBe(3);
+    expect(html.baseElement.querySelectorAll('.action-copy').length).toBe(3);
+    expect(html.baseElement.querySelectorAll('.action-remove').length).toBe(3);
 
     // 删除按钮
     await act(async () => {

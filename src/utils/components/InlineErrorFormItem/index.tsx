@@ -26,6 +26,20 @@ const FIX_INLINE_STYLE = {
   marginInlineEnd: 0,
 };
 
+const shouldUpdateForName = (name: NamePath) => (prev: any, next: any) => {
+  if (prev === next) return false;
+  const shouldName = [name].flat(1);
+  if (shouldName.length > 1) shouldName.pop();
+  try {
+    return (
+      JSON.stringify(get(prev, shouldName)) !==
+      JSON.stringify(get(next, shouldName))
+    );
+  } catch (_error) {
+    return true;
+  }
+};
+
 /**
  * 读取 Form.Item 校验状态并渲染 Popover 错误层。
  *
@@ -151,7 +165,10 @@ const InlineErrorPopoverShell = React.forwardRef<
     : children;
 
   return (
-    <InlineErrorFormItemPopover popoverProps={popoverProps} input={fieldChild} />
+    <InlineErrorFormItemPopover
+      popoverProps={popoverProps}
+      input={fieldChild}
+    />
   );
 });
 InlineErrorPopoverShell.displayName = 'InlineErrorPopoverShell';
@@ -171,21 +188,7 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
       // help="" 占位：popover 模式下原生 explain 只渲染空内容，错误由气泡接管；
       // 同时 additionalDom 常驻，校验出现/消失时高度稳定（#9709/#8942）
       help=""
-      shouldUpdate={(prev, next) => {
-        if (prev === next) return false;
-        const shouldName = [name].flat(1);
-        if (shouldName.length > 1) {
-          shouldName.pop();
-        }
-        try {
-          return (
-            JSON.stringify(get(prev, shouldName)) !==
-            JSON.stringify(get(next, shouldName))
-          );
-        } catch (_error) {
-          return true;
-        }
-      }}
+      shouldUpdate={shouldUpdateForName(name)}
       {...rest}
       style={{
         ...FIX_INLINE_STYLE,
@@ -217,25 +220,7 @@ export const InlineErrorFormItem = (props: InlineErrorFormItemProps) => {
   return (
     <Form.Item
       rules={rules}
-      shouldUpdate={
-        name
-          ? (prev, next) => {
-              if (prev === next) return false;
-              const shouldName = [name].flat(1);
-              if (shouldName.length > 1) {
-                shouldName.pop();
-              }
-              try {
-                return (
-                  JSON.stringify(get(prev, shouldName)) !==
-                  JSON.stringify(get(next, shouldName))
-                );
-              } catch (_error) {
-                return true;
-              }
-            }
-          : undefined
-      }
+      shouldUpdate={name ? shouldUpdateForName(name) : undefined}
       {...rest}
       style={{ ...FIX_INLINE_STYLE, ...rest.style }}
       name={name}

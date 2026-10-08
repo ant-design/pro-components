@@ -11,7 +11,7 @@ import React, {
   useState,
 } from 'react';
 import type { RequestOptionsType } from '../../../../utils';
-import { nanoid } from '../../../../utils';
+import { nanoid } from '../../../../utils/nanoid';
 
 export type LabeledValue = {
   key?: string;

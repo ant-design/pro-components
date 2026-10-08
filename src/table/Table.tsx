@@ -2,15 +2,6 @@ import { Summary } from '@rc-component/table';
 import { noteOnce, useControlledState } from '@rc-component/util';
 import type { TablePaginationConfig } from 'antd';
 import { ConfigProvider, Table } from 'antd';
-import type {
-  FilterValue as AntFilterValue,
-  SorterResult,
-} from 'antd/es/table/interface';
-import type {
-  GetRowKey,
-  SortOrder,
-  TableCurrentDataSource,
-} from 'antd/lib/table/interface';
 import { clsx } from 'clsx';
 import isEmpty from 'lodash-es/isEmpty';
 import isEqual from 'lodash-es/isEqual';
@@ -45,6 +36,13 @@ import {
   useEditableArray,
   useRefFunction,
 } from '../utils';
+import type {
+  FilterValue as AntFilterValue,
+  GetRowKey,
+  SorterResult,
+  SortOrder,
+  TableCurrentDataSource,
+} from '../utils/antdTypes';
 import Alert from './components/Alert';
 import { TableContext, TableProvider } from './Store/Provide';
 import { useStyle } from './style';
@@ -772,9 +770,9 @@ const ProTable = <
       }
       // 判断search.onSearch返回值决定是否更新formSearch
       if (options && options.search) {
-        const { name = 'keyword' } = (options.search === true
-          ? {}
-          : options.search) as { name?: string };
+        const { name = 'keyword' } = (
+          options.search === true ? {} : options.search
+        ) as { name?: string };
 
         /** 如果传入的 onSearch 返回值为 false，则不要把options.search.name对应的值set到formSearch */
         const success = (options.search as OptionSearchProps)?.onSearch?.(
@@ -1009,7 +1007,10 @@ const ProTable = <
           style={{ display: 'contents' }}
           onScrollCapture={(e) => {
             // 只转发水平滚动（rc-table 内部已处理纵向场景）
-            if ((e.target as HTMLElement).scrollWidth > (e.target as HTMLElement).clientWidth) {
+            if (
+              (e.target as HTMLElement).scrollWidth >
+              (e.target as HTMLElement).clientWidth
+            ) {
               onScroll?.(e as unknown as React.UIEvent<HTMLDivElement>);
             }
           }}
@@ -1070,7 +1071,7 @@ const ProTable = <
     return useCardForTable || useCardForList;
   }, [cardProps, props.name, type, notNeedCardDom]);
 
-  const resolvedCardProps = cardProps === false ? {} : cardProps ?? {};
+  const resolvedCardProps = cardProps === false ? {} : (cardProps ?? {});
 
   const tableAreaDom = useCard ? (
     <ProCard

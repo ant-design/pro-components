@@ -1,7 +1,7 @@
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import type { AnyObject } from 'antd/es/_util/type';
 import React from 'react';
+import type { AnyObject } from '../../src/utils/antdTypes';
 
 interface TableColumn {
   key: React.Key;

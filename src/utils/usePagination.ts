@@ -1,5 +1,5 @@
 ﻿import type { PaginationProps } from 'antd';
-import type { TablePaginationConfig } from 'antd/es/table/interface';
+import type { TablePaginationConfig } from 'antd';
 import { useState } from 'react';
 
 export const DEFAULT_PAGE_SIZE = 10;

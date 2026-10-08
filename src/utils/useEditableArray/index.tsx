@@ -7,9 +7,6 @@ import {
 } from '@rc-component/util';
 import type { FormInstance, FormProps } from 'antd';
 import { Form, Popconfirm, message } from 'antd';
-import type { AnyObject } from 'antd/lib/_util/type';
-import type { NamePath } from 'antd/lib/form/interface';
-import type { GetRowKey } from 'antd/lib/table/interface';
 import React, {
   createRef,
   forwardRef,
@@ -21,12 +18,14 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { useDebounceFn, useRefFunction } from '..';
-import { useIntl } from '../../provider';
+import { useIntl } from '../../provider/useIntl';
+import type { AnyObject, GetRowKey, NamePath } from '../antdTypes';
 import { ProFormContext } from '../components/ProFormContext';
 import { conversionMomentValue } from '../conversionMomentValue';
+import { useDebounceFn } from '../hooks/useDebounceFn';
 import { useDeepCompareEffect } from '../hooks/useDeepCompareEffect';
 import { usePrevious } from '../hooks/usePrevious';
+import { useRefFunction } from '../hooks/useRefFunction';
 import { merge } from '../merge';
 import useLazyKVMap from '../useLazyKVMap';
 const { noteOnce } = rcWarning;
@@ -274,9 +273,7 @@ function flattenRecordsToMap<RecordType>(
       kvMap.set(recordKey, newRecord);
 
       const hasChildren =
-        record &&
-        typeof record === 'object' &&
-        childrenColumnName in record;
+        record && typeof record === 'object' && childrenColumnName in record;
 
       if (hasChildren) {
         const children = (record as any)[childrenColumnName] || [];
@@ -625,8 +622,7 @@ export type SaveEditableActionRef<T = any> = {
    * @throws 如果校验失败，会抛出异常
    *  */
   save: () =>
-    | ReturnType<NonNullable<RowEditableConfig<T>['onSave']>>
-    | Promise<void>;
+    ReturnType<NonNullable<RowEditableConfig<T>['onSave']>> | Promise<void>;
 };
 
 /**
@@ -823,17 +819,19 @@ export function useEditableArray<RecordType extends AnyObject>(
     setDataSource: (dataSource: RecordType[]) => void;
   },
 ) {
-  const normalizeRowDateValues = useRefFunction((row: RecordType | null | undefined) => {
-    if (row == null || typeof row !== 'object') {
-      return row as unknown as RecordType;
-    }
-    return conversionMomentValue(
-      row,
-      props.dateFormatter ?? 'string',
-      {},
-      false,
-    ) as RecordType;
-  });
+  const normalizeRowDateValues = useRefFunction(
+    (row: RecordType | null | undefined) => {
+      if (row == null || typeof row !== 'object') {
+        return row as unknown as RecordType;
+      }
+      return conversionMomentValue(
+        row,
+        props.dateFormatter ?? 'string',
+        {},
+        false,
+      ) as RecordType;
+    },
+  );
 
   // Internationalization
   const intl = useIntl();
@@ -959,7 +957,10 @@ export function useEditableArray<RecordType extends AnyObject>(
           editableType === 'single'
             ? (editingRecords[0] as RecordType | undefined)
             : editingRecords;
-        props?.onChange?.(cleanKeys, editingPayload as RecordType | RecordType[]);
+        props?.onChange?.(
+          cleanKeys,
+          editingPayload as RecordType | RecordType[],
+        );
         return next;
       });
     },
@@ -1032,49 +1033,45 @@ export function useEditableArray<RecordType extends AnyObject>(
    *
    * 兼容两种调用：isEditable(row, index) 与 isEditable({ ...row, index })
    */
-  const isEditable = useRefFunction(
-    (row: RecordType, indexArg?: number) => {
-      const index = indexArg ?? (row as { index?: number })?.index;
-      const recordKeyWithIndex = props.getRowKey(row, index)?.toString();
-      const recordKey = props.getRowKey(row, -1)?.toString();
-      const { current, previous } = editableIndex;
+  const isEditable = useRefFunction((row: RecordType, indexArg?: number) => {
+    const index = indexArg ?? (row as { index?: number })?.index;
+    const recordKeyWithIndex = props.getRowKey(row, index)?.toString();
+    const recordKey = props.getRowKey(row, -1)?.toString();
+    const { current, previous } = editableIndex;
 
-      // cell 粒度：该行激活的 cell 复合键（合并 rowKey 与 index 两种寻址，构建时已去重）
-      let cellKeys = EMPTY_CELL_KEYS;
-      const byKey = current.cellKeysMap.get(recordKey);
-      const byIndex = current.cellKeysMap.get(recordKeyWithIndex);
-      if (byKey && byIndex && byKey !== byIndex) {
-        cellKeys = byKey.concat(
-          byIndex.filter((k) => !byKey.includes(k)),
-        );
-      } else if (byKey || byIndex) {
-        cellKeys = (byKey ?? byIndex)!;
-      }
+    // cell 粒度：该行激活的 cell 复合键（合并 rowKey 与 index 两种寻址，构建时已去重）
+    let cellKeys = EMPTY_CELL_KEYS;
+    const byKey = current.cellKeysMap.get(recordKey);
+    const byIndex = current.cellKeysMap.get(recordKeyWithIndex);
+    if (byKey && byIndex && byKey !== byIndex) {
+      cellKeys = byKey.concat(byIndex.filter((k) => !byKey.includes(k)));
+    } else if (byKey || byIndex) {
+      cellKeys = (byKey ?? byIndex)!;
+    }
 
-      const rowEditable =
-        current.rowKeySet.has(recordKey) ||
-        current.rowKeySet.has(recordKeyWithIndex);
-      const rowEditableRef =
-        previous.rowKeySet.has(recordKey) ||
-        previous.rowKeySet.has(recordKeyWithIndex);
+    const rowEditable =
+      current.rowKeySet.has(recordKey) ||
+      current.rowKeySet.has(recordKeyWithIndex);
+    const rowEditableRef =
+      previous.rowKeySet.has(recordKey) ||
+      previous.rowKeySet.has(recordKeyWithIndex);
 
-      return {
-        recordKey,
-        /** 行级或任意 cell 级激活时该行处于编辑状态 */
-        isEditable: rowEditable || cellKeys.length > 0,
-        preIsEditable:
-          rowEditableRef ||
-          !!(
-            previous.cellKeysMap.get(recordKey)?.length ||
-            previous.cellKeysMap.get(recordKeyWithIndex)?.length
-          ),
-        /** 行级编辑（控制 option 列的保存/取消按钮渲染） */
-        isRowEditable: rowEditable,
-        /** 当前行的 cell 粒度复合键（如 ['row1:name']），空数组表示非 cell 编辑 */
-        cellEditableKeys: cellKeys,
-      };
-    },
-  );
+    return {
+      recordKey,
+      /** 行级或任意 cell 级激活时该行处于编辑状态 */
+      isEditable: rowEditable || cellKeys.length > 0,
+      preIsEditable:
+        rowEditableRef ||
+        !!(
+          previous.cellKeysMap.get(recordKey)?.length ||
+          previous.cellKeysMap.get(recordKeyWithIndex)?.length
+        ),
+      /** 行级编辑（控制 option 列的保存/取消按钮渲染） */
+      isRowEditable: rowEditable,
+      /** 当前行的 cell 粒度复合键（如 ['row1:name']），空数组表示非 cell 编辑 */
+      cellEditableKeys: cellKeys,
+    };
+  });
 
   /**
    * 验证是否可以开始编辑
@@ -1186,8 +1183,7 @@ export function useEditableArray<RecordType extends AnyObject>(
    */
   const resolveFormInstance = useRefFunction((): FormInstance | undefined => {
     const formRef = props.formProps?.formRef as
-      | React.MutableRefObject<FormInstance | undefined>
-      | undefined;
+      React.MutableRefObject<FormInstance | undefined> | undefined;
     return formRef?.current || props.form;
   });
 
@@ -1288,10 +1284,7 @@ export function useEditableArray<RecordType extends AnyObject>(
           form.resetFields([[recordKeyStr]]);
           form.setFieldsValue({ [recordKeyStr]: undefined });
         } catch (error) {
-          console.warn(
-            'Failed to clear form fields in cancelEditable:',
-            error,
-          );
+          console.warn('Failed to clear form fields in cancelEditable:', error);
         }
       }
     } catch (error) {

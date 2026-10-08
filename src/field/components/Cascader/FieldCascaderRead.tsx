@@ -1,7 +1,7 @@
 ﻿import type { CascaderProps } from 'antd';
 import { Space } from 'antd';
 import React from 'react';
-import { objectToMap, proFieldParsingText } from '../../../utils';
+import { objectToMap, proFieldParsingText } from '../../../utils/proFieldParsingText';
 import type { ProFieldFC } from '../../types';
 import type { GroupProps } from './types';
 

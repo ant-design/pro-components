@@ -1,8 +1,6 @@
-import React from 'react';
-import type { AggregationColor } from 'antd/es/color-picker/color';
-import type { ProColumns } from '../../../src';
-import { BetaSchemaForm, ProForm } from '../../../src';
-import type { ProFormColumnsType } from '../../../src';
+import type { ProColumns, ProFormColumnsType } from '../../../src';
+import { BetaSchemaForm } from '../../../src';
+import type { AggregationColor } from '../../../src/utils/antdTypes';
 
 /**
  * #8740:valueType="color" 路径(ProColumns / BetaSchemaForm columns)

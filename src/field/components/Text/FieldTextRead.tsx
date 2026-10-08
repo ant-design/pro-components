@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
-import { useStyle } from '../../../utils';
+import { useStyle } from '../../../provider/useStyle';
 import type { ProFieldFC } from '../../types';
 
 type FieldTextReadProps = Parameters<
