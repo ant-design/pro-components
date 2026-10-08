@@ -3,6 +3,8 @@ import type { ProTokenType } from './layoutToken';
 
 export type ProAliasToken = GlobalToken &
   ProTokenType & {
+    /** Component tokens configured through antd ConfigProvider. */
+    components?: Record<string, Record<string, unknown>>;
     themeId: number;
     /** Pro component class prefix, for example `.ant-pro`. */
     proComponentsCls: string;

@@ -95,6 +95,9 @@ export interface SearchSelectProps<T = Record<string, any>> extends Omit<
   /** 清空数据 */
   resetData: () => void;
 
+  /** 上层 useFieldFetchData 是否有 request 驱动 */
+  hasRemoteRequest?: boolean;
+
   /**
    * 当搜索关键词发生变化时是否请求远程数据
    *
@@ -122,6 +125,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     className,
     disabled,
     options,
+    hasRemoteRequest = false,
     fetchData,
     resetData,
     prefixCls: customizePrefixCls,
@@ -168,15 +172,20 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   // 仅响应外部 prop 变化:初次挂载(searchValue 为 undefined)跳过;
   // 用户输入路径已由 onSearch → fetchData 覆盖,这里负责编程式更新
   // (如下拉收起时外部清空搜索词,期望以 keyWords='' 重新拉取全量数据)。
-  const controlledSearchValue = showSearchConfig?.searchValue ?? propsSearchValue;
-  const lastControlledSearchValue = useRef(controlledSearchValue);
+  const controlledSearchValue =
+    showSearchConfig?.searchValue ?? propsSearchValue;
+  const lastControlledSearchValue = useRef(
+    controlledSearchValue ?? defaultSearchValue,
+  );
   useEffect(() => {
     if (controlledSearchValue === lastControlledSearchValue.current) return;
     lastControlledSearchValue.current = controlledSearchValue;
-    if (fetchDataOnSearch) {
+    // 本地 options 也依赖 useFieldFetchData 的 keyWords 做过滤；没有远程
+    // request 时可直接同步。远程 request 仍尊重 fetchDataOnSearch=false。
+    if (fetchDataOnSearch || !hasRemoteRequest) {
       fetchData?.(controlledSearchValue);
     }
-  }, [controlledSearchValue, fetchData, fetchDataOnSearch]);
+  }, [controlledSearchValue, fetchData, fetchDataOnSearch, hasRemoteRequest]);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
@@ -339,6 +348,16 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       } as DefaultOptionType;
     });
   };
+  const handleSearch = showSearch
+    ? (value: string) => {
+        if (fetchDataOnSearch) {
+          fetchData(value);
+        }
+        effectiveOnSearch?.(value);
+        setSearchValue(value);
+      }
+    : undefined;
+
   return (
     <Select<any>
       ref={selectRef}
@@ -347,11 +366,13 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       autoClearSearchValue={effectiveAutoClearSearchValue}
       disabled={disabled}
       mode={mode}
-      showSearch={showSearch}
+      showSearch={
+        showSearchConfig
+          ? { ...showSearchConfig, onSearch: handleSearch }
+          : showSearch
+      }
       searchValue={
-        mode === 'multiple' &&
-        !effectiveAutoClearSearchValue &&
-        !focused
+        mode === 'multiple' && !effectiveAutoClearSearchValue && !focused
           ? ''
           : searchValue
       }
@@ -388,9 +409,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
                   label: option?.data_title,
                 });
               }
-              const optionFilterProps = Array.isArray(
-                effectiveOptionFilterProp,
-              )
+              const optionFilterProps = Array.isArray(effectiveOptionFilterProp)
                 ? effectiveOptionFilterProp
                 : [effectiveOptionFilterProp];
               return !!(
@@ -411,17 +430,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
               );
             }
       } // 这里使用pro-components的过滤逻辑
-      onSearch={
-        showSearch
-          ? (value) => {
-              if (fetchDataOnSearch) {
-                fetchData(value);
-              }
-              effectiveOnSearch?.(value);
-              setSearchValue(value);
-            }
-          : undefined
-      }
+      onSearch={handleSearch}
       onChange={(value, optionList, ...rest) => {
         // 将搜索框置空 和 antd 行为保持一致
         if (showSearch && effectiveAutoClearSearchValue) {
@@ -514,7 +523,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
           fetchData(undefined);
           // 同时清空搜索值
           if (showSearch) {
-            onSearch?.('');
+            effectiveOnSearch?.('');
             setSearchValue('');
           }
         }
