@@ -9,11 +9,12 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { useIntl } from '../../../provider';
+import { useFieldIntl as useIntl } from '../../internal/useFieldIntl';
 import {
   isProFieldEditOnlyMode,
   isProFieldReadMode,
 } from '../../internal/fieldMode';
+import { optionsToValueEnum } from '../../internal/optionsToValueEnum';
 import type { ProFieldFC } from '../../types';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
@@ -123,30 +124,7 @@ const FieldTreeSelect: ProFieldFC<{} & FieldSelectProps> = (
      * Support TreeSelect fieldNames
      * @see https://ant.design/components/tree-select-cn
      */
-    const {
-      value: valuePropsName = 'value',
-      label: labelPropsName = 'label',
-      children: childrenPropsName = 'children',
-    } = fieldProps?.fieldNames || {};
-
-    const valuesMap = new Map();
-
-    const traverseOptions = (_options: typeof options) => {
-      if (!_options?.length) {
-        return valuesMap;
-      }
-
-      const length = _options.length;
-      let i = 0;
-      while (i < length) {
-        const cur = _options[i++];
-        valuesMap.set(cur[valuePropsName], cur[labelPropsName]);
-        traverseOptions(cur[childrenPropsName]);
-      }
-      return valuesMap;
-    };
-
-    return traverseOptions(options);
+    return optionsToValueEnum(options, fieldProps?.fieldNames);
   }, [fieldProps?.fieldNames, mode, options]);
 
   const onChange: TreeSelectProps<any>['onChange'] = (

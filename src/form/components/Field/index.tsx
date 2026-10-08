@@ -1,5 +1,5 @@
 ﻿import React, { useContext, useMemo } from 'react';
-import { PureProField } from '../../../field';
+import { ProField } from '../../../field';
 import type { ProSchema } from '../../../utils';
 import { runFunction, useRefFunction } from '../../../utils';
 import type { ProFieldValueTypeInput } from '../../../utils';
@@ -40,19 +40,19 @@ const BaseProFormField = React.forwardRef<
   const {
     fieldProps,
     children,
-    labelCol: _labelCol,
-    label: _label,
+    labelCol,
+    label,
     autoFocus,
-    isDefaultDom: _isDefaultDom,
+    isDefaultDom,
     render,
     proFieldProps,
     formItemRender,
     valueType,
-    initialValue: _initialValue,
+    initialValue,
     onChange,
     valueEnum,
     params,
-    name: _name,
+    name,
     dependenciesValues,
     cacheForSwr = false,
     valuePropName = 'value',
@@ -118,7 +118,7 @@ const BaseProFormField = React.forwardRef<
   }
 
   return (
-    <PureProField
+    <ProField
       ref={forwardedRef}
       text={fieldProps?.[valuePropName]}
       render={render as any}

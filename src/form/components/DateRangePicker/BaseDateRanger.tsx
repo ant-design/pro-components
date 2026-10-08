@@ -1,8 +1,8 @@
-import type { RangePickerProps } from 'antd/lib/date-picker';
 import React, { useCallback, useContext, useMemo } from 'react';
-import { FieldRangePicker } from '../../../field';
+import FieldRangePicker from '../../../field/components/RangePicker';
 import { ProConfigProvider } from '../../../provider';
 import { dateArrayFormatter } from '../../../utils';
+import type { RangePickerProps } from '../../../utils/antdTypes';
 import FieldContext from '../../FieldContext';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
@@ -58,13 +58,7 @@ export const BaseDateRanger: React.FC<
 
         let format: string;
         let picker:
-          | 'time'
-          | 'date'
-          | 'week'
-          | 'month'
-          | 'quarter'
-          | 'year'
-          | undefined;
+          'time' | 'date' | 'week' | 'month' | 'quarter' | 'year' | undefined;
 
         switch (valueType) {
           case 'dateTimeRange':

@@ -5,14 +5,8 @@ import {
   DeleteOutlined,
 } from '@ant-design/icons';
 import { warning } from '@rc-component/util';
-import type { ColProps, FormInstance } from 'antd';
+import type { ColProps, FormInstance, FormListOperation } from 'antd';
 import { ConfigProvider, Form } from 'antd';
-import type {
-  FormListFieldData,
-  FormListOperation,
-  FormListProps,
-} from 'antd/lib/form/FormList';
-import type { NamePath } from 'antd/lib/form/interface';
 import { clsx } from 'clsx';
 import type { ReactNode } from 'react';
 import React, {
@@ -25,9 +19,11 @@ import React, {
 import { useIntl } from '../../../provider';
 import type { LabelTooltipType, SearchConvertKeyFn } from '../../../utils';
 import { ProFormContext } from '../../../utils';
+import type { FormListProps, NamePath } from '../../../utils/antdTypes';
 import FieldContext from '../../FieldContext';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormGridConfig } from '../../typing';
+import { FormListContext } from './FormListContext';
 import { ProFormListContainer } from './ListContainer';
 import type {
   ChildrenItemFunction,
@@ -37,13 +33,6 @@ import type {
 import { useStyle } from './style';
 
 const { noteOnce } = warning;
-
-const FormListContext = React.createContext<
-  | (FormListFieldData & {
-      listName: NamePath;
-    })
-  | Record<string, any>
->({});
 
 const ProFormListValueConverter: React.FC<{
   children: ReactNode;
@@ -158,6 +147,8 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children' | 'rules'> &
   } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'>;
 
 function ProFormList<T>(props: ProFormListProps<T>) {
+  /** 保存 Form.List 原始 action，供 useImperativeHandle 与渲染函数消费 */
+  const actionRefs = useRef<FormListOperation>();
   /** 保存经过 actionGuard 包装、带 onAfterAdd/onAfterRemove 回调的 action（#8939） */
   const guardedActionRef = useRef<FormListOperation>();
   const context = useContext(ConfigProvider.ConfigContext);
@@ -222,7 +213,6 @@ function ProFormList<T>(props: ProFormListProps<T>) {
   const { ColWrapper, RowWrapper } = useGridHelpers({ colProps, rowProps });
 
   const proFormContext = useContext(ProFormContext);
-  const formInstance = Form.useFormInstance();
 
   // 处理 list 的嵌套
   const name = useMemo(() => {
@@ -258,14 +248,9 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     actionRef,
     () =>
       ({
-        // 每次调用都转发到最新一轮渲染生成的 action，避免列表长度变化后
-        // actionRef 仍捕获旧 count，导致 guard 与 after 回调收到过期值（#8939）。
-        add: (...args: Parameters<FormListOperation['add']>) =>
-          guardedActionRef.current?.add(...args),
-        remove: (...args: Parameters<FormListOperation['remove']>) =>
-          guardedActionRef.current?.remove(...args),
-        move: (...args: Parameters<FormListOperation['move']>) =>
-          guardedActionRef.current?.move(...args),
+        // 使用带 actionGuard 与 onAfterAdd/onAfterRemove 的包装 action，
+        // 保证 actionRef.add/remove 与内置按钮行为一致（#8939）
+        ...guardedActionRef.current,
         get: (index: number) => {
           return proFormContext.formRef!.current!.getFieldValue([
             ...name,
@@ -319,6 +304,8 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     proFormContext.formRef!.current!.validateFields([name]);
   };
 
+  const formInstance = Form.useFormInstance();
+
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
   if (!proFormContext.formRef) return null;
@@ -355,6 +342,8 @@ function ProFormList<T>(props: ProFormListProps<T>) {
             const listDom = (
               <Form.List rules={rules} {...rest} name={name}>
                 {(fields, action, meta) => {
+                  // 将 action 暴露给外部
+                  actionRefs.current = action;
                   return (
                     <RowWrapper>
                       <ProFormListContainer

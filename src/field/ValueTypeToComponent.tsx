@@ -1,8 +1,8 @@
 ﻿import { Avatar } from 'antd';
 import type { ReactNode } from 'react';
 import { FieldText } from '.';
-import { ProRenderFieldPropsType } from '../provider';
-import { pickProProps } from '../utils';
+import type { ProRenderFieldPropsType } from '../provider/typing/config';
+import { pickProProps } from '../utils/pickProProps';
 import type { ProFieldBuiltinValueType } from '../utils/typing';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';

@@ -1,10 +1,12 @@
-import type { SelectProps } from 'antd';
-import type { BaseOptionType } from 'antd/lib/cascader';
-import type { DefaultOptionType, RefSelectProps } from 'antd/lib/select';
+import type { RefSelectProps, SelectProps } from 'antd';
 import React, { useContext } from 'react';
-import { FieldSelect } from '../../../field';
+import FieldSelect from '../../../field/components/Select';
 import { ProConfigProvider } from '../../../provider';
 import { runFunction } from '../../../utils';
+import type {
+  BaseOptionType,
+  DefaultOptionType,
+} from '../../../utils/antdTypes';
 import FieldContext from '../../FieldContext';
 import type {
   ProFormFieldItemProps,
@@ -208,6 +210,7 @@ const WrappedProFormSelect = ProFormSelect as (<
 
 WrappedProFormSelect.SearchSelect = ProFormSearchSelect;
 
-Object.assign(WrappedProFormSelect, { displayName: 'ProFormComponent' });
+// @ts-ignore
+WrappedProFormSelect.displayName = 'ProFormComponent';
 
 export default WrappedProFormSelect;

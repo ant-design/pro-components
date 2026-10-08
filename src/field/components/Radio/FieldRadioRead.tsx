@@ -1,4 +1,4 @@
-﻿import { objectToMap, proFieldParsingText } from '../../../utils';
+﻿import { objectToMap, proFieldParsingText } from '../../../utils/proFieldParsingText';
 import type { ProFieldFC } from '../../types';
 import type { GroupProps } from './types';
 

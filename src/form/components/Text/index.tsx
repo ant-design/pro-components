@@ -1,9 +1,10 @@
 import { omit, useControlledState } from '@rc-component/util';
+import type { InputRef } from 'antd';
 import { Form, Popover, PopoverProps, type InputProps } from 'antd';
-import type { InputRef, PasswordProps } from 'antd/lib/input';
 import React, { useCallback, useState } from 'react';
-import { FieldPassword } from '../../../field';
+import FieldPassword from '../../../field/components/Password';
 import { ProConfigProvider } from '../../../provider';
+import type { PasswordProps } from '../../../utils/antdTypes';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
 

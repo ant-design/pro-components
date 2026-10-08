@@ -1,7 +1,7 @@
 ﻿import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import React from 'react';
-import { useIntl } from '../../../provider';
+import { useFieldIntl as useIntl } from '../../internal/useFieldIntl';
 import {
   isProFieldEditOrUpdateMode,
   isProFieldReadMode,

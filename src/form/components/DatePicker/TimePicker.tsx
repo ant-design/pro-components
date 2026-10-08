@@ -1,6 +1,6 @@
-import type { DatePickerProps } from 'antd/lib/date-picker';
+import type { DatePickerProps } from 'antd';
 import React, { useContext } from 'react';
-import { FieldTimePicker } from '../../../field';
+import FieldTimePicker from '../../../field/components/TimePicker';
 import { ProConfigProvider } from '../../../provider';
 import FieldContext from '../../FieldContext';
 import type { ProFormFieldItemProps } from '../../typing';

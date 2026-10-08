@@ -6,21 +6,22 @@ import {
   LoadingOutlined,
 } from '@ant-design/icons';
 import { set, toArray } from '@rc-component/util';
-import type { ButtonProps, FormInstance } from 'antd';
-import { ConfigProvider, Tooltip } from 'antd';
 import type {
+  ButtonProps,
+  FormInstance,
   FormListFieldData,
   FormListOperation,
-  FormListProps,
-} from 'antd/lib/form/FormList';
+} from 'antd';
+import { ConfigProvider, Tooltip } from 'antd';
 import { clsx } from 'clsx';
 import type { CSSProperties, ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { FormListContext } from '.';
 import { ProProvider } from '../../../provider';
 import { SearchTransformKeyFn } from '../../../utils';
+import type { FormListProps } from '../../../utils/antdTypes';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import { useGridHelpers } from '../../helpers';
+import { FormListContext } from './FormListContext';
 
 export type ChildrenItemFunction = (
   /**
@@ -356,7 +357,7 @@ const ProFormListItem: React.FC<
   }
 > = (props) => {
   const {
-    creatorButtonProps: _creatorButtonProps,
+    creatorButtonProps,
     deleteIconProps,
     copyIconProps,
     arrowSort,
@@ -366,9 +367,9 @@ const ProFormListItem: React.FC<
     itemRender,
     alwaysShowItemLabel,
     prefixCls,
-    creatorRecord: _creatorRecord,
+    creatorRecord,
     action,
-    actionGuard: _actionGuard,
+    actionGuard,
     children,
     actionRender,
     fields,
@@ -415,6 +416,7 @@ const ProFormListItem: React.FC<
       return listContext.listName.slice(0, -1);
     }
     return listContext.listName;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listContext.listName, listContext.name, originName]);
 
   /** 当前行的字段路径，供 getCurrentRowData/setCurrentRowData/copyIcon/options.record 复用 */

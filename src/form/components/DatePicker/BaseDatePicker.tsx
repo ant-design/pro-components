@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useMemo } from 'react';
-import { FieldDatePicker } from '../../../field';
+import FieldDatePicker from '../../../field/components/DatePicker';
 import { ProConfigProvider } from '../../../provider';
 import FieldContext from '../../FieldContext';
 import type { ProFormFieldItemProps } from '../../typing';

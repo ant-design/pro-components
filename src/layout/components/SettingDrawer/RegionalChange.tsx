@@ -2,7 +2,7 @@ import { List, Switch } from 'antd';
 import { clsx } from 'clsx';
 import React from 'react';
 import type { ProSettings } from '../../defaultSettings';
-import { getFormatMessage } from './index';
+import { getFormatMessage } from './getFormatMessage';
 import { renderLayoutSettingItem } from './LayoutChange';
 
 const RegionalSetting: React.FC<{

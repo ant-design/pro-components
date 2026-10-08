@@ -7,13 +7,13 @@ import {
 import { omit, useControlledState } from '@rc-component/util';
 import {
   Alert,
-  App,
   Button,
   Divider,
   Drawer,
   DrawerProps,
   List,
   Switch,
+  message,
 } from 'antd';
 import { clsx } from 'clsx';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
@@ -25,9 +25,10 @@ import {
 } from '../../../utils';
 import type { ProSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
-import { gLocaleObject, getLanguage } from '../../locales';
+import { getLanguage } from '../../locales';
 import { genStringToTheme } from '../../utils/utils';
 import { BlockCheckbox } from './BlockCheckbox';
+import { getFormatMessage } from './getFormatMessage';
 import { GroupIcon } from './icon/group';
 import { SubIcon } from './icon/sub';
 import { LayoutSetting, renderLayoutSettingItem } from './LayoutChange';
@@ -94,7 +95,8 @@ const getDifferentSetting = (
   (Object.keys(state) as StateKey[]).forEach((key) => {
     if (
       state[key] !== defaultSettings[key] &&
-      key !== ('collapse' as StateKey)
+      //@ts-ignore
+      key !== 'collapse'
     ) {
       stateObj[key as 'navTheme'] = state[key as 'navTheme'];
     } else {
@@ -108,21 +110,7 @@ const getDifferentSetting = (
   return stateObj;
 };
 
-export const getFormatMessage = (): ((data: {
-  id: string;
-  defaultMessage?: string;
-}) => string) => {
-  const formatMessage = ({
-    id,
-  }: {
-    id: string;
-    defaultMessage?: string;
-  }): string => {
-    const locales = gLocaleObject();
-    return locales[id];
-  };
-  return formatMessage;
-};
+export { getFormatMessage };
 
 /**
  * 初始化的时候需要做的工作
@@ -190,7 +178,6 @@ const genCopySettingJson = (settingState: MergerSettingsType<ProSettings>) =>
 
 /**
  * 可视化配置组件
- * 使用 `App.useApp()` 获取 message 实例，需要业务方在外层包裹 `<App />`。
  *
  * @param props
  */
@@ -220,7 +207,6 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     themeOnly,
     drawerProps,
   } = props;
-  const { message } = App.useApp();
   const firstRender = useRef<boolean>(true);
 
   const [open, setOpenInner] = useControlledState(false, props.collapse);
@@ -633,8 +619,8 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                       message.success(
                         formatMessage({ id: 'app.setting.copyinfo' }),
                       );
-                    } catch {
-                      // clipboard write may fail in insecure contexts
+                    } catch (error) {
+                      // console.log(error);
                     }
                   }}
                 >

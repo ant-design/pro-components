@@ -2,7 +2,7 @@ import { omit } from '@rc-component/util';
 import type { SwitchProps } from 'antd';
 import { Switch } from 'antd';
 import React from 'react';
-import { FieldLabel } from '../../../utils';
+import { FieldLabel } from '../../../utils/components/FieldLabel';
 import type { ProFieldFC } from '../../types';
 
 type Props = Parameters<

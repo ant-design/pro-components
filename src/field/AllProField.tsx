@@ -1,41 +1,49 @@
 import { Avatar } from 'antd';
 import React from 'react';
-import {
-  pickProProps,
-  type ProFieldTextType,
-  type ProFieldValueObjectType,
-  type ProFieldValueType,
-} from '../utils';
-import FieldCascader from './components/Cascader';
-import FieldCheckbox from './components/Checkbox';
-import FieldCode from './components/Code';
-import FieldColorPicker from './components/ColorPicker';
-import FieldDatePicker from './components/DatePicker';
-import FieldDigit from './components/Digit';
-import FieldDigitRange from './components/DigitRange';
-import FieldFromNow from './components/FromNow';
-import FieldImage from './components/Image';
+import { pickProProps } from '../utils/pickProProps';
+import type {
+  ProFieldTextType,
+  ProFieldValueObjectType,
+  ProFieldValueType,
+} from '../utils/typing';
 import FieldIndexColumn from './components/IndexColumn';
-import FieldMoney from './components/Money';
-import FieldOptions from './components/Options';
-import FieldPassword from './components/Password';
-import FieldPercent from './components/Percent';
-import FieldProgress from './components/Progress';
-import FieldRadio from './components/Radio';
-import FieldRangePicker from './components/RangePicker';
-import FieldRate from './components/Rate';
-import FieldSecond from './components/Second';
-import FieldSegmented from './components/Segmented';
-import FieldSelect from './components/Select';
-import FieldSlider from './components/Slider';
-import FieldSwitch from './components/Switch';
 import FieldText from './components/Text';
-import FieldTextArea from './components/TextArea';
-import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
-import FieldTreeSelect from './components/TreeSelect';
+import {
+  FieldCascader,
+  FieldCheckbox,
+  FieldCode,
+  FieldColorPicker,
+  FieldDatePicker,
+  FieldDigit,
+  FieldDigitRange,
+  FieldFromNow,
+  FieldImage,
+  FieldMoney,
+  FieldOptions,
+  FieldPassword,
+  FieldPercent,
+  FieldProgress,
+  FieldRadio,
+  FieldRangePicker,
+  FieldRate,
+  FieldSecond,
+  FieldSegmented,
+  FieldSelect,
+  FieldSlider,
+  FieldSwitch,
+  FieldTextArea,
+  FieldTimePicker,
+  FieldTimeRangePicker,
+  FieldTreeSelect,
+} from './FieldLoaders';
 import { wrapProFieldLight } from './internal/ProFieldLightWrapper';
 import { createProField, type ProFieldRenderText } from './ProFieldCore';
 import type { ProFieldRenderProps } from './types';
+
+const withoutEmptyText = ({
+  emptyText: _emptyText,
+  ...renderProps
+}: ProFieldRenderProps): ProFieldRenderProps => renderProps;
 
 const defaultRenderTextByObject = (
   text: ProFieldTextType,
@@ -436,7 +444,9 @@ export const defaultRenderRead: ProFieldRenderText = (
     if (
       typeof dataValue !== 'boolean' &&
       typeof dataValue !== 'number' &&
-      !dataValue
+      (dataValue == null ||
+        dataValue === '' ||
+        (Array.isArray(dataValue) && dataValue.length === 0))
     ) {
       const { fieldProps, render } = props;
       if (render) {
@@ -446,31 +456,43 @@ export const defaultRenderRead: ProFieldRenderText = (
     }
   }
 
-  delete props.emptyText;
+  const renderProps = withoutEmptyText(props);
 
   if (typeof valueType === 'object') {
-    return defaultRenderTextByObject(dataValue, valueType, props);
+    return defaultRenderTextByObject(dataValue, valueType, renderProps);
   }
 
   const customValueTypeConfig =
     valueTypeMap && valueTypeMap[valueType as string];
   if (customValueTypeConfig) {
-    delete props.ref;
-    return customValueTypeConfig.render?.(
+    const {
+      render: _render,
+      formItemRender: _formItemRender,
+      ...customProps
+    } = renderProps;
+    const readDom = customValueTypeConfig.render?.(
       dataValue,
       {
         text: dataValue as React.ReactNode,
-        ...props,
+        ...customProps,
         mode: mode || 'read',
       },
       <>{dataValue}</>,
     );
+    if (renderProps.render && valueType !== 'option') {
+      return renderProps.render(
+        dataValue,
+        { text: dataValue as React.ReactNode, ...customProps },
+        readDom as React.JSX.Element,
+      );
+    }
+    return readDom;
   }
 
   return renderDefaultValueTypeLeaf(
     dataValue,
     valueType as ProFieldValueType,
-    props,
+    renderProps,
   );
 };
 
@@ -481,30 +503,42 @@ export const defaultRenderEdit: ProFieldRenderText = (
   props,
   valueTypeMap,
 ) => {
-  delete props.emptyText;
+  const renderProps = withoutEmptyText(props);
 
   if (typeof valueType === 'object') {
-    return defaultRenderTextByObject(dataValue, valueType, props);
+    return defaultRenderTextByObject(dataValue, valueType, renderProps);
   }
 
   const customValueTypeConfig =
     valueTypeMap && valueTypeMap[valueType as string];
   if (customValueTypeConfig) {
-    delete props.ref;
-    return customValueTypeConfig.formItemRender?.(
+    const {
+      render: _render,
+      formItemRender: _formItemRender,
+      ...customProps
+    } = renderProps;
+    const dom = customValueTypeConfig.formItemRender?.(
       dataValue,
       {
         text: dataValue as React.ReactNode,
-        ...props,
+        ...customProps,
       },
       <>{dataValue}</>,
     );
+    if (renderProps.formItemRender) {
+      return renderProps.formItemRender(
+        dataValue,
+        { text: dataValue as React.ReactNode, ...customProps },
+        dom as React.JSX.Element,
+      );
+    }
+    return dom;
   }
 
   return renderDefaultValueTypeLeaf(
     dataValue,
     valueType as ProFieldValueType,
-    props,
+    renderProps,
   );
 };
 
@@ -521,9 +555,7 @@ export const defaultRenderText: ProFieldRenderText = (
     : defaultRenderRead(dataValue, valueType, props, valueTypeMap);
 };
 
-export const ProField = createProField(
-  { renderRead: defaultRenderRead, renderEdit: defaultRenderEdit },
-  {
-    pickProPropsWithValueTypeMap: true,
-  },
-);
+export const ProField = createProField({
+  renderRead: defaultRenderRead,
+  renderEdit: defaultRenderEdit,
+});

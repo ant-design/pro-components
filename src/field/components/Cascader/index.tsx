@@ -7,11 +7,12 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { useIntl } from '../../../provider';
+import { useFieldIntl as useIntl } from '../../internal/useFieldIntl';
 import {
   isProFieldEditOnlyMode,
   isProFieldReadMode,
 } from '../../internal/fieldMode';
+import { optionsToValueEnum } from '../../internal/optionsToValueEnum';
 import type { ProFieldFC } from '../../types';
 import { useFieldFetchData } from '../Select';
 import { FieldCascaderEdit } from './FieldCascaderEdit';
@@ -47,30 +48,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
 
   const optionsValueEnum = useMemo(() => {
     if (!isProFieldReadMode(mode)) return;
-    const {
-      value: valuePropsName = 'value',
-      label: labelPropsName = 'label',
-      children: childrenPropsName = 'children',
-    } = rest.fieldProps?.fieldNames || {};
-
-    const valuesMap = new Map();
-
-    const traverseOptions = (_options: typeof options) => {
-      if (!_options?.length) {
-        return valuesMap;
-      }
-
-      const length = _options.length;
-      let i = 0;
-      while (i < length) {
-        const cur = _options[i++];
-        valuesMap.set(cur[valuePropsName], cur[labelPropsName]);
-        traverseOptions(cur[childrenPropsName]);
-      }
-      return valuesMap;
-    };
-
-    return traverseOptions(options);
+    return optionsToValueEnum(options, rest.fieldProps?.fieldNames);
   }, [mode, options, rest.fieldProps?.fieldNames]);
 
   if (isProFieldReadMode(mode)) {

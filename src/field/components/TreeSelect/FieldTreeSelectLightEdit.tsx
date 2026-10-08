@@ -3,7 +3,7 @@ import { Spin, TreeSelect } from 'antd';
 import { clsx } from 'clsx';
 import React from 'react';
 import type { IntlType, ProFieldFCRenderProps } from '../../../provider';
-import { FieldLabel } from '../../../utils';
+import { FieldLabel } from '../../../utils/components/FieldLabel';
 import type { TreeSelectFieldProps } from './types';
 
 type TreeSelectShowSearchObject = Exclude<

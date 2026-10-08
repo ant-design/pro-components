@@ -3,7 +3,7 @@ import { Spin, TreeSelect } from 'antd';
 import { clsx } from 'clsx';
 import React from 'react';
 import type { IntlType, ProFieldFCRenderProps } from '../../../provider';
-import { FieldLabel } from '../../../utils';
+import { FieldLabel } from '../../../utils/components/FieldLabel';
 import type { TreeSelectFieldProps } from './types';
 
 type TreeSelectShowSearchObject = Exclude<
@@ -83,6 +83,9 @@ export function FieldTreeSelectEdit({
         placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
         {...fieldProps}
         treeData={options}
+        // #8876: onOpenChange 必须放在 {...fieldProps} 之后,
+        // 否则用户传入的 onOpenChange 会覆盖内部处理器导致 open 状态不再更新,
+        // 下拉框无法展开。内部处理器会先转发用户的 onOpenChange 再同步 open 状态。
         onOpenChange={(isOpen) => {
           fieldProps?.onOpenChange?.(isOpen);
           setOpen(isOpen);

@@ -37,7 +37,7 @@ export type ProFieldLightProps = {
 /** Value type by function */
 export type ProFieldValueTypeFunction<T> = (item: T) => ProFieldValueTypeInput;
 
-/** 传给各模式渲染函数（defaultRenderRead/Edit、pureRenderRead/Edit 等）的合并 props */
+/** 传给 ProField 读写渲染函数的合并 props */
 export type ProFieldRenderProps = Omit<
   ProFieldFCRenderProps,
   'text' | 'placeholder'
@@ -57,7 +57,7 @@ export type ProFieldRenderProps = Omit<
     [key: string]: any;
   };
 
-/** ProField / PureProField 对外 props */
+/** ProField 对外 props */
 export type ProFieldPropsType = {
   text?: ProFieldTextType;
   valueType?: ProFieldValueTypeInput;

@@ -1,4 +1,4 @@
-import type { FormProps } from 'antd';
+﻿import type { FormProps } from 'antd';
 import { Form } from 'antd';
 import React, {
   useCallback,
@@ -13,6 +13,7 @@ import {
   LabelIconTip,
   omitUndefined,
   runFunction,
+  stringify,
   useDeepCompareMemo,
   useLatest,
   useReactiveRef,
@@ -42,7 +43,9 @@ const FormLayoutType = {
   QueryFilter,
   LightFilter,
   StepForm: ProStepsForm.StepForm,
-  StepsForm: StepsForm,
+  StepsForm: (props: any) => (
+    <StepsForm {...props} SchemaForm={BetaSchemaForm} />
+  ),
   ModalForm,
   Embed,
   Form: ProForm,
@@ -62,10 +65,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     layoutType = 'Form',
     type = 'form',
     action,
-    // antd Form returns a new values object for a real field update. Comparing
-    // the references preserves the existing "rebuild on any change" behavior
-    // without serializing the complete form twice for every keystroke.
-    shouldUpdate = (pre, next) => pre !== next,
+    shouldUpdate = (pre, next) => stringify(pre) !== stringify(next),
     formRef: propsFormRef,
     ...restProps
   } = props;

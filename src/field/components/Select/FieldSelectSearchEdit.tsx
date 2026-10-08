@@ -74,7 +74,7 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
         };
       });
     };
-    return normalize(options);
+    return normalize(options ?? []);
   }, [fieldProps?.fieldNames, fieldProps?.value, options]);
 
   const dom = (

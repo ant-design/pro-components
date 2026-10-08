@@ -1,6 +1,6 @@
 import type { InputNumberProps } from 'antd';
 import React from 'react';
-import { FieldDigit } from '../../../field';
+import FieldDigit from '../../../field/components/Digit';
 import { ProConfigProvider } from '../../../provider';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';

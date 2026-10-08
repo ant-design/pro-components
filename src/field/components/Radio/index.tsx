@@ -1,6 +1,6 @@
 ﻿import { ConfigProvider, Form, Spin } from 'antd';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
-import { useStyle } from '../../../utils';
+import { useStyle } from '../../../provider/useStyle';
 import {
   isProFieldEditOnlyMode,
   isProFieldReadMode,

@@ -115,6 +115,8 @@
     "changelog": "node ./scripts/changelogs.mjs",
     "check:build-outputs": "node ./scripts/checkBuildOutputs.mjs",
     "check:declarations": "node ./scripts/checkDeclarations.mjs",
+    "check:cycles": "node ./scripts/checkCircularDependencies.mjs",
+    "check:field-bundle": "node ./scripts/checkFieldTreeShaking.mjs",
     "check:published-types": "tsc -p ./scripts/fixtures/published-types/tsconfig.json",
     "check:safety": "node ./scripts/checkRepositorySafety.mjs",
     "checkPublish": "node ./scripts/checkPublish.mjs",
@@ -127,7 +129,7 @@
     "docs:preview": "pnpm docs preview",
     "docs:create": "pnpm docs create",
     "docs:check": "pnpm docs check",
-    "prepublishOnly": "pnpm run check:safety && pnpm run test && pnpm run build && pnpm run check:build-outputs && pnpm run check:declarations && pnpm run check:published-types",
+    "prepublishOnly": "pnpm run check:safety && pnpm run check:cycles && pnpm run check:field-bundle && pnpm run test && pnpm run build && pnpm run check:build-outputs && pnpm run check:declarations && pnpm run check:published-types",
     "lint": "oxlint --type-aware --type-check .",
     "lint:check": "oxlint .",
     "lint:fix": "oxlint --fix .",
@@ -165,7 +167,8 @@
     "dayjs": "^1.11.23",
     "es-toolkit": "^1.52.0",
     "path-to-regexp": "^8.4.2",
-    "safe-stable-stringify": "^2.5.0"
+    "safe-stable-stringify": "^2.5.0",
+    "swr": "^2.5.1"
   },
   "devDependencies": {
     "@ant-design/antd-theme-variable": "^1.0.0",

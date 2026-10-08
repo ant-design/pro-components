@@ -2,7 +2,7 @@
 import dayjs from 'dayjs';
 import React from 'react';
 import type { IntlType } from '../../../provider';
-import { parseValueToDay } from '../../../utils';
+import { parseValueToDay } from '../../../utils/parseValueToMoment';
 import type { ProFieldFC } from '../../types';
 
 type Props = Parameters<
@@ -42,11 +42,7 @@ export function FieldDatePickerEdit(props: Props, ref: React.Ref<unknown>) {
    * 如 '23/3/2024' + format: 'DD/MM/YYYY',不传 formatter 时
    * dayjs 走 ISO 解析会得到 Invalid Date。
    */
-  const parserFormat =
-    typeof fieldProps.format === 'string' || Array.isArray(fieldProps.format)
-      ? fieldProps.format
-      : format;
-  const dayValue = parseValueToDay(value, parserFormat) as dayjs.Dayjs;
+  const dayValue = parseValueToDay(value, format) as dayjs.Dayjs;
 
   const dom = (
     <DatePicker
