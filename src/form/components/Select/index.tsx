@@ -2,6 +2,7 @@ import type { RefSelectProps, SelectProps } from 'antd';
 import React, { useContext } from 'react';
 import FieldSelect from '../../../field/components/Select';
 import { ProConfigProvider } from '../../../provider';
+import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
 import { runFunction } from '../../../utils';
 import type {
   BaseOptionType,
@@ -13,6 +14,13 @@ import type {
   ProFormFieldRemoteProps,
 } from '../../typing';
 import ProFormField from '../Field';
+
+const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
+  select: {
+    render: (text, props) => <FieldSelect {...props} text={text} />,
+    formItemRender: (text, props) => <FieldSelect {...props} text={text} />,
+  },
+};
 
 export type ProFormSelectProps<
   ValueType = any,
@@ -82,16 +90,7 @@ const ProFormSelectComponents = <T, OptionType extends BaseOptionType = any>(
 ) => {
   const context = useContext(FieldContext);
   return (
-    <ProConfigProvider
-      valueTypeMap={{
-        select: {
-          render: (text, props) => <FieldSelect {...props} text={text} />,
-          formItemRender: (text, props) => (
-            <FieldSelect {...props} text={text} />
-          ),
-        },
-      }}
-    >
+    <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
       <ProFormField<any>
         valueEnum={runFunction(valueEnum)}
         request={request}
@@ -152,18 +151,7 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
     };
     const context = useContext(FieldContext);
     return (
-      <ProConfigProvider
-        valueTypeMap={{
-          select: {
-            render: (text, valueTypeProps) => (
-              <FieldSelect {...valueTypeProps} text={text} />
-            ),
-            formItemRender: (text, valueTypeProps) => (
-              <FieldSelect {...valueTypeProps} text={text} />
-            ),
-          },
-        }}
-      >
+      <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
         <ProFormField<any>
           valueEnum={runFunction(valueEnum)}
           request={request}

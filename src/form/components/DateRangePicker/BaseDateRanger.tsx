@@ -97,16 +97,18 @@ export const BaseDateRanger: React.FC<
       },
       [mergedFieldProps, valueType],
     );
+    const valueTypeMap = useMemo(
+      () => ({
+        [valueType]: {
+          render: renderFieldRangePicker,
+          formItemRender: renderFieldRangePicker,
+        },
+      }),
+      [valueType, renderFieldRangePicker],
+    );
 
     return (
-      <ProConfigProvider
-        valueTypeMap={{
-          [valueType]: {
-            render: renderFieldRangePicker,
-            formItemRender: renderFieldRangePicker,
-          },
-        }}
-      >
+      <ProConfigProvider valueTypeMap={valueTypeMap}>
         <ProField
           fieldProps={{
             getPopupContainer: context.getPopupContainer,

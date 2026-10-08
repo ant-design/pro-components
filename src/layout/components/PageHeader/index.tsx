@@ -2,9 +2,9 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import ResizeObserver from '@rc-component/resize-observer';
 import type { AvatarProps, BreadcrumbProps, TagType } from 'antd';
 import { Avatar, Breadcrumb, Button, ConfigProvider, Space } from 'antd';
-import type { DirectionType } from 'antd/lib/config-provider';
 import { clsx } from 'clsx';
 import React from 'react';
+import type { DirectionType } from '../../../utils/antdTypes';
 import type { ContentWidth } from '../../defaultSettings';
 import useStyle from './style';
 
@@ -144,9 +144,7 @@ const renderFooter = (
   hashId: string,
 ) => {
   if (footer) {
-    return (
-      <div className={clsx(`${prefixCls}-footer`, hashId)}>{footer}</div>
-    );
+    return <div className={clsx(`${prefixCls}-footer`, hashId)}>{footer}</div>;
   }
   return null;
 };

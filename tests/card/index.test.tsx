@@ -5,7 +5,6 @@ import { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { genProCardStyle } from '../../src/card/components/Card/style';
 
-vi.mock('antd/lib/grid/hooks/useBreakpoint');
 
 afterEach(() => {
   cleanup();

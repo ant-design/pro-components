@@ -12,7 +12,7 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { Button, ConfigProvider, theme } from 'antd';
-import en_US from 'antd/lib/locale/en_US';
+import en_US from 'antd/locale/en_US';
 import React, { useEffect, useState } from 'react';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';

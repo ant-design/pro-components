@@ -120,6 +120,12 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
       guardedActionRef.current = wrapAction;
     }
 
+    // 同步给外层 ProFormList 的 actionRef，保证 actionRef.add/remove
+    // 与内置按钮走同一套 guard 与回调（#8939）
+    if (guardedActionRef) {
+      guardedActionRef.current = wrapAction;
+    }
+
     return wrapAction;
   }, [
     action,

@@ -3,20 +3,13 @@
  * 保持与 antd List 相同的 DOM 结构及类名，以便复用 antd 的 list 样式
  */
 import { ConfigProvider, Empty, Grid, Pagination, Spin } from 'antd';
-import type { PaginationConfig } from 'antd/lib/pagination';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
+import type { PaginationConfig } from '../utils/antdTypes';
 
 export type ColumnCount = number;
 export type ColumnType =
-  | 'gutter'
-  | 'column'
-  | 'xs'
-  | 'sm'
-  | 'md'
-  | 'lg'
-  | 'xl'
-  | 'xxl';
+  'gutter' | 'column' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 export interface ListGridType {
   gutter?: number | [number, number];
   column?: ColumnCount;

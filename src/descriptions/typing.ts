@@ -1,5 +1,4 @@
 import type { DescriptionsProps, FormProps } from 'antd';
-import type { DescriptionsItemProps as AntdDescriptionsCellProps } from 'antd/es/descriptions/Item';
 import type React from 'react';
 import type { ProFieldFCMode } from '../provider';
 import type {
@@ -11,9 +10,10 @@ import type {
   RowEditableConfig,
   UseEditableMapUtilType,
 } from '../utils';
+import type { DescriptionsItemProps as AntdDescriptionsCellProps } from '../utils/antdTypes';
 import type { ProDescriptionsRequestResult } from './useFetchData';
 
-/** antd Descriptions 单元格 props，与 `antd/es/descriptions/Item` 对齐 */
+/** antd Descriptions 单元格 props，与 `antd` 对齐 */
 export type DescriptionsItemProps = AntdDescriptionsCellProps;
 
 type ProDescriptionsCellLayout = Omit<

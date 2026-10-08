@@ -1,8 +1,6 @@
 import { omit, useControlledState, warning } from '@rc-component/util';
 import type { BreadcrumbProps, WatermarkProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
-import type { AnyObject } from 'antd/lib/_util/type';
-import type { ItemType } from 'antd/lib/breadcrumb/Breadcrumb';
 import { clsx } from 'clsx';
 import type { CSSProperties } from 'react';
 import React, {
@@ -21,6 +19,10 @@ import {
   useRefFunction,
   useRequestData,
 } from '../utils';
+import type {
+  AnyObject,
+  BreadcrumbItemType as ItemType,
+} from '../utils/antdTypes';
 import { Logo } from './assert/Logo';
 import { DefaultFooter as Footer } from './components/Footer';
 import type { HeaderViewProps } from './components/Header';

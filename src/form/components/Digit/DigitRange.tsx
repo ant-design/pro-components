@@ -2,8 +2,28 @@
 import React from 'react';
 import FieldDigitRange from '../../../field/components/DigitRange';
 import { ProConfigProvider } from '../../../provider';
+import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
+
+const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
+  digitRange: {
+    render: (text, props) => (
+      <FieldDigitRange
+        {...props}
+        text={text}
+        placeholder={props.placeholder as string}
+      />
+    ),
+    formItemRender: (text, props) => (
+      <FieldDigitRange
+        {...props}
+        text={text}
+        placeholder={props.placeholder as string}
+      />
+    ),
+  },
+};
 
 export type Value = string | number | undefined;
 
@@ -36,26 +56,7 @@ const ProFormDigit: React.ForwardRefRenderFunction<
   ProFormDigitRangeProps
 > = ({ fieldProps, proFieldProps, ...rest }, ref) => {
   return (
-    <ProConfigProvider
-      valueTypeMap={{
-        digitRange: {
-          render: (text, props) => (
-            <FieldDigitRange
-              {...props}
-              text={text}
-              placeholder={props.placeholder as string}
-            />
-          ),
-          formItemRender: (text, props) => (
-            <FieldDigitRange
-              {...props}
-              text={text}
-              placeholder={props.placeholder as string}
-            />
-          ),
-        },
-      }}
-    >
+    <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
       <ProFormField
         valueType="digitRange"
         fieldProps={{

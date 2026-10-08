@@ -1,5 +1,5 @@
-import type { WeekPickerProps } from 'antd/lib/date-picker';
 import React from 'react';
+import type { WeekPickerProps } from '../../../utils/antdTypes';
 import type { ProFormFieldItemProps } from '../../typing';
 import { BaseDatePicker } from './BaseDatePicker';
 

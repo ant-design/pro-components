@@ -1,7 +1,7 @@
 import { Button, ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext } from 'react';
-import { useIntl } from '../../../provider';
+import { useIntl } from '../../../provider/useIntl';
 import { useStyle } from './style';
 
 import type { LightFilterFooterRender } from '../../../form/typing';

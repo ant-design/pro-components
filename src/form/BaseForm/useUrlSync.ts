@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { runFunction, useRefFunction, useUrlSearchParams } from '../../utils';
-import type { BaseFormProps } from './BaseForm';
+import type { SyncToUrl } from './typing';
 
 /**
  * 将 syncToUrl 的 boolean | function 形式统一转为实际参数对象。
  * 纯函数，方便单独测试。
  */
 export const genUrlSyncParams = (
-  syncUrl: BaseFormProps<any>['syncToUrl'],
+  syncUrl: SyncToUrl<any> | undefined,
   params: Record<string, any>,
   type: 'get' | 'set',
 ): Record<string, any> => {

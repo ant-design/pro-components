@@ -16,10 +16,8 @@ export type ProFormProps<
   U = Record<string, any>,
 > = Omit<FormProps<T>, 'onFinish'> & CommonFormProps<T, U>;
 
-function ProForm<T = Record<string, any>>(
-  props: ProFormProps<T> & {
-    children?: React.ReactNode | React.ReactNode[];
-  },
+function ProForm<T = Record<string, any>, U = Record<string, any>>(
+  props: ProFormProps<T, U>,
 ) {
   const contentRender = useCallback(
     (
