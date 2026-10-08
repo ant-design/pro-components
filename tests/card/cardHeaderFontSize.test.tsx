@@ -13,23 +13,6 @@ afterEach(() => {
  * #8929 ProCard 消费 ConfigProvider components.Card 组件 token
  */
 describe('ProCard headerFontSize token (#8929)', () => {
-  const getCardTitleCss = (): string => {
-    const normalize = (s: string) => s.replace(/\s+/g, '');
-    for (const sheet of Array.from(document.styleSheets)) {
-      try {
-        for (const rule of Array.from(sheet.cssRules)) {
-          const css = normalize(rule.cssText);
-          if (css.includes('ant-pro-card-title')) {
-            return css;
-          }
-        }
-      } catch {
-        // ignore cross-origin sheets
-      }
-    }
-    return '';
-  };
-
   it('components.Card.headerFontSize 优先于全局 fontSizeLG', async () => {
     render(
       <ConfigProvider
@@ -41,9 +24,23 @@ describe('ProCard headerFontSize token (#8929)', () => {
         <ProCard title="Part Info" />
       </ConfigProvider>,
     );
-    const css = getCardTitleCss();
-    // headerFontSize=14 覆盖默认的 fontSizeLG=20
-    expect(css).toContain('font-size:14px');
-    expect(css).not.toContain('font-size:20px');
+    // 主路径 ProCard 渲染走 antd Card；antd Card 消费 components.Card.headerFontSize
+    // 生效值会落在 CSS 变量上（--ant-card-header-font-size 等），直接断言计算样式
+    const titleEl = document.querySelector('.ant-card-head-title');
+    expect(titleEl).toBeTruthy();
+    const computed = window.getComputedStyle(titleEl as HTMLElement);
+    expect(computed.fontSize).toBe('14px');
+  });
+
+  it('未设置组件 token 时回退全局 fontSizeLG', async () => {
+    render(
+      <ConfigProvider theme={{ token: { fontSizeLG: 20 } }}>
+        <ProCard title="Part Info" />
+      </ConfigProvider>,
+    );
+    const titleEl = document.querySelector('.ant-card-head-title');
+    expect(titleEl).toBeTruthy();
+    const computed = window.getComputedStyle(titleEl as HTMLElement);
+    expect(computed.fontSize).toBe('20px');
   });
 });

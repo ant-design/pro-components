@@ -274,7 +274,12 @@ const CellRenderFromItem = <T extends AnyObject>(
         key={formItemName.join('-')}
         name={formItemName}
         {...formItemProps}
-        errorType={columnProps?.errorType ?? 'popover'}
+        // errorType 同时支持列级与 formItemProps 传入，formItemProps 优先级更高
+        errorType={
+          (formItemProps.errorType as 'popover' | 'default') ??
+          columnProps?.errorType ??
+          'popover'
+        }
         popoverProps={{
           getPopupContainer:
             (formContext.getPopupContainer as PopoverProps['getPopupContainer']) ||

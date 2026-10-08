@@ -78,13 +78,12 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     contentRender,
     onFinishHandle,
     resetFields,
-    onFormInit,
+    onFormMount,
   } = useOverlayForm<T>({
     propsOpen,
     onOpenChange,
     formRef,
     propsFormRef: rest.formRef,
-    onInit: rest.onInit,
     destroyOnHidden: modalProps?.destroyOnHidden,
     submitTimeout,
     onFinish,
@@ -145,7 +144,17 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
           layout="vertical"
           {...rest}
           formRef={formRef}
-          onInit={onFormInit}
+          onInit={(_, form) => {
+            if (rest.formRef) {
+              (
+                rest.formRef as React.MutableRefObject<ProFormInstance<T>>
+              ).current = form;
+            }
+            rest?.onInit?.(_, form);
+            formRef.current = form;
+            // #8920 通知 useOverlayForm form 已挂载，flush 缓冲的 onOpenChange
+            onFormMount();
+          }}
           submitter={submitterConfig}
           onFinish={async (values) => {
             // fix: #6006 result 为 true 时弹窗关闭由 onFinishHandle 内部处理，

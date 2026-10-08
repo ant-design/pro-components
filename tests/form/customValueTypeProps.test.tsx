@@ -52,8 +52,10 @@ describe('#9148 custom valueType formItemRender props', () => {
     render(<App />);
 
     expect(formItemRender).toHaveBeenCalled();
-    const call = formItemRender.mock.calls[0];
-    const [, props] = call;
+    const [firstCall] = formItemRender.mock.calls as unknown as Array<
+      [any, { request?: unknown; fieldProps?: { placeholder?: string } }]
+    >;
+    const props = firstCall?.[1];
     // request 应该在 props 中可获取
     expect(props?.request).toBe(request);
     // fieldProps 中的自定义内容应该可获取

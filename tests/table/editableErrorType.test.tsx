@@ -1,10 +1,11 @@
 import {
   EditableProTable,
+  type EditableFormInstance,
   type ProColumns,
 } from '@ant-design/pro-components';
-import type { EditableFormInstance } from '@ant-design/pro-components';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
+import { describe, expect, it } from 'vitest';
 
 type DataSourceType = {
   id: number;

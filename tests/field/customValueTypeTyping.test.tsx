@@ -19,7 +19,8 @@ describe('custom valueType via ProConfigProvider (#8366)', () => {
   it('ProField renders custom valueType from context valueTypeMap', () => {
     const { getByTestId } = render(
       <ProConfigProvider valueTypeMap={valueTypeMap}>
-        <ProField mode="edit" valueType="lookup" text="A-01" />
+        {/* 自定义 valueType 不在内置类型中，断言运行时行为即可 */}
+        <ProField mode="edit" valueType={'lookup' as any} text="A-01" />
       </ProConfigProvider>,
     );
     expect(getByTestId('lookup-input')).toBeTruthy();
