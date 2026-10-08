@@ -141,7 +141,8 @@ export function useActionType<T>(
     },
     fullScreen: () => props.fullScreen(),
     clearSelected: () => props.onCleanSelected(),
-    setPageInfo: (rest) => action.setPageInfo(rest),
+    setPageInfo: (rest: Parameters<typeof action.setPageInfo>[0]) =>
+      action.setPageInfo(rest),
     // 透出 scrollTo（如上层提供）
     scrollTo: props.scrollTo,
   });

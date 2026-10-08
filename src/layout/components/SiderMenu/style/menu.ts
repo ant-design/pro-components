@@ -151,7 +151,6 @@ export const genProLayoutBaseMenuStyle: GenerateStyle<
           // 与菜单项 colorTextMenu 一致地从 layout token 取值
           color:
             menuToken?.colorTextMenuSecondary ||
-            token.colorTextMenuSecondary ||
             token.colorTextLabel,
           [token.iconCls]: {
             marginInlineEnd: 8,
