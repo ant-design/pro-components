@@ -16,7 +16,7 @@ jobs:
       - run: node scripts/checkRepositorySafety.mjs
       - uses: pnpm/action-setup@v2
         with:
-          version: 10.13.1
+          version: 12.10.1
       - uses: actions/setup-node@v4
         with:
           node-version: 22

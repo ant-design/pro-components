@@ -54,7 +54,7 @@
 ### 开发环境要求
 
 - **Node.js**: >= 18.12.0（推荐 LTS 版本）
-- **包管理器**: pnpm（项目使用 `packageManager: "pnpm@9.6.0"`）
+- **包管理器**: pnpm（项目使用 `packageManager: "pnpm@12.10.1"`）
 - **浏览器兼容性**: 现代浏览器（Chrome 80+、Edge、Firefox、Safari）
 - **编辑器**: VS Code（推荐）或其他支持 TypeScript 的编辑器
 
