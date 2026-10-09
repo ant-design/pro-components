@@ -6,6 +6,11 @@
   },
   {
     "type": "file",
+    "name": "intro",
+    "label": "About ProComponents"
+  },
+  {
+    "type": "file",
     "name": "api-changes",
     "label": "API Changes"
   },

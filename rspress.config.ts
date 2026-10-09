@@ -28,6 +28,7 @@ const DEMO_HELPER_ALIASES = {
 
 export default defineConfig({
   root: 'site',
+  themeDir: 'theme',
   // zh-CN 为默认语言：路由无 /zh-CN 前缀，与旧 dumi 站点 URL 完全一致
   lang: 'zh-CN',
   title: 'ProComponents',

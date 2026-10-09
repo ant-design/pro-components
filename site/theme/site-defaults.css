@@ -1,4 +1,4 @@
-/* 站点全局默认样式：由 scripts/gen-site-css.mjs 从 site/theme/*.less 与原 .dumirc.ts styles 生成 */
+/* 绔欑偣鍏ㄥ眬榛樿鏍峰紡锛氱敱 scripts/gen-site-css.mjs 浠?site/theme/*.less 涓庡師 .dumirc.ts styles 鐢熸垚 */
 
 .markdown a[target='_blank']:not(:has(svg))::after {
   content: '';
@@ -48,7 +48,7 @@
 }
 
 
-/* ── 组件文档排版（对齐原 .dumirc.ts styles 注入规则） ── */
+/* customization */
 .markdown table {
   table-layout: fixed;
 }
@@ -88,7 +88,7 @@
   line-height: 1.75;
 }
 
-/* 代码块（对齐 .dumi/global.less 暗色代码样式，Rspress 用 [data-theme='dark']） */
+/* customization */
 [data-theme='dark'] .markdown pre[class*='language-'],
 [data-theme='dark'] .markdown code[class*='language-'] {
   color: #d6e4ff;
@@ -101,7 +101,7 @@
   background: #262626;
 }
 
-/* 表格行分隔（对齐 .dumi/global.less） */
+/* customization */
 .markdown table {
   width: 100%;
   border-collapse: collapse;
@@ -120,4 +120,306 @@
 
 .markdown table tr:last-child td {
   border-bottom: none;
+}
+
+/* ============ Home Hero customization (Ant Design brand) ============ */
+
+/* customization */
+:where(html:not(.rp-dark)) {
+  --rp-home-hero-secondary-color: #13c2c2;
+  --rp-home-hero-title-bg: linear-gradient(92deg, #1677ff 10%, #13c2c2 55%, #722ed1 100%);
+  --rp-home-background-bg:
+    radial-gradient(52% 38% at 18% 6%, #1677ff24 0%, #fff0 100%),
+    radial-gradient(40% 32% at 85% 0%, #722ed11f 0%, #fff0 100%),
+    radial-gradient(60% 45% at 55% 100%, #13c2c214 0%, #fff0 100%),
+    #fff;
+  --rp-home-feature-bg: linear-gradient(160deg, #ffffff 0%, #f5f8ff 100%);
+}
+
+:where(html.rp-dark) {
+  --rp-home-hero-secondary-color: #13c2c2;
+  --rp-home-hero-title-bg: linear-gradient(92deg, #69b1ff 10%, #13c2c2 55%, #9254de 100%);
+  --rp-home-background-bg:
+    radial-gradient(52% 38% at 18% 6%, #1677ff2e 0%, #12121200 100%),
+    radial-gradient(40% 32% at 85% 0%, #722ed12e 0%, #12121200 100%),
+    radial-gradient(60% 45% at 55% 100%, #13c2c21a 0%, #12121200 100%),
+    #141414;
+  --rp-home-feature-bg: linear-gradient(160deg, #ffffff0a 0%, #ffffff05 100%);
+}
+
+/* Hero layout: centered stack (vitejs.dev style) */
+.rp-home-hero.rp-home-hero {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 64rem;
+  margin: 6rem auto 4rem;
+}
+
+.rp-home-hero .rp-home-hero__container {
+  text-align: center;
+  align-items: center;
+}
+
+.rp-home-hero .rp-home-hero__title {
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.rp-home-hero .rp-home-hero__title-brand {
+  width: auto;
+}
+
+.rp-home-hero .rp-home-hero__subtitle {
+  font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  background: var(--rp-home-hero-title-bg);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--rp-c-text-0);
+  margin-top: 0.25rem;
+}
+
+.rp-home-hero .rp-home-hero__tagline {
+  max-width: 42rem;
+  margin-top: 0.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--rp-c-text-2);
+}
+
+.rp-home-hero .rp-home-hero__badge {
+  padding: 0.375rem 0.875rem;
+  font-size: 0.8125rem;
+  border-radius: 999px;
+}
+
+/* CTA buttons: pill shape */
+.rp-home-hero .rp-home-hero__actions {
+  gap: 1rem;
+}
+
+.rp-home-hero .rp-home-hero__action {
+  border-radius: 999px;
+  font-weight: 600;
+  min-width: 8.5rem;
+  padding: 0.625rem 1.75rem;
+  justify-content: center;
+}
+
+.rp-home-hero .rp-home-hero__action[href*='github.com'] {
+  color: var(--rp-c-text-0);
+}
+
+/* customization */
+@keyframes pc-hero-pulse {
+  0% {
+    box-shadow: 0 0 0 0 #1677ff33;
+  }
+
+  70% {
+    box-shadow: 0 0 0 6px #1677ff00;
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 #1677ff00;
+  }
+}
+
+.rp-home-hero .rp-home-hero__badge {
+  animation: pc-hero-pulse 2.4s ease-out infinite;
+}
+
+/* customization */
+@media (prefers-reduced-motion: reduce) {
+  .rp-home-hero .rp-home-hero__badge {
+    animation: none;
+  }
+}
+
+/* customization */
+.rp-home-feature.rp-home-feature {
+  gap: 1rem;
+  padding: 0 1.25rem 2rem;
+}
+
+.rp-home-feature .rp-home-feature__card {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px #0f0f0f0d;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.rp-home-feature .rp-home-feature__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px #0f1c3d1f;
+  border-color: #1677ff66;
+  color: var(--rp-c-text-0);
+}
+
+.rp-home-feature .rp-home-feature__title-wrapper {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.rp-home-feature .rp-home-feature__icon {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border-radius: 0.75rem;
+  border-width: 1px;
+}
+
+.rp-home-feature .rp-home-feature__title {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.rp-home-feature .rp-home-feature__detail {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* customization */
+.rp-home-footer.rp-home-footer {
+  padding-bottom: 3rem;
+}
+
+/* Illustrated gallery-style homepage hero. */
+.rp-home-hero.rp-home-hero {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  height: 350px;
+  margin: 0;
+  padding: 82px 20px 0;
+  overflow: hidden;
+  background: #fa4d80 url('../../public/hero-illustration.png') center 48% / cover no-repeat;
+}
+
+.rp-home-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 12, 52, 0.18);
+  pointer-events: none;
+}
+
+.rp-home-hero .rp-home-hero__container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(15, 12, 52, 0.25);
+}
+
+.rp-home-hero .rp-home-hero__badge,
+.rp-home-hero .rp-home-hero__actions { display: none; }
+
+.rp-home-hero .rp-home-hero__title,
+.rp-home-hero .rp-home-hero__title-brand,
+.rp-home-hero .rp-home-hero__subtitle,
+.rp-home-hero .rp-home-hero__tagline {
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+}
+
+.rp-home-hero .rp-home-hero__title-brand { background: none; }
+
+.rp-home-hero .rp-home-hero__title {
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.2;
+}
+
+.rp-home-hero .rp-home-hero__subtitle {
+  margin-top: 4px;
+  font-size: clamp(18px, 2.2vw, 24px);
+  background: none;
+}
+
+.rp-home-hero .rp-home-hero__tagline { display: none; }
+
+.pc-home-discovery {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: -32px auto 60px;
+}
+
+.pc-home-search {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 64px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(31, 30, 47, 0.15);
+}
+
+.pc-home-search button {
+  display: grid;
+  place-items: center;
+  flex: 0 0 58px;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #999;
+  cursor: pointer;
+}
+
+.pc-home-search svg { width: 20px; height: 20px; }
+
+.pc-home-search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #24232c;
+  font-size: 16px;
+}
+
+.pc-home-search select {
+  width: 140px;
+  height: 32px;
+  margin-right: 16px;
+  padding-left: 20px;
+  border: 0;
+  border-left: 1px solid #e7e7e7;
+  outline: 0;
+  background: #fff;
+  color: #24232c;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pc-home-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  margin-top: 32px;
+  color: #777;
+  font-size: 14px;
+}
+
+.pc-home-suggestions a { color: #c84977; }
+.pc-home-suggestions a:hover { color: #a83261; }
+
+@media (max-width: 767px) {
+  .rp-home-hero.rp-home-hero { height: 310px; padding-top: 76px; background-position: 56% center; }
+  .pc-home-discovery { margin: -28px 16px 50px; }
+  .pc-home-search { height: 56px; }
+  .pc-home-search select { width: 96px; margin-right: 8px; padding-left: 8px; }
+  .pc-home-suggestions { margin-top: 24px; }
 }
