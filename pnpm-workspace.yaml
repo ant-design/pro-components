@@ -17,3 +17,10 @@ overrides:
   braces: '>=3.0.3'
   node-fetch: 2.7.0
   esbuild: '>=0.25.0'
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  core-js: false
+  core-js-pure: false
+  esbuild: true
+  yorkie: true
