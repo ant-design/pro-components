@@ -367,6 +367,10 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const headerCollapsible =
     collapsible === true || collapsible === 'header';
 
+  // 无底边 header 的紧凑留白：对齐 legacy 的 paddingBlock 取值（small 用 paddingXS）
+  const headerBlockPadding =
+    size === 'small' ? token.paddingXS : token.padding;
+
   // tabs 继续走 Pro API + antd Tabs，不迁到 Card.tabList
   const tabsNode = tabs ? (
     <Tabs
@@ -437,9 +441,18 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         styles={{
           header: {
             ...mergedStyles.header,
-            // Pro 默认无 header 底边；仅 headerBordered / inner 保留
+            // Pro 默认无 header 底边；仅 headerBordered / inner 保留 antd 皮肤。
+            // 无底边时须同步压缩垂直留白：antd head 靠 minHeight 撑高（标题上下各约
+            // 一个 padding），去掉边框后这段空隙会与 body 的 paddingBlockStart 叠加，
+            // 导致 title 与内容距离过大。对齐 legacy 布局：header 底部不留空。
             ...(!headerBordered && type !== 'inner'
-              ? { borderBottom: 'none' }
+              ? {
+                  borderBottom: 'none',
+                  minHeight: 'auto',
+                  paddingBlockStart: headerBlockPadding,
+                  // 收起后 body 不可见，补回底部 padding 避免标题贴底（对齐 legacy collapse 规则）
+                  paddingBlockEnd: collapsed ? headerBlockPadding : 0,
+                }
               : null),
             ...(headerCollapsible ? { cursor: 'pointer' } : null),
           },
