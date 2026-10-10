@@ -5,12 +5,18 @@ import {
 } from '@ant-design/pro-components';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 
 type DataSourceType = {
   id: number;
   title?: string;
 };
+
+// popover / 延迟交互在 unmount 后仍挂有 useDelayState 定时器（~100ms），
+// 等它执行完再结束用例，避免定时器在测试环境销毁后触发 setState 报 "window is not defined"
+afterEach(async () => {
+  await new Promise((resolve) => setTimeout(resolve, 200));
+});
 
 const requiredColumns = (formItemProps: any): ProColumns<DataSourceType>[] => [
   {
