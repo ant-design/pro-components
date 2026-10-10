@@ -1,11 +1,28 @@
 # Changelog
 
-## 未发布
+## [3.1.15-7] - 2026-10-10
 
 ### 🐛 问题修复
 
 - ProCard
-  - 🐞 未传 `variant` 时透传给 antd Card，跟随 `ConfigProvider` 的 `card.variant` / 全局 `variant`（不再写死 `outlined`）
+  - 🐞 修复无底边 header（默认、未开 `headerBordered`）时 title 与内容间距过大：antd Card head 靠 `minHeight` 撑高，仅去掉边框后标题下方空隙会与 body padding 叠加；现对齐 legacy 紧凑布局（`minHeight: auto`、底部留白 0、small 用 `paddingXS`），收起时补回底部留白避免标题贴底。`headerBordered` / `inner` 保持 antd 皮肤不变 [6f62df36e](https://github.com/ant-design/pro-components/commit/6f62df36e)
+  - 🐞 修复 `tabs` + `loading` 时骨架屏紧贴标题：tabs 场景 body padding 由组件内置置 0，loading 骨架现自带内容区同款 padding（`paddingLG`）；布局壳 `split` / 嵌套 + `loading` 时保留 body padding，避免 antd 骨架贴边
+
+### ⚡️ 性能
+
+- ⚡️ 打破 Form 类型循环以支持 tree shaking，并将字段值类型映射拆分为异步分包，减小主包体积 [#9745](https://github.com/ant-design/pro-components/pull/9745)
+
+### 🛠 其他
+
+- 🛠 移除内部 `PureProField`，统一使用 `ProField`；provider 场景化重构（分支代码归档合并至 master）[#9744](https://github.com/ant-design/pro-components/pull/9744)
+
+## [3.1.15-6] - 2026-10-08
+
+### 🐛 问题修复
+
+- ProCard
+  - 🐞 未传 `variant` 时透传给 antd Card，跟随 `ConfigProvider` 的 `card.variant` / 全局 `variant`（不再写死 `outlined`）[2a5a156b2](https://github.com/ant-design/pro-components/commit/2a5a156b2)
+- 🐞 修复 antd 无障碍（a11y）与 `mask` API 控制台警告 [2ba4598d1](https://github.com/ant-design/pro-components/commit/2ba4598d1)
 
 ## [3.1.15-5] - 2026-10-05
 

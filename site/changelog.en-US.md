@@ -1,11 +1,28 @@
 # Changelog
 
-## Unreleased
+## [3.1.15-7] - 2026-10-10
 
 ### 🐛 Bug Fixes
 
 - ProCard
-  - 🐞 Pass through omitted `variant` to antd Card so it follows ConfigProvider `card.variant` / global `variant` (no hard-coded `outlined`)
+  - 🐞 Fix oversized gap between title and body content when the header has no bottom border (default, `headerBordered` off): the antd Card head is sized by `minHeight`, so removing only the border left its vertical whitespace stacked with the body padding. Now aligned with the legacy compact layout (`minHeight: auto`, zero bottom spacing, `paddingXS` for small size), with bottom spacing restored when collapsed so the title never sticks to the card edge. `headerBordered` / `inner` keep the antd skin untouched [6f62df36e](https://github.com/ant-design/pro-components/commit/6f62df36e)
+  - 🐞 Fix the loading skeleton sticking to the title with `tabs` + `loading`: the tabs body padding is zeroed internally, so the loading skeleton now carries the content-area padding (`paddingLG`) itself; layout shells (`split` / nested cards) keep the body padding while loading so the antd skeleton is not flush against the edges
+
+### ⚡️ Performance
+
+- ⚡️ Break Form type cycles to enable tree shaking and split field value type maps into async chunks for a smaller main bundle [#9745](https://github.com/ant-design/pro-components/pull/9745)
+
+### 🛠 Other
+
+- 🛠 Remove the internal `PureProField` in favor of `ProField` everywhere, plus a provider scenario refactor (branch archive merged into master) [#9744](https://github.com/ant-design/pro-components/pull/9744)
+
+## [3.1.15-6] - 2026-10-08
+
+### 🐛 Bug Fixes
+
+- ProCard
+  - 🐞 Pass through omitted `variant` to antd Card so it follows ConfigProvider `card.variant` / global `variant` (no hard-coded `outlined`) [2a5a156b2](https://github.com/ant-design/pro-components/commit/2a5a156b2)
+- 🐞 Fix antd accessibility (a11y) and `mask` API console warnings [2ba4598d1](https://github.com/ant-design/pro-components/commit/2ba4598d1)
 
 ## [3.1.15-5] - 2026-10-05
 
