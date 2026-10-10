@@ -308,13 +308,17 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
 
   // body padding 被显式置 0 时，loading 占位需要补回默认 padding，
   // 否则骨架屏会贴到边缘。这里对齐 body 的默认 padding（token.paddingLG）。
+  // tabs 的 loading 骨架走 antd 路径的 padding:0 body，也需补内容区同款 padding；
+  // legacy 路径 body 自带 padding，不补（避免双重 padding）。
   const loadingDOM = React.isValidElement(loading) ? (
     loading
   ) : (
     <Loading
       prefix={prefixCls}
       style={
-        bodyStylePadding === 0 || bodyStylePadding === '0px'
+        bodyStylePadding === 0 ||
+        bodyStylePadding === '0px' ||
+        (useAntdCard && tabs)
           ? { padding: token.paddingLG }
           : undefined
       }
@@ -456,10 +460,12 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
               : null),
             ...(headerCollapsible ? { cursor: 'pointer' } : null),
           },
-          // tabs / 布局壳：body 去 padding；折叠用 CSS 显隐，不再挪 padding
+          // tabs / 布局壳：body 去 padding（tabs 的 loading 骨架自带 padding；
+          // 布局壳 loading 时保留 body padding，避免 antd 骨架贴边）；
+          // 折叠用 CSS 显隐，不再挪 padding
           body: {
             ...mergedStyles.body,
-            ...(tabs || isLayoutShell ? { padding: 0 } : null),
+            ...(tabs || (isLayoutShell && !loading) ? { padding: 0 } : null),
             // antd 路径：仅 collapsed 且无 tabs 时藏空 body（tabs 在 body 内需可见）
             ...(collapsed && !collapsible && !tabs
               ? { display: 'none' }

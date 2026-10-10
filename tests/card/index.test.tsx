@@ -62,6 +62,37 @@ describe('Card', () => {
     expect(onClick).toHaveBeenCalledOnce();
   });
 
+  it('renders tabs loading skeleton with content padding', () => {
+    const { container } = render(
+      <ProCard
+        title="标题"
+        loading
+        tabs={{
+          items: [
+            { key: 'a', label: 'A', children: 'a' },
+            { key: 'b', label: 'B', children: 'b' },
+          ],
+        }}
+      >
+        内容
+      </ProCard>,
+    );
+    const card = container.querySelector('.ant-pro-card');
+    expect(card).toBeTruthy();
+
+    // antd 路径：tabs 的 body padding 为 0，loading 骨架需自带内容区 padding，
+    // 否则骨架会贴住无边框 header 的标题
+    const body = card?.querySelector<HTMLElement>('.ant-card-body');
+    expect(body).toBeTruthy();
+    expect(body?.style.padding).toBe('0px');
+
+    const loadingContent = card?.querySelector<HTMLElement>(
+      '.ant-pro-card-loading-content',
+    );
+    expect(loadingContent).toBeTruthy();
+    expect(loadingContent?.style.padding).toBe('24px');
+  });
+
   it('inherits ConfigProvider card / global variant', () => {
     const { rerender, container, unmount } = render(
       <ConfigProvider card={{ variant: 'borderless' }}>
