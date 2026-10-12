@@ -392,6 +392,11 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             marginInline: 0,
             lineHeight: token.lineHeightLG,
           },
+          // 卡片模式的 avatar/title 裸排在 checkcard-title（flex 无 gap）内，
+          // 补 token 间距，与列表模式 -item-meta 的头像-标题 gap 保持一致
+          [`${token.proComponentsCls}-checkcard-title`]: {
+            gap: token.marginXS,
+          },
         },
         [`&${token.componentCls}-row-editable`]: {
           [`${token.proComponentsCls}-list-item`]: {
