@@ -96,8 +96,11 @@ const BaseProFormField = React.forwardRef<
     // 防止 formItem 的值被吃掉
     if (children) {
       if (React.isValidElement(children)) {
+        // readonly 透传给经过 ProField 的字段即可；纯展示形态（children）里
+        // 它会被铺到展示容器 DOM 上（Space/div），触发 React 非法属性告警，予以剔除
+        const { readonly: _readonly, ...restWithoutReadonly } = restProps;
         return React.cloneElement(children, {
-          ...restProps,
+          ...restWithoutReadonly,
           onChange: (...restParams: any) => {
             if (fieldProps?.onChange) {
               (fieldProps?.onChange as any)?.(...restParams);
