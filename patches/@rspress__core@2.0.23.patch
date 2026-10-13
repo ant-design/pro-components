@@ -1,0 +1,33 @@
+diff --git a/dist/runtime/index.js b/dist/runtime/index.js
+index c10868986637177f279cd300fc0018895cfe4049..7a392e20d202cb53bceec5111c208a98b388177b 100644
+--- a/dist/runtime/index.js
++++ b/dist/runtime/index.js
+@@ -1,6 +1,7 @@
+ import virtual_social_links from "virtual-social-links";
+-export * from "react-router-dom";
+ const socialLinks = virtual_social_links;
++export { socialLinks };
++export * from "react-router-dom";
+ export { isDataUrl, isExternalUrl, matchNavbar, matchSidebar, normalizeHref } from "@rspress/shared";
+ export { Head, useHead } from "@unhead/react";
+ export { BrowserOnly } from "./BrowserOnly.js";
+diff --git a/dist/theme/components/SocialLinks/SocialLink.js b/dist/theme/components/SocialLinks/SocialLink.js
+index d437473083b8a83bc5f7a4297d25eb91811c1384..23cfb70d1a8e60cfa6952660486f1b02186f64a5 100644
+--- a/dist/theme/components/SocialLinks/SocialLink.js
++++ b/dist/theme/components/SocialLinks/SocialLink.js
+@@ -1,5 +1,5 @@
+ import { Fragment, jsx, jsxs } from "react/jsx-runtime";
+-import { socialLinks } from "@rspress/core/runtime";
++import virtual_social_links from "virtual-social-links";
+ import "./index.css";
+ import { GithubStars } from "./GithubStars.js";
+ import { useHoverGroup } from "../HoverGroup/useHoverGroup.js";
+@@ -8,7 +8,7 @@ const SocialLink = (props)=>{
+     const { icon, mode = 'link', content } = link;
+     let IconComp = /*#__PURE__*/ jsx(Fragment, {});
+     if (icon) {
+-        const html = 'string' == typeof icon ? socialLinks[icon] : icon.svg;
++        const html = 'string' == typeof icon ? virtual_social_links[icon] : icon.svg;
+         IconComp = /*#__PURE__*/ jsx("div", {
+             className: "rp-social-links__icon",
+             dangerouslySetInnerHTML: {
