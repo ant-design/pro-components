@@ -1,0 +1,132 @@
+[
+  {
+    "type": "section-header",
+    "label": "Architecture Design"
+  },
+  {
+    "type": "file",
+    "name": "index",
+    "label": "Component Design"
+  },
+  {
+    "type": "section-header",
+    "label": "Layout"
+  },
+  {
+    "type": "dir",
+    "name": "layout",
+    "label": "ProLayout"
+  },
+  {
+    "type": "file",
+    "name": "page-container",
+    "label": "PageContainer"
+  },
+  {
+    "type": "file",
+    "name": "card",
+    "label": "ProCard"
+  },
+  {
+    "type": "file",
+    "name": "statistic-card",
+    "label": "StatisticCard"
+  },
+  {
+    "type": "file",
+    "name": "check-card",
+    "label": "CheckCard"
+  },
+  {
+    "type": "section-header",
+    "label": "Data Entry"
+  },
+  {
+    "type": "file",
+    "name": "form",
+    "label": "Standard Form"
+  },
+  {
+    "type": "file",
+    "name": "field-set",
+    "label": "Form Fields"
+  },
+  {
+    "type": "file",
+    "name": "group",
+    "label": "Form List"
+  },
+  {
+    "type": "file",
+    "name": "dependency",
+    "label": "Form Dependency"
+  },
+  {
+    "type": "file",
+    "name": "schema-form",
+    "label": "Schema Form"
+  },
+  {
+    "type": "file",
+    "name": "query-filter",
+    "label": "Query/LightFilter"
+  },
+  {
+    "type": "file",
+    "name": "steps-form",
+    "label": "StepsForm"
+  },
+  {
+    "type": "file",
+    "name": "modal-form",
+    "label": "Modal/Drawer Form"
+  },
+  {
+    "type": "file",
+    "name": "login-form",
+    "label": "LoginForm/Page"
+  },
+  {
+    "type": "section-header",
+    "label": "Data Display"
+  },
+  {
+    "type": "dir",
+    "name": "table",
+    "label": "ProTable"
+  },
+  {
+    "type": "file",
+    "name": "editable-table",
+    "label": "EditableProTable"
+  },
+  {
+    "type": "file",
+    "name": "drag-sort-table",
+    "label": "DragSortTable"
+  },
+  {
+    "type": "file",
+    "name": "list",
+    "label": "ProList"
+  },
+  {
+    "type": "file",
+    "name": "descriptions",
+    "label": "ProDescriptions"
+  },
+  {
+    "type": "section-header",
+    "label": "Universal"
+  },
+  {
+    "type": "file",
+    "name": "skeleton",
+    "label": "ProSkeleton"
+  },
+  {
+    "type": "file",
+    "name": "field",
+    "label": "ProField"
+  }
+]

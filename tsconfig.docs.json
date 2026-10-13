@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": ["rspress.config.ts", "theme/**/*.ts", "theme/**/*.tsx"]
+}

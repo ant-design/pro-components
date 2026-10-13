@@ -13,14 +13,14 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "paths": {
-      "@@/*": ["./.dumi/tmp/*"],
       "@ant-design/pro-components": ["./src"],
       "src": ["./src"],
-      "src/*": ["./src/*"]
+      "src/*": ["./src/*"],
+      "@rspress/core/runtime": ["./node_modules/@rspress/core/dist/runtime/index.d.ts"],
+      "@rspress/core/theme-original": ["./node_modules/@rspress/core/dist/theme/index.d.ts"]
     }
   },
   "include": [
-    ".dumirc.ts",
     "vitest.config.mts",
     "tests/**/**/*.tsx",
     "tests/**/**/*.ts",

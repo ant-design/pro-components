@@ -1,4 +1,4 @@
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { useUrlSearchParams } from '../../src/utils/hooks/useUrlSearchParams';
@@ -33,10 +33,15 @@ describe('useUrlSearchParams', () => {
       expect(window.location.hash).toBe('#/home?current=2&pageSize=10');
     });
 
-    window.location.hash = '#/about';
-    // happy-dom 在并行环境下 hash 赋值可能不触发 hashchange 事件，显式派发兜底
-    window.dispatchEvent(new HashChangeEvent('hashchange'));
+    act(() => {
+      window.history.replaceState({}, '', '/#/about');
+    });
     await waitFor(() => {
+      expect(window.location.hash).toBe('#/about');
+      // happy-dom 在并行环境下 hash 赋值可能不触发 hashchange 事件，显式派发兜底
+      if (!wrapper.queryByText('{}')) {
+        window.dispatchEvent(new HashChangeEvent('hashchange'));
+      }
       expect(wrapper.getByText('{}')).toBeTruthy();
     });
   });

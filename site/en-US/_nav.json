@@ -1,0 +1,18 @@
+[
+  {
+    "text": "Docs",
+    "link": "/en-US/docs/"
+  },
+  {
+    "text": "Components",
+    "link": "/en-US/components/"
+  },
+  {
+    "text": "Changelog",
+    "link": "/en-US/changelog"
+  },
+  {
+    "text": "Playground",
+    "link": "/en-US/playground/"
+  }
+]

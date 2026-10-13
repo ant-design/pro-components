@@ -1,0 +1,27 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "总览"
+  },
+  {
+    "type": "file",
+    "name": "pro-layout",
+    "label": "Layout"
+  },
+  {
+    "type": "file",
+    "name": "pro-form",
+    "label": "Form"
+  },
+  {
+    "type": "file",
+    "name": "pro-table",
+    "label": "Table"
+  },
+  {
+    "type": "file",
+    "name": "pro-descriptions",
+    "label": "Descriptions"
+  }
+]

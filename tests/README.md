@@ -11,5 +11,5 @@
 
 ## 与 `demos/` 的边界
 
-- `demos/`：文档站与示例源码（dumi 引用）。
+- `demos/`：文档站与示例源码（Rspress 文档引用）。
 - `tests/`：自动化测试；共用数据请用 `fixtures.tsx` 或 `field/fixtures/` 等明确名字。
