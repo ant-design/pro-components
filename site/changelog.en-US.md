@@ -1,5 +1,27 @@
 # Changelog
 
+## Unreleased
+
+### 🗑 Breaking Changes
+
+- ProForm
+  - 🗑 Remove the public `warpField` helper; use `createProFormField` or `useProFormFieldShell` for custom fields [#9751](https://github.com/ant-design/pro-components/pull/9751)
+
+### 🆕 Features
+
+- ProForm
+  - 🆕 Export layout and form shell types (`ProFormGridConfig`, `CommonFormProps`, `BaseFormProps`, `ProFormRef`, `SyncToUrl`, `useGridHelpers`, `getSpanConfig`, `FieldContextProps`, `FormFieldType`, …) and `createProFormField` / `useProFormFieldShell` [#9751](https://github.com/ant-design/pro-components/pull/9751)
+
+### ⚡️ Performance
+
+- ProForm
+  - ⚡️ Lazy-load `ProFormDependency` and LightFilter popover paths; `LightFilter` injects light renderer via context; `scripts/checkFormTreeShaking.mjs` guards `ProFormText` initial chunk [#9751](https://github.com/ant-design/pro-components/pull/9751)
+
+### ✅ Tests
+
+- ProForm
+  - ✅ Add `pickProFormItemProps` / `omitProFormItemProps` passthrough coverage [#9751](https://github.com/ant-design/pro-components/pull/9751)
+
 ## [3.1.15-7] - 2026-10-10
 
 ### 🐛 Bug Fixes

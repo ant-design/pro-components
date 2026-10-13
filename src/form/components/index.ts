@@ -29,15 +29,12 @@ export type { ProFormFieldProps } from './Field';
 export { default as ProFormFieldSet } from './FieldSet';
 export type { ProFormFieldSetProps } from './FieldSet';
 export { FormItemProvide, default as ProFormItem } from './FormItem';
-export {
-  createProFormField,
-  useProFormFieldShell,
-  warpField,
-} from './FormItem/warpField';
+export { TYPE, createProFormField } from './FormItem/createProFormField';
+export { useProFormFieldShell } from './FormItem/useProFormFieldShell';
 export type {
   ProFormFieldShellFunctionProps,
   UseProFormFieldShellOptions,
-} from './FormItem/warpField';
+} from './FormItem/useProFormFieldShell';
 export type {
   ProFormItemHelpFunction,
   ProFormItemProps,

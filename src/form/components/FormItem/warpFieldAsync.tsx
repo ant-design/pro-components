@@ -6,7 +6,7 @@ export type WarpFieldLazyBoundaryExtra = {
 };
 
 /**
- * Shared lazy boundary for optional warpField branches (LightFilter popover, Dependency, …).
+ * Shared lazy boundary for optional ProForm field branches (LightFilter popover, Dependency, …).
  * Each loader stays in its own chunk; do not merge optional paths into one dynamic import.
  */
 export function createWarpFieldLazyBoundary<BranchProps extends object>(

@@ -54,19 +54,19 @@ URL (syncToUrl)    → urlSearch / urlParamsMergeInitialValues → 与 initialVa
 ## 相关路径（仓库根，与当前实现一致）
 
 - `src/form/BaseForm/BaseForm.tsx` — 请求、`genParams` / URL、`transformKey`、`BaseFormComponents`（同文件）、`Form` 与各类 Provider
-- `src/form/components/FormItem/warpField.tsx` — 字段包装与合并逻辑
+- `src/form/components/FormItem/createProFormField.tsx`、`useProFormFieldShell.tsx` — 字段包装与合并逻辑
 - `src/form/components/SchemaForm/` — `BetaSchemaForm` 与 `valueType` 管道
 
 ## Schema 专用 `getFieldProps` / `getFormItemProps`
 
-- **来源**：`BetaSchemaForm` / `columns` 常把 `getFieldProps`、`getFormItemProps` 配在列上；运行时仍进入 **`warpField`**，与 `changedProps` 合并（见 `warpField.tsx`）。
+- **来源**：`BetaSchemaForm` / `columns` 常把 `getFieldProps`、`getFormItemProps` 配在列上；运行时仍进入 **`useProFormFieldShell`**，与 `changedProps` 合并。
 - **命令式**：一般直接写 `fieldProps` / `formItemProps`，不经过上述函数。
-- **收敛**：是否在类型或目录上标「仅 Schema」属 RFC **阶段 3**；当前行为以 `warpField.tsx` 内合并顺序为准。
+- **收敛**：是否在类型或目录上标「仅 Schema」属 RFC **阶段 3**；当前行为以 `useProFormFieldShell` 内合并顺序为准。
 
 ## Schema 路径（RFC 阶段 3 备忘）
 
 - **入口**：`src/form/components/SchemaForm/index.tsx` 导出 `BetaSchemaForm`（默认导出）；`layoutType` 映射到 `DrawerForm` / `QueryFilter` / `LightFilter` / `ModalForm` / `StepsForm` / `Embed` / `ProForm` 等（见文件内 `FormLayoutType`）。
-- **列 → 节点**：`renderValueType`（`src/form/components/SchemaForm/valueType/index.tsx` 等）与 `ValueTypeToComponent`（`src/field/ValueTypeToComponent`）协作，最终仍落到各 `ProFormXxx`（经 `warpField` 包装）。
+- **列 → 节点**：`renderValueType`（`src/form/components/SchemaForm/valueType/index.tsx` 等）与 `ValueTypeToComponent`（`src/field/ValueTypeToComponent`）协作，最终仍落到各 `ProFormXxx`（经 `createProFormField` 包装）。
 - **对齐测试**：`tests/form/schemaImperativeAlignment.test.tsx` — 覆盖 `valueType` **text、digit、select、dateTime、switch、date、checkbox、textarea、password**：`BetaSchemaForm` 单列与对应 `ProFormText` / `ProFormDigit` / `ProFormSelect` / `ProFormDateTimePicker` / `ProFormSwitch` / `ProFormDatePicker` / `ProFormCheckbox` / `ProFormTextArea` / `ProFormField`（`valueType="password"`）在相同 `initialValues` 下 `getFieldsValue(true)` 一致（日期类用 `dayjs` 时间戳比较）。新增类型时建议在此文件追加一条用例。
 
 ### `SchemaForm/valueType` 目录

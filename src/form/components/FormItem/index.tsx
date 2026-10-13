@@ -131,7 +131,7 @@ const WithValueFomFiledProps = React.forwardRef<
       ...restProps,
       [valuePropName]: formFieldProps[valuePropName],
       ...filedChildrenElementProps,
-      // Form.Item 注入的 itemRef 与 Field 已有的 ref（warpField 传入的 fieldRef）合并，
+      // Form.Item 注入的 itemRef 与 Field 已有的 ref（createProFormField 传入的 fieldRef）合并，
       // 供 getFieldInstance 取值的同时不破坏用户 fieldRef
       // getNodeRef 兼容 React 18（element.ref）与 React 19（props.ref）
       ref: mergedRef,

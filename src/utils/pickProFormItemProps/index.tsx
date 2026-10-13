@@ -53,9 +53,9 @@ export function pickProFormItemProps(props: Record<string, any>) {
   return attrs;
 }
 
-/** Form.Item-only keys (inner ProField still needs `name`) */
+/** Form.Item-only keys (inner ProField still needs `name`; controls need `id` / `fieldId`) */
 const proFormItemOnlyPropKeys = proFormItemPropKeys.filter(
-  (key) => key !== 'name',
+  (key) => key !== 'name' && key !== 'id' && key !== 'fieldId',
 );
 
 /** Strip Form.Item keys so they are not passed to the inner field component */

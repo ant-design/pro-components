@@ -1,7 +1,5 @@
 import React from 'react';
 import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } from '../../typing';
-import { createWarpFieldLazyBoundary } from './warpFieldAsync';
-import type { WarpFieldDependencyBranchProps } from './warpFieldDependency';
 import {
   type ProFormFieldShellFunctionProps,
   useProFormFieldShell,
@@ -9,12 +7,34 @@ import {
 
 export const TYPE = Symbol('ProFormComponent');
 
-const DependencyBoundary =
-  createWarpFieldLazyBoundary<WarpFieldDependencyBranchProps>(() =>
-    import('./warpFieldDependency').then((module) => ({
-      default: module.WarpFieldDependencyBranch,
-    })),
-  );
+type WarpFieldDependencyModule = typeof import('./warpFieldDependency');
+
+let dependencyModule: WarpFieldDependencyModule | undefined;
+const dependencyLoadPromise: Promise<WarpFieldDependencyModule> = import(
+  './warpFieldDependency',
+).then((module) => {
+  dependencyModule = module;
+  return module;
+});
+
+function useWarpFieldDependencyModule() {
+  const [module, setModule] = React.useState(dependencyModule);
+  React.useEffect(() => {
+    if (module) {
+      return;
+    }
+    let cancelled = false;
+    dependencyLoadPromise.then((loaded) => {
+      if (!cancelled) {
+        setModule(loaded);
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [module]);
+  return module;
+}
 
 type ProFormComponent<P, Extends> = React.ForwardRefExoticComponent<
   React.PropsWithoutRef<P & Extends> & React.RefAttributes<any>
@@ -50,33 +70,38 @@ export function createProFormField<P extends ProFormFieldItemProps = any>(
       }
   >((props, forwardedRef) => {
     const { dependencies, originDependencies } = props;
+    const dependencyBranchModule = useWarpFieldDependencyModule();
+
+    if (!dependencies) {
+      return (
+        <FieldWithContext
+          ref={forwardedRef}
+          dependencies={dependencies}
+          {...props}
+        />
+      );
+    }
+
     const field = (
       <FieldWithContext ref={forwardedRef} dependencies={dependencies} {...props} />
     );
 
-    if (!dependencies) {
-      return field;
+    if (!dependencyBranchModule) {
+      return null;
     }
 
+    const { WarpFieldDependencyBranch } = dependencyBranchModule;
+
     return (
-      <DependencyBoundary
-        enabled
-        fallback={field}
+      <WarpFieldDependencyBranch
         dependencies={dependencies}
         originDependencies={originDependencies}
       >
         {field}
-      </DependencyBoundary>
+      </WarpFieldDependencyBranch>
     );
   });
   DependencyWrapper.displayName = 'ProFormComponent';
 
   return DependencyWrapper;
 }
-
-/**
- * @deprecated 使用 {@link createProFormField}。保留以兼容历史 import 与 RFC 中的命名。
- */
-export const warpField = createProFormField;
-
-export default createProFormField;

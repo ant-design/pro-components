@@ -12,7 +12,7 @@ import { describe, expect, it } from 'vitest';
 
 /**
  * Issue #9673：ProFormField 无法通过 form.getFieldInstance 获取实例。
- * 根因是 pro 组件封装层（warpField / FormItem / Field）均为普通函数组件，
+ * 根因是 pro 组件封装层（createProFormField / FormItem / Field）均为普通函数组件，
  * antd Form.Item 仅在 supportRef(child) 为 true 时注入 itemRef，普通函数组件被判定为不支持 ref。
  * 修复后将封装层组件 forwardRef 化并把 ref 透传到底层输入组件。
  */

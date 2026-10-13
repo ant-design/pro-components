@@ -9,7 +9,7 @@ export type WarpFieldDependencyBranchProps = {
 };
 
 /**
- * ProFormDependency 包装层，与 warpField 主路径拆分以便按需加载。
+ * ProFormDependency 包装层，与 createProFormField 主路径拆分以便按需加载。
  */
 export function WarpFieldDependencyBranch({
   dependencies,
