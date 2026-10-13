@@ -289,14 +289,18 @@
   padding-bottom: 3rem;
 }
 
-/* Hero illustration: keep aspect ratio, no cover-crop stretch. */
+/* Hero illustration: keep aspect ratio, no cover-crop stretch.
+ * Do not force `display` on all imgs — Rspress renders light+dark twins
+ * and hides one via `.rp-home-hero__image-img--dark { display: none }`.
+ */
 .rp-home-hero .rp-home-hero__image {
+  display: block;
   width: min(100%, 560px);
+  max-width: min(100%, 560px);
   margin-top: 2rem;
 }
 
-.rp-home-hero .rp-home-hero__image img {
-  display: block;
+.rp-home-hero .rp-home-hero__image-img {
   width: 100%;
   height: auto;
   object-fit: contain;
