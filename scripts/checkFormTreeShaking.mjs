@@ -62,7 +62,9 @@ for (const [name, entry] of [
       'A text field must not retain ProFormDependency in the initial chunk',
     );
     assert(
-      !modules.includes('src/form/components/FormItem/warpFieldDependency.tsx'),
+      !modules.includes(
+        'src/form/components/FormItem/proFormFieldDependencyBranch.tsx',
+      ),
       'Dependency branch must be lazy-loaded',
     );
   }

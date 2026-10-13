@@ -1,4 +1,4 @@
-import type { WarpFieldLightPopoverRenderProps } from '../../components/FormItem/warpFieldLightTypes';
+import type { ProFormFieldLightPopoverRenderProps } from '../../components/FormItem/proFormFieldLightTypes';
 import { LightWrapper } from './LightWrapper';
 import ProFormItem from '../../components/FormItem';
 
@@ -24,7 +24,7 @@ export function LightFilterPopoverField({
   footerRender,
   labelFormatter,
   fieldAllowClear,
-}: WarpFieldLightPopoverRenderProps) {
+}: ProFormFieldLightPopoverRenderProps) {
   return (
     <ProFormItem
       label={undefined}

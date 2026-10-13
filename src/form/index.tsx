@@ -1,3 +1,7 @@
+/**
+ * Form package entry. Uses `export *` for components/layouts so the public API
+ * stays stable; tree-shaking relies on named imports + `scripts/checkFormTreeShaking.mjs`.
+ */
 import { ProForm } from './layouts';
 import type { ProFormGroupProps } from './typing';
 export { ProFormContext } from '../utils';

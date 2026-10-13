@@ -22,11 +22,11 @@ import type {
 } from '../../typing';
 import type { ProFormItemProps } from './typing';
 import ProFormItem from './index';
-import { createWarpFieldLazyBoundary } from './warpFieldAsync';
-import type { WarpFieldLightPopoverRenderProps } from './warpFieldLightTypes';
+import { createProFormFieldLazyBoundary } from './proFormFieldLazyBoundary';
+import type { ProFormFieldLightPopoverRenderProps } from './proFormFieldLightTypes';
 
 const StandaloneLightPopoverBoundary =
-  createWarpFieldLazyBoundary<WarpFieldLightPopoverRenderProps>(() =>
+  createProFormFieldLazyBoundary<ProFormFieldLightPopoverRenderProps>(() =>
     import('../../layouts/LightFilter/LightFilterPopoverField').then(
       (module) => ({
         default: module.LightFilterPopoverField,
@@ -309,7 +309,7 @@ export function useProFormFieldShell<P extends ProFormFieldItemProps = any>(
           {field}
         </ProFormItem>
       );
-      const lightPopoverProps: WarpFieldLightPopoverRenderProps = {
+      const lightPopoverProps: ProFormFieldLightPopoverRenderProps = {
         field: field as React.ReactElement,
         label,
         valuePropName,

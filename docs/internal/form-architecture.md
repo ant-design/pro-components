@@ -55,6 +55,22 @@ URL (syncToUrl)    → urlSearch / urlParamsMergeInitialValues → 与 initialVa
 
 - `src/form/BaseForm/BaseForm.tsx` — 请求、`genParams` / URL、`transformKey`、`BaseFormComponents`（同文件）、`Form` 与各类 Provider
 - `src/form/components/FormItem/createProFormField.tsx`、`useProFormFieldShell.tsx` — 字段包装与合并逻辑
+- `proFormFieldDependencyBranch.tsx`、`proFormFieldLazyBoundary.tsx`、`proFormFieldLightTypes.ts` — 依赖 / 懒加载 / Light 类型（按需分包）
+
+## 包入口与 tree-shaking
+
+| 入口 | 说明 |
+|------|------|
+| `@ant-design/pro-components` | `src/index.ts` 对各子包 `export *`；**请使用具名 import**（如 `import { ProFormText } from '@ant-design/pro-components'`），打包器会按符号摇树。 |
+| `@ant-design/pro-components/form` | 仅表单子图，体积更小；`scripts/checkFormTreeShaking.mjs` 对 `ProFormText` 等做初始分包断言。 |
+
+**为何保留 `export *`（根入口与 `src/form/index.tsx`）**
+
+- 历史兼容：大量用户从根包解构任意导出；改为手写全量具名列表易漏符号且每次新增组件都要改入口。
+- 摇树不依赖「去掉 star export」：在 ESM + `sideEffects: false`（或等价配置）下，未引用的具名导出可被剔除；反模式是 `import * as Pro from '@ant-design/pro-components'` 再整包传递。
+- **建议**：表单场景优先 `@ant-design/pro-components/form`；仅需 Table/Layout 时用对应 subpath（见 `package.json` `exports`）。
+
+**自定义字段**：对外使用 `createProFormField` / `useProFormFieldShell`；`warpField` 已在 [#9751](https://github.com/ant-design/pro-components/pull/9751) 移除（major 级破坏性变更，见 changelog）。
 - `src/form/components/SchemaForm/` — `BetaSchemaForm` 与 `valueType` 管道
 
 ## Schema 专用 `getFieldProps` / `getFormItemProps`

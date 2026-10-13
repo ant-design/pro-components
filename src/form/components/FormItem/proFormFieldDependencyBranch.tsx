@@ -2,7 +2,7 @@ import type { NamePath } from 'antd/lib/form/interface';
 import React from 'react';
 import ProFormDependency from '../Dependency';
 
-export type WarpFieldDependencyBranchProps = {
+export type ProFormFieldDependencyBranchProps = {
   dependencies: NamePath[];
   originDependencies?: NamePath[];
   children: React.ReactElement;
@@ -11,11 +11,11 @@ export type WarpFieldDependencyBranchProps = {
 /**
  * ProFormDependency 包装层，与 createProFormField 主路径拆分以便按需加载。
  */
-export function WarpFieldDependencyBranch({
+export function ProFormFieldDependencyBranch({
   dependencies,
   originDependencies,
   children,
-}: WarpFieldDependencyBranchProps) {
+}: ProFormFieldDependencyBranchProps) {
   return (
     <ProFormDependency
       name={dependencies}

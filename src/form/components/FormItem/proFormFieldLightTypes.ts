@@ -9,7 +9,7 @@ import type { LightFilterFooterRender } from '../../typing';
 import type { ProFormItemProps } from './typing';
 
 /** LightFilter Popover 字段渲染入参（类型层，不依赖 LightWrapper） */
-export type WarpFieldLightPopoverRenderProps = {
+export type ProFormFieldLightPopoverRenderProps = {
   field: React.ReactElement;
   label?: React.ReactNode;
   valuePropName?: string;

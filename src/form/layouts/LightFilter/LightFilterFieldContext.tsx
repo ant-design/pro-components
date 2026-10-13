@@ -1,5 +1,5 @@
 import React from 'react';
-import type { WarpFieldLightPopoverRenderProps } from '../../components/FormItem/warpFieldLightTypes';
+import type { ProFormFieldLightPopoverRenderProps } from '../../components/FormItem/proFormFieldLightTypes';
 
 export type LightFilterFieldContextValue = {
   /**
@@ -7,7 +7,7 @@ export type LightFilterFieldContextValue = {
    * createProFormField 默认路径不 import LightWrapper，仅通过此回调渲染。
    */
   renderLightPopoverField?: (
-    props: WarpFieldLightPopoverRenderProps,
+    props: ProFormFieldLightPopoverRenderProps,
   ) => React.ReactNode;
 };
 

@@ -7,17 +7,17 @@ import {
 
 export const TYPE = Symbol('ProFormComponent');
 
-type WarpFieldDependencyModule = typeof import('./warpFieldDependency');
+type ProFormFieldDependencyModule = typeof import('./proFormFieldDependencyBranch');
 
-let dependencyModule: WarpFieldDependencyModule | undefined;
-const dependencyLoadPromise: Promise<WarpFieldDependencyModule> = import(
-  './warpFieldDependency',
+let dependencyModule: ProFormFieldDependencyModule | undefined;
+const dependencyLoadPromise: Promise<ProFormFieldDependencyModule> = import(
+  './proFormFieldDependencyBranch',
 ).then((module) => {
   dependencyModule = module;
   return module;
 });
 
-function useWarpFieldDependencyModule() {
+function useProFormFieldDependencyModule() {
   const [module, setModule] = React.useState(dependencyModule);
   React.useEffect(() => {
     if (module) {
@@ -70,7 +70,7 @@ export function createProFormField<P extends ProFormFieldItemProps = any>(
       }
   >((props, forwardedRef) => {
     const { dependencies, originDependencies } = props;
-    const dependencyBranchModule = useWarpFieldDependencyModule();
+    const dependencyBranchModule = useProFormFieldDependencyModule();
 
     if (!dependencies) {
       return (
@@ -90,15 +90,15 @@ export function createProFormField<P extends ProFormFieldItemProps = any>(
       return null;
     }
 
-    const { WarpFieldDependencyBranch } = dependencyBranchModule;
+    const { ProFormFieldDependencyBranch } = dependencyBranchModule;
 
     return (
-      <WarpFieldDependencyBranch
+      <ProFormFieldDependencyBranch
         dependencies={dependencies}
         originDependencies={originDependencies}
       >
         {field}
-      </WarpFieldDependencyBranch>
+      </ProFormFieldDependencyBranch>
     );
   });
   DependencyWrapper.displayName = 'ProFormComponent';

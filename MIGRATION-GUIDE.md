@@ -72,7 +72,7 @@
 |---|--------|------|
 | 28 | `53f91b924` | 重构列表操作守卫与图标渲染，优化 URL 同步逻辑 |
 | 29 | `b56c060fb` | 提取 URL 同步逻辑到独立 hook useUrlSync |
-| 30 | `d6db22bf7` | LightWrapper 逻辑从 ProFormItem 迁移至 warpField |
+| 30 | `d6db22bf7` | LightWrapper 逻辑从 ProFormItem 迁移至字段壳层（现为 `useProFormFieldShell` / `createProFormField`；历史名 `warpField` 已移除，见 changelog） |
 | 31 | `d6d703b89` | 抽取公共格式化方法消除重复实现 |
 | 32 | `a7bb9d3a7` | 优化 FormItem 渲染逻辑并修复 DrawerForm 类型与性能 |
 
