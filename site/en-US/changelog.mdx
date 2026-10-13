@@ -11,16 +11,43 @@
 
 - ProForm
   - 🆕 Export layout and form shell types (`ProFormGridConfig`, `CommonFormProps`, `BaseFormProps`, `ProFormRef`, `SyncToUrl`, `useGridHelpers`, `getSpanConfig`, `FieldContextProps`, `FormFieldType`, …) and `createProFormField` / `useProFormFieldShell` [#9751](https://github.com/ant-design/pro-components/pull/9751)
+- QueryFilter / ProList / ProCard
+  - 🆕 Extract shared responsive breakpoint helpers; `QueryFilter` `span` accepts Partial configs (missing breakpoints cascade forward like antd `Col`) [#9750](https://github.com/ant-design/pro-components/pull/9750)
+
+### 🐛 Bug Fixes
+
+- ProForm
+  - 🐞 Stop forwarding lowercase `readonly` onto pure-display field children (`children` without `name`/`value`) to avoid Invalid DOM property warnings; ProField-backed readonly behavior is unchanged [#9107](https://github.com/ant-design/pro-components/issues/9107) [18d5a7f2c](https://github.com/ant-design/pro-components/commit/18d5a7f2c)
+- ProTable
+  - 🐞 Keep toolbar `LightFilter` as a flat inline bar instead of wrapping it in a card (regression from #9742); `cardBordered.search` only applies to QueryFilter/Form and is ignored for light filters [c2471f92a](https://github.com/ant-design/pro-components/commit/c2471f92a)
+- ProList
+  - 💄 Restore `token.marginXS` gap between avatar and title in card mode to match list mode [25e6b868c](https://github.com/ant-design/pro-components/commit/25e6b868c)
+- Docs site
+  - 🐞 Fix Vercel / `pnpm site` failures after the Rspress migration when `react-router` was pinned to v6 and could not resolve `react-router/dom` [#9753](https://github.com/ant-design/pro-components/pull/9753)
+  - 🐞 Fix garbled Chinese sidebar labels and repair the stretched homepage hero / information hierarchy [#9754](https://github.com/ant-design/pro-components/pull/9754)
 
 ### ⚡️ Performance
 
 - ProForm
   - ⚡️ Lazy-load `ProFormDependency` and LightFilter popover paths; `LightFilter` injects light renderer via context; `scripts/checkFormTreeShaking.mjs` guards `ProFormText` initial chunk [#9751](https://github.com/ant-design/pro-components/pull/9751)
+- ProField / ProForm
+  - ⚡️ Tighten field `valueType` maps and form field imports to improve tree shaking [0267faf61](https://github.com/ant-design/pro-components/commit/0267faf61)
+
+### 📖 Documentation
+
+- 📖 Migrate the docs site from dumi to Rspress v2 with bilingual routes, demo preview, SSG, sitemap, GA, link checks, and a homepage discovery section [#9747](https://github.com/ant-design/pro-components/pull/9747)
+- 📖 Rebuild homepage information hierarchy (brand hero → search/core components → features), replace the illustration, and fix duplicate image rendering [#9754](https://github.com/ant-design/pro-components/pull/9754)
+
+### 🛠 Other
+
+- 🛠 Bump pnpm to 12.10.1 and move related config into `pnpm-workspace.yaml` [#9748](https://github.com/ant-design/pro-components/pull/9748) [@zzjiaxiang](https://github.com/zzjiaxiang)
 
 ### ✅ Tests
 
 - ProForm
-  - ✅ Add `pickProFormItemProps` / `omitProFormItemProps` passthrough coverage [#9751](https://github.com/ant-design/pro-components/pull/9751)
+  - ✅ Add coverage for `pickProFormItemProps` / `omitProFormItemProps` passthrough and field-shell paths [#9751](https://github.com/ant-design/pro-components/pull/9751)
+- ProTable
+  - ✅ Lock the regression that keeps LightFilter flat inside the toolbar [c2471f92a](https://github.com/ant-design/pro-components/commit/c2471f92a)
 
 ## [3.1.15-7] - 2026-10-10
 
