@@ -11,6 +11,11 @@
   },
   {
     "type": "file",
+    "name": "pro-config-provider",
+    "label": "ProConfigProvider"
+  },
+  {
+    "type": "file",
     "name": "api-changes",
     "label": "API 鍙樻洿鎬荤粨"
   },
