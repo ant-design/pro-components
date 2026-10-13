@@ -29,7 +29,7 @@ export type { ProFormFieldProps } from './Field';
 export { default as ProFormFieldSet } from './FieldSet';
 export type { ProFormFieldSetProps } from './FieldSet';
 export { FormItemProvide, default as ProFormItem } from './FormItem';
-export { warpField } from './FormItem/warpField';
+export { createProFormField, warpField } from './FormItem/warpField';
 export type {
   ProFormItemHelpFunction,
   ProFormItemProps,

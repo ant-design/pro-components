@@ -14,6 +14,7 @@ import {
 } from '../../../utils';
 import FieldContext from '../../FieldContext';
 import { useGridHelpers } from '../../helpers';
+import { LightFilterFieldContext } from '../../layouts/LightFilter/LightFilterFieldContext';
 import type {
   ExtendsProps,
   ProFormFieldItemProps,
@@ -23,13 +24,16 @@ import type { ProFormItemProps } from './typing';
 import ProFormItem from './index';
 import { createWarpFieldLazyBoundary } from './warpFieldAsync';
 import type { WarpFieldDependencyBranchProps } from './warpFieldDependency';
-import type { WarpFieldLightPopoverItemProps } from './warpFieldLightMode';
+import type { WarpFieldLightPopoverRenderProps } from './warpFieldLightTypes';
 
-const LightPopoverBoundary =
-  createWarpFieldLazyBoundary<WarpFieldLightPopoverItemProps>(() =>
-    import('./warpFieldLightMode').then((module) => ({
-      default: module.WarpFieldLightPopoverItem,
-    })),
+/** 非 LightFilter 场景下单独使用 `proFieldProps.light` 时的按需加载 */
+const StandaloneLightPopoverBoundary =
+  createWarpFieldLazyBoundary<WarpFieldLightPopoverRenderProps>(() =>
+    import('../../layouts/LightFilter/LightFilterPopoverField').then(
+      (module) => ({
+        default: module.LightFilterPopoverField,
+      }),
+    ),
   );
 
 const DependencyBoundary =
@@ -73,7 +77,8 @@ type FunctionFieldProps = {
 };
 
 /**
- * 这个方法的主要作用是帮助 Field 增加 FormItem 同时也会处理 lightFilter
+ * 将内部 Field 包成带 Form.Item、栅格、依赖与 light 协议的 Pro 表单项。
+ * 无法删除：30+ 组件依赖此 HOC；可视为 `createProFormField` 的实现体。
  *
  * @param Field
  * @param config
@@ -137,6 +142,7 @@ export function warpField<P extends ProFormFieldItemProps = any>(
      * 从 context 中拿到的值
      */
     const contextValue = React.useContext(FieldContext);
+    const lightFilterFieldContext = React.useContext(LightFilterFieldContext);
 
     /**
      * dependenciesValues change to trigger re-execute of getFieldProps and getFormItemProps
@@ -355,28 +361,38 @@ export function warpField<P extends ProFormFieldItemProps = any>(
             {field}
           </ProFormItem>
         );
+        const lightPopoverProps: WarpFieldLightPopoverRenderProps = {
+          field: field as React.ReactElement,
+          label,
+          valuePropName,
+          restOtherProps,
+          help,
+          ignoreFormItem,
+          transform,
+          dataFormat: fieldProps?.format,
+          valueType,
+          messageVariables,
+          convertValue,
+          formItemKey,
+          variant: rest.variant ?? fieldProps?.variant,
+          placement: rest.placement,
+          allowClear,
+          footerRender: (field as React.ReactElement)?.props?.footerRender,
+          fieldAllowClear: (field as React.ReactElement)?.props?.allowClear,
+          labelFormatter: lightFilterLabelFormatter,
+        };
+
+        if (lightFilterFieldContext.renderLightPopoverField) {
+          return lightFilterFieldContext.renderLightPopoverField(
+            lightPopoverProps,
+          );
+        }
+
         return (
-          <LightPopoverBoundary
+          <StandaloneLightPopoverBoundary
             enabled
             fallback={lightFallback}
-            field={field as React.ReactElement}
-            label={label}
-            valuePropName={valuePropName}
-            restOtherProps={restOtherProps}
-            help={help}
-            ignoreFormItem={ignoreFormItem}
-            transform={transform}
-            dataFormat={fieldProps?.format}
-            valueType={valueType}
-            messageVariables={messageVariables}
-            convertValue={convertValue}
-            formItemKey={formItemKey}
-            variant={rest.variant ?? fieldProps?.variant}
-            placement={rest.placement}
-            allowClear={allowClear}
-            footerRender={(field as React.ReactElement)?.props?.footerRender}
-            fieldAllowClear={(field as React.ReactElement)?.props?.allowClear}
-            labelFormatter={lightFilterLabelFormatter}
+            {...lightPopoverProps}
           />
         );
       }
@@ -422,6 +438,7 @@ export function warpField<P extends ProFormFieldItemProps = any>(
       allowClear,
       customLightMode,
       lightFilterLabelFormatter,
+      lightFilterFieldContext.renderLightPopoverField,
       rest.variant,
       rest.placement,
     ]);
@@ -464,5 +481,8 @@ export function warpField<P extends ProFormFieldItemProps = any>(
 
   return DependencyWrapper;
 }
+
+/** 与 {@link warpField} 相同，推荐新代码使用此名称 */
+export const createProFormField = warpField;
 
 export default warpField;

@@ -46,8 +46,16 @@ for (const [name, entry] of [
       'A text field must not retain LightWrapper in the initial chunk',
     );
     assert(
-      !modules.includes('src/form/components/FormItem/warpFieldLightMode.tsx'),
-      'LightFilter popover field path must be lazy-loaded',
+      !modules.some((module) =>
+        module.includes('LightFilter/LightFilterPopoverField'),
+      ),
+      'LightFilter popover field path must not be in the ProFormText initial chunk',
+    );
+    assert(
+      !modules.some((module) =>
+        module.includes('LightFilter/LightWrapper'),
+      ),
+      'ProFormText must not retain LightWrapper in the initial chunk',
     );
     assert(
       !modules.includes('src/form/components/Dependency/index.tsx'),
