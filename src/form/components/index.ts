@@ -55,6 +55,7 @@ export { default as BetaSchemaForm } from './SchemaForm';
 export type {
   ProFormColumnsType,
   ProFormLayoutType,
+  FormFieldType,
   FormSchema,
   ProFormPropsType,
   ProSchemaRenderValueTypeFunction,

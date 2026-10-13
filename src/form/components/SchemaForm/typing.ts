@@ -51,7 +51,7 @@ export type ProFormPropsType<T, ValueType = 'text'> =
       | ({ layoutType: 'QueryFilter' } & QueryFilterProps<T>)
       | ({ layoutType: 'LightFilter' } & LightFilterProps<T>)
       | ({ layoutType: 'StepForm' } & StepFormProps<T>)
-      | { layoutType: 'Embed' }
+      | ({ layoutType: 'Embed' } & Omit<ProFormProps<T>, 'children'>)
     ) & {
       columns: ProFormColumnsType<T, ValueType>[];
     })

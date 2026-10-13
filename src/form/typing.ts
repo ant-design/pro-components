@@ -11,24 +11,24 @@ import type { ProFormInstance } from './BaseForm/typing';
 import type { ProFormItemProps } from './components/FormItem/typing';
 import type { CaptFieldRef } from './components/Captcha/typing';
 
+/**
+ * ProForm 栅格布局配置，用于 `ProForm` / `ModalForm` 等 layout 及 `ProForm.Group`、`ProFormList`
+ */
 export interface ProFormGridConfig {
   /**
-   * open grid layout
+   * @name 是否开启栅格布局（Row + Col 包裹字段）
    * @default false
    */
   grid?: boolean;
   /**
-   * only works when grid is enabled
+   * @name 字段级 Col 配置，仅在 `grid` 为 true 时生效
    *
-   * When passing the `span` attribute, the default value is empty
-   * @default
-   * { xs: 24 }
+   * 未设置 `span` / `xs` 时，字段默认占满一行（`xs: 24`）
    */
   colProps?: ColProps;
   /**
-   * only works when grid is enabled
-   * @default
-   * { gutter: 8 }
+   * @name 表单 Row 配置，仅在 `grid` 为 true 时生效
+   * @default { gutter: 8 }
    */
   rowProps?: RowProps;
 }
@@ -91,6 +91,8 @@ export type ExtendsProps = {
 
 export type ProFormGroupProps = ProFormBaseGroupProps & ProFormGridConfig;
 
+export type { ProFormBaseGroupProps };
+
 export type FieldProps<K> = {
   style?: React.CSSProperties;
   width?: string;
@@ -110,6 +112,10 @@ export type LightFilterFooterRender =
     ) => JSX.Element | false)
   | false;
 
+/**
+ * Pro 表单项公共属性：继承 `ProFormItemProps`（含 antd `Form.Item` 的 `layout` / `labelCol` / `wrapperCol`），
+ * 字段级 `layout` 可覆盖上层 `ProForm` 的 `layout`
+ */
 export type ProFormFieldItemProps<T = Record<string, any>, K = any> = {
   /**
    * @name 设置到控件上的属性
@@ -166,7 +172,7 @@ export type ProFormFieldItemProps<T = Record<string, any>, K = any> = {
 
   children?: any;
 } & Omit<ProFormItemProps, 'valueType'> &
-  Pick<ProFormGridConfig, 'colProps'> &
+  Pick<ProFormGridConfig, 'colProps' | 'rowProps'> &
   ExtendsProps;
 
 /**

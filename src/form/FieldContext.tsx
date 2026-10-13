@@ -10,7 +10,7 @@ import type { ProFieldValueType } from '../utils/typing';
 import type { ProFormRef } from './BaseForm/typing';
 import type { FieldProps, ProFormGridConfig, ProFormGroupProps } from './typing';
 
-export type FiledContextProps = {
+export type FieldContextProps = {
   fieldProps?: FieldProps<unknown>;
   proFieldProps?: ProFieldProps;
   formItemProps?: FormItemProps;
@@ -47,7 +47,10 @@ export type FiledContextProps = {
   grid?: ProFormGridConfig['grid'];
 };
 
-const FieldContext = React.createContext<FiledContextProps>({});
+/** @deprecated 拼写错误，请使用 {@link FieldContextProps} */
+export type FiledContextProps = FieldContextProps;
+
+const FieldContext = React.createContext<FieldContextProps>({});
 
 export { FieldContext };
 

@@ -1,10 +1,14 @@
-import { GridContext } from './helpers';
 import { ProForm } from './layouts';
 import type { ProFormGroupProps } from './typing';
 export { ProFormContext } from '../utils';
 export { LightWrapper } from './layouts/LightFilter/LightWrapper';
 export type { LightWrapperProps } from './layouts/LightFilter/LightWrapper';
-export type { ProFormInstance } from './BaseForm';
+export type {
+  BaseFormProps,
+  CommonFormProps,
+  ProFormInstance,
+  ProFormRef,
+} from './BaseForm';
 
 export type { SubmitterProps } from './BaseForm/Submitter';
 export * from './components';
@@ -36,7 +40,9 @@ export { FieldContext } from './FieldContext';
 export * from './layouts';
 export type {
   LightFilterFooterRender,
+  ProFormBaseGroupProps,
   ProFormFieldItemProps as ProFormItemProps,
+  ProFormGridConfig,
   ProFieldBuiltinValueType,
   ProFieldSchemaLayoutValueType,
   ProFieldValueObjectType,
@@ -44,7 +50,10 @@ export type {
   ProFieldValueTypeInput,
 } from './typing';
 export { PRO_FIELD_SCHEMA_LAYOUT_VALUE_TYPES } from './typing';
-export { GridContext, ProForm };
+export type { FieldContextProps, FiledContextProps } from './FieldContext';
+export type { GridHelpers } from './helpers/grid';
+export { GridContext, useGridHelpers } from './helpers';
+export { ProForm };
 export type { ProFormGroupProps, ProFormGroupProps as GroupProps };
 
 export default ProForm;

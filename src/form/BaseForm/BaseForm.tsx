@@ -51,17 +51,11 @@ import type {
 import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
 import type { SubmitterProps } from './Submitter';
 import Submitter from './Submitter';
+import type { ProFormInstance, ProFormRef } from './typing';
 
 const { noteOnce } = warning;
 
-// Define ProFormInstance and ProFormRef
-export type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
-type ProFormRef<T> = ProFormInstance<T> & {
-  /** 原生 DOM 元素引用 */
-  nativeElement?: HTMLElement;
-  /** 聚焦方法 */
-  focus?: () => void;
-};
+export type { ProFormInstance, ProFormRef } from './typing';
 
 type ListConvertValueEntry = {
   name: NamePath;
