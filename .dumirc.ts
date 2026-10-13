@@ -9,7 +9,6 @@ export default defineConfig({
   alias: {
     '@ant-design/pro-components': path.resolve(__dirname, 'src'),
   },
-  utoopack: {},
 
   metas: [
     {

@@ -1,13 +1,14 @@
 ---
 title: ProComponents - Page-level Front-end Components
 hero:
-  title: ProComponents
-  description: 🏆 Making Middle and Back-end Development Easier
-  actions:
-    - text: 🚀 Quick Start →
-      link: /en-US/components
+  title: Explore ProComponents
+  description: Find inspiration and build better admin experiences
 footer: Open-source MIT Licensed | © 2017-present
 ---
+
+import HomeSearch from './components/HomeSearch';
+
+<HomeSearch locale="en-US" />
 
 ## 📚 Migration Guide
 
