@@ -11,7 +11,7 @@ import type { UploadRef } from 'antd';
 import React, { useContext, useMemo, useState } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
-import warpField from '../FormItem/warpField';
+import { createProFormField } from '../FormItem/createProFormField';
 
 type PickUploadProps = Pick<
   UploadProps,
@@ -174,7 +174,7 @@ const BaseProFormUploadButton: React.FC<ProFormUploadButtonProps> =
     },
   );
 
-const ProFormUploadButton = warpField<ProFormUploadButtonProps>?.(
+const ProFormUploadButton = createProFormField<ProFormUploadButtonProps>?.(
   BaseProFormUploadButton,
   {
     getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) =>

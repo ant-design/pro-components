@@ -1,5 +1,27 @@
 # Changelog
 
+## Unreleased
+
+### 🗑 破坏性变更
+
+- ProForm
+  - 🗑 移除对外导出的 `warpField`；自定义字段请改用 `createProFormField` 或 `useProFormFieldShell` [#9751](https://github.com/ant-design/pro-components/pull/9751)
+
+### 🆕 新特性
+
+- ProForm
+  - 🆕 导出布局与表单壳层类型（`ProFormGridConfig`、`CommonFormProps`、`BaseFormProps`、`ProFormRef`、`SyncToUrl`、`useGridHelpers`、`getSpanConfig`、`FieldContextProps`、`FormFieldType` 等）及 `createProFormField` / `useProFormFieldShell` [#9751](https://github.com/ant-design/pro-components/pull/9751)
+
+### ⚡️ 性能
+
+- ProForm
+  - ⚡️ `ProFormDependency` 与 LightFilter 弹层路径按需加载；`LightFilter` 通过 context 注入 light 渲染器；`scripts/checkFormTreeShaking.mjs` 约束 `ProFormText` 初始分包 [#9751](https://github.com/ant-design/pro-components/pull/9751)
+
+### ✅ 测试
+
+- ProForm
+  - ✅ 补充 `pickProFormItemProps` / `omitProFormItemProps` 透传用例 [#9751](https://github.com/ant-design/pro-components/pull/9751)
+
 ## [3.1.15-7] - 2026-10-10
 
 ### 🐛 问题修复

@@ -11,7 +11,7 @@ import type {
   ProFormFieldRemoteProps,
 } from '../../typing';
 import ProField from '../Field';
-import warpField from '../FormItem/warpField';
+import { createProFormField } from '../FormItem/createProFormField';
 
 const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
   radio: {
@@ -87,7 +87,7 @@ const ProFormRadioComponents: React.FC<ProFormFieldItemProps<RadioProps>> =
     );
   });
 
-const ProFormRadio = warpField<ProFormFieldItemProps<RadioProps>>?.(
+const ProFormRadio = createProFormField<ProFormFieldItemProps<RadioProps>>?.(
   ProFormRadioComponents,
   {
     valuePropName: 'checked',

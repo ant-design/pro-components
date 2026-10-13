@@ -4,7 +4,7 @@ import { ConfigProvider, Upload } from 'antd';
 import React, { useContext } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
-import warpField from '../FormItem/warpField';
+import { createProFormField } from '../FormItem/createProFormField';
 
 type UploadRef = GetRef<typeof Upload.Dragger>;
 
@@ -130,7 +130,7 @@ const BaseProFormUploadDragger: React.FC<ProFormUploadDraggerProps> =
     },
   );
 
-const ProFormUploadDragger = warpField<ProFormUploadDraggerProps>?.(
+const ProFormUploadDragger = createProFormField<ProFormUploadDraggerProps>?.(
   BaseProFormUploadDragger,
   {
     getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) =>

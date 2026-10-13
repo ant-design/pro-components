@@ -12,7 +12,7 @@ import type {
   ProFormFieldRemoteProps,
 } from '../../typing';
 import ProFormField from '../Field';
-import warpField from '../FormItem/warpField';
+import { createProFormField } from '../FormItem/createProFormField';
 
 const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
   checkbox: {
@@ -71,7 +71,7 @@ const ProFormCheckboxComponents: React.FC<ProFormCheckboxProps> =
     },
   );
 
-const ProFormCheckbox = warpField<ProFormCheckboxProps>?.(
+const ProFormCheckbox = createProFormField<ProFormCheckboxProps>?.(
   ProFormCheckboxComponents,
   {
     valuePropName: 'checked',

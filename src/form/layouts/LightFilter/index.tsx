@@ -17,6 +17,8 @@ import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { LightFilterFooterRender } from '../../typing';
 import { lightFilterFieldComponents } from './lightFilterFieldComponents';
+import { LightFilterFieldContext } from './LightFilterFieldContext';
+import { renderLightPopoverField } from './renderLightPopoverField';
 import { useStyle } from './style';
 
 export type LightFilterLayoutProps<T, U = Record<string, any>> = {
@@ -271,7 +273,13 @@ function LightFilterComponent<T = Record<string, any>>(
   // 放入 deps 无意义，且会导致每次渲染都重新执行。
   useImperativeHandle(userFormRef, () => formRef.current, []);
 
+  const lightFilterFieldContextValue = useMemo(
+    () => ({ renderLightPopoverField }),
+    [],
+  );
+
   return (
+    <LightFilterFieldContext.Provider value={lightFilterFieldContextValue}>
     <BaseForm
       size={size}
       formComponentType="LightFilter"
@@ -340,6 +348,7 @@ function LightFilterComponent<T = Record<string, any>>(
         formRef.current?.submit();
       }}
     />
+    </LightFilterFieldContext.Provider>
   );
 }
 

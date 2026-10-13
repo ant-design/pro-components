@@ -1,3 +1,8 @@
+/**
+ * Root barrel: re-exports all sub-packages. Modern bundlers tree-shake unused
+ * **named** exports. For a smaller form-only graph, prefer
+ * `@ant-design/pro-components/form` (see `docs/internal/form-architecture.md`).
+ */
 export * from './card';
 export * from './descriptions';
 export * from './field';
