@@ -14,7 +14,7 @@ import { useStyle } from './rightContentStyle';
 export const ActionsContent: React.FC<GlobalHeaderProps> = ({
   avatarProps,
   actionsRender,
-  headerContentRender,
+  headerContentRender: _headerContentRender,
   ...props
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);

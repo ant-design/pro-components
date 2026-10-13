@@ -4,9 +4,9 @@ import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button } from 'antd';
-import { SortOrder } from 'antd/es/table/interface';
 import { useRef, useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import type { SortOrder } from '../../src/utils/antdTypes';
 import { getFetchData } from './fixtures';
 
 afterEach(() => {
@@ -14,6 +14,53 @@ afterEach(() => {
 });
 
 describe('BasicTable sorter', () => {
+  it('exposes current server sort and filter through actionRef (#9197)', async () => {
+    const actionRef: { current: ActionType | undefined } = {
+      current: undefined,
+    };
+    const { container } = render(
+      <ProTable
+        actionRef={actionRef}
+        search={false}
+        options={false}
+        pagination={false}
+        request={async () => ({ data: [], success: true })}
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            sorter: true,
+            defaultSortOrder: 'ascend',
+          },
+          {
+            title: 'Status',
+            dataIndex: 'status',
+            filters: true,
+            defaultFilteredValue: ['active'],
+            valueEnum: { active: 'Active', closed: 'Closed' },
+          },
+        ]}
+      />,
+    );
+
+    await waitFor(() => {
+      expect(actionRef.current?.getSortFilter?.()).toEqual({
+        sort: { name: 'ascend' },
+        filter: { status: ['active'] },
+      });
+    });
+
+    await userEvent.click(
+      container.querySelector('.ant-table-column-sorter-down')!,
+    );
+    await waitFor(() => {
+      expect(actionRef.current?.getSortFilter?.()).toEqual({
+        sort: { name: 'descend' },
+        filter: { status: ['active'] },
+      });
+    });
+  });
+
   it('🐛 #9565 marks the active sort direction for theme coloring', async () => {
     const { container } = render(
       <ProTable<{ key: number; name: string }>

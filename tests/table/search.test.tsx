@@ -1008,4 +1008,33 @@ describe('BasicTable Search', () => {
       ).toHaveLength(0);
     });
   });
+
+  it('🎏 light filter stays flat in the toolbar even with cardBordered.search', () => {
+    const { container } = render(
+      <ProTable
+        columns={[{ title: 'Name', dataIndex: 'name' }]}
+        dataSource={[]}
+        search={{ filterType: 'light' }}
+        cardBordered={{ search: true, table: true }}
+        rowKey="key"
+      />,
+    );
+
+    // 轻量筛选插在工具栏内，外层必须是平铺 div（带皮肤类），不是卡片
+    const lightWrapper = container.querySelector(
+      '.ant-pro-table-list-toolbar div.ant-pro-table-search.ant-pro-table-search-light-filter',
+    );
+    expect(lightWrapper).toBeTruthy();
+    expect(lightWrapper?.classList.contains('ant-pro-card')).toBeTruthy();
+    // 卡片的形：无 ant-card、无 body 嵌套、无描边
+    expect(lightWrapper?.classList.contains('ant-card')).toBeFalsy();
+    expect(lightWrapper?.classList.contains('ant-pro-card-border')).toBeFalsy();
+    expect(
+      lightWrapper?.querySelectorAll('.ant-card, .ant-card-body'),
+    ).toHaveLength(0);
+    // cardBordered.table 对表格区照常生效
+    expect(
+      container.querySelectorAll('.ant-pro-table .ant-pro-card.ant-card-bordered'),
+    ).toHaveLength(1);
+  });
 });

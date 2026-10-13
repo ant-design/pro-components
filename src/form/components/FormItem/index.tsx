@@ -6,6 +6,7 @@ import React, { useContext, useEffect, useMemo } from 'react';
 import type { ProFieldValueType } from '../../../utils';
 import {
   omitUndefined,
+  ProFormContext,
   SearchConvertKeyFn,
   SearchTransformKeyFn,
   useDeepCompareMemo,
@@ -45,8 +46,8 @@ const WithValueFomFiledProps = React.forwardRef<
     : undefined;
 
   const isProFormComponent =
-    // @ts-ignore
-    filedChildren?.type?.displayName !== 'ProFormComponent';
+    (filedChildren?.type as { displayName?: string } | undefined)
+      ?.displayName !== 'ProFormComponent';
 
   const isValidElementForFiledChildren = !React.isValidElement(filedChildren);
 
@@ -72,8 +73,7 @@ const WithValueFomFiledProps = React.forwardRef<
   const omitOnBlurAndOnChangeProps = useDeepCompareMemo(
     () =>
       omit(
-        // @ts-ignore
-        childFieldProps || {},
+        (childFieldProps || {}) as Record<string, any>,
         ['onBlur', 'onChange'],
       ),
     [childFieldProps],
@@ -176,6 +176,7 @@ type WarpFormItemProps = {
    * @name 获取时转化值，一般用于将数据格式化为组件接收的格式
    * @param value 字段的值
    * @param namePath 字段的name
+   * @param entity 整个表单的数据
    * @returns 字段新的值
    *
    *
@@ -307,6 +308,7 @@ const WarpFormItem: React.FC<ProFormItemProps> = ({
   help,
   ...props
 }) => {
+  const proFormContext = React.useContext(ProFormContext);
   const convertValueTypeRef = React.useRef<{
     source: string;
     target: string;
@@ -325,9 +327,10 @@ const WarpFormItem: React.FC<ProFormItemProps> = ({
             cachedTypes &&
             cachedTypes.source !== cachedTypes.target &&
             valueType === cachedTypes.target;
+          const entity = proFormContext?.formRef?.current?.getFieldsValue?.(true);
           const newValue = shouldReuseComponentValue
             ? value
-            : (convertValue?.(value, props.name!) ?? value);
+            : (convertValue?.(value, props.name!, entity) ?? value);
           if (convertValue && !shouldReuseComponentValue) {
             convertValueTypeRef.current = {
               source: valueType,

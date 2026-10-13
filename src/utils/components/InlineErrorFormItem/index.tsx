@@ -27,6 +27,28 @@ const FIX_INLINE_STYLE = {
 };
 
 /**
+ * 生成 Form.Item 的 shouldUpdate 函数，用于精确控制字段级更新。
+ * 提取为共享函数，避免 InternalFormItemFunction 和默认分支重复定义。
+ */
+const createShouldUpdate = (name: NamePath) => {
+  return (prev: any, next: any) => {
+    if (prev === next) return false;
+    const shouldName = [name].flat(1);
+    if (shouldName.length > 1) {
+      shouldName.pop();
+    }
+    try {
+      return (
+        JSON.stringify(get(prev, shouldName)) !==
+        JSON.stringify(get(next, shouldName))
+      );
+    } catch (_error) {
+      return true;
+    }
+  };
+};
+
+/**
  * 读取 Form.Item 校验状态并渲染 Popover 错误层。
  *
  * antd 6 通过 FormItemInputContext 把 { status, errors, warnings } 注入到
@@ -40,7 +62,7 @@ const InlineErrorFormItemPopover: React.FC<{
   input: React.ReactNode;
 }> = ({ popoverProps, input }) => {
   const { status, errors = [], warnings = [] } = Form.Item.useStatus();
-  const [open, setOpen] = useState<boolean | undefined>(false);
+  const [, setOpen] = useState<boolean | undefined>(false);
   // 校验中保持上一次的消息，避免 loading 抖动
   const [messages, setMessages] = useState<{
     errors: React.ReactNode[];
@@ -64,6 +86,15 @@ const InlineErrorFormItemPopover: React.FC<{
       (displayedMessages.warnings?.length ?? 0) >=
     1;
 
+  // 错误消失时重置 open 状态，确保下次错误能正常弹出
+  const prevHasMessages = React.useRef(false);
+  useEffect(() => {
+    if (!hasMessages && prevHasMessages.current) {
+      setOpen(false);
+    }
+    prevHasMessages.current = hasMessages;
+  }, [hasMessages]);
+
   const renderMessageContent = () => (
     <>
       {displayedMessages.errors?.map((error, index) => (
@@ -85,6 +116,14 @@ const InlineErrorFormItemPopover: React.FC<{
     </>
   );
 
+  // 无错误时禁用 Popover，避免空内容弹出
+  if (!hasMessages) {
+    return <>{input}</>;
+  }
+
+  // 只有自定义组件（非原生 DOM 元素）才需要包装，确保 rc-trigger 事件正确注入
+  const shouldWrap = React.isValidElement(input) && typeof input.type !== 'string';
+
   return (
     <>
       {/* 不能把 Fragment 作为 Popover 的直接 child：rc-trigger 会向 child 注入
@@ -93,12 +132,8 @@ const InlineErrorFormItemPopover: React.FC<{
           这里以 input 本体作为 trigger。 */}
       <Popover
         key="popover"
-        open={!hasMessages ? false : open}
-        onOpenChange={(changeOpen: boolean) => {
-          if (changeOpen === open) return;
-          setOpen(changeOpen);
-        }}
-        trigger={popoverProps?.trigger || ['click']}
+        defaultOpen={true}
+        trigger={popoverProps?.trigger || ['hover']}
         placement={popoverProps?.placement || 'topLeft'}
         getPopupContainer={popoverProps?.getPopupContainer}
         getTooltipContainer={popoverProps?.getTooltipContainer}
@@ -118,13 +153,17 @@ const InlineErrorFormItemPopover: React.FC<{
               )}
             >
               {loading ? <LoadingOutlined /> : null}
-              {hasMessages ? renderMessageContent() : null}
+              {renderMessageContent()}
             </div>
           </div>,
         )}
         {...popoverProps}
       >
-        {input}
+        {shouldWrap ? (
+          <span style={{ display: 'inline-block', width: '100%' }}>{input}</span>
+        ) : (
+          input
+        )}
       </Popover>
     </>
   );
@@ -171,21 +210,7 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
       // help="" 占位：popover 模式下原生 explain 只渲染空内容，错误由气泡接管；
       // 同时 additionalDom 常驻，校验出现/消失时高度稳定（#9709/#8942）
       help=""
-      shouldUpdate={(prev, next) => {
-        if (prev === next) return false;
-        const shouldName = [name].flat(1);
-        if (shouldName.length > 1) {
-          shouldName.pop();
-        }
-        try {
-          return (
-            JSON.stringify(get(prev, shouldName)) !==
-            JSON.stringify(get(next, shouldName))
-          );
-        } catch (_error) {
-          return true;
-        }
-      }}
+      shouldUpdate={createShouldUpdate(name)}
       {...rest}
       style={{
         ...FIX_INLINE_STYLE,
@@ -217,25 +242,7 @@ export const InlineErrorFormItem = (props: InlineErrorFormItemProps) => {
   return (
     <Form.Item
       rules={rules}
-      shouldUpdate={
-        name
-          ? (prev, next) => {
-              if (prev === next) return false;
-              const shouldName = [name].flat(1);
-              if (shouldName.length > 1) {
-                shouldName.pop();
-              }
-              try {
-                return (
-                  JSON.stringify(get(prev, shouldName)) !==
-                  JSON.stringify(get(next, shouldName))
-                );
-              } catch (_error) {
-                return true;
-              }
-            }
-          : undefined
-      }
+      shouldUpdate={name ? createShouldUpdate(name) : undefined}
       {...rest}
       style={{ ...FIX_INLINE_STYLE, ...rest.style }}
       name={name}

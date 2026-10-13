@@ -2,7 +2,7 @@
 import { ColorPicker, ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
 import { useContext } from 'react';
-import { useIntl } from '../../../provider';
+import { useFieldIntl as useIntl } from '../../internal/useFieldIntl';
 import type { ProFieldFC } from '../../types';
 
 const DEFAULT_PRESETS = {

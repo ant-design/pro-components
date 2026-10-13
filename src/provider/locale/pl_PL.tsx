@@ -79,6 +79,10 @@ const plPL: ProLocale = {
     open: 'otwierać',
     close: 'zamykać',
   },
+  captcha: {
+    getCaptcha: 'Uzyskaj kod weryfikacyjny',
+    retryAfter: 'Spróbuj ponownie za {count}s',
+  },
 };
 
 export default plPL;

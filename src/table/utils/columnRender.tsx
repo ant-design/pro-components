@@ -1,5 +1,4 @@
 import { get } from '@rc-component/util';
-import type { AnyObject } from 'antd/lib/_util/type';
 import React from 'react';
 import { isMergeCell } from '.';
 import type { ProFieldEmptyText } from '../../field';
@@ -10,6 +9,7 @@ import type {
   UseEditableUtilType,
 } from '../../utils';
 import { LabelIconTip, genCopyable, isNil } from '../../utils';
+import type { AnyObject } from '../../utils/antdTypes';
 import type { ContainerType } from '../Store/Provide';
 import type { ActionType, ProColumns } from '../typing';
 import cellRenderToFromItem from './cellRenderToFromItem';
@@ -138,11 +138,10 @@ export function columnRender<T extends AnyObject>({
     subName,
     columnProps: {
       ...columnProps,
-      // 为了兼容性，原来写了个错别字
-      // @ts-ignore
+      // 为了兼容性，原来写了个错别字 entry，保留并与 entity 同值
       entry: rowData,
       entity: rowData,
-    },
+    } as ProColumns<T> & { entity: T; entry?: T },
     counter,
     columnEmptyText,
     type,

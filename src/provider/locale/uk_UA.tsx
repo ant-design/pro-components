@@ -79,6 +79,10 @@ const ukUA: ProLocale = {
     open: 'Відкрито',
     close: 'Закрито',
   },
+  captcha: {
+    getCaptcha: 'Отримати код підтвердження',
+    retryAfter: 'Повторити через {count} с',
+  },
 };
 
 export default ukUA;

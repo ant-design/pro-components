@@ -1,9 +1,6 @@
 import { omit, useControlledState, warning } from '@rc-component/util';
-import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps, WatermarkProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
-import type { AnyObject } from 'antd/lib/_util/type';
-import type { ItemType } from 'antd/lib/breadcrumb/Breadcrumb';
 import { clsx } from 'clsx';
 import type { CSSProperties } from 'react';
 import React, {
@@ -13,7 +10,6 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import useSWR, { useSWRConfig } from 'swr';
 import type { GenerateStyle, ProTokenType } from '../provider';
 import { ProConfigProvider, ProProvider } from '../provider';
 import {
@@ -21,7 +17,12 @@ import {
   useBreakpoint,
   useDocumentTitle,
   useRefFunction,
+  useRequestData,
 } from '../utils';
+import type {
+  AnyObject,
+  BreadcrumbItemType as ItemType,
+} from '../utils/antdTypes';
 import { Logo } from './assert/Logo';
 import { DefaultFooter as Footer } from './components/Footer';
 import type { HeaderViewProps } from './components/Header';
@@ -47,6 +48,7 @@ import type {
 import type { BreadcrumbProLayoutProps } from './utils/getBreadcrumbProps';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import { getMenuData } from './utils/getMenuData';
+import { getMatchMenu } from './utils/routeUtils';
 import { useCurrentMenuLayoutProps } from './utils/useCurrentMenuLayoutProps';
 import { clearMenuItem } from './utils/utils';
 import { WrapContent } from './WrapContent';
@@ -494,13 +496,13 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     [propsFormatMessage],
   );
 
-  const { data, mutate, isValidating } = useSWR(
-    [defaultId, menu?.params],
-    async ([, params]) => {
+  const { data, mutate, isValidating, remove } = useRequestData({
+    key: [defaultId, menu?.params],
+    fetcher: async () => {
       menuOnLoadingChange(true);
       try {
         const menuDataItems = await menu?.request?.(
-          params || {},
+          menu?.params || {},
           route?.children || route?.routes || [],
         );
         return menuDataItems;
@@ -508,22 +510,12 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
         menuOnLoadingChange(false);
       }
     },
-    {
-      revalidateOnFocus: false,
-      shouldRetryOnError: false,
-      revalidateOnReconnect: false,
-    },
-  );
+  });
 
   const menuLoading =
     menu?.loading ?? (menu?.request ? isValidating : menuLoadingState);
 
-  const { cache } = useSWRConfig();
-  useEffect(() => {
-    return () => {
-      if (cache instanceof Map) cache.delete(defaultId);
-    };
-  }, []);
+  useEffect(() => () => remove(), [remove]);
 
   const menuInfoData = useMemo<{
     breadcrumb?: Record<string, MenuDataItem>;
@@ -569,7 +561,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const {
     fixSiderbar,
-    navTheme,
+    navTheme: _navTheme,
     layout: propsLayout,
     ...rest
   } = {
@@ -759,11 +751,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       return bgLayoutImgList?.map((item, index) => {
         return (
           <img
-            key={
-              item.src
-                ? `${item.src}-${index}`
-                : `bg-layout-${index}`
-            }
+            key={item.src ? `${item.src}-${index}` : `bg-layout-${index}`}
             src={item.src}
             alt=""
             style={{

@@ -29,26 +29,27 @@ import type { ContainerType } from '../Store/Provide';
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
 /**
- * 拼接用于编辑的 key
- *
- * @deprecated 请使用 buildNamePath，spellNamePath 是历史命名，保留以兼容外部引用
- */
-export const spellNamePath = (...rest: any[]): React.Key[] => buildNamePath(...rest);
-
-/**
  * 拼接用于编辑的表单字段路径（name path）
  */
 export const buildNamePath = (...rest: any[]): React.Key[] => {
   return rest
     .filter((index) => index !== undefined)
+    .flat(1)
     .map((item) => {
       if (typeof item === 'number') {
         return item.toString();
       }
       return item;
-    })
-    .flat(1);
+    });
 };
+
+/**
+ * 拼接用于编辑的 key
+ *
+ * @deprecated 请使用 buildNamePath，spellNamePath 是历史命名，保留以兼容外部引用
+ */
+export const spellNamePath = (...rest: any[]): React.Key[] =>
+  buildNamePath(...rest);
 
 type CellRenderFromItemProps<T extends AnyObject> = {
   text: string | number | (string | number)[];
@@ -58,6 +59,8 @@ type CellRenderFromItemProps<T extends AnyObject> = {
   columnEmptyText?: ProFieldEmptyText;
   columnProps?: ProColumnType<T> & {
     entity: T;
+    /** @deprecated 历史拼写兼容，请用 entity */
+    entry?: T;
   };
   type?: ProSchemaComponentTypes;
   // 行的唯一 key
@@ -68,7 +71,8 @@ type CellRenderFromItemProps<T extends AnyObject> = {
    */
   prefixName?: string;
   counter: ReturnType<ContainerType>;
-  proFieldProps: ProFormFieldProps;
+  /** 由 cellRenderToFromItem 生成后传入内部组件；外层入口调用时可不传 */
+  proFieldProps?: ProFormFieldProps;
   subName: string[];
   editableUtils: UseEditableUtilType;
 };
@@ -92,17 +96,29 @@ const CellRenderFromItem = <T extends AnyObject>(
   } = props;
 
   const editableForm = ProForm.useFormInstance();
+  const convertValueTypeRef = React.useRef<{
+    source: string;
+    target: string;
+  }>();
 
   const key = recordKey || index;
   const realIndex = useMemo(
     () => editableUtils?.getRealIndex?.(rowData!) ?? index,
     [editableUtils, index, rowData],
   );
+  const rowPath = useMemo(
+    () =>
+      prefixName
+        ? Array.isArray(realIndex)
+          ? realIndex
+          : [...subName, realIndex]
+        : [key],
+    [key, prefixName, realIndex, subName],
+  );
   const [formItemName, setName] = useState<React.Key[]>(() =>
     buildNamePath(
       prefixName,
-      prefixName ? subName : [],
-      prefixName ? realIndex : key,
+      rowPath,
       columnProps?.key ?? columnProps?.dataIndex ?? index,
     ),
   );
@@ -114,8 +130,7 @@ const CellRenderFromItem = <T extends AnyObject>(
   useEffect(() => {
     const nextName = buildNamePath(
       prefixName,
-      prefixName ? subName : [],
-      prefixName ? realIndex : key,
+      rowPath,
       columnProps?.key ?? columnProps?.dataIndex ?? index,
     );
     // 用 functional update 读取最新 prev 值进行比较，避免把 formItemName
@@ -131,8 +146,7 @@ const CellRenderFromItem = <T extends AnyObject>(
     recordKey,
     prefixName,
     key,
-    subName,
-    realIndex,
+    rowPath,
   ]);
 
   const needProps = useMemo(
@@ -144,9 +158,21 @@ const CellRenderFromItem = <T extends AnyObject>(
           rowKey: rowName,
           rowIndex: index,
           isEditable: true,
+          // #9184 formItemProps 为函数时,用户常通过 config.entry 读取行内其它字段的
+          // 实时值来计算动态 rules(如 required)。旧实现 entry/entity 是进入编辑时的
+          // rowData 快照,不随表单值更新,导致动态必填标识不刷新。
+          // 这里改为 getter,每次读取都从 form 取当前行值。
+          get entry() {
+            const liveRow = editableForm?.getFieldValue(rowName);
+            return liveRow ?? rowData;
+          },
+          get entity() {
+            const liveRow = editableForm?.getFieldValue(rowName);
+            return liveRow ?? rowData;
+          },
         },
       ] as const,
-    [columnProps, editableForm, index, rowName],
+    [columnProps, editableForm, index, rowName, rowData],
   );
 
   const generateFormItem = useCallback(() => {
@@ -166,6 +192,38 @@ const CellRenderFromItem = <T extends AnyObject>(
     formItemProps.initialValue = prefixName
       ? (formItemProps?.initialValue ?? columnProps?.initialValue)
       : (text ?? formItemProps?.initialValue ?? columnProps?.initialValue);
+    if (columnProps?.convertValue) {
+      const userGetValueProps = formItemProps.getValueProps;
+      formItemProps.getValueProps = (value: any) => {
+        const getValueType = (item: any) => {
+          if (item === null) return 'null';
+          if (Array.isArray(item)) return 'array';
+          return typeof item;
+        };
+        const valueType = getValueType(value);
+        const cachedTypes = convertValueTypeRef.current;
+        const shouldReuseComponentValue =
+          cachedTypes &&
+          cachedTypes.source !== cachedTypes.target &&
+          valueType === cachedTypes.target;
+        const convertedValue = shouldReuseComponentValue
+          ? value
+          : (columnProps.convertValue?.(
+              value,
+              formItemName,
+              editableForm?.getFieldsValue?.(true),
+            ) ?? value);
+        if (!shouldReuseComponentValue) {
+          convertValueTypeRef.current = {
+            source: valueType,
+            target: getValueType(convertedValue),
+          };
+        }
+        return userGetValueProps
+          ? userGetValueProps(convertedValue)
+          : { value: convertedValue };
+      };
+    }
     let fieldDom: React.ReactNode = (
       <ProFormField
         cacheForSwr
@@ -213,14 +271,22 @@ const CellRenderFromItem = <T extends AnyObject>(
     // 导致 Form.Item 内部校验状态丢失。此处直接内联 JSX 是正确做法。
     return (
       <InlineErrorFormItem
-        popoverProps={{
-          getPopupContainer: (formContext.getPopupContainer as PopoverProps['getPopupContainer']) ||
-            (() => (counter.rootDomRef.current || document.body) as HTMLElement),
-        }}
         key={formItemName.join('-')}
-        errorType="popover"
         name={formItemName}
         {...formItemProps}
+        // errorType 同时支持列级与 formItemProps 传入，formItemProps 优先级更高
+        errorType={
+          (formItemProps.errorType as 'popover' | 'default') ??
+          columnProps?.errorType ??
+          'popover'
+        }
+        popoverProps={{
+          getPopupContainer:
+            (formContext.getPopupContainer as PopoverProps['getPopupContainer']) ||
+            (() =>
+              (counter.rootDomRef.current || document.body) as HTMLElement),
+          ...columnProps?.popoverProps,
+        }}
       >
         {fieldDom}
       </InlineErrorFormItem>
@@ -322,8 +388,9 @@ function cellRenderToFromItem<T extends AnyObject>(
     : [];
   /**
    * 生成公用的 proField dom 配置
+   * record 为表格行数据透传字段，不在 ProFormFieldProps 公共类型上，用交叉类型补全
    */
-  const proFieldProps: ProFormFieldProps = {
+  const proFieldProps: ProFormFieldProps & { record?: T } = {
     valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
     dependencies: columnProps?.dependencies ? [dependencies] : undefined,
@@ -332,6 +399,8 @@ function cellRenderToFromItem<T extends AnyObject>(
       : undefined,
     params: runFunction(columnProps?.params, rowData, columnProps),
     readonly: columnProps?.readonly,
+    convertValue: columnProps?.convertValue,
+    transform: columnProps?.transform,
     text:
       valueType === 'index' || valueType === 'indexBorder'
         ? config.index
@@ -339,7 +408,6 @@ function cellRenderToFromItem<T extends AnyObject>(
     mode: config.mode,
     formItemRender: undefined,
     valueType: valueType as ProFieldValueType,
-    // @ts-ignore
     record: rowData,
     proFieldProps: {
       emptyText: config.columnEmptyText,

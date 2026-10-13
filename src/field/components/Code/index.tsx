@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { proTheme } from '../../../provider';
+import { proTheme } from '../../../provider/useStyle';
 import {
   isProFieldEditOrUpdateMode,
   isProFieldReadMode,

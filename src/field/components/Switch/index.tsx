@@ -1,6 +1,6 @@
 ﻿import type { SwitchProps } from 'antd';
 import React, { useMemo } from 'react';
-import { useIntl } from '../../../provider';
+import { useFieldIntl as useIntl } from '../../internal/useFieldIntl';
 import {
   isProFieldEditOrUpdateMode,
   isProFieldReadMode,

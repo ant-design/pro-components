@@ -1,7 +1,7 @@
 ﻿import dayjs from 'dayjs';
 import quarterOfYear from 'dayjs/plugin/quarterOfYear';
 
-import { parseValueToDay } from '../../../utils';
+import { parseValueToDay } from '../../../utils/parseValueToMoment';
 import '../../initDayjs';
 
 dayjs.extend(quarterOfYear);

@@ -1,6 +1,5 @@
 import { ProTable } from '@ant-design/pro-components';
 import { render, waitFor } from '@testing-library/react';
-import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { waitForWaitTime } from '../util';
 
@@ -29,9 +28,7 @@ describe('ProTable ellipsis rendering paths (#9664)', () => {
     });
 
     // 单元格带 antd 原生省略类
-    expect(
-      container.querySelector('td.ant-table-cell-ellipsis'),
-    ).toBeTruthy();
+    expect(container.querySelector('td.ant-table-cell-ellipsis')).toBeTruthy();
     // 不再包 Typography
     expect(container.querySelector('.ant-typography')).toBeFalsy();
   });
@@ -120,9 +117,7 @@ describe('ProTable ellipsis rendering paths (#9664)', () => {
     // 第一列：原生省略
     expect(tds[0].classList.contains('ant-table-cell-ellipsis')).toBe(true);
     // 第二列：Typography 省略
-    expect(
-      tds[1].querySelector('.ant-typography-ellipsis'),
-    ).toBeTruthy();
+    expect(tds[1].querySelector('.ant-typography-ellipsis')).toBeTruthy();
   });
 
   it('📦 性能：纯 ellipsis:true 的大数据量表格不渲染 Typography（#8868 场景）', async () => {
@@ -151,5 +146,39 @@ describe('ProTable ellipsis rendering paths (#9664)', () => {
     // 200 行全部走原生省略，整个表格 0 个 Typography 实例
     expect(container.querySelectorAll('.ant-typography').length).toBe(0);
     unmount();
+  });
+
+  it('🐛 ellipsis + copyable 在连续数据替换时不会触发 DOM 删除异常 (#8053)', async () => {
+    const rows = Array.from({ length: 20 }, (_, index) => ({
+      key: index,
+      name: `row-${index}-${longText}`,
+    }));
+    const props = {
+      search: false as const,
+      toolBarRender: false as const,
+      pagination: false as const,
+      columns: [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          key: 'name',
+          ellipsis: true,
+          copyable: true,
+        },
+      ],
+      rowKey: 'key' as const,
+    };
+    const wrapper = render(<ProTable {...props} dataSource={rows} />);
+    await waitFor(() => {
+      expect(wrapper.container.querySelectorAll('tbody tr')).toHaveLength(20);
+    });
+
+    for (let index = 0; index < 6; index += 1) {
+      const nextRows = index % 2 === 0 ? [...rows].reverse() : rows;
+      expect(() =>
+        wrapper.rerender(<ProTable {...props} dataSource={nextRows} />),
+      ).not.toThrow();
+    }
+    expect(wrapper.container.querySelectorAll('tbody tr')).toHaveLength(20);
   });
 });

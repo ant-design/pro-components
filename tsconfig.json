@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -14,11 +13,15 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "paths": {
-      "@ant-design/pro-components": ["src"],
-      "src": ["src"],
-      "src/*": ["src/*"],
-      "@rspress/core/runtime": ["node_modules/@rspress/core/dist/runtime/index.d.ts"],
-      "@rspress/core/theme-original": ["node_modules/@rspress/core/dist/theme/index.d.ts"]
+      "@ant-design/pro-components": ["./src"],
+      "src": ["./src"],
+      "src/*": ["./src/*"],
+      "@rspress/core/runtime": [
+        "./node_modules/@rspress/core/dist/runtime/index.d.ts"
+      ],
+      "@rspress/core/theme-original": [
+        "./node_modules/@rspress/core/dist/theme/index.d.ts"
+      ]
     }
   },
   "include": [
@@ -31,7 +34,6 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "typings.d.ts",
-    "src/**/*",
-    "demos/**/*"
+    "src/**/*"
   ]
 }

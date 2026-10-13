@@ -1,36 +1,38 @@
 ﻿import { Avatar } from 'antd';
 import type { ReactNode } from 'react';
 import { FieldText } from '.';
-import { ProRenderFieldPropsType } from '../provider';
-import { pickProProps } from '../utils';
+import type { ProRenderFieldPropsType } from '../provider/typing/config';
+import { pickProProps } from '../utils/pickProProps';
 import type { ProFieldBuiltinValueType } from '../utils/typing';
-import FieldCascader from './components/Cascader';
-import FieldCheckbox from './components/Checkbox';
-import FieldCode from './components/Code';
-import FieldColorPicker from './components/ColorPicker';
-import FieldDatePicker from './components/DatePicker';
-import FieldDigit from './components/Digit';
-import FieldDigitRange from './components/DigitRange';
-import FieldFromNow from './components/FromNow';
-import FieldImage from './components/Image';
 import FieldIndexColumn from './components/IndexColumn';
-import FieldMoney from './components/Money';
-import FieldOptions from './components/Options';
-import FieldPassword from './components/Password';
-import FieldPercent from './components/Percent';
-import FieldProgress from './components/Progress';
-import FieldRadio from './components/Radio';
-import FieldRangePicker from './components/RangePicker';
-import FieldRate from './components/Rate';
-import FieldSecond from './components/Second';
-import FieldSegmented from './components/Segmented';
-import FieldSelect from './components/Select';
-import FieldSlider from './components/Slider';
-import FieldSwitch from './components/Switch';
-import FieldTextArea from './components/TextArea';
-import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
-import FieldTreeSelect from './components/TreeSelect';
-import './initDayjs';
+import {
+  FieldCascader,
+  FieldCheckbox,
+  FieldCode,
+  FieldColorPicker,
+  FieldDatePicker,
+  FieldDigit,
+  FieldDigitRange,
+  FieldFromNow,
+  FieldImage,
+  FieldMoney,
+  FieldOptions,
+  FieldPassword,
+  FieldPercent,
+  FieldProgress,
+  FieldRadio,
+  FieldRangePicker,
+  FieldRate,
+  FieldSecond,
+  FieldSegmented,
+  FieldSelect,
+  FieldSlider,
+  FieldSwitch,
+  FieldTextArea,
+  FieldTimePicker,
+  FieldTimeRangePicker,
+  FieldTreeSelect,
+} from './FieldLoaders';
 import { wrapProFieldLight } from './internal/ProFieldLightWrapper';
 
 /**

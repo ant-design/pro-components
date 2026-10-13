@@ -1,29 +1,24 @@
 ﻿import { useControlledState } from '@rc-component/util';
 import type { GetRef, SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
-import React, {
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { useImperativeHandle, useMemo, useRef, useState } from 'react';
 import useSWR from 'swr';
-import { useIntl } from '../../../provider';
-import {
-  nanoid,
-  objectToMap,
+import { useDebounceValue } from '../../../utils/hooks/useDebounceValue';
+import { useDeepCompareEffect } from '../../../utils/hooks/useDeepCompareEffect';
+import useDeepCompareMemo from '../../../utils/hooks/useDeepCompareMemo';
+import { useRefFunction } from '../../../utils/hooks/useRefFunction';
+import { nanoid } from '../../../utils/nanoid';
+import { objectToMap } from '../../../utils/proFieldParsingText';
+import type {
   ProFieldValueEnumType,
   RequestOptionsType,
-  useDebounceValue,
-  useDeepCompareEffect,
-  useDeepCompareMemo,
-  useRefFunction,
-} from '../../../utils';
+} from '../../../utils/typing';
 import {
   isProFieldEditOrUpdateMode,
   isProFieldReadMode,
 } from '../../internal/fieldMode';
+import { useFieldIntl as useIntl } from '../../internal/useFieldIntl';
+import { proFieldParsingValueEnumToArray } from '../../internal/valueEnumToArray';
 import type { ProFieldFC } from '../../types';
 import { FieldSelectLightEdit } from './FieldSelectLightEdit';
 import { FieldSelectRead } from './FieldSelectRead';
@@ -74,44 +69,7 @@ function filerByItem(
  *
  * @param valueEnumParams
  */
-export const proFieldParsingValueEnumToArray = (
-  valueEnumParams: ProFieldValueEnumType,
-): SelectOptionType => {
-  const enumArray: Partial<
-    RequestOptionsType & {
-      text: string;
-      /** 是否禁用 */
-      disabled?: boolean;
-    }
-  >[] = [];
-  const valueEnum = objectToMap(valueEnumParams);
-
-  valueEnum.forEach((_, key) => {
-    const value = (valueEnum.get(key) || valueEnum.get(`${key}`)) as {
-      text: string;
-      disabled?: boolean;
-    };
-
-    if (!value) {
-      return;
-    }
-
-    if (typeof value === 'object' && value?.text) {
-      enumArray.push({
-        text: value?.text as unknown as string,
-        value: key,
-        label: value?.text as unknown as string,
-        disabled: value.disabled,
-      });
-      return;
-    }
-    enumArray.push({
-      text: value as unknown as string,
-      value: key,
-    });
-  });
-  return enumArray;
-};
+export { proFieldParsingValueEnumToArray };
 
 export const useFieldFetchData = (
   props: FieldSelectProps & {
@@ -121,9 +79,13 @@ export const useFieldFetchData = (
   },
 ): [boolean, SelectOptionType, (keyWord?: string) => void, () => void] => {
   const { cacheForSwr, fieldProps } = props;
+  const initialControlledSearchValue =
+    typeof fieldProps?.showSearch === 'object'
+      ? fieldProps.showSearch.searchValue
+      : fieldProps?.searchValue;
 
   const [keyWords, setKeyWords] = useState<string | undefined>(
-    props.defaultKeyWords,
+    initialControlledSearchValue ?? props.defaultKeyWords,
   );
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {

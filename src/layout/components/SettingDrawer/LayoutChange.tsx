@@ -3,8 +3,8 @@ import { clsx } from 'clsx';
 import React from 'react';
 import type { ProSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
+import { getFormatMessage } from './getFormatMessage';
 import type { SettingItemProps } from './index';
-import { getFormatMessage } from './index';
 
 export const renderLayoutSettingItem = (item: SettingItemProps) => {
   const action = React.cloneElement(item.action, {

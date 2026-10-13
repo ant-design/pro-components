@@ -2,7 +2,7 @@ import { get, set } from '@rc-component/util';
 import type { FormItemProps } from 'antd';
 import { Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import { merge } from 'lodash-es';
+import merge from 'es-toolkit/compat/merge';
 import React, { useContext, useMemo } from 'react';
 import { isDeepEqualReact, ProFormContext } from '../../../utils';
 import type { ProFormInstance } from '../../BaseForm';

@@ -79,6 +79,10 @@ const svSE: ProLocale = {
     open: 'Öppna',
     close: 'Stäng',
   },
+  captcha: {
+    getCaptcha: 'Hämta verifieringskod',
+    retryAfter: 'Försök igen om {count}s',
+  },
 };
 
 export default svSE;

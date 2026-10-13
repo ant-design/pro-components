@@ -19,6 +19,16 @@ export type TopNavHeaderProps = SiderMenuProps &
   GlobalHeaderProps &
   PrivateSiderMenuProps;
 
+export const getTopNavMenuPopupBg = (token: {
+  colorBgElevated?: string;
+  layout?: {
+    header?: {
+      colorBgMenuElevated?: string;
+    };
+  };
+}) =>
+  token.layout?.header?.colorBgMenuElevated || token.colorBgElevated;
+
 const TopNavHeader: React.FC<TopNavHeaderProps> = (
   props: TopNavHeaderProps,
 ) => {
@@ -49,6 +59,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
     renderKey,
   );
   const { token } = useContext(ProProvider);
+  const menuPopupBg = getTopNavMenuPopupBg(token);
 
   const contentDom = useMemo(() => {
     const defaultDom = (
@@ -91,9 +102,9 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
               itemSelectedColor:
                 token.layout?.header?.colorTextMenuSelected ||
                 'rgba(0, 0, 0, 1)',
-              popupBg: token?.colorBgElevated,
+              popupBg: menuPopupBg,
               darkSubMenuItemBg: 'transparent',
-              darkPopupBg: token?.colorBgElevated,
+              darkPopupBg: menuPopupBg,
             },
           },
           token: {
@@ -129,13 +140,12 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
     token.layout?.header?.colorTextMenu,
     token.layout?.header?.colorTextMenuActive,
     token.layout?.header?.colorTextMenuSelected,
-    token.layout?.header?.colorBgMenuElevated,
     token.borderRadius,
     token?.colorBgTextHover,
     token?.colorTextSecondary,
     token?.colorText,
     token?.colorTextBase,
-    token.colorBgElevated,
+    menuPopupBg,
     dark,
     props,
     prefixCls,

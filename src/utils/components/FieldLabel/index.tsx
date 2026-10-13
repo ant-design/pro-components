@@ -1,9 +1,9 @@
 import { CloseCircleFilled, DownOutlined } from '@ant-design/icons';
 import { ConfigProvider } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import { clsx } from 'clsx';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
-import { useIntl } from '../../../provider';
+import { useFieldIntl as useIntl } from '../../../field/internal/useFieldIntl';
+import type { SizeType } from '../../antdTypes';
 import { useStyle } from './style';
 
 export type FieldLabelProps = {

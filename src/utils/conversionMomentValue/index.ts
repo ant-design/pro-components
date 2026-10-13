@@ -1,9 +1,9 @@
 import { get } from '@rc-component/util';
-import type { InternalNamePath, NamePath } from 'antd/lib/form/interface';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import isoWeek from 'dayjs/plugin/isoWeek';
 import quarterOfYear from 'dayjs/plugin/quarterOfYear';
+import type { InternalNamePath, NamePath } from '../antdTypes';
 import { isNil } from '../isNil';
 import { normalizeSerializedDayjsLike } from '../parseValueToMoment';
 import type { ProFieldValueType } from '../typing';

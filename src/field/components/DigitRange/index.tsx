@@ -1,6 +1,7 @@
 ﻿import { useControlledState } from '@rc-component/util';
 import React, { useCallback, useRef } from 'react';
-import { proTheme, useIntl } from '../../../provider';
+import { proTheme } from '../../../provider/useStyle';
+import { useFieldIntl as useIntl } from '../../internal/useFieldIntl';
 import {
   isProFieldEditOrUpdateMode,
   isProFieldReadMode,

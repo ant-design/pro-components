@@ -3,11 +3,11 @@ import { Spin } from 'antd';
 import React from 'react';
 
 const PageLoading: React.FC<SpinProps & any> = ({
-  isLoading,
-  pastDelay,
-  timedOut,
-  error,
-  retry,
+  isLoading: _isLoading,
+  pastDelay: _pastDelay,
+  timedOut: _timedOut,
+  error: _error,
+  retry: _retry,
   ...reset
 }) => (
   <div style={{ paddingBlockStart: 100, textAlign: 'center' }}>

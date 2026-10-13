@@ -6,8 +6,10 @@ import React, { useContext, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import type { GenerateStyle } from '../../../provider';
 import { isBrowser } from '../../../utils';
-import type { RouteContextType } from '../../index';
-import { RouteContext } from '../../index';
+import {
+  RouteContext,
+  type RouteContextType,
+} from '../../context/RouteContext';
 import type { FooterToolBarToken } from './style';
 import { useStyle } from './style';
 import { useStylish } from './style/stylish';
@@ -70,9 +72,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   const dom = (
     <>
       <div className={clsx(`${baseClassName}-left`, hashId)}>{extra}</div>
-      <div className={clsx(`${baseClassName}-right`, hashId)}>
-        {children}
-      </div>
+      <div className={clsx(`${baseClassName}-right`, hashId)}>{children}</div>
     </>
   );
 

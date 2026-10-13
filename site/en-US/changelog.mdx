@@ -1,5 +1,93 @@
 # Changelog
 
+## [3.1.15-7] - 2026-10-10
+
+### 🐛 Bug Fixes
+
+- ProCard
+  - 🐞 Fix oversized gap between title and body content when the header has no bottom border (default, `headerBordered` off): the antd Card head is sized by `minHeight`, so removing only the border left its vertical whitespace stacked with the body padding. Now aligned with the legacy compact layout (`minHeight: auto`, zero bottom spacing, `paddingXS` for small size), with bottom spacing restored when collapsed so the title never sticks to the card edge. `headerBordered` / `inner` keep the antd skin untouched [6f62df36e](https://github.com/ant-design/pro-components/commit/6f62df36e)
+  - 🐞 Fix the loading skeleton sticking to the title with `tabs` + `loading`: the tabs body padding is zeroed internally, so the loading skeleton now carries the content-area padding (`paddingLG`) itself; layout shells (`split` / nested cards) keep the body padding while loading so the antd skeleton is not flush against the edges
+
+### ⚡️ Performance
+
+- ⚡️ Break Form type cycles to enable tree shaking and split field value type maps into async chunks for a smaller main bundle [#9745](https://github.com/ant-design/pro-components/pull/9745)
+
+### 🛠 Other
+
+- 🛠 Remove the internal `PureProField` in favor of `ProField` everywhere, plus a provider scenario refactor (branch archive merged into master) [#9744](https://github.com/ant-design/pro-components/pull/9744)
+
+## [3.1.15-6] - 2026-10-08
+
+### 🐛 Bug Fixes
+
+- ProCard
+  - 🐞 Pass through omitted `variant` to antd Card so it follows ConfigProvider `card.variant` / global `variant` (no hard-coded `outlined`) [2a5a156b2](https://github.com/ant-design/pro-components/commit/2a5a156b2)
+- 🐞 Fix antd accessibility (a11y) and `mask` API console warnings [2ba4598d1](https://github.com/ant-design/pro-components/commit/2ba4598d1)
+
+## [3.1.15-5] - 2026-10-05
+
+### 🐛 Bug Fixes
+
+- ProCard
+  - 🐞 Align the basic card skin with antd `Card` (`ant-pro-card` + `ant-card`) and remove `ant-pro-card-antd-card` [#9740](https://github.com/ant-design/pro-components/pull/9740)
+  - 🐞 Expand the antd path so `collapsible` / `tabs` / nested layouts no longer force `legacy`; collapse hides via CSS while keeping layout-shell children mounted, and only the current card header toggles collapse [#9742](https://github.com/ant-design/pro-components/pull/9742)
+- ProTable
+  - 🐞 Use a real `ProCard` for the search form shell, aligned with `cardBordered` [#9742](https://github.com/ant-design/pro-components/pull/9742)
+- InlineErrorFormItem
+  - 🐞 Auto-open the validation popover when errors appear, and use hover-only trigger so input focus is not interrupted
+
+### ⚡️ Performance
+
+- ⚡️ Remove `swr` and `route-utils` runtime costs; menu routing now uses a built-in lightweight implementation [#9739](https://github.com/ant-design/pro-components/pull/9739)
+
+## [3.1.15-4] - 2026-10-04
+
+### 🐛 Bug Fixes
+
+- BetaSchemaForm
+  - 🐞 Fix form callbacks such as `onValuesChange` and `onFinish` when standalone `layoutType="Embed"` is used, while preserving passthrough inside an existing Form [#8727](https://github.com/ant-design/pro-components/issues/8727)
+  - ✅ Lock the layout switching regression from Form to LightFilter [#8850](https://github.com/ant-design/pro-components/issues/8850)
+- ProFormCaptcha
+  - 🐞 Localize the default captcha and countdown text across all bundled locales [#8899](https://github.com/ant-design/pro-components/issues/8899)
+- ProTable
+  - 🐞 Preserve the explicit `Table.EXPAND_COLUMN` position, and lock Tabs width/ellipsis and formatted valueEnum ellipsis regressions [#8913](https://github.com/ant-design/pro-components/issues/8913) [#8747](https://github.com/ant-design/pro-components/issues/8747) [#8694](https://github.com/ant-design/pro-components/issues/8694)
+  - 📚 Document and demonstrate merged cells through `onCell` rowSpan/colSpan [#8701](https://github.com/ant-design/pro-components/issues/8701)
+- ProLayout
+  - ✅ Lock `layout="mix"`, `splitMenus`, and `siderMenuType="sub"` child-menu rendering [#9310](https://github.com/ant-design/pro-components/issues/9310)
+- Density selector
+  - 💄 Let translated density menu labels determine the dropdown width [#9619](https://github.com/ant-design/pro-components/issues/9619)
+- Parse custom date formats and URL-synchronized second/millisecond timestamps consistently in edit fields [#8863](https://github.com/ant-design/pro-components/issues/8863) [#8810](https://github.com/ant-design/pro-components/issues/8810)
+- Preserve null fields when `omitNil=false`, forward field-level blur validation, and keep formatted ellipsis tooltips aligned with rendered text [#8044](https://github.com/ant-design/pro-components/issues/8044) [#8380](https://github.com/ant-design/pro-components/issues/8380) [#8542](https://github.com/ant-design/pro-components/issues/8542)
+- Refresh Select requests for controlled search values without repeating empty searches, preserve hidden QueryFilter fields, and respect responsive vertical layouts [#8801](https://github.com/ant-design/pro-components/issues/8801) [#8780](https://github.com/ant-design/pro-components/issues/8780) [#8928](https://github.com/ant-design/pro-components/issues/8928) [#8397](https://github.com/ant-design/pro-components/issues/8397) [#8836](https://github.com/ant-design/pro-components/issues/8836)
+- Keep BaseForm `contentRender` items as an array with grid enabled, and allow controlled overlay triggers to open before the form mounts [#8253](https://github.com/ant-design/pro-components/issues/8253) [#9624](https://github.com/ant-design/pro-components/issues/9624)
+- Synchronize changed overlay `initialValues`, late StepsForm request form refs, and wrapped StepForm children [#8834](https://github.com/ant-design/pro-components/issues/8834) [#9165](https://github.com/ant-design/pro-components/issues/9165) [#8624](https://github.com/ant-design/pro-components/issues/8624) [#8108](https://github.com/ant-design/pro-components/issues/8108) [#9021](https://github.com/ant-design/pro-components/issues/9021)
+- Fix nested child form paths when EditableProTable uses a function `rowKey`, with regression coverage for controlled tables inside ProFormList [#8893](https://github.com/ant-design/pro-components/issues/8893) [#6508](https://github.com/ant-design/pro-components/issues/6508)
+- Align whole-entity, nested-list, and ProTable column semantics across the `convertValue` / `transform` pipeline [#8907](https://github.com/ant-design/pro-components/issues/8907) [#8480](https://github.com/ant-design/pro-components/issues/8480) [#9120](https://github.com/ant-design/pro-components/issues/9120) [#9032](https://github.com/ant-design/pro-components/issues/9032)
+- Fix empty arrays, Digit affixes, and numeric valueEnum labels in read/edit display paths [#8848](https://github.com/ant-design/pro-components/issues/8848) [#8844](https://github.com/ant-design/pro-components/issues/8844) [#8517](https://github.com/ant-design/pro-components/issues/8517)
+- Preserve TreeSelect internal open state with user callbacks and document virtual scrolling and half-checked behavior [#9138](https://github.com/ant-design/pro-components/issues/9138) [#8876](https://github.com/ant-design/pro-components/issues/8876) [#8869](https://github.com/ant-design/pro-components/issues/8869)
+- Add regression coverage for throttled remote Select results [#6766](https://github.com/ant-design/pro-components/issues/6766)
+- ProForm
+  - 🐞 Export `ProFormGroup` directly so SSR/ESM bundlers do not read a partially initialized `ProForm.Group` during module evaluation [#8543](https://github.com/ant-design/pro-components/issues/8543)
+- ProFormList
+  - 🐞 Route `actionRef.add` and `actionRef.remove` through `actionGuard`, `onAfterAdd`, and `onAfterRemove` [#8939](https://github.com/ant-design/pro-components/issues/8939)
+  - ✅ Add regressions for copying `preserve={false}` fields, conditional remounts, and first-submit transforms [#8208](https://github.com/ant-design/pro-components/issues/8208) [#8896](https://github.com/ant-design/pro-components/issues/8896) [#8700](https://github.com/ant-design/pro-components/issues/8700)
+- BetaSchemaForm
+  - 🆕 Pass the current row index to function props in `formList` sub-columns [#8561](https://github.com/ant-design/pro-components/issues/8561)
+- ProList
+  - 🐞 Restore `showActions`, `showExtra`, and card action placement, and lock grid gutter and live pagination regressions [#7421](https://github.com/ant-design/pro-components/issues/7421) [#8387](https://github.com/ant-design/pro-components/issues/8387) [#7862](https://github.com/ant-design/pro-components/issues/7862)
+- ProTable
+  - 🆕 Add `options.setting.listItemTitleRender` for adaptive column-setting titles [#9620](https://github.com/ant-design/pro-components/issues/9620)
+- 🐞 Replace antd static `message` calls with `App.useApp()` in `useEditableMap`, `useEditableArray`, and `SettingDrawer` to consume dynamic theme context correctly
+
+### 📖 Documentation
+
+- 📖 Clarify that v3 only publishes the single `@ant-design/pro-components` package, with installation and build diagnostics for antd 6, Umi, Next.js, `rc-util`, `path-to-regexp`, and antd 4 [#9629](https://github.com/ant-design/pro-components/issues/9629)
+- 📖 Add a `forceRender` example and timing guidance for calling `setFieldsValue` before ModalForm's first open [#9628](https://github.com/ant-design/pro-components/issues/9628)
+
+### ✅ Tests
+
+- ✅ Add LoginForm/ProFormGroup SSR coverage and a ModalForm pre-open value regression test
+
 ## [3.1.15-2] - 2026-09-27
 
 ### 🆕 Features
@@ -33,6 +121,9 @@
   - 🐞 Fix select read-mode enum output not working with `ellipsis` + `copyable` [#8978](https://github.com/ant-design/pro-components/issues/8978) [399a1da0b](https://github.com/ant-design/pro-components/commit/399a1da0b)
 - ProTable
   - 🐞 Fix `request` receiving `null` sorter/filter defaults on load, pagination and reset [#9161](https://github.com/ant-design/pro-components/pull/9161) [ddbbb1425](https://github.com/ant-design/pro-components/commit/ddbbb1425)
+  - 🐞 Fix DragSortTable remounting the table after data reloads or row selection updates, which caused fixed-header flicker and reset both scroll axes [#8342](https://github.com/ant-design/pro-components/issues/8342) [#8404](https://github.com/ant-design/pro-components/issues/8404)
+  - 🐞 Fix multi-level grouped columns failing to expand, toggle, or reorder in column settings, and grouped CellEditorTable leaf cells failing to enter edit mode [#8988](https://github.com/ant-design/pro-components/issues/8988) [#8133](https://github.com/ant-design/pro-components/issues/8133) [#8880](https://github.com/ant-design/pro-components/issues/8880)
+  - 🐞 Fix EditableProTable editing the wrong filtered row, deleting nested rows on cancel, losing nested row ids in callbacks, and using stale creator records or dynamic validation rules in `name` mode [#8930](https://github.com/ant-design/pro-components/issues/8930) [#8662](https://github.com/ant-design/pro-components/issues/8662) [#7859](https://github.com/ant-design/pro-components/issues/7859) [#8861](https://github.com/ant-design/pro-components/issues/8861) [#8174](https://github.com/ant-design/pro-components/issues/8174) [#9184](https://github.com/ant-design/pro-components/issues/9184)
 - ProDescriptions
   - 🐞 Fix dependency values not injected into `request` params [#9170](https://github.com/ant-design/pro-components/issues/9170) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
 - Provider

@@ -16,7 +16,7 @@ import {
   render,
   waitFor,
 } from '@testing-library/react';
-import { Input, InputNumber } from 'antd';
+import { App, Input, InputNumber } from 'antd';
 import crypto from 'crypto';
 import React from 'react';
 import {
@@ -302,20 +302,22 @@ describe('EditorProTable', () => {
       changedDataSource = value;
     });
     const wrapper = render(
-      <ProForm
-        initialValues={{
-          table: defaultData,
-        }}
-      >
-        <div>render</div>
-        <EditableProTable<DataSourceType>
-          rowKey="id"
-          name="table"
-          onChange={onChange}
-          actionRef={actionRef}
-          columns={columns}
-        />
-      </ProForm>,
+      <App>
+        <ProForm
+          initialValues={{
+            table: defaultData,
+          }}
+        >
+          <div>render</div>
+          <EditableProTable<DataSourceType>
+            rowKey="id"
+            name="table"
+            onChange={onChange}
+            actionRef={actionRef}
+            columns={columns}
+          />
+        </ProForm>
+      </App>,
     );
 
     await waitForWaitTime(100);
@@ -2263,16 +2265,18 @@ describe('EditorProTable', () => {
 
   it('📝 EditableProTable support onlyOneLineEditorAlertMessage', async () => {
     const wrapper = render(
-      <EditableProTable<DataSourceType>
-        rowKey="id"
-        columns={columns}
-        value={defaultData}
-        editable={{
-          type: 'single',
-          editableKeys: [624748504],
-          onlyOneLineEditorAlertMessage: '只能编辑一行',
-        }}
-      />,
+      <App>
+        <EditableProTable<DataSourceType>
+          rowKey="id"
+          columns={columns}
+          value={defaultData}
+          editable={{
+            type: 'single',
+            editableKeys: [624748504],
+            onlyOneLineEditorAlertMessage: '只能编辑一行',
+          }}
+        />
+      </App>,
     );
     await waitForWaitTime(100);
 
@@ -2875,6 +2879,77 @@ describe('EditorProTable', () => {
         expect.objectContaining({ name: ['1', 'title'] }),
       ]),
     });
+  });
+
+  it('🐛 #8786 displays editable validation errors inline', async () => {
+    const editableFormRef =
+      React.createRef<EditableFormInstance<DataSourceType>>();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        editableFormRef={editableFormRef}
+        recordCreatorProps={false}
+        rowKey="id"
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            errorType: 'default',
+            formItemProps: {
+              rules: [{ required: true, message: '请填写标题' }],
+            },
+          },
+        ]}
+        value={[{ id: 1, title: '' }]}
+        editable={{ type: 'multiple', editableKeys: [1] }}
+      />,
+    );
+
+    await expect(
+      editableFormRef.current!.validateFields([1]),
+    ).rejects.toBeTruthy();
+
+    await waitFor(() => {
+      expect(
+        wrapper.container.querySelector('.ant-form-item-explain-error'),
+      ).toHaveTextContent('请填写标题');
+    });
+  });
+
+  it('🐛 #8786 forwards editable error popover props', async () => {
+    const editableFormRef =
+      React.createRef<EditableFormInstance<DataSourceType>>();
+    const popupContainer = document.createElement('div');
+    document.body.appendChild(popupContainer);
+    const getPopupContainer = vi.fn(() => popupContainer);
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        editableFormRef={editableFormRef}
+        recordCreatorProps={false}
+        rowKey="id"
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            popoverProps: { getPopupContainer, open: true },
+            formItemProps: {
+              rules: [{ required: true, message: '请填写标题' }],
+            },
+          },
+        ]}
+        value={[{ id: 1, title: '' }]}
+        editable={{ type: 'multiple', editableKeys: [1] }}
+      />,
+    );
+
+    await expect(
+      editableFormRef.current!.validateFields([1]),
+    ).rejects.toBeTruthy();
+
+    try {
+      await waitFor(() => expect(getPopupContainer).toHaveBeenCalled());
+    } finally {
+      popupContainer.remove();
+    }
   });
 
   it('🐛 #9553 validates editable rows outside the virtual viewport', async () => {

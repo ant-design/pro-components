@@ -7,9 +7,9 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { Radio, message } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import dayjs from 'dayjs';
 import React from 'react';
+import type { SizeType } from '../../../src/utils/antdTypes';
 
 const Demo = () => {
   const [size, setSize] = React.useState<SizeType>('middle');

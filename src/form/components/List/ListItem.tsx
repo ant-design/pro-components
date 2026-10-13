@@ -6,21 +6,22 @@ import {
   LoadingOutlined,
 } from '@ant-design/icons';
 import { set, toArray } from '@rc-component/util';
-import type { ButtonProps, FormInstance } from 'antd';
-import { ConfigProvider, Tooltip } from 'antd';
 import type {
+  ButtonProps,
+  FormInstance,
   FormListFieldData,
   FormListOperation,
-  FormListProps,
-} from 'antd/lib/form/FormList';
+} from 'antd';
+import { ConfigProvider, Tooltip } from 'antd';
 import { clsx } from 'clsx';
 import type { CSSProperties, ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { FormListContext } from '.';
 import { ProProvider } from '../../../provider';
 import { SearchTransformKeyFn } from '../../../utils';
+import type { FormListProps } from '../../../utils/antdTypes';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import { useGridHelpers } from '../../helpers';
+import { FormListContext } from './FormListContext';
 
 export type ChildrenItemFunction = (
   /**
@@ -268,6 +269,8 @@ export type ProFormListItemProps = ProFromListCommonProps & {
   formInstance: FormInstance;
   action: FormListOperation;
   actionGuard?: FormListActionGuard;
+  /** 同步 actionGuard 包装后的 action,供外层 actionRef 使用(#8939) */
+  guardedActionRef?: React.MutableRefObject<FormListOperation | undefined>;
   prefixCls: string;
   fields: FormListFieldData[];
   meta: {
@@ -339,11 +342,7 @@ function renderActionIcon({
         <LoadingOutlined />
       ) : (
         <Icon
-          className={clsx(
-            `${prefixCls}-action-icon`,
-            actionClassName,
-            hashId,
-          )}
+          className={clsx(`${prefixCls}-action-icon`, actionClassName, hashId)}
           onClick={onClick}
         />
       )}

@@ -17,6 +17,8 @@ afterEach(() => {
   cleanup();
   // 清理所有定时器
   vi.clearAllTimers();
+  // 恢复 console 等全局对象上的 spy
+  vi.restoreAllMocks();
   // 清理所有模拟
   vi.clearAllMocks();
 });
@@ -266,6 +268,50 @@ describe('ModalForm', () => {
     await waitFor(() => {
       expect(wrapper.getByDisplayValue('1234')).toBeTruthy();
     });
+  });
+
+  it('📦 forceRender connects useForm before the first open', async () => {
+    const consoleError = vi
+      .spyOn(console, 'error')
+      .mockImplementation(() => {});
+
+    const Demo = () => {
+      const [form] = Form.useForm();
+      const [open, setOpen] = useState(false);
+
+      return (
+        <>
+          <Button
+            onClick={() => {
+              form.setFieldsValue({ name: 'Alice' });
+              setOpen(true);
+            }}
+          >
+            Edit
+          </Button>
+          <ModalForm
+            form={form}
+            open={open}
+            onOpenChange={setOpen}
+            modalProps={{ forceRender: true }}
+          >
+            <ProFormText name="name" />
+          </ModalForm>
+        </>
+      );
+    };
+
+    const wrapper = render(<Demo />);
+    fireEvent.click(wrapper.getByText('Edit'));
+
+    await waitFor(() => {
+      expect(wrapper.getByDisplayValue('Alice')).toBeTruthy();
+    });
+    expect(
+      consoleError.mock.calls.some(([message]) =>
+        String(message).includes('is not connected to any Form element'),
+      ),
+    ).toBe(false);
   });
 
   it('📦 ModalForm destroyOnHidden', async () => {

@@ -1,13 +1,12 @@
 import { createFromIconfontCN } from '@ant-design/icons';
 import { useControlledState } from '@rc-component/util';
+import type { MenuProps } from 'antd';
 import {
   ConfigProvider as AntdConfigProvider,
   Menu,
   Skeleton,
   Tooltip,
 } from 'antd';
-import type { MenuProps } from 'antd';
-import type { ItemType } from 'antd/lib/menu/interface';
 import { clsx } from 'clsx';
 import React, {
   useCallback,
@@ -20,6 +19,7 @@ import React, {
 import type { ProTokenType } from '../../../provider';
 import { ProProvider } from '../../../provider';
 import { isImg, isUrl } from '../../../utils';
+import type { ItemType } from '../../../utils/antdTypes';
 import type { PureSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
 import type {
@@ -33,11 +33,7 @@ import type { PrivateSiderMenuProps } from './SiderMenu';
 import { useStyle } from './style/menu';
 
 export type MenuMode =
-  | 'vertical'
-  | 'vertical-left'
-  | 'vertical-right'
-  | 'horizontal'
-  | 'inline';
+  'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
 
 const MenuItemTooltip = (props: {
   collapsed?: boolean;
@@ -695,7 +691,14 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       hashId,
       iconPrefixCls,
     });
-  }, [props, designToken, menuRenderType, baseClassName, hashId, iconPrefixCls]);
+  }, [
+    props,
+    designToken,
+    menuRenderType,
+    baseClassName,
+    hashId,
+    iconPrefixCls,
+  ]);
 
   if (menu?.loading) {
     return (

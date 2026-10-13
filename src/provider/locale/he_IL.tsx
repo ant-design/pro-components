@@ -79,6 +79,10 @@ const heIL: ProLocale = {
     open: 'פתח',
     close: 'סגור',
   },
+  captcha: {
+    getCaptcha: 'קבל קוד אימות',
+    retryAfter: 'נסה שוב בעוד {count} שניות',
+  },
 };
 
 export default heIL;

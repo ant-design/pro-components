@@ -1,9 +1,6 @@
 ﻿import type { SelectProps } from 'antd';
-import {
-  objectToMap,
-  proFieldParsingText,
-  ProSchemaValueEnumObj,
-} from '../../../utils';
+import { objectToMap, proFieldParsingText } from '../../../utils/proFieldParsingText';
+import type { ProSchemaValueEnumObj } from '../../../utils/typing';
 import type { ProFieldFC } from '../../types';
 import type { FieldSelectProps } from './types';
 

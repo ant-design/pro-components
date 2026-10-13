@@ -5,11 +5,11 @@ import type {
   ProFormBaseGroupProps,
   ProSchema,
   SearchConvertKeyFn,
-} from '../utils';
-import type { ProFieldValueType } from '../utils/typing';
-import type { ProFormInstance } from './BaseForm';
-import type { ProFormItemProps } from './components';
-import type { CaptFieldRef } from './components/Captcha';
+  ProFieldValueType,
+} from '../utils/typing';
+import type { ProFormInstance } from './BaseForm/typing';
+import type { ProFormItemProps } from './components/FormItem/typing';
+import type { CaptFieldRef } from './components/Captcha/typing';
 
 export interface ProFormGridConfig {
   /**

@@ -13,10 +13,10 @@ import {
   ProFormSwitch,
 } from '@ant-design/pro-components';
 import { Button, message } from 'antd';
+import isEmpty from 'es-toolkit/compat/isEmpty';
 import React, { useRef, useState } from 'react';
 
 import { createEditableRowId } from '../../mockData';
-import isEmpty from 'lodash-es/isEmpty';
 
 type DataSourceType = {
   id: React.Key;

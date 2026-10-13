@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { readFileSync } from 'node:fs';
 import { chalk } from '@umijs/utils';
 

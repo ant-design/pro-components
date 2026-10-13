@@ -6,7 +6,7 @@ import type {
 import { ProDescriptions } from '@ant-design/pro-components';
 import { useControlledState } from '@rc-component/util';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
-import { Form, InputNumber } from 'antd';
+import { App, Form, InputNumber } from 'antd';
 import React, { act, useCallback, useRef } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 type DataSourceType = {
@@ -123,35 +123,37 @@ const DescriptionsDemo = (
     [props.onDataSourceChange, setDataSourceInner],
   );
   return (
-    <ProDescriptions<DataSourceType>
-      columns={columns}
-      actionRef={actionRef}
-      request={async () => ({
-        data: defaultData,
-        total: 3,
-        success: true,
-      })}
-      title={
-        <a
-          id="reset_test"
-          onClick={() => {
-            form.resetFields();
-          }}
-        >
-          重置
-        </a>
-      }
-      dataSource={dataSource}
-      onDataSourceChange={handleDataSourceChange}
-      editable={{
-        ...props,
-        form,
-        type: props.type,
-        editableKeys,
-        onSave: props.onSave,
-        onChange: (keys) => setEditorRowKeys(keys),
-      }}
-    />
+    <App>
+      <ProDescriptions<DataSourceType>
+        columns={columns}
+        actionRef={actionRef}
+        request={async () => ({
+          data: defaultData,
+          total: 3,
+          success: true,
+        })}
+        title={
+          <a
+            id="reset_test"
+            onClick={() => {
+              form.resetFields();
+            }}
+          >
+            重置
+          </a>
+        }
+        dataSource={dataSource}
+        onDataSourceChange={handleDataSourceChange}
+        editable={{
+          ...props,
+          form,
+          type: props.type,
+          editableKeys,
+          onSave: props.onSave,
+          onChange: (keys) => setEditorRowKeys(keys),
+        }}
+      />
+    </App>
   );
 };
 

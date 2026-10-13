@@ -79,6 +79,10 @@ const frFR: ProLocale = {
     open: 'ouvert',
     close: 'fermé',
   },
+  captcha: {
+    getCaptcha: 'Obtenir le code',
+    retryAfter: 'Réessayer dans {count}s',
+  },
 };
 
 export default frFR;

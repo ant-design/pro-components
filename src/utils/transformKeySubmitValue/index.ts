@@ -1,5 +1,6 @@
 import { get } from '@rc-component/util';
-import { cloneDeep, set } from 'lodash-es';
+import cloneDeep from 'es-toolkit/compat/cloneDeep';
+import set from 'es-toolkit/compat/set';
 import React from 'react';
 import { isNil } from '../isNil';
 import type { SearchTransformKeyFn } from '../typing';
@@ -171,7 +172,7 @@ function processDotPathTransforms(
       }
     } else {
       // 如果返回原始值，直接替换。
-      // 用 lodash-es/set 替代手写的 setIn 循环：
+      // 用兼容 Lodash 语义的 set 替代手写的 setIn 循环：
       //  - 旧实现 `if (current[key] === undefined)` 漏判 null / false 等假值，
       //    遇到 `{ user: null }` + 路径 `'user.profile.name'` 会在 `null['profile']` 抛 TypeError；
       //  - 旧实现 `typeof nextKey === 'number' ? [] : {}` 决定容器类型也是凭路径推断，
@@ -190,7 +191,7 @@ function processDotPathTransforms(
  *  - 中间任意一段不是对象（缺失 / null / 原始值 / 函数等） → 视为找不到，返回 undefined；
  *  - 最终落点必须是 function 才返回，否则返回 undefined。
  *
- * 旧实现是 28 行手写循环，这里改用 `lodash-es/get` 一行实现：`get` 在路径走不下去时
+ * 旧实现是 28 行手写循环，这里改用路径读取：`get` 在路径走不下去时
  * 返回 undefined，与原循环里 `nestedTransforms = null; break;` 行为等价。
  *
  * @param currentTransforms - 当前转换配置
@@ -240,6 +241,8 @@ function isInArrayPath(rootValues: any, parentsKey: React.Key[]): boolean {
  * @param currentTransforms - 当前递归层对应的 transforms 子树
  * @param rootLevelMerges - 收集所有「应在 root 上合并」的 transform 返回对象
  * @param rootAllValues - 根级表单对象（与 `SearchTransformKeyFn` 第三参一致），整次转换过程中保持不变引用
+ * @param omitNil - false 时保留值为 null / undefined 的字段（#8044），
+ *   默认 true 保持历史协议"ignore null"
  * @returns 处理后的结果
  *
  * 设计说明：旧实现带有 `visited: Set<any>` 用于防止循环引用，但 `transformKeySubmitValue`
@@ -252,6 +255,7 @@ function processNestedObjectTransforms(
   currentTransforms: any,
   rootLevelMerges: any[],
   rootAllValues: any,
+  omitNil?: boolean,
 ): any {
   const isArrayValues = Array.isArray(currentValues);
   const currentResult: any = isArrayValues ? [] : {};
@@ -323,6 +327,9 @@ function processNestedObjectTransforms(
           ? currentTransforms[entityKey]
           : currentTransforms;
       const nestedArray = itemValue.map((arrayItem, arrayIndex) => {
+        if (isNil(arrayItem)) {
+          return omitNil === false ? arrayItem : undefined;
+        }
         // 非对象元素（string/number 等）直接保留，避免被 Object.keys 展开成索引对象
         if (!isPlainObj(arrayItem)) return arrayItem;
         const indexedTransforms = Array.isArray(arrayTransforms)
@@ -336,6 +343,7 @@ function processNestedObjectTransforms(
             : arrayTransforms,
           rootLevelMerges,
           rootAllValues,
+          omitNil,
         );
       });
       currentResult[entityKey] = nestedArray;
@@ -350,10 +358,13 @@ function processNestedObjectTransforms(
           nestedTransforms,
           rootLevelMerges,
           rootAllValues,
+          omitNil,
         );
         // 检查是否有任何子属性被转换为对象（会被添加到 rootLevelMerges）
         // 如果 nested 为空或只包含被转换的属性，我们不保留这个对象
-        const hasRemainingContent = Object.keys(nested).length > 0;
+        const hasRemainingContent =
+          Object.keys(nested).length > 0 ||
+          (omitNil === false && Object.keys(itemValue).length === 0);
         if (hasRemainingContent) {
           currentResult[entityKey] = nested;
         }
@@ -365,6 +376,7 @@ function processNestedObjectTransforms(
           currentTransforms,
           rootLevelMerges,
           rootAllValues,
+          omitNil,
         );
         currentResult[entityKey] = nested;
       }
@@ -373,6 +385,9 @@ function processNestedObjectTransforms(
       // 没有 transform 配置且值为 null / undefined 的字段会被静默忽略，最终结果里
       // 该字段为 undefined。如果想改成「保留原 null/undefined」需要先评估外部影响
       // 并同步更新该测试，本轮不动。
+      currentResult[entityKey] = itemValue;
+    } else if (omitNil === false) {
+      // #8044:omitNil=false 时保留 null 字段,与 antd Form getFieldsValue 语义对齐
       currentResult[entityKey] = itemValue;
     }
   }
@@ -388,6 +403,8 @@ function processNestedObjectTransforms(
  *
  * @param values - 要转换的值对象
  * @param dataFormatMapRaw - 转换配置映射
+ * @param omitNil - false 时保留值为 null / undefined 的字段（#8044），
+ *   默认保持历史协议"ignore null"
  * @returns 转换后的值对象
  */
 export const transformKeySubmitValue = <T extends object = any>(
@@ -396,6 +413,7 @@ export const transformKeySubmitValue = <T extends object = any>(
     string,
     SearchTransformKeyFn | undefined | DataFormatMapType
   >,
+  omitNil?: boolean,
 ): T => {
   // 过滤掉空值的转换配置
   const dataFormatMap = filterNilTransforms(dataFormatMapRaw);
@@ -438,6 +456,7 @@ export const transformKeySubmitValue = <T extends object = any>(
       objectTransforms,
       rootLevelMerges,
       result,
+      omitNil,
     );
   }
 

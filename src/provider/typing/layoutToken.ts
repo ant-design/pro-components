@@ -1,5 +1,5 @@
-import type { AliasToken } from 'antd/es/theme/interface';
-import { setAlpha } from '../useStyle';
+import type { AliasToken } from '../../utils/antdTypes';
+import { setAlpha } from '../utils/setAlpha';
 
 export type BaseLayoutDesignToken = {
   hashId: string;

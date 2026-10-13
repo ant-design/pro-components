@@ -4,7 +4,7 @@ import { Cascader } from 'antd';
 import { clsx } from 'clsx';
 import React from 'react';
 import type { IntlType } from '../../../provider';
-import { FieldLabel } from '../../../utils';
+import { FieldLabel } from '../../../utils/components/FieldLabel';
 import type { ProFieldFC } from '../../types';
 import type { GroupProps } from './types';
 

@@ -1,6 +1,6 @@
 import { ConfigProvider } from 'antd';
 import React, { useContext, useImperativeHandle } from 'react';
-import { proTheme } from '../../../provider';
+import { proTheme } from '../../../provider/useStyle';
 import type { ProFieldFC } from '../../types';
 
 const addArrayKeys = (doms: React.ReactNode[]) =>

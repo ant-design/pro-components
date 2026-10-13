@@ -1,8 +1,4 @@
-import {
-  ProField,
-  type ProFieldPropsType,
-  PureProField,
-} from '@ant-design/pro-components';
+import { ProField, type ProFieldPropsType } from '@ant-design/pro-components';
 import type React from 'react';
 import { expect, it } from 'vitest';
 
@@ -10,8 +6,8 @@ type ProFieldComponent = React.ForwardRefExoticComponent<
   ProFieldPropsType & React.RefAttributes<any>
 >;
 
-it('exposes ProField components as forwardRef components', () => {
-  const components: ProFieldComponent[] = [ProField, PureProField];
+it('exposes ProField as a forwardRef component', () => {
+  const component: ProFieldComponent = ProField;
 
-  expect(components).toHaveLength(2);
+  expect(component).toBe(ProField);
 });

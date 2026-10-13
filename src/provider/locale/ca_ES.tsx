@@ -79,6 +79,10 @@ const caES: ProLocale = {
     open: 'obert',
     close: 'tancat',
   },
+  captcha: {
+    getCaptcha: 'Obté el codi de verificació',
+    retryAfter: 'Torna-ho a provar en {count}s',
+  },
 };
 
 export default caES;
