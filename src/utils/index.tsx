@@ -77,10 +77,26 @@ import type {
 } from './useEditableMap';
 import { useEditableMap } from './useEditableMap';
 import { useBreakpoint } from './useMediaQuery';
+import {
+  BREAKPOINT_ASC,
+  DEFAULT_SCREENS,
+  fillResponsiveConfig,
+  getResponsiveValue,
+  normalizeScreens,
+  RESPONSIVE_ARRAY,
+  useResponsiveScreens,
+} from './responsive';
 
 export * from './typing';
 export {
   autoFocusToFirstChild,
+  BREAKPOINT_ASC,
+  DEFAULT_SCREENS,
+  fillResponsiveConfig,
+  getResponsiveValue,
+  normalizeScreens,
+  RESPONSIVE_ARRAY,
+  useResponsiveScreens,
   conversionMomentValue,
   conversionMomentValue as conversionSubmitValue,
   convertMoment,
@@ -153,3 +169,4 @@ export type {
   UseEditableType,
   UseEditableUtilType,
 };
+export type { Breakpoint, ScreensMap } from './responsive';
