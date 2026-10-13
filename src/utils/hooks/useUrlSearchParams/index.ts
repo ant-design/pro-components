@@ -21,6 +21,19 @@ function getSearchString(url: URL): string {
   return getSearchParams(url).toString();
 }
 
+/** hash 路由下以 `location.hash` 为准，避免 happy-dom 等环境 `href` 与 `hash` 短暂不一致 */
+function readLocationSearchString(): string {
+  if (typeof window === 'undefined' || !window.location) {
+    return '';
+  }
+  const { hash } = window.location;
+  if (/^#!?\//.test(hash)) {
+    const queryIndex = hash.indexOf('?');
+    return queryIndex === -1 ? '' : hash.slice(queryIndex + 1);
+  }
+  return window.location.searchParams.toString();
+}
+
 function setQueryToCurrentUrl(params: Record<string, unknown>): URL {
   const href =
     typeof window !== 'undefined' && window.location
@@ -100,13 +113,10 @@ export function useUrlSearchParams(
   (value: Record<string, string | number>) => void,
 ] {
   const [, forceUpdate] = useState<Record<string, unknown>>();
-  const locationHref =
+  const locationSearch =
     typeof window !== 'undefined' && window.location
-      ? window.location.href
+      ? readLocationSearchString()
       : undefined;
-  const locationSearch = locationHref
-    ? getSearchString(new URL(locationHref))
-    : undefined;
 
   /** disabled 时与上游包一致，使用空对象占位（勿改为 URLSearchParams，以免影响 toString 比较逻辑） */
   const urlSearchParams = useMemo(() => {
@@ -153,7 +163,7 @@ export function useUrlSearchParams(
       return;
     }
     const url = setQueryToCurrentUrl(newParams);
-    const currentSearch = getSearchString(new URL(window.location.href));
+    const currentSearch = readLocationSearchString();
     const nextSearch = getSearchString(url);
     if (currentSearch !== nextSearch) {
       window.history.replaceState({}, '', url.toString());
