@@ -435,6 +435,33 @@
   padding-bottom: 3rem;
 }
 
+/*
+ * Playground / large demos: keep iframe-follow stacked (preview on top).
+ * Side-by-side mode squeezes ProTable/ProLayout into an unusable strip.
+ */
+.rp-preview--iframe-follow {
+  flex-direction: column !important;
+}
+
+.rp-preview--iframe-follow__code {
+  max-height: 360px !important;
+  min-height: 0 !important;
+  order: 2;
+}
+
+.rp-preview--iframe-follow__device {
+  order: 1;
+  min-height: 560px;
+  border-left: none !important;
+  border-top: 0 !important;
+  border-bottom: 1px solid var(--rp-container-details-border, #eef0f5);
+}
+
+.rp-preview--iframe-follow__device iframe {
+  min-height: 560px;
+  width: 100%;
+}
+
 /* Changelog: clearer version hierarchy in the long release notes page */
 .rspress-doc:has(h2#unreleased) > h2 {
   margin-top: 3rem;
