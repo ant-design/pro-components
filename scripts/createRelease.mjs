@@ -13,12 +13,16 @@ function readRootPackage() {
 
 function resolveChangelogFile() {
   const candidates = [
+    join(root, 'site', 'zh-CN', 'changelog', 'index.mdx'),
+    join(root, 'site', 'en-US', 'changelog', 'index.mdx'),
     join(root, 'site', 'changelog.md'),
     join(root, 'site', 'changelog.en-US.md'),
   ];
   const found = candidates.find((p) => existsSync(p));
   if (!found) {
-    throw new Error('No changelog at site/changelog.md (or .en-US)');
+    throw new Error(
+      'No changelog at site/zh-CN/changelog/index.mdx (or en-US / legacy site/changelog.md)',
+    );
   }
   return found;
 }

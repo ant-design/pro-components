@@ -435,6 +435,26 @@
   padding-bottom: 3rem;
 }
 
+/* Changelog: clearer version hierarchy in the long release notes page */
+.rspress-doc:has(h2#unreleased) > h2 {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--pc-home-border, #eef0f5);
+  font-size: 1.5rem;
+}
+
+.rspress-doc:has(h2#unreleased) > h2:first-of-type,
+.rspress-doc:has(h2#unreleased) > h1 + h2 {
+  margin-top: 1.5rem;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.rspress-doc:has(h2#unreleased) > h3 {
+  margin-top: 1.5rem;
+  font-size: 1.0625rem;
+}
+
 @media (max-width: 1024px) {
   .pc-home-core-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));

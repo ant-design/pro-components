@@ -1,6 +1,12 @@
+---
+title: Changelog
+sidebar: true
+outline: true
+---
+
 # Changelog
 
-## Unreleased
+## Unreleased {#unreleased}
 
 ### 🗑 Breaking Changes
 
@@ -49,7 +55,7 @@
 - ProTable
   - ✅ Lock the regression that keeps LightFilter flat inside the toolbar [c2471f92a](https://github.com/ant-design/pro-components/commit/c2471f92a)
 
-## [3.1.15-7] - 2026-10-10
+## [3.1.15-7] - 2026-10-10 {#v3-1-15-7}
 
 ### 🐛 Bug Fixes
 
@@ -65,7 +71,7 @@
 
 - 🛠 Remove the internal `PureProField` in favor of `ProField` everywhere, plus a provider scenario refactor (branch archive merged into master) [#9744](https://github.com/ant-design/pro-components/pull/9744)
 
-## [3.1.15-6] - 2026-10-08
+## [3.1.15-6] - 2026-10-08 {#v3-1-15-6}
 
 ### 🐛 Bug Fixes
 
@@ -73,7 +79,7 @@
   - 🐞 Pass through omitted `variant` to antd Card so it follows ConfigProvider `card.variant` / global `variant` (no hard-coded `outlined`) [2a5a156b2](https://github.com/ant-design/pro-components/commit/2a5a156b2)
 - 🐞 Fix antd accessibility (a11y) and `mask` API console warnings [2ba4598d1](https://github.com/ant-design/pro-components/commit/2ba4598d1)
 
-## [3.1.15-5] - 2026-10-05
+## [3.1.15-5] - 2026-10-05 {#v3-1-15-5}
 
 ### 🐛 Bug Fixes
 
@@ -89,7 +95,7 @@
 
 - ⚡️ Remove `swr` and `route-utils` runtime costs; menu routing now uses a built-in lightweight implementation [#9739](https://github.com/ant-design/pro-components/pull/9739)
 
-## [3.1.15-4] - 2026-10-04
+## [3.1.15-4] - 2026-10-04 {#v3-1-15-4}
 
 ### 🐛 Bug Fixes
 
@@ -137,7 +143,7 @@
 
 - ✅ Add LoginForm/ProFormGroup SSR coverage and a ModalForm pre-open value regression test
 
-## [3.1.15-2] - 2026-09-27
+## [3.1.15-2] - 2026-09-27 {#v3-1-15-2}
 
 ### 🆕 Features
 
@@ -189,7 +195,7 @@
 - ✅ Lock verified scenarios for #8973, #9033, #9104, #9118, #9119, #9121, #9133, #9142 and related cases
 - ✅ Stabilize flaky editable-table and layout mix snapshot cases [943d09a83](https://github.com/ant-design/pro-components/commit/943d09a83)
 
-## [3.1.15-1] - 2026-09-26
+## [3.1.15-1] - 2026-09-26 {#v3-1-15-1}
 
 ### 🐛 Bug Fixes
 
@@ -261,7 +267,7 @@
 - ✅ Add regression test for fixed selection column z-index [23cd4b86e](https://github.com/ant-design/pro-components/commit/23cd4b86e)
 - ✅ Fix flaky editable table case caused by fake timer conflict, and update sider scrollbar snapshot [38addfdb2](https://github.com/ant-design/pro-components/commit/38addfdb2)
 
-## [3.1.14-7] - 2026-08-28
+## [3.1.14-7] - 2026-08-28 {#v3-1-14-7}
 
 ### 🐛 Bug Fixes
 
@@ -274,7 +280,7 @@
 - Other
   - 💄 Apply `fontWeightStrong` token to ProList meta title and editable text
 
-## [3.1.14-6] - 2026-07-29
+## [3.1.14-6] - 2026-07-29 {#v3-1-14-6}
 
 ### 🐛 Bug Fixes
 
@@ -285,7 +291,7 @@
 
 - ✅ Add `syncToUrl` search-field regression test to verify URL parameters update correctly after form submission
 
-## [3.1.14-5] - 2026-07-24
+## [3.1.14-5] - 2026-07-24 {#v3-1-14-5}
 
 ### 🐛 Bug Fixes
 
@@ -298,7 +304,7 @@
 
 - ✅ Add `getFieldInstance` regression tests covering text, password, textarea, digit, array name paths, dependencies, and fieldRef coexistence
 
-## [3.1.14-4] - 2026-07-22
+## [3.1.14-4] - 2026-07-22 {#v3-1-14-4}
 
 ### 🐛 Bug Fixes
 
@@ -312,7 +318,7 @@
 
 - 🛠 Bump dependencies to latest minor versions [#9670](https://github.com/ant-design/pro-components/pull/9670)
 
-## [3.1.14-3] - 2026-07-22
+## [3.1.14-3] - 2026-07-22 {#v3-1-14-3}
 
 ### 🐛 Bug Fixes
 
@@ -330,7 +336,7 @@
 - Provider
   - 🐞 Add Urdu (ur-PK) locale support [#9218](https://github.com/ant-design/pro-components/issues/9218)
 
-## [3.1.14-0] - 2026-07-05
+## [3.1.14-0] - 2026-07-05 {#v3-1-14-0}
 
 ### 🐛 Bug Fixes
 
@@ -339,7 +345,7 @@
   - 🐞 `variant="borderless"` now defaults to `boxShadowTertiary` light shadow to match antd v6 Card (note: this is an API behavior change; code relying on "borderless = no shadow" must override explicitly)
   - 🐞 Fix `ghost` mode UI: the ghost card's own padding is now zeroed, `-border` and default shadow are overridden, and the selector is broadened from `> ${componentCls}` to `> *` so custom child nodes inherit the reset too
 
-## [3.1.13-0] - 2026-07-05
+## [3.1.13-0] - 2026-07-05 {#v3-1-13-0}
 
 ### 🐛 Bug Fixes
 
@@ -419,7 +425,7 @@
 
 ---
 
-## [3.1.3-0] - 2026-04-06
+## [3.1.3-0] - 2026-04-06 {#v3-1-3-0}
 
 ### 🗑 Breaking Changes
 
@@ -443,7 +449,7 @@
 
 ---
 
-## [3.1.2-0] - 2026-01-27
+## [3.1.2-0] - 2026-01-27 {#v3-1-2-0}
 
 ### 🐛 Bug Fixes
 
@@ -452,7 +458,7 @@
 
 ---
 
-## [3.1.1-1] - 2026-01-27
+## [3.1.1-1] - 2026-01-27 {#v3-1-1-1}
 
 ### 📚 Documentation
 
@@ -463,7 +469,7 @@
 
 ---
 
-## [3.1.1-0] - 2026-01-27
+## [3.1.1-0] - 2026-01-27 {#v3-1-1-0}
 
 ### 🐛 Bug Fixes
 
@@ -483,7 +489,7 @@
 
 ---
 
-## [3.1.0-0] - 2025-12-25
+## [3.1.0-0] - 2025-12-25 {#v3-1-0-0}
 
 ### 🚀 New Features
 
@@ -537,7 +543,7 @@
 
 ---
 
-## [3.0.0-beta.3] - 2025-07-24
+## [3.0.0-beta.3] - 2025-07-24 {#v3-0-0-beta-3}
 
 ### 🚀 New Features
 
@@ -564,7 +570,7 @@
 
 ---
 
-## [3.0.0-beta.2] - 2025-07-24
+## [3.0.0-beta.2] - 2025-07-24 {#v3-0-0-beta-2}
 
 ### 🛠 Breaking Changes
 
@@ -582,7 +588,7 @@
 
 ---
 
-## [3.0.0-beta.1] - 2025-07-24
+## [3.0.0-beta.1] - 2025-07-24 {#v3-0-0-beta-1}
 
 ### 🚀 New Features
 
@@ -599,7 +605,7 @@
 
 ---
 
-## Migration Guide
+## Migration Guide {#migration-guide}
 
 ### Upgrading from 2.x to 3.0
 
@@ -624,7 +630,7 @@
 
 ---
 
-## Version Support
+## Version Support {#version-support}
 
 | Version | Status                | Support Period |
 | ------- | --------------------- | -------------- |
@@ -632,6 +638,6 @@
 
 ---
 
-## License
+## License {#license}
 
 MIT License
