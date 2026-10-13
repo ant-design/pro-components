@@ -31,7 +31,7 @@ function readLocationSearchString(): string {
     const queryIndex = hash.indexOf('?');
     return queryIndex === -1 ? '' : hash.slice(queryIndex + 1);
   }
-  return window.location.searchParams.toString();
+  return new URLSearchParams(window.location.search).toString();
 }
 
 function setQueryToCurrentUrl(params: Record<string, unknown>): URL {
