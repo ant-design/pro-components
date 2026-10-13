@@ -6,7 +6,7 @@ import { runFunction, useRefFunction } from '../../../utils';
 import type { GroupProps } from '../../../utils/antdTypes';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormItemProps } from '../FormItem';
-import warpField from '../FormItem/warpField';
+import { createProFormField } from '../FormItem/createProFormField';
 
 export type ProFormFieldSetProps<T = any> = {
   value?: T[];
@@ -147,7 +147,7 @@ const BaseProFormFieldSet: React.FC<
   );
 });
 
-const ProFormFieldSet = warpField<Omit<ProFormItemProps, 'children'>>?.(
+const ProFormFieldSet = createProFormField<Omit<ProFormItemProps, 'children'>>?.(
   BaseProFormFieldSet,
 );
 

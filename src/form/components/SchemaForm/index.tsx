@@ -19,7 +19,7 @@ import {
   useReactiveRef,
   useRefFunction,
 } from '../../../utils';
-import type { ProFormInstance } from '../../BaseForm';
+import type { ProFormInstance } from '../../BaseForm/typing';
 import type { ProFormProps } from '../../layouts';
 import { DrawerForm } from '../../layouts/DrawerForm';
 import LightFilter from '../../layouts/LightFilter';

@@ -5,7 +5,7 @@ import { runFunction, useRefFunction } from '../../../utils';
 import type { ProFieldValueTypeInput } from '../../../utils';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
-import warpField from '../FormItem/warpField';
+import { createProFormField } from '../FormItem/createProFormField';
 
 export type ProFormFieldProps<
   T = any,
@@ -141,7 +141,7 @@ const BaseProFormField = React.forwardRef<
 });
 BaseProFormField.displayName = 'ProFormComponent';
 
-const ProFormField = warpField<ProFormFieldProps>?.(BaseProFormField) as <
+const ProFormField = createProFormField<ProFormFieldProps>?.(BaseProFormField) as <
   FiledProps,
   DataType = Record<string, any>,
 >(

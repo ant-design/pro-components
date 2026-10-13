@@ -7,7 +7,7 @@ import type {
   SearchConvertKeyFn,
   SearchTransformKeyFn,
 } from '../../../utils';
-import type { CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps } from '../../BaseForm/BaseForm';
 import type {
   DrawerFormProps,
   LightFilterProps,
@@ -51,7 +51,7 @@ export type ProFormPropsType<T, ValueType = 'text'> =
       | ({ layoutType: 'QueryFilter' } & QueryFilterProps<T>)
       | ({ layoutType: 'LightFilter' } & LightFilterProps<T>)
       | ({ layoutType: 'StepForm' } & StepFormProps<T>)
-      | { layoutType: 'Embed' }
+      | ({ layoutType: 'Embed' } & Omit<ProFormProps<T>, 'children'>)
     ) & {
       columns: ProFormColumnsType<T, ValueType>[];
     })
@@ -142,6 +142,9 @@ export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
   shouldUpdate?: boolean | ((newValues: T, oldValues?: T) => boolean);
 } & Omit<FormProps<T>, 'onFinish'> &
   ProFormPropsType<T, ValueType> &
+  /**
+   * 与各 layout 分支内的 CommonFormProps 重叠，用于 layoutType 未收窄时仍可写 grid/request 等
+   */
   CommonFormProps<T> & {
     open?: boolean;
   };

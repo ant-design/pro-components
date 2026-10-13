@@ -40,7 +40,7 @@ import {
   useStyle,
 } from '../../utils';
 import { useUrlSync } from './useUrlSync';
-import { FormListContext } from '../components/List';
+import { FormListContext } from '../components/List/FormListContext';
 import FieldContext from '../FieldContext';
 import { GridContext, useGridHelpers } from '../helpers';
 import type {
@@ -51,17 +51,11 @@ import type {
 import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
 import type { SubmitterProps } from './Submitter';
 import Submitter from './Submitter';
+import type { ProFormInstance, ProFormRef, SyncToUrl } from './typing';
 
 const { noteOnce } = warning;
 
-// Define ProFormInstance and ProFormRef
-export type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
-type ProFormRef<T> = ProFormInstance<T> & {
-  /** 原生 DOM 元素引用 */
-  nativeElement?: HTMLElement;
-  /** 聚焦方法 */
-  focus?: () => void;
-};
+export type { ProFormInstance, ProFormRef, SyncToUrl } from './typing';
 
 type ListConvertValueEntry = {
   name: NamePath;
@@ -135,7 +129,7 @@ export type CommonFormProps<
   /**
    * @name 同步结果到 url 中
    * */
-  syncToUrl?: boolean | ((values: T, type: 'get' | 'set') => T);
+  syncToUrl?: SyncToUrl<T>;
 
   /**
    * @name 当 syncToUrl 为 true，在页面回显示时，以url上的参数为主，默认为false
@@ -224,12 +218,8 @@ export type BaseFormProps<T = Record<string, any>, U = Record<string, any>> = {
   ) => React.ReactNode;
   fieldProps?: FieldProps<unknown>;
   proFieldProps?: ProFieldProps;
-  /** 表单初始化完成，form已经存在，可以进行赋值的操作了 */
-  onInit?: (values: T, form: ProFormInstance<any>) => void;
   formItemProps?: FormItemProps;
   groupProps?: ProFormGroupProps;
-  /** 是否回车提交 */
-  isKeyPressSubmit?: boolean;
   /** Form 组件的类型，内部使用 */
   formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter' | 'LightFilter';
   /**

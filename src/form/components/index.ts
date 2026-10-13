@@ -29,7 +29,16 @@ export type { ProFormFieldProps } from './Field';
 export { default as ProFormFieldSet } from './FieldSet';
 export type { ProFormFieldSetProps } from './FieldSet';
 export { FormItemProvide, default as ProFormItem } from './FormItem';
-export type { ProFormItemProps } from './FormItem';
+export { TYPE, createProFormField } from './FormItem/createProFormField';
+export { useProFormFieldShell } from './FormItem/useProFormFieldShell';
+export type {
+  ProFormFieldShellFunctionProps,
+  UseProFormFieldShellOptions,
+} from './FormItem/useProFormFieldShell';
+export type {
+  ProFormItemHelpFunction,
+  ProFormItemProps,
+} from './FormItem';
 export {
   FormControlRender,
   FormItemRender,
@@ -55,6 +64,7 @@ export { default as BetaSchemaForm } from './SchemaForm';
 export type {
   ProFormColumnsType,
   ProFormLayoutType,
+  FormFieldType,
   FormSchema,
   ProFormPropsType,
   ProSchemaRenderValueTypeFunction,

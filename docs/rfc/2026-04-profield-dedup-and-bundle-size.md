@@ -119,7 +119,7 @@
 
 ## 与 ProForm RFC 的关系
 
-- `docs/rfc/2026-04-pro-form-architecture-refactor.md` 侧重 **表单壳、warpField、Schema 路径对齐**；本 RFC 侧重 `**src/field` 展示层与 valueType 映射**。
+- `docs/rfc/2026-04-pro-form-architecture-refactor.md` 侧重 **表单壳、`createProFormField` / Schema 路径对齐**；本 RFC 侧重 `**src/field` 展示层与 valueType 映射**。
 - 二者均遵循：**Never break userspace**；非 major 不改公开导出与默认行为。
 
 ## 开放问题
