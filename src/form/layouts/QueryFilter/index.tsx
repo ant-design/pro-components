@@ -8,6 +8,10 @@ import type { ReactElement } from 'react';
 import React, { useCallback, useContext, useMemo, useState } from 'react';
 import { ProProvider, useIntl } from '../../../provider';
 import { isBrowser, useRefFunction } from '../../../utils';
+import {
+  BREAKPOINT_ASC,
+  fillResponsiveConfig,
+} from '../../../utils/responsive';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { ActionsProps } from './Actions';
@@ -94,10 +98,17 @@ export const getSpanConfig = (
   }
 
   const { breakpoints, configSpanBreakpoints } = breakpointsConfig;
-  const spanConfig: (string | number)[][] = span
-    ? (['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const).map((key) => [
+
+  // Partial span 按断点向前填充，支持只写 { md: 8, xl: 6 }
+  const normalizedSpan =
+    span && typeof span === 'object'
+      ? fillResponsiveConfig(span)
+      : undefined;
+
+  const spanConfig: (string | number)[][] = normalizedSpan
+    ? BREAKPOINT_ASC.map((key) => [
         configSpanBreakpoints[key],
-        24 / (span as Record<string, number>)[key],
+        24 / normalizedSpan[key],
         // #8836:响应式 span 对象不应强制改写布局方向,
         // 尊重用户显式传入的 layout(vertical 保持 vertical)
         layout || 'horizontal',
@@ -125,14 +136,14 @@ export const getSpanConfig = (
 
 export type SpanConfig =
   | number
-  | {
+  | Partial<{
       xs: number;
       sm: number;
       md: number;
       lg: number;
       xl: number;
       xxl: number;
-    };
+    }>;
 
 export type BaseQueryFilterProps = Omit<
   ActionsProps,
@@ -178,8 +189,10 @@ export type BaseQueryFilterProps = Omit<
    * @example 配置一行3个
    * span={8}
    *
-   * @example 根据屏幕宽度配置
-   * span={xs: 24, sm: 12, md: 8, lg: 6, xl: 6, xxl: 6}
+   * @example 根据屏幕宽度配置（可只传部分断点，未写的档位会按 antd 规则向前填充）
+   * span={{ xs: 24, sm: 12, md: 8, lg: 6, xl: 6, xxl: 6 }}
+   * @example 只覆盖中大屏
+   * span={{ md: 8, xl: 6 }}
    * */
   span?: SpanConfig;
 

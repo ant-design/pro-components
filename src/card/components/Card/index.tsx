@@ -1,16 +1,19 @@
 import { RightOutlined } from '@ant-design/icons';
 import { omit, useControlledState } from '@rc-component/util';
-import { Card as AntdCard, ConfigProvider, Grid, Tabs } from 'antd';
+import { Card as AntdCard, ConfigProvider, Tabs } from 'antd';
 import { clsx } from 'clsx';
 import React, { useCallback, useContext } from 'react';
 import { proTheme } from '../../../provider';
 import { LabelIconTip, useRefFunction } from '../../../utils';
-import type { Breakpoint, CardProps, Gutter } from '../../typing';
+import {
+  getResponsiveValue,
+  RESPONSIVE_ARRAY,
+  useResponsiveScreens,
+} from '../../../utils/responsive';
+import type { CardProps, Gutter } from '../../typing';
 import Actions from '../Actions';
 import Loading from '../Loading';
 import useStyle from './style';
-
-const { useBreakpoint } = Grid;
 
 /**
  * 对齐 antd Card → useVariant('card', variant) 的合并顺序：
@@ -103,14 +106,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   // 用于 loading 占位 padding 兜底（body padding 被显式置 0 时使用 token.paddingLG）
   const { token } = proTheme.useToken();
 
-  const screens = useBreakpoint() || {
-    lg: true,
-    md: true,
-    sm: true,
-    xl: false,
-    xs: false,
-    xxl: false,
-  };
+  const screens = useResponsiveScreens();
 
   const [collapsed, setCollapsedInner] = useControlledState<boolean>(
     defaultCollapsed,
@@ -144,8 +140,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     [onCollapseCallback],
   );
 
-  // 顺序决定如何进行响应式取值，按最大响应值依次取值，请勿修改。
-  const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
   // 直接使用 tabs.items，不再支持旧的 TabPane 写法
   const ModifyTabItemsContent = tabs?.items;
 
@@ -159,13 +153,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     const normalizedGutter = Array.isArray(gut) ? gut : [gut, 0];
     normalizedGutter.forEach((g, index) => {
       if (typeof g === 'object') {
-        for (let i = 0; i < responsiveArray.length; i += 1) {
-          const breakpoint: Breakpoint = responsiveArray[i];
-          if (screens[breakpoint] && g[breakpoint] !== undefined) {
-            results[index] = g[breakpoint] as number;
-            break;
-          }
-        }
+        results[index] = getResponsiveValue(screens, g, 0);
       } else {
         results[index] = g || 0;
       }
@@ -176,11 +164,11 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const getColSpanStyle = (colSpan: CardProps['colSpan']) => {
     let span = colSpan;
 
-    // colSpan 响应式
+    // colSpan 响应式：命中当前屏幕且配置有值时取值，否则保留原对象
     if (typeof colSpan === 'object') {
-      for (let i = 0; i < responsiveArray.length; i += 1) {
-        const breakpoint: Breakpoint = responsiveArray[i];
-        if (screens?.[breakpoint] && colSpan?.[breakpoint] !== undefined) {
+      for (let i = 0; i < RESPONSIVE_ARRAY.length; i += 1) {
+        const breakpoint = RESPONSIVE_ARRAY[i];
+        if (screens[breakpoint] && colSpan?.[breakpoint] !== undefined) {
           span = colSpan[breakpoint];
           break;
         }
