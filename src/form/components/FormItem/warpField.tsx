@@ -14,7 +14,6 @@ import {
 } from '../../../utils';
 import FieldContext from '../../FieldContext';
 import { useGridHelpers } from '../../helpers';
-import { LightWrapper } from '../../layouts/LightFilter/LightWrapper';
 import type {
   ExtendsProps,
   ProFormFieldItemProps,
@@ -23,6 +22,12 @@ import type {
 import ProFormDependency from '../Dependency';
 import type { ProFormItemProps } from './typing';
 import ProFormItem from './index';
+
+const WarpFieldLightPopoverItemLazy = React.lazy(() =>
+  import('./warpFieldLightMode').then((module) => ({
+    default: module.WarpFieldLightPopoverItem,
+  })),
+);
 
 export const TYPE = Symbol('ProFormComponent');
 
@@ -316,37 +321,53 @@ export function warpField<P extends ProFormFieldItemProps = any>(
       // light 模式下（非下拉类）：由 Form.Item 正常注入 value，LightWrapper 作为 Form.Item
       // 的直接 children 接收 value/onChange，再把 Field 渲染在 Popover 内部
       if (isLightMode && !isDropdownValueType(valueType)) {
-        return (
+        const formItemKey =
+          props.proFormFieldKey || otherProps.name?.toString();
+        const messageVariables = {
+          label: (label as string) || '',
+          ...otherProps?.messageVariables,
+        };
+        const lightFallback = (
           <ProFormItem
             label={undefined}
             tooltip={false}
             valuePropName={valuePropName}
-            key={props.proFormFieldKey || otherProps.name?.toString()}
+            key={formItemKey}
             {...restOtherProps}
             help={help}
             ignoreFormItem={ignoreFormItem}
             transform={transform}
             dataFormat={fieldProps?.format}
             valueType={valueType}
-            messageVariables={{
-              label: (label as string) || '',
-              ...otherProps?.messageVariables,
-            }}
+            messageVariables={messageVariables}
             convertValue={convertValue}
           >
-            <LightWrapper
+            {field}
+          </ProFormItem>
+        );
+        return (
+          <React.Suspense fallback={lightFallback}>
+            <WarpFieldLightPopoverItemLazy
+              field={field as React.ReactElement}
               label={label}
               valuePropName={valuePropName}
-              variant={rest.variant ?? fieldProps?.variant}
-              allowClear={field?.props?.allowClear ?? allowClear}
-              footerRender={field?.props?.footerRender}
-              placement={rest.placement}
-              labelFormatter={lightFilterLabelFormatter}
+              restOtherProps={restOtherProps}
+              help={help}
+              ignoreFormItem={ignoreFormItem}
+              transform={transform}
+              dataFormat={fieldProps?.format}
               valueType={valueType}
-            >
-              {field}
-            </LightWrapper>
-          </ProFormItem>
+              messageVariables={messageVariables}
+              convertValue={convertValue}
+              formItemKey={formItemKey}
+              variant={rest.variant ?? fieldProps?.variant}
+              placement={rest.placement}
+              allowClear={allowClear}
+              footerRender={(field as React.ReactElement)?.props?.footerRender}
+              fieldAllowClear={(field as React.ReactElement)?.props?.allowClear}
+              labelFormatter={lightFilterLabelFormatter}
+            />
+          </React.Suspense>
         );
       }
 

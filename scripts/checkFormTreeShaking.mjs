@@ -41,6 +41,14 @@ for (const [name, entry] of [
       'A text field must not retain the FormList implementation',
     );
     assert(!modules.includes('src/form/BaseForm/BaseForm.tsx'));
+    assert(
+      !modules.some((module) => module.includes('LightFilter/LightWrapper')),
+      'A text field must not retain LightWrapper in the initial chunk',
+    );
+    assert(
+      !modules.includes('src/form/components/FormItem/warpFieldLightMode.tsx'),
+      'LightFilter popover field path must be lazy-loaded',
+    );
   }
   if (importedName === 'ProFormGroup') {
     assert(
