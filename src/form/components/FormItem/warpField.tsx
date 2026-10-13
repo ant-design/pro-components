@@ -19,15 +19,25 @@ import type {
   ProFormFieldItemProps,
   ProFormItemCreateConfig,
 } from '../../typing';
-import ProFormDependency from '../Dependency';
 import type { ProFormItemProps } from './typing';
 import ProFormItem from './index';
+import { createWarpFieldLazyBoundary } from './warpFieldAsync';
+import type { WarpFieldDependencyBranchProps } from './warpFieldDependency';
+import type { WarpFieldLightPopoverItemProps } from './warpFieldLightMode';
 
-const WarpFieldLightPopoverItemLazy = React.lazy(() =>
-  import('./warpFieldLightMode').then((module) => ({
-    default: module.WarpFieldLightPopoverItem,
-  })),
-);
+const LightPopoverBoundary =
+  createWarpFieldLazyBoundary<WarpFieldLightPopoverItemProps>(() =>
+    import('./warpFieldLightMode').then((module) => ({
+      default: module.WarpFieldLightPopoverItem,
+    })),
+  );
+
+const DependencyBoundary =
+  createWarpFieldLazyBoundary<WarpFieldDependencyBranchProps>(() =>
+    import('./warpFieldDependency').then((module) => ({
+      default: module.WarpFieldDependencyBranch,
+    })),
+  );
 
 export const TYPE = Symbol('ProFormComponent');
 
@@ -346,28 +356,28 @@ export function warpField<P extends ProFormFieldItemProps = any>(
           </ProFormItem>
         );
         return (
-          <React.Suspense fallback={lightFallback}>
-            <WarpFieldLightPopoverItemLazy
-              field={field as React.ReactElement}
-              label={label}
-              valuePropName={valuePropName}
-              restOtherProps={restOtherProps}
-              help={help}
-              ignoreFormItem={ignoreFormItem}
-              transform={transform}
-              dataFormat={fieldProps?.format}
-              valueType={valueType}
-              messageVariables={messageVariables}
-              convertValue={convertValue}
-              formItemKey={formItemKey}
-              variant={rest.variant ?? fieldProps?.variant}
-              placement={rest.placement}
-              allowClear={allowClear}
-              footerRender={(field as React.ReactElement)?.props?.footerRender}
-              fieldAllowClear={(field as React.ReactElement)?.props?.allowClear}
-              labelFormatter={lightFilterLabelFormatter}
-            />
-          </React.Suspense>
+          <LightPopoverBoundary
+            enabled
+            fallback={lightFallback}
+            field={field as React.ReactElement}
+            label={label}
+            valuePropName={valuePropName}
+            restOtherProps={restOtherProps}
+            help={help}
+            ignoreFormItem={ignoreFormItem}
+            transform={transform}
+            dataFormat={fieldProps?.format}
+            valueType={valueType}
+            messageVariables={messageVariables}
+            convertValue={convertValue}
+            formItemKey={formItemKey}
+            variant={rest.variant ?? fieldProps?.variant}
+            placement={rest.placement}
+            allowClear={allowClear}
+            footerRender={(field as React.ReactElement)?.props?.footerRender}
+            fieldAllowClear={(field as React.ReactElement)?.props?.allowClear}
+            labelFormatter={lightFilterLabelFormatter}
+          />
         );
       }
 
@@ -430,29 +440,24 @@ export function warpField<P extends ProFormFieldItemProps = any>(
         originDependencies?: string[];
       }
   >((props, forwardedRef) => {
-    const { dependencies } = props;
-    return dependencies ? (
-      <ProFormDependency
-        name={dependencies}
-        originDependencies={props?.originDependencies}
-      >
-        {(values) => {
-          return (
-            <FieldWithContext
-              ref={forwardedRef}
-              dependenciesValues={values}
-              dependencies={dependencies}
-              {...props}
-            />
-          );
-        }}
-      </ProFormDependency>
-    ) : (
-      <FieldWithContext
-        ref={forwardedRef}
+    const { dependencies, originDependencies } = props;
+    const field = (
+      <FieldWithContext ref={forwardedRef} dependencies={dependencies} {...props} />
+    );
+
+    if (!dependencies) {
+      return field;
+    }
+
+    return (
+      <DependencyBoundary
+        enabled
+        fallback={field}
         dependencies={dependencies}
-        {...props}
-      />
+        originDependencies={originDependencies}
+      >
+        {field}
+      </DependencyBoundary>
     );
   });
   DependencyWrapper.displayName = 'ProFormComponent';

@@ -49,6 +49,14 @@ for (const [name, entry] of [
       !modules.includes('src/form/components/FormItem/warpFieldLightMode.tsx'),
       'LightFilter popover field path must be lazy-loaded',
     );
+    assert(
+      !modules.includes('src/form/components/Dependency/index.tsx'),
+      'A text field must not retain ProFormDependency in the initial chunk',
+    );
+    assert(
+      !modules.includes('src/form/components/FormItem/warpFieldDependency.tsx'),
+      'Dependency branch must be lazy-loaded',
+    );
   }
   if (importedName === 'ProFormGroup') {
     assert(
