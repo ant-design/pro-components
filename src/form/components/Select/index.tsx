@@ -1,6 +1,6 @@
 import type { RefSelectProps, SelectProps } from 'antd';
 import React, { useContext } from 'react';
-import FieldSelect from '../../../field/components/Select';
+import { FieldSelect } from '../../../field/FieldLoaders';
 import { ProConfigProvider } from '../../../provider';
 import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
 import { runFunction } from '../../../utils';

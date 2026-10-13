@@ -2,7 +2,7 @@ import { omit } from '@rc-component/util';
 import type { RadioGroupProps, RadioProps } from 'antd';
 import { Radio } from 'antd';
 import React from 'react';
-import FieldRadio from '../../../field/components/Radio';
+import { FieldRadio } from '../../../field/FieldLoaders';
 import { ProConfigProvider } from '../../../provider';
 import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
 import { runFunction } from '../../../utils';

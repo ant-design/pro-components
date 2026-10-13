@@ -1,6 +1,6 @@
 import type { RateProps } from 'antd';
 import React from 'react';
-import FieldRate from '../../../field/components/Rate';
+import { FieldRate } from '../../../field/FieldLoaders';
 import { ProConfigProvider } from '../../../provider';
 import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
 import type { ProFormFieldItemProps } from '../../typing';

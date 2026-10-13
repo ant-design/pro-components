@@ -1,5 +1,5 @@
 ﻿import React, { useContext } from 'react';
-import { FieldTimeRangePicker } from '../../../field/components/TimePicker';
+import { FieldTimeRangePicker } from '../../../field/FieldLoaders';
 import { ProConfigProvider } from '../../../provider';
 import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
 import { dateArrayFormatter } from '../../../utils';

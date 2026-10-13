@@ -1,6 +1,6 @@
 import type { DatePickerProps } from 'antd';
 import React, { useContext } from 'react';
-import FieldTimePicker from '../../../field/components/TimePicker';
+import { FieldTimePicker } from '../../../field/FieldLoaders';
 import { ProConfigProvider } from '../../../provider';
 import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
 import FieldContext from '../../FieldContext';

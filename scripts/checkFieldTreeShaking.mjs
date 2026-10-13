@@ -60,6 +60,12 @@ const text = await bundleSource(
 const proField = await bundleSource(
   "import { ProField } from './src/field'; export { ProField };",
 );
+const proTable = await bundleSource(
+  "import { ProTable } from './src/index'; export { ProTable };",
+);
+const singleLocale = await bundleSource(
+  "import { frFRIntl } from './src/provider/intl'; export { frFRIntl };",
+);
 const textOnlyProField = await bundleSource(`
   import React from 'react';
   import { createProField, FieldText } from './src/field';
@@ -80,6 +86,17 @@ assert(
 assert(!textOnlyProField.modules.includes('src/field/AllProField.tsx'));
 assert(!textOnlyProField.modules.includes('src/field/initDayjs.ts'));
 assert(proField.chunks > 0, 'ProField value types must be split into chunks');
+assert(proTable.chunks > 0, 'ProTable value types must be split into chunks');
+assert(
+  singleLocale.bytes < 10_000,
+  'Importing one locale must not retain the full locale registry',
+);
+assert(
+  proTable.modules.filter((module) =>
+    module.startsWith('src/field/components/'),
+  ).length < 10,
+  'ProTable must not eagerly retain all field components',
+);
 assert(
   !proField.modules.some(
     (module) =>

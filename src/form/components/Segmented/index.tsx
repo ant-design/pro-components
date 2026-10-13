@@ -1,6 +1,6 @@
 ﻿import type { SegmentedProps } from 'antd';
 import React from 'react';
-import FieldSegmented from '../../../field/components/Segmented';
+import { FieldSegmented } from '../../../field/FieldLoaders';
 import { ProConfigProvider } from '../../../provider';
 import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
 import type {
