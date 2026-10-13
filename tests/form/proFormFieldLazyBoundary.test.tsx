@@ -12,9 +12,7 @@ describe('createProFormFieldLazyBoundary', () => {
     );
 
     render(
-      <Boundary enabled={false} fallback={<div data-testid="fallback">fb</div>}>
-        <span />
-      </Boundary>,
+      <Boundary enabled={false} fallback={<div data-testid="fallback">fb</div>} />,
     );
 
     expect(screen.getByTestId('fallback')).toBeTruthy();
