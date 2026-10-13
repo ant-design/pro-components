@@ -17,7 +17,6 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-
 type DataSourceType = {
   id?: React.Key;
   title?: string;
@@ -94,7 +93,9 @@ const Demo = () => {
       formItemProps: (form, { rowIndex }) => {
         return {
           rules:
-            rowIndex > 2 ? [{ required: true, message: '此项为必填项' }] : [],
+            rowIndex !== undefined && rowIndex > 2
+              ? [{ required: true, message: '此项为必填项' }]
+              : [],
         };
       },
       width: '30%',
@@ -125,7 +126,7 @@ const Demo = () => {
             disabled: true,
           };
         }
-        if (rowIndex > 9) {
+        if (rowIndex !== undefined && rowIndex > 9) {
           return {
             disabled: true,
           };
@@ -181,7 +182,6 @@ const Demo = () => {
           type: 'multiple',
           editableKeys,
           onSave: async (_rowKey, _data, _row) => {
-
             await waitTime(2000);
           },
           onChange: setEditableRowKeys,

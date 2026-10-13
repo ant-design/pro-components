@@ -79,6 +79,10 @@ const csCZ: ProLocale = {
     open: 'Otevřít',
     close: 'Zavřít',
   },
+  captcha: {
+    getCaptcha: 'Získat ověřovací kód',
+    retryAfter: 'Zkusit znovu za {count}s',
+  },
 };
 
 export default csCZ;

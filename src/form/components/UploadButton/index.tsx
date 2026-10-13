@@ -7,7 +7,7 @@ import type {
   UploadProps,
 } from 'antd';
 import { Button, Image, Upload } from 'antd';
-import type { UploadRef } from 'antd/es/upload/Upload';
+import type { UploadRef } from 'antd';
 import React, { useContext, useMemo, useState } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';

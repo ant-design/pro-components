@@ -79,6 +79,10 @@ const deDE: ProLocale = {
     open: 'offen',
     close: 'schließen',
   },
+  captcha: {
+    getCaptcha: 'Bestätigungscode abrufen',
+    retryAfter: 'Erneut in {count}s',
+  },
 };
 
 export default deDE;

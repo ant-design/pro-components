@@ -79,6 +79,10 @@ const arEG: ProLocale = {
     open: 'مفتوح',
     close: 'غلق',
   },
+  captcha: {
+    getCaptcha: 'احصل على رمز التحقق',
+    retryAfter: 'أعد المحاولة بعد {count} ثانية',
+  },
 };
 
 export default arEG;

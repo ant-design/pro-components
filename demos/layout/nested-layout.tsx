@@ -48,9 +48,6 @@ const Demo = () => (
         style={{
           height: '400px',
         }}
-        menu={{
-          hideMenuWhenCollapsed: true,
-        }}
         avatarProps={{
           icon: <UserOutlined />,
         }}

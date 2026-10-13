@@ -52,7 +52,7 @@ export const ProHelpModal: React.FC<ProHelpModalProps> = ({
       footer={null}
       width={720}
       open={modalOpen}
-      maskClosable
+      mask={{ closable: true }}
       {...modalProps}
     >
       <ProHelpPanel

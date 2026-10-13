@@ -33,6 +33,9 @@ export type ExtraProColumnType = {
    */
   width?: string | number;
 
+  /** 表单控件宽度。与表格共用 columns 时，可用它覆盖 width */
+  formWidth?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
   name?: NamePath | NamePath[];
   defaultKeyWords?: string;
 } & Pick<ProFormGridConfig, 'rowProps' | 'colProps'>;
@@ -61,11 +64,7 @@ export type ProFormPropsType<T, ValueType = 'text'> =
 export type ProFormLayoutType = ProFormPropsType<any>['layoutType'];
 
 export type FormFieldType =
-  | 'group'
-  | 'formList'
-  | 'formSet'
-  | 'divider'
-  | 'dependency';
+  'group' | 'formList' | 'formSet' | 'divider' | 'dependency';
 
 export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
   T,
@@ -80,6 +79,8 @@ export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
     colSize?: number;
     /** 是否只读模式 */
     readonly?: boolean;
+    /** 是否隐藏字段；QueryFilter 中隐藏字段不占用栅格位置 */
+    hidden?: boolean;
     /** 搜索表单的默认值 */
     initialValue?: any;
     /**
@@ -155,7 +156,14 @@ export type ProFormRenderValueTypeHelpers<T, ValueType> = {
   originItem: ProFormColumnsType<T, ValueType>;
   type: ProSchemaComponentTypes;
   formRef: React.MutableRefObject<FormInstance<any> | undefined>;
-  genItems: (items: ProFormColumnsType<T, ValueType>[]) => React.ReactNode[];
+  /**
+   * @param listContext #8561 formList 按行求值时携带的行号上下文，
+   *   函数式 title / fieldProps / formItemProps 可拿到 rowIndex
+   */
+  genItems: (
+    items: ProFormColumnsType<T, ValueType>[],
+    listContext?: { rowIndex?: number },
+  ) => React.ReactNode[];
 } & Pick<FormSchema<T, ValueType>, 'action'>;
 
 export type ItemType<T, ValueType> = Omit<

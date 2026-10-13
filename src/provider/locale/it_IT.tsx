@@ -79,6 +79,10 @@ const itIT: ProLocale = {
     open: 'Apri',
     close: 'Chiudi',
   },
+  captcha: {
+    getCaptcha: 'Ottieni codice',
+    retryAfter: 'Riprova tra {count}s',
+  },
 };
 
 export default itIT;

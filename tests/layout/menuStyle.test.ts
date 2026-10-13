@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import type { ProLayoutBaseMenuToken } from '../../src/layout/components/SiderMenu/style/menu';
-import { genProLayoutBaseMenuStyle } from '../../src/layout/components/SiderMenu/style/menu';
 import type { SiderMenuToken } from '../../src/layout/components/SiderMenu/style';
 import { genSiderMenuStyle } from '../../src/layout/components/SiderMenu/style';
+import type { ProLayoutBaseMenuToken } from '../../src/layout/components/SiderMenu/style/menu';
+import { genProLayoutBaseMenuStyle } from '../../src/layout/components/SiderMenu/style/menu';
 
 const createToken = () =>
   ({
@@ -14,6 +14,7 @@ const createToken = () =>
       },
       sider: {
         colorBgMenuItemCollapsedElevated: '#sider-popup',
+        colorTextMenuTitle: '#group-title',
       },
     },
   }) as ProLayoutBaseMenuToken;
@@ -35,6 +36,20 @@ describe('SiderMenu style', () => {
     expect(style).toMatchObject({
       '.ant-menu-submenu-popup': {
         backgroundColor: '#header-popup',
+      },
+    });
+  });
+
+  it('uses the configured sider title token for group titles (#8976)', () => {
+    const style = genProLayoutBaseMenuStyle(createToken(), 'inline');
+
+    expect(style).toMatchObject({
+      '.pro-menu': {
+        '&-group': {
+          '.ant-menu-item-group-title': {
+            color: '#group-title',
+          },
+        },
       },
     });
   });
@@ -61,6 +76,28 @@ describe('SiderMenu style', () => {
               borderRadius: 8,
             },
           },
+        },
+      },
+    });
+  });
+
+  it('keeps the inline mobile drawer fixed to the viewport (#8672)', () => {
+    const style = genSiderMenuStyle({
+      antCls: '.ant',
+      proComponentsCls: '.pro',
+      componentCls: '.pro-sider',
+      proLayoutCollapsedWidth: 64,
+      layout: { sider: {}, header: {} },
+    } as SiderMenuToken);
+
+    expect(style).toMatchObject({
+      '.pro-layout': {
+        '& .pro-drawer-sider-root.ant-drawer-inline': {
+          position: 'fixed',
+          insetBlockStart: 0,
+          insetInlineStart: 0,
+          width: '100%',
+          height: '100%',
         },
       },
     });

@@ -59,7 +59,7 @@ export function normalizeSerializedDayjsLike(
 
 export const parseValueToDay = (
   value: DateValue,
-  formatter?: string,
+  formatter?: string | readonly string[],
 ): dayjs.Dayjs | dayjs.Dayjs[] | null | undefined => {
   if (isNil(value)) {
     return value as null | undefined;
@@ -104,7 +104,66 @@ export const parseValueToDay = (
     return dayjs(value);
   }
   if (typeof value === 'string') {
-    const parsed = formatter ? dayjs(value, formatter) : dayjs(value);
+    /**
+     * #8810:syncToUrl 回填的时间戳字符串(10 位秒/13 位毫秒)无法按 format 解析,
+     * 导致 date 相关 valueType 显示为空。format 解析失败时按位数识别时间戳。
+     */
+    const parseTimestampString = (
+      str: string,
+    ): dayjs.Dayjs | null => {
+      if (!/^\d+$/.test(str)) return null;
+      const ms =
+        str.length === 10
+          ? Number(str) * 1000
+          : str.length === 13
+            ? Number(str)
+            : null;
+      if (ms === null) return null;
+      const parsed = dayjs(ms);
+      return parsed.isValid() ? parsed : null;
+    };
+
+    const formatters =
+      typeof formatter === 'string'
+        ? [formatter]
+        : Array.isArray(formatter)
+          ? formatter.filter((item): item is string => typeof item === 'string')
+          : [];
+    for (const currentFormatter of formatters) {
+      const strict = dayjs(value, currentFormatter, true);
+      if (strict.isValid()) return strict;
+      /**
+       * #8863:customParseFormat 对 `MM`/`DD` 等两位占位符要求严格位数,
+       * 值为 `23/3/2024` + format `DD/MM/YYYY` 时解析失败。
+       * 降级为单位数宽容形式(`M`/`D`/`H`/`m`/`s`)重试一次。
+       */
+      const lenientFormatter = currentFormatter.replace(
+        /(MMMM|MMM|MM|DD|HH|mm|ss)/g,
+        (token) =>
+          token === 'MM' || token === 'DD' || token.length === 2
+            ? token[0]
+            : token,
+      );
+      if (lenientFormatter !== currentFormatter) {
+        const lenient = dayjs(value, lenientFormatter, true);
+        if (lenient.isValid()) {
+          return lenient;
+        }
+      }
+    }
+    const ts = parseTimestampString(value);
+    if (ts) {
+      return ts;
+    }
+    // 兼容历史行为：格式只描述日期时，允许输入包含额外时间部分并截取日期。
+    // 只严格解析与格式等长的前缀，避免把 31/02/2024 归一化成其他日期。
+    for (const currentFormatter of formatters) {
+      if (value.length <= currentFormatter.length) continue;
+      const prefix = value.slice(0, currentFormatter.length);
+      const legacyPrefix = dayjs(prefix, currentFormatter, true);
+      if (legacyPrefix.isValid()) return legacyPrefix;
+    }
+    const parsed = dayjs(value);
     return parsed.isValid() ? parsed : null;
   }
 
@@ -124,8 +183,14 @@ export const parseValueToDay = (
     }
   }
 
-  const fallback = formatter
-    ? dayjs(value as any, formatter)
+  const fallbackFormatter: string | string[] | undefined =
+    typeof formatter === 'string'
+      ? formatter
+      : formatter
+        ? [...formatter]
+        : undefined;
+  const fallback = fallbackFormatter
+    ? dayjs(value as any, fallbackFormatter)
     : dayjs(value as any);
   return fallback.isValid() ? fallback : null;
 };

@@ -15,7 +15,7 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import type { TableComponents } from '@rc-component/table/es/interface';
-import React, { createContext, useCallback, useContext, useMemo } from 'react';
+import React, { createContext, useContext, useMemo } from 'react';
 import { useRefFunction } from '../../utils';
 
 const SortableItemContextValue = createContext<{
@@ -130,24 +130,24 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
   // can activate two sensor lifecycles for the same mouse gesture.
   const sensors = useSensors(useSensor(PointerSensor));
 
-  const handleDragEnd = useCallback(
-    (event: DragEndEvent) => {
-      const { active, over } = event;
-      if (over?.id?.toString() && active.id !== over?.id) {
-        const newData = arrayMove<T>(
-          dataSource || [],
-          parseInt(active.id as string),
-          parseInt(over.id as string),
-        );
-        onDragSortEnd?.(
-          parseInt(active.id as string),
-          parseInt(over.id as string),
-          newData || [],
-        );
-      }
-    },
-    [dataSource, onDragSortEnd],
-  );
+  // Keep the callback identity stable while reading the latest data. Changing the
+  // wrapper component type on every request used to remount rc-table and reset
+  // its horizontal/vertical scroll position (#8342, #8404).
+  const handleDragEnd = useRefFunction((event: DragEndEvent) => {
+    const { active, over } = event;
+    if (over?.id?.toString() && active.id !== over?.id) {
+      const newData = arrayMove<T>(
+        dataSource || [],
+        parseInt(active.id as string),
+        parseInt(over.id as string),
+      );
+      onDragSortEnd?.(
+        parseInt(active.id as string),
+        parseInt(over.id as string),
+        newData || [],
+      );
+    }
+  });
 
   const DraggableContainer = useRefFunction((p: any) => (
     <SortableContext
@@ -179,16 +179,18 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
     );
   });
 
-  const components: TableComponents<T> = props.components || {};
-
-  if (dragSortKey) {
-    components.body = {
-      wrapper: DraggableContainer,
-      row: DraggableBodyRow,
-      cell: SortableItemCell,
-      ...(props.components?.body || {}),
+  const components = useMemo<TableComponents<T>>(() => {
+    if (!dragSortKey) return props.components || {};
+    return {
+      ...props.components,
+      body: {
+        wrapper: DraggableContainer,
+        row: DraggableBodyRow,
+        cell: SortableItemCell,
+        ...(props.components?.body || {}),
+      },
     };
-  }
+  }, [dragSortKey, DraggableBodyRow, DraggableContainer, props.components]);
 
   const memoDndContext = useMemo(
     () => (contextProps: any) => {

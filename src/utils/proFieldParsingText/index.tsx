@@ -1,7 +1,10 @@
 ﻿import { Badge, Space } from 'antd';
 import type { CSSProperties, ReactNode } from 'react';
 import React from 'react';
-import { ProFieldValueEnumType, ProSchemaValueEnumMap } from '../typing';
+import type {
+  ProSchemaValueEnumMap,
+  ProSchemaValueEnumObj,
+} from '../valueEnumType';
 
 /**
  * 获取类型的 type
@@ -32,7 +35,7 @@ export const ProFieldBadgeColor: React.FC<StatusProps & { color: string }> = ({
 }) => <Badge color={color} text={children} />;
 
 export const objectToMap = (
-  value: ProFieldValueEnumType | undefined,
+  value: ProSchemaValueEnumMap | ProSchemaValueEnumObj | undefined,
 ): ProSchemaValueEnumMap => {
   if (getType(value) === 'map') {
     return value as ProSchemaValueEnumMap;
@@ -88,7 +91,7 @@ type ProFieldTextValue = string | number | LabelInValueItem | (string | number |
 
 export const proFieldParsingText = (
   text: ProFieldTextValue,
-  valueEnumParams: ProFieldValueEnumType,
+  valueEnumParams: ProSchemaValueEnumMap | ProSchemaValueEnumObj,
   key?: number | string,
 ): React.ReactNode => {
   if (Array.isArray(text)) {

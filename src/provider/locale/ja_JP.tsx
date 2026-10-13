@@ -79,6 +79,10 @@ const jaJP: ProLocale = {
     open: '開く',
     close: '閉じる',
   },
+  captcha: {
+    getCaptcha: '認証コードを取得',
+    retryAfter: '{count}秒後に再試行',
+  },
 };
 
 export default jaJP;

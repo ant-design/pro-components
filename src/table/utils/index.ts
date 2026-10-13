@@ -16,6 +16,7 @@ import type {
   ProColumns,
   ProColumnType,
   ProSorter,
+  ProTablePaginationConfig,
   UseFetchDataAction,
 } from '../typing';
 
@@ -35,7 +36,7 @@ export const checkUndefinedOrNull = (value: any) =>
  * @param intl
  */
 export function mergePagination<T>(
-  pagination: TablePaginationConfig | boolean | undefined,
+  pagination: ProTablePaginationConfig | boolean | undefined,
   pageInfo: UseFetchDataAction<T>['pageInfo'] & {
     setPageInfo: any;
   },
@@ -44,9 +45,37 @@ export function mergePagination<T>(
   if (pagination === false) {
     return false;
   }
-  const { total, current, pageSize, setPageInfo } = pageInfo;
-  const defaultPagination: TablePaginationConfig =
+  const { total, current, pageSize, nextToken, setPageInfo } = pageInfo;
+  const defaultPagination: ProTablePaginationConfig =
     typeof pagination === 'object' ? pagination : {};
+
+  if (defaultPagination.type === 'cursor') {
+    const {
+      type: _type,
+      itemRender,
+      onChange,
+      ...cursorPagination
+    } = defaultPagination;
+    return {
+      ...cursorPagination,
+      current,
+      pageSize,
+      showQuickJumper: false,
+      showSizeChanger: false,
+      showTotal: undefined,
+      total: current * pageSize + (nextToken ? 1 : 0),
+      itemRender: (page, itemType, element) => {
+        if (itemType !== 'prev' && itemType !== 'next') return null;
+        return itemRender?.(page, itemType, element) ?? element;
+      },
+      onChange: (page: number) => {
+        onChange?.(page, pageSize);
+        if (current !== page) setPageInfo({ current: page });
+      },
+    };
+  }
+
+  const { type: _type, ...offsetPagination } = defaultPagination;
 
   return {
     showTotal: (all, range) =>
@@ -57,7 +86,7 @@ export function mergePagination<T>(
         '条/总共',
       )} ${all} ${intl.getMessage('pagination.total.item', '条')}`,
     total,
-    ...(defaultPagination as TablePaginationConfig),
+    ...(offsetPagination as TablePaginationConfig),
     current:
       pagination !== true && pagination
         ? (pagination.current ?? current)
@@ -94,12 +123,14 @@ export function useActionType<T>(
     onCleanSelected: () => void;
     resetAll: () => void;
     editableUtils: UseEditableUtilType;
+    getSortFilter: NonNullable<ActionType['getSortFilter']>;
     /** 透传给 ActionType 的滚动能力 */
     scrollTo?: ActionType['scrollTo'];
   },
 ) {
   /** 这里生成action的映射，保证 action 总是使用的最新 只需要渲染一次即可 */
-  const userAction: ActionType = {
+  const userAction = ref.current ?? ({} as ActionType);
+  Object.assign(userAction, {
     ...props.editableUtils,
     pageInfo: action.pageInfo,
     nativeElement: props.nativeElement,
@@ -128,10 +159,12 @@ export function useActionType<T>(
     },
     fullScreen: () => props.fullScreen(),
     clearSelected: () => props.onCleanSelected(),
-    setPageInfo: (rest) => action.setPageInfo(rest),
+    setPageInfo: (rest: Parameters<typeof action.setPageInfo>[0]) =>
+      action.setPageInfo(rest),
+    getSortFilter: props.getSortFilter,
     // 透出 scrollTo（如上层提供）
     scrollTo: props.scrollTo,
-  };
+  });
   ref.current = userAction;
 }
 
@@ -311,11 +344,12 @@ export const parseServerDefaultColumnConfig = <T, Value>(
 
     // 当 column 启用服务端 filters 功能时，取出默认的筛选值
     if (column.filters && !isLocalFilter(column.filters, column.onFilter)) {
-      const defaultFilteredValue =
-        column.defaultFilteredValue as FilterValue | undefined;
+      const defaultFilteredValue = column.defaultFilteredValue as
+        FilterValue | undefined;
       // 没有 defaultFilteredValue 时不写入 null，
       // 避免 request 收到 { dataIndex: null }（#9161）
-      if (defaultFilteredValue != null) filter[dataIndex] = defaultFilteredValue;
+      if (defaultFilteredValue != null)
+        filter[dataIndex] = defaultFilteredValue;
     }
 
     // 当 column 启用服务端 sorter 功能时，取出默认的排序值
@@ -324,7 +358,8 @@ export const parseServerDefaultColumnConfig = <T, Value>(
         typeof column.sorter === 'string' ? column.sorter : dataIndex;
       // 没有 defaultSortOrder 时不写入 null，
       // 避免 request 收到 { dataIndex: null }（#9161）
-      if (column.defaultSortOrder != null) sort[sortKey] = column.defaultSortOrder;
+      if (column.defaultSortOrder != null)
+        sort[sortKey] = column.defaultSortOrder;
     }
   });
   return { sort, filter };
@@ -407,7 +442,7 @@ export function resolveTableViewDefaultDom(
  *
  * 规则与 Table.tsx useRowKey / EditableTable getRowKey 保持一致：
  *  - index === -1 时（内部标识新行）直接取字段值，不走 index fallback
- *  - name 模式下使用 index.toString() 作为 key（便于转换为数组索引）
+ *  - name 模式下使用 index.toString() 作为 key（与 ProTable 内部 rowKey 保持一致）
  *  - 否则取 rowKey 字段值，fallback 到 index.toString()
  *
  * rowKey 类型兼容 antd TableProps.rowKey 的完整联合类型：
@@ -470,7 +505,6 @@ export function resolveEditingPayloadForRowEditableOnChange<
     .map((key) => kvMap.get(key))
     .filter((k): k is DataType => k !== undefined);
   const type = editableType || 'single';
-  const editingPayload =
-    type === 'single' ? editingRecords[0] : editingRecords;
+  const editingPayload = type === 'single' ? editingRecords[0] : editingRecords;
   return editingPayload as DataType | DataType[];
 }

@@ -79,6 +79,10 @@ const roRO: ProLocale = {
     open: 'Deschide',
     close: 'Închide',
   },
+  captcha: {
+    getCaptcha: 'Obține codul de verificare',
+    retryAfter: 'Reîncearcă în {count}s',
+  },
 };
 
 export default roRO;

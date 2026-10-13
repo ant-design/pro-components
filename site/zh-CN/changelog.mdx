@@ -1,5 +1,94 @@
 # Changelog
 
+## [3.1.15-7] - 2026-10-10
+
+### 🐛 问题修复
+
+- ProCard
+  - 🐞 修复无底边 header（默认、未开 `headerBordered`）时 title 与内容间距过大：antd Card head 靠 `minHeight` 撑高，仅去掉边框后标题下方空隙会与 body padding 叠加；现对齐 legacy 紧凑布局（`minHeight: auto`、底部留白 0、small 用 `paddingXS`），收起时补回底部留白避免标题贴底。`headerBordered` / `inner` 保持 antd 皮肤不变 [6f62df36e](https://github.com/ant-design/pro-components/commit/6f62df36e)
+  - 🐞 修复 `tabs` + `loading` 时骨架屏紧贴标题：tabs 场景 body padding 由组件内置置 0，loading 骨架现自带内容区同款 padding（`paddingLG`）；布局壳 `split` / 嵌套 + `loading` 时保留 body padding，避免 antd 骨架贴边
+
+### ⚡️ 性能
+
+- ⚡️ 打破 Form 类型循环以支持 tree shaking，并将字段值类型映射拆分为异步分包，减小主包体积 [#9745](https://github.com/ant-design/pro-components/pull/9745)
+
+### 🛠 其他
+
+- 🛠 移除内部 `PureProField`，统一使用 `ProField`；provider 场景化重构（分支代码归档合并至 master）[#9744](https://github.com/ant-design/pro-components/pull/9744)
+
+## [3.1.15-6] - 2026-10-08
+
+### 🐛 问题修复
+
+- ProCard
+  - 🐞 未传 `variant` 时透传给 antd Card，跟随 `ConfigProvider` 的 `card.variant` / 全局 `variant`（不再写死 `outlined`）[2a5a156b2](https://github.com/ant-design/pro-components/commit/2a5a156b2)
+- 🐞 修复 antd 无障碍（a11y）与 `mask` API 控制台警告 [2ba4598d1](https://github.com/ant-design/pro-components/commit/2ba4598d1)
+
+## [3.1.15-5] - 2026-10-05
+
+### 🐛 问题修复
+
+- ProCard
+  - 🐞 基础卡片对齐 antd `Card` 皮肤（`ant-pro-card` + `ant-card`），移除 `ant-pro-card-antd-card` [#9740](https://github.com/ant-design/pro-components/pull/9740)
+  - 🐞 扩大 antd 路径：`collapsible` / `tabs` / 嵌套布局不再强制 `legacy`；折叠用 CSS 显隐并保留布局壳子树；仅响应本卡 header [#9742](https://github.com/ant-design/pro-components/pull/9742)
+- ProTable
+  - 🐞 搜索表单外层改为真实 `ProCard`，与 `cardBordered` 对齐 [#9742](https://github.com/ant-design/pro-components/pull/9742)
+- InlineErrorFormItem
+  - 🐞 校验错误出现时自动打开 popover，并改为仅 hover 触发以免干扰输入聚焦
+
+### ⚡️ 性能
+
+- ⚡️ 移除 `swr` 与 `route-utils` 运行时成本，菜单路由改为内置轻量实现 [#9739](https://github.com/ant-design/pro-components/pull/9739)
+
+## [3.1.15-4] - 2026-10-04
+
+### 🐛 问题修复
+
+- BetaSchemaForm
+  - 🐞 修复 `layoutType="Embed"` 独立使用时 `onValuesChange`、`onFinish` 等回调不生效，并保持嵌套在已有 Form 内时仅透传字段 [#8727](https://github.com/ant-design/pro-components/issues/8727)
+  - ✅ 锁定 Form 与 LightFilter 布局切换回归 [#8850](https://github.com/ant-design/pro-components/issues/8850)
+- ProFormCaptcha
+  - 🐞 为全部内置语言补齐验证码按钮与倒计时默认文案 [#8899](https://github.com/ant-design/pro-components/issues/8899)
+- ProTable
+  - 🐞 保留 `Table.EXPAND_COLUMN` 的显式位置，并锁定 Tabs 内列宽与省略、valueEnum 格式化省略回归 [#8913](https://github.com/ant-design/pro-components/issues/8913) [#8747](https://github.com/ant-design/pro-components/issues/8747) [#8694](https://github.com/ant-design/pro-components/issues/8694)
+  - 📚 补充 `onCell` rowSpan/colSpan 合并单元格文档与示例 [#8701](https://github.com/ant-design/pro-components/issues/8701)
+- ProLayout
+  - ✅ 锁定 `layout="mix"`、`splitMenus` 与 `siderMenuType="sub"` 组合下的子菜单渲染 [#9310](https://github.com/ant-design/pro-components/issues/9310)
+- 密度选择器
+  - 💄 让多语言密度菜单按文案内容自适应宽度 [#9619](https://github.com/ant-design/pro-components/issues/9619)
+- 统一编辑字段中的自定义日期格式解析与 URL 同步的秒/毫秒时间戳回显 [#8863](https://github.com/ant-design/pro-components/issues/8863) [#8810](https://github.com/ant-design/pro-components/issues/8810)
+- 在 `omitNil=false` 时保留空字段，透传字段级失焦校验，并使 ellipsis tooltip 与格式化后的显示文本一致 [#8044](https://github.com/ant-design/pro-components/issues/8044) [#8380](https://github.com/ant-design/pro-components/issues/8380) [#8542](https://github.com/ant-design/pro-components/issues/8542)
+- 支持受控搜索值刷新 Select 请求且避免空搜索重复请求，正确处理 QueryFilter hidden 字段与响应式垂直布局 [#8801](https://github.com/ant-design/pro-components/issues/8801) [#8780](https://github.com/ant-design/pro-components/issues/8780) [#8928](https://github.com/ant-design/pro-components/issues/8928) [#8397](https://github.com/ant-design/pro-components/issues/8397) [#8836](https://github.com/ant-design/pro-components/issues/8836)
+- 修复 BaseForm 开启 grid 后 `contentRender` 收到非数组导致的崩溃，并允许受控 Overlay 表单在挂载前响应 trigger 打开 [#8253](https://github.com/ant-design/pro-components/issues/8253) [#9624](https://github.com/ant-design/pro-components/issues/9624)
+- 同步 Overlay 变化后的 `initialValues`、StepsForm request 延迟初始化的 formRef，以及包装 StepForm 的显式 children [#8834](https://github.com/ant-design/pro-components/issues/8834) [#9165](https://github.com/ant-design/pro-components/issues/9165) [#8624](https://github.com/ant-design/pro-components/issues/8624) [#8108](https://github.com/ant-design/pro-components/issues/8108) [#9021](https://github.com/ant-design/pro-components/issues/9021)
+- 修复 EditableProTable 函数式 `rowKey` 下嵌套子行表单路径错误，并补充 ProFormList 嵌套表格的受控写法回归测试 [#8893](https://github.com/ant-design/pro-components/issues/8893) [#6508](https://github.com/ant-design/pro-components/issues/6508)
+- 统一 `convertValue` / `transform` 的整表数据、嵌套列表和 ProTable 列转换语义 [#8907](https://github.com/ant-design/pro-components/issues/8907) [#8480](https://github.com/ant-design/pro-components/issues/8480) [#9120](https://github.com/ant-design/pro-components/issues/9120) [#9032](https://github.com/ant-design/pro-components/issues/9032)
+- 修复只读空数组、Digit 前后缀及数字 valueEnum 回显问题 [#8848](https://github.com/ant-design/pro-components/issues/8848) [#8844](https://github.com/ant-design/pro-components/issues/8844) [#8517](https://github.com/ant-design/pro-components/issues/8517)
+- 修复 TreeSelect 自定义打开回调覆盖内部状态的问题，并补充虚拟滚动与 halfChecked 使用说明 [#9138](https://github.com/ant-design/pro-components/issues/9138) [#8876](https://github.com/ant-design/pro-components/issues/8876) [#8869](https://github.com/ant-design/pro-components/issues/8869)
+- 补充 ProFormSelect 远程请求节流结果的回归测试 [#6766](https://github.com/ant-design/pro-components/issues/6766)
+
+- ProForm
+  - 🐞 `ProFormGroup` 改为直接导出，避免 SSR/ESM 打包器在模块初始化阶段读取未完成的 `ProForm.Group` [#8543](https://github.com/ant-design/pro-components/issues/8543)
+- ProFormList
+  - 🐞 让 `actionRef.add` 和 `actionRef.remove` 统一经过 `actionGuard`、`onAfterAdd` 与 `onAfterRemove` [#8939](https://github.com/ant-design/pro-components/issues/8939)
+  - ✅ 增加 `preserve={false}` 字段复制、条件重挂载及首次提交 transform 的回归测试 [#8208](https://github.com/ant-design/pro-components/issues/8208) [#8896](https://github.com/ant-design/pro-components/issues/8896) [#8700](https://github.com/ant-design/pro-components/issues/8700)
+- BetaSchemaForm
+  - 🆕 在 `formList` 子列的函数式属性中传入当前行号 [#8561](https://github.com/ant-design/pro-components/issues/8561)
+- ProList
+  - 🐞 恢复 `showActions`、`showExtra` 与卡片操作区位置，并锁定栅格间距和实时分页回归 [#7421](https://github.com/ant-design/pro-components/issues/7421) [#8387](https://github.com/ant-design/pro-components/issues/8387) [#7862](https://github.com/ant-design/pro-components/issues/7862)
+- ProTable
+  - 🆕 增加 `options.setting.listItemTitleRender`，支持列设置标题自适应渲染 [#9620](https://github.com/ant-design/pro-components/issues/9620)
+- 🐞 将 `useEditableMap`、`useEditableArray` 与 `SettingDrawer` 中的 antd 静态 `message` 调用替换为 `App.useApp()`，以正确消费动态主题上下文
+
+### 📖 文档
+
+- 📖 明确 v3 仅发布 `@ant-design/pro-components` 单体包，补充 antd 6、Umi、Next.js、`rc-util`、`path-to-regexp` 和 antd 4 的安装构建排查 [#9629](https://github.com/ant-design/pro-components/issues/9629)
+- 📖 增加 ModalForm 首次打开前安全调用 `setFieldsValue` 的 `forceRender` 示例与时序说明 [#9628](https://github.com/ant-design/pro-components/issues/9628)
+
+### ✅ 测试
+
+- ✅ 增加 LoginForm/ProFormGroup SSR 和 ModalForm 首次打开前写值回归测试
+
 ## [3.1.15-2] - 2026-09-27
 
 ### 🆕 新特性
@@ -33,6 +122,9 @@
   - 🐞 修复 select 只读态枚举输出无法配合 `ellipsis` + `copyable` 省略的问题 [#8978](https://github.com/ant-design/pro-components/issues/8978) [399a1da0b](https://github.com/ant-design/pro-components/commit/399a1da0b)
 - ProTable
   - 🐞 修复 `request` 在加载/分页/重置时收到 `sorter`/`filter` 为 `null` 默认值的问题 [#9161](https://github.com/ant-design/pro-components/pull/9161) [ddbbb1425](https://github.com/ant-design/pro-components/commit/ddbbb1425)
+  - 🐞 修复 DragSortTable 重新取数或更新行选择时重挂表格、导致固定表头闪烁和滚动位置归零的问题 [#8342](https://github.com/ant-design/pro-components/issues/8342) [#8404](https://github.com/ant-design/pro-components/issues/8404)
+  - 🐞 修复多级分组列在列设置中无法展开、切换或排序，以及 CellEditorTable 分组叶子列无法双击编辑的问题 [#8988](https://github.com/ant-design/pro-components/issues/8988) [#8133](https://github.com/ant-design/pro-components/issues/8133) [#8880](https://github.com/ant-design/pro-components/issues/8880)
+  - 🐞 修复 EditableProTable 过滤、树形子行与 `name` 模式组合时编辑错行、取消误删、回调缺少子行 id，以及动态校验规则和新增行数据滞后的问题 [#8930](https://github.com/ant-design/pro-components/issues/8930) [#8662](https://github.com/ant-design/pro-components/issues/8662) [#7859](https://github.com/ant-design/pro-components/issues/7859) [#8861](https://github.com/ant-design/pro-components/issues/8861) [#8174](https://github.com/ant-design/pro-components/issues/8174) [#9184](https://github.com/ant-design/pro-components/issues/9184)
 - ProDescriptions
   - 🐞 修复 `request` 的 `params` 未注入 dependency 值的问题 [#9170](https://github.com/ant-design/pro-components/issues/9170) [4c8d0f257](https://github.com/ant-design/pro-components/commit/4c8d0f257)
 - Provider

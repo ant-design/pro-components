@@ -1,8 +1,8 @@
-import type { SliderSingleProps } from 'antd';
-import type { SliderBaseProps, SliderRangeProps } from 'antd/lib/slider';
+import type { SliderRangeProps, SliderSingleProps } from 'antd';
 import React from 'react';
-import { FieldSlider } from '../../../field';
+import { FieldSlider } from '../../../field/FieldLoaders';
 import { ProConfigProvider } from '../../../provider';
+import type { SliderBaseProps } from '../../../utils/antdTypes';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
 

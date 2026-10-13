@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { objectToMap, proFieldParsingText } from '../../../utils';
+import { objectToMap, proFieldParsingText } from '../../../utils/proFieldParsingText';
 import type { ProFieldFC } from '../../types';
 import type { FieldSelectProps } from '../Select';
 

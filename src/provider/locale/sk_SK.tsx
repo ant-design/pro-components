@@ -79,6 +79,10 @@ const skSK: ProLocale = {
     open: 'otvoriť',
     close: 'zavrieť',
   },
+  captcha: {
+    getCaptcha: 'Získať overovací kód',
+    retryAfter: 'Skúste znova o {count}s',
+  },
 };
 
 export default skSK;

@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { useIntl } from '../../../provider';
+import { useFieldIntl as useIntl } from '../../internal/useFieldIntl';
 import {
   isProFieldEditOrUpdateMode,
   isProFieldReadMode,

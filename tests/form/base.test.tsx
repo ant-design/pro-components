@@ -23,30 +23,20 @@ import userEvent from '@testing-library/user-event';
 import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { act, useEffect, useRef } from 'react';
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  vi,
-} from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { TEST_INITIAL_URL } from '../testConstants';
 import { waitForWaitTime } from '../util';
 
 describe('ProForm', () => {
-  beforeAll(() => vi.useFakeTimers());
-  afterAll(() => vi.useRealTimers());
-
   beforeEach(() => {
+    vi.useFakeTimers();
     // 重置 URL 状态以避免测试间状态污染
     window.history.replaceState({}, '', TEST_INITIAL_URL);
   });
 
   afterEach(() => {
     cleanup();
+    vi.useRealTimers();
   });
 
   it('📦 submit props actionsRender=false', async () => {
@@ -373,6 +363,7 @@ describe('ProForm', () => {
   });
 
   it('📦 onFinish support params and request', async () => {
+    vi.useRealTimers();
     const wrapper = render(
       <ProForm
         request={async (params) => {
@@ -409,7 +400,34 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
+  it('refreshes request values when params return to a cached value (#8375)', async () => {
+    vi.useRealTimers();
+    let requestCount = 0;
+    const request = vi.fn(async (params: Record<string, any>) => {
+      requestCount += 1;
+      const id = params.id as number;
+      return { content: `${id}-${requestCount}` };
+    });
+    const renderForm = (id: number) => (
+      <ProForm request={request} params={{ id }}>
+        <ProFormText name="content" />
+      </ProForm>
+    );
+    const wrapper = render(renderForm(0));
+
+    expect(await wrapper.findByDisplayValue('0-1')).toBeTruthy();
+
+    wrapper.rerender(renderForm(1));
+    expect(await wrapper.findByDisplayValue('1-2')).toBeTruthy();
+
+    wrapper.rerender(renderForm(0));
+    expect(await wrapper.findByDisplayValue('0-3')).toBeTruthy();
+    expect(request).toHaveBeenCalledTimes(3);
+    wrapper.unmount();
+  });
+
   it('📦 request rewrite initialsValue', async () => {
+    vi.useRealTimers();
     const wrapper = render(
       <ProForm
         request={async () => {

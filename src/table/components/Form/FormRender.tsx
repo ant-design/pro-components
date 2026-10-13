@@ -3,6 +3,7 @@ import type { FormItemProps } from 'antd';
 import { ConfigProvider, Table } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
+import ProCard from '../../../card';
 import type {
   BaseQueryFilterProps,
   ProFormInstance,
@@ -195,62 +196,87 @@ const FormRender = <T, U = any>({
     },
   };
 
+  const formNode = (
+    <BetaSchemaForm<U>
+      key={competentName}
+      layoutType={competentName}
+      columns={columnsList}
+      type={type}
+      {...loadingProps}
+      {...getFromProps(isForm, searchConfig, competentName)}
+      {...getFormConfigs(isForm, formConfig || {})}
+      formRef={formRef}
+      action={action}
+      dateFormatter={dateFormatter}
+      onInit={(values: T, form) => {
+        formRef.current = form;
+        // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
+        if (type !== 'form') {
+          // 修改 pageSize，变成从 url 中获取的
+          const pageInfo = action.current?.pageInfo;
+          // 从 values 里获取是因为有时候要从 url中获取的 pageSize。
+          const {
+            current = pageInfo?.current,
+            pageSize = pageInfo?.pageSize,
+          } = values as any;
+          action.current?.setPageInfo?.({
+            ...pageInfo,
+            current: parseInt(current, 10),
+            pageSize: parseInt(pageSize, 10),
+          });
+          /** 如果是手动模式不需要提交 */
+          if (manualRequest) return;
+          onSubmit?.(values, true);
+        }
+      }}
+      onReset={(values: T) => {
+        onReset?.(values);
+      }}
+      onFinish={(values: T) => {
+        return onSubmit?.(values, false);
+      }}
+      initialValues={formConfig?.initialValues}
+    />
+  );
+
+  // 轻量筛选是内联控件条：Table.tsx 的 isLightFilter 会把它插进工具栏左侧，
+  // 套 ProCard（antd 路径 borderless = 白底 + 圆角 + 阴影）会形成卡中卡。
+  // 回到平铺 div：保留皮肤类对齐 token，但不呈现卡片的形（圆角/阴影/边框），
+  // cardBordered.search 仅作用于查询表单块，对 light 静默失效。
+  if (competentName === 'LightFilter') {
+    return (
+      <div
+        className={clsx(hashId, className, getPrefixCls('pro-card'), {
+          [getPrefixCls('pro-table-search-light-filter')]: true,
+          [`${className}-ghost`]: ghost,
+          [(searchConfig as { className: string })?.className]:
+            searchConfig !== false && searchConfig?.className,
+        })}
+      >
+        {formNode}
+      </div>
+    );
+  }
+
   return (
-    <div
-      className={clsx(hashId, {
-        [getPrefixCls('pro-card')]: true,
-        [`${getPrefixCls('pro-card')}-border`]: !!bordered,
-        [`${getPrefixCls('pro-card')}-bordered`]: !!bordered,
-        [`${getPrefixCls('pro-card')}-ghost`]: !!ghost,
-        [className]: true,
+    <ProCard
+      // 搜索区复用 ProCard（基础路径即 antd Card），与表格区皮肤对齐。
+      // QueryFilter 自带 padding，body 置 0 避免与 Card 默认 padding 叠加。
+      variant={bordered ? 'outlined' : 'borderless'}
+      ghost={ghost}
+      className={clsx(hashId, className, {
         [formClassName]: isForm,
         [getPrefixCls(`pro-table-search-${toLowerLine(competentName)}`)]: true,
         [`${className}-ghost`]: ghost,
         [(searchConfig as { className: string })?.className]:
           searchConfig !== false && searchConfig?.className,
       })}
+      styles={{
+        body: { padding: 0 },
+      }}
     >
-      <BetaSchemaForm<U>
-        key={competentName}
-        layoutType={competentName}
-        columns={columnsList}
-        type={type}
-        {...loadingProps}
-        {...getFromProps(isForm, searchConfig, competentName)}
-        {...getFormConfigs(isForm, formConfig || {})}
-        formRef={formRef}
-        action={action}
-        dateFormatter={dateFormatter}
-        onInit={(values: T, form) => {
-          formRef.current = form;
-          // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
-          if (type !== 'form') {
-            // 修改 pageSize，变成从 url 中获取的
-            const pageInfo = action.current?.pageInfo;
-            // 从 values 里获取是因为有时候要从 url中获取的 pageSize。
-            const {
-              current = pageInfo?.current,
-              pageSize = pageInfo?.pageSize,
-            } = values as any;
-            action.current?.setPageInfo?.({
-              ...pageInfo,
-              current: parseInt(current, 10),
-              pageSize: parseInt(pageSize, 10),
-            });
-            /** 如果是手动模式不需要提交 */
-            if (manualRequest) return;
-            onSubmit?.(values, true);
-          }
-        }}
-        onReset={(values: T) => {
-          onReset?.(values);
-        }}
-        onFinish={(values: T) => {
-          return onSubmit?.(values, false);
-        }}
-        initialValues={formConfig?.initialValues}
-      />
-    </div>
+      {formNode}
+    </ProCard>
   );
 };
 

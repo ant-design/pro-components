@@ -3,11 +3,9 @@ import React, { useCallback, useMemo, useRef } from 'react';
 import { ParamsType } from '../../../provider';
 import { useRefFunction } from '../../../utils';
 import { ProColumns } from '../../typing';
-import {
-  buildEditableTableRowKey,
-  resolveEditingPayloadForRowEditableOnChange,
-} from '../../utils';
+import { buildEditableTableRowKey } from '../../utils';
 import EditableProTable, { EditableProTableProps } from './index';
+import { useEditableKeysChange } from './useEditableKeysChange';
 
 export function RowEditorTable<
   DataType extends Record<string, any>,
@@ -25,24 +23,15 @@ export function RowEditorTable<
   const rowKey = props.rowKey || 'id';
 
   // ============================ RowKey ============================
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getRowKey = useMemo(
     () => buildEditableTableRowKey<DataType>(rowKey, props.name),
     [props.name, rowKey],
   );
 
-  const handleEditableKeysChange = useRefFunction(
-    (keys: React.Key[]) => {
-      const cleanKeys = keys.filter((key) => key !== undefined);
-      setEditableRowKeys(cleanKeys);
-      const editingPayload = resolveEditingPayloadForRowEditableOnChange(
-        cleanKeys,
-        props.value as readonly DataType[] | undefined,
-        getRowKey,
-        props.editable?.type,
-      );
-      props.editable?.onChange?.(cleanKeys, editingPayload);
-    },
+  const handleEditableKeysChange = useEditableKeysChange(
+    props,
+    getRowKey,
+    setEditableRowKeys,
   );
 
   const scheduleExitEditing = useCallback(() => {
@@ -75,7 +64,6 @@ export function RowEditorTable<
           onFocus: cancelExitEditing,
         }),
       })) as ProColumns<any, ValueType>[]) ?? [],
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [props.columns, getRowKey, scheduleExitEditing, cancelExitEditing, handleEditableKeysChange],
   );
 

@@ -2,8 +2,6 @@ import { FilterOutlined } from '@ant-design/icons';
 import { omit } from '@rc-component/util';
 import type { FormProps, PopoverProps } from 'antd';
 import { ConfigProvider } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import type { TooltipPlacement } from 'antd/lib/tooltip';
 import { clsx } from 'clsx';
 import React, {
   useContext,
@@ -14,6 +12,7 @@ import React, {
 } from 'react';
 import { useIntl } from '../../../provider';
 import { FieldLabel, FilterDropdown } from '../../../utils';
+import type { SizeType, TooltipPlacement } from '../../../utils/antdTypes';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { LightFilterFooterRender } from '../../typing';
@@ -270,7 +269,6 @@ function LightFilterComponent<T = Record<string, any>>(
 
   // deps 必须是 []：formRef.current 是 mutable value，变化不触发 React 更新，
   // 放入 deps 无意义，且会导致每次渲染都重新执行。
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(userFormRef, () => formRef.current, []);
 
   return (

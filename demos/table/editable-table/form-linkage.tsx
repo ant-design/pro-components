@@ -110,7 +110,9 @@ const Demo = () => {
         return {
           onSelect: () => {
             // 每次选中重置参数
-            editableFormRef.current?.setRowData?.(rowIndex, { fraction: [] });
+            if (rowIndex !== undefined) {
+              editableFormRef.current?.setRowData?.(rowIndex, { fraction: [] });
+            }
           },
         };
       },

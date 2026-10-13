@@ -68,7 +68,7 @@ type CardPropsBase = Pick<AntdCardProps, 'rootClassName' | 'cover'> & {
   actions?: React.ReactNode[] | React.ReactNode;
   /** 拆分卡片方式 */
   split?: 'vertical' | 'horizontal';
-  /** 卡片变体，与 antd Card variant 一致 */
+  /** 卡片变体，与 antd Card 一致；未传时由底层 Card / ConfigProvider 决定 */
   variant?: 'outlined' | 'borderless';
   /**
    * 鼠标移过时可浮起

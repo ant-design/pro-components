@@ -12,8 +12,8 @@ import type {
   TableCurrentDataSource,
 } from 'antd/lib/table/interface';
 import { clsx } from 'clsx';
-import isEmpty from 'lodash-es/isEmpty';
-import isEqual from 'lodash-es/isEqual';
+import isEmpty from 'es-toolkit/compat/isEmpty';
+import isEqual from 'es-toolkit/compat/isEqual';
 import React, {
   Key,
   useCallback,
@@ -76,6 +76,12 @@ import {
   type TableColumnContext,
 } from './utils/genProColumnToColumn';
 
+const tableGridContextValue = {
+  grid: false,
+  colProps: undefined,
+  rowProps: undefined,
+} as const;
+
 function getEditableDataSource<T>({
   dataSource,
   editableUtils,
@@ -109,7 +115,7 @@ function getEditableDataSource<T>({
   const { options: newLineOptions } = newLineConfig;
   const childrenName = childrenColumnName || 'children';
 
-  if (newLineOptions?.parentKey) {
+  if (newLineOptions?.parentKey != null) {
     const newRow = {
       ...defaultValue,
       map_row_parentKey: recordKeyToString(
@@ -223,7 +229,10 @@ function useMergedPagination<T>({
       propsPagination === false ? false : { ...(propsPagination || {}) };
     const pageConfig = {
       ...action.pageInfo,
-      setPageInfo: ({ pageSize, current }: PageInfo) => {
+      setPageInfo: ({
+        pageSize = action.pageInfo.pageSize,
+        current = action.pageInfo.current,
+      }: Partial<PageInfo>) => {
         const { pageInfo } = action;
         if (pageSize === pageInfo.pageSize || pageInfo.current === 1) {
           action.setPageInfo({ pageSize, current });
@@ -412,7 +421,7 @@ const ProTable = <
   /** 需要初始化 不然默认可能报错 这里取了 defaultCurrent 和 current 为了保证不会重复刷新 */
   const fetchPagination =
     typeof propsPagination === 'object'
-      ? (propsPagination as TablePaginationConfig)
+      ? propsPagination
       : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
 
   const counter = useContext(TableContext);
@@ -663,6 +672,7 @@ const ProTable = <
         : resetValues;
       setFormSearchWithRef((nextSearch ?? {}) as any);
     },
+    getSortFilter: () => ({ sort: proSort, filter: proFilter }),
     editableUtils,
     scrollTo: (arg) => (antTableRef as any)?.current?.scrollTo?.(arg),
   });
@@ -687,10 +697,30 @@ const ProTable = <
       proFilter,
       proSort,
     };
-    return genProColumnToColumn<T>({
+    const generatedColumns = genProColumnToColumn<T>({
       columns: propsColumns,
       context: columnContext,
-    }).sort(columnSort(counter.columnsMap ?? {}));
+    });
+    // Table.EXPAND_COLUMN / Table.SELECTION_COLUMN are identity markers used by
+    // antd and therefore cannot be cloned just to attach a sortable index. Sort
+    // regular columns, then put them back into the non-marker slots so explicit
+    // marker positions in `columns` remain unchanged (#8913).
+    const sortedRegularColumns = generatedColumns
+      .filter(
+        (column) =>
+          column !== Table.EXPAND_COLUMN && column !== Table.SELECTION_COLUMN,
+      )
+      .sort(columnSort(counter.columnsMap ?? {}));
+    let regularIndex = 0;
+    return generatedColumns.map((column) => {
+      if (
+        column === Table.EXPAND_COLUMN ||
+        column === Table.SELECTION_COLUMN
+      ) {
+        return column;
+      }
+      return sortedRegularColumns[regularIndex++];
+    });
   }, [
     propsColumns,
     counter?.sortKeyColumns,
@@ -997,13 +1027,7 @@ const ProTable = <
   const needsScrollCapture = Boolean(onScroll) && !props.scroll?.y;
 
   const getBaseTableDom = () => (
-    <GridContext.Provider
-      value={{
-        grid: false,
-        colProps: undefined,
-        rowProps: undefined,
-      }}
-    >
+    <GridContext.Provider value={tableGridContextValue}>
       {needsScrollCapture ? (
         <div
           style={{ display: 'contents' }}
@@ -1156,6 +1180,12 @@ const ProviderTableContainer = <
       : props.ErrorBoundary || ErrorBoundary;
 
   const context = useContext(ProConfigContext);
+  // Keep this context value stable across parent/keepalive renders. Recreating
+  // the map invalidates every ProField consumer in an already mounted table.
+  const mergedValueTypeMap = useMemo(
+    () => ({ ...context.valueTypeMap, ...ValueTypeToComponent }),
+    [context.valueTypeMap],
+  );
   return (
     <TableProvider
       initValue={{
@@ -1167,10 +1197,7 @@ const ProviderTableContainer = <
         defaultSize: (props.defaultSize as any) || undefined,
       }}
     >
-      <ProConfigProvider
-        valueTypeMap={{ ...context.valueTypeMap, ...ValueTypeToComponent }}
-        needDeps
-      >
+      <ProConfigProvider valueTypeMap={mergedValueTypeMap} needDeps>
         <ErrorComponent>
           <ProTable<DataType, Params, ValueType>
             defaultClassName={`${getPrefixCls('pro-table')}`}

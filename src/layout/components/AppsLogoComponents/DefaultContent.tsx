@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 import React from 'react';
-import { defaultRenderLogo } from './index';
+import { defaultRenderLogo } from './defaultRenderLogo';
 import type { AppItemProps, AppListProps } from './types';
 
 export const DefaultContent: React.FC<{

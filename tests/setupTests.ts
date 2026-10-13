@@ -1,11 +1,18 @@
 import '@testing-library/jest-dom/vitest';
-import { defaultConfig } from 'antd/lib/theme/internal';
+import { theme } from 'antd';
 import crypto from 'crypto';
 import MockDate from 'mockdate';
 import React from 'react';
-import { vi } from 'vitest';
+import { beforeAll, vi } from 'vitest';
 
-defaultConfig.hashed = false;
+beforeAll(async () => {
+  // Existing component tests assert the settled DOM synchronously.
+  const { preloadAllProFieldValueTypes } =
+    await import('../src/field/FieldLoaders');
+  await preloadAllProFieldValueTypes();
+});
+
+theme.defaultConfig.hashed = false;
 globalThis.React = React;
 
 vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT', true);

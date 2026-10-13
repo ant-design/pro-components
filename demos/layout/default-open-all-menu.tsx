@@ -16,7 +16,7 @@ const Demo = () => (
       route={{
         routes: complexMenu,
       }}
-      menu={{ defaultOpenAll: true, hideMenuWhenCollapsed: true }}
+      menu={{ defaultOpenAll: true }}
     >
       <PageContainer content="欢迎使用">
         <div>Hello World</div>

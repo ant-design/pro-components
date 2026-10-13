@@ -2,13 +2,13 @@ import React, { useCallback, useMemo } from 'react';
 import { useLatest } from '../../../../utils';
 import { StepsForm as ProStepsForm } from '../../../layouts/StepsForm';
 import type { ProFormGridConfig } from '../../../typing';
-import BetaSchemaForm from '../index';
 import type { FormSchema, ProFormPropsType } from '../typing';
 
 type StepsFormProps<T, ValueType> = ProFormPropsType<T, ValueType> &
   Pick<FormSchema, 'steps'> & {
     layoutType: 'StepsForm';
     forceUpdate: React.Dispatch<React.SetStateAction<[]>>;
+    SchemaForm: React.ComponentType<any>;
   } & Pick<ProFormGridConfig, 'grid'>;
 
 const StepsForm = <T, ValueType>({
@@ -16,6 +16,7 @@ const StepsForm = <T, ValueType>({
   columns,
   forceUpdate,
   grid,
+  SchemaForm,
   ...props
 }: StepsFormProps<T, ValueType>) => {
   const propsRef = useLatest(props);
@@ -33,7 +34,7 @@ const StepsForm = <T, ValueType>({
 
   const StepDoms = useMemo(() => {
     return steps?.map((step, index) => (
-      <BetaSchemaForm<T, ValueType>
+      <SchemaForm
         grid={grid}
         {...(step as FormSchema<T, ValueType>)}
         key={index}

@@ -382,7 +382,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           marginInline: 0,
           paddingBlock: 0,
           paddingInline: 0,
-          '&:hover': {
+          '&:hover, &:focus-within': {
             backgroundColor: 'transparent',
           },
 
@@ -391,6 +391,11 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             marginBlock: 0,
             marginInline: 0,
             lineHeight: token.lineHeightLG,
+          },
+          // 卡片模式的 avatar/title 裸排在 checkcard-title（flex 无 gap）内，
+          // 补 token 间距，与列表模式 -item-meta 的头像-标题 gap 保持一致
+          [`${token.proComponentsCls}-checkcard-title`]: {
+            gap: token.marginXS,
           },
         },
         [`&${token.componentCls}-row-editable`]: {
@@ -439,13 +444,17 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         '&-show-action-hover': {
           [`${token.proComponentsCls}-list-item-action,
             ${token.proComponentsCls}-card-extra,
-            ${token.proComponentsCls}-card-actions`]: {
+            ${token.proComponentsCls}-card-actions,
+            ${token.proComponentsCls}-checkcard-extra,
+            ${token.proComponentsCls}-checkcard-actions`]: {
             display: 'none',
           },
           '&:hover': {
             [`${token.proComponentsCls}-list-item-action,
               ${token.proComponentsCls}-card-extra,
-              ${token.proComponentsCls}-card-actions`]: {
+              ${token.proComponentsCls}-card-actions,
+              ${token.proComponentsCls}-checkcard-extra,
+              ${token.proComponentsCls}-checkcard-actions`]: {
               display: 'flex',
               alignItems: 'center',
               gap: token.marginSM,

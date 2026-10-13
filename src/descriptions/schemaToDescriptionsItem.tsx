@@ -1,9 +1,9 @@
 ﻿import { EditOutlined } from '@ant-design/icons';
 import { Space } from 'antd';
-import type { DescriptionsItemType } from 'antd/es/descriptions';
 import React from 'react';
 import type { ProCoreActionType, UseEditableMapUtilType } from '../utils';
 import { LabelIconTip, genCopyable } from '../utils';
+import type { DescriptionsItemType } from '../utils/antdTypes';
 import { FieldRender } from './FieldRender';
 import { getDataFromConfig } from './getDataFromConfig';
 import { resolveDescriptionsValueType } from './resolveValueType';
@@ -50,8 +50,7 @@ export function schemaToDescriptionsItem(
         (dataIndex as React.Key) || index,
       );
 
-      const fieldMode =
-        mode != null ? mode : isEditable ? 'edit' : 'read';
+      const fieldMode = mode != null ? mode : isEditable ? 'edit' : 'read';
 
       const showEditIcon =
         editableUtils &&
@@ -111,9 +110,7 @@ export function schemaToDescriptionsItem(
             } as DescriptionsItemType)
           : ((
               <React.Fragment key={key}>
-                <Component>
-                  {renderedField}
-                </Component>
+                <Component>{renderedField}</Component>
               </React.Fragment>
             ) as React.JSX.Element);
       if (valueType === 'option') {

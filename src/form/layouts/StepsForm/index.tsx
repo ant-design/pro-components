@@ -1,7 +1,6 @@
 import { toArray, useControlledState } from '@rc-component/util';
 import type { FormInstance, StepsProps } from 'antd';
 import { Button, Col, ConfigProvider, Form, Row, Space, Steps } from 'antd';
-import type { FormProviderProps } from 'antd/lib/form/context';
 import { clsx } from 'clsx';
 import React, {
   useCallback,
@@ -13,11 +12,13 @@ import React, {
 } from 'react';
 import { ProConfigProvider, useIntl } from '../../../provider';
 import { merge, useRefFunction } from '../../../utils';
+import type { FormProviderProps } from '../../../utils/antdTypes';
 import type { ProFormInstance } from '../../BaseForm';
 import type { SubmitterProps } from '../../BaseForm/Submitter';
 import type { ProFormProps } from '../ProForm';
-import type { StepFormProps } from './StepForm';
+import type { StepFormProps } from './StepForm.types';
 import StepForm from './StepForm';
+import { StepFormProvide, StepsFormProvide } from './context';
 import { useStyle } from './style';
 
 /**
@@ -115,29 +116,7 @@ type StepsFormProps<T = Record<string, any>> = {
   }) => React.ReactNode;
 } & Omit<FormProviderProps, 'children'>;
 
-export const StepsFormProvide = React.createContext<
-  | {
-      regForm: (name: string, props: StepsFormProps<any>) => void;
-      unRegForm: (name: string) => void;
-      onFormFinish: (name: string, formData: any) => void;
-      keyArray: string[];
-      formArrayRef: React.MutableRefObject<
-        React.MutableRefObject<FormInstance<any> | undefined>[]
-      >;
-      loading: boolean;
-      setLoading: (loading: boolean) => void;
-      lastStep: boolean;
-      formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
-      next: () => void;
-      /** 当前步骤下标，从 0 开始 */
-      current: number;
-      /** 已注册的分步数量 */
-      stepCount: number;
-      /** 跳转到指定步，不触发表单校验；越界则忽略 */
-      setCurrent: (index: number) => void;
-    }
-  | undefined
->(undefined);
+export { StepFormProvide, StepsFormProvide };
 
 /**
  * 获取 StepsForm 上下文（current / setCurrent / stepCount / loading 等），须在 StepsForm 内使用
@@ -203,10 +182,6 @@ const StepsLayoutStrategy: Record<
 /**
  * 给  StepForm 传递信息
  */
-export const StepFormProvide = React.createContext<StepFormProps<any> | null>(
-  null,
-);
-
 function StepsForm<T = Record<string, any>>(
   props: StepsFormProps<T> & {
     children: React.ReactNode;
@@ -244,6 +219,19 @@ function StepsForm<T = Record<string, any>>(
   const [formArray, setFormArray] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const intl = useIntl();
+
+  /**
+   * #8108:分步表单实例的初始化版本号。
+   * request 场景下 BaseForm 先渲染 loading,数据到达后 Form 才挂载、
+   * onInit 才填充 formArrayRef。若 useImperativeHandle 只依赖
+   * [step, formArray.length],实例晚到的赋值不会被同步到外层 formRef,
+   * 外层拿到的会是一直是挂载初期的空对象。StepForm onInit 时 bump
+   * 此版本号强制重新同步。
+   */
+  const [formInitVersion, setFormInitVersion] = useState(0);
+  const onFormInit = useRefFunction(() => {
+    setFormInitVersion((v) => v + 1);
+  });
 
   /**
    * 受控的方式来操作表单
@@ -319,7 +307,7 @@ function StepsForm<T = Record<string, any>>(
 
   useImperativeHandle(formRef, () => {
     return formArrayRef.current[step || 0]?.current;
-  }, [step, formArray.length]);
+  }, [step, formArray.length, formInitVersion]);
 
   useImperativeHandle(
     propsStepsFormRef,
@@ -350,8 +338,7 @@ function StepsForm<T = Record<string, any>>(
       },
       getStepFormInstance: (index: number) => {
         return formArrayRef.current[index]?.current as
-          | ProFormInstance
-          | undefined;
+          ProFormInstance | undefined;
       },
       resetSteps: () => {
         formDataRef.current.clear();
@@ -646,6 +633,7 @@ function StepsForm<T = Record<string, any>>(
             lastStep,
             unRegForm,
             onFormFinish,
+            onFormInit,
             current: step,
             stepCount: formArray.length,
             setCurrent: setCurrentStepSafe,

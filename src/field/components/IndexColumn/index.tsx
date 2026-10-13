@@ -1,7 +1,7 @@
 import { ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext } from 'react';
-import { useStyle } from '../../../utils';
+import { useStyle } from '../../../provider/useStyle';
 
 /**
  * 默认的 index 列容器，提供一个好看的 index

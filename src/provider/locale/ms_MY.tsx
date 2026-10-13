@@ -79,6 +79,10 @@ const msMY: ProLocale = {
     open: 'Terbuka',
     close: 'Tutup',
   },
+  captcha: {
+    getCaptcha: 'Dapatkan kod pengesahan',
+    retryAfter: 'Cuba semula dalam {count}s',
+  },
 };
 
 export default msMY;

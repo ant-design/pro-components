@@ -34,6 +34,8 @@ describe('useUrlSearchParams', () => {
     });
 
     window.location.hash = '#/about';
+    // happy-dom 在并行环境下 hash 赋值可能不触发 hashchange 事件，显式派发兜底
+    window.dispatchEvent(new HashChangeEvent('hashchange'));
     await waitFor(() => {
       expect(wrapper.getByText('{}')).toBeTruthy();
     });

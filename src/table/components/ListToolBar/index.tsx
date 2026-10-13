@@ -1,11 +1,11 @@
 import ResizeObserver from '@rc-component/resize-observer';
 import { ConfigProvider, Input, TabPaneProps, Tabs, Tooltip } from 'antd';
-import type { SearchProps } from 'antd/lib/input';
 import { clsx } from 'clsx';
 import React, { useContext, useState } from 'react';
 import { proTheme, useIntl } from '../../../provider';
 import type { LabelTooltipType } from '../../../utils';
 import { LabelIconTip } from '../../../utils';
+import type { SearchProps } from '../../../utils/antdTypes';
 import type { ListToolBarHeaderMenuProps } from './HeaderMenu';
 import HeaderMenu from './HeaderMenu';
 import { useStyle } from './style';
@@ -232,7 +232,11 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   );
 
   const hasLeft = !!(
-    tooltip || title || subTitle || menu || (!hasTitle && searchNode)
+    tooltip ||
+    title ||
+    subTitle ||
+    menu ||
+    (!hasTitle && searchNode)
   );
 
   let leftTitleDom: React.ReactNode;

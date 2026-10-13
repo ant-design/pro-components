@@ -9,5 +9,5 @@
     "skipLibCheck": true,
     "noEmit": true
   },
-  "files": ["./pro-form-group.tsx"]
+  "files": ["./pro-form-group.tsx", "./subpath-exports.ts"]
 }

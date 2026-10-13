@@ -67,11 +67,33 @@ const columns: ProFormColumnsType<any>[] = [
   },
 ];
 
-afterEach(() => {
+afterEach(async () => {
   cleanup();
+  // Select / DatePicker 等在 unmount 后仍挂有 useDelayState 延迟定时器（~100ms），
+  // 等它执行完再结束用例，避免定时器在测试环境销毁后触发 setState 报 "window is not defined"
+  await new Promise((resolve) => setTimeout(resolve, 200));
 });
 
 describe('SchemaForm', () => {
+  it('uses formWidth instead of the shared table width (#9061)', () => {
+    const { container } = render(
+      <BetaSchemaForm
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            width: 80,
+            formWidth: 328,
+          },
+        ]}
+      />,
+    );
+
+    expect(container.querySelector('.ant-input-affix-wrapper')).toHaveStyle({
+      width: '328px',
+    });
+  });
+
   it('formats date values inside a schema formList (#9663)', async () => {
     const onFinish = vi.fn();
     const wrapper = render(

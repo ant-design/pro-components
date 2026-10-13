@@ -1,4 +1,4 @@
-import { CheckCard } from '@ant-design/pro-components';
+import { CheckCard, ProConfigProvider } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
 import { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -8,6 +8,20 @@ afterEach(() => {
 });
 
 describe('CheckCard', () => {
+  it('uses ProConfigProvider colorPrimary for the selected border (#9125)', () => {
+    const html = render(
+      <ProConfigProvider token={{ colorPrimary: '#ff4d4f' }}>
+        <CheckCard defaultChecked title="Card" />
+      </ProConfigProvider>,
+    );
+    const checked = html.container.querySelector(
+      '.ant-pro-checkcard-checked',
+    ) as HTMLElement;
+    const borderColor = getComputedStyle(checked).borderColor.toLowerCase();
+
+    expect(['#ff4d4f', 'rgb(255, 77, 79)']).toContain(borderColor);
+  });
+
   it('should invoke onChange and onClick function when click option', async () => {
     const onChange = vi.fn();
     const onClick = vi.fn();
