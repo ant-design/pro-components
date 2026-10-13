@@ -1,4 +1,5 @@
-const antdFormItemPropsList = [
+/** Keys forwarded to antd `Form.Item` when spreading Pro field props */
+export const proFormItemPropKeys = [
   // https://ant.design/components/form-cn/#Form.Item
   'colon',
   'dependencies',
@@ -28,18 +29,42 @@ const antdFormItemPropsList = [
   'wrapperCol',
   'hidden',
   'validateDebounce',
-  // 我自定义的
+  'className',
+  'rootClassName',
+  'style',
+  'id',
+  'fieldId',
+  'tooltip',
+  // ProForm Item extensions
   'addonBefore',
   'addonAfter',
   'addonWarpStyle',
-];
+] as const;
 
-export function pickProFormItemProps(props: {}) {
-  const attrs = {} as Record<string, any>;
-  antdFormItemPropsList.forEach((key) => {
-    if ((props as any)[key] !== undefined) {
-      attrs[key] = (props as any)[key];
+export type ProFormItemPropKey = (typeof proFormItemPropKeys)[number];
+
+export function pickProFormItemProps(props: Record<string, any>) {
+  const attrs: Record<string, any> = {};
+  proFormItemPropKeys.forEach((key) => {
+    if (props[key] !== undefined) {
+      attrs[key] = props[key];
     }
   });
   return attrs;
+}
+
+/** Form.Item-only keys (inner ProField still needs `name`) */
+const proFormItemOnlyPropKeys = proFormItemPropKeys.filter(
+  (key) => key !== 'name',
+);
+
+/** Strip Form.Item keys so they are not passed to the inner field component */
+export function omitProFormItemProps<T extends Record<string, any>>(props: T): T {
+  const next = { ...props };
+  proFormItemOnlyPropKeys.forEach((key) => {
+    if (key in next) {
+      delete next[key];
+    }
+  });
+  return next;
 }

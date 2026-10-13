@@ -5,6 +5,7 @@ import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
 import {
   isDropdownValueType,
+  omitProFormItemProps,
   omitUndefined,
   pickProFormItemProps,
   stringify,
@@ -20,7 +21,7 @@ import type {
   ProFormItemCreateConfig,
 } from '../../typing';
 import ProFormDependency from '../Dependency';
-import type { ProFormItemProps } from './index';
+import type { ProFormItemProps } from './typing';
 import ProFormItem from './index';
 
 export const TYPE = Symbol('ProFormComponent');
@@ -276,13 +277,18 @@ export function warpField<P extends ProFormFieldItemProps = any>(
       props?.fieldRef as any,
     );
 
+    const fieldComponentProps = useMemo(
+      () => omitProFormItemProps(rest),
+      [rest],
+    );
+
     const field = useDeepCompareMemo(() => {
       return (
         <Field
           key={props.proFormFieldKey || props.name}
           // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
           // 比如 ProFormSelect 的 request
-          {...(rest as P)}
+          {...(fieldComponentProps as P)}
           // readonly 需要透传给不经过 ProField mode 切换的自定义 Field（如单个 ProFormCheckbox）
           readonly={readonly}
           fieldProps={fieldFieldProps}
@@ -290,7 +296,13 @@ export function warpField<P extends ProFormFieldItemProps = any>(
           ref={mergedFieldRef}
         />
       );
-    }, [fieldProFieldProps, fieldFieldProps, rest, mergedFieldRef, readonly]);
+    }, [
+      fieldProFieldProps,
+      fieldFieldProps,
+      fieldComponentProps,
+      mergedFieldRef,
+      readonly,
+    ]);
 
     const isLightField = proFieldProps?.light === true;
     const isLightMode = isLightField && !customLightMode;

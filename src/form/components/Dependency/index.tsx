@@ -6,7 +6,7 @@ import merge from 'es-toolkit/compat/merge';
 import React, { useContext, useMemo } from 'react';
 import { isDeepEqualReact, ProFormContext } from '../../../utils';
 import type { ProFormInstance } from '../../BaseForm';
-import { FormListContext } from '../List';
+import { FormListContext } from '../List/FormListContext';
 
 declare type RenderChildren<Values = any> = (
   values: Record<string, any>,

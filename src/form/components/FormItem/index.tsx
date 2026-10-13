@@ -14,7 +14,7 @@ import type {
   ProFormItemProps,
 } from './typing';
 import FieldContext from '../../FieldContext';
-import { FormListContext } from '../List';
+import { FormListContext } from '../List/FormListContext';
 
 const FormItemProvide = React.createContext<{
   name?: NamePath;

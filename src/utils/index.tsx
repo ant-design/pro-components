@@ -54,7 +54,11 @@ import { omitBoolean } from './omitBoolean';
 import { omitUndefined } from './omitUndefined';
 import { omitUndefinedAndEmptyArr } from './omitUndefinedAndEmptyArr';
 import { parseValueToDay } from './parseValueToMoment';
-import { pickProFormItemProps } from './pickProFormItemProps';
+import {
+  omitProFormItemProps,
+  pickProFormItemProps,
+  proFormItemPropKeys,
+} from './pickProFormItemProps';
 import { pickProProps } from './pickProProps';
 import { objectToMap, proFieldParsingText } from './proFieldParsingText';
 import { runFunction } from './runFunction';
@@ -111,7 +115,9 @@ export {
   omitUndefinedAndEmptyArr,
   operationUnit,
   parseValueToDay,
+  omitProFormItemProps,
   pickProFormItemProps,
+  proFormItemPropKeys,
   pickProProps,
   proFieldParsingText,
   ProFormContext,
