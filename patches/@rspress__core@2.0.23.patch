@@ -1,12 +1,40 @@
+diff --git a/dist/runtime/hooks/useActiveMatcher.js b/dist/runtime/hooks/useActiveMatcher.js
+index 71b560f530828e4ed32fa1459a048409400b366d..6957ead1ea69739f4f28f70cb5da0713f918377f 100644
+--- a/dist/runtime/hooks/useActiveMatcher.js
++++ b/dist/runtime/hooks/useActiveMatcher.js
+@@ -2,12 +2,22 @@ import { useCallback } from "react";
+ import { useLocation } from "react-router-dom";
+ import { isActive } from "../route.js";
+ const useActiveMatcher = ()=>{
+-    const { pathname: rawPathname } = useLocation();
++    const { pathname: rawPathname, hash: rawHash } = useLocation();
+     const activeMatcher = useCallback((link)=>{
+         const pathname = decodeURIComponent(rawPathname);
++        const hashIndex = link.indexOf("#");
++        if (-1 !== hashIndex) {
++            const linkPath = link.slice(0, hashIndex) || link;
++            const linkHash = link.slice(hashIndex + 1);
++            if (!isActive(linkPath, pathname)) return false;
++            const currentHash = decodeURIComponent(rawHash || "").replace(/^#/, "");
++            const targetHash = decodeURIComponent(linkHash);
++            return currentHash.toLowerCase() === targetHash.toLowerCase();
++        }
+         return isActive(link, pathname);
+     }, [
+-        rawPathname
++        rawPathname,
++        rawHash
+     ]);
+     return activeMatcher;
+ };
 diff --git a/dist/theme/components/SocialLinks/SocialLink.js b/dist/theme/components/SocialLinks/SocialLink.js
-index d437473083b8a83bc5f7a4297d25eb91811c1384..c4a8f2e1b9d3e5f6a7b8c9d0e1f2a3b4c5d6e7f 100644
+index d437473083b8a83bc5f7a4297d25eb91811c1384..719adec5b18bfa3f8cb5dfc2623ef34212d099c4 100644
 --- a/dist/theme/components/SocialLinks/SocialLink.js
 +++ b/dist/theme/components/SocialLinks/SocialLink.js
-@@ -1,6 +1,6 @@
+@@ -1,5 +1,5 @@
  import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 -import { socialLinks } from "@rspress/core/runtime";
 +import socialLinks from "virtual-social-links";
  import "./index.css";
  import { GithubStars } from "./GithubStars.js";
  import { useHoverGroup } from "../HoverGroup/useHoverGroup.js";
- const SocialLink = (props)=>{

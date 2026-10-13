@@ -179,7 +179,8 @@ overrides:
   esbuild: '>=0.25.0'
 
 patchedDependencies:
-  '@rspress/core@2.0.23': ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d
+  '@rspress/core@2.0.23': 6838b8cfafbd91b8fb60686dd43e13579866f6a429d4db4a8619cbef7e1a6ddd
+  '@rspress/plugin-preview@2.0.23': a55dfc5a82272467ae1d63c98d71a0c300aac7afa8546f86b65d4ab75578ef73
 
 importers:
 
@@ -281,13 +282,13 @@ importers:
         version: 1.0.3(@typescript/typescript6@6.0.2)(core-js@3.50.0)
       '@rspress/core':
         specifier: 2.0.23
-        version: 2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)
+        version: 2.0.23(patch_hash=6838b8cfafbd91b8fb60686dd43e13579866f6a429d4db4a8619cbef7e1a6ddd)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)
       '@rspress/plugin-preview':
         specifier: 2.0.23
-        version: 2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@rspress/core@2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))(core-js@3.50.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.0.23(patch_hash=a55dfc5a82272467ae1d63c98d71a0c300aac7afa8546f86b65d4ab75578ef73)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@rspress/core@2.0.23(patch_hash=6838b8cfafbd91b8fb60686dd43e13579866f6a429d4db4a8619cbef7e1a6ddd)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))(core-js@3.50.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@rspress/plugin-sitemap':
         specifier: 2.0.23
-        version: 2.0.23(@rspress/core@2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))
+        version: 2.0.23(@rspress/core@2.0.23(patch_hash=6838b8cfafbd91b8fb60686dd43e13579866f6a429d4db4a8619cbef7e1a6ddd)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))
       '@testing-library/dom':
         specifier: ^10.4.2
         version: 10.4.2
@@ -7815,7 +7816,7 @@ snapshots:
     optionalDependencies:
       '@rspack/core': 2.2.8(@swc/helpers@0.5.23)
 
-  '@rspress/core@2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)':
+  '@rspress/core@2.0.23(patch_hash=6838b8cfafbd91b8fb60686dd43e13579866f6a429d4db4a8619cbef7e1a6ddd)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)':
     dependencies:
       '@mdx-js/mdx': 3.1.1(supports-color@7.2.0)
       '@mdx-js/react': 3.1.1(@types/react@18.3.31)(react@19.3.0)
@@ -7863,11 +7864,11 @@ snapshots:
       - micromark-util-types
       - supports-color
 
-  '@rspress/plugin-preview@2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@rspress/core@2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))(core-js@3.50.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@rspress/plugin-preview@2.0.23(patch_hash=a55dfc5a82272467ae1d63c98d71a0c300aac7afa8546f86b65d4ab75578ef73)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@rspress/core@2.0.23(patch_hash=6838b8cfafbd91b8fb60686dd43e13579866f6a429d4db4a8619cbef7e1a6ddd)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))(core-js@3.50.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@rsbuild/core': 2.2.12(core-js@3.50.0)
       '@rsbuild/plugin-react': 2.1.1(@rsbuild/core@2.2.12(core-js@3.50.0))(@rspack/core@2.2.8(@swc/helpers@0.5.23))
-      '@rspress/core': 2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)
+      '@rspress/core': 2.0.23(patch_hash=6838b8cfafbd91b8fb60686dd43e13579866f6a429d4db4a8619cbef7e1a6ddd)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)
       picocolors: 1.1.1
       qrcode.react: 4.2.0(react@18.3.1)
       react: 18.3.1
@@ -7877,9 +7878,9 @@ snapshots:
       - '@rspack/core'
       - core-js
 
-  '@rspress/plugin-sitemap@2.0.23(@rspress/core@2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))':
+  '@rspress/plugin-sitemap@2.0.23(@rspress/core@2.0.23(patch_hash=6838b8cfafbd91b8fb60686dd43e13579866f6a429d4db4a8619cbef7e1a6ddd)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))':
     dependencies:
-      '@rspress/core': 2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)
+      '@rspress/core': 2.0.23(patch_hash=6838b8cfafbd91b8fb60686dd43e13579866f6a429d4db4a8619cbef7e1a6ddd)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)
 
   '@rspress/shared@2.0.23(core-js@3.50.0)(supports-color@7.2.0)':
     dependencies:
