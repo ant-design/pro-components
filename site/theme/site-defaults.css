@@ -1,4 +1,4 @@
-/* 绔欑偣鍏ㄥ眬榛樿鏍峰紡锛氱敱 scripts/gen-site-css.mjs 浠?site/theme/*.less 涓庡師 .dumirc.ts styles 鐢熸垚 */
+/* 站点全局默认样式：由 scripts/gen-site-css.mjs 从 site/theme/*.less 与原 .dumirc.ts styles 生成 */
 
 .markdown a[target='_blank']:not(:has(svg))::after {
   content: '';
@@ -289,69 +289,28 @@
   padding-bottom: 3rem;
 }
 
-/* Illustrated gallery-style homepage hero. */
-.rp-home-hero.rp-home-hero {
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-  box-sizing: border-box;
+/* Hero illustration: keep aspect ratio, no cover-crop stretch. */
+.rp-home-hero .rp-home-hero__image {
+  width: min(100%, 560px);
+  margin-top: 2rem;
+}
+
+.rp-home-hero .rp-home-hero__image img {
+  display: block;
   width: 100%;
-  max-width: none;
-  height: 350px;
-  margin: 0;
-  padding: 82px 20px 0;
-  overflow: hidden;
-  background: #fa4d80 url('../../public/hero-illustration.png') center 48% / cover no-repeat;
+  height: auto;
+  object-fit: contain;
+  border-radius: 1rem;
+  box-shadow: 0 16px 40px rgba(22, 119, 255, 0.12);
 }
 
-.rp-home-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(15, 12, 52, 0.18);
-  pointer-events: none;
-}
-
-.rp-home-hero .rp-home-hero__container {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-  margin: 0 auto;
-  color: #fff;
-  text-shadow: 0 2px 18px rgba(15, 12, 52, 0.25);
-}
-
-.rp-home-hero .rp-home-hero__badge,
-.rp-home-hero .rp-home-hero__actions { display: none; }
-
-.rp-home-hero .rp-home-hero__title,
-.rp-home-hero .rp-home-hero__title-brand,
-.rp-home-hero .rp-home-hero__subtitle,
-.rp-home-hero .rp-home-hero__tagline {
-  color: #fff;
-  -webkit-text-fill-color: #fff;
-}
-
-.rp-home-hero .rp-home-hero__title-brand { background: none; }
-
-.rp-home-hero .rp-home-hero__title {
-  font-size: clamp(40px, 5vw, 64px);
-  line-height: 1.2;
-}
-
-.rp-home-hero .rp-home-hero__subtitle {
-  margin-top: 4px;
-  font-size: clamp(18px, 2.2vw, 24px);
-  background: none;
-}
-
-.rp-home-hero .rp-home-hero__tagline { display: none; }
-
+/* Home quick search sits below hero — no negative-margin overlap. */
 .pc-home-discovery {
   position: relative;
   z-index: 2;
   max-width: 780px;
-  margin: -32px auto 60px;
+  margin: 0 auto 3.5rem;
+  padding: 0 1.25rem;
 }
 
 .pc-home-search {
@@ -360,8 +319,15 @@
   box-sizing: border-box;
   height: 64px;
   background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 12px 28px rgba(31, 30, 47, 0.15);
+  border: 1px solid #eef0f5;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(15, 28, 61, 0.08);
+}
+
+:where(html.rp-dark) .pc-home-search {
+  background: #1f1f1f;
+  border-color: #303030;
+  box-shadow: none;
 }
 
 .pc-home-search button {
@@ -376,7 +342,10 @@
   cursor: pointer;
 }
 
-.pc-home-search svg { width: 20px; height: 20px; }
+.pc-home-search svg {
+  width: 20px;
+  height: 20px;
+}
 
 .pc-home-search input {
   flex: 1;
@@ -385,7 +354,7 @@
   border: 0;
   outline: 0;
   background: transparent;
-  color: #24232c;
+  color: var(--rp-c-text-0, #24232c);
   font-size: 16px;
 }
 
@@ -397,10 +366,14 @@
   border: 0;
   border-left: 1px solid #e7e7e7;
   outline: 0;
-  background: #fff;
-  color: #24232c;
+  background: transparent;
+  color: var(--rp-c-text-0, #24232c);
   font-weight: 600;
   cursor: pointer;
+}
+
+:where(html.rp-dark) .pc-home-search select {
+  border-left-color: #303030;
 }
 
 .pc-home-suggestions {
@@ -408,18 +381,39 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px 16px;
-  margin-top: 32px;
-  color: #777;
+  margin-top: 1.25rem;
+  color: var(--rp-c-text-2, #777);
   font-size: 14px;
 }
 
-.pc-home-suggestions a { color: #c84977; }
-.pc-home-suggestions a:hover { color: #a83261; }
+.pc-home-suggestions a {
+  color: #1677ff;
+}
+
+.pc-home-suggestions a:hover {
+  color: #0958d9;
+}
 
 @media (max-width: 767px) {
-  .rp-home-hero.rp-home-hero { height: 310px; padding-top: 76px; background-position: 56% center; }
-  .pc-home-discovery { margin: -28px 16px 50px; }
-  .pc-home-search { height: 56px; }
-  .pc-home-search select { width: 96px; margin-right: 8px; padding-left: 8px; }
-  .pc-home-suggestions { margin-top: 24px; }
+  .rp-home-hero.rp-home-hero {
+    margin: 3.5rem auto 2rem;
+  }
+
+  .rp-home-hero .rp-home-hero__image {
+    margin-top: 1.5rem;
+  }
+
+  .pc-home-discovery {
+    margin-bottom: 2.5rem;
+  }
+
+  .pc-home-search {
+    height: 56px;
+  }
+
+  .pc-home-search select {
+    width: 96px;
+    margin-right: 8px;
+    padding-left: 8px;
+  }
 }
