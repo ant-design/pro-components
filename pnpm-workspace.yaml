@@ -11,8 +11,6 @@ overrides:
   '@types/react-dom': 18.3.7
   decode-uri-component: '>=0.5.0'
   postcss: '>=8.5.23'
-  # Keep v6 pin for legacy consumers; Rspress / react-router-dom@7 needs react-router@7
-  react-router@6: ~6.30.2
   uuid: 11.1.1
   '@tootallnate/once': 2.0.1
   lodash: '>=4.18.0'
