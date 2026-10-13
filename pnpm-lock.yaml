@@ -167,7 +167,6 @@ overrides:
   '@types/react-dom': 18.3.7
   decode-uri-component: '>=0.5.0'
   postcss: '>=8.5.23'
-  react-router: ~6.30.2
   uuid: 11.1.1
   '@tootallnate/once': 2.0.1
   lodash: '>=4.18.0'
@@ -178,6 +177,9 @@ overrides:
   braces: '>=3.0.3'
   node-fetch: 2.7.0
   esbuild: '>=0.25.0'
+
+patchedDependencies:
+  '@rspress/core@2.0.23': ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d
 
 importers:
 
@@ -279,13 +281,13 @@ importers:
         version: 1.0.3(@typescript/typescript6@6.0.2)(core-js@3.50.0)
       '@rspress/core':
         specifier: 2.0.23
-        version: 2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)
+        version: 2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)
       '@rspress/plugin-preview':
         specifier: 2.0.23
-        version: 2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@rspress/core@2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))(core-js@3.50.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@rspress/core@2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))(core-js@3.50.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@rspress/plugin-sitemap':
         specifier: 2.0.23
-        version: 2.0.23(@rspress/core@2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))
+        version: 2.0.23(@rspress/core@2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))
       '@testing-library/dom':
         specifier: ^10.4.2
         version: 10.4.2
@@ -433,6 +435,12 @@ importers:
       react-markdown:
         specifier: ^10.1.0
         version: 10.1.0(@types/react@18.3.31)(react@18.3.1)(supports-color@7.2.0)
+      react-router:
+        specifier: 7.18.4
+        version: 7.18.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-router-dom:
+        specifier: 7.18.4
+        version: 7.18.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-syntax-highlighter:
         specifier: ^16.1.1
         version: 16.1.2(react@18.3.1)
@@ -2164,10 +2172,6 @@ packages:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
 
-  '@remix-run/router@1.23.4':
-    resolution: {integrity: sha512-q7j5geK7xs3UJSdm9/iytUNclBnLmYx1EnSeCFXHPeutdqgIMeFeHtUZgS3EhlKxdBEAu8OwtJCwmLrEzpSs7Q==}
-    engines: {node: '>=14.0.0'}
-
   '@rolldown/binding-android-arm-eabi@1.2.13':
     resolution: {integrity: sha512-Vu/NICrgdRvUOeaJZIyB2FP63s6fO/4ud5l8dXmxDx9yDyn+mN0y+gsvsVviSli+T361Aqo0h46EuMoobrwawA==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -3134,6 +3138,10 @@ packages:
   cookie@0.7.2:
     resolution: {integrity: sha512-yki5XnKuf750l50uGTllt6kKILY4nQ1eNIQatoXEByZ5dWgnKqbnqmTrBE5B4N7lrMJKQ2ytWMiTO2o0v6Ew/w==}
     engines: {node: '>= 0.6'}
+
+  cookie@1.1.1:
+    resolution: {integrity: sha512-ei8Aos7ja0weRpFzJnEA9UHJ/7XQmqglbRwnf2ATjcB9Wq874VKH9kfjjirM6UhU2/E5fFYadylyhFldcqSidQ==}
+    engines: {node: '>=18'}
 
   copy-to-clipboard@3.3.3:
     resolution: {integrity: sha512-2KV8NhB5JqC3ky0r9PMCAZKbUHSwtEo4CwCs0KXgruG43gX5PMqDEBbVU4OUzw2MuAWUfsuFmWvEKG5QRfSnJA==}
@@ -4884,11 +4892,15 @@ packages:
       react: '>=18'
       react-dom: '>=18'
 
-  react-router@6.30.6:
-    resolution: {integrity: sha512-5HfK7k5im7LTOB0EqCQmfvy4C13G92Ssj1VTmouTK3AJvyjKTnFuCV0vcMAD/JS+JC4DvDIBRrlAeJIFjh5VWg==}
-    engines: {node: '>=14.0.0'}
+  react-router@7.18.4:
+    resolution: {integrity: sha512-PUPQcMhMGRAslLcvtlPz/kmzBEWPhLdgLFrL7pLNepBL6dX0lWj4WD2cUYVgYCuT3jxvghYFg81cDTj44DhetQ==}
+    engines: {node: '>=20.0.0'}
     peerDependencies:
-      react: '>=16.8'
+      react: '>=18'
+      react-dom: '>=18'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
 
   react-syntax-highlighter@16.1.2:
     resolution: {integrity: sha512-4dM0+mYtfnhgwYWAvFx56fgyjIYk2yFopfiICFvMDhRfeSGRNd+ngFALdPD9q7llyGAmiE6pzOSOwI8Lf9ca1w==}
@@ -5148,6 +5160,9 @@ packages:
   serve-static@2.2.1:
     resolution: {integrity: sha512-xRXBn0pPqQTVQiC8wyQrKs2MOlX24zQ0POGaj0kultvoOCstBQM5yvOhAVSUwOMjQtTvsPWoNCHfPGwaaQJhTw==}
     engines: {node: '>= 18'}
+
+  set-cookie-parser@2.7.2:
+    resolution: {integrity: sha512-oeM1lpU/UvhTxw+g3cIfxXHyJRc/uidd3yK1P242gzHds0udQBYzs3y8j4gCCW+ZJ7ad0yctld8RYO+bdurlvw==}
 
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
@@ -7650,8 +7665,6 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@remix-run/router@1.23.4': {}
-
   '@rolldown/binding-android-arm-eabi@1.2.13':
     optional: true
 
@@ -7802,7 +7815,7 @@ snapshots:
     optionalDependencies:
       '@rspack/core': 2.2.8(@swc/helpers@0.5.23)
 
-  '@rspress/core@2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)':
+  '@rspress/core@2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)':
     dependencies:
       '@mdx-js/mdx': 3.1.1(supports-color@7.2.0)
       '@mdx-js/react': 3.1.1(@types/react@18.3.31)(react@19.3.0)
@@ -7850,11 +7863,11 @@ snapshots:
       - micromark-util-types
       - supports-color
 
-  '@rspress/plugin-preview@2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@rspress/core@2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))(core-js@3.50.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@rspress/plugin-preview@2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@rspress/core@2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))(core-js@3.50.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@rsbuild/core': 2.2.12(core-js@3.50.0)
       '@rsbuild/plugin-react': 2.1.1(@rsbuild/core@2.2.12(core-js@3.50.0))(@rspack/core@2.2.8(@swc/helpers@0.5.23))
-      '@rspress/core': 2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)
+      '@rspress/core': 2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)
       picocolors: 1.1.1
       qrcode.react: 4.2.0(react@18.3.1)
       react: 18.3.1
@@ -7864,9 +7877,9 @@ snapshots:
       - '@rspack/core'
       - core-js
 
-  '@rspress/plugin-sitemap@2.0.23(@rspress/core@2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))':
+  '@rspress/plugin-sitemap@2.0.23(@rspress/core@2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0))':
     dependencies:
-      '@rspress/core': 2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)
+      '@rspress/core': 2.0.23(patch_hash=ed423a4e303b800ce05afb51395692d4666ae2f0e92e96362ae2b5dfcd3b058d)(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.50.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)
 
   '@rspress/shared@2.0.23(core-js@3.50.0)(supports-color@7.2.0)':
     dependencies:
@@ -8604,6 +8617,8 @@ snapshots:
   cookie-signature@1.2.2: {}
 
   cookie@0.7.2: {}
+
+  cookie@1.1.1: {}
 
   copy-to-clipboard@3.3.3:
     dependencies:
@@ -10689,16 +10704,33 @@ snapshots:
       react: 19.3.0
       react-reconciler: 0.33.0(react@19.3.0)
 
+  react-router-dom@7.18.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-router: 7.18.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+
   react-router-dom@7.18.4(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
     dependencies:
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
-      react-router: 6.30.6(react@19.3.0)
+      react-router: 7.18.4(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
 
-  react-router@6.30.6(react@19.3.0):
+  react-router@7.18.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@remix-run/router': 1.23.4
+      cookie: 1.1.1
+      react: 18.3.1
+      set-cookie-parser: 2.7.2
+    optionalDependencies:
+      react-dom: 18.3.1(react@18.3.1)
+
+  react-router@7.18.4(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+    dependencies:
+      cookie: 1.1.1
       react: 19.3.0
+      set-cookie-parser: 2.7.2
+    optionalDependencies:
+      react-dom: 19.3.0(react@19.3.0)
 
   react-syntax-highlighter@16.1.2(react@18.3.1):
     dependencies:
@@ -11059,6 +11091,8 @@ snapshots:
       send: 1.2.1(supports-color@7.2.0)
     transitivePeerDependencies:
       - supports-color
+
+  set-cookie-parser@2.7.2: {}
 
   setprototypeof@1.2.0: {}
 
