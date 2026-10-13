@@ -142,6 +142,9 @@ export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
   shouldUpdate?: boolean | ((newValues: T, oldValues?: T) => boolean);
 } & Omit<FormProps<T>, 'onFinish'> &
   ProFormPropsType<T, ValueType> &
+  /**
+   * 与各 layout 分支内的 CommonFormProps 重叠，用于 layoutType 未收窄时仍可写 grid/request 等
+   */
   CommonFormProps<T> & {
     open?: boolean;
   };

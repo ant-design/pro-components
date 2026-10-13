@@ -1,5 +1,5 @@
 import type { FormProps, StepsProps } from 'antd';
-import type { CommonFormProps } from '../../BaseForm/BaseForm';
+import type { CommonFormProps } from '../../BaseForm';
 
 export type StepFormProps<
   T = Record<string, any>,

@@ -29,7 +29,10 @@ export type { ProFormFieldProps } from './Field';
 export { default as ProFormFieldSet } from './FieldSet';
 export type { ProFormFieldSetProps } from './FieldSet';
 export { FormItemProvide, default as ProFormItem } from './FormItem';
-export type { ProFormItemProps } from './FormItem';
+export type {
+  ProFormItemHelpFunction,
+  ProFormItemProps,
+} from './FormItem';
 export {
   FormControlRender,
   FormItemRender,

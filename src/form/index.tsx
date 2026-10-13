@@ -8,6 +8,7 @@ export type {
   CommonFormProps,
   ProFormInstance,
   ProFormRef,
+  SyncToUrl,
 } from './BaseForm';
 
 export type { SubmitterProps } from './BaseForm/Submitter';
@@ -41,7 +42,7 @@ export * from './layouts';
 export type {
   LightFilterFooterRender,
   ProFormBaseGroupProps,
-  ProFormFieldItemProps as ProFormItemProps,
+  ProFormFieldItemProps,
   ProFormGridConfig,
   ProFieldBuiltinValueType,
   ProFieldSchemaLayoutValueType,
