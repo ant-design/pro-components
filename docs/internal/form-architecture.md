@@ -57,6 +57,10 @@ URL (syncToUrl)    → urlSearch / urlParamsMergeInitialValues → 与 initialVa
 - `src/form/components/FormItem/createProFormField.tsx`、`useProFormFieldShell.tsx` — 字段包装与合并逻辑
 - `proFormFieldDependencyBranch.tsx`、`proFormFieldLazyBoundary.tsx`、`proFormFieldLightTypes.ts` — 依赖 / 懒加载 / Light 类型（按需分包）
 
+## 类型 API
+
+公开类型分层与 import 约定见 [`form-types-api.md`](./form-types-api.md)。
+
 ## 包入口与 tree-shaking
 
 | 入口 | 说明 |

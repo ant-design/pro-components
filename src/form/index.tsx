@@ -7,18 +7,17 @@ import type { ProFormGroupProps } from './typing';
 export { ProFormContext } from '../utils';
 export { LightWrapper } from './layouts/LightFilter/LightWrapper';
 export type { LightWrapperProps } from './layouts/LightFilter/LightWrapper';
-export type {
-  BaseFormProps,
-  CommonFormProps,
-  ProFormInstance,
-  ProFormRef,
-  SyncToUrl,
-} from './BaseForm';
+export type { ProFormInstance, ProFormRef, SyncToUrl } from './BaseForm/typing';
+export type { BaseFormProps, CommonFormProps } from './BaseForm/BaseForm';
 
 export type { SubmitterProps } from './BaseForm/Submitter';
 export * from './components';
 export type {
+  ExtraProColumnType,
+  FormFieldType,
   FormListActionType,
+  FormSchema,
+  ItemType,
   ProFormCaptchaProps,
   ProFormCheckboxGroupProps,
   ProFormCheckboxProps,
@@ -29,25 +28,35 @@ export type {
   ProFormDigitRangeProps,
   ProFormFieldProps,
   ProFormFieldSetProps,
+  ProFormFieldShellFunctionProps,
   ProFormLayoutType,
   ProFormListProps,
   ProFormMoneyProps,
+  ProFormPropsType,
   ProFormRadioGroupProps,
+  ProFormRenderValueTypeHelpers,
+  ProFormRenderValueTypeItem,
   ProFormSelectProps,
   ProFormSliderProps,
   ProFormSwitchProps,
   ProFormTreeSelectProps,
   ProFormUploadButtonProps,
   ProFormUploadDraggerProps,
+  ProSchemaRenderValueTypeFunction,
+  UseProFormFieldShellOptions,
 } from './components';
 export { FormListContext } from './components/List/FormListContext';
 export { FieldContext } from './FieldContext';
 export * from './layouts';
 export type {
+  ExtendsProps,
+  FieldProps,
   LightFilterFooterRender,
   ProFormBaseGroupProps,
   ProFormFieldItemProps,
+  ProFormFieldRemoteProps,
   ProFormGridConfig,
+  ProFormItemCreateConfig,
   ProFieldBuiltinValueType,
   ProFieldSchemaLayoutValueType,
   ProFieldValueObjectType,

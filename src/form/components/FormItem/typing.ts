@@ -44,6 +44,6 @@ export type ProFormItemProps = Omit<FormItemProps, keyof WarpFormItemProps> & {
    */
   transform?: SearchTransformKeyFn;
   dataFormat?: string;
-  proFormFieldKey?: any;
+  proFormFieldKey?: React.Key;
   fieldProps?: Record<string, any>;
 } & WarpFormItemProps;

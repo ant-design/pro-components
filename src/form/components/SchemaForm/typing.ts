@@ -7,7 +7,7 @@ import type {
   SearchConvertKeyFn,
   SearchTransformKeyFn,
 } from '../../../utils';
-import type { CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps } from '../../BaseForm/BaseForm';
 import type {
   DrawerFormProps,
   LightFilterProps,
