@@ -18,32 +18,7 @@ const repoRoot = path.resolve(__dirname, '..');
 const themeDir = path.join(repoRoot, 'site', 'theme');
 const outFile = path.join(themeDir, 'site-defaults.css');
 
-/** 从 Less 源文件提取 @var: '...' 变量并替换引用，输出纯 CSS */
-function compileLessToCss(lessSource) {
-  const vars = {};
-  let src = lessSource.replace(
-    /^@( [\w-]+ ):\s*'([^']*)';?\s*$/gm,
-    (_m, name, value) => {
-      vars[name.trim()] = value;
-      return '';
-    },
-  );
-  // 去掉 Less 注释
-  src = src.replace(/^\/\/.*$/gm, '');
-  // 变量替换
-  for (const [name, value] of Object.entries(vars)) {
-    src = src.split(`@${name}`).join(value);
-  }
-  // 嵌套规则拍平太复杂，这里源文件本身结构简单：
-  // markdownExternalLink.less 的嵌套块手工等价展开见下方 FALLBACK。
-  return { css: src, vars };
-}
-
 function main() {
-  const mdLinkLess = fs.readFileSync(
-    path.join(themeDir, 'markdownExternalLink.less'),
-    'utf8',
-  );
   const otkLess = fs.readFileSync(
     path.join(themeDir, 'otkTaskListSimpleSiteDefaults.less'),
     'utf8',
@@ -52,7 +27,7 @@ function main() {
   const iconLight =
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xMCAxaDF2NGgtMVYzLjRMNi43IDYuNyA2IDZsNC00VjF6TTIgM2gzdjFIM3Y2aDZWOGgxdjNhMSAxIDAgMDEtMSAxSDNhMSAxIDAgMDEtMS0xVjRhMSAxIDAgMDExLTF6Ii8+PC9zdmc+';
   const iconDark =
-    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xMSAxSDd2MWgyLjU5TDUuMjkgNi4yOWwuNzEuNzFMMTAgMi41OVY1aDFWMXpNMSAzdjhoOFY2SDh2NEgyVjRoNFYzSDF6Ii8+PC9zdmc+';
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xMSAxSDd2MWgyLjU5TDUuMjkgNi4yOWwuNzEuNzFMMTAgMi41OVY1aDFWMVpNMSAzdjhoOFY2SDh2NEgyVjRoNFYzSDF6Ii8+PC9zdmc+';
 
   // markdownExternalLink.less 的平铺等价形式（Less 嵌套 → 纯 CSS）
   const mdLinkCss = `\
