@@ -1,0 +1,12 @@
+diff --git a/dist/theme/components/SocialLinks/SocialLink.js b/dist/theme/components/SocialLinks/SocialLink.js
+index d437473083b8a83bc5f7a4297d25eb91811c1384..c4a8f2e1b9d3e5f6a7b8c9d0e1f2a3b4c5d6e7f 100644
+--- a/dist/theme/components/SocialLinks/SocialLink.js
++++ b/dist/theme/components/SocialLinks/SocialLink.js
+@@ -1,6 +1,6 @@
+ import { Fragment, jsx, jsxs } from "react/jsx-runtime";
+-import { socialLinks } from "@rspress/core/runtime";
++import socialLinks from "virtual-social-links";
+ import "./index.css";
+ import { GithubStars } from "./GithubStars.js";
+ import { useHoverGroup } from "../HoverGroup/useHoverGroup.js";
+ const SocialLink = (props)=>{
