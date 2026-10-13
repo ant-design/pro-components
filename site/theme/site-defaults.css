@@ -435,6 +435,53 @@
   padding-bottom: 3rem;
 }
 
+/*
+ * Playground / large demos: keep iframe-follow stacked (preview on top).
+ * Side-by-side mode squeezes ProTable/ProLayout into an unusable strip.
+ */
+.rp-preview--iframe-follow {
+  flex-direction: column !important;
+}
+
+.rp-preview--iframe-follow__code {
+  max-height: 360px !important;
+  min-height: 0 !important;
+  order: 2;
+}
+
+.rp-preview--iframe-follow__device {
+  order: 1;
+  min-height: 560px;
+  border-left: none !important;
+  border-top: 0 !important;
+  border-bottom: 1px solid var(--rp-container-details-border, #eef0f5);
+}
+
+.rp-preview--iframe-follow__device iframe {
+  min-height: 560px;
+  width: 100%;
+}
+
+/* Changelog: clearer version hierarchy in the long release notes page */
+.rspress-doc:has(h2#unreleased) > h2 {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--pc-home-border, #eef0f5);
+  font-size: 1.5rem;
+}
+
+.rspress-doc:has(h2#unreleased) > h2:first-of-type,
+.rspress-doc:has(h2#unreleased) > h1 + h2 {
+  margin-top: 1.5rem;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.rspress-doc:has(h2#unreleased) > h3 {
+  margin-top: 1.5rem;
+  font-size: 1.0625rem;
+}
+
 @media (max-width: 1024px) {
   .pc-home-core-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
