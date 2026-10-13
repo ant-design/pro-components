@@ -11,16 +11,43 @@
 
 - ProForm
   - 🆕 导出布局与表单壳层类型（`ProFormGridConfig`、`CommonFormProps`、`BaseFormProps`、`ProFormRef`、`SyncToUrl`、`useGridHelpers`、`getSpanConfig`、`FieldContextProps`、`FormFieldType` 等）及 `createProFormField` / `useProFormFieldShell` [#9751](https://github.com/ant-design/pro-components/pull/9751)
+- QueryFilter / ProList / ProCard
+  - 🆕 抽取共用响应式断点工具；`QueryFilter` 的 `span` 支持 Partial 配置（未写档位按 antd Col 规则向前填充）[#9750](https://github.com/ant-design/pro-components/pull/9750)
+
+### 🐛 问题修复
+
+- ProForm
+  - 🐞 纯展示字段（`children` + 无 `name`/`value`）不再向 children 根节点透传小写 `readonly`，避免 Invalid DOM property 告警；经 ProField 的字段只读语义不受影响 [#9107](https://github.com/ant-design/pro-components/issues/9107) [18d5a7f2c](https://github.com/ant-design/pro-components/commit/18d5a7f2c)
+- ProTable
+  - 🐞 `LightFilter` 在工具栏内恢复为扁平 inline 条，不再被包成卡片（修复 #9742 后出现的 card-in-card）；`cardBordered.search` 仅作用于 QueryFilter/Form，对 light filter 静默忽略 [c2471f92a](https://github.com/ant-design/pro-components/commit/c2471f92a)
+- ProList
+  - 💄 卡片模式下头像与标题补齐 `token.marginXS` 间距，与列表模式一致 [25e6b868c](https://github.com/ant-design/pro-components/commit/25e6b868c)
+- 文档站
+  - 🐞 修复 Rspress 迁移后 Vercel/`pnpm site` 因 `react-router` 被强制锁在 v6 而无法解析 `react-router/dom` 的构建失败 [#9753](https://github.com/ant-design/pro-components/pull/9753)
+  - 🐞 修复文档侧栏中文乱码，并纠正首页插画拉伸与信息层级 [#9754](https://github.com/ant-design/pro-components/pull/9754)
 
 ### ⚡️ 性能
 
 - ProForm
   - ⚡️ `ProFormDependency` 与 LightFilter 弹层路径按需加载；`LightFilter` 通过 context 注入 light 渲染器；`scripts/checkFormTreeShaking.mjs` 约束 `ProFormText` 初始分包 [#9751](https://github.com/ant-design/pro-components/pull/9751)
+- ProField / ProForm
+  - ⚡️ 收紧字段 `valueType` 映射与表单字段导入，提升组件 tree shaking [0267faf61](https://github.com/ant-design/pro-components/commit/0267faf61)
+
+### 📖 文档
+
+- 📖 文档站从 dumi 迁移至 Rspress v2：双语路由、demo 预览、SSG、sitemap、GA，并补充链接校验与首页探索区 [#9747](https://github.com/ant-design/pro-components/pull/9747)
+- 📖 重排官网首页信息层级（品牌 Hero → 搜索/核心组件 → 特性），更换插画并修复重复渲染 [#9754](https://github.com/ant-design/pro-components/pull/9754)
+
+### 🛠 其他
+
+- 🛠 升级 pnpm 至 12.10.1，并将相关配置迁移到 `pnpm-workspace.yaml` [#9748](https://github.com/ant-design/pro-components/pull/9748) [@zzjiaxiang](https://github.com/zzjiaxiang)
 
 ### ✅ 测试
 
 - ProForm
-  - ✅ 补充 `pickProFormItemProps` / `omitProFormItemProps` 透传用例 [#9751](https://github.com/ant-design/pro-components/pull/9751)
+  - ✅ 补充 `pickProFormItemProps` / `omitProFormItemProps` 透传与字段壳层相关用例 [#9751](https://github.com/ant-design/pro-components/pull/9751)
+- ProTable
+  - ✅ 锁定 LightFilter 在工具栏内保持扁平布局的回归 [c2471f92a](https://github.com/ant-design/pro-components/commit/c2471f92a)
 
 ## [3.1.15-7] - 2026-10-10
 
