@@ -4,7 +4,7 @@ import type { NamePath } from 'antd/lib/form/interface';
 import React, { useEffect, useImperativeHandle, useState } from 'react';
 import { useIntl } from '../../../provider';
 import type { ProFormFieldItemProps } from '../../typing';
-import { warpField } from '../FormItem/warpField';
+import { createProFormField } from '../FormItem/createProFormField';
 
 export type ProFormCaptchaProps = ProFormFieldItemProps<InputProps> & {
   /** @name 倒计时的秒数 */
@@ -167,7 +167,7 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
   },
 );
 
-const ProFormCaptcha = warpField(
+const ProFormCaptcha = createProFormField(
   BaseProFormCaptcha,
 ) as typeof BaseProFormCaptcha;
 
