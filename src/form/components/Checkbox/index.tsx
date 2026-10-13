@@ -2,7 +2,7 @@ import { omit } from '@rc-component/util';
 import type { CheckboxProps, CheckboxRef } from 'antd';
 import { Checkbox } from 'antd';
 import React from 'react';
-import FieldCheckbox from '../../../field/components/Checkbox';
+import { FieldCheckbox } from '../../../field/FieldLoaders';
 import { ProConfigProvider } from '../../../provider';
 import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
 import { runFunction } from '../../../utils';

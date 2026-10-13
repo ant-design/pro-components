@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useMemo } from 'react';
-import FieldRangePicker from '../../../field/components/RangePicker';
+import { FieldRangePicker } from '../../../field/FieldLoaders';
 import { ProConfigProvider } from '../../../provider';
 import { dateArrayFormatter } from '../../../utils';
 import type { RangePickerProps } from '../../../utils/antdTypes';

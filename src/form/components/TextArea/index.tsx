@@ -1,5 +1,5 @@
 import React from 'react';
-import FieldTextArea from '../../../field/components/TextArea';
+import { FieldTextArea } from '../../../field/FieldLoaders';
 import { ProConfigProvider } from '../../../provider';
 import type { TextAreaProps, TextAreaRef } from '../../../utils/antdTypes';
 import type { ProFormFieldItemProps } from '../../typing';
