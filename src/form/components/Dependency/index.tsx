@@ -5,7 +5,7 @@ import type { NamePath } from 'antd/lib/form/interface';
 import merge from 'es-toolkit/compat/merge';
 import React, { useContext, useMemo } from 'react';
 import { isDeepEqualReact, ProFormContext } from '../../../utils';
-import type { ProFormInstance } from '../../BaseForm';
+import type { ProFormInstance } from '../../BaseForm/typing';
 import { FormListContext } from '../List/FormListContext';
 
 declare type RenderChildren<Values = any> = (

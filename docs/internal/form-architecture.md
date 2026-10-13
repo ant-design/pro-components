@@ -71,6 +71,10 @@ URL (syncToUrl)    → urlSearch / urlParamsMergeInitialValues → 与 initialVa
 - **建议**：表单场景优先 `@ant-design/pro-components/form`；仅需 Table/Layout 时用对应 subpath（见 `package.json` `exports`）。
 
 **自定义字段**：对外使用 `createProFormField` / `useProFormFieldShell`；`warpField` 已在 [#9751](https://github.com/ant-design/pro-components/pull/9751) 移除（major 级破坏性变更，见 changelog）。
+
+与 antd `Form.Item` 对齐的 prop 拆分：`pickProFormItemProps` / `omitProFormItemProps` / `proFormItemPropKeys` 可从 `@ant-design/pro-components/form`（或根包 utils）引入，在自定义壳层中复用同一套键列表。
+
+**依赖字段分包**：`proFormFieldDependencyBranch` 经 `import()` 单独分包；`ProFormDependency` 不进 `ProFormText` 初始图（见 `checkFormTreeShaking.mjs`）。后续可做：将 dependency preload hook 挪到仅 `dependencies` 有值时才挂载的子组件，避免简单字段多一次空 effect（需 async 边界且不能恶化 Schema 依赖测试）。
 - `src/form/components/SchemaForm/` — `BetaSchemaForm` 与 `valueType` 管道
 
 ## Schema 专用 `getFieldProps` / `getFormItemProps`

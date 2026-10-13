@@ -58,6 +58,12 @@ export { PRO_FIELD_SCHEMA_LAYOUT_VALUE_TYPES } from './typing';
 export type { FieldContextProps, FiledContextProps } from './FieldContext';
 export type { GridHelpers } from './helpers/grid';
 export { GridContext, useGridHelpers } from './helpers';
+export {
+  omitProFormItemProps,
+  pickProFormItemProps,
+  proFormItemPropKeys,
+} from '../utils/pickProFormItemProps';
+export type { ProFormItemPropKey } from '../utils/pickProFormItemProps';
 export { ProForm };
 export type { ProFormGroupProps, ProFormGroupProps as GroupProps };
 

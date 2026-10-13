@@ -42,6 +42,8 @@ type ProFormComponent<P, Extends> = React.ForwardRefExoticComponent<
 
 /**
  * 将内部 Field 包成带 Form.Item、栅格、依赖与 light 协议的 Pro 表单项。
+ *
+ * @see useProFormFieldShell 壳层合并逻辑
  */
 export function createProFormField<P extends ProFormFieldItemProps = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
@@ -83,7 +85,11 @@ export function createProFormField<P extends ProFormFieldItemProps = any>(
     }
 
     const field = (
-      <FieldWithContext ref={forwardedRef} dependencies={dependencies} {...props} />
+      <FieldWithContext
+        ref={forwardedRef}
+        dependencies={dependencies}
+        {...props}
+      />
     );
 
     if (!dependencyBranchModule) {

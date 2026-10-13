@@ -252,7 +252,7 @@ export function useProFormFieldShell<P extends ProFormFieldItemProps = any>(
     props?.fieldRef as any,
   );
 
-  const fieldComponentProps = useMemo(
+  const fieldComponentProps = useDeepCompareMemo(
     () => omitProFormItemProps(rest),
     [rest],
   );
