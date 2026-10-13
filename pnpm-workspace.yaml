@@ -27,3 +27,4 @@ allowBuilds:
   yorkie: true
 patchedDependencies:
   '@rspress/core@2.0.23': patches/@rspress__core@2.0.23.patch
+  '@rspress/plugin-preview@2.0.23': patches/@rspress__plugin-preview@2.0.23.patch
