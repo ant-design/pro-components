@@ -1,0 +1,173 @@
+---
+title: ProField 原子组件
+---
+
+
+# ProField
+
+> 该组件为内部组件，请勿直接使用。
+
+原子信息组件，统一 ProForm、ProTable、ProList、Filter 等组件里面的字段定义。
+
+## DEMO
+
+### Issue 回归场景
+
+```tsx file="<root>/demos/field/search-select-request.tsx" title="远程搜索：SearchSelect.request 与 showSearch.onSearch" preview
+```
+```tsx file="<root>/demos/field/digit-affixes.tsx" title="数字前后缀：ProFormDigit.fieldProps" preview
+```
+```tsx file="<root>/demos/field/mixed-value-enum.tsx" title="混合枚举：ProFormSelect.valueEnum" preview
+```
+```tsx file="<root>/demos/field/controlled-tree-select.tsx" title="受控展开：ProFormTreeSelect.fieldProps.open" preview
+```
+```tsx file="<root>/demos/field/readonly-empty-digit.tsx" title="只读空值：ProFormDigit.readonly" preview
+```
+
+```tsx file="<root>/demos/field/value-types/field-text.tsx" title="文本：ProField.valueType=text" preview
+```
+```tsx file="<root>/demos/field/value-types/field-textarea.tsx" title="文本域：valueType=textarea" preview
+```
+```tsx file="<root>/demos/field/value-types/field-password.tsx" title="密码：valueType=password" preview
+```
+```tsx file="<root>/demos/field/value-types/field-avatar.tsx" title="头像：valueType=avatar" preview
+```
+```tsx file="<root>/demos/field/value-types/field-image.tsx" title="图片：valueType=image" preview
+```
+```tsx file="<root>/demos/field/value-types/field-money.tsx" title="金额：valueType=money" preview
+```
+```tsx file="<root>/demos/field/value-types/field-digit.tsx" title="数字：valueType=digit" preview
+```
+```tsx file="<root>/demos/field/value-types/field-digit-range.tsx" title="数字范围：valueType=digitRange" preview
+```
+```tsx file="<root>/demos/field/value-types/field-second.tsx" title="秒格式化：valueType=second" preview
+```
+```tsx file="<root>/demos/field/value-types/field-percent.tsx" title="百分比：valueType=percent" preview
+```
+```tsx file="<root>/demos/field/value-types/field-progress.tsx" title="进度条：valueType=progress" preview
+```
+```tsx file="<root>/demos/field/value-types/field-rate.tsx" title="评分：valueType=rate" preview
+```
+```tsx file="<root>/demos/field/value-types/field-slider.tsx" title="滑块：valueType=slider" preview
+```
+```tsx file="<root>/demos/field/value-types/field-radio.tsx" title="单选：valueType=radio" preview
+```
+```tsx file="<root>/demos/field/value-types/field-radio-button.tsx" title="按钮单选：valueType=radioButton" preview
+```
+```tsx file="<root>/demos/field/value-types/field-checkbox.tsx" title="多选：valueType=checkbox" preview
+```
+```tsx file="<root>/demos/field/value-types/field-switch.tsx" title="开关：valueType=switch" preview
+```
+```tsx file="<root>/demos/field/value-types/field-segmented.tsx" title="分段选择：valueType=segmented" preview
+```
+```tsx file="<root>/demos/field/value-types/field-color.tsx" title="颜色：valueType=color" preview
+```
+```tsx file="<root>/demos/field/value-types/field-date.tsx" title="日期：valueType=date" preview
+```
+```tsx file="<root>/demos/field/value-types/field-date-time.tsx" title="日期时间：valueType=dateTime" preview
+```
+```tsx file="<root>/demos/field/value-types/field-date-week.tsx" title="周：valueType=dateWeek" preview
+```
+```tsx file="<root>/demos/field/value-types/field-date-month.tsx" title="月：valueType=dateMonth" preview
+```
+```tsx file="<root>/demos/field/value-types/field-date-quarter.tsx" title="季度：valueType=dateQuarter" preview
+```
+```tsx file="<root>/demos/field/value-types/field-date-year.tsx" title="年：valueType=dateYear" preview
+```
+```tsx file="<root>/demos/field/value-types/field-time.tsx" title="时间：valueType=time" preview
+```
+```tsx file="<root>/demos/field/value-types/field-from-now.tsx" title="相对时间：valueType=fromNow" preview
+```
+```tsx file="<root>/demos/field/value-types/field-date-range.tsx" title="日期范围：valueType=dateRange" preview
+```
+```tsx file="<root>/demos/field/value-types/field-date-time-range.tsx" title="日期时间范围：valueType=dateTimeRange" preview
+```
+```tsx file="<root>/demos/field/value-types/field-time-range.tsx" title="时间范围：valueType=timeRange" preview
+```
+```tsx file="<root>/demos/field/value-types/field-date-week-range.tsx" title="周范围：valueType=dateWeekRange" preview
+```
+```tsx file="<root>/demos/field/value-types/field-date-month-range.tsx" title="月范围：valueType=dateMonthRange" preview
+```
+```tsx file="<root>/demos/field/value-types/field-date-quarter-range.tsx" title="季度范围：valueType=dateQuarterRange" preview
+```
+```tsx file="<root>/demos/field/value-types/field-date-year-range.tsx" title="年范围：valueType=dateYearRange" preview
+```
+```tsx file="<root>/demos/field/value-types/field-code.tsx" title="代码：valueType=code" preview
+```
+```tsx file="<root>/demos/field/value-types/field-json-code.tsx" title="JSON：valueType=jsonCode" preview
+```
+```tsx file="<root>/demos/field/value-types/field-select.tsx" title="下拉选择：valueType=select 与 valueEnum" preview
+```
+```tsx file="<root>/demos/field/value-types/field-select-request.tsx" title="异步选项：ProField.request" preview
+```
+```tsx file="<root>/demos/field/value-types/field-cascader.tsx" title="级联选择：valueType=cascader" preview
+```
+```tsx file="<root>/demos/field/value-types/field-tree-select.tsx" title="树形选择：valueType=treeSelect" preview
+```
+```tsx file="<root>/demos/field/value-types/field-percent-color.tsx" title="百分比颜色：valueType.showColor" preview
+```
+```tsx file="<root>/demos/field/value-types/field-empty-text.tsx" title="空值文本：ProField.emptyText" preview
+```
+
+```tsx file="<root>/demos/field/regressions/reg-disabled-text.tsx" title="禁用输入：ProField.fieldProps.disabled" preview
+```
+```tsx file="<root>/demos/field/regressions/reg-disabled-color.tsx" title="禁用颜色：color.fieldProps.disabled" preview
+```
+```tsx file="<root>/demos/field/regressions/reg-money-symbol.tsx" title="货币符号：money.fieldProps.customSymbol" preview
+```
+```tsx file="<root>/demos/field/regressions/reg-money-popover.tsx" title="金额编辑气泡：ProField.numberPopoverRender" preview
+```
+```tsx file="<root>/demos/field/regressions/reg-image-width.tsx" title="图片宽度：valueType.width" preview
+```
+```tsx file="<root>/demos/field/regressions/reg-checkbox-label-in-value.tsx" title="带标签的多选值：checkbox labelInValue" preview
+```
+```tsx file="<root>/demos/field/regressions/reg-select-opt-group.tsx" title="分组选项：ProField.request.optionType" preview
+```
+```tsx file="<root>/demos/field/regressions/reg-cascader-request.tsx" title="异步级联：cascader.request" preview
+```
+```tsx file="<root>/demos/field/regressions/reg-percent-symbol.tsx" title="负数符号：percent.showSymbol" preview
+```
+```tsx file="<root>/demos/field/regressions/reg-empty-percent.tsx" title="空百分比：ProField.emptyText" preview
+```
+
+```tsx file="<root>/demos/field/search-value.tsx" title="受控搜索词：fieldProps.searchValue" preview
+```
+
+```tsx file="<root>/demos/field/search-value-autoClearSearchValue.tsx" title="自动清除搜索词：fieldProps.autoClearSearchValue" preview
+```
+
+```tsx file="<root>/demos/field/field-tree-request.tsx" title="异步树节点：ProFormTreeSelect.request" preview
+```
+```tsx file="<root>/demos/field/field-tree-field-names.tsx" title="树节点映射：fieldProps.fieldNames" preview
+```
+```tsx file="<root>/demos/field/field-tree-search-value.tsx" title="受控树搜索：fieldProps.searchValue" preview
+```
+
+```tsx file="<root>/demos/field/select-request.tsx" title="独立表单请求：ProFormSelect.request" preview
+```
+
+```tsx file="<root>/demos/field/field-search-remote.tsx" title="输入时请求：ProFormSelect.request" preview
+```
+```tsx file="<root>/demos/field/field-search-local.tsx" title="本地筛选：fetchDataOnSearch=false" preview
+```
+
+## API
+
+```typescript | pure
+import   Field from '@ant-design/pro-field';
+
+return <Field text="100" valueType="money" mode={state} />;
+```
+
+### 参数
+
+| 参数           | 说明                                                           | 类型                                                                 | 默认值 |
+| -------------- | -------------------------------------------------------------- | -------------------------------------------------------------------- | ------ |
+| text           | 需要格式化的值                                                 | `ReactNode \| ReactNode[] \| Record<string,any> \| Record<string,any>[]` | -  |
+| valueType      | 格式化的类型                                                   | `ProFieldValueTypeInput`                                             | -      |
+| mode           | 组件的模式                                                     | `read` \| `edit` \| `update`                                         | `read` |
+| readonly       | 是否只读                                                       | `boolean`                                                            | -      |
+| request        | 从服务器读取枚举                                               | `(params, props) => Promise<RequestOptionsType[]>`                   | -      |
+| emptyText      | 空值时的展示                                                   | `ReactNode`                                                          | -      |
+| formItemRender | 自定义 `mode=update \| edit` 下的 dom 表现，一般用于渲染编辑框 | `(text, props, dom) => JSX.Element`                                  | -      |
+| render         | 自定义 `mode=read` 下的 dom 表现，只是单纯的表现形式           | `(text, props, dom) => JSX.Element`                                  | -      |

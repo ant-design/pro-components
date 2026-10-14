@@ -1,0 +1,33 @@
+diff --git a/static/global-components/common/getPageUrl.ts b/static/global-components/common/getPageUrl.ts
+index c6e04605480037d5b21885db653c0244844138bf..a2809380abafd21f3a7cb9215885c8a8da64cfda 100644
+--- a/static/global-components/common/getPageUrl.ts
++++ b/static/global-components/common/getPageUrl.ts
+@@ -1,7 +1,10 @@
+-import { withBase } from '@rspress/core/runtime';
++import { normalizeHrefInRuntime, withBase } from '@rspress/core/runtime';
+ 
+ const DEV_PORT = process.env.RSPRESS_IFRAME_DEV_PORT;
+ 
++const getDemoPagePath = (demoId: string) =>
++  normalizeHrefInRuntime(`/~demo/${demoId}`);
++
+ /*
+  * We must provide the complete address for scanning QR Code.
+  */
+@@ -9,7 +12,7 @@ export const getPageFullUrl = (demoId: string) => {
+   if (DEV_PORT && import.meta.env.DEV) {
+     return `http://${window.location.hostname}:${DEV_PORT}/${demoId}`;
+   }
+-  const url = `/~demo/${demoId}`;
++  const url = getDemoPagePath(demoId);
+   if (typeof window !== 'undefined') {
+     return `${window.location.origin}${withBase(url)}`;
+   }
+@@ -21,6 +24,6 @@ export const getPageUrl = (demoId: string) => {
+   if (DEV_PORT && import.meta.env.DEV) {
+     return `http://${window.location.hostname}:${DEV_PORT}/${demoId}`;
+   }
+-  const url = `/~demo/${demoId}`;
++  const url = getDemoPagePath(demoId);
+   return withBase(url);
+ };

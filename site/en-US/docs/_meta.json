@@ -1,0 +1,27 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "Introduction"
+  },
+  {
+    "type": "file",
+    "name": "intro",
+    "label": "About ProComponents"
+  },
+  {
+    "type": "file",
+    "name": "pro-config-provider",
+    "label": "ProConfigProvider"
+  },
+  {
+    "type": "file",
+    "name": "api-changes",
+    "label": "API Changes"
+  },
+  {
+    "type": "file",
+    "name": "migration-guide",
+    "label": "Migration Guide"
+  }
+]

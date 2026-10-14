@@ -1,0 +1,189 @@
+---
+title: CheckCard Multi-select Card
+order: 1
+---
+
+
+# CheckCard - Multi-select Card
+
+The CheckCard is a card that can contain various related descriptive information and can be selected. Features:
+
+- ① Can contain various related descriptive information, such as title, description, image, labels, etc.
+- ② Has a clear boundary.
+- ③ Has a clear selected state.
+
+## When to use
+
+- When you need to display multiple descriptive information of selected objects.
+- When the number of selected objects is not large.
+
+## Code Demo
+
+### Basic Usage
+
+The most commonly used example of a card, including avatar, title, description, etc., and can be selected.
+
+
+```tsx file="<root>/demos/card/CheckCard/basic.tsx" preview
+```
+```tsx file="<root>/demos/card/CheckCard/single.tsx" preview
+```
+```tsx file="<root>/demos/card/CheckCard/multiple.tsx" preview
+```
+
+### Different Sizes
+
+Configure the `size` property to change the size of the card. Currently available options are `large`, `default`, and `small`, with only the width being different.
+
+
+```tsx file="<root>/demos/card/CheckCard/size.tsx" preview
+```
+
+Of course, you can also customize the size of the card using the `style` or `className` properties.
+
+### Custom Size
+
+
+```tsx file="<root>/demos/card/CheckCard/custom.tsx" preview
+```
+
+### Using in Form
+
+CheckCard can be used together with form components. Here is an example.
+
+
+```tsx file="<root>/demos/card/CheckCard/form.tsx" preview
+```
+
+### Composing Styles
+
+The avatar, title, and description areas can be freely combined or presented separately. The component will adjust the alignment for you.
+
+
+```tsx file="<root>/demos/card/CheckCard/compose.tsx" preview
+```
+
+### Custom Avatar
+
+You can customize the avatar area using the `avatar` property.
+
+
+```tsx file="<root>/demos/card/CheckCard/avatar.tsx" preview
+```
+
+### Custom Title
+
+You can customize the title area using the `title` property.
+
+
+```tsx file="<root>/demos/card/CheckCard/title.tsx" preview
+```
+
+### Custom Description
+
+The description area can be customized using the `description` property with a React node.
+
+
+```tsx file="<root>/demos/card/CheckCard/description.tsx" preview
+```
+
+### Default Checked
+
+Set the `defaultChecked` property to `true` to specify that the option is checked by default.
+
+
+```tsx file="<root>/demos/card/CheckCard/defaultChecked.tsx" preview
+```
+
+### Action Area
+
+Use the `extra` property to add an action area to the card.
+
+
+```tsx file="<root>/demos/card/CheckCard/extra.tsx" preview
+```
+
+### Loading State
+
+Set the `loading` property to `true` to indicate that the content is still loading.
+
+
+```tsx file="<root>/demos/card/CheckCard/loading.tsx" preview
+```
+
+### Image Only Option
+
+By only setting the `cover` property, you can create an image-only option.
+
+
+```tsx file="<root>/demos/card/CheckCard/image.tsx" preview
+```
+
+### Disabled Option
+
+Set the `disabled` property to disable an option.
+
+
+```tsx file="<root>/demos/card/CheckCard/disabled.tsx" preview
+```
+
+### Option List
+
+`CheckCard.Group` supports listing multiple options using the `options` property.
+
+
+```tsx file="<root>/demos/card/CheckCard/group.tsx" preview
+```
+
+### Application List Example
+
+Here is an example of using CheckCard to select image algorithms in the actual AiDesk.
+
+
+```tsx file="<root>/demos/card/CheckCard/list.tsx" preview
+```
+
+### Layout
+
+`CheckCard.Group` can be used together with `CheckCard` and `Grid` components to achieve more flexible layouts.
+
+
+```tsx file="<root>/demos/card/CheckCard/grid.tsx" preview
+```
+
+## API
+
+### CheckCard
+
+| Property       | Description                                                                                                          | Type                                               | Default   | Version |
+| -------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | --------- | ------- |
+| checked        | Specifies whether the option is selected                                                                             | boolean                                            | false     |         |
+| bordered       | Whether to display the border                                                                                        | boolean                                            | true      | 1.20.0  |
+| value          | Value of the option                                                                                                  | any                                                | -         |         |
+| defaultChecked | Specifies whether the option is initially selected                                                                   | boolean                                            | false     |         |
+| disabled       | Disabled state                                                                                                       | boolean                                            | false     |         |
+| size           | Size of the checkbox, options: `large`, `small`                                                                      | `'large' \| 'default' \| 'small'`                  | `'default'` |       |
+| onChange       | Callback function when the value changes                                                                             | `(checked: boolean) => void`                       | -         |         |
+| loading        | When the card content is still loading, you can use loading to show a placeholder                                    | boolean                                            | false     |         |
+| title          | Title                                                                                                                | ReactNode                                          | -         |         |
+| subTitle       | Subtitle                                                                                                             | ReactNode                                          | -         |         |
+| description    | Description                                                                                                          | ReactNode                                          | -         |         |
+| avatar         | Image of the option element                                                                                          | ReactNode                                          | -         |         |
+| extra          | Extra operations area on the top right of the card                                                                   | ReactNode                                          | -         |         |
+| actions        | Actions area at the bottom right of the card                                                                         | ReactNode[]                                        | -         |         |
+| cover          | Background image of the card. Note that when using this option, `title`, `description`, and `avatar` will be ignored | ReactNode                                          | -         |         |
+| ghost          | Ghost mode                                                                                                           | boolean                                            | false     |         |
+
+### CheckCard.Group
+
+| Property     | Description                                                                             | Type                                                                                                                                               | Default   | Version |
+| ------------ | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- |
+| multiple     | Multiple selection                                                                      | boolean                                                                                                                                            | false     |         |
+| bordered     | Whether to display the border                                                           | boolean                                                                                                                                            | true      | 1.20.0  |
+| defaultValue | Default selected options                                                                | string \| string\[]                                                                                                                                | -         |         |
+| disabled     | Disable the entire group                                                                | boolean                                                                                                                                            | false     |         |
+| loading      | When the card group content is still loading, you can use loading to show a placeholder | boolean                                                                                                                                            | false     |         |
+| options      | Specify the options                                                                     | string\[] \| Array&lt;&#123; title: ReactNode, value: string, description?: ReactNode, avatar?: ReactNode, cover?:ReactNode, disabled?: boolean &#125;&gt;         | \[]       |         |
+| value        | Specify the selected options                                                            | string \| string\[]                                                                                                                                | -         |         |
+| size         | Size of the checkbox, options: `large`, `small`                                         | `'large' \| 'default' \| 'small'`                                                                                                                  | `'default'` |       |
+| onChange     | Callback function when the value changes                                                | `(checkedValue) => void`                                                                                                                           | -         |         |

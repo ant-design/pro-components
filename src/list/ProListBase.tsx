@@ -2,10 +2,14 @@
  * 内部 List 容器与 List.Item / List.Item.Meta 实现，用于替代 antd List（antd List 已停止维护）
  * 保持与 antd List 相同的 DOM 结构及类名，以便复用 antd 的 list 样式
  */
-import { ConfigProvider, Empty, Grid, Pagination, Spin } from 'antd';
+import { ConfigProvider, Empty, Pagination, Spin } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
 import type { PaginationConfig } from '../utils/antdTypes';
+import {
+  getResponsiveValue,
+  useResponsiveScreens,
+} from '../utils/responsive';
 
 export type ColumnCount = number;
 export type ColumnType =
@@ -213,15 +217,6 @@ const defaultPaginationProps = {
   position: 'bottom' as const,
 };
 
-const DEFAULT_SCREENS = {
-  xs: true,
-  sm: true,
-  md: true,
-  lg: false,
-  xl: false,
-  xxl: false,
-} as const;
-
 const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps>(
   function ProListContainerInner(props, ref) {
     const {
@@ -321,42 +316,25 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps>(
       );
     };
 
-    const rawScreens = Grid.useBreakpoint();
-    const screens = useMemo(() => {
-      if (rawScreens == null) return DEFAULT_SCREENS;
-      return {
-        xxl: rawScreens.xxl ?? DEFAULT_SCREENS.xxl,
-        xl: rawScreens.xl ?? DEFAULT_SCREENS.xl,
-        lg: rawScreens.lg ?? DEFAULT_SCREENS.lg,
-        md: rawScreens.md ?? DEFAULT_SCREENS.md,
-        sm: rawScreens.sm ?? DEFAULT_SCREENS.sm,
-        xs: rawScreens.xs ?? DEFAULT_SCREENS.xs,
-      };
-    }, [rawScreens]);
+    const screens = useResponsiveScreens();
 
     /**
      * 根据当前断点获取列数，与 antd Grid/Card 响应式逻辑一致
      */
     const getResponsiveColumn = useMemo((): number => {
       if (!grid) return 1;
-
-      const responsiveArray: Array<'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'> = [
-        'xxl',
-        'xl',
-        'lg',
-        'md',
-        'sm',
-        'xs',
-      ];
-
-      for (let i = 0; i < responsiveArray.length; i += 1) {
-        const breakpoint = responsiveArray[i];
-        if (screens[breakpoint] && grid[breakpoint] !== undefined) {
-          return grid[breakpoint] as number;
-        }
-      }
-
-      return (grid.column as number) || 1;
+      return getResponsiveValue(
+        screens,
+        {
+          xs: grid.xs,
+          sm: grid.sm,
+          md: grid.md,
+          lg: grid.lg,
+          xl: grid.xl,
+          xxl: grid.xxl,
+        },
+        (grid.column as number) || 1,
+      );
     }, [grid, screens]);
 
     /**

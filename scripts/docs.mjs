@@ -5,21 +5,10 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
- * 文档站 CLI 薄封装：与 dumi 对齐。
- * `check` → `@umijs/doctor` 的 publish 检查（同 `pnpm checkPublish`）。
+ * 文档站 CLI 薄封装：转发到 Rspress。
  */
 function runPnpmExec(args) {
   const result = spawnSync('pnpm', ['exec', ...args], {
-    stdio: 'inherit',
-    env: process.env,
-    shell: process.platform === 'win32',
-  });
-  process.exit(result.status ?? 1);
-}
-
-function runNodeScript(scriptName, extraArgs) {
-  const scriptPath = path.join(__dirname, scriptName);
-  const result = spawnSync('node', [scriptPath, ...extraArgs], {
     stdio: 'inherit',
     env: process.env,
     shell: process.platform === 'win32',
@@ -32,26 +21,17 @@ const extra = process.argv.slice(3);
 
 switch (sub) {
   case 'dev':
-    runPnpmExec(['dumi', 'dev', ...extra]);
+    runPnpmExec(['rspress', 'dev', ...extra]);
     break;
   case 'build':
-    runPnpmExec(['dumi', 'build', ...extra]);
+    runPnpmExec(['rspress', 'build', ...extra]);
     break;
   case 'preview':
-    runPnpmExec(['dumi', 'preview', ...extra]);
-    break;
-  case 'check':
-    runNodeScript('checkPublish.mjs', extra);
-    break;
-  case 'create':
-    console.error(
-      'docs:create：本仓库未接 dumi 脚手架命令；请在 demos/、site/ 下按现有结构添加示例与文档。',
-    );
-    process.exit(1);
+    runPnpmExec(['rspress', 'preview', ...extra]);
     break;
   default:
     console.error(
-      `Unknown docs subcommand: ${sub}. Use: dev, build, preview, check, create`,
+      `Unknown docs subcommand: ${sub}. Use: dev, build, preview`,
     );
     process.exit(1);
 }

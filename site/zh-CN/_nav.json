@@ -1,0 +1,18 @@
+[
+  {
+    "text": "文档",
+    "link": "/docs/"
+  },
+  {
+    "text": "组件",
+    "link": "/components/"
+  },
+  {
+    "text": "Changelog",
+    "link": "/changelog/"
+  },
+  {
+    "text": "Playground",
+    "link": "/playground/"
+  }
+]

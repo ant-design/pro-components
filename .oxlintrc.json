@@ -21,7 +21,9 @@
     "**/*.json",
     "typings.d.ts",
     "webpack.config.js",
-    "site-dumi-plugin.ts"
+    "site-dumi-plugin.ts",
+    "rspress.config.ts",
+    "theme/**"
   ],
   "rules": {
     "no-console": "off",

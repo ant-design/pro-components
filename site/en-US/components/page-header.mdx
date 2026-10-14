@@ -1,0 +1,36 @@
+---
+title: PageHeader Page Header
+---
+
+
+A header with common actions and design elements built in.
+
+## When To Use
+
+PageHeader can be used to highlight the page topic, display important information about the page, and carry the action items related to the current page (including page-level operations, inter-page navigation, etc.) It can also be used as inter-page navigation.
+
+## PageHeader
+
+| Param            | Description                                                    | Type                                       | Default value  | Version |
+| ---------------- | -------------------------------------------------------------- | ------------------------------------------ | -------------- | ------- |
+| avatar           | Avatar next to the title bar                                   | [AvatarProps](https://ant.design/components/avatar)         | -              |         |
+| backIcon         | Custom back icon, if false, the back icon will not be rendered | ReactNode \| boolean                       | `<ArrowLeft/>` |         |
+| breadcrumb       | Breadcrumb configuration                                       | [BreadcrumbProps](https://ant.design/components/breadcrumb) | -              |         |
+| extra            | Operating area, at the end of the line of the title            | ReactNode                                  | -              |         |
+| ghost            | PageHeader type, will change background color                  | boolean                                    | true           |         |
+| subTitle         | Custom subtitle text                                           | ReactNode                                  | -              |         |
+| tags             | Tag list next to title                                         | `Tag[]`                                    | -              |         |
+| title            | Custom title text                                              | ReactNode                                  | -              |         |
+| onBack           | Back button click event                                        | () => void                                 | -              |         |
+| footer           | PageHeader footer, generally used to render TabBar             | ReactNode                                  | -              |         |
+| breadcrumbRender | Custom breadcrumb area content                                 | (props, originBreadcrumb) => ReactNode     | -              |         |
+
+## Code Examples
+
+
+```tsx file="<root>/demos/layout/page-header/basic.tsx" title="Basic Page Header" preview
+```
+```tsx file="<root>/demos/layout/page-header/ghost.tsx" title="white background mode" preview
+```
+```tsx file="<root>/demos/layout/page-header/breadcrumb.tsx" title="Use with breadcrumbs" preview
+```

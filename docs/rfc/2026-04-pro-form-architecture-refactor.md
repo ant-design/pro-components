@@ -3,15 +3,17 @@
 
 | 元数据      | 内容                                                                                                                                                                                                                                             |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **状态**   | **Accepted**（实施完成，2026-04-06；对外 API 无 intentional breaking）                                                                                                                                                                                                                 |
+| **状态**   | **Accepted**（阶段 0～4 已交付；**2026-10** [#9751](https://github.com/ant-design/pro-components/pull/9751) 移除对外 `warpField`，字段壳层更名为 `createProFormField` / `useProFormFieldShell`）                                                                                                                                                                                                                 |
 | **创建日期** | 2026-04-06                                                                                                                                                                                                                                     |
 | **范围**   | `@ant-design/pro-form` / `src/form`                                                                                                                                                                                                            |
-| **相关文件** | `src/form/BaseForm/BaseForm.tsx`、`src/form/components/FormItem/warpField.tsx`（导出函数名为 `**warpField`**，与英文 *wrap* 拼写不同，**禁止**在 non-major 中重命名）、`src/form/layouts/SchemaForm`、`src/form/BetaSchemaForm`、`src/form/typing/`（入口 `index.ts`）、`src/form/index.tsx` |
+| **相关文件** | `src/form/BaseForm/BaseForm.tsx`、`src/form/components/FormItem/createProFormField.tsx`、`useProFormFieldShell.tsx`、`src/form/layouts/SchemaForm`、`src/form/BetaSchemaForm`、`src/form/typing/`（入口 `index.ts`）、`src/form/index.tsx` |
 
 
 ## 摘要
 
-`ProForm` 当前在单文件内聚合 URL 同步、请求与初始值、提交管线、布局与多层 Context，字段层通过 `warpField` 统一包装导致分支复杂；同时存在「手写 `ProFormXxx`」与「`SchemaForm` / `BetaSchemaForm`」两条建单路径，行为需对齐但实现分叉。本 RFC 提议在 **不破坏对外 API 与默认行为**（除非单独发 major 并提供迁移说明）的前提下，分阶段拆分职责、提升可测性与可维护性。
+`ProForm` 当前在单文件内聚合 URL 同步、请求与初始值、提交管线、布局与多层 Context，字段层通过 **`createProFormField` / `useProFormFieldShell`**（原 `warpField` 单文件）统一包装导致分支复杂；同时存在「手写 `ProFormXxx`」与「`SchemaForm` / `BetaSchemaForm`」两条建单路径，行为需对齐但实现分叉。本 RFC 提议在 **不破坏对外 API 与默认行为**（除非单独发 major 并提供迁移说明）的前提下，分阶段拆分职责、提升可测性与可维护性。
+
+> **命名沿革**：历史实现与导出名为 `warpField`（拼写固定，非英文 *wrap*）。[#9751](https://github.com/ant-design/pro-components/pull/9751) 起对外仅保留 `createProFormField`、`useProFormFieldShell`；内部模块见 `proFormFieldDependencyBranch`、`proFormFieldLazyBoundary`、`proFormFieldLightTypes`。
 
 ## 背景：复杂度从哪来
 
@@ -19,7 +21,7 @@
 | 来源          | 说明                                                                                                                     |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------- |
 | **单文件职责过多** | `BaseForm.tsx`（约近千行）集中：URL 同步、`request`/初始值、`transformKey` 提交、日期转换、`submitter`、网格布局、`FieldContext`、只读/编辑、`formRef` 增强等 |
-| **字段包装层厚**  | `warpField` 合并 `fieldConfig`、`LightFilter`、宽度、`FormItem`、依赖等，`props` 分叉多                                               |
+| **字段包装层厚**  | 字段壳层合并 `fieldConfig`、`LightFilter`、宽度、`FormItem`、依赖等，`props` 分叉多                                               |
 | **上下文叠加**   | `FieldContext`、`ProFormContext`、`GridContext`、`EditOrReadOnlyContext`、`FormListContext`、`RcFieldContext` 等，阅读成本高       |
 | **两条建单路径**  | 手写 `ProFormXxx` vs `SchemaForm` / `BetaSchemaForm`（`columns` + `valueType`），行为要对齐但实现分叉                                 |
 | **类型面宽**    | `typing.ts` 与各组件 props 交叉引用，改动牵一发而动全身                                                                                  |
@@ -49,7 +51,7 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 ## 现状架构要点（便于评审对齐）
 
 - **BaseForm**（`src/form/BaseForm/BaseForm.tsx`）：`CommonFormProps` 与大量副作用（`useEffect`）共存；URL 与 `request` 竞态风险高。
-- **warpField**（`src/form/components/FormItem/warpField.tsx`）：统一入口厚，易与 Schema 专用约定（如函数形态 `getFieldProps`）交织。
+- **字段壳层**（`createProFormField.tsx` + `useProFormFieldShell.tsx`）：统一入口，易与 Schema 专用约定（如函数形态 `getFieldProps`）交织。
 - **Schema 路径**：`valueType` 扩展分散，与命令式路径共享规则但不总是同一套实现。
 
 ## 提议方案：分阶段重构
@@ -86,7 +88,7 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 
 **验收**：`BaseForm` 主文件行数明显下降；上述模块各有单元测试（输入 props/状态 → 输出值或调用次数）。
 
-### 阶段 2：收敛字段层（`warpField` + `FormItem`）
+### 阶段 2：收敛字段层（`createProFormField` + `FormItem`）
 
 
 | 工作项  | 说明                                                                                        |
@@ -98,13 +100,12 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 
 **验收**：单测覆盖「带/不带 LightFilter」「`ignoreFormItem`」「`dependency`」各一条；bundle 无明显上涨或说明原因。
 
-**当前进度**（阶段 2）：
+**当前进度**（阶段 2 + [#9751](https://github.com/ant-design/pro-components/pull/9751)）：
 
-- 已拆：`warpFieldLayout.ts`、`warpFieldMerge.ts`、`warpFieldLightProps.ts`（`buildWarpFieldLightProps`）、`warpFieldNodes.tsx`、`warpFieldDependency.tsx`；`warpField.tsx` 为薄组装。
-- **`warpField.tsx` 文件头 JSDoc**：总流程注释（`pickProFormItemProps` → 各 merge → `buildWarpFieldLightProps` → `WarpFieldDependencyWrapper`）。
-- 单测：`tests/form/warpFieldLayout.test.ts`、`warpFieldMerge.test.ts`、`warpFieldLightProps.test.ts`（含命名用例 **LightFilter / `proFieldLight`**）、`warpFieldDependency.test.tsx`。
-- **文档**：`form-architecture.md` 补充 bundle 说明、Schema 专用 `getFieldProps`/`getFormItemProps` 备忘、轻量模式验收策略（纯函数 + 命名用例即可）。
-- **类型**：`FieldContextProps` 作为 `FiledContextProps` 别名导出（旧名保留，`@deprecated`）；大规模重命名仍非必须。
+- 字段壳层：`useProFormFieldShell.tsx`（合并、栅格、light）、`createProFormField.tsx`（工厂 + 依赖动态 import）。
+- 按需分包：`proFormFieldDependencyBranch.tsx`、`proFormFieldLazyBoundary.tsx`、`proFormFieldLightTypes.ts`；LightFilter 经 context 注入 popover 渲染。
+- **文档**：`form-architecture.md` 补充 bundle、Schema `getFieldProps` 备忘、包入口 tree-shaking 说明。
+- **类型**：`FieldContextProps` 作为 `FiledContextProps` 别名导出（旧名保留，`@deprecated`）。
 
 ### 阶段 3：`SchemaForm` 与命令式路径对齐
 
@@ -121,7 +122,7 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 **阶段 3 启动步骤（实施前摸底，不改变行为）**：
 
 1. ~~在 `docs/internal/form-architecture.md`（或独立小节）记录 `SchemaForm` / `BetaSchemaForm` 的入口文件、`columns` → 子组件的调用链。~~ **已做**（见「Schema 路径」与 `getFieldProps` 生成说明）。
-2. ~~用 `rg "getFieldProps|getFormItemProps"` 在 `src/form` 标出仅 Schema 路径使用的分支~~ **已文档化**：`BetaSchemaForm` 的 `genItems` 将列上 `fieldProps`/`formItemProps` 转为函数形态；其余以 `warpField` / `warpFieldMerge` 为准。
+2. ~~用 `rg "getFieldProps|getFormItemProps"` 在 `src/form` 标出仅 Schema 路径使用的分支~~ **已文档化**：`BetaSchemaForm` 的 `genItems` 将列上 `fieldProps`/`formItemProps` 转为函数形态；运行时合并以 **`useProFormFieldShell`** 为准。
 3. ~~首条对齐测试（`text`）~~ **已做**：`tests/form/schemaImperativeAlignment.test.tsx`。
 
 **阶段 3（本轮已合并）**：
@@ -138,7 +139,7 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 | 工作项              | 说明                                                                        |
 | ---------------- | ------------------------------------------------------------------------- |
 | 按域拆分 `typing.ts` | `layout.ts`（`ProFormGridConfig`）、`fieldItem.ts`（字段扩展类型），`typing/index.ts` 统一 re-export |
-| 对外兼容             | `src/form/index.tsx` 仍从 `./typing` 引入；**不**改包入口导出名称 |
+| 对外兼容             | `src/form/index.tsx` 仍从 `./typing` 引入；**不**改包入口导出名称（除已文档化的 major 破坏性变更） |
 | submit / schema 类型 | **不**在 `typing/index` 中二次 re-export：`BaseForm/BaseFormTypes` 与 `SchemaForm/typing` 互引 `typing` 会形成循环；提交/Schema 类型仍在原文件查阅 |
 
 **阶段 4 当前**：已完成目录拆分；`npm run build` / `tsc` 通过即可。
@@ -149,7 +150,7 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 
 | 风险                     | 缓解                                   |
 | ---------------------- | ------------------------------------ |
-| 第一步大改 `warpField` 对外行为 | **先拆 `BaseForm`**，再动字段层，风险更可控        |
+| 第一步大改字段壳层对外行为 | **先拆 `BaseForm`**，再动字段层，风险更可控        |
 | URL 同步与 `request` 竞态   | 阶段 1 重点补测试；重构时保持副作用顺序可观测             |
 | 类型大挪移引发下游 breakage     | 阶段 4 以 re-export 为主，避免用户 import 路径断裂 |
 
@@ -163,7 +164,7 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 | --- | ------------------------ | ------ |
 | 0   | 摸底 + 基线                  | 1～2 天  |
 | 1   | 拆分 `BaseForm`            | 3～7 天  |
-| 2   | `warpField` / `FormItem` | 3～5 天  |
+| 2   | 字段壳层 / `FormItem` | 3～5 天  |
 | 3   | Schema 对齐                | 5～10 天 |
 | 4   | 类型整理                     | 2～4 天  |
 
@@ -180,7 +181,7 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 | --- | --- | --- |
 | 0 | 完成 | `docs/internal/form-architecture.md` |
 | 1 | 完成 | `BaseForm` 拆模块 + `genParams` / `base` 等单测 |
-| 2 | 基本完成（条文级） | 结构拆分、总流程注释、LightFilter 命名单测、bundle/Schema 备忘、`FieldContextProps` 别名；目录级收敛 Schema 留在阶段 3 |
+| 2 | 完成 | `createProFormField` / `useProFormFieldShell`、按需依赖与 Light 分包 [#9751] |
 | 3 | 基本完成 | `normalizeColumnToItemType`、`valueType/pipeline`、对齐测试与文档 |
 | 4 | 完成 | `src/form/typing/{layout,fieldItem,index}.ts`；submit/schema 类型保留在原模块防循环 |
 
@@ -205,26 +206,26 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 | --------- | ---------------------------------------------------------------------------- |
 | 表单公共入口    | `src/form/index.tsx`                                                         |
 | BaseForm  | `src/form/BaseForm/BaseForm.tsx`                                             |
-| 字段包装      | `src/form/components/FormItem/warpField.tsx`                                 |
-| 字段包装拆分    | `warpFieldLayout.ts`、`warpFieldMerge.ts`、`warpFieldLightProps.ts`、`warpFieldNodes.tsx`、`warpFieldDependency.tsx` |
+| 字段包装      | `src/form/components/FormItem/createProFormField.tsx`、`useProFormFieldShell.tsx` |
+| 字段按需分包    | `proFormFieldDependencyBranch.tsx`、`proFormFieldLazyBoundary.tsx`、`proFormFieldLightTypes.ts` |
 | Schema 列归一化 | `src/form/components/SchemaForm/normalizeColumnToItemType.ts`              |
 | Schema valueType 管道 | `src/form/components/SchemaForm/valueType/pipeline/*`                  |
 | 类型聚合      | `src/form/typing/`（`layout.ts`、`fieldItem.ts`、`index.ts`）              |
-| Form 相关测试 | `tests/form/`（如 `base.test.tsx`、`genParams.test.ts`、`warpField*.test.ts`、`schemaImperativeAlignment.test.tsx`、`dependency.test.tsx`） |
+| Form 相关测试 | `tests/form/`（如 `base.test.tsx`、`genParams.test.ts`、`schemaImperativeAlignment.test.tsx`、`dependency.test.tsx`） |
 
 
 ### MUST
 
-- **保持对外导出**：`src/form/index.tsx` 的公开导出列表与类型对外语义不变，除非走 **major** 并在 changelog / 迁移文档中说明。
+- **保持对外导出**：`src/form/index.tsx` 的公开导出列表与类型对外语义不变，除非走 **major** 并在 changelog / 迁移文档中说明（含 [#9751](https://github.com/ant-design/pro-components/pull/9751) 移除 `warpField`）。
 - **先测后拆**：从 `BaseForm` 抽离 hook 或移动 `useEffect` 前，确保相关 `tests/form` 可运行；对竞态场景优先补最小单测或注释「顺序敏感」。
-- **分阶段单 PR**：同一 PR 内 **不要** 同时做大范围 `BaseForm` 拆分与 `warpField` 行为变更；遵循阶段 1 → 2 顺序。
+- **分阶段单 PR**：同一 PR 内 **不要** 同时做大范围 `BaseForm` 拆分与字段壳层行为变更；遵循阶段 1 → 2 顺序。
 - **阶段 4 类型迁移**：内部拆文件后通过 **re-export** 保持用户侧 `import { … } from '@ant-design/pro-form'` 行为不变。
 
 ### MUST NOT
 
 - **禁止** 为「整洁」擅自调整 `useEffect` 依赖数组或执行顺序，除非对照阶段 0 的副作用清单并补充针对性测试。
 - **禁止** 合并或重排 `onFinish` 中与 `transformKeySubmitValue`、`conversionMomentValue` 相关的处理顺序（除非测试证明等价且评审同意）。
-- **禁止** 在无 major 计划时将 `warpField` **重命名**为 `wrapField` 等（现有 API 与文件名均为 `warpField`）。
+- **禁止** 在无 major 计划时删除或重命名已对外导出的字段工厂 API（`warpField` 已按 major 策略移除，迁移至 `createProFormField`）。
 - **禁止** 引入新的 npm 依赖用于表单重构（项目严控体积；确有需求需单独评审）。
 - **禁止** 在无测试支撑时调整 Context Provider 嵌套顺序或拆分方式。
 
@@ -260,7 +261,7 @@ npm run test:update -- tests/form
 | ---- | -------------------------------------------- |
 | 0    | 是否产出副作用清单与数据流笔记（可放在 PR 描述或 `docs/internal/`） |
 | 1    | 新 hook 是否单测覆盖；`useEffect` 是否有顺序注释或测试         |
-| 2    | `warpField` 分支是否用单测矩阵覆盖，而非仅 snapshot         |
+| 2    | 字段壳层分支是否用单测矩阵覆盖，而非仅 snapshot         |
 | 3    | Schema 与命令式路径是否共享同一套纯函数或对齐测试                 |
 | 4    | 是否仅移动类型 + re-export，未改对外类型名                  |
 
@@ -270,7 +271,6 @@ npm run test:update -- tests/form
 ## 结案说明（维护者）
 
 - 阶段 0～4 交付物均已合入主线方向代码；**开放问题 2–3**（`use-params` 抽象、`BetaSchemaForm` 命名）维持 RFC 默认策略，不在本迭代内改行为。
+- [#9751](https://github.com/ant-design/pro-components/pull/9751)：**破坏性**移除 `warpField`，推荐 **semver major**；自定义字段使用 `createProFormField` / `useProFormFieldShell`。
 - 合并前请以附录 **Definition of Done** 跑 `npm test -- tests/form` 与 `npm run lint`；快照类测试以当前 antd 版本为准按需更新。
 - 后续增量：仅 **对齐测试矩阵**、**Changelog** 与局部优化，不再扩展本 RFC 范围。
-
-*本 RFC 为架构与阶段规划，实施时以具体 PR 与代码审阅为准。*

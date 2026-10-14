@@ -54,7 +54,11 @@ import { omitBoolean } from './omitBoolean';
 import { omitUndefined } from './omitUndefined';
 import { omitUndefinedAndEmptyArr } from './omitUndefinedAndEmptyArr';
 import { parseValueToDay } from './parseValueToMoment';
-import { pickProFormItemProps } from './pickProFormItemProps';
+import {
+  omitProFormItemProps,
+  pickProFormItemProps,
+  proFormItemPropKeys,
+} from './pickProFormItemProps';
 import { pickProProps } from './pickProProps';
 import { objectToMap, proFieldParsingText } from './proFieldParsingText';
 import { runFunction } from './runFunction';
@@ -77,10 +81,26 @@ import type {
 } from './useEditableMap';
 import { useEditableMap } from './useEditableMap';
 import { useBreakpoint } from './useMediaQuery';
+import {
+  BREAKPOINT_ASC,
+  DEFAULT_SCREENS,
+  fillResponsiveConfig,
+  getResponsiveValue,
+  normalizeScreens,
+  RESPONSIVE_ARRAY,
+  useResponsiveScreens,
+} from './responsive';
 
 export * from './typing';
 export {
   autoFocusToFirstChild,
+  BREAKPOINT_ASC,
+  DEFAULT_SCREENS,
+  fillResponsiveConfig,
+  getResponsiveValue,
+  normalizeScreens,
+  RESPONSIVE_ARRAY,
+  useResponsiveScreens,
   conversionMomentValue,
   conversionMomentValue as conversionSubmitValue,
   convertMoment,
@@ -111,7 +131,9 @@ export {
   omitUndefinedAndEmptyArr,
   operationUnit,
   parseValueToDay,
+  omitProFormItemProps,
   pickProFormItemProps,
+  proFormItemPropKeys,
   pickProProps,
   proFieldParsingText,
   ProFormContext,
@@ -153,3 +175,4 @@ export type {
   UseEditableType,
   UseEditableUtilType,
 };
+export type { Breakpoint, ScreensMap } from './responsive';

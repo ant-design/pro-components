@@ -16,13 +16,12 @@ $ pnpm start
 
 ## Docs site
 
-Same toolchain as [dumi](https://d.umijs.org/); `docs` is a thin wrapper.
+Uses [Rspress](https://rspress.dev/); `docs` is a thin wrapper.
 
 ```bash
 $ pnpm docs dev       # local doc dev server (same idea as pnpm start)
 $ pnpm docs build
 $ pnpm docs preview
-$ pnpm docs check     # runs @umijs/doctor publish check (same as pnpm checkPublish)
 ```
 
 ## Build

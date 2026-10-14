@@ -6,7 +6,7 @@
 
 Designed for Enterprise-Level Application, Use Ant Design like a Pro!
 
-[![][npm-release-shield]][npm-release-link] [![][npm-downloads-shield]][npm-downloads-link] [![][github-releasedate-shield]][github-releasedate-link] [![][github-action-build-shield]][github-action-build-link] [![][codecov-shield]][codecov-link] <br/> [![][github-contributors-shield]][github-contributors-link] [![][github-forks-shield]][github-forks-link] [![][github-stars-shield]][github-stars-link] [![][github-issues-shield]][github-issues-link] [![][github-license-shield]][github-license-link] <br/> [![][ant-design-shield]][ant-design-link] [![][devops-dumi-shield]][devops-dumi-link] [![][devops-father-shield]][devops-father-link]
+[![][npm-release-shield]][npm-release-link] [![][npm-downloads-shield]][npm-downloads-link] [![][github-releasedate-shield]][github-releasedate-link] [![][github-action-build-shield]][github-action-build-link] [![][codecov-shield]][codecov-link] <br/> [![][github-contributors-shield]][github-contributors-link] [![][github-forks-shield]][github-forks-link] [![][github-stars-shield]][github-stars-link] [![][github-issues-shield]][github-issues-link] [![][github-license-shield]][github-license-link] <br/> [![][ant-design-shield]][ant-design-link] [![][devops-rspress-shield]][devops-rspress-link] [![][devops-father-shield]][devops-father-link]
 
 English · [简体中文](./README.zh-CN.md) · [Report Bug][github-issues-link] · [Request Feature][github-issues-link]
 
@@ -116,9 +116,8 @@ Common scripts:
 ```bash
 $ pnpm build           # library build (father)
 $ pnpm test            # vitest (see also pnpm test:coverage)
-$ pnpm start           # same as pnpm dev — dumi doc dev server
-$ pnpm docs build      # static doc site build (dumi)
-$ pnpm docs check      # @umijs/doctor publish check (same as pnpm checkPublish)
+$ pnpm start           # same as pnpm dev — Rspress doc dev server
+$ pnpm docs build      # static doc site build (Rspress)
 ```
 
 More detail: [CONTRIBUTING.md](./CONTRIBUTING.md).
@@ -185,8 +184,8 @@ Copyright © 2023 - present [AFX][ant-design-link] & [Ant Digital](https://antdi
 [ant-design-shield]: https://img.shields.io/badge/-Ant%20Design-1677FF?labelColor=black&logo=antdesign&style=flat-square
 [codecov-link]: https://codecov.io/gh/ant-design/pro-components
 [codecov-shield]: https://img.shields.io/codecov/c/github/ant-design/pro-components?color=1677FF&labelColor=black&style=flat-square&logo=codecov&logoColor=white
-[devops-dumi-link]: https://d.umijs.org/
-[devops-dumi-shield]: https://img.shields.io/badge/docs%20by-dumi-blue?color=1677FF&labelColor=black&style=flat-square
+[devops-rspress-link]: https://rspress.dev/
+[devops-rspress-shield]: https://img.shields.io/badge/docs%20by-rspress-blue?color=1677FF&labelColor=black&style=flat-square
 [devops-father-link]: https://github.com/umijs/father
 [devops-father-shield]: https://img.shields.io/badge/build%20with-father-028fe4.svg?color=1677FF&labelColor=black&style=flat-square
 [github-action-build-link]: https://github.com/ant-design/pro-components/actions/workflows/build.yml
