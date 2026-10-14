@@ -1,74 +1,32 @@
-﻿import { CloseCircleOutlined, SmileOutlined } from '@ant-design/icons';
-import {
-  ProForm,
-  ProFormGroup,
-  ProFormList,
-  ProFormText,
-} from '@ant-design/pro-components';
-import { Segmented } from 'antd';
+import { CloseCircleOutlined, SmileOutlined } from '@ant-design/icons';
+import { ProForm, ProFormList, ProFormText } from '@ant-design/pro-components';
 import { useState } from 'react';
 
-const Demo = () => {
-  const [readonly, setReadonly] = useState(false);
+export default () => {
+  const [result, setResult] = useState('');
+
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 16,
-      }}
-    >
-      <Segmented
-        block
-        options={[
-          {
-            label: '编辑',
-            title: '编辑',
-            value: 'edit',
-          },
-          {
-            label: '只读',
-            title: '只读',
-            value: 'readonly',
-          },
-        ]}
-        onChange={(e) => {
-          setReadonly(e === 'readonly');
-        }}
-      />
+    <>
       <ProForm
-        name="list-tooltip-demo"
-        readonly={readonly}
-        onFinish={async (e) => console.log(e)}
+        initialValues={{ labels: [{ value: '设计' }] }}
+        onFinish={async ({ labels }) => {
+          setResult(JSON.stringify(labels, null, 2));
+          return true;
+        }}
       >
-        <ProFormText name="name" label="姓名" />
         <ProFormList
           name="labels"
-          label="用户信息"
-          initialValue={[
-            {
-              value: '333',
-              label: '333',
-            },
-          ]}
-          copyIconProps={{ Icon: SmileOutlined, tooltipText: '复制此项到末尾' }}
+          label="标签"
+          copyIconProps={{ Icon: SmileOutlined, tooltipText: '复制此项' }}
           deleteIconProps={{
             Icon: CloseCircleOutlined,
-            tooltipText: '不需要这行了',
+            tooltipText: '删除此项',
           }}
         >
-          <ProFormGroup key="group">
-            <ProFormText name="value" label="值" />
-            <ProFormText name="label" label="显示名称" />
-          </ProFormGroup>
+          <ProFormText name="value" label="标签名称" />
         </ProFormList>
       </ProForm>
-    </div>
+      {result && <pre style={{ whiteSpace: 'pre-wrap' }}>{result}</pre>}
+    </>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

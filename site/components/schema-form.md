@@ -48,7 +48,7 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 | --------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `key`                 | `React.Key`                                                                    | 确定这个列的唯一值，一般用于 dataIndex 重复的情况                                                                                                                                        |
 | `dataIndex`           | `React.Key` \| `React.Key[]`                                                   | 与实体映射的 key，数组会被转化 `[a,b] => Entity.a.b`                                                                                                                                     |
-| `valueType`           | `ProFieldValueType`                                                            | 数据的渲染方式，我们自带了一部分，你也可以自定义 valueType                                                                                                                             |
+| `valueType`           | `ProFieldValueType`                                                            | 数据的渲染方式，我们自带了一部分，你也可以自定义 valueType                                                                                                                               |
 | `title`               | `ReactNode` \|`(props,type,dom)=> ReactNode`                                   | 标题的内容，在 form 中是 label                                                                                                                                                           |
 | `tooltip`             | `LabelTooltipType \| string`                                                   | 会在 title 旁边展示一个 icon，鼠标浮动之后展示                                                                                                                                           |
 | `width`               | `number` \| `string`                                                           | 宽度。<br />`xs`: 104px - 短数字、短文本<br />`sm`: 216px - 短字段(姓名、电话)<br />`md`: 328px - 标准宽度<br />`lg`: 440px - 长字段(网址、标签组)<br />`xl`: 552px - 长文本(描述、备注) |
@@ -62,14 +62,14 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 | `proFieldProps`       | `proFieldProps`                                                                | 设置到 `ProField` 上面的 `props`，内部属性                                                                                                                                               |
 | `renderText`          | `(text: any, record: Entity, index: number, action: ProCoreActionType) => any` | 修改的数据是会被 valueType 定义的渲染组件消费                                                                                                                                            |
 | `render`              | `(dom,entity,index, action, schema) => React.ReactNode`                        | 自定义只读模式的 dom,`render` 方法只管理的只读模式，编辑模式需要使用 `formItemRender`                                                                                                    |
-| `formItemRender`      | `(schema,config,form,action) => React.ReactNode`                              | 自定义编辑模式，返回一个 ReactNode，会自动包裹 value 和 onChange。~~如返回 false,null,undefined 将不展示表单项~~ 请使用 dependency 组件控制是否渲染列                                    |
+| `formItemRender`      | `(schema,config,form,action) => React.ReactNode`                               | 自定义编辑模式，返回一个 ReactNode，会自动包裹 value 和 onChange。~~如返回 false,null,undefined 将不展示表单项~~ 请使用 dependency 组件控制是否渲染列                                    |
 | `request`             | `(params,props) => Promise<{label,value}[]>`                                   | 从远程请求网络数据，一般用于选择类组件                                                                                                                                                   |
 | `params`              | `Record<string, any>`                                                          | 额外传递给 `request` 的参数，组件不做处理，但是变化会引起`request` 重新请求数据                                                                                                          |
 | `dependencies`        | `NamePath[]`                                                                   | 所依赖的 values 变化后，触发 formItemRender，fieldProps，formItemProps 重新执行，并把 values 注入到 params 里 [示例](#使用-dependencies-触发-fieldpropsformitempropsformItemRender-更新) |
 | `hideInDescriptions`  | `boolean`                                                                      | 在 descriptions 中隐藏                                                                                                                                                                   |
 | `hideInForm`          | `boolean`                                                                      | 在 Form 中隐藏                                                                                                                                                                           |
 | `hideInTable`         | `boolean`                                                                      | 在 Table 中隐藏                                                                                                                                                                          |
-| `search`              | `boolean` \| `{ transform: (value: any) => any }`                              | 在 Table 的查询表格中隐藏可设为 `false`，对象配置 `transform` 用于转化提交的 key                                                                                                          |
+| `search`              | `boolean` \| `{ transform: (value: any) => any }`                              | 在 Table 的查询表格中隐藏可设为 `false`，对象配置 `transform` 用于转化提交的 key                                                                                                         |
 | `columns`             | `ProFormColumnsType[] \| (values) => ProFormColumnsType[]`                     | 嵌套子项，valueType 为 dependency 时，请使用`(values) => ProFormColumnsType[]`其他情况使用 `ProFormColumnsType[]`                                                                        |
 | `colProps`            | [ColProps](https://ant.design/components/grid/#Col)                            | 在开启 grid 模式时传递给 Col                                                                                                                                                             |
 | `rowProps`            | [RowProps](https://ant.design/components/grid/#Row)                            | 开启栅格化模式时传递给 Row                                                                                                                                                               |
@@ -128,25 +128,55 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 
 ### 基础表单 (Form)
 
-SchemaForm 最基础的用法，通过 JSON 配置生成标准的表单页面。支持通过 `columns` 定义表单项，通过 `layoutType` 切换布局。
+`layoutType="Form"` 生成基础表单，`columns` 为每个字段指定 `title`、`dataIndex` 和 `valueType`。
 
 <code src="../../demos/form/schema-form/schema.tsx" title="基础 Schema 表单"></code>
 
-### 浮层表单 (ModalForm & DrawerForm)
+### 字段组合与布局
 
-通过设置 `layoutType` 为 `ModalForm` 或 `DrawerForm`，可以快速将表单转换为弹窗或抽屉模式，无需手动维护 `open` 状态。
+`valueType="group"` 将同级字段放在一组；`formSet` 将多个字段收进同一个数组值；`formList` 可新增多条记录。
 
-<code src="../../demos/form/schema-form/modal-and-drawer-form.tsx" title="ModalForm 和 DrawerForm"></code>
+<code src="../../demos/form/schema-form/schema-group.tsx" title="Schema group"></code>
+
+<code src="../../demos/form/schema-form/schema-form-set.tsx" title="Schema formSet"></code>
+
+<code src="../../demos/form/schema-form/schema-form-list.tsx" title="Schema formList"></code>
+
+`grid` 和 `colProps` 控制响应式列宽。
+
+<code src="../../demos/form/schema-form/schema-grid.tsx" title="Schema grid"></code>
+
+### 值转换
+
+`convertValue` 在字段展示前转换初始值，`transform` 在提交时转换输出值。
+
+<code src="../../demos/form/schema-form/schema-convert-value.tsx" title="convertValue"></code>
+
+<code src="../../demos/form/schema-form/schema-transform.tsx" title="transform"></code>
+
+### 弹窗表单 (ModalForm)
+
+`layoutType="ModalForm"` 配合 `trigger` 打开弹窗表单。
+
+<code src="../../demos/form/schema-form/schema-modal.tsx" title="Schema ModalForm"></code>
+
+### 抽屉表单 (DrawerForm)
+
+`layoutType="DrawerForm"` 配合 `trigger` 打开抽屉表单。
+
+<code src="../../demos/form/schema-form/schema-drawer.tsx" title="Schema DrawerForm"></code>
 
 ### 分步表单 (StepsForm)
 
 通过设置 `layoutType` 为 `StepsForm` 或 `StepForm`，可以生成分步表单。此时 `columns` 应该是一个二维数组，每个数组元素代表一步的表单项配置。
 
-<code src="../../demos/form/schema-form/steps-form.tsx" title="JSON 生成分步表单"></code>
+`layoutType="StepsForm"` 与二维 `columns` 数组按步骤生成表单。
+
+<code src="../../demos/form/schema-form/steps-form.tsx" title="Schema 生成分步表单"></code>
 
 ### 嵌入模式 (Embed)
 
-通过设置 `layoutType` 为 `Embed`，可以只生成表单项而不生成 Form 容器。这在需要将 SchemaForm 嵌入到已有的 ProForm 或其他容器中时非常有用。
+`layoutType="Embed"` 只生成表单项，不创建新的 Form 容器。下面的普通字段和 Schema 字段由同一个 `ProForm` 提交；填写两项后可查看合并后的值。
 
 <code src="../../demos/form/schema-form/embed.tsx" title="嵌入到 ProForm 中"></code>
 
@@ -156,7 +186,9 @@ SchemaForm 最基础的用法，通过 JSON 配置生成标准的表单页面。
 
 使用 `valueType: 'dependency'` 可以实现复杂的表单联动。当依赖的字段发生变化时，会自动触发当前项的更新。
 
-<code src="../../demos/form/schema-form/dependency.tsx" title="使用 ProFormDependency"></code>
+选择优惠方式后，`valueType: 'dependency'` 仅显示对应的金额或折扣率字段。切换方式后提交可查看当前表单值。
+
+<code src="../../demos/form/schema-form/dependency.tsx" title="dependency：按优惠方式显示字段"></code>
 
 ### 高性能模式
 
@@ -165,22 +197,42 @@ SchemaForm 最基础的用法，通过 JSON 配置生成标准的表单页面。
 - **dependencies**: 指定依赖字段，仅当依赖字段变化时更新。
 - **shouldUpdate**: 自定义更新逻辑，返回 false 阻止更新。
 
-<code src="../../demos/form/schema-form/dependencies.tsx" title="结合 shouldUpdate=false 和 dependencies 触发更新"></code>
+在 `shouldUpdate={false}` 下，状态列的 `dependencies: ['mode']` 仍会响应编辑模式变化。
 
-<code src="../../demos/form/schema-form/dynamic-rerender.tsx" title="动态控制是否重渲染"></code>
+<code src="../../demos/form/schema-form/dependencies.tsx" title="dependencies：仅更新依赖字段"></code>
+
+自定义 `shouldUpdate` 仅在编辑模式改变时重新生成 Schema 表单项，状态字段随之启用或禁用。
+
+<code src="../../demos/form/schema-form/dynamic-rerender.tsx" title="shouldUpdate：按字段变化更新"></code>
 
 ### 列表配置 (FormList)
 
 支持 `valueType: 'formList'` 来生成动态增减的列表表单。
 
-<code src="../../demos/form/schema-form/form-list-required.tsx" title="FormList Required 校验" debug></code>
+`formList` 的 `formItemProps.rules` 要求至少添加一项，子列的规则要求填写姓名。先提交空列表，再添加成员提交。
+
+<code src="../../demos/form/schema-form/form-list-required.tsx" title="formList 必填校验"></code>
 
 ### valueType 映射
 
-演示内置 `valueType` 在 BetaSchemaForm 中的基础用法。
+`valueType: 'select'` 配合 `valueEnum` 生成状态选择框。
 
-<code src="../../demos/form/schema-form/value-type.tsx" title="Schema valueType 映射"></code>
+<code src="../../demos/form/schema-form/value-type.tsx" title="Schema 选择字段"></code>
+
+`valueType: 'date'` 生成日期输入框。
+
+<code src="../../demos/form/schema-form/value-type-date.tsx" title="Schema 日期字段"></code>
+
+`valueType: 'digit'` 生成数字输入框。
+
+<code src="../../demos/form/schema-form/value-type-digit.tsx" title="Schema 数字字段"></code>
 
 ### 自定义 valueType
 
-<code src="../../demos/form/schema-form/customization-value-type.tsx" title="Schema 自定义 valueType"></code>
+通过 `ProProvider.valueTypeMap.tags.formItemRender` 注册可编辑标签类型。输入标签并按回车，提交查看数组值。
+
+<code src="../../demos/form/schema-form/customization-value-type.tsx" title="formItemRender：自定义标签输入"></code>
+
+通过 `ProProvider.valueTypeMap.documentationLink.render` 定义只读链接的显示方式。
+
+<code src="../../demos/form/schema-form/customization-value-type-render.tsx" title="render：自定义只读链接"></code>

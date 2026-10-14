@@ -1,158 +1,38 @@
-import type { ProFormInstance } from '@ant-design/pro-components';
-import {
-  ProCard,
-  ProForm,
-  ProFormCheckbox,
-  ProFormDatePicker,
-  ProFormDateRangePicker,
-  ProFormText,
-  ProFormTextArea,
-  StepsForm,
-} from '@ant-design/pro-components';
-import { message } from 'antd';
-import { useRef } from 'react';
+import { ProFormText, StepsForm } from '@ant-design/pro-components';
+import { useState } from 'react';
 
-const waitTime = (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-    }, time);
-  });
-};
-
-const Demo = () => {
-  const formRef = useRef<ProFormInstance>();
+export default () => {
+  const [submitted, setSubmitted] = useState('');
 
   return (
-    <ProCard>
-      {/* allowStepSelect：可点击步骤条切换，不触发表单校验 */}
-      <StepsForm<{
-        name: string;
-      }>
-        allowStepSelect
-        stepsProps={{
-          orientation: 'vertical',
-        }}
-        formRef={formRef}
-        onFinish={async () => {
-          await waitTime(1000);
-          message.success('提交成功');
-        }}
-        formProps={{
-          validateMessages: {
-            required: '此项为必填项',
-          },
+    <div style={{ maxWidth: 640, padding: 16 }}>
+      <StepsForm
+        stepsProps={{ orientation: 'vertical' }}
+        onFinish={async (values) => {
+          setSubmitted(JSON.stringify(values, null, 2));
+          return true;
         }}
       >
-        <StepsForm.StepForm<{
-          name: string;
-        }>
-          name="steps-form-vertical-base"
-          title="创建实验"
-          stepProps={{
-            description: '这里填入的都是基本信息',
-          }}
-          onFinish={async () => {
-            await waitTime(2000);
-            return true;
-          }}
-        >
+        <StepsForm.StepForm name="project" title="项目">
           <ProFormText
-            name="name"
-            label="实验名称"
-            width="md"
-            tooltip="最长为 24 位，用于标定的唯一 id"
-            placeholder="请输入名称"
+            name="projectName"
+            label="项目名称"
             rules={[{ required: true }]}
           />
-          <ProFormDatePicker name="date" label="日期" />
-          <ProFormDateRangePicker name="dateTime" label="时间区间" />
-          <ProFormTextArea
-            name="remark"
-            label="备注"
-            width="lg"
-            placeholder="请输入备注"
-          />
         </StepsForm.StepForm>
-        <StepsForm.StepForm<{
-          checkbox: string;
-        }>
-          name="steps-form-vertical-checkbox"
-          title="设置参数"
-          stepProps={{
-            description: '这里填入运维参数',
-          }}
-          onFinish={async () => {
-            return true;
-          }}
-        >
-          <ProFormCheckbox.Group
-            name="checkbox"
-            label="迁移类型"
-            width="lg"
-            options={[
-              '结构迁移',
-              '全量迁移',
-              '增量迁移',
-              '全量校验',
-              '增量校验',
-              '全量替换',
-              '增量替换',
-            ]}
-          />
-          <ProForm.Group>
-            <ProFormText name="dbname" label="业务 DB 用户名" />
-            <ProFormDatePicker
-              name="datetime"
-              label="记录保存时间"
-              width="sm"
-            />
-          </ProForm.Group>
-          <ProFormCheckbox.Group
-            name="checkbox"
-            label="迁移类型"
-            options={['完整 LOB', '不同步 LOB', '受限制 LOB']}
-          />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm<{
-          checkbox: string;
-        }>
-          name="steps-form-vertical-step3"
-          title="第三步"
-          stepProps={{
-            description: '这里填入运维参数',
-          }}
-          onFinish={async () => {
-            return true;
-          }}
-        >
-          <ProFormCheckbox.Group
-            name="checkbox"
-            label="迁移类型"
-            width="lg"
-            options={['结构迁移', '全量迁移', '全量校验', '增量替换']}
-          />
-          <ProForm.Group>
-            <ProFormText name="dbname" label="业务 DB 用户名" />
-            <ProFormDatePicker
-              name="datetime"
-              label="记录保存时间"
-              width="sm"
-            />
-          </ProForm.Group>
-          <ProFormCheckbox.Group
-            name="checkbox"
-            label="迁移类型"
-            options={['完整 LOB', '不同步 LOB', '受限制 LOB']}
+        <StepsForm.StepForm name="owner" title="负责人">
+          <ProFormText
+            name="ownerName"
+            label="负责人"
+            rules={[{ required: true }]}
           />
         </StepsForm.StepForm>
       </StepsForm>
-    </ProCard>
+      {submitted && (
+        <pre style={{ whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>
+          {submitted}
+        </pre>
+      )}
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

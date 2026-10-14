@@ -13,27 +13,65 @@ ModalForm 和 DrawerForm 都提供了 trigger 来减少 state 的使用，如果
 
 ## Modal 表单
 
-<code src="../../demos/form/modal-form/modal-form.tsx" background="var(--main-bg-color)"></code>
+`trigger` 打开弹窗，`onFinish` 返回 `true` 后关闭弹窗并显示提交结果。
+
+<code src="../../demos/form/modal-form/modal-form.tsx" background="var(--main-bg-color)" title="ModalForm：打开并提交"></code>
 
 ## Drawer 表单
 
-<code src="../../demos/form/modal-form/drawer-form.tsx" background="var(--main-bg-color)"></code>
+`trigger` 打开抽屉，`onFinish` 返回 `true` 后关闭抽屉并显示提交结果。
 
-## 嵌套浮层表单
+<code src="../../demos/form/modal-form/drawer-form.tsx" background="var(--main-bg-color)" title="DrawerForm：打开并提交"></code>
 
-<code src="../../demos/form/modal-form/drawer-form-nested.tsx" debug  background="var(--main-bg-color)" title="Drawer Forms"></code>
+`resize` 允许拖动抽屉左边缘调整宽度，并限制最小与最大宽度。
 
-### Debug：请求加载中关闭（Modal + Drawer）
+<code src="../../demos/form/modal-form/drawer-form-resize.tsx" background="var(--main-bg-color)" title="DrawerForm：调整宽度"></code>
 
-<code src="../../demos/form/modal-form/_modal-form-request-destroy.tsx" debug background="var(--main-bg-color)" title="Debug: destroyOnHidden + request (Modal & Drawer)"></code>
+## 嵌套 Drawer 表单
+
+<code src="../../demos/form/modal-form/drawer-form-nested.tsx" background="var(--main-bg-color)" title="嵌套 DrawerForm"></code>
+
+## 嵌套 Modal 表单
+
+<code src="../../demos/form/modal-form/modal-form-nested.tsx" background="var(--main-bg-color)" title="嵌套 ModalForm"></code>
+
+`ModalForm` 也可以从 `ProFormList` 列表项中打开；弹窗提交值独立显示。
+
+<code src="../../demos/form/_modalform-test.tsx" title="列表项内打开 ModalForm"></code>
+
+### 请求加载中关闭并重新打开
+
+`destroyOnHidden` 在关闭时卸载表单。下面分别验证 ModalForm 和 DrawerForm 的异步 `request` 重新加载。
+
+<code src="../../demos/form/modal-form/_modal-form-request-destroy.tsx" background="var(--main-bg-color)" title="ModalForm：关闭后重新加载"></code>
+
+<code src="../../demos/form/modal-form/_drawer-form-request-destroy.tsx" background="var(--main-bg-color)" title="DrawerForm：关闭后重新加载"></code>
 
 ## 自定义 Modal 表单按钮
 
+`submitter.render` 添加一个调用 `submit()` 的额外提交按钮。
+
 <code src="../../demos/form/modal-form/modal-form-submitter.tsx" background="var(--main-bg-color)"></code>
 
-## 使用 open 和 onOpenChange
+`submitter.searchConfig` 修改提交与取消按钮文案。
 
-<code src="../../demos/form/modal-form/open-on-open-change.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/form/modal-form/modal-form-submitter-text.tsx" background="var(--main-bg-color)" title="提交按钮文案"></code>
+
+`resetButtonProps` 修改取消按钮样式。
+
+<code src="../../demos/form/modal-form/modal-form-submitter-button-props.tsx" background="var(--main-bg-color)" title="按钮样式"></code>
+
+`submitter={false}` 隐藏底部提交区。
+
+<code src="../../demos/form/modal-form/modal-form-submitter-hidden.tsx" background="var(--main-bg-color)" title="隐藏提交区"></code>
+
+## 使用 open 和 onOpenChange 控制 ModalForm
+
+<code src="../../demos/form/modal-form/open-on-open-change.tsx" background="var(--main-bg-color)" title="受控 ModalForm"></code>
+
+## 使用 open 和 onOpenChange 控制 DrawerForm
+
+<code src="../../demos/form/modal-form/drawer-open-on-open-change.tsx" background="var(--main-bg-color)" title="受控 DrawerForm"></code>
 
 ## 在首次打开前设置表单值
 
@@ -57,7 +95,13 @@ Form。
 
 ## 重置表单
 
+通过 `formRef.current.resetFields()` 重置表单字段。
+
 <code src="../../demos/form/modal-form/modal-form-reset.tsx" background="var(--main-bg-color)"></code>
+
+在 `submitter.render` 中调用 `reset()` 也可以重置字段。
+
+<code src="../../demos/form/modal-form/modal-form-reset-render.tsx" background="var(--main-bg-color)" title="自定义重置按钮"></code>
 
 ## API
 
@@ -90,7 +134,7 @@ DrawerForm 组合了 Drawer 和 ProForm 可以减少繁琐的状态管理。
 | title         | 抽屉的标题                                                                                                                           | `DrawerProps['title']`           | -       |
 | size          | 抽屉的尺寸                                                                                                                           | `DrawerProps['size']`            | -       |
 | width         | 抽屉的宽度，已废弃，请使用 `size`                                                                                                    | `DrawerProps['size']`            | -       |
-| resizable     | 是否使用 antd 原生拖拽调整尺寸（配置 `resize` 时无效）                                                                              | `DrawerProps['resizable']`       | -       |
+| resizable     | 是否使用 antd 原生拖拽调整尺寸（配置 `resize` 时无效）                                                                               | `DrawerProps['resizable']`       | -       |
 | resize        | 是否允许拖拽调整抽屉宽度；为 `true` 时使用默认配置，也可以传入对象进行配置                                                           | `CustomizeResizeType \| boolean` | `false` |
 | onFinish      | 提交数据时触发，返回真值会关闭抽屉；若配置了 `destroyOnHidden` 还会在关闭后重置表单                                                  | `(values: any) => Promise<any>`  | -       |
 | submitTimeout | 提交数据时，禁用取消按钮的超时时间（毫秒）                                                                                           | `number`                         | -       |

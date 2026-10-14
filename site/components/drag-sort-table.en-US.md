@@ -12,11 +12,21 @@ group: Table
 
 ### Drag to sort
 
-<code src="../../demos/table/drag-sort-table/drag.tsx" background="var(--main-bg-color)" title="Drag to sort rows"></code>
+`dragSortKey` displays the default handle in the sort column. `onDragSortEnd` stores the new row order.
 
-### Drag-sort editable table
+<code src="../../demos/table/drag-sort-table/drag.tsx" background="var(--main-bg-color)" title="dragSortKey: default handle"></code>
 
-<code src="../../demos/table/drag-sort-table/drag-sort-table.tsx" background="var(--main-bg-color)" title="Drag sort with editing"></code>
+### Custom drag handle
+
+`dragSortHandlerRender` replaces the default icon with a numbered handle.
+
+<code src="../../demos/table/drag-sort-table/drag-sort-table.tsx" background="var(--main-bg-color)" title="dragSortHandlerRender: custom handle"></code>
+
+### Request data source
+
+After sorting, save the new order and call `actionRef.reload()` to request it again.
+
+<code src="../../demos/table/drag-sort-table/drag-request.tsx" background="var(--main-bg-color)" title="request: reload the saved order"></code>
 
 ## DragSortTable
 

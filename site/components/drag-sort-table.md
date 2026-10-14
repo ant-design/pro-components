@@ -12,11 +12,21 @@ atomId: DragSortTable
 
 ### 拖拽排序
 
-<code src="../../demos/table/drag-sort-table/drag.tsx" background="var(--main-bg-color)" title="拖拽排序"></code>
+`dragSortKey` 在排序列中显示默认把手，`onDragSortEnd` 将新的顺序写回数据源。
 
-### 拖拽排序编辑表格
+<code src="../../demos/table/drag-sort-table/drag.tsx" background="var(--main-bg-color)" title="dragSortKey：默认把手"></code>
 
-<code src="../../demos/table/drag-sort-table/drag-sort-table.tsx" background="var(--main-bg-color)" title="可编辑表格"></code>
+### 自定义拖拽把手
+
+`dragSortHandlerRender` 将默认图标替换为带序号的把手。
+
+<code src="../../demos/table/drag-sort-table/drag-sort-table.tsx" background="var(--main-bg-color)" title="dragSortHandlerRender：自定义把手"></code>
+
+### 请求数据源
+
+拖拽完成后保存新顺序，并用 `actionRef.reload()` 重新请求数据。
+
+<code src="../../demos/table/drag-sort-table/drag-request.tsx" background="var(--main-bg-color)" title="request：保存顺序后重新加载"></code>
 
 ## DragSortTable
 

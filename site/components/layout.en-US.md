@@ -17,7 +17,7 @@ ProLayout can be used to reduce layout costs when content needs to be carried on
 
 ## Issue regression scenarios
 
-<code src="../../demos/layout/issue-regression-gallery.tsx" iframe="560" title="Mobile layout, navigation theme, and component tokens"></code>
+<code src="../../demos/layout/nav-theme.tsx" title="Navigation theme: ProLayout.navTheme" iframe="560"></code>
 
 ### Use with umi plugins
 

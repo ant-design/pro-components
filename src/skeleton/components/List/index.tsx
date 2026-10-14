@@ -252,6 +252,7 @@ export const ListToolbarSkeleton = ({ active }: { active: boolean }) => (
     }}
   >
     <Space
+      wrap
       style={{
         width: '100%',
         justifyContent: 'space-between',

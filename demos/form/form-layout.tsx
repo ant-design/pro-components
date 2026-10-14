@@ -1,104 +1,39 @@
-import { ProForm, ProFormRadio, ProFormText } from '@ant-design/pro-components';
-import { Col, Row, Space, message } from 'antd';
+import { ProForm, ProFormText } from '@ant-design/pro-components';
+import { Segmented } from 'antd';
 import { useState } from 'react';
 
-type LayoutType = Parameters<typeof ProForm>[0]['layout'];
-const LAYOUT_TYPE_HORIZONTAL = 'horizontal';
+type Layout = 'horizontal' | 'vertical' | 'inline';
+type Values = { name: string; company?: string };
 
-const waitTime = (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-    }, time);
-  });
-};
-
-const Demo = () => {
-  const [formLayoutType, setFormLayoutType] = useState<LayoutType>(
-    LAYOUT_TYPE_HORIZONTAL,
-  );
-
-  const formItemLayout =
-    formLayoutType === LAYOUT_TYPE_HORIZONTAL
-      ? {
-          labelCol: { span: 4 },
-          wrapperCol: { span: 14 },
-        }
-      : null;
+export default () => {
+  const [layout, setLayout] = useState<Layout>('horizontal');
+  const [submitted, setSubmitted] = useState<Values>();
 
   return (
-    <ProForm<{
-      name: string;
-      company?: string;
-      useMode?: string;
-    }>
-      name="form-layout-demo"
-      {...formItemLayout}
-      layout={formLayoutType}
-      submitter={{
-        render: (props, doms) => {
-          return formLayoutType === LAYOUT_TYPE_HORIZONTAL ? (
-            <Row>
-              <Col span={14} offset={4}>
-                <Space>{doms}</Space>
-              </Col>
-            </Row>
-          ) : (
-            doms
-          );
-        },
-      }}
-      onFinish={async () => {
-        await waitTime(2000);
-
-        message.success('Submission successful');
-      }}
-      params={{}}
-      request={async () => {
-        await waitTime(100);
-        return {
-          name: 'Ant Design Co., Ltd.',
-          useMode: 'chapter',
-        };
-      }}
-    >
-      <ProFormRadio.Group
-        style={{
-          margin: 16,
+    <div style={{ padding: 24 }}>
+      <p>ProForm.layout：{layout}</p>
+      <Segmented<Layout>
+        aria-label="表单布局"
+        value={layout}
+        onChange={setLayout}
+        options={[
+          { label: '横向', value: 'horizontal' },
+          { label: '纵向', value: 'vertical' },
+          { label: '行内', value: 'inline' },
+        ]}
+      />
+      <ProForm<Values>
+        layout={layout}
+        style={{ marginTop: 16 }}
+        onFinish={async (values) => {
+          setSubmitted(values);
+          return true;
         }}
-        label="Label Layout"
-        radioType="button"
-        fieldProps={{
-          value: formLayoutType,
-          onChange: (e) => setFormLayoutType(e.target.value),
-        }}
-        options={['horizontal', 'vertical', 'inline']}
-      />
-      <ProFormText
-        width="md"
-        name="name"
-        label="Contract Customer Name"
-        tooltip="Up to 24 characters"
-        placeholder="Please enter a name"
-      />
-      <ProFormText
-        width="md"
-        name="company"
-        label="Our Company Name"
-        placeholder="Please enter a name"
-      />
-      <ProFormText
-        name={['contract', 'name']}
-        width="md"
-        label="Contract Name"
-        placeholder="Please enter a name"
-      />
-    </ProForm>
+      >
+        <ProFormText name="name" label="联系人" />
+        <ProFormText name="company" label="公司" />
+      </ProForm>
+      <p>提交结果：{submitted ? JSON.stringify(submitted) : '尚未提交'}</p>
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

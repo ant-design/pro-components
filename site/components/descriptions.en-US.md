@@ -47,11 +47,29 @@ interface RequestData {
 
 ## Code Demo
 
-### Basic definition list
-
 ### Basic usage
 
+`column` controls the responsive column count. `dataSource` supplies values through `columns.dataIndex`.
+
 <code src="../../demos/descriptions/base.tsx" title="Basic definition list"></code>
+
+`ellipsis` shortens a long description value.
+
+<code src="../../demos/descriptions/ellipsis.tsx" title="Truncated value"></code>
+
+`renderText` transforms a displayed value.
+
+<code src="../../demos/descriptions/render-text.tsx" title="Display transformation"></code>
+
+`valueType: 'code'` and `valueType: 'jsonCode'` display code and JSON respectively.
+
+<code src="../../demos/descriptions/value-type-code.tsx" title="Code value"></code>
+
+<code src="../../demos/descriptions/value-type-json-code.tsx" title="JSON value"></code>
+
+Register a custom `valueType` with `ProProvider.valueTypeMap`.
+
+<code src="../../demos/descriptions/customization-value-type.tsx" title="Custom tag value type"></code>
 
 ### Array type dataIndex
 
@@ -63,9 +81,9 @@ Format the date according to format
 
 <code src="../../demos/descriptions/format.tsx"></code>
 
-### Remote request data
+### Loading data with request
 
-Display the definition list by requesting interface data
+`request` loads the details asynchronously; `actionRef.reload()` loads them again.
 
 <code src="../../demos/descriptions/request.tsx"></code>
 
@@ -73,17 +91,35 @@ Display the definition list by requesting interface data
 
 Display the definition list by requesting interface data and columns
 
-<code src="../../demos/descriptions/columns.tsx"></code>
+`columns` maps data to description items through `dataIndex`.
+
+<code src="../../demos/descriptions/columns.tsx" title="columns 与 dataIndex"></code>
+
+`valueEnum` maps status values to text and styles.
+
+<code src="../../demos/descriptions/columns-value-enum.tsx" title="valueEnum"></code>
+
+`fieldProps.customSymbol` sets the currency symbol.
+
+<code src="../../demos/descriptions/columns-money-symbol.tsx" title="fieldProps.customSymbol"></code>
+
+`fieldProps.moneySymbol: false` hides the currency symbol.
+
+<code src="../../demos/descriptions/_base.demo-test.tsx" title="moneySymbol: hide currency symbol"></code>
+
+`render` adds an order action with a visible result.
+
+<code src="../../demos/descriptions/columns-render.tsx" title="render"></code>
 
 ### dataSource configuration data
 
-ProDescriptions supports the same dataSource as Table
+`dataSource` supplies the detail object, while `columns.dataIndex` maps its fields.
 
 <code src="../../demos/descriptions/use-data-source.tsx"></code>
 
 ### Editable definition list
 
-API is the same as ProTable
+`editable.onSave` saves the updated note and shows it immediately.
 
 <code src="../../demos/descriptions/editable.tsx"></code>
 
@@ -93,27 +129,27 @@ API is the same as ProTable
 
 > For more features, see [Descriptions](https://ant.design/components/descriptions-cn/) of antd
 
-| Parameters     | Description                                                                                                                                | Type                                           | Default Value |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- | ------------- |
-| title          | The title of the description list, displayed at the top                                                                                    | `ReactNode`                                    | -             |
-| tooltip        | Supplementary description of the content, displayed after hover                                                                            | `LabelTooltipType \| string`                   | -             |
-| loading        | Display a loaded skeleton screen, the skeleton screen and dom will not correspond one-to-one                                               | `boolean`                                      | -             |
-| extra          | Describe the operation area of ​​the list, displayed on the upper right                                                                    | `string` \| `ReactNode`                        | -             |
-| bordered       | Whether to display the border                                                                                                              | boolean                                        | false         |
-| column         | The number of description cells per row, can be written as pixel value or support responsive object writing `{ xs: 1, sm: 2, md: 3}` | number                                         | 3             |
-| size           | Set the size of the list. Can be set to `middle`, `small`, or left blank (only setting `bordered={true}` takes effect)                     | `default` \| `middle` \| `small`               | -             |
-| layout         | Description layout                                                                                                                         | `horizontal` \| `vertical`                     | `horizontal`  |
-| colon          | Configure the default `colon` for antd `Descriptions` cells                                 | boolean                                        | true          |
-| params         | Params for the network request, used with request                                                                                          | `Record<string, unknown>`                      | -             |
-| request        | Request data; use with `dataIndex` in `columns`                                                                                            | `(params: Record<string, unknown> \| undefined) => Promise<ProDescriptionsRequestResult<T>>` | - |
-| onRequestError | Handling request errors, by default an error will be thrown directly                                                                       | `(error: Error) => void`                       | -             |
-| onLoadingChange | Triggered when loading changes                                                                                                            | `(loading?: boolean) => void`                  | -             |
-| columns        | Column definition, used with request [columns](/components/table#columns)                                                                  | `ProDescriptionsColumn<T>[]`                   | -             |
-| editable       | Editable related configuration                                                                                                             | [EditableConfig](#editable-edit-configuration) | -             |
-| dataSource     | Data source (a single object)                                                                                                              | `T`                                            | -             |
-| onDataSourceChange | Triggered when the data source changes                                                                                                   | `(value: T \| undefined) => void`              | -             |
-| emptyText      | Display when data is empty                                                                                                                 | `ReactNode`                                    | -             |
-| actionRef      | Operation reference; `ProDescriptionsActionType<T>` recommended (with Map editing methods), `ProCoreActionType` compatible                  | `MutableRefObject<ProDescriptionsActionType<T> \| ProCoreActionType \| undefined>` | - |
+| Parameters         | Description                                                                                                                          | Type                                                                                         | Default Value |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- | ------------- |
+| title              | The title of the description list, displayed at the top                                                                              | `ReactNode`                                                                                  | -             |
+| tooltip            | Supplementary description of the content, displayed after hover                                                                      | `LabelTooltipType \| string`                                                                 | -             |
+| loading            | Display a loaded skeleton screen, the skeleton screen and dom will not correspond one-to-one                                         | `boolean`                                                                                    | -             |
+| extra              | Describe the operation area of ​​the list, displayed on the upper right                                                              | `string` \| `ReactNode`                                                                      | -             |
+| bordered           | Whether to display the border                                                                                                        | boolean                                                                                      | false         |
+| column             | The number of description cells per row, can be written as pixel value or support responsive object writing `{ xs: 1, sm: 2, md: 3}` | number                                                                                       | 3             |
+| size               | Set the size of the list. Can be set to `middle`, `small`, or left blank (only setting `bordered={true}` takes effect)               | `default` \| `middle` \| `small`                                                             | -             |
+| layout             | Description layout                                                                                                                   | `horizontal` \| `vertical`                                                                   | `horizontal`  |
+| colon              | Configure the default `colon` for antd `Descriptions` cells                                                                          | boolean                                                                                      | true          |
+| params             | Params for the network request, used with request                                                                                    | `Record<string, unknown>`                                                                    | -             |
+| request            | Request data; use with `dataIndex` in `columns`                                                                                      | `(params: Record<string, unknown> \| undefined) => Promise<ProDescriptionsRequestResult<T>>` | -             |
+| onRequestError     | Handling request errors, by default an error will be thrown directly                                                                 | `(error: Error) => void`                                                                     | -             |
+| onLoadingChange    | Triggered when loading changes                                                                                                       | `(loading?: boolean) => void`                                                                | -             |
+| columns            | Column definition, used with request [columns](/components/table#columns)                                                            | `ProDescriptionsColumn<T>[]`                                                                 | -             |
+| editable           | Editable related configuration                                                                                                       | [EditableConfig](#editable-edit-configuration)                                               | -             |
+| dataSource         | Data source (a single object)                                                                                                        | `T`                                                                                          | -             |
+| onDataSourceChange | Triggered when the data source changes                                                                                               | `(value: T \| undefined) => void`                                                            | -             |
+| emptyText          | Display when data is empty                                                                                                           | `ReactNode`                                                                                  | -             |
+| actionRef          | Operation reference; `ProDescriptionsActionType<T>` recommended (with Map editing methods), `ProCoreActionType` compatible           | `MutableRefObject<ProDescriptionsActionType<T> \| ProCoreActionType \| undefined>`           | -             |
 
 ### editable edit configuration
 
@@ -144,7 +180,7 @@ Each item is `ProDescriptionsColumn` (same schema family as ProTable `columns`; 
 | tooltip    | Supplementary description of the content, displayed after hover                                                                | string                                                       | -             |
 | ellipsis   | Whether to abbreviate automatically                                                                                            | `boolean`                                                    | -             |
 | copyable   | Whether to support copying                                                                                                     | `boolean`                                                    | -             |
-| span       | Column span (antd Descriptions cell span)                                                                                                     | number                                                       | 1             |
+| span       | Column span (antd Descriptions cell span)                                                                                      | number                                                       | 1             |
 | valueType  | Formatted type                                                                                                                 | `ValueType`                                                  | -             |
 | valueEnum  | Enumeration of current column values ​​[valueEnum](/components/table#valueenum)                                                | `Record`                                                     | -             |
 | request    | Request enumerated data from the network                                                                                       | `()=>Promise<{[key:string`\|`number]:any}>`                  | -             |

@@ -95,12 +95,6 @@ const columns: ProColumns<DataItem>[] = [
     search: false,
     listSlot: 'description',
   },
-  {
-    title: '操作',
-    listSlot: 'actions',
-    search: false,
-    render: () => [<a key="edit">编辑</a>, <a key="delete">删除</a>],
-  },
 ];
 
 export default () => {

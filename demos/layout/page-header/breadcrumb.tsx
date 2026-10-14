@@ -1,32 +1,13 @@
 import { PageHeader } from '@ant-design/pro-components';
-import React from 'react';
 
 const items = [
-  {
-    path: 'index',
-    title: 'First-level Menu',
-  },
-  {
-    path: 'first',
-    title: 'Second-level Menu',
-  },
-  {
-    path: 'second',
-    title: 'Third-level Menu',
-  },
+  { path: '/', title: '首页' },
+  { path: '/projects', title: '项目' },
+  { path: '/projects/detail', title: '项目详情' },
 ];
-
-const App: React.FC = () => (
-  <PageHeader
-    className="site-page-header"
-    title="Title"
-    breadcrumb={{ items }}
-    subTitle="This is a subtitle"
-  />
-);
 
 export default () => (
   <div style={{ padding: 24 }}>
-    <App />
+    <PageHeader title="项目详情" breadcrumb={{ items }} />
   </div>
 );

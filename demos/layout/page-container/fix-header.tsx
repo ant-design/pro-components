@@ -1,65 +1,22 @@
-import { PageContainer, ProCard } from '@ant-design/pro-components';
-
-const Demo = () => (
-  <div
-    style={{
-      background: '#F5F7FA',
-    }}
-  >
-    <PageContainer
-      fixedHeader
-      header={{
-        title: 'Page Title',
-        breadcrumb: {
-          items: [
-            {
-              path: '',
-              title: 'Primary page',
-            },
-            {
-              path: '',
-              title: 'Secondary page',
-            },
-            {
-              path: '',
-              title: 'Current page',
-            },
-          ],
-        },
-      }}
-      tabList={[
-        {
-          tab: 'Selected',
-          key: '1',
-        },
-        {
-          tab: 'Clickable',
-          key: '2',
-        },
-        {
-          tab: 'Disabled',
-          key: '3',
-          disabled: true,
-        },
-      ]}
-    >
-      <ProCard direction="column" ghost gutter={[0, 16]}>
-        <ProCard style={{ height: 200 }} />
-        <ProCard gutter={16} ghost>
-          <ProCard colSpan={16} style={{ height: 200 }} />
-          <ProCard colSpan={8} style={{ height: 200 }} />
-        </ProCard>
-        <ProCard gutter={16} ghost>
-          <ProCard colSpan={8} style={{ height: 200 }} />
-          <ProCard colSpan={16} style={{ height: 200 }} />
-        </ProCard>
-      </ProCard>
-    </PageContainer>
-  </div>
-);
+import { PageContainer } from '@ant-design/pro-components';
 
 export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
+  <div style={{ height: 420, overflow: 'auto', background: '#f5f7fa' }}>
+    <PageContainer
+      fixedHeader
+      title="项目列表"
+      content="向下滚动内容，标题会保持在容器顶部。"
+    >
+      <div style={{ display: 'grid', gap: 12 }}>
+        {Array.from({ length: 10 }, (_, index) => (
+          <div
+            key={index}
+            style={{ background: '#fff', padding: 20, minHeight: 76 }}
+          >
+            项目 {index + 1}
+          </div>
+        ))}
+      </div>
+    </PageContainer>
   </div>
 );

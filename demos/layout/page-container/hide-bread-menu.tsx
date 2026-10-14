@@ -1,46 +1,20 @@
-import { PageContainer, ProCard } from '@ant-design/pro-components';
-import { Descriptions } from 'antd';
-
-const Demo = () => (
-  <div
-    style={{
-      background: '#F5F7FA',
-    }}
-  >
-    <PageContainer
-      ghost
-      header={{
-        title: 'Page Title',
-        breadcrumb: {},
-      }}
-      content={
-        <Descriptions column={2} style={{ marginBlockEnd: -16 }}>
-          <Descriptions.Item label="Creator">逄一</Descriptions.Item>
-          <Descriptions.Item label="Associated form">
-            <a>421421</a>
-          </Descriptions.Item>
-          <Descriptions.Item label="Creation Date">
-            2017-01-10
-          </Descriptions.Item>
-          <Descriptions.Item label="Document remarks">
-            浙江省杭州市西湖区工专路
-          </Descriptions.Item>
-        </Descriptions>
-      }
-    >
-      <ProCard direction="column" ghost gutter={[0, 16]}>
-        <ProCard style={{ height: 200 }} />
-        <ProCard gutter={16} ghost style={{ height: 200 }}>
-          <ProCard colSpan={16} />
-          <ProCard colSpan={8} />
-        </ProCard>
-      </ProCard>
-    </PageContainer>
-  </div>
-);
+import { PageContainer } from '@ant-design/pro-components';
 
 export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
+  <div style={{ padding: 24, background: '#f5f7fa' }}>
+    <PageContainer
+      title="项目详情"
+      breadcrumbRender={false}
+      header={{
+        breadcrumb: {
+          items: [
+            { path: '/', title: '首页' },
+            { path: '/projects', title: '项目' },
+          ],
+        },
+      }}
+    >
+      面包屑已隐藏，页面标题仍保留。
+    </PageContainer>
   </div>
 );

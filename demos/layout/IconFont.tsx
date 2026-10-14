@@ -1,45 +1,21 @@
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
 
-const Demo = () => (
-  <div
-    style={{
-      height: '100vh',
-    }}
-  >
-    <ProLayout
-      location={{
-        pathname: '/articles/new',
-      }}
-      iconfontUrl="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
-      route={{
-        routes: [
-          {
-            path: '/home',
-            name: '收藏',
-            icon: 'icon-shoucang1',
-          },
-          {
-            path: '/home/overview',
-            name: 'FaceBook',
-            icon: 'icon-facebook',
-          },
-          {
-            path: '/home/search',
-            name: 'Twitter',
-            icon: 'icon-twitter',
-          },
-        ],
-      }}
-    >
-      <PageContainer content="欢迎使用">
-        <div>Hello World</div>
-      </PageContainer>
-    </ProLayout>
-  </div>
-);
+const routes = [
+  { path: '/favorites', name: '收藏', icon: 'icon-demo-star' },
+  { path: '/projects', name: '项目', icon: 'icon-demo-folder' },
+  { path: '/reports', name: '报表', icon: 'icon-demo-chart' },
+];
 
 export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
+  <div style={{ minHeight: 480 }}>
+    <ProLayout
+      location={{ pathname: '/favorites' }}
+      iconfontUrl="/demo-iconfont.js"
+      route={{ routes }}
+    >
+      <PageContainer title="IconFont 菜单">
+        菜单图标由 iconfontUrl 加载的本地图标脚本提供。
+      </PageContainer>
+    </ProLayout>
   </div>
 );

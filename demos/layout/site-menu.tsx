@@ -1,155 +1,58 @@
-import {
-  GithubFilled,
-  InfoCircleFilled,
-  PlusCircleFilled,
-  QuestionCircleFilled,
-  SearchOutlined,
-} from '@ant-design/icons';
-import type { ProSettings } from '@ant-design/pro-components';
-import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
-import { Input } from 'antd';
+import { PageContainer, ProLayout } from '@ant-design/pro-components';
 import { useState } from 'react';
-import defaultProps from './_defaultProps';
-import { demoOnMenuHeaderClick } from './_demoHandlers';
 
-const Demo = () => {
-  const settings: ProSettings | undefined = {
-    fixSiderbar: true,
-    layout: 'mix',
-    splitMenus: true,
-  };
+const route = {
+  path: '/',
+  routes: [
+    {
+      path: '/projects',
+      name: '项目',
+      routes: [
+        { path: '/projects/active', name: '进行中' },
+        { path: '/projects/archive', name: '归档' },
+      ],
+    },
+    {
+      path: '/team',
+      name: '团队',
+      routes: [
+        { path: '/team/members', name: '成员' },
+        { path: '/team/roles', name: '角色' },
+      ],
+    },
+  ],
+};
 
-  const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
+export default () => {
+  const [pathname, setPathname] = useState('/projects/active');
 
   return (
-    <div
-      id="test-pro-layout"
-      style={{
-        height: '100vh',
-      }}
-    >
+    <div style={{ height: 560, overflow: 'auto' }}>
       <ProLayout
-        bgLayoutImgList={[
-          {
-            src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
-            left: 85,
-            bottom: 100,
-            height: '303px',
-          },
-          {
-            src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
-            bottom: -68,
-            right: -45,
-            height: '303px',
-          },
-          {
-            src: 'https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png',
-            bottom: 0,
-            left: 0,
-            width: '331px',
-          },
-        ]}
-        {...defaultProps}
-        location={{
-          pathname,
-        }}
-        menu={{
-          type: 'group',
-        }}
-        avatarProps={{
-          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-          size: 'small',
-          title: '书琰',
-        }}
-        actionsRender={(props) => {
-          if (props.isMobile) return [];
-          return [
-            props.layout !== 'side' && document.body.clientWidth > 1400 ? (
-              <div
-                key="SearchOutlined"
-                aria-hidden
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  marginInlineEnd: 24,
-                }}
-                onMouseDown={(e) => {
-                  e.stopPropagation();
-                  e.preventDefault();
-                }}
-              >
-                <Input
-                  style={{
-                    borderRadius: 4,
-                    marginInlineEnd: 12,
-                    backgroundColor: 'rgba(0,0,0,0.03)',
-                  }}
-                  prefix={
-                    <SearchOutlined
-                      style={{
-                        color: 'rgba(0, 0, 0, 0.15)',
-                      }}
-                    />
-                  }
-                  placeholder="搜索方案"
-                  variant="borderless"
-                />
-                <PlusCircleFilled
-                  style={{
-                    color: 'var(--ant-primary-color)',
-                    fontSize: 24,
-                  }}
-                />
-              </div>
-            ) : undefined,
-            <InfoCircleFilled key="InfoCircleFilled" />,
-            <QuestionCircleFilled key="QuestionCircleFilled" />,
-            <GithubFilled key="GithubFilled" />,
-          ];
-        }}
-        menuFooterRender={(props) => {
-          if (props?.collapsed) return undefined;
-          return (
-            <div
-              style={{
-                textAlign: 'center',
-                paddingBlockStart: 12,
-              }}
-            >
-              <div>© 2021 Made with love</div>
-              <div>by Ant Design</div>
-            </div>
-          );
-        }}
-        onMenuHeaderClick={demoOnMenuHeaderClick}
+        title="分组导航"
+        layout="mix"
+        splitMenus
+        menu={{ type: 'group' }}
+        route={route}
+        location={{ pathname }}
         menuItemRender={(item, dom) => (
-          <div
-            onClick={() => {
-              setPathname(item.path || '/welcome');
+          <a
+            href={item.path}
+            onClick={(event) => {
+              event.preventDefault();
+              setPathname(item.path || '/projects/active');
             }}
           >
             {dom}
-          </div>
+          </a>
         )}
-        {...settings}
       >
-        <PageContainer>
-          <ProCard
-            style={{
-              height: '100vh',
-              minHeight: 800,
-            }}
-          >
-            <div />
-          </ProCard>
+        <PageContainer title="顶栏与侧栏分组导航">
+          <div style={{ minHeight: 280, padding: 24, background: '#fff' }}>
+            当前路径：{pathname}
+          </div>
         </PageContainer>
       </ProLayout>
     </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

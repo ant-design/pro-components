@@ -51,19 +51,100 @@ const ProFormText = (props) => {
 
 ## 代码示例
 
-<code src="../../demos/form/field-set/components-other.tsx" title="表单项" ></code>
+<code src="../../demos/form/field-set/examples/field-text.tsx" title="文本输入：ProFormText"></code>
+<code src="../../demos/form/field-set/examples/field-password.tsx" title="密码输入：ProFormText.Password"></code>
+<code src="../../demos/form/field-set/examples/field-select-enum.tsx" title="枚举选择：ProFormSelect.valueEnum"></code>
+<code src="../../demos/form/field-set/examples/field-select-request.tsx" title="搜索选项：ProFormSelect.request"></code>
+<code src="../../demos/form/field-set/examples/field-select-label-in-value.tsx" title="标签和值：ProFormSelect.fieldProps.labelInValue"></code>
+<code src="../../demos/form/field-set/examples/field-select-multiple.tsx" title="多选：ProFormSelect.fieldProps.mode"></code>
+<code src="../../demos/form/field-set/examples/field-cascader-request.tsx" title="级联请求：ProFormCascader.request"></code>
+<code src="../../demos/form/field-set/examples/field-tree-select-request.tsx" title="树形请求：ProFormTreeSelect.request"></code>
+<code src="../../demos/form/field-set/examples/field-radio-group.tsx" title="单选：ProFormRadio.Group.options"></code>
+<code src="../../demos/form/field-set/examples/field-radio-vertical.tsx" title="纵向单选：ProFormRadio.Group.layout"></code>
+<code src="../../demos/form/field-set/examples/field-radio-button.tsx" title="按钮单选：ProFormRadio.Group.radioType"></code>
+<code src="../../demos/form/field-set/examples/field-checkbox-group.tsx" title="多项勾选：ProFormCheckbox.Group.options"></code>
+<code src="../../demos/form/field-set/examples/field-color-picker.tsx" title="颜色选择：ProFormColorPicker"></code>
+<code src="../../demos/form/field-set/examples/field-digit-range.tsx" title="数字区间：ProFormDigitRange"></code>
+<code src="../../demos/form/field-set/examples/field-digit-bounds.tsx" title="数字边界：ProFormDigit.min/max"></code>
+<code src="../../demos/form/field-set/examples/field-switch.tsx" title="开关：ProFormSwitch"></code>
+<code src="../../demos/form/field-set/examples/field-slider-marks.tsx" title="刻度滑块：ProFormSlider.marks"></code>
+<code src="../../demos/form/field-set/examples/field-rate.tsx" title="评分：ProFormRate"></code>
+<code src="../../demos/form/field-set/examples/field-upload-button.tsx" title="按钮上传：ProFormUploadButton"></code>
+<code src="../../demos/form/field-set/examples/field-upload-dragger.tsx" title="拖拽上传：ProFormUploadDragger"></code>
+<code src="../../demos/form/field-set/examples/field-segmented-enum.tsx" title="分段枚举：ProFormSegmented.valueEnum"></code>
+<code src="../../demos/form/field-set/examples/field-segmented-request.tsx" title="分段请求：ProFormSegmented.request"></code>
 
-<code src="../../demos/form/field-set/search-select.tsx" title="查询表单" ></code>
+`SearchSelect.request` 根据输入的关键词返回匹配任务。
 
-<code src="../../demos/form/field-set/form-fieldset.tsx" title="结构化数据" ></code>
+<code src="../../demos/form/field-set/search-select.tsx" title="SearchSelect：request 搜索选项"></code>
 
-<code src="../../demos/form/field-set/datetime.tsx" title="日期表单"></code>
+`SearchSelect.valueEnum` 从枚举生成可搜索选项。
 
-<code src="../../demos/form/field-set/upload.tsx" title="上传表单"></code>
+<code src="../../demos/form/field-set/search-select-value-enum.tsx" title="SearchSelect：valueEnum 选项"></code>
 
-<code src="../../demos/form/field-set/components-other-readonly.tsx" title="只读表单" ></code>
+`SearchSelect.options` 使用本地选项数组。
 
-<code src="../../demos/form/field-set/field-set-light.tsx" title="轻量筛选中使用 light" ></code>
+<code src="../../demos/form/field-set/search-select-options.tsx" title="SearchSelect：options 选项"></code>
+
+<code src="../../demos/form/field-set/dependency-value.tsx" title="字段依赖：ProFormDependency.name"></code>
+<code src="../../demos/form/field-set/fieldset-basic.tsx" title="组合值：ProFormFieldSet.name"></code>
+<code src="../../demos/form/field-set/fieldset-group.tsx" title="分组布局：ProFormFieldSet.type"></code>
+<code src="../../demos/form/field-set/fieldset-transform.tsx" title="提交转换：ProFormFieldSet.transform"></code>
+
+### 日期与时间
+
+每个示例只包含一种输入组件，提交后可查看该字段的值。
+
+<code src="../../demos/form/field-set/datetime.tsx" title="日期：ProFormDatePicker"></code>
+<code src="../../demos/form/field-set/datetime-month.tsx" title="月份：ProFormDatePicker.Month"></code>
+<code src="../../demos/form/field-set/datetime-week.tsx" title="周：ProFormDatePicker.Week"></code>
+<code src="../../demos/form/field-set/datetime-quarter.tsx" title="季度：ProFormDatePicker.Quarter"></code>
+<code src="../../demos/form/field-set/datetime-year.tsx" title="年份：ProFormDatePicker.Year"></code>
+<code src="../../demos/form/field-set/datetime-time.tsx" title="时间：ProFormTimePicker"></code>
+<code src="../../demos/form/field-set/datetime-date-time.tsx" title="日期时间：ProFormDateTimePicker"></code>
+
+### 日期与时间范围
+
+<code src="../../demos/form/field-set/datetime-range.tsx" title="日期范围：ProFormDateRangePicker"></code>
+<code src="../../demos/form/field-set/datetime-week-range.tsx" title="周范围：ProFormDateWeekRangePicker"></code>
+<code src="../../demos/form/field-set/datetime-month-range.tsx" title="月份范围：ProFormDateMonthRangePicker"></code>
+<code src="../../demos/form/field-set/datetime-quarter-range.tsx" title="季度范围：ProFormDateQuarterRangePicker"></code>
+<code src="../../demos/form/field-set/datetime-year-range.tsx" title="年份范围：ProFormDateYearRangePicker"></code>
+<code src="../../demos/form/field-set/datetime-time-range.tsx" title="时间范围：ProFormTimePicker.RangePicker"></code>
+<code src="../../demos/form/field-set/datetime-date-time-range.tsx" title="日期时间范围：ProFormDateTimeRangePicker"></code>
+
+`ProFormUploadButton.fieldProps.listType="picture-card"` 以卡片显示所选文件；示例只在本地保留文件，不会发起上传请求。
+
+<code src="../../demos/form/field-set/upload.tsx" title="图片卡片上传：listType"></code>
+
+<code src="../../demos/form/field-set/readonly/readonly-text.tsx" title="文本只读：ProFormText"></code>
+<code src="../../demos/form/field-set/readonly/readonly-select.tsx" title="选择只读：ProFormSelect"></code>
+<code src="../../demos/form/field-set/readonly/readonly-select-multiple.tsx" title="多选只读：ProFormSelect.fieldProps.mode"></code>
+<code src="../../demos/form/field-set/readonly/readonly-digit.tsx" title="数字只读：ProFormDigit"></code>
+<code src="../../demos/form/field-set/readonly/readonly-switch.tsx" title="开关只读：ProFormSwitch"></code>
+<code src="../../demos/form/field-set/readonly/readonly-slider.tsx" title="滑块只读：ProFormSlider"></code>
+<code src="../../demos/form/field-set/readonly/readonly-radio.tsx" title="单选只读：ProFormRadio.Group"></code>
+<code src="../../demos/form/field-set/readonly/readonly-radio-button.tsx" title="按钮单选只读：ProFormRadio.Group.radioType"></code>
+<code src="../../demos/form/field-set/readonly/readonly-checkbox.tsx" title="勾选只读：ProFormCheckbox.Group"></code>
+<code src="../../demos/form/field-set/readonly/readonly-rate.tsx" title="评分只读：ProFormRate"></code>
+<code src="../../demos/form/field-set/readonly/readonly-upload-button.tsx" title="文件只读：ProFormUploadButton"></code>
+<code src="../../demos/form/field-set/readonly/readonly-upload-dragger.tsx" title="拖拽文件只读：ProFormUploadDragger"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date.tsx" title="日期只读：ProFormDatePicker"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date-week.tsx" title="周只读：ProFormDatePicker.Week"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date-month.tsx" title="月份只读：ProFormDatePicker.Month"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date-quarter.tsx" title="季度只读：ProFormDatePicker.Quarter"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date-year.tsx" title="年份只读：ProFormDatePicker.Year"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date-time.tsx" title="日期时间只读：ProFormDateTimePicker"></code>
+<code src="../../demos/form/field-set/readonly/readonly-time.tsx" title="时间只读：ProFormTimePicker"></code>
+<code src="../../demos/form/field-set/readonly/readonly-time-range.tsx" title="时间区间只读：ProFormTimePicker.RangePicker"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date-range.tsx" title="日期区间只读：ProFormDateRangePicker"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date-time-range.tsx" title="日期时间区间只读：ProFormDateTimeRangePicker"></code>
+<code src="../../demos/form/field-set/readonly/readonly-list.tsx" title="列表只读：ProFormList"></code>
+<code src="../../demos/form/field-set/readonly/readonly-field-set.tsx" title="组合字段只读：ProFormFieldSet"></code>
+
+`ProFormFieldSet.transform` 将 LightFilter 中的“操作符 + 关键词”组合成一个 `filter` 对象，筛选后可查看输出。
+
+<code src="../../demos/form/field-set/field-set-light.tsx" title="LightFilter 中的 FieldSet.transform" ></code>
 
 ## API
 
@@ -109,7 +190,10 @@ ProForm 自带的 Filed , 与 valueType 基本上一一对应。
 
 ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组件。
 
-<code src="../../demos/form/field-set/pro-form-captcha.tsx" title="captcha"></code>
+<code src="../../demos/form/field-set/captcha-request.tsx" title="模拟发送：ProFormCaptcha.onGetCaptcha"></code>
+<code src="../../demos/form/field-set/captcha-start-timing.tsx" title="手动开始：fieldRef.startTiming"></code>
+<code src="../../demos/form/field-set/captcha-end-timing.tsx" title="手动结束：fieldRef.endTiming"></code>
+<code src="../../demos/form/field-set/captcha-on-timing.tsx" title="倒计时回调：ProFormCaptcha.onTiming"></code>
 
 ```tsx | pure
 <ProFormCaptcha

@@ -19,7 +19,12 @@ Step-by-step forms, Modal forms, Drawer forms, Query forms, lightweight filters,
 
 ## Issue regression scenarios
 
-<code src="../../demos/form/issue-regression-gallery.tsx" title="Initialization, list conversion, and request refresh"></code>
+<code src="../../demos/form/overlay-initial-values.tsx" title="Modal initialization: ModalForm.initialValues"></code>
+<code src="../../demos/form/request-reuse.tsx" title="Repeated parameter requests: ProForm.params and request"></code>
+
+`dateFormatter` formats a date field as a string. Submit to inspect the value.
+
+<code src="../../demos/form/_base-test.tsx" title="dateFormatter: custom date format"></code>
 
 ```tsx | pure
 // Set overall default values
@@ -203,15 +208,45 @@ import { set } from '@rc-component/util';
 
 ### Label and Form Item Layout
 
-Except for fixed layout form styles like `LightFilter` and `QueryFilter`, other form layouts support configuring three layout methods consistent with `antd`.
+`ProForm.layout` supports `horizontal`, `vertical`, and `inline`. Switch between them to compare how the same fields are arranged.
+
+<code src="../../demos/form/form-layout.tsx" title="layout: horizontal, vertical, inline"></code>
+
+`labelCol` and `wrapperCol` can use breakpoints to size labels and inputs responsively.
+
+<code src="../../demos/form/label-col.tsx" title="Responsive label width"></code>
 
 ### Grid layout
 
-Supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
+`grid` enables the grid layout, `rowProps.gutter` sets spacing, and each field's `colProps` controls its width at different breakpoints. Resize the page to see the fields switch from two columns to one.
+
+<code src="../../demos/form/form-layout-grid.tsx" title="grid: responsive form columns"></code>
+
+`ProFormDependency name={[["customer", "name"]]}` subscribes to a nested field. Editing the customer name updates the note field's label.
+
+<code src="../../demos/form/dependency.tsx" title="Nested field dependency"></code>
+
+`ProForm.Item` with `trigger="onValuesChange"` includes editable table rows in the submitted form values. Save the edited row before submitting the form.
+
+<code src="../../demos/form/pro-form-editable-table.tsx" title="Editable table in ProForm"></code>
 
 ### Sync submission results to url
 
 When opening, the url parameters are also set as default values, supports transform, but pay attention to field mapping.
+
+### Money input
+
+Each `ProFormMoney` example focuses on one property. Submit to inspect the stored form value.
+
+<code src="../../demos/form/money.tsx" title="customSymbol: custom symbol"></code>
+
+<code src="../../demos/form/money-no-symbol.tsx" title="moneySymbol: hide the symbol"></code>
+
+<code src="../../demos/form/money-locale.tsx" title="locale: regional format"></code>
+
+<code src="../../demos/form/money-precision.tsx" title="precision: whole numbers"></code>
+
+<code src="../../demos/form/money-min.tsx" title="min: minimum amount"></code>
 
 ## Components that hijack render functions
 
@@ -227,7 +262,19 @@ Forms are essential in middle and backend projects, and are usually accompanied 
 
 ### Using useControlModel
 
-Start with an official example [Customized Form Controls](https://ant.design/components/form/#components-form-demo-customized-form-controls)
+The following examples each submit an amount and currency. Change them and submit to compare three ways of building a composite form field.
+
+A controlled component receives `value` and calls `onChange` explicitly.
+
+<code src="../../demos/form/antd.tsx" title="Custom control: value / onChange"></code>
+
+`useControlModel` provides controlled props for both parts of the value.
+
+<code src="../../demos/form/antd-modify.tsx" title="useControlModel: composite value"></code>
+
+Nested `Form.Item noStyle` binds each control directly to a field under `price`.
+
+<code src="../../demos/form/antd-nest.tsx" title="Form.Item noStyle: nested fields"></code>
 
 ### FormControlRender
 
@@ -235,9 +282,33 @@ Using FormControlRender allows you to write code inline and write logic more fle
 
 Sometimes you need to use Form.Item.useStatus, but you must meet the usage specifications of hooks, which makes development require extraction into a separate component for use, and cannot be used inline, and FormControlRender solves this situation very well.
 
+Submitting an empty value triggers validation. `FormControlRender` exposes `status` to the inline textarea, while `pickControlPropsWithId` passes its value, change handler, and input id.
+
+<code src="../../demos/form/form-control-render.tsx" title="Show validation status in an inline control"></code>
+
 ### FormItemRender & ProFormItemRender
 
-Using FormItemRender or ProFormItemRender makes it easier to write form items in Form
+`ProFormItemRender` and `pickControlProps` pass form values and events to a custom input.
+
+<code src="../../demos/form/form-item-render.tsx" title="Custom input with ProFormItemRender"></code>
+
+`FormItemRender` and `pickControlPropsWithId` also pass the input's `id`.
+
+<code src="../../demos/form/form-item-render-with-id.tsx" title="Pass the input id with FormItemRender"></code>
+
+`useControlModel` connects one custom component to a form field.
+
+<code src="../../demos/form/use-control-model.tsx" title="Single-value control model"></code>
+
+Its multi-field configuration combines a checkbox and input into one form value.
+
+<code src="../../demos/form/use-control-model-multiple.tsx" title="Multi-value control model"></code>
+
+### Dynamic options with ProFormDependency
+
+`name={['dbName']}` watches the database name and updates the migration options. Submit to inspect the selected values.
+
+<code src="../../demos/form/linkage-customization.tsx" title="Options depending on another field"></code>
 
 ### Select `labelInValue`
 
@@ -251,9 +322,9 @@ While `request` is loading a centered `Spin` is rendered by default; use `loadin
 
 When `request` fetches the full dataset once, set `fetchDataOnSearch={false}` so that searching filters locally instead of re-triggering the request.
 
-| Property           | Description                                                                                      | Type      | Default |
-| ------------------ | ------------------------------------------------------------------------------------------------ | --------- | ------- |
-| fetchDataOnSearch  | Whether searching re-triggers `request`; set `false` to fetch once on init and filter locally      | `boolean` | `true`  |
+| Property          | Description                                                                                   | Type      | Default |
+| ----------------- | --------------------------------------------------------------------------------------------- | --------- | ------- |
+| fetchDataOnSearch | Whether searching re-triggers `request`; set `false` to fetch once on init and filter locally | `boolean` | `true`  |
 
 ### ProProvider / ConfigProvider (debug)
 
@@ -269,7 +340,7 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 | onReset                                         | Callback for clicking the reset button                                                                                                                       | `(e) => void`                                                                                                                                                                                                                 | -               |
 | submitter                                       | Submitter button-related configuration                                                                                                                       | `SubmitterProps<{form?: FormInstance<any>}> \| false`                                                                                                                                                                         | `true`          |
 | loading                                         | Form button loading state                                                                                                                                    | `boolean`                                                                                                                                                                                                                     | -               |
-| loadingRender                                   | Custom render while `request` is loading, defaults to a centered `Spin`. Pass `Skeleton` to align with antd 5.18+ loading style                               | `ReactNode \| (() => ReactNode)`                                                                                                                                                                                             | `<Spin />`      |
+| loadingRender                                   | Custom render while `request` is loading, defaults to a centered `Spin`. Pass `Skeleton` to align with antd 5.18+ loading style                              | `ReactNode \| (() => ReactNode)`                                                                                                                                                                                              | `<Spin />`      |
 | onLoadingChange                                 | Callback when loading state changes                                                                                                                          | `(loading: boolean) => void`                                                                                                                                                                                                  | -               |
 | formRef                                         | Get the form instance. `ProFormInstance` adds formatted-value helpers compared to antd Form                                                                  | `React.MutableRefObject<(ProFormInstance<T> & { nativeElement?: HTMLElement; focus?: () => void }) \| undefined> \| React.RefObject<(ProFormInstance<T> & { nativeElement?: HTMLElement; focus?: () => void }) \| undefined>` | -               |
 | syncToUrl                                       | sync parameters to url, url only supports string, better read [documentation](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) before using | `boolean \| ((values: T, type: 'get' \| 'set') => T)`                                                                                                                                                                         | -               |
@@ -345,14 +416,14 @@ ProForm.Group supports group configs like `title`, `tooltip`, `extra`, see `ProF
 
 While we would prefer not to modify the submitter, it is a common requirement to do so in use, and ProForm's components use the same API to support the requirement.
 
-| Parameters        | Description                                                           | Type                                                    | Default |
-| ----------------- | --------------------------------------------------------------------- | ------------------------------------------------------- | ------- |
-| onSubmit          | Submit method                                                         | `(value?: T)=>void`                                     | -       |
-| onReset           | Reset method                                                          | `(value?: T)=>void`                                     | -       |
-| searchConfig      | The configuration of the search, generally used to configure the text | `{resetText,submitText}`                                | -       |
-| submitButtonProps | The props for the submit button                                       | `false \| ButtonProps`                                  | -       |
-| resetButtonProps  | The props for the reset button                                        | `false \| ButtonProps`                                  | -       |
-| render            | Rendering of custom actions                                           | `false\|((props,dom:JSX[])=>ReactNode[]\|ReactNode\|false)` | -   |
+| Parameters        | Description                                                           | Type                                                        | Default |
+| ----------------- | --------------------------------------------------------------------- | ----------------------------------------------------------- | ------- |
+| onSubmit          | Submit method                                                         | `(value?: T)=>void`                                         | -       |
+| onReset           | Reset method                                                          | `(value?: T)=>void`                                         | -       |
+| searchConfig      | The configuration of the search, generally used to configure the text | `{resetText,submitText}`                                    | -       |
+| submitButtonProps | The props for the submit button                                       | `false \| ButtonProps`                                      | -       |
+| resetButtonProps  | The props for the reset button                                        | `false \| ButtonProps`                                      | -       |
+| render            | Rendering of custom actions                                           | `false\|((props,dom:JSX[])=>ReactNode[]\|ReactNode\|false)` | -       |
 
 > The second argument to render is the default dom array, the first is the submit button and the second is the reset button.
 
@@ -399,109 +470,15 @@ While we would prefer not to modify the submitter, it is a common requirement to
 
 ### formRef
 
-This property is a high-level wrapper made by ProForm based on the original Antd's `FormInstance`, adding some more convenient methods. Usage is as follows:
+`formRef` exposes the form instance. Each example demonstrates one method and shows its result.
 
-```tsx | pure
-import type { ProFormInstance } from '@ant-design/pro-components';
-import {
-  ProForm,
-  ProFormDatePicker,
-  ProFormText,
-} from '@ant-design/pro-components';
-import { Button, message, Space } from 'antd';
-import moment from 'dayjs';
-import { useRef } from 'react';
+<code src="../../demos/form/form-ref.tsx" title="setFieldsValue"></code>
 
-const waitTime = (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-    }, time);
-  });
-};
+<code src="../../demos/form/form-ref-get-field-value.tsx" title="getFieldValue"></code>
 
-export default () => {
-  const formRef = useRef<ProFormInstance>();
-  const onFill = () => {
-    formRef?.current?.setFieldsValue({
-      name: 'Zhang San',
-      company: 'Ant Financial',
-    });
-  };
+<code src="../../demos/form/form-ref-format-value.tsx" title="getFieldsFormatValue"></code>
 
-  const getCompanyName = () => {
-    message.info(
-      `Company name is "${formRef?.current?.getFieldValue('company')}"`,
-    );
-  };
-
-  const getFormatValues = () => {
-    console.log(
-      'All data after formatting:',
-      formRef.current?.getFieldsFormatValue?.(),
-    );
-  };
-
-  const validateAndGetFormatValue = async () => {
-    const values = await formRef.current?.validateFieldsReturnFormatValue?.();
-    console.log('Validate form and return all formatted data:', values);
-  };
-
-  return (
-    <ProForm
-      title="Create Form"
-      formRef={formRef}
-      submitter={{
-        render: (props, doms) => {
-          return [
-            ...doms,
-            <Button htmlType="button" onClick={onFill} key="edit">
-              One-click Fill
-            </Button>,
-            <Button htmlType="button" onClick={getCompanyName} key="read">
-              Read Company
-            </Button>,
-            <Space.Compact key="refs" style={{ display: 'block' }}>
-              <Button htmlType="button" onClick={getFormatValues} key="format">
-                Get all formatted data
-              </Button>
-              <Button
-                htmlType="button"
-                onClick={validateAndGetFormatValue}
-                key="format2"
-              >
-                Validate form and return all formatted data
-              </Button>
-            </Space.Compact>,
-          ];
-        },
-      }}
-      onFinish={async (values) => {
-        await waitTime(2000);
-        console.log(values);
-        message.success('Submission successful');
-        return true;
-      }}
-    >
-      <ProFormText
-        width="md"
-        name="name"
-        label="Contract Customer Name"
-        tooltip="Max 24 characters"
-        placeholder="Please enter name"
-      />
-
-      <ProFormText
-        width="md"
-        name="company"
-        label="Our Company Name"
-        placeholder="Please enter name"
-      />
-      <ProFormDatePicker name="date" initialValue={moment('2021-08-09')} />
-    </ProForm>
-  );
-};
-```
+<code src="../../demos/form/form-ref-validate-format-value.tsx" title="validateFieldsReturnFormatValue"></code>
 
 `ProFormInstance` adds the following methods based on `FormInstance`:
 

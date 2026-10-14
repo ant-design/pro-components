@@ -4,25 +4,24 @@
 
 ## 命名约定
 
-| 规则           | 说明                                                                                                                            |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| **Kebab-case** | 推荐 `basic.tsx`、`custom-filter.tsx`                                                                                           |
-| **`_` 前缀**   | 文件名以 `_` 开头：适合 **debug / 临时对照**；文档仍可引用                                                                      |
+| 规则            | 说明                                                                                                                                                                                             |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Kebab-case**  | 推荐 `basic.tsx`、`custom-filter.tsx`                                                                                                                                                            |
+| **`_` 前缀**    | 历史文件名以 `_` 开头；整理后的示例也可被文档引用                                                                                                                                                |
 | **Form 子目录** | `form/steps-form/`、`form/schema-form/`、`form/query-filter/`、`form/modal-form/`、`form/login-form/`、`form/field-set/`、`form/group/`、`form/dependency-demos/` 等与文档 `<code src>` 路径一致 |
 
-## 已用 `_` 归类的调试向示例（节选）
+## 历史命名示例（节选）
 
-| 路径                                                                                   | 说明              |
-| -------------------------------------------------------------------------------------- | ----------------- |
-| `layout/_debug-demo.tsx`、`layout/_morse-debug.tsx`                                    | 布局调试          |
-| `layout/page-header/`、`layout/page-container/`                                         | 页头 / 页面容器文档示例目录 |
-| `form/_pro-form-dependency.tsx`、`form/_modalform-test.tsx`                            | 表单调试          |
-| `form/modal-form/_modal-form-request-destroy.tsx`、`_drawer-form-request-destroy.tsx`                                   | Modal / Drawer 调试 |
-| `form/query-filter/_query-filter-test.tsx`、`form/query-filter/_light-filter-test.tsx`                                 | QueryFilter 调试    |
-| `form/_components-test.tsx`、`form/_base-test.tsx`                                     | 组件/基础对照     |
-| `table/_single-test.tsx`                                                               | 表格单测对照      |
-| `table/list-toolbar/`、`table/editable-table/`、`table/drag-sort-table/`                | ListToolBar / 可编辑 / 拖拽示例目录 |
-| `descriptions/_base.demo-test.tsx`、`list/config-provider.tsx`、`field/_base-test.tsx` | 各域调试          |
+| 路径                                                                                   | 说明                                |
+| -------------------------------------------------------------------------------------- | ----------------------------------- |
+| `layout/page-header/`、`layout/page-container/`                                        | 页头 / 页面容器文档示例目录         |
+| `form/_pro-form-dependency.tsx`、`form/_modalform-test.tsx`                            | 列表依赖 / 行内弹窗表单             |
+| `form/modal-form/_modal-form-request-destroy.tsx`、`_drawer-form-request-destroy.tsx`  | Modal / Drawer 关闭重开             |
+| `form/query-filter/_query-filter-test.tsx`                                             | QueryFilter 示例                    |
+| `form/_base-test.tsx`                                                                  | 日期格式化示例                      |
+| `table/_single-test.tsx`                                                               | 表格单测对照                        |
+| `table/list-toolbar/`、`table/editable-table/`、`table/drag-sort-table/`               | ListToolBar / 可编辑 / 拖拽示例目录 |
+| `descriptions/_base.demo-test.tsx`、`list/config-provider.tsx`、`field/_base-test.tsx` | 金额 / 列表 / 字段示例              |
 
 ## 文档站排版
 

@@ -1,136 +1,30 @@
-import { PlusOutlined } from '@ant-design/icons';
-import {
-  DrawerForm,
-  ProForm,
-  ProFormDateRangePicker,
-  ProFormSelect,
-  ProFormText,
-} from '@ant-design/pro-components';
-import { Button, Form, message } from 'antd';
+import { DrawerForm, ProFormText } from '@ant-design/pro-components';
+import { Button } from 'antd';
+import { useState } from 'react';
 
-const waitTime = (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-    }, time);
-  });
-};
+type Task = { title: string };
 
-const Demo = () => {
-  const [form] = Form.useForm<{ name: string; company: string }>();
+export default () => {
+  const [saved, setSaved] = useState<Task>();
 
   return (
-    <DrawerForm<{
-      name: string;
-      company: string;
-    }>
-      name="modal-form-drawer-form-demo"
-      title="Create New Form"
-      resize={{
-        maxWidth: typeof window === 'undefined' ? 800 : window.innerWidth * 0.8,
-        minWidth: 300,
-      }}
-      form={form}
-      trigger={
-        <Button type="primary">
-          <PlusOutlined />
-          Create New Form
-        </Button>
-      }
-      autoFocusFirstInput
-      drawerProps={{
-        destroyOnHidden: true,
-      }}
-      submitTimeout={2000}
-      onFinish={async () => {
-        await waitTime(2000);
-
-        message.success('Submission successful');
-        // Not returning will not close the modal
-        return true;
-      }}
-    >
-      <ProForm.Group>
+    <div style={{ padding: 24 }}>
+      <DrawerForm<Task>
+        title="新增任务"
+        trigger={<Button type="primary">新增任务</Button>}
+        onFinish={async (values) => {
+          setSaved(values);
+          return true;
+        }}
+      >
         <ProFormText
-          name="name"
-          width="md"
-          label="Contract Customer Name"
-          tooltip="Up to 24 characters"
-          placeholder="Please enter a name"
+          name="title"
+          label="任务名称"
+          placeholder="请输入任务名称"
+          rules={[{ required: true, message: '请输入任务名称' }]}
         />
-        <ProFormText
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-          width="md"
-          name="company"
-          label="Our Company Name"
-          placeholder="Please enter a name"
-        />
-      </ProForm.Group>
-      <ProForm.Group>
-        <ProFormText
-          width="md"
-          name="contract"
-          label="Contract Name"
-          placeholder="Please enter a name"
-        />
-        <ProFormDateRangePicker
-          name="contractTime"
-          label="Contract Effective Time"
-        />
-      </ProForm.Group>
-      <ProForm.Group>
-        <ProFormSelect
-          options={[
-            {
-              value: 'chapter',
-              label: 'Effective after stamping',
-            },
-          ]}
-          width="xs"
-          name="useMode"
-          label="Contract Agreed Effective Method"
-        />
-        <ProFormSelect
-          width="xs"
-          options={[
-            {
-              value: 'time',
-              label: 'Terminate after performance',
-            },
-          ]}
-          formItemProps={{
-            style: {
-              margin: 0,
-            },
-          }}
-          name="unusedMode"
-          label="Contract Agreed Invalid Method"
-        />
-      </ProForm.Group>
-      <ProFormText width="sm" name="id" label="Main Contract Number" />
-      <ProFormText
-        name="project"
-        disabled
-        label="Project Name"
-        initialValue="示例项目"
-      />
-      <ProFormText
-        width="xs"
-        name="mangerName"
-        disabled
-        label="Business Manager"
-        initialValue="书琰"
-      />
-    </DrawerForm>
+      </DrawerForm>
+      <p>最近提交：{saved ? saved.title : '尚未提交'}</p>
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

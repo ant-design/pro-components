@@ -1,131 +1,52 @@
-﻿import type { ProFormColumnsType } from '@ant-design/pro-components';
+import type { ProFormColumnsType } from '@ant-design/pro-components';
 import { BetaSchemaForm } from '@ant-design/pro-components';
-import { Input } from 'antd';
+import { useState } from 'react';
 
-const valueEnum = {
-  all: { text: '全部', status: 'Default' },
-  open: {
-    text: '未解决',
-    status: 'Error',
-  },
-  closed: {
-    text: '已解决',
-    status: 'Success',
-    disabled: true,
-  },
-  processing: {
-    text: '解决中',
-    status: 'Processing',
-  },
+type FormValues = {
+  mode?: 'editable' | 'locked';
+  status?: 'open' | 'closed';
 };
 
-type DataItem = {
-  name: string;
-  state: string;
-};
-
-const columns: ProFormColumnsType<DataItem>[] = [
+const columns: ProFormColumnsType<FormValues>[] = [
   {
-    title: '标题',
-    dataIndex: 'title',
-    initialValue: '必填',
-    formItemProps: {
-      rules: [
-        {
-          required: true,
-          message: '此项为必填项',
-        },
-      ],
+    title: '编辑模式',
+    dataIndex: 'mode',
+    valueType: 'select',
+    valueEnum: {
+      editable: { text: '可编辑' },
+      locked: { text: '已锁定' },
     },
-    width: 'm',
   },
   {
     title: '状态',
-    dataIndex: 'state',
+    dataIndex: 'status',
     valueType: 'select',
-    valueEnum,
-    width: 'm',
-    tooltip: '当title为disabled时状态无法选择',
-    dependencies: ['title'],
-    fieldProps: (form) => {
-      if (form.getFieldValue('title') === 'disabled') {
-        return {
-          disabled: true,
-          placeholder: 'disabled',
-        };
-      } else {
-        return {
-          placeholder: 'normal',
-        };
-      }
+    valueEnum: {
+      open: { text: '进行中' },
+      closed: { text: '已完成' },
     },
-  },
-  {
-    title: '标签',
-    dataIndex: 'labels',
-    width: 'm',
-    tooltip: '当title为必填时此项将为必填',
-    dependencies: ['title'],
-    formItemProps(form) {
-      if (form.getFieldValue('title') === '必填') {
-        return {
-          rules: [
-            {
-              required: true,
-            },
-          ],
-        };
-      } else {
-        return {};
-      }
-    },
-  },
-  {
-    valueType: 'dependency',
-    name: ['title'],
-    columns: ({ title }) => {
-      return title !== 'hidden'
-        ? [
-            {
-              title: 'title为hidden时隐藏',
-              dataIndex: 'hidden',
-              valueType: 'date',
-              formItemRender: () => {
-                return <Input />;
-              },
-            },
-          ]
-        : [];
-    },
-  },
-  {
-    title: '创建时间',
-    key: 'showTime',
-    dataIndex: 'createName',
-    valueType: 'date',
-  },
-  {
-    valueType: 'divider',
+    dependencies: ['mode'],
+    fieldProps: (form) => ({
+      disabled: form.getFieldValue('mode') === 'locked',
+    }),
   },
 ];
 
-const Demo = () => {
-  return (
-    <>
-      <BetaSchemaForm<DataItem>
-        shouldUpdate={false}
-        layoutType="Form"
-        onFinish={async () => {
+export default () => {
+  const [submitted, setSubmitted] = useState('');
 
-        }}
+  return (
+    <div style={{ maxWidth: 480, padding: 16 }}>
+      <BetaSchemaForm<FormValues>
+        layoutType="Form"
+        shouldUpdate={false}
+        initialValues={{ mode: 'editable' }}
         columns={columns}
+        onFinish={async (values) =>
+          setSubmitted(JSON.stringify(values, null, 2))
+        }
       />
-    </>
+      {submitted && <pre style={{ overflowX: 'auto' }}>{submitted}</pre>}
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

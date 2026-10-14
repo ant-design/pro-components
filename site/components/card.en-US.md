@@ -22,11 +22,16 @@ A basic ProCard reuses the antd Card skin and tokens. When `variant` is omitted 
 
 ## Code demo
 
-### Enum property switch
+### Individual properties
 
-Switch between `size`, `variant`, `layout`, `type`, `direction`, `split`, and `collapsible` with Segmented control.
+`size`, `variant`, `type`, and `direction` control card sizing, appearance, type, and child layout respectively.
 
-<code src="../../demos/card/enum-switch.tsx" background="var(--main-bg-color)" title="Enum property switch"></code>
+<code src="../../demos/card/size.tsx" title="size"></code>
+<code src="../../demos/card/variant.tsx" title="variant"></code>
+<code src="../../demos/card/card-type.tsx" title="type"></code>
+<code src="../../demos/card/direction.tsx" title="direction: row"></code>
+
+<code src="../../demos/card/direction-column.tsx" title="direction: column"></code>
 
 ### Basic Card
 
@@ -38,13 +43,29 @@ When used alone a `ProCard` is just a regular card.
 
 When nesting child cards, the component will automatically switch to `flex` flex box layout, you can set `direction` to `column` to specify the flex direction, you can also configure the `ghost` property to `true` to remove background color and padding for in-page layout.
 
-<code src="../../demos/card/colspan.tsx" background="var(--main-bg-color)" title="Grid layout" description="When nesting child cards, the component switches to flex layout. Set direction to column for flex direction, or ghost to true for borderless layout."></code>
+A numeric `colSpan` uses a 24-column grid. Each `colSpan={12}` child takes half the width.
+
+<code src="../../demos/card/colspan.tsx" background="var(--main-bg-color)" title="colSpan: fixed grid"></code>
+
+`colSpan={0}` hides a child card. Use the button to toggle it.
+
+<code src="../../demos/card/colspan-hidden.tsx" background="var(--main-bg-color)" title="colSpan: hide a child card"></code>
 
 ### Responsive
 
 `colSpan` supports [Grid Responsive Layout](https://ant.design/components/grid-cn/#components-grid-demo-responsive) defined by antd. There are six preset response sizes: `xs` `sm` `md` `lg` `xl` `xxl`. If you want to support responsiveness, you can write `{ xs: 4, sm: 8, md: 10, lg: 12 }`.
 
-<code src="../../demos/card/responsive.tsx" background="var(--main-bg-color)" title="Responsive" description="colSpan supports responsive object notation."></code>
+`colSpan` supports responsive grid widths. With `wrap` on the parent card, children stack on narrow screens and form three columns on wider screens.
+
+<code src="../../demos/card/responsive.tsx" background="var(--main-bg-color)" title="colSpan: responsive grid"></code>
+
+`colSpan` also accepts pixel widths.
+
+<code src="../../demos/card/responsive-pixels.tsx" background="var(--main-bg-color)" title="colSpan: pixel widths"></code>
+
+`colSpan` also accepts percentage widths.
+
+<code src="../../demos/card/responsive-percentage.tsx" background="var(--main-bg-color)" title="colSpan: percentage widths"></code>
 
 ### Card segmentation
 
@@ -63,15 +84,23 @@ Through the card segmentation ability, we can easily achieve the effect of left 
 
 ### Complex segmentation
 
-Through the card segmentation capability, we can achieve more complex data presentation forms.
+`split="vertical"` draws a divider between two side-by-side child cards.
 
-<code src="../../demos/card/split.tsx" background="var(--main-bg-color)" title="Complex segmentation"></code>
+<code src="../../demos/card/split.tsx" background="var(--main-bg-color)" title="split: side-by-side cards"></code>
+
+Combine `direction="column"` with `split="horizontal"` for a horizontal divider.
+
+<code src="../../demos/card/split-horizontal.tsx" background="var(--main-bg-color)" title="split: stacked cards"></code>
 
 ### ProCard.Group split lines
 
-Use `split` on `ProCard.Group` to add dividers between child cards. Supports `vertical` and `horizontal` directions.
+`ProCard.Group` with `split="vertical"` draws a divider between children in a row.
 
-<code src="../../demos/card/split-line.tsx" background="var(--main-bg-color)" title="ProCard.Group split lines"></code>
+<code src="../../demos/card/split-line.tsx" background="var(--main-bg-color)" title="ProCard.Group: vertical divider"></code>
+
+`split="horizontal"` draws a divider between stacked children.
+
+<code src="../../demos/card/split-line-horizontal.tsx" background="var(--main-bg-color)" title="ProCard.Group: horizontal divider"></code>
 
 ### Grid interval
 
@@ -79,17 +108,21 @@ The grid often needs to cooperate with the interval. You can use the `gutter` pr
 
 <code src="../../demos/card/gutter.tsx" background="var(--main-bg-color)" title="Grid interval"></code>
 
+A responsive object adjusts the horizontal `gutter` at each breakpoint.
+
+<code src="../../demos/card/gutter-responsive.tsx" title="Responsive gutter"></code>
+
 ### Multi-Line Cards
 
 The default card layout does not wrap, you can configure `wrap` to `true` to enable line wrapping between multiple cards, which is suitable for multiple card layouts.
 
 <code src="../../demos/card/multipleLine.tsx" background="var(--main-bg-color)" title="Multi-Line Cards"></code>
 
-### Group display
+### Group divider
 
-You can nest card components to group content, and `Divider` subcomponents to separate those content.
+Use `ProCard.Divider` to separate cards in a group. Its `orientation` changes from vertical to horizontal when the container becomes narrow.
 
-<code src="../../demos/card/divider.tsx" background="var(--main-bg-color)" title="Group display"></code>
+<code src="../../demos/card/divider.tsx" background="var(--main-bg-color)" title="ProCard.Divider"></code>
 
 ### Title with dividing line
 
@@ -99,12 +132,25 @@ When adding a divider it automatically increases the height of the header to sep
 
 ### Collapsible
 
-- You can use `collapsible` to configure whether the card is collapsible or not, and configure whether the card is collapsed by default through the `defaultCollapsed` property.
-- Or you can customize it by controlling the `collapsed` property.
+Use `collapsed` to control a card's open state from outside.
 
-<code src="../../demos/card/collapsible.tsx" background="var(--main-bg-color)" title="Collapsible"></code>
+<code src="../../demos/card/collapsible.tsx" background="var(--main-bg-color)" title="collapsed: controlled state"></code>
 
-<code src="../../demos/card/collapsible-mode.tsx" background="var(--main-bg-color)" title="Collapse trigger mode" description="collapsible supports icon (click icon) and header (click title) modes"></code>
+`onCollapse` reports the new state when the card opens or closes.
+
+<code src="../../demos/card/collapsible-callback.tsx" background="var(--main-bg-color)" title="onCollapse: show the current state"></code>
+
+`collapsibleIconRender` customizes the icon content.
+
+<code src="../../demos/card/collapsible-custom-icon.tsx" background="var(--main-bg-color)" title="collapsibleIconRender: custom icon"></code>
+
+`collapsible="icon"` responds only to the icon.
+
+<code src="../../demos/card/collapsible-mode.tsx" background="var(--main-bg-color)" title="collapsible: icon trigger"></code>
+
+`collapsible="header"` responds to the card header.
+
+<code src="../../demos/card/collapsible-header-mode.tsx" background="var(--main-bg-color)" title="collapsible: header trigger"></code>
 
 ### Ghost mode
 
@@ -114,9 +160,9 @@ Set `ghost` to `true` to remove the card's background, border, and padding, turn
 
 ### Deck expansion
 
-With the `ghost` ghost mode and collapsible ability, the card deck can be expanded.
+Set `collapsible` to expand or collapse a group from its title.
 
-<code src="../../demos/card/group.tsx" background="var(--main-bg-color)" title="Deck expansion"></code>
+<code src="../../demos/card/group.tsx" background="var(--main-bg-color)" title="collapsible card group"></code>
 
 ### Content centered
 
@@ -132,9 +178,13 @@ Configure the `loading` property to `true` to control the loading of the card. Y
 
 ### Action items
 
-Configure the `actions` property to configure card actions.
+Pass an array of buttons to `actions`. Clicking a button displays the selected action.
 
 <code src="../../demos/card/actions.tsx" background="var(--main-bg-color)" title="Action items"></code>
+
+`actions` also accepts one custom action node.
+
+<code src="../../demos/card/actions-custom.tsx" background="var(--main-bg-color)" title="Custom action area"></code>
 
 ### Untitled
 
@@ -180,37 +230,37 @@ The `Steps` component is combined with the `ProCard` component to complete the v
 
 ProCard is compatible with antd Card API. The following props are consistent with antd Card.
 
-| Parameters            | Description                                                                                                                                                                   | Type                                                         | Default      | Version |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------ | ------- |
-| cover                 | Card cover                                                                                                                                                                    | `React.ReactNode`                                            | -            |         |
-| classNames            | Semantic classNames, same structure as antd Card                                                                                                                              | `{ root?, header?, body?, extra?, title?, actions?, cover? }` | -            |         |
-| title                 | Card title                                                                                                                                                                    | `React.ReactNode`                                            | -            |         |
-| subTitle              | Subtitle                                                                                                                                                                      | `React.ReactNode`                                            | -            |         |
-| tooltip               | Icon hover prompt information on the right side of the title                                                                                                                  | `string` \| `LabelTooltipType`                                | -            |         |
-| extra                 | Custom area in the upper right corner                                                                                                                                         | `React.ReactNode`                                            | -            |         |
-| layout                | Content layout, supports vertical centering                                                                                                                                   | `default` \| `center`                                        | default      |         |
-| type                  | Card type                                                                                                                                                                     | `default` \| `inner`                                         | default      |         |
-| direction             | Specifies the flex direction, only valid when subcards are nested, the default direction is row horizontal                                                                  | `column` \| `row`                                            | row          |         |
-| wrap                  | Whether to support line wrapping, only valid when subcards are nested                                                                                                         | `boolean`                                                    | false        | 1.12.0  |
-| size                  | Card size                                                                                                                                                                     | `default` \| `small`                                        | default      |         |
-| loading               | Loading, support custom loading style                                                                                                                                         | `boolean` \| `ReactNode`                                     | false        |         |
-| colSpan               | Grid layout width, 24 grid, supports specifying width px or percentage, supports responsive object writing `{ xs: 8, sm: 16, md: 24}`, only set on nested subcards efficient. | `number` \| `string` \| `Partial<Record<Breakpoint, number \| string>>` | 24           |         |
-| colStyle              | Grid style                                                                                                                                                                    | `CSSProperties`                                             | -            |         |
-| gutter                | Number or use array form to set [horizontal spacing, vertical spacing], supports responsive object notation `{ xs: 8, sm: 16, md: 24}`                                       | `number` \| `Partial<Record<Breakpoint, number>>` \| `[number, number]` | 0            |         |
-| split                 | Direction to split the card                                                                                                                                                   | `vertical` \| `horizontal`                                   | -            |         |
-| actions               | Card action group, located at the bottom of the card                                                                                                                          | `React.ReactNode[]` \| `React.ReactNode`                      | -            |         |
-| ghost                 | Ghost mode, that is, whether to cancel the padding of the card content area and the background color of the card.                                                             | `boolean`                                                    | false        |         |
-| variant               | Card variant, same as antd Card; when omitted follows ConfigProvider (`card.variant` → global `variant` → antd default) | `'outlined' \| 'borderless'`                                 | -            |         |
-| boxShadow             | Whether to show the card shadow                                                                                                                                              | `boolean`                                                    | -            |         |
-| styles                | Semantic styles, same structure as antd Card                                                                                                                                 | `{ root?, header?, body?, extra?, title?, actions?, cover? }`| -            |         |
-| headerBordered        | Whether the header has a dividing line                                                                                                                                        | `boolean`                                                    | false        |         |
-| hoverable             | Whether to lift on hover                                                                                                                                                      | `boolean`                                                    | false        |         |
-| collapsed             | Controlled property, whether to collapse                                                                                                                                      | `boolean`                                                    | false        |         |
-| collapsible           | Whether the configuration is collapsible, invalid when controlled. Supports `icon` and `header` for trigger mode                                                            | `icon` \| `header` \| `boolean`                              | false        |         |
-| collapsibleIconRender | Replaces default collapsed icon                                                                                                                                               | `({ collapsed }: { collapsed: boolean }) => React.ReactNode` | -            |         |
-| defaultCollapsed      | Default collapsing, invalid when controlled                                                                                                                                   | `boolean`                                                    | false        |         |
-| onCollapse            | Collapsed card event, invalid when controlled                                                                                                                                 | `(collapsed: boolean) => void`                               | -            |         |
-| tabs                  | Tab configuration                                                                                                                                                             | See below ProCardTabs                                       | -            |         |
+| Parameters            | Description                                                                                                                                                                   | Type                                                                    | Default | Version |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ------- | ------- |
+| cover                 | Card cover                                                                                                                                                                    | `React.ReactNode`                                                       | -       |         |
+| classNames            | Semantic classNames, same structure as antd Card                                                                                                                              | `{ root?, header?, body?, extra?, title?, actions?, cover? }`           | -       |         |
+| title                 | Card title                                                                                                                                                                    | `React.ReactNode`                                                       | -       |         |
+| subTitle              | Subtitle                                                                                                                                                                      | `React.ReactNode`                                                       | -       |         |
+| tooltip               | Icon hover prompt information on the right side of the title                                                                                                                  | `string` \| `LabelTooltipType`                                          | -       |         |
+| extra                 | Custom area in the upper right corner                                                                                                                                         | `React.ReactNode`                                                       | -       |         |
+| layout                | Content layout, supports vertical centering                                                                                                                                   | `default` \| `center`                                                   | default |         |
+| type                  | Card type                                                                                                                                                                     | `default` \| `inner`                                                    | default |         |
+| direction             | Specifies the flex direction, only valid when subcards are nested, the default direction is row horizontal                                                                    | `column` \| `row`                                                       | row     |         |
+| wrap                  | Whether to support line wrapping, only valid when subcards are nested                                                                                                         | `boolean`                                                               | false   | 1.12.0  |
+| size                  | Card size                                                                                                                                                                     | `default` \| `small`                                                    | default |         |
+| loading               | Loading, support custom loading style                                                                                                                                         | `boolean` \| `ReactNode`                                                | false   |         |
+| colSpan               | Grid layout width, 24 grid, supports specifying width px or percentage, supports responsive object writing `{ xs: 8, sm: 16, md: 24}`, only set on nested subcards efficient. | `number` \| `string` \| `Partial<Record<Breakpoint, number \| string>>` | 24      |         |
+| colStyle              | Grid style                                                                                                                                                                    | `CSSProperties`                                                         | -       |         |
+| gutter                | Number or use array form to set [horizontal spacing, vertical spacing], supports responsive object notation `{ xs: 8, sm: 16, md: 24}`                                        | `number` \| `Partial<Record<Breakpoint, number>>` \| `[number, number]` | 0       |         |
+| split                 | Direction to split the card                                                                                                                                                   | `vertical` \| `horizontal`                                              | -       |         |
+| actions               | Card action group, located at the bottom of the card                                                                                                                          | `React.ReactNode[]` \| `React.ReactNode`                                | -       |         |
+| ghost                 | Ghost mode, that is, whether to cancel the padding of the card content area and the background color of the card.                                                             | `boolean`                                                               | false   |         |
+| variant               | Card variant, same as antd Card; when omitted follows ConfigProvider (`card.variant` → global `variant` → antd default)                                                       | `'outlined' \| 'borderless'`                                            | -       |         |
+| boxShadow             | Whether to show the card shadow                                                                                                                                               | `boolean`                                                               | -       |         |
+| styles                | Semantic styles, same structure as antd Card                                                                                                                                  | `{ root?, header?, body?, extra?, title?, actions?, cover? }`           | -       |         |
+| headerBordered        | Whether the header has a dividing line                                                                                                                                        | `boolean`                                                               | false   |         |
+| hoverable             | Whether to lift on hover                                                                                                                                                      | `boolean`                                                               | false   |         |
+| collapsed             | Controlled property, whether to collapse                                                                                                                                      | `boolean`                                                               | false   |         |
+| collapsible           | Whether the configuration is collapsible, invalid when controlled. Supports `icon` and `header` for trigger mode                                                              | `icon` \| `header` \| `boolean`                                         | false   |         |
+| collapsibleIconRender | Replaces default collapsed icon                                                                                                                                               | `({ collapsed }: { collapsed: boolean }) => React.ReactNode`            | -       |         |
+| defaultCollapsed      | Default collapsing, invalid when controlled                                                                                                                                   | `boolean`                                                               | false   |         |
+| onCollapse            | Collapsed card event, invalid when controlled                                                                                                                                 | `(collapsed: boolean) => void`                                          | -       |         |
+| tabs                  | Tab configuration                                                                                                                                                             | See below ProCardTabs                                                   | -       |         |
 
 ### ProCardTabs
 
@@ -219,7 +269,7 @@ ProCard is compatible with antd Card API. The following props are consistent wit
 | activeKey | Currently selected item                                                   | string                         | -             |
 | type      | The basic style of the tab, optional `line`, `card`, `editable-card` type | string                         | `line`        |
 | onChange  | callback                                                                  | `(activeKey: string) => void;` | -             |
-| items     | Tab items configuration (required)                                        | `ItemsProps`                  | -             |
+| items     | Tab items configuration (required)                                        | `ItemsProps`                   | -             |
 
 - For more properties, see antd [Tab](https://ant.design/components/tabs-cn/#Tabs) API description.
 
@@ -227,9 +277,9 @@ ProCard is compatible with antd Card API. The following props are consistent wit
 
 Supports all properties of [Tabs](https://ant.design/components/tabs-cn/#Tabs.TabPane) tab.
 
-| parameter | description                                       | type        | default value |
-| :-------- | :----------------------------------------------- | :---------- | :------------ |
-| cardProps | ProCard card property passthrough                | `ProCard`   | -             |
+| parameter | description                       | type      | default value |
+| :-------- | :-------------------------------- | :-------- | :------------ |
+| cardProps | ProCard card property passthrough | `ProCard` | -             |
 
 ### ProCard.TabPane
 
@@ -246,15 +296,15 @@ Supports all properties of [Tabs](https://ant.design/components/tabs-cn/#Tabs.Ta
 
 Used to separate when grouping content.
 
-| parameter   | description     | type                     | default value |
-| ----------- | --------------- | ------------------------ | ------------- |
+| parameter   | description     | type                       | default value |
+| ----------- | --------------- | -------------------------- | ------------- |
 | orientation | Separation type | `horizontal` \| `vertical` | -             |
 
 ### ProCard.Group
 
 The property is the same as ProCard, but the card content margin will be cancelled, which is used to group multiple cards.
 
-| parameter  | description                                      | type                        | default value |
-| ---------- | ------------------------------------------------ | --------------------------- | ------------- |
-| split      | Split line direction between child cards         | `'vertical'` \| `'horizontal'` | -             |
-| direction  | Child card arrangement direction                | `'row'` \| `'column'`       | `'row'`       |
+| parameter | description                              | type                           | default value |
+| --------- | ---------------------------------------- | ------------------------------ | ------------- |
+| split     | Split line direction between child cards | `'vertical'` \| `'horizontal'` | -             |
+| direction | Child card arrangement direction         | `'row'` \| `'column'`          | `'row'`       |

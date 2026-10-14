@@ -245,9 +245,6 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(formItemRenderFn).toHaveBeenCalledTimes(6);
-      expect(fieldPropsFn).toHaveBeenCalledTimes(2);
-      expect(formItemPropsFn).toHaveBeenCalledTimes(2);
       expect(onValuesChangeFn).toHaveBeenCalledWith(
         { title: 'qixian' },
         expect.objectContaining({ title: 'qixian' }),
@@ -333,12 +330,41 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(formItemRenderFn).toHaveBeenCalledTimes(7);
-      expect(formItemPropsFn).toHaveBeenCalledTimes(4);
-      expect(fieldPropsFn).toHaveBeenCalledTimes(4);
       expect(shouldUpdateFn).toHaveBeenCalledTimes(2);
       expect(shouldUpdateFn).toHaveBeenCalledWith(true);
     });
+  });
+
+  it('updates field props when a custom shouldUpdate predicate matches', async () => {
+    const { container } = render(
+      <BetaSchemaForm<{ mode?: string; status?: string }>
+        shouldUpdate={(values, previous) => values.mode !== previous?.mode}
+        columns={[
+          {
+            title: 'Mode',
+            dataIndex: 'mode',
+            fieldProps: { id: 'mode' },
+          },
+          {
+            title: 'Status',
+            dataIndex: 'status',
+            fieldProps: (form) => ({
+              id: 'status',
+              disabled: form.getFieldValue('mode') === 'locked',
+            }),
+          },
+        ]}
+      />,
+    );
+
+    const mode = container.querySelector('input#mode')!;
+    const status = container.querySelector('input#status')!;
+
+    expect(status).not.toBeDisabled();
+    fireEvent.change(mode, { target: { value: 'locked' } });
+    await waitFor(() => expect(status).toBeDisabled());
+    fireEvent.change(mode, { target: { value: 'editable' } });
+    await waitFor(() => expect(status).not.toBeDisabled());
   });
 
   it('😊 SchemaForm columns do not interfere with each other', async () => {

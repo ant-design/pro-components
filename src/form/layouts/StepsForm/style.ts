@@ -11,7 +11,7 @@ const genStepsFormStyle: GenerateStyle<StepsFormToken> = (token) => {
       boxSizing: 'border-box',
       '&-container': {
         width: 'max-content',
-        minWidth: '420px',
+        minWidth: 'min(420px, 100%)',
         maxWidth: '100%',
         margin: 'auto',
       },

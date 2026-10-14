@@ -3,43 +3,17 @@ import {
   PageContainer,
   ProLayout,
 } from '@ant-design/pro-components';
-import defaultProps from './_defaultProps';
-
-const Demo = () => (
-  <ProLayout
-    {...defaultProps}
-    style={{
-      height: '100vh',
-    }}
-    breakpoint={false}
-    collapsed
-    location={{
-      pathname: '/welcome',
-    }}
-    footerRender={() => (
-      <DefaultFooter
-        links={[
-          {
-            key: 'procomponents',
-            title: 'ProComponents',
-            href: 'https://procomponents.ant.design/',
-          },
-          {
-            key: 'antd',
-            title: 'Ant Design',
-            href: 'https://ant.design/',
-          },
-        ]}
-        copyright="ProComponents 页脚示例"
-      />
-    )}
-  >
-    <PageContainer content="欢迎使用">Hello World</PageContainer>
-  </ProLayout>
-);
 
 export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
+  <div style={{ minHeight: 480 }}>
+    <ProLayout
+      location={{ pathname: '/dashboard' }}
+      route={{ routes: [{ path: '/dashboard', name: '工作台' }] }}
+      footerRender={() => (
+        <DefaultFooter links={[]} copyright="示例系统 © 2026" />
+      )}
+    >
+      <PageContainer title="页脚内容">滚动到页面底部查看页脚。</PageContainer>
+    </ProLayout>
   </div>
 );

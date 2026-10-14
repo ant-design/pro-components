@@ -1,73 +1,31 @@
-import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 
-import {
-  createTableDataSource,
-  DEMO_CREATOR_VALUE_ENUM,
-  FIXED_BASE_DATE,
-} from '../mockData';
+type Task = { id: number; title: string; status: 'open' | 'done' };
 
-export type TableListItem = {
-  key: number;
-  name: string;
-  creator: string;
-  createdAt: number;
-};
-
-const tableListDataSource = createTableDataSource({
-  count: 1,
-}) as TableListItem[];
-
-const columns: ProColumns<TableListItem>[] = [
-  {
-    title: '应用名称',
-    dataIndex: 'name',
-    render: (_) => <a>{_}</a>,
-    formItemProps: {},
-  },
-  {
-    title: '日期范围',
-    dataIndex: 'startTime',
-    valueType: 'dateRange',
-    hideInTable: true,
-    initialValue: [FIXED_BASE_DATE, FIXED_BASE_DATE.add(1, 'day')],
-  },
-  {
-    title: '负责人',
-    dataIndex: 'creator',
-    valueType: 'select',
-    valueEnum: DEMO_CREATOR_VALUE_ENUM,
-  },
+const tasks: Task[] = [
+  { id: 1, title: '检查首页', status: 'open' },
+  { id: 2, title: '更新文档', status: 'done' },
+  { id: 3, title: '修复布局', status: 'open' },
 ];
 
-const Demo = () => {
-  return (
-    <ProTable<TableListItem>
-      columns={columns}
-      request={(params, sorter, filter) => {
-        console.log(params, sorter, filter);
-        return Promise.resolve({
-          data: tableListDataSource,
-          total: tableListDataSource.length,
-          success: true,
-        });
-      }}
-      headerTitle="轻量筛选"
-      rowKey="key"
-      pagination={{
-        showQuickJumper: true,
-      }}
-      options={false}
-      search={{
-        filterType: 'light',
-      }}
-      dateFormatter="string"
-    />
-  );
-};
-
 export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
+  <ProTable<Task>
+    rowKey="id"
+    columns={[
+      { title: '任务', dataIndex: 'title', search: false },
+      {
+        title: '状态',
+        dataIndex: 'status',
+        valueType: 'select',
+        valueEnum: { open: '待处理', done: '已完成' },
+        fieldProps: { style: { width: 60 } },
+      },
+    ]}
+    pagination={false}
+    search={{ filterType: 'light' }}
+    request={async ({ status }) => {
+      const data = tasks.filter((task) => !status || task.status === status);
+      return { data, total: data.length, success: true };
+    }}
+  />
 );

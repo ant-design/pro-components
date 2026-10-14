@@ -15,47 +15,63 @@ When steps are split into components, each `StepForm` owns a separate Form insta
 
 ## Basic step flow
 
+Two `StepsForm.StepForm` children collect project and owner fields, which are combined on submit.
+
 <code src="../../demos/form/steps-form/basic.tsx" title="Basic StepsForm"></code>
 
 ## Vertical steps layout
 
-<code src="../../demos/form/steps-form/steps-form-vertical.tsx" title="StepsForm vertical"></code>
+`stepsProps.orientation='vertical'` stacks the steps vertically.
+
+<code src="../../demos/form/steps-form/steps-form-vertical.tsx" title="Vertical StepsForm"></code>
+
+`allowStepSelect` lets users click a step without validating the previous one.
+
+<code src="../../demos/form/steps-form/steps-form-selectable.tsx" title="Select a step directly"></code>
 
 ## Custom step actions
+
+`submitter.render` changes the Previous and Next button labels for each step.
 
 <code src="../../demos/form/steps-form/customize-steps-form.tsx" title="Custom step buttons"></code>
 
 ## Multiple cards layout
 
+Each `StepsForm.StepForm` can contain multiple `ProCard` sections to group fields within a step.
+
 <code src="../../demos/form/steps-form/multi-card-step-form.tsx" background="var(--main-bg-color)" title="StepsForm multi-card"></code>
 
 ## Embedded in Modal
 
-<code src="../../demos/form/steps-form/modal-step-form.tsx" background="var(--main-bg-color)" title="StepsForm + Modal"></code>
+`stepsFormRender` places the steps and submit controls inside a Modal.
 
-## Create & edit presets
+<code src="../../demos/form/steps-form/modal-step-form.tsx" background="var(--main-bg-color)" title="StepsForm in a Modal"></code>
 
-<code src="../../demos/form/steps-form/add-or-edit-step-form.tsx" title="Create/edit scenario"></code>
+## Prefill edit data
+
+Use `formMapRef` to access the first step's form instance and populate its project name after loading edit data. The final submission is shown below the form.
+
+<code src="../../demos/form/steps-form/add-or-edit-step-form.tsx" title="Prefill edit data with formMapRef"></code>
 
 ## StepsForm
 
-| Parameters       | Description                                                                                                                           | Type                                                         | Default |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------- |
-| current          | Active step index, starting from `0`                                                                                                  | `number`                                                     | `0`     |
-| onCurrentChange  | Fired when `current` changes                                                                                                         | `(current: number) => void`                                   | -       |
-| onFinish         | Last step succeeds; returning a truthy value resets flows back to step 1                                                            | `(values: T) => Promise<boolean \| void>`                    | -       |
-| stepsProps       | Props forwarded to antd `<Steps>`                                                                                                     | [`StepsProps`](https://ant.design/components/steps/#API)     | -       |
-| formProps        | Common props passed to the inner ProForm                                                                                              | `ProFormProps`                                               | -       |
-| stepFormRender   | Customize the rendered form body for the active step                                                                                 | `(formDom: ReactNode) => ReactNode`                          | -       |
-| stepsFormRender  | Customize the wrapper around the submitter                                                                                             | `(formDom: ReactNode, submitter: ReactNode) => ReactNode`     | -       |
-| stepsRender      | Completely replace the Steps header/footer region                                                                                       | `(steps, dom) => ReactNode`                                  | -       |
-| layoutRender     | Customize the whole layout; place stepsDom and formDom anywhere                                                                       | `({stepsDom, formDom}) => ReactNode`                         | -       |
-| formRef          | Latest `ProFormInstance` for the visible step                                                                                          | `MutableRefObject<ProFormInstance<any> \| null \| undefined>` | -       |
-| stepsFormRef     | Steps container ref: merged values, per-step form instance, step jump without validation                                              | `MutableRefObject<StepsFormRef \| null \| undefined>`         | -       |
-| formMapRef       | formMapRef of all step forms                                                                                                          | `MutableRefObject<MutableRefObject<FormInstance \| undefined>[]>` | -   |
-| allowStepSelect  | Whether clicking the step bar switches steps (without triggering validation)                                                          | `boolean`                                                    | `false` |
-| submitter        | Unified submitter config, lower priority than each StepForm's config                                                                  | `SubmitterProps<{step,onPre,form}> \| false`                 | -       |
-| containerStyle   | Container style                                                                                                                       | `React.CSSProperties`                                        | -       |
+| Parameters      | Description                                                                              | Type                                                              | Default |
+| --------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------- |
+| current         | Active step index, starting from `0`                                                     | `number`                                                          | `0`     |
+| onCurrentChange | Fired when `current` changes                                                             | `(current: number) => void`                                       | -       |
+| onFinish        | Last step succeeds; returning a truthy value resets flows back to step 1                 | `(values: T) => Promise<boolean \| void>`                         | -       |
+| stepsProps      | Props forwarded to antd `<Steps>`                                                        | [`StepsProps`](https://ant.design/components/steps/#API)          | -       |
+| formProps       | Common props passed to the inner ProForm                                                 | `ProFormProps`                                                    | -       |
+| stepFormRender  | Customize the rendered form body for the active step                                     | `(formDom: ReactNode) => ReactNode`                               | -       |
+| stepsFormRender | Customize the wrapper around the submitter                                               | `(formDom: ReactNode, submitter: ReactNode) => ReactNode`         | -       |
+| stepsRender     | Completely replace the Steps header/footer region                                        | `(steps, dom) => ReactNode`                                       | -       |
+| layoutRender    | Customize the whole layout; place stepsDom and formDom anywhere                          | `({stepsDom, formDom}) => ReactNode`                              | -       |
+| formRef         | Latest `ProFormInstance` for the visible step                                            | `MutableRefObject<ProFormInstance<any> \| null \| undefined>`     | -       |
+| stepsFormRef    | Steps container ref: merged values, per-step form instance, step jump without validation | `MutableRefObject<StepsFormRef \| null \| undefined>`             | -       |
+| formMapRef      | formMapRef of all step forms                                                             | `MutableRefObject<MutableRefObject<FormInstance \| undefined>[]>` | -       |
+| allowStepSelect | Whether clicking the step bar switches steps (without triggering validation)             | `boolean`                                                         | `false` |
+| submitter       | Unified submitter config, lower priority than each StepForm's config                     | `SubmitterProps<{step,onPre,form}> \| false`                      | -       |
+| containerStyle  | Container style                                                                          | `React.CSSProperties`                                             | -       |
 
 ### StepForm
 

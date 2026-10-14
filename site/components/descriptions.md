@@ -47,11 +47,29 @@ interface RequestData {
 
 ## 代码演示
 
-### 基础定义列表
-
 ### 基本使用
 
+`column` 控制响应式列数，`dataSource` 与 `columns.dataIndex` 绑定字段。
+
 <code src="../../demos/descriptions/base.tsx" title="基础定义列表" ></code>
+
+`ellipsis` 缩略过长的描述值。
+
+<code src="../../demos/descriptions/ellipsis.tsx" title="内容缩略"></code>
+
+`renderText` 转换列显示值。
+
+<code src="../../demos/descriptions/render-text.tsx" title="转换显示值"></code>
+
+`valueType: 'code'` 和 `valueType: 'jsonCode'` 分别展示代码与 JSON。
+
+<code src="../../demos/descriptions/value-type-code.tsx" title="代码值"></code>
+
+<code src="../../demos/descriptions/value-type-json-code.tsx" title="JSON 值"></code>
+
+通过 `ProProvider.valueTypeMap` 注册自定义的 `valueType`。
+
+<code src="../../demos/descriptions/customization-value-type.tsx" title="自定义标签值类型"></code>
 
 ### 数组类型 dataIndex
 
@@ -63,9 +81,9 @@ interface RequestData {
 
 <code src="../../demos/descriptions/format.tsx" title="格式化配置" ></code>
 
-### 远程请求数据
+### request 加载数据
 
-通过请求接口数据来展示定义列表
+`request` 异步返回详情，`actionRef.reload()` 再次加载。
 
 <code src="../../demos/descriptions/request.tsx"></code>
 
@@ -73,17 +91,35 @@ interface RequestData {
 
 通过请求接口数据和 columns 来展示定义列表
 
-<code src="../../demos/descriptions/columns.tsx"></code>
+`columns` 按 `dataIndex` 将数据映射到描述项。
+
+<code src="../../demos/descriptions/columns.tsx" title="columns 与 dataIndex"></code>
+
+`valueEnum` 为状态值配置文字和样式。
+
+<code src="../../demos/descriptions/columns-value-enum.tsx" title="valueEnum"></code>
+
+`fieldProps.customSymbol` 设置金额符号。
+
+<code src="../../demos/descriptions/columns-money-symbol.tsx" title="fieldProps.customSymbol"></code>
+
+`fieldProps.moneySymbol: false` 隐藏金额前的货币符号。
+
+<code src="../../demos/descriptions/_base.demo-test.tsx" title="moneySymbol：隐藏货币符号"></code>
+
+`render` 自定义操作项，并在点击后显示当前订单。
+
+<code src="../../demos/descriptions/columns-render.tsx" title="render"></code>
 
 ### dataSource 配置数据
 
-ProDescriptions 支持了和 Table 相同的 dataSource
+`dataSource` 提供详情对象，`columns.dataIndex` 映射字段。
 
 <code src="../../demos/descriptions/use-data-source.tsx"></code>
 
 ### 可编辑的定义列表
 
-API 与 ProTable 相同
+`editable.onSave` 保存更新后的备注，并立即在详情中展示。
 
 <code src="../../demos/descriptions/editable.tsx"></code>
 
@@ -93,27 +129,27 @@ API 与 ProTable 相同
 
 > 更多功能查看 antd 的 [Descriptions](https://ant.design/components/descriptions-cn/)
 
-| 参数           | 说明                                                                                              | 类型                                     | 默认值       |
-| -------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------- | ------------ |
-| title          | 描述列表的标题，显示在最顶部                                                                      | `ReactNode`                              | -            |
-| tooltip        | 内容的补充描述，hover 后显示                                                                      | `LabelTooltipType \| string`             | -            |
-| loading        | 展示一个加载的骨架屏，骨架屏和 dom 不会一一对应                                                   | `boolean`                                | -            |
-| extra          | 描述列表的操作区域，显示在右上方                                                                  | `string` \| `ReactNode`                  | -            |
-| bordered       | 是否展示边框                                                                                      | boolean                                  | false        |
-| column         | 一行的描述项数量，可以写成像素值或支持响应式的对象写法 `{ xs: 1, sm: 2, md: 3}` | number                                   | 3            |
-| size           | 设置列表的大小。可以设置为 `middle` 、`small`，或不填（只有设置 `bordered={true}` 生效）          | `default` \| `middle` \| `small`         | -            |
-| layout         | 描述布局                                                                                          | `horizontal` \| `vertical`               | `horizontal` |
-| colon          | 配置 antd `Descriptions` 单元格 `colon` 的默认值                     | boolean                                  | true         |
-| params         | 发起网络请求的参数，与 request 配合使用                                                           | `Record<string, unknown>`                | -            |
-| request        | 请求数据，与 `columns` 中的 `dataIndex` 配合使用                                                  | `(params: Record<string, unknown> \| undefined) => Promise<ProDescriptionsRequestResult<T>>` | - |
-| onRequestError | 处理 request 的错误，默认会直接抛出错误                                                           | `(error: Error) => void`                 | -            |
-| onLoadingChange | loading 变化时触发                                                                               | `(loading?: boolean) => void`            | -            |
-| columns        | 列定义，与 request 配合使用 [columns](/components/table#columns)                                  | `ProDescriptionsColumn<T>[]`             | -            |
-| editable       | 编辑的相关配置                                                                                    | [EditableConfig](#editable-编辑配置)     | -            |
-| dataSource     | 数据源（单个对象）                                                                                | `T`                                      | -            |
-| onDataSourceChange | 数据源变化时触发                                                                               | `(value: T \| undefined) => void`        | -            |
-| emptyText      | 空数据时的展示                                                                                    | `ReactNode`                              | -            |
-| actionRef      | 操作引用，推荐 `ProDescriptionsActionType<T>`（含 Map 编辑方法），兼容 `ProCoreActionType`        | `MutableRefObject<ProDescriptionsActionType<T> \| ProCoreActionType \| undefined>` | - |
+| 参数               | 说明                                                                                       | 类型                                                                                         | 默认值       |
+| ------------------ | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- | ------------ |
+| title              | 描述列表的标题，显示在最顶部                                                               | `ReactNode`                                                                                  | -            |
+| tooltip            | 内容的补充描述，hover 后显示                                                               | `LabelTooltipType \| string`                                                                 | -            |
+| loading            | 展示一个加载的骨架屏，骨架屏和 dom 不会一一对应                                            | `boolean`                                                                                    | -            |
+| extra              | 描述列表的操作区域，显示在右上方                                                           | `string` \| `ReactNode`                                                                      | -            |
+| bordered           | 是否展示边框                                                                               | boolean                                                                                      | false        |
+| column             | 一行的描述项数量，可以写成像素值或支持响应式的对象写法 `{ xs: 1, sm: 2, md: 3}`            | number                                                                                       | 3            |
+| size               | 设置列表的大小。可以设置为 `middle` 、`small`，或不填（只有设置 `bordered={true}` 生效）   | `default` \| `middle` \| `small`                                                             | -            |
+| layout             | 描述布局                                                                                   | `horizontal` \| `vertical`                                                                   | `horizontal` |
+| colon              | 配置 antd `Descriptions` 单元格 `colon` 的默认值                                           | boolean                                                                                      | true         |
+| params             | 发起网络请求的参数，与 request 配合使用                                                    | `Record<string, unknown>`                                                                    | -            |
+| request            | 请求数据，与 `columns` 中的 `dataIndex` 配合使用                                           | `(params: Record<string, unknown> \| undefined) => Promise<ProDescriptionsRequestResult<T>>` | -            |
+| onRequestError     | 处理 request 的错误，默认会直接抛出错误                                                    | `(error: Error) => void`                                                                     | -            |
+| onLoadingChange    | loading 变化时触发                                                                         | `(loading?: boolean) => void`                                                                | -            |
+| columns            | 列定义，与 request 配合使用 [columns](/components/table#columns)                           | `ProDescriptionsColumn<T>[]`                                                                 | -            |
+| editable           | 编辑的相关配置                                                                             | [EditableConfig](#editable-编辑配置)                                                         | -            |
+| dataSource         | 数据源（单个对象）                                                                         | `T`                                                                                          | -            |
+| onDataSourceChange | 数据源变化时触发                                                                           | `(value: T \| undefined) => void`                                                            | -            |
+| emptyText          | 空数据时的展示                                                                             | `ReactNode`                                                                                  | -            |
+| actionRef          | 操作引用，推荐 `ProDescriptionsActionType<T>`（含 Map 编辑方法），兼容 `ProCoreActionType` | `MutableRefObject<ProDescriptionsActionType<T> \| ProCoreActionType \| undefined>`           | -            |
 
 ### editable 编辑配置
 
@@ -144,7 +180,7 @@ API 与 ProTable 相同
 | tooltip   | 内容的补充描述，hover 后显示                                                | string                                                       | -      |
 | ellipsis  | 是否自动缩略                                                                | `boolean`                                                    | -      |
 | copyable  | 是否支持复制                                                                | `boolean`                                                    | -      |
-| span      | 包含列的数量（对应 antd Descriptions 列跨度）                                | number                                                       | 1      |
+| span      | 包含列的数量（对应 antd Descriptions 列跨度）                               | number                                                       | 1      |
 | valueType | 格式化的类型                                                                | `ValueType`                                                  | -      |
 | valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum)                     | `Record`                                                     | -      |
 | request   | 从网络请求枚举数据                                                          | `()=>Promise<{[key:string`\|`number]:any}>`                  | -      |

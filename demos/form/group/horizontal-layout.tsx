@@ -1,77 +1,32 @@
-import {
-  ProCard,
-  ProForm,
-  ProFormList,
-  ProFormText,
-} from '@ant-design/pro-components';
+import { ProForm, ProFormList, ProFormText } from '@ant-design/pro-components';
+import { useState } from 'react';
 
-const Demo = () => {
+type Values = { attributes: { name: string; value: string }[] };
+
+export default () => {
+  const [submitted, setSubmitted] = useState<Values>();
+
   return (
-    <ProForm name="horizontal-layout-demo" layout="horizontal">
-      <ProFormList
-        name="attributes"
-        label="规格"
-        creatorButtonProps={{
-          creatorButtonText: '添加规格项',
+    <div style={{ padding: 24 }}>
+      <ProForm<Values>
+        layout="horizontal"
+        onFinish={async (values) => {
+          setSubmitted(values);
+          return true;
         }}
-        min={1}
-        copyIconProps={false}
-        itemRender={({ listDom, action }, { index }) => (
-          <ProCard
-            variant="outlined"
-            style={{ marginBlockEnd: 8 }}
-            title={`规格${index + 1}`}
-            extra={action}
-            styles={{ body: { paddingBlockEnd: 0 } }}
-          >
-            {listDom}
-          </ProCard>
-        )}
-        creatorRecord={{ name: '', items: [{ name: '' }] }}
-        initialValue={[
-          { name: '颜色', items: [{ name: '红' }, { name: '黄' }] },
-        ]}
       >
-        <ProFormText
-          style={{ padding: 0 }}
-          width="md"
-          name="name"
-          label="规格名"
-        />
-        <ProForm.Item isListField style={{ marginBlockEnd: 0 }} label="规格值">
-          <ProFormList
-            name="items"
-            creatorButtonProps={{
-              creatorButtonText: '新建',
-              icon: false,
-              type: 'link',
-              style: { width: 'unset' },
-            }}
-            min={1}
-            copyIconProps={false}
-            deleteIconProps={{ tooltipText: '删除' }}
-            itemRender={({ listDom, action }) => (
-              <div
-                style={{
-                  display: 'inline-flex',
-                  marginInlineEnd: 25,
-                }}
-              >
-                {listDom}
-                {action}
-              </div>
-            )}
-          >
-            <ProFormText allowClear={false} width="xs" name={['name']} />
-          </ProFormList>
-        </ProForm.Item>
-      </ProFormList>
-    </ProForm>
+        <ProFormList
+          name="attributes"
+          label="规格"
+          initialValue={[{ name: '颜色', value: '红' }]}
+          creatorButtonProps={{ creatorButtonText: '添加规格' }}
+          copyIconProps={false}
+        >
+          <ProFormText name="name" label="规格名" />
+          <ProFormText name="value" label="规格值" />
+        </ProFormList>
+      </ProForm>
+      <p>提交结果：{submitted ? JSON.stringify(submitted) : '尚未提交'}</p>
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

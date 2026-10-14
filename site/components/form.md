@@ -19,7 +19,12 @@ ProForm 在原来的 Form 的基础上增加了一些语法糖和更多的布局
 
 ## Issue 回归场景
 
-<code src="../../demos/form/issue-regression-gallery.tsx" title="初始化、列表转换与请求刷新"></code>
+<code src="../../demos/form/overlay-initial-values.tsx" title="弹窗初始化：ModalForm.initialValues"></code>
+<code src="../../demos/form/request-reuse.tsx" title="重复参数请求：ProForm.params 与 request"></code>
+
+`dateFormatter` 将日期字段格式化为指定字符串；提交后可查看实际值。
+
+<code src="../../demos/form/_base-test.tsx" title="dateFormatter：自定义日期格式"></code>
 
 ```tsx | pure
 // 设置整体默认值
@@ -76,7 +81,13 @@ ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对齐，�
 | [LightFilter](/components/query-filter)         | 一般用于作为行内内置的筛选，比如卡片操作栏和表格操作栏。                              |
 | [StepsForm](/components/steps-form)             | 分步表单，需要配置 StepForm 使用。                                                    |
 
-<code src="../../demos/form/layout-change.tsx" title="Form 的 layout 切换"></code>
+<code src="../../demos/form/playground/form-basic.tsx" title="标准表单：ProForm.onFinish"></code>
+<code src="../../demos/form/playground/form-modal.tsx" title="弹窗表单：ModalForm.trigger"></code>
+<code src="../../demos/form/playground/form-drawer.tsx" title="抽屉表单：DrawerForm.trigger"></code>
+<code src="../../demos/form/playground/form-query-filter.tsx" title="查询表单：QueryFilter.onFinish"></code>
+<code src="../../demos/form/playground/form-light-filter.tsx" title="轻量筛选：LightFilter.onFinish"></code>
+<code src="../../demos/form/playground/form-steps.tsx" title="分步表单：StepsForm.StepForm"></code>
+<code src="../../demos/form/playground/form-login.tsx" title="登录表单：LoginForm.onFinish"></code>
 
 ## 数据转化
 
@@ -207,30 +218,53 @@ import { set } from '@rc-component/util';
 
 ### 标签与表单项布局
 
-除了 `LightFilter` 和 `QueryFilter` 这样固定布局的表单样式，其他表单布局支持配置与 `antd` 一致的三种布局方式。
+`ProForm.layout` 支持 `horizontal`、`vertical` 和 `inline`；切换分段选择器可比较同一组字段的排列。
 
-<code src="../../demos/form/form-layout.tsx"  ></code>
+<code src="../../demos/form/form-layout.tsx" title="layout：横向、纵向和行内"></code>
+
+`labelCol` 与 `wrapperCol` 可按断点设置标签和输入区宽度。
+
+<code src="../../demos/form/label-col.tsx" title="响应式标签宽度"></code>
 
 ### 栅格化布局
 
-同时支持在 `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm` 中使用
+`grid` 启用栅格，`rowProps.gutter` 设置间距，字段的 `colProps` 按断点控制列宽。缩放页面即可看到字段从两列变为一列；提交后显示表单值。
 
-<code src="../../demos/form/form-layout-grid.tsx" ></code>
+<code src="../../demos/form/form-layout-grid.tsx" title="grid：响应式表单栅格"></code>
 
-<code src="../../demos/form/dependency.tsx" title="表单联动"></code>
+`ProFormDependency name={[["customer", "name"]]}` 监听嵌套字段；修改客户名称时，备注字段的标签同步变化。
 
-<code src="../../demos/form/form-ref.tsx" id="formRef-usage" description="
-你可以通过 `formRef` 获取到表单实例的引用，通过引用可以调用表单方法实现表单重置，设置表单，获取表单值等功能。" title="表单方法调用"></code>
+<code src="../../demos/form/dependency.tsx" title="嵌套字段联动"></code>
 
-### 同步提交结果到 url
+`formRef.current.setFieldsValue` 从表单外部填写字段。
 
-打开时也会把 url 的参数设置为默认值，支持 transform, 但是要注意字段的映射。
+<code src="../../demos/form/form-ref.tsx" title="setFieldsValue"></code>
 
-<code src="../../demos/form/sync-to-url.tsx" ></code>
+### 同步表单值到 URL
 
-<code src="../../demos/form/money.tsx" title="金额"></code>
+`syncToUrl` 将表单值写入 URL 查询参数，再次打开时也会从查询参数恢复字段。
+
+<code src="../../demos/form/sync-to-url.tsx" title="syncToUrl 基础同步"></code>
+
+传入函数可控制哪些字段写入 URL。下例将私密备注从查询参数中排除，但提交时仍保留该值。
+
+<code src="../../demos/form/sync-to-url-filter.tsx" title="syncToUrl 自定义字段同步"></code>
+
+`ProFormMoney` 的金额输入属性分别展示；提交后可查看实际表单值。
+
+<code src="../../demos/form/money.tsx" title="customSymbol：自定义符号"></code>
+
+<code src="../../demos/form/money-no-symbol.tsx" title="moneySymbol：隐藏符号"></code>
+
+<code src="../../demos/form/money-locale.tsx" title="locale：地区格式"></code>
+
+<code src="../../demos/form/money-precision.tsx" title="precision：整数精度"></code>
+
+<code src="../../demos/form/money-min.tsx" title="min：最低金额"></code>
 
 <code src="../../demos/form/layout-footer.tsx" iframe="580" title="固定页脚"></code>
+
+`ProForm.Item` 的 `trigger="onValuesChange"` 将可编辑表格的行数据纳入表单提交值。先保存行编辑，再提交表单查看结果。
 
 <code src="../../demos/form/pro-form-editable-table.tsx" title="ProForm 和 EditableTable 同时使用"></code>
 
@@ -248,9 +282,19 @@ FormItemRender 用来专门处理，采用 render props 的方式来组织代码
 
 ### 使用 useControlModel
 
-从一个官网例子开始[自定义表单项](https://ant.design/components/form-cn#components-form-demo-customized-form-controls)
+下面三个示例都提交“金额 + 币种”，分别展示实现复合表单项的三种方式。修改值后提交，可对比结果。
 
-<code src="../../demos/form/antd.tsx" description="官网例子"></code> <code src="../../demos/form/antd-modify.tsx" description="使用和hooks改造"></code> <code src="../../demos/form/antd-nest.tsx" description="嵌套使用"></code>
+原生受控组件显式接收 `value` 并调用 `onChange`。
+
+<code src="../../demos/form/antd.tsx" title="自定义表单项：value / onChange"></code>
+
+`useControlModel` 为复合组件生成两个字段的受控属性。
+
+<code src="../../demos/form/antd-modify.tsx" title="useControlModel：复合字段"></code>
+
+嵌套 `Form.Item noStyle` 将金额和币种分别绑定到 `price` 下的字段。
+
+<code src="../../demos/form/antd-nest.tsx" title="Form.Item noStyle：嵌套字段"></code>
 
 ### FormControlRender
 
@@ -258,29 +302,47 @@ FormItemRender 用来专门处理，采用 render props 的方式来组织代码
 
 有的时候需要使用 Form.Item.useStatus，但必须满足 hooks 的使用规范，这使得开发就必须提取成单独的组件来使用，没办法内联使用，而 FormControlRender 很好的解决这种情况
 
-<code src="../../demos/form/form-control-render.tsx"></code>
+提交空值会触发校验，`FormControlRender` 的 `status` 让内联文本框显示错误边框；`pickControlPropsWithId` 传递表单值、事件和输入框 id。
+
+<code src="../../demos/form/form-control-render.tsx" title="内联控件显示校验状态"></code>
 
 ### FormItemRender & ProFormItemRender
 
-使用 FormItemRender 或者 ProFormItemRender 可以更方便的在 Form 里书写表单项
+`ProFormItemRender` 配合 `pickControlProps` 为自定义输入框提供表单值与事件。
 
-<code src="../../demos/form/form-item-render.tsx"></code>
+<code src="../../demos/form/form-item-render.tsx" title="ProFormItemRender 自定义输入"></code>
 
-<code src="../../demos/form/linkage-customization.tsx" debug></code>
+`FormItemRender` 配合 `pickControlPropsWithId`，同时传递输入框的 `id`。
 
-<code src="../../demos/form/_pro-form-dependency.tsx"  debug></code>
+<code src="../../demos/form/form-item-render-with-id.tsx" title="FormItemRender 传递 id"></code>
 
-<code src="../../demos/form/label-col.tsx" debug></code>
+`useControlModel` 将自定义组件接入单个表单字段。
+
+<code src="../../demos/form/use-control-model.tsx" title="单值控制模型"></code>
+
+`useControlModel` 的多字段配置将复选框和输入框合并为一个表单值。
+
+<code src="../../demos/form/use-control-model-multiple.tsx" title="多值控制模型"></code>
+
+### ProFormDependency 动态选项
+
+`name={['dbName']}` 监听数据库名称，按输入值调整迁移方式选项；提交后可查看选中的值。
+
+<code src="../../demos/form/linkage-customization.tsx" title="依赖字段的动态选项"></code>
+
+在 `ProFormList` 中，`ProFormDependency name={['enabled']}` 只读取当前列表项的开关；两行成员可以独立显示备注。
+
+<code src="../../demos/form/_pro-form-dependency.tsx" title="列表项内的 ProFormDependency"></code>
 
 ### Select `labelInValue`
 
-演示 `ProFormSelect` 在 `labelInValue={true}` 下与提交值的写法。
+`fieldProps.labelInValue={true}` 让提交值同时包含选项的 `label` 和 `value`，下方会展示实际提交结果。
 
-<code src="../../demos/form/label-in-value.tsx"></code>
+<code src="../../demos/form/label-in-value.tsx" title="Select 的 labelInValue"></code>
 
 ### 自定义 request 加载状态
 
-`request` 加载期间默认渲染居中的 `Spin`，通过 `loadingRender` 替换为 `Skeleton` 等自定义内容。
+`request` 加载期间默认渲染居中的 `Spin`，通过 `loadingRender` 替换为 `Skeleton`。点击“重新加载表单”可再次观察加载状态。
 
 <code src="../../demos/form/loading-render.tsx"></code>
 
@@ -288,15 +350,18 @@ FormItemRender 用来专门处理，采用 render props 的方式来组织代码
 
 `request` 一次性拉取全量数据后，设置 `fetchDataOnSearch={false}` 可让搜索走本地过滤，不再重复发起请求。
 
-<code src="../../demos/field/select-local-search.tsx"></code>
+<code src="../../demos/field/field-search-remote.tsx" title="输入时请求：ProFormSelect.request"></code>
+<code src="../../demos/field/field-search-local.tsx" title="本地筛选：fetchDataOnSearch=false"></code>
 
-| 参数               | 说明                                                                        | 类型      | 默认值  |
-| ------------------ | --------------------------------------------------------------------------- | --------- | ------- |
-| fetchDataOnSearch  | 搜索时是否重新触发 `request`；设为 `false` 时仅初始化拉取一次，搜索走本地过滤 | `boolean` | `true`  |
+| 参数              | 说明                                                                          | 类型      | 默认值 |
+| ----------------- | ----------------------------------------------------------------------------- | --------- | ------ |
+| fetchDataOnSearch | 搜索时是否重新触发 `request`；设为 `false` 时仅初始化拉取一次，搜索走本地过滤 | `boolean` | `true` |
 
-### ProProvider / ConfigProvider（调试）
+### ConfigProvider 设置表单语言
 
-<code src="../../demos/form/config-provider.tsx" debug background="var(--main-bg-color)"></code>
+`ConfigProvider.locale` 设置日期选择器的语言；示例使用英文语言包，可打开日期面板查看月份和操作文案。
+
+<code src="../../demos/form/config-provider.tsx" title="ConfigProvider.locale" background="var(--main-bg-color)"></code>
 
 ## ProForm
 
@@ -310,7 +375,7 @@ ProForm 是对 antd Form 的再封装，如果你想要自定义表单元素，P
 | onReset                                         | 点击重置按钮的回调                                                                                                                             | `(e) => void`                                                                                                                                                                                                                 | -               |
 | submitter                                       | 提交按钮相关配置                                                                                                                               | `SubmitterProps<{form?: FormInstance<any>}> \| false`                                                                                                                                                                         | `true`          |
 | loading                                         | 表单按钮的 loading 状态                                                                                                                        | `boolean`                                                                                                                                                                                                                     | -               |
-| loadingRender                                   | `request` 加载期间的自定义渲染，默认为居中的 `Spin`，可传 `Skeleton` 对齐 antd 5.18+ 加载风格                                                  | `ReactNode \| (() => ReactNode)`                                                                                                                                                                                             | `<Spin />`      |
+| loadingRender                                   | `request` 加载期间的自定义渲染，默认为居中的 `Spin`，可传 `Skeleton` 对齐 antd 5.18+ 加载风格                                                  | `ReactNode \| (() => ReactNode)`                                                                                                                                                                                              | `<Spin />`      |
 | onLoadingChange                                 | loading 状态改变时的回调                                                                                                                       | `(loading: boolean) => void`                                                                                                                                                                                                  | -               |
 | formRef                                         | 获取表单所使用的 form，`ProFormInstance` 相比 antd Form 增加了格式化数据的方法                                                                 | `React.MutableRefObject<(ProFormInstance<T> & { nativeElement?: HTMLElement; focus?: () => void }) \| undefined> \| React.RefObject<(ProFormInstance<T> & { nativeElement?: HTMLElement; focus?: () => void }) \| undefined>` | -               |
 | syncToUrl                                       | 同步参数到 url 上，url 只支持 string，在使用之前最好读一下[url 中的参数类型](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) | `boolean \| ((values: T, type: 'get' \| 'set') => T)`                                                                                                                                                                         | -               |
@@ -386,14 +451,14 @@ ProForm.Group 支持 `title`、`tooltip`、`extra` 等分组配置，完整类�
 
 虽然我们希望不要对 submitter 进行修改，但在使用中修改是很常见的需求，ProForm 的各个组件都使用了同样的 API 来支持需求。
 
-| 参数              | 说明                         | 类型                                                    | 默认值 |
-| ----------------- | ---------------------------- | ------------------------------------------------------- | ------ |
-| onSubmit          | 提交方法                     | `(value?: T)=>void`                                     | -      |
-| onReset           | 重置方法                     | `(value?: T)=>void`                                     | -      |
-| searchConfig      | 搜索的配置，一般用来配置文本 | `{resetText,submitText}`                                | -      |
-| submitButtonProps | 提交按钮的 props             | `false \| ButtonProps`                                  | -      |
-| resetButtonProps  | 重置按钮的 props             | `false \| ButtonProps`                                  | -      |
-| render            | 自定义操作的渲染             | `false\|((props,dom:JSX[])=>ReactNode[]\|ReactNode\|false)` | -  |
+| 参数              | 说明                         | 类型                                                        | 默认值 |
+| ----------------- | ---------------------------- | ----------------------------------------------------------- | ------ |
+| onSubmit          | 提交方法                     | `(value?: T)=>void`                                         | -      |
+| onReset           | 重置方法                     | `(value?: T)=>void`                                         | -      |
+| searchConfig      | 搜索的配置，一般用来配置文本 | `{resetText,submitText}`                                    | -      |
+| submitButtonProps | 提交按钮的 props             | `false \| ButtonProps`                                      | -      |
+| resetButtonProps  | 重置按钮的 props             | `false \| ButtonProps`                                      | -      |
+| render            | 自定义操作的渲染             | `false\|((props,dom:JSX[])=>ReactNode[]\|ReactNode\|false)` | -      |
 
 > render 的第二个参数是默认的 dom 数组，第一个是提交按钮，第二个是重置按钮。
 
@@ -440,109 +505,13 @@ ProForm.Group 支持 `title`、`tooltip`、`extra` 等分组配置，完整类�
 
 ### formRef
 
-该属性是 ProForm 在原有的 Antd 的 `FormInstance` 的基础上做的一个上层分装，增加了一些更加便捷的方法。使用方式如下：
+`formRef` 提供表单实例。以下示例分别展示读取单个字段、读取经过 `transform` 转换的值，以及先校验再读取格式化值。
 
-<code src="../../demos/form/form-ref.tsx" id="formRef-api" title="formRef的使用"></code>
+<code src="../../demos/form/form-ref-get-field-value.tsx" title="getFieldValue"></code>
 
-```tsx | pure
-import type { ProFormInstance } from '@ant-design/pro-components';
-import {
-  ProForm,
-  ProFormDatePicker,
-  ProFormText,
-} from '@ant-design/pro-components';
-import { Button, message, Space } from 'antd';
-import moment from 'dayjs';
-import { useRef } from 'react';
+<code src="../../demos/form/form-ref-format-value.tsx" title="getFieldsFormatValue"></code>
 
-const waitTime = (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-    }, time);
-  });
-};
-
-export default () => {
-  const formRef = useRef<ProFormInstance>();
-  const onFill = () => {
-    formRef?.current?.setFieldsValue({
-      name: '张三',
-      company: '蚂蚁金服',
-    });
-  };
-
-  const getCompanyName = () => {
-    message.info(`公司名称为 "${formRef?.current?.getFieldValue('company')}"`);
-  };
-
-  const getFormatValues = () => {
-    console.log(
-      '格式化后的所有数据：',
-      formRef.current?.getFieldsFormatValue?.(),
-    );
-  };
-
-  const validateAndGetFormatValue = async () => {
-    const values = await formRef.current?.validateFieldsReturnFormatValue?.();
-    console.log('校验表单并返回格式化后的所有数据：', values);
-  };
-
-  return (
-    <ProForm
-      title="新建表单"
-      formRef={formRef}
-      submitter={{
-        render: (props, doms) => {
-          return [
-            ...doms,
-            <Button htmlType="button" onClick={onFill} key="edit">
-              一键填写
-            </Button>,
-            <Button htmlType="button" onClick={getCompanyName} key="read">
-              读取公司
-            </Button>,
-            <Space.Compact key="refs" style={{ display: 'block' }}>
-              <Button htmlType="button" onClick={getFormatValues} key="format">
-                获取格式化后的所有数据
-              </Button>
-              <Button
-                htmlType="button"
-                onClick={validateAndGetFormatValue}
-                key="format2"
-              >
-                校验表单并返回格式化后的所有数据
-              </Button>
-            </Space.Compact>,
-          ];
-        },
-      }}
-      onFinish={async (values) => {
-        await waitTime(2000);
-        console.log(values);
-        message.success('提交成功');
-        return true;
-      }}
-    >
-      <ProFormText
-        width="md"
-        name="name"
-        label="签约客户名称"
-        tooltip="最长为 24 位"
-        placeholder="请输入名称"
-      />
-
-      <ProFormText
-        width="md"
-        name="company"
-        label="我方公司名称"
-        placeholder="请输入名称"
-      />
-      <ProFormDatePicker name="date" initialValue={moment('2021-08-09')} />
-    </ProForm>
-  );
-};
-```
+<code src="../../demos/form/form-ref-validate-format-value.tsx" title="validateFieldsReturnFormatValue"></code>
 
 `ProFormInstance` 在原先 `FormInstance` 的基础上增加了如下方法：
 
@@ -553,6 +522,6 @@ export default () => {
 |    `getFieldFormatValueObject`    | 使用方法与 `FormInstance` 的 `getFieldValue` 方法相同，将返回格式化后的指定数据（包含 name） |      |
 | `validateFieldsReturnFormatValue` |  使用方法与 `FormInstance` 的 `validateFields` 方法相同，验证通过后将返回格式化后的所有数据  |      |
 
-<code src="../../demos/form/_modalform-test.tsx"  debug></code>
+`BetaSchemaForm.formRef` 也能读取表单当前值。修改项目名称后点击按钮查看结果。
 
-<code src="../../demos/form/params-form-ref.tsx"  debug></code>
+<code src="../../demos/form/params-form-ref.tsx" title="BetaSchemaForm.formRef 读取字段"></code>

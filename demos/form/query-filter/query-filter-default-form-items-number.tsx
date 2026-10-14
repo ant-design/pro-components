@@ -1,24 +1,23 @@
-import {
-  ProFormDatePicker,
-  ProFormText,
-  QueryFilter,
-} from '@ant-design/pro-components';
+import { ProFormText, QueryFilter } from '@ant-design/pro-components';
+import { useState } from 'react';
 
-const Demo = () => {
+export default () => {
+  const [result, setResult] = useState('');
+
   return (
-    <QueryFilter defaultCollapsed split defaultFormItemsNumber={5}>
-      <ProFormText name="name" label="应用名称" />
-      <ProFormDatePicker name="createDate" label="创建时间" />
-      <ProFormText name="status" label="应用状态" />
-      <ProFormDatePicker name="replyDate" label="响应日期" />
-      <ProFormDatePicker name="startDate" label="创建时间" />
-      <ProFormDatePicker name="endDate" label="结束时间" />
-    </QueryFilter>
+    <div style={{ padding: 24 }}>
+      <QueryFilter
+        defaultFormItemsNumber={3}
+        onFinish={async (values) => {
+          setResult(JSON.stringify(values, null, 2));
+        }}
+      >
+        <ProFormText name="name" label="应用名称" />
+        <ProFormText name="owner" label="负责人" />
+        <ProFormText name="department" label="所属部门" />
+        <ProFormText name="status" label="状态" />
+      </QueryFilter>
+      {result && <pre aria-label="查询结果">{result}</pre>}
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

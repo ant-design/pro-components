@@ -1,218 +1,61 @@
-﻿import {
+import {
   ProCard,
-  ProForm,
-  ProFormCheckbox,
-  ProFormDatePicker,
-  ProFormDateRangePicker,
-  ProFormDigit,
   ProFormSelect,
   ProFormText,
   StepsForm,
 } from '@ant-design/pro-components';
-import { message } from 'antd';
+import { Alert } from 'antd';
+import { useState } from 'react';
 
-const waitTime = (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-    }, time);
-  });
-};
+export default () => {
+  const [submitted, setSubmitted] = useState('');
 
-const Demo = () => {
   return (
-    <>
+    <div
+      style={{
+        width: '100%',
+        minWidth: 0,
+        paddingInline: 8,
+        boxSizing: 'border-box',
+      }}
+    >
       <StepsForm
-        onFinish={async () => {
-
-          await waitTime(1000);
-          message.success('Submission successful');
-        }}
-        formProps={{
-          validateMessages: {
-            required: 'This field is required',
-          },
+        onFinish={async (values) => {
+          setSubmitted(JSON.stringify(values));
+          return true;
         }}
       >
-        <StepsForm.StepForm
-          name="multi-card-step-form-base"
-          title="First Step"
-          onFinish={async () => {
-            await waitTime(2000);
-            return true;
-          }}
-        >
+        <StepsForm.StepForm name="details" title="任务信息">
           <ProCard
-            title="Source and Target"
+            title="任务名称"
             variant="outlined"
-            headerBordered
-            collapsible
-            style={{
-              marginBlockEnd: 16,
-              minWidth: 800,
-              maxWidth: '100%',
-            }}
+            style={{ marginBottom: 16 }}
           >
             <ProFormText
               name="name"
-              width="md"
-              label="Migration Task Name"
-              tooltip="Up to 24 characters, used as a unique id"
-              placeholder="Please enter a name"
+              label="名称"
               rules={[{ required: true }]}
             />
-            <ProForm.Group title="Nodes" size={8}>
-              <ProFormSelect
-                width="sm"
-                name="source"
-                placeholder="Select Source Node"
-              />
-              <ProFormSelect
-                width="sm"
-                name="target"
-                placeholder="Select Target Node"
-              />
-            </ProForm.Group>
           </ProCard>
-
-          <ProCard
-            title="Top Alignment"
-            variant="outlined"
-            headerBordered
-            collapsible
-            style={{
-              minWidth: 800,
-              marginBlockEnd: 16,
-            }}
-          >
-            <ProFormDigit
-              name="xs"
-              label="XS Form"
-              initialValue={9999}
-              tooltip="Tooltip that appears on hover."
-              placeholder="Please enter a name"
-              width="xs"
-            />
-            <ProFormText
-              name="s"
-              label="S Form"
-              placeholder="Please enter a name"
-              width="sm"
-            />
-            <ProFormDateRangePicker name="m" label="M Form" />
-            <ProFormSelect
-              name="l"
-              label="L Form"
-              fieldProps={{
-                mode: 'tags',
-              }}
-              width="lg"
-              initialValue={['Wu Jiahao', 'Zhou Xingxing']}
-              options={['Wu Jiahao', 'Zhou Xingxing', 'Chen Lafeng'].map(
-                (item) => ({
-                  label: item,
-                  value: item,
-                }),
-              )}
-            />
+          <ProCard title="负责人" variant="outlined">
+            <ProFormText name="owner" label="姓名" />
           </ProCard>
         </StepsForm.StepForm>
-        <StepsForm.StepForm name="multi-card-step-form-checkbox" title="Second Step">
-          <ProCard
-            style={{
-              minWidth: 800,
-              marginBlockEnd: 16,
-              maxWidth: '100%',
-            }}
-          >
-            <ProFormCheckbox.Group
-              name="checkbox"
-              label="Migration Type"
-              width="lg"
-              options={[
-                'Structural Migration',
-                'Full Migration',
-                'Incremental Migration',
-                'Full Verification',
-              ]}
-            />
-            <ProForm.Group>
-              <ProFormText name="dbname" label="Business DB Username" />
-              <ProFormDatePicker
-                name="datetime"
-                label="Record Retention Time"
-                width="sm"
-              />
-            </ProForm.Group>
-            <ProFormCheckbox.Group
-              name="checkbox"
-              label="Migration Type"
-              options={['Complete LOB', 'Do Not Sync LOB', 'Restricted LOB']}
-            />
-          </ProCard>
-        </StepsForm.StepForm>
-        <StepsForm.StepForm name="multi-card-step-form-time" title="Third Step">
-          <ProCard
-            style={{
-              marginBlockEnd: 16,
-              minWidth: 800,
-              maxWidth: '100%',
-            }}
-          >
-            <ProFormCheckbox.Group
-              name="checkbox"
-              label="Deployment Units"
-              rules={[
-                {
-                  required: true,
-                },
-              ]}
-              options={[
-                'Deployment Unit 1',
-                'Deployment Unit 2',
-                'Deployment Unit 3',
-              ]}
-            />
+        <StepsForm.StepForm name="settings" title="运行设置">
+          <ProCard title="环境" variant="outlined">
             <ProFormSelect
-              label="Deployment Group Strategy"
-              name="remark"
-              rules={[
-                {
-                  required: true,
-                },
-              ]}
-              width="md"
-              initialValue="1"
+              name="environment"
+              label="部署环境"
               options={[
-                {
-                  value: '1',
-                  label: 'Strategy One',
-                },
-                { value: '2', label: 'Strategy Two' },
+                { label: '测试', value: 'test' },
+                { label: '生产', value: 'production' },
               ]}
-            />
-            <ProFormSelect
-              label="Pod Scheduling Strategy"
-              name="remark2"
-              width="md"
-              initialValue="2"
-              options={[
-                {
-                  value: '1',
-                  label: 'Strategy One',
-                },
-                { value: '2', label: 'Strategy Two' },
-              ]}
+              rules={[{ required: true }]}
             />
           </ProCard>
         </StepsForm.StepForm>
       </StepsForm>
-    </>
+      {submitted && <Alert type="success" message={`已提交：${submitted}`} />}
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

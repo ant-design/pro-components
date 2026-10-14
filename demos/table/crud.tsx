@@ -1,178 +1,62 @@
-import { PlusOutlined } from '@ant-design/icons';
-import type {
-  ProColumns,
-  ProDescriptionsItemProps,
-} from '@ant-design/pro-components';
-import {
-  ProCard,
-  ProDescriptions,
-  ProTable,
-  TableDropdown,
-} from '@ant-design/pro-components';
-import { Button, Space, Tabs, Tag, message } from 'antd';
+import type { ProColumns } from '@ant-design/pro-components';
+import { EditableProTable } from '@ant-design/pro-components';
+import { Popconfirm, Typography } from 'antd';
 import { useState } from 'react';
-import request from 'umi-request';
 
-type GithubIssueItem = {
-  url: string;
-  id: number;
-  number: number;
-  title: string;
-  labels: {
-    name: string;
-    color: string;
-  }[];
-  state: string;
-  comments: number;
-  created_at: string;
-  updated_at: string;
-  closed_at?: string;
-};
+type Task = { id: number; title: string; status: 'open' | 'closed' };
 
-const columns: ProColumns<GithubIssueItem>[] = [
-  {
-    title: '序号',
-    dataIndex: 'index',
-    width: 64,
-    valueType: 'indexBorder',
-  },
-  {
-    title: '标题',
-    dataIndex: 'title',
-    copyable: true,
-    ellipsis: true,
-    search: false,
-  },
-  {
-    title: (_, type) => (type === 'table' ? '状态' : '列表状态'),
-    dataIndex: 'state',
-    initialValue: 'all',
-    filters: true,
-    onFilter: true,
-    valueType: 'select',
-    valueEnum: {
-      all: { text: '全部', status: 'Default' },
-      open: {
-        text: '未解决',
-        status: 'Error',
-      },
-      closed: {
-        text: '已解决',
-        status: 'Success',
-      },
+export default () => {
+  const [rows, setRows] = useState<readonly Task[]>([
+    { id: 1, title: '更新组件文档', status: 'open' },
+    { id: 2, title: '修复移动端布局', status: 'closed' },
+  ]);
+  const [editableKeys, setEditableKeys] = useState<React.Key[]>([]);
+
+  const columns: ProColumns<Task>[] = [
+    {
+      title: '任务',
+      dataIndex: 'title',
+      formItemProps: { rules: [{ required: true, message: '请输入任务名称' }] },
     },
-  },
-  {
-    title: '排序方式',
-    key: 'direction',
-    hideInTable: true,
-    hideInDescriptions: true,
-    dataIndex: 'direction',
-    filters: true,
-    onFilter: true,
-    valueType: 'select',
-    valueEnum: {
-      asc: '正序',
-      desc: '倒序',
+    {
+      title: '状态',
+      dataIndex: 'status',
+      valueType: 'select',
+      valueEnum: { open: '待处理', closed: '已完成' },
     },
-  },
-  {
-    title: '标签',
-    dataIndex: 'labels',
-    width: 120,
-    render: (_, row) => (
-      <Space>
-        {row.labels.map(({ name, color }) => (
-          <Tag color={color} key={name}>
-            {name}
-          </Tag>
-        ))}
-      </Space>
-    ),
-  },
-  {
-    title: '操作',
-    valueType: 'option',
-    dataIndex: 'id',
-    render: (text, row) => [
-      <a href={row.url} key="show" target="_blank" rel="noopener noreferrer">
-        查看
-      </a>,
-      <TableDropdown
-        key="more"
-        onSelect={(key) => message.info(key)}
-        menus={[
-          { key: 'copy', name: '复制' },
-          { key: 'delete', name: '删除' },
-        ]}
-      />,
-    ],
-  },
-];
+    {
+      title: '操作',
+      valueType: 'option',
+      render: (_, row, __, action) => [
+        <a key="edit" onClick={() => action?.startEditable?.(row.id)}>
+          编辑
+        </a>,
+        <Popconfirm
+          key="delete"
+          title="删除这条任务？"
+          onConfirm={() => setRows((current) => current.filter((item) => item.id !== row.id))}
+        >
+          <a>删除</a>
+        </Popconfirm>,
+      ],
+    },
+  ];
 
-const Demo = () => {
-  const [type, setType] = useState('table');
   return (
-    <ProCard>
-      <Tabs
-        activeKey={type}
-        onChange={(e) => setType(e)}
-        items={[
-          { key: 'table', label: '表格视图' },
-          { key: 'form', label: '表单视图' },
-          { key: 'descriptions', label: '详情视图' },
-        ]}
+    <>
+      <Typography.Paragraph>使用 recordCreatorProps 新建，editable 编辑，操作列删除。</Typography.Paragraph>
+      <EditableProTable<Task>
+        rowKey="id"
+        columns={columns}
+        value={rows}
+        onChange={setRows}
+        scroll={{ x: 500 }}
+        recordCreatorProps={{
+          newRecordType: 'dataSource',
+          record: () => ({ id: Date.now(), title: '', status: 'open' }),
+        }}
+        editable={{ editableKeys, onChange: setEditableKeys }}
       />
-      {['table', 'form'].includes(type) && (
-        <ProTable<GithubIssueItem>
-          columns={columns}
-          type={type as 'table'}
-          request={async (params = {} as Record<string, any>) =>
-            request<{
-              data: GithubIssueItem[];
-            }>('https://proapi.azurewebsites.net/github/issues', {
-              params,
-            })
-          }
-          pagination={{
-            pageSize: 5,
-          }}
-          rowKey="id"
-          dateFormatter="string"
-          headerTitle="Issue 管理"
-          toolBarRender={() => [
-            <Button key="new" type="primary">
-              <PlusOutlined />
-              新建
-            </Button>,
-          ]}
-        />
-      )}
-      {type === 'descriptions' && (
-        <ProDescriptions
-          style={{
-            background: '#fff',
-          }}
-          columns={columns as ProDescriptionsItemProps<GithubIssueItem>[]}
-          request={async (params) => {
-            const msg = await request<{
-              data: GithubIssueItem[];
-            }>('https://proapi.azurewebsites.net/github/issues', {
-              params,
-            });
-            return {
-              ...msg,
-              data: msg?.data[0],
-            };
-          }}
-        />
-      )}
-    </ProCard>
+    </>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

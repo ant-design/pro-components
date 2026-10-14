@@ -1,211 +1,48 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import {
-  EditableProTable,
-  ProCard,
-  ProFormField,
-  useRefFunction,
-} from '@ant-design/pro-components';
-import React, { useState } from 'react';
+import { EditableProTable } from '@ant-design/pro-components';
+import { useState } from 'react';
 
-import { createEditableRowId } from '../../mockData';
+type Task = { id: string; title: string; children?: Task[] };
 
-const waitTime = (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-    }, time);
-  });
-};
-
-type DataSourceType = {
-  id?: React.Key;
-  title?: string;
-  decs?: string;
-  state?: string;
-  created_at?: number;
-  update_at?: number;
-  children?: DataSourceType[];
-};
-
-const defaultData: DataSourceType[] = [
-  {
-    id: 624748504,
-    title: '优化首页加载速度',
-    decs: '首页白屏时间超过 3s，需优化资源加载和首屏渲染',
-    state: 'open',
-    created_at: 1705286400000,
-    update_at: 1705372800000,
-    children: [
-      {
-        id: 6246912293,
-        title: '拆分首屏关键资源',
-        decs: '将非关键 JS/CSS 延迟加载',
-        state: 'closed',
-        created_at: 1705200000000,
-        update_at: 1705286400000,
-      },
-    ],
-  },
-  {
-    id: 624691229,
-    title: '修复登录超时问题',
-    decs: '用户反馈高峰期登录请求超时，需排查连接池配置',
-    state: 'closed',
-    created_at: 1705200000000,
-    update_at: 1705286400000,
-  },
-];
-
-const loopDataSourceFilter = (
-  data: readonly DataSourceType[],
-  id: React.Key | undefined,
-): DataSourceType[] => {
-  return data
-    .map((item) => {
-      if (item.id !== id) {
-        if (item.children) {
-          const newChildren = loopDataSourceFilter(item.children, id);
-          return {
-            ...item,
-            children: newChildren.length > 0 ? newChildren : undefined,
-          };
-        }
-        return item;
-      }
-      return null;
-    })
-    .filter(Boolean) as DataSourceType[];
-};
-
-const Demo = () => {
-  const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
-  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(
-    () => defaultData,
-  );
-
-  const removeRow = useRefFunction((record: DataSourceType) => {
-    setDataSource(loopDataSourceFilter(dataSource, record.id));
-  });
-  const columns: ProColumns<DataSourceType>[] = [
+export default () => {
+  const [rows, setRows] = useState<readonly Task[]>([
     {
-      title: '任务名称',
-      dataIndex: 'title',
-      formItemProps: (form, { rowIndex }) => {
-        return {
-          rules:
-            rowIndex !== undefined && rowIndex > 2
-              ? [{ required: true, message: '此项为必填项' }]
-              : [],
-        };
-      },
-      width: '30%',
+      id: 'parent',
+      title: '发布新版本',
+      children: [{ id: 'child', title: '检查发布说明' }],
     },
-    {
-      title: '状态',
-      key: 'state',
-      dataIndex: 'state',
-      valueType: 'select',
-      valueEnum: {
-        all: { text: '全部', status: 'Default' },
-        open: {
-          text: '未解决',
-          status: 'Error',
-        },
-        closed: {
-          text: '已解决',
-          status: 'Success',
-        },
-      },
-    },
-    {
-      title: '描述',
-      dataIndex: 'decs',
-      fieldProps: (form, { rowKey, rowIndex }) => {
-        if (form.getFieldValue([rowKey || '', 'title']) === '不好玩') {
-          return {
-            disabled: true,
-          };
-        }
-        if (rowIndex !== undefined && rowIndex > 9) {
-          return {
-            disabled: true,
-          };
-        }
-        return {};
-      },
-    },
-    {
-      title: '活动时间',
-      dataIndex: 'created_at',
-      valueType: 'date',
-    },
-    {
-      title: '操作',
-      valueType: 'option',
-      width: 200,
-      render: (text, record) => [
-        <a
-          key="delete"
-          onClick={() => {
-            removeRow(record);
-          }}
-        >
-          删除
-        </a>,
-      ],
-    },
-  ];
+  ]);
+  const [editableKeys, setEditableKeys] = useState<React.Key[]>([]);
 
   return (
-    <>
-      <EditableProTable<DataSourceType>
-        expandable={{
-          // 使用 request 请求数据时无效
-          defaultExpandAllRows: true,
-        }}
-        scroll={{
-          x: 960,
-        }}
+    <div style={{ maxWidth: '100%', padding: 16 }}>
+      <EditableProTable<Task>
         rowKey="id"
-        headerTitle="可编辑表格"
-        maxLength={5}
+        value={rows}
+        onChange={setRows}
+        columns={[
+          { title: '任务名称', dataIndex: 'title' },
+          {
+            title: '操作',
+            valueType: 'option',
+            render: (_, record, __, action) => [
+              <a key="edit" onClick={() => action?.startEditable?.(record.id)}>
+                编辑
+              </a>,
+            ],
+          },
+        ]}
+        expandable={{ defaultExpandAllRows: true }}
         recordCreatorProps={{
           position: 'bottom',
           newRecordType: 'dataSource',
-          parentKey: () => 624748504,
-          record: () => ({ id: createEditableRowId() }),
+          parentKey: () => 'parent',
+          record: () => ({ id: crypto.randomUUID(), title: '新子任务' }),
         }}
-        columns={columns}
-        value={dataSource}
-        onChange={setDataSource}
-        editable={{
-          type: 'multiple',
-          editableKeys,
-          onSave: async (_rowKey, _data, _row) => {
-            await waitTime(2000);
-          },
-          onChange: setEditableRowKeys,
-        }}
+        editable={{ editableKeys, onChange: setEditableKeys }}
       />
-      <ProCard title="表格数据" headerBordered collapsible defaultCollapsed>
-        <ProFormField
-          ignoreFormItem
-          fieldProps={{
-            style: {
-              width: '100%',
-            },
-          }}
-          mode="read"
-          valueType="jsonCode"
-          text={JSON.stringify(dataSource)}
-        />
-      </ProCard>
-    </>
+      <pre style={{ whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>
+        {JSON.stringify(rows, null, 2)}
+      </pre>
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

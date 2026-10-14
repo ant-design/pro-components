@@ -1,172 +1,37 @@
-import type { ProFormInstance } from '@ant-design/pro-components';
-import {
-  ProCard,
-  ProForm,
-  ProFormCheckbox,
-  ProFormDatePicker,
-  ProFormDateRangePicker,
-  ProFormSelect,
-  ProFormText,
-  ProFormTextArea,
-  StepsForm,
-} from '@ant-design/pro-components';
-import { message } from 'antd';
-import { useRef } from 'react';
+import { ProFormText, StepsForm } from '@ant-design/pro-components';
+import { useState } from 'react';
 
-const waitTime = (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-    }, time);
-  });
-};
-
-const Demo = () => {
-  const formRef = useRef<ProFormInstance>();
+export default () => {
+  const [submitted, setSubmitted] = useState('');
 
   return (
-    <ProCard>
-      <StepsForm<{
-        name: string;
-      }>
-        formRef={formRef}
-        onFinish={async () => {
-          await waitTime(1000);
-          message.success('Submission successful');
-        }}
-        formProps={{
-          validateMessages: {
-            required: 'This field is required',
-          },
+    <div style={{ maxWidth: 640, padding: 16 }}>
+      <StepsForm
+        onFinish={async (values) => {
+          setSubmitted(JSON.stringify(values, null, 2));
+          return true;
         }}
       >
-        <StepsForm.StepForm<{
-          name: string;
-        }>
-          name="steps-from-base"
-          title="Create Experiment"
-          stepProps={{
-            content: 'All basic information is filled in here',
-          }}
-          onFinish={async () => {
-
-            await waitTime(2000);
-            return true;
-          }}
-        >
+        <StepsForm.StepForm name="project" title="项目信息">
           <ProFormText
-            name="name"
-            label="Experiment Name"
-            width="md"
-            tooltip="Up to 24 characters, used as a unique id"
-            placeholder="Please enter a name"
+            name="projectName"
+            label="项目名称"
             rules={[{ required: true }]}
           />
-          <ProFormDatePicker name="date" label="Date" />
-          <ProFormDateRangePicker name="dateTime" label="Time Range" />
-          <ProFormTextArea
-            name="remark"
-            label="Remarks"
-            width="lg"
-            placeholder="Please enter remarks"
-          />
         </StepsForm.StepForm>
-        <StepsForm.StepForm<{
-          checkbox: string;
-        }>
-          name="steps-from-checkbox"
-          title="Set Parameters"
-          stepProps={{
-            content: 'Fill in the operation parameters here',
-          }}
-          onFinish={async () => {
-
-            return true;
-          }}
-        >
-          <ProFormCheckbox.Group
-            name="checkbox"
-            label="Migration Type"
-            width="lg"
-            options={[
-              'Structural Migration',
-              'Full Migration',
-              'Incremental Migration',
-              'Full Verification',
-            ]}
-          />
-          <ProForm.Group>
-            <ProFormText name="dbname" label="Business DB Username" />
-            <ProFormDatePicker
-              name="datetime"
-              label="Record Retention Time"
-              width="sm"
-            />
-            <ProFormCheckbox.Group
-              name="checkbox"
-              label="Migration Type"
-              options={['Complete LOB', 'Do Not Sync LOB', 'Restricted LOB']}
-            />
-          </ProForm.Group>
-        </StepsForm.StepForm>
-        <StepsForm.StepForm
-          name="steps-from-time"
-          title="Publish Experiment"
-          stepProps={{
-            content: 'Fill in the release criteria here',
-          }}
-        >
-          <ProFormCheckbox.Group
-            name="checkbox"
-            label="Deployment Units"
-            rules={[
-              {
-                required: true,
-              },
-            ]}
-            options={[
-              'Deployment Unit 1',
-              'Deployment Unit 2',
-              'Deployment Unit 3',
-            ]}
-          />
-          <ProFormSelect
-            label="Deployment Group Strategy"
-            name="remark"
-            rules={[
-              {
-                required: true,
-              },
-            ]}
-            initialValue="1"
-            options={[
-              {
-                value: '1',
-                label: 'Strategy One',
-              },
-              { value: '2', label: 'Strategy Two' },
-            ]}
-          />
-          <ProFormSelect
-            label="Pod Scheduling Strategy"
-            name="remark2"
-            initialValue="2"
-            options={[
-              {
-                value: '1',
-                label: 'Strategy One',
-              },
-              { value: '2', label: 'Strategy Two' },
-            ]}
+        <StepsForm.StepForm name="owner" title="负责人">
+          <ProFormText
+            name="ownerName"
+            label="负责人"
+            rules={[{ required: true }]}
           />
         </StepsForm.StepForm>
       </StepsForm>
-    </ProCard>
+      {submitted && (
+        <pre style={{ whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>
+          {submitted}
+        </pre>
+      )}
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

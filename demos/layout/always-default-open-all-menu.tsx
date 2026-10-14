@@ -1,93 +1,43 @@
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { useState } from 'react';
 
-const Demo = () => (
-  <div
-    style={{
-      height: '100vh',
-    }}
-  >
-    <ProLayout
-      location={{
-        pathname: '/data_hui/data_hui2',
-      }}
-      collapsed={false}
-      collapsedButtonRender={false}
-      route={{
-        routes: [
-          {
-            path: '/home',
-            name: '首页',
-            locale: 'menu.home',
-            routes: [
-              {
-                path: '/home/overview',
-                name: '概述',
-                hideInMenu: true,
-                locale: 'menu.home.overview',
-              },
-              {
-                path: '/home/search',
-                name: '搜索',
-                hideInMenu: true,
-                locale: 'menu.home.search',
-              },
-            ],
-          },
-          {
-            path: '/data_hui',
-            name: '汇总数据',
-            locale: 'menu.data_hui',
-            routes: [
-              {
-                collapsed: true,
-                menuName: '域买家维度交易',
-                name: '域买家维度交易',
-                path: '/xx',
-                routes: [
-                  {
-                    id: 2,
-                    name: '月表',
-                    path: '/data_hui2',
-                  },
-                  {
-                    name: '日表',
-                    path: '/data_hui3?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
-                  },
-                ],
-              },
-              {
-                name: '维度交易',
-                path: '/',
-                routes: [
-                  {
-                    name: '月表',
-                    path: '/data_hui4',
-                  },
-                  {
-                    name: '日表',
-                    key: 'tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
-                    path: '/data_hui5',
-                  },
-                ],
-              },
-            ],
-          },
-        ],
-      }}
-      menu={{
-        defaultOpenAll: true,
-        ignoreFlatMenu: true,
-      }}
-    >
-      <PageContainer content="欢迎使用">
-        <div>Hello World</div>
-      </PageContainer>
-    </ProLayout>
-  </div>
-);
+const routes = [
+  {
+    path: '/projects',
+    name: '项目',
+    routes: [
+      { path: '/projects/active', name: '进行中' },
+      { path: '/projects/archive', name: '已归档' },
+    ],
+  },
+  {
+    path: '/reports',
+    name: '报表',
+    routes: [
+      { path: '/reports/daily', name: '日报' },
+      { path: '/reports/monthly', name: '月报' },
+    ],
+  },
+];
 
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);
+export default () => {
+  const [collapsed, setCollapsed] = useState(
+    () => typeof window !== 'undefined' && window.innerWidth < 768,
+  );
+
+  return (
+    <div style={{ minHeight: 480 }}>
+      <ProLayout
+        location={{ pathname: '/projects/active' }}
+        collapsed={collapsed}
+        onCollapse={setCollapsed}
+        route={{ routes }}
+        menu={{ defaultOpenAll: true, ignoreFlatMenu: true }}
+      >
+        <PageContainer title="展开状态不受侧栏折叠影响">
+          使用侧栏底部的折叠按钮收起再展开侧栏，两个分组仍保持展开。
+        </PageContainer>
+      </ProLayout>
+    </div>
+  );
+};

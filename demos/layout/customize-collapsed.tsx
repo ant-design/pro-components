@@ -1,104 +1,34 @@
-﻿import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import type { ProLayoutProps } from '@ant-design/pro-components';
-import {
-  PageContainer,
-  ProFormRadio,
-  ProLayout,
-} from '@ant-design/pro-components';
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { ProLayout } from '@ant-design/pro-components';
+import { Button } from 'antd';
 import { useState } from 'react';
-import defaultProps from './_defaultProps';
 
-const Demo = () => {
-  const [pathname, setPathname] = useState('/welcome');
-  const [collapsed, setCollapsed] = useState(true);
-  const [position, setPosition] = useState<'header' | 'menu'>('header');
-  const children = (
-    <PageContainer>
-      <div
-        style={{
-          height: '120vh',
-          minHeight: 600,
-        }}
-      >
-        <ProFormRadio.Group
-          label="按钮的位置"
-          options={['header', 'menu'].map((value) => ({
-            label: value,
-            value,
-          }))}
-          fieldProps={{
-            value: position,
-            onChange: (e) => setPosition(e.target.value),
-          }}
-        />
-      </div>
-    </PageContainer>
-  );
-  const props: ProLayoutProps = {
-    ...defaultProps,
-    location: {
-      pathname,
-    },
-    collapsed,
-    fixSiderbar: true,
-    collapsedButtonRender: false,
-    menuItemRender: (item, dom) => (
-      <a
-        onClick={() => {
-          setPathname(item.path || '/welcome');
-        }}
-      >
-        {dom}
-      </a>
-    ),
-  };
-  if (position === 'menu') {
-    return (
-      <ProLayout
-        {...props}
-        layout="mix"
-        onCollapse={setCollapsed}
-        postMenuData={(menuData) => {
-          return [
-            {
-              icon: collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />,
-              name: ' ',
-              onTitleClick: () => setCollapsed(!collapsed),
-            },
-            ...(menuData || []),
-          ];
-        }}
-      >
-        {children}
-      </ProLayout>
-    );
-  }
+export default () => {
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
-    <ProLayout
-      {...props}
-      layout="mix"
-      onCollapse={setCollapsed}
-      headerContentRender={() => {
-        return (
-          <div
-            onClick={() => setCollapsed(!collapsed)}
-            style={{
-              cursor: 'pointer',
-              fontSize: '16px',
-            }}
-          >
-            {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-          </div>
-        );
-      }}
-    >
-      {children}
-    </ProLayout>
+    <div style={{ height: 560, overflow: 'auto' }}>
+      <ProLayout
+        title="自定义折叠按钮"
+        layout="mix"
+        route={{ routes: [{ path: '/dashboard', name: '工作台' }] }}
+        location={{ pathname: '/dashboard' }}
+        collapsed={collapsed}
+        onCollapse={setCollapsed}
+        collapsedButtonRender={false}
+        headerContentRender={() => (
+          <Button
+            type="text"
+            aria-label="切换侧栏"
+            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+            onClick={() => setCollapsed((value) => !value)}
+          />
+        )}
+      >
+        <div style={{ padding: 24 }}>
+          当前侧栏：{collapsed ? '已收起' : '已展开'}
+        </div>
+      </ProLayout>
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

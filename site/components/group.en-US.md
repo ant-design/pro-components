@@ -55,34 +55,34 @@ ProFormList is basically the same as the [Form.List](https://ant.design/componen
 
 ### ProFormList API
 
-| Parameters          | Description                                                                                                                        | Type                                                                                                                               | Default Value                             |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| itemRender          | custom Item, it can be used to place actions in other locations                                                                    | `(doms,listMeta)=> ReactNode`                                                                                                      | -                                         |
-| itemContainerRender | custom Item container, e.g. wrap each item in a Card                                                                               | `(doms,listMeta)=> ReactNode`                                                                                                      | -                                         |
-| creatorRecord       | Default value of a new line                                                                                                        | `Record<string, any> \| () => Record<string, any>`                                                                                 | -                                         |
-| creatorButtonProps  | Configuration of a new line of buttons, set `false` to hide it                                                                     | `false \| (ButtonProps & { creatorButtonText?: ReactNode, position?: "top"\|"bottom" })`                                           | `{creatorButtonText:"Create a new line"}` |
-| label               | Same as From.Item                                                                                                                  | `ReactNode`                                                                                                                         | -                                         |
-| tooltip             | Tooltip info next to the title                                                                                                     | `LabelTooltipType`                                                                                                                  | -                                         |
-| name                | The value of list in the form, required                                                                                            | `NamePath`                                                                                                                          | -                                         |
-| alwaysShowItemLabel | always show label in Item                                                                                                          | `boolean`                                                                                                                           | -                                         |
-| actionRef           | The built-in operation of the current List, you can add, delete, modify and check list items                                       | `MutableRefObject<{add,remove,move,get,getList} \| undefined>`                                                                     | -                                         |
-| actionGuard         | FormItem's interceptor, including deletion and addition interception, you can use actionRef to get the value of the current row    | `{beforeAddRow:(defaultValue,index,count)=>boolean\|Promise<boolean>, beforeRemoveRow:(index,count)=>boolean\|Promise<boolean>}`    | -                                         |
-| min                 | The minimum number of entries, if the current data entry is less than this number, it cannot be deleted                            | `number`                                                                                                                            | -                                         |
-| max                 | The maximum number of entries, when adding or copying, if the current data entry exceeds this number, it cannot be added or copied | `number`                                                                                                                            | -                                         |
-| copyIconProps       | Copy button configuration, false to cancel                                                                                         | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false`                                                                          | -                                         |
-| deleteIconProps     | Delete button configuration, false can cancel                                                                                      | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false`                                                                          | -                                         |
-| actionRender        | custom action button                                                                                                               | `(field,action,defaultActionDom,count)=>React.ReactNode[]`                                                                          | -                                         |
-| fieldExtraRender    | Append a dom at the end, e.g. a custom create button                                                                               | `(fieldAction,meta)=> ReactNode`                                                                                                    | -                                         |
-| onAfterAdd          | Hook after adding data                                                                                                             | `(defaultValue: StoreValue, insertIndex: number, count: number) => void`                                                           | -                                         |
-| onAfterRemove       | Hook after deleting data                                                                                                           | `(index: number, count: number) => void`                                                                                           | -                                         |
-| arrowSort           | Whether to enable arrow button sorting                                                                                             | `boolean`                                                                                                                           | -                                         |
-| upIconProps         | Sort-up button configuration, false to cancel                                                                                      | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false`                                                                          | -                                         |
-| downIconProps       | Sort-down button configuration, false to cancel                                                                                    | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false`                                                                          | -                                         |
-| transform           | Convert value on submit, generally used to transform values into submitted data                                                    | `(value, namePath, allValues) => any`                                                                                               | -                                         |
-| isValidateList      | Whether to validate the list is empty at the same time                                                                             | `boolean`                                                                                                                           | `false`                                   |
-| emptyListMessage    | Empty list message shown when isValidateList is true                                                                               | `string`                                                                                                                            | -                                         |
-| readonly            | Whether read-only mode                                                                                                             | `boolean`                                                                                                                           | -                                         |
-| required            | Whether required (used with rules to show validation message)                                                                      | `boolean`                                                                                                                           | -                                         |
+| Parameters          | Description                                                                                                                        | Type                                                                                                                             | Default Value                             |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| itemRender          | custom Item, it can be used to place actions in other locations                                                                    | `(doms,listMeta)=> ReactNode`                                                                                                    | -                                         |
+| itemContainerRender | custom Item container, e.g. wrap each item in a Card                                                                               | `(doms,listMeta)=> ReactNode`                                                                                                    | -                                         |
+| creatorRecord       | Default value of a new line                                                                                                        | `Record<string, any> \| () => Record<string, any>`                                                                               | -                                         |
+| creatorButtonProps  | Configuration of a new line of buttons, set `false` to hide it                                                                     | `false \| (ButtonProps & { creatorButtonText?: ReactNode, position?: "top"\|"bottom" })`                                         | `{creatorButtonText:"Create a new line"}` |
+| label               | Same as From.Item                                                                                                                  | `ReactNode`                                                                                                                      | -                                         |
+| tooltip             | Tooltip info next to the title                                                                                                     | `LabelTooltipType`                                                                                                               | -                                         |
+| name                | The value of list in the form, required                                                                                            | `NamePath`                                                                                                                       | -                                         |
+| alwaysShowItemLabel | always show label in Item                                                                                                          | `boolean`                                                                                                                        | -                                         |
+| actionRef           | The built-in operation of the current List, you can add, delete, modify and check list items                                       | `MutableRefObject<{add,remove,move,get,getList} \| undefined>`                                                                   | -                                         |
+| actionGuard         | FormItem's interceptor, including deletion and addition interception, you can use actionRef to get the value of the current row    | `{beforeAddRow:(defaultValue,index,count)=>boolean\|Promise<boolean>, beforeRemoveRow:(index,count)=>boolean\|Promise<boolean>}` | -                                         |
+| min                 | The minimum number of entries, if the current data entry is less than this number, it cannot be deleted                            | `number`                                                                                                                         | -                                         |
+| max                 | The maximum number of entries, when adding or copying, if the current data entry exceeds this number, it cannot be added or copied | `number`                                                                                                                         | -                                         |
+| copyIconProps       | Copy button configuration, false to cancel                                                                                         | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false`                                                                       | -                                         |
+| deleteIconProps     | Delete button configuration, false can cancel                                                                                      | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false`                                                                       | -                                         |
+| actionRender        | custom action button                                                                                                               | `(field,action,defaultActionDom,count)=>React.ReactNode[]`                                                                       | -                                         |
+| fieldExtraRender    | Append a dom at the end, e.g. a custom create button                                                                               | `(fieldAction,meta)=> ReactNode`                                                                                                 | -                                         |
+| onAfterAdd          | Hook after adding data                                                                                                             | `(defaultValue: StoreValue, insertIndex: number, count: number) => void`                                                         | -                                         |
+| onAfterRemove       | Hook after deleting data                                                                                                           | `(index: number, count: number) => void`                                                                                         | -                                         |
+| arrowSort           | Whether to enable arrow button sorting                                                                                             | `boolean`                                                                                                                        | -                                         |
+| upIconProps         | Sort-up button configuration, false to cancel                                                                                      | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false`                                                                       | -                                         |
+| downIconProps       | Sort-down button configuration, false to cancel                                                                                    | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false`                                                                       | -                                         |
+| transform           | Convert value on submit, generally used to transform values into submitted data                                                    | `(value, namePath, allValues) => any`                                                                                            | -                                         |
+| isValidateList      | Whether to validate the list is empty at the same time                                                                             | `boolean`                                                                                                                        | `false`                                   |
+| emptyListMessage    | Empty list message shown when isValidateList is true                                                                               | `string`                                                                                                                         | -                                         |
+| readonly            | Whether read-only mode                                                                                                             | `boolean`                                                                                                                        | -                                         |
+| required            | Whether required (used with rules to show validation message)                                                                      | `boolean`                                                                                                                        | -                                         |
 
 ### actionRef Action item instance
 
@@ -354,35 +354,69 @@ The name parameter must be an array. For nested structures, you can configure it
 
 ### Custom tooltip for delete and copy
 
-<code src="../../demos/form/group/list-tooltip.tsx" title="ProForm.List" ></code>
+<code src="../../demos/form/group/list-tooltip.tsx" title="Action icons and tooltips"></code>
 
-### FormList with dependent fields
+### Update the current list item
 
-<code src="../../demos/form/group/base-use.tsx" title="ProForm.List" ></code>
+`action.setCurrentRowData` updates only its own list item. Fill each row and submit to inspect the array.
+
+<code src="../../demos/form/group/base-use.tsx" title="setCurrentRowData: update one row"></code>
 
 ### Adjustable position for the create button
 
-<code src="../../demos/form/group/list.tsx" title="ProForm.List-position" ></code>
+Select top or bottom to move the `ProFormList` add button with `creatorButtonProps.position`. Add a member and submit to inspect the list value.
+
+<code src="../../demos/form/group/list.tsx" title="creatorButtonProps.position: add button position"></code>
 
 ### Forms nested within each other
 
-<code src="../../demos/form/group/nested-list.tsx" title="ProForm.List-ProFormList" ></code>
+<code src="../../demos/form/group/nested-list.tsx" title="Nested ProFormList"></code>
 
-### Complex field dependencies
+`ProForm.Item` uses `name={[field.name, 'rows']}` and `trigger="onValuesChange"` to store each group's editable table in its array field.
 
-<code src="../../demos/form/group/dependency.tsx" title="ProForm.List-dependency" ></code>
+<code src="../../demos/form/form-list-editable-table.tsx" title="Editable table inside a list group"></code>
+
+### Options dependent on a list field
+
+`ProFormSelect.dependencies={['name']}` lets `request` read the current list item's name. Edit the name, open the greeting selector, and submit the result.
+
+<code src="../../demos/form/group/dependency.tsx" title="dependencies: refresh options for one row"></code>
 
 ### Behavior guard
 
+`actionGuard` allows or blocks a row before adding or removing it.
+
 <code src="../../demos/form/group/pro-form-list.tsx"></code>
+
+### List action reference
+
+`actionRef` exposes `add`, `remove`, `move`, `get`, and `getList`. Each example shows one method.
+
+<code src="../../demos/form/group/list-action-add.tsx" title="actionRef.add"></code>
+<code src="../../demos/form/group/list-action-remove.tsx" title="actionRef.remove"></code>
+<code src="../../demos/form/group/list-action-move.tsx" title="actionRef.move"></code>
+<code src="../../demos/form/group/list-action-get.tsx" title="actionRef.get"></code>
+<code src="../../demos/form/group/list-action-get-list.tsx" title="actionRef.getList"></code>
+
+`creatorRecord` fills a newly created row.
+
+<code src="../../demos/form/group/list-creator-record.tsx" title="creatorRecord"></code>
+
+`itemRender` wraps each row in a custom card.
+
+<code src="../../demos/form/group/list-item-render.tsx" title="itemRender"></code>
 
 ### Limitations on adding or deleting items
 
-<code src="../../demos/form/group/count-limit.tsx"></code>
+`min={1}` keeps at least one item, and `max={3}` permits up to three. Add or remove items, then submit to inspect the list.
+
+<code src="../../demos/form/group/count-limit.tsx" title="ProFormList: minimum and maximum items"></code>
 
 ### Horizontal layout
 
-<code src="../../demos/form/group/horizontal-layout.tsx"></code>
+`ProForm layout="horizontal"` aligns labels beside the fields in a list. Add an attribute and submit to inspect the array.
+
+<code src="../../demos/form/group/horizontal-layout.tsx" title="ProFormList: horizontal labels"></code>
 
 ### Arrow sort reordering
 

@@ -1,127 +1,38 @@
-﻿import type { ProFormColumnsType } from '@ant-design/pro-components';
+import type { ProFormColumnsType } from '@ant-design/pro-components';
 import {
   BetaSchemaForm,
   ProForm,
-  ProFormSelect,
   ProFormText,
 } from '@ant-design/pro-components';
+import { useState } from 'react';
 
-const valueEnum = {
-  all: { text: '全部', status: 'Default' },
-  open: {
-    text: '未解决',
-    status: 'Error',
-  },
-  closed: {
-    text: '已解决',
-    status: 'Success',
-    disabled: true,
-  },
-  processing: {
-    text: '解决中',
-    status: 'Processing',
-  },
-};
+type Values = { owner: string; task: string };
 
-type DataItem = {
-  name: string;
-  state: string;
-};
-
-const columns: ProFormColumnsType<DataItem>[] = [
+const columns: ProFormColumnsType<Values>[] = [
   {
-    title: '标题',
-    dataIndex: 'title',
+    title: '任务名称（由 Schema 生成）',
+    dataIndex: 'task',
     formItemProps: {
-      rules: [
-        {
-          required: true,
-          message: '此项为必填项',
-        },
-      ],
+      rules: [{ required: true, message: '请输入任务名称' }],
     },
-    width: 'm',
-  },
-  {
-    title: '状态',
-    dataIndex: 'state',
-    valueType: 'select',
-    valueEnum,
-    width: 'm',
   },
 ];
 
-const Demo = () => {
+export default () => {
+  const [submitted, setSubmitted] = useState<Values>();
+
   return (
-    <ProForm name="schema-form-embed-demo">
-      <h1>ProForm </h1>
-      <ProFormText name="username" />
-      <ProFormSelect
-        name="select-multiple"
-        label="多选"
-        valueEnum={{
-          red: 'Red',
-          green: 'Green',
-          blue: 'Blue',
+    <div style={{ padding: 24 }}>
+      <ProForm<Values>
+        onFinish={async (values) => {
+          setSubmitted(values);
+          return true;
         }}
-        fieldProps={{
-          mode: 'multiple',
-        }}
-        placeholder="Please select favorite colors"
-        rules={[
-          {
-            required: true,
-            message: 'Please select your favorite colors!',
-            type: 'array',
-          },
-        ]}
-      />
-      <h1>表单1 </h1>
-      <BetaSchemaForm<DataItem> layoutType="Embed" columns={columns} />
-      <h1>表单2</h1>
-      <BetaSchemaForm<DataItem>
-        layoutType="Embed"
-        columns={[
-          {
-            title: '创建时间',
-            key: 'showTime',
-            dataIndex: 'createName',
-            valueType: 'date',
-          },
-          {
-            title: '分组',
-            valueType: 'group',
-            columns: [
-              {
-                title: '状态',
-                dataIndex: 'groupState',
-                valueType: 'select',
-                width: 'xs',
-                valueEnum,
-              },
-              {
-                title: '标题',
-                width: 'md',
-                dataIndex: 'groupTitle',
-                formItemProps: {
-                  rules: [
-                    {
-                      required: true,
-                      message: '此项为必填项',
-                    },
-                  ],
-                },
-              },
-            ],
-          },
-        ]}
-      />
-    </ProForm>
+      >
+        <ProFormText name="owner" label="负责人（普通表单项）" />
+        <BetaSchemaForm<Values> layoutType="Embed" columns={columns} />
+      </ProForm>
+      <p>提交结果：{submitted ? JSON.stringify(submitted) : '尚未提交'}</p>
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

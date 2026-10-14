@@ -51,19 +51,100 @@ So the props we set for ProFormText are actually for Form.Item, and the fieldPro
 
 ## Code examples
 
-<code src="../../demos/form/field-set/components-other.tsx" title="Form field"></code>
+<code src="../../demos/form/field-set/examples/field-text.tsx" title="Text input: ProFormText"></code>
+<code src="../../demos/form/field-set/examples/field-password.tsx" title="Password input: ProFormText.Password"></code>
+<code src="../../demos/form/field-set/examples/field-select-enum.tsx" title="Enum selection: ProFormSelect.valueEnum"></code>
+<code src="../../demos/form/field-set/examples/field-select-request.tsx" title="Search options: ProFormSelect.request"></code>
+<code src="../../demos/form/field-set/examples/field-select-label-in-value.tsx" title="Label and value: ProFormSelect.fieldProps.labelInValue"></code>
+<code src="../../demos/form/field-set/examples/field-select-multiple.tsx" title="Multiple selection: ProFormSelect.fieldProps.mode"></code>
+<code src="../../demos/form/field-set/examples/field-cascader-request.tsx" title="Cascader request: ProFormCascader.request"></code>
+<code src="../../demos/form/field-set/examples/field-tree-select-request.tsx" title="Tree options: ProFormTreeSelect.request"></code>
+<code src="../../demos/form/field-set/examples/field-radio-group.tsx" title="Radio options: ProFormRadio.Group.options"></code>
+<code src="../../demos/form/field-set/examples/field-radio-vertical.tsx" title="Vertical radio: ProFormRadio.Group.layout"></code>
+<code src="../../demos/form/field-set/examples/field-radio-button.tsx" title="Button radio: ProFormRadio.Group.radioType"></code>
+<code src="../../demos/form/field-set/examples/field-checkbox-group.tsx" title="Checkbox options: ProFormCheckbox.Group.options"></code>
+<code src="../../demos/form/field-set/examples/field-color-picker.tsx" title="Color picker: ProFormColorPicker"></code>
+<code src="../../demos/form/field-set/examples/field-digit-range.tsx" title="Number range: ProFormDigitRange"></code>
+<code src="../../demos/form/field-set/examples/field-digit-bounds.tsx" title="Number bounds: ProFormDigit.min/max"></code>
+<code src="../../demos/form/field-set/examples/field-switch.tsx" title="Switch: ProFormSwitch"></code>
+<code src="../../demos/form/field-set/examples/field-slider-marks.tsx" title="Slider marks: ProFormSlider.marks"></code>
+<code src="../../demos/form/field-set/examples/field-rate.tsx" title="Rating: ProFormRate"></code>
+<code src="../../demos/form/field-set/examples/field-upload-button.tsx" title="Button upload: ProFormUploadButton"></code>
+<code src="../../demos/form/field-set/examples/field-upload-dragger.tsx" title="Drag upload: ProFormUploadDragger"></code>
+<code src="../../demos/form/field-set/examples/field-segmented-enum.tsx" title="Segmented enum: ProFormSegmented.valueEnum"></code>
+<code src="../../demos/form/field-set/examples/field-segmented-request.tsx" title="Segmented request: ProFormSegmented.request"></code>
 
-<code src="../../demos/form/field-set/search-select.tsx" title="Query form"></code>
+`SearchSelect.request` returns tasks matching the typed search text.
 
-<code src="../../demos/form/field-set/form-fieldset.tsx" title="Structured data" ></code>
+<code src="../../demos/form/field-set/search-select.tsx" title="SearchSelect: request options"></code>
 
-<code src="../../demos/form/field-set/datetime.tsx" title="Date form"></code>
+`SearchSelect.valueEnum` builds searchable options from an enum.
 
-<code src="../../demos/form/field-set/upload.tsx" title="Upload form"></code>
+<code src="../../demos/form/field-set/search-select-value-enum.tsx" title="SearchSelect: valueEnum options"></code>
 
-<code src="../../demos/form/field-set/components-other-readonly.tsx" title="Read-only for form field"></code>
+`SearchSelect.options` uses a local options array.
 
-<code src="../../demos/form/field-set/field-set-light.tsx" title="Used in Lightweight Filtering - light" ></code>
+<code src="../../demos/form/field-set/search-select-options.tsx" title="SearchSelect: options array"></code>
+
+<code src="../../demos/form/field-set/dependency-value.tsx" title="Field dependency: ProFormDependency.name"></code>
+<code src="../../demos/form/field-set/fieldset-basic.tsx" title="Combined value: ProFormFieldSet.name"></code>
+<code src="../../demos/form/field-set/fieldset-group.tsx" title="Grouped layout: ProFormFieldSet.type"></code>
+<code src="../../demos/form/field-set/fieldset-transform.tsx" title="Submit transform: ProFormFieldSet.transform"></code>
+
+### Date and time fields
+
+Each example contains one input. Submit to inspect that field's value.
+
+<code src="../../demos/form/field-set/datetime.tsx" title="Date: ProFormDatePicker"></code>
+<code src="../../demos/form/field-set/datetime-month.tsx" title="Month: ProFormDatePicker.Month"></code>
+<code src="../../demos/form/field-set/datetime-week.tsx" title="Week: ProFormDatePicker.Week"></code>
+<code src="../../demos/form/field-set/datetime-quarter.tsx" title="Quarter: ProFormDatePicker.Quarter"></code>
+<code src="../../demos/form/field-set/datetime-year.tsx" title="Year: ProFormDatePicker.Year"></code>
+<code src="../../demos/form/field-set/datetime-time.tsx" title="Time: ProFormTimePicker"></code>
+<code src="../../demos/form/field-set/datetime-date-time.tsx" title="Date and time: ProFormDateTimePicker"></code>
+
+### Date and time ranges
+
+<code src="../../demos/form/field-set/datetime-range.tsx" title="Date range: ProFormDateRangePicker"></code>
+<code src="../../demos/form/field-set/datetime-week-range.tsx" title="Week range: ProFormDateWeekRangePicker"></code>
+<code src="../../demos/form/field-set/datetime-month-range.tsx" title="Month range: ProFormDateMonthRangePicker"></code>
+<code src="../../demos/form/field-set/datetime-quarter-range.tsx" title="Quarter range: ProFormDateQuarterRangePicker"></code>
+<code src="../../demos/form/field-set/datetime-year-range.tsx" title="Year range: ProFormDateYearRangePicker"></code>
+<code src="../../demos/form/field-set/datetime-time-range.tsx" title="Time range: ProFormTimePicker.RangePicker"></code>
+<code src="../../demos/form/field-set/datetime-date-time-range.tsx" title="Date-time range: ProFormDateTimeRangePicker"></code>
+
+Set `ProFormUploadButton.fieldProps.listType="picture-card"` to display selected files as cards. This demo keeps files locally without making an upload request.
+
+<code src="../../demos/form/field-set/upload.tsx" title="Picture-card upload: listType"></code>
+
+<code src="../../demos/form/field-set/readonly/readonly-text.tsx" title="Read-only text: ProFormText"></code>
+<code src="../../demos/form/field-set/readonly/readonly-select.tsx" title="Read-only selection: ProFormSelect"></code>
+<code src="../../demos/form/field-set/readonly/readonly-select-multiple.tsx" title="Read-only multiselect: ProFormSelect.fieldProps.mode"></code>
+<code src="../../demos/form/field-set/readonly/readonly-digit.tsx" title="Read-only number: ProFormDigit"></code>
+<code src="../../demos/form/field-set/readonly/readonly-switch.tsx" title="Read-only switch: ProFormSwitch"></code>
+<code src="../../demos/form/field-set/readonly/readonly-slider.tsx" title="Read-only slider: ProFormSlider"></code>
+<code src="../../demos/form/field-set/readonly/readonly-radio.tsx" title="Read-only radio: ProFormRadio.Group"></code>
+<code src="../../demos/form/field-set/readonly/readonly-radio-button.tsx" title="Read-only button radio: ProFormRadio.Group.radioType"></code>
+<code src="../../demos/form/field-set/readonly/readonly-checkbox.tsx" title="Read-only checkbox: ProFormCheckbox.Group"></code>
+<code src="../../demos/form/field-set/readonly/readonly-rate.tsx" title="Read-only rating: ProFormRate"></code>
+<code src="../../demos/form/field-set/readonly/readonly-upload-button.tsx" title="Read-only upload: ProFormUploadButton"></code>
+<code src="../../demos/form/field-set/readonly/readonly-upload-dragger.tsx" title="Read-only drag upload: ProFormUploadDragger"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date.tsx" title="Read-only date: ProFormDatePicker"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date-week.tsx" title="Read-only week: ProFormDatePicker.Week"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date-month.tsx" title="Read-only month: ProFormDatePicker.Month"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date-quarter.tsx" title="Read-only quarter: ProFormDatePicker.Quarter"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date-year.tsx" title="Read-only year: ProFormDatePicker.Year"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date-time.tsx" title="Read-only date and time: ProFormDateTimePicker"></code>
+<code src="../../demos/form/field-set/readonly/readonly-time.tsx" title="Read-only time: ProFormTimePicker"></code>
+<code src="../../demos/form/field-set/readonly/readonly-time-range.tsx" title="Read-only time range: ProFormTimePicker.RangePicker"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date-range.tsx" title="Read-only date range: ProFormDateRangePicker"></code>
+<code src="../../demos/form/field-set/readonly/readonly-date-time-range.tsx" title="Read-only date time range: ProFormDateTimeRangePicker"></code>
+<code src="../../demos/form/field-set/readonly/readonly-list.tsx" title="Read-only list: ProFormList"></code>
+<code src="../../demos/form/field-set/readonly/readonly-field-set.tsx" title="Read-only field set: ProFormFieldSet"></code>
+
+`ProFormFieldSet.transform` combines the operator and keyword in LightFilter into one `filter` object. Submit to inspect the result.
+
+<code src="../../demos/form/field-set/field-set-light.tsx" title="FieldSet.transform in LightFilter" ></code>
 
 ## API
 
@@ -109,7 +190,10 @@ Same as [Input](https://ant.design/components/input/).
 
 ProFormCaptcha is a component developed to support common CAPTCHA functionality in the middle and backend.
 
-<code src="../../demos/form/field-set/pro-form-captcha.tsx" title="captcha"></code>
+<code src="../../demos/form/field-set/captcha-request.tsx" title="Mock request: ProFormCaptcha.onGetCaptcha"></code>
+<code src="../../demos/form/field-set/captcha-start-timing.tsx" title="Start timer: fieldRef.startTiming"></code>
+<code src="../../demos/form/field-set/captcha-end-timing.tsx" title="End timer: fieldRef.endTiming"></code>
+<code src="../../demos/form/field-set/captcha-on-timing.tsx" title="Timer callback: ProFormCaptcha.onTiming"></code>
 
 ```tsx | pure
 <ProFormCaptcha

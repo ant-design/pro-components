@@ -1,87 +1,41 @@
 import { ProList } from '@ant-design/pro-components';
-import { Space, Tag } from 'antd';
 import { useState } from 'react';
 
-const defaultData = [
-  {
-    id: '1',
-    name: '智慧零售平台',
-    image:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-    desc: '我是一条测试的描述',
-  },
-  {
-    id: '2',
-    name: 'Ant Design',
-    image:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-    desc: '我是一条测试的描述',
-  },
-  {
-    id: '3',
-    name: '云原生微服务框架',
-    image:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-    desc: '我是一条测试的描述',
-  },
-  {
-    id: '4',
-    name: '数据可视化引擎',
-    image:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-    desc: '我是一条测试的描述',
-  },
+type Task = { id: string; title: string };
+
+const initialTasks: Task[] = [
+  { id: '1', title: '设计首页' },
+  { id: '2', title: '开发登录页' },
 ];
 
-type DataItem = (typeof defaultData)[number];
+export default () => {
+  const [tasks, setTasks] = useState<Task[]>(initialTasks);
 
-const Demo = () => {
-  const [dataSource, setDataSource] = useState<DataItem[]>(defaultData);
   return (
-    <ProList<DataItem>
-      rowKey="id"
-      headerTitle="基础列表"
-      dataSource={dataSource}
-      editable={{
-        onSave: async (_key, _record, _originRow) => {
-
-          return true;
-        },
-      }}
-      onDataSourceChange={setDataSource}
-      columns={[
-        { dataIndex: 'name', listSlot: 'title' },
-        { dataIndex: 'image', listSlot: 'avatar', editable: false },
-        { dataIndex: 'desc', listSlot: 'description' },
-        {
-          listSlot: 'subTitle',
-          render: () => (
-            <Space size={8}>
-              <Tag color="blue">Ant Design</Tag>
-              <Tag color="#5BD8A6">可视化</Tag>
-            </Space>
-          ),
-        },
-        {
-          listSlot: 'actions',
-          render: (text, row, index, action) => [
-            <a
-              onClick={() => {
-                action?.startEditable(row.id);
-              }}
-              key="link"
-            >
-              编辑
-            </a>,
-          ],
-        },
-      ]}
-    />
+    <div style={{ padding: 24 }}>
+      <ProList<Task>
+        rowKey="id"
+        dataSource={tasks}
+        onDataSourceChange={(next) =>
+          setTasks(next.map(({ id, title }) => ({ id, title })))
+        }
+        editable={{
+          onSave: async () => true,
+          actionRender: (_row, _config, doms) => [doms.save, doms.cancel],
+        }}
+        columns={[
+          { title: '任务名称', dataIndex: 'title', listSlot: 'title' },
+          {
+            listSlot: 'actions',
+            render: (_, task, __, action) => [
+              <a key="edit" onClick={() => action?.startEditable(task.id)}>
+                编辑
+              </a>,
+            ],
+          },
+        ]}
+      />
+      <p>当前列表：{JSON.stringify(tasks)}</p>
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

@@ -1,63 +1,32 @@
-import { CloseOutlined, SnippetsOutlined } from '@ant-design/icons';
-import type { FormListActionType } from '@ant-design/pro-components';
 import { ProForm, ProFormList, ProFormText } from '@ant-design/pro-components';
-import { useRef } from 'react';
+import { useState } from 'react';
 
-const Demo = () => {
-  const actionRef = useRef<
-    FormListActionType<{
-      name: string;
-    }>
-  >();
+type Values = { members: { name: string }[] };
+
+export default () => {
+  const [submitted, setSubmitted] = useState<Values>();
+
   return (
-    <>
-      <ProForm name="group-countlimit-demo">
+    <div style={{ padding: 24 }}>
+      <ProForm<Values>
+        onFinish={async (values) => {
+          setSubmitted(values);
+          return true;
+        }}
+      >
         <ProFormList
-          copyIconProps={{
-            Icon: SnippetsOutlined,
-          }}
-          deleteIconProps={{
-            Icon: CloseOutlined,
-          }}
+          name="members"
+          label="成员（最少 1 位，最多 3 位）"
           min={1}
-          max={4}
-          actionRef={actionRef}
-          actionGuard={{
-            beforeAddRow: async (_defaultValue, _insertIndex, _count) => {
-              return new Promise((resolve) => {
-
-                setTimeout(() => resolve(true), 1000);
-              });
-            },
-            beforeRemoveRow: async (index, _count) => {
-              const _row = actionRef.current?.get(index as number);
-
-              return new Promise((resolve) => {
-                if (index === 0) {
-                  resolve(false);
-                  return;
-                }
-                setTimeout(() => resolve(true), 1000);
-              });
-            },
-          }}
-          name="users"
-          label="用户信息"
-          initialValue={[
-            {
-              name: '1111',
-            },
-          ]}
+          max={3}
+          initialValue={[{ name: '张三' }]}
+          creatorButtonProps={{ creatorButtonText: '添加成员' }}
+          copyIconProps={false}
         >
-          <ProFormText key="useMode" name="name" label="姓名" />
+          <ProFormText name="name" label="姓名" />
         </ProFormList>
       </ProForm>
-    </>
+      <p>提交结果：{submitted ? JSON.stringify(submitted) : '尚未提交'}</p>
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

@@ -1,89 +1,43 @@
 import type { ProColumns, ProFormInstance } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 import { Button } from 'antd';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
-export type TableListItem = {
-  key: number;
-  name: string;
-};
+type Task = { id: number; name: string };
 
-const columns: ProColumns<TableListItem>[] = [
-  {
-    title: '应用名称',
-    dataIndex: 'name',
-    key: 'name',
-  },
-  {
-    title: '部署时间',
-    key: 'since',
-    dataIndex: 'createdAt',
-    valueType: 'date',
-  },
+const tasks: Task[] = [
+  { id: 1, name: '设计首页' },
+  { id: 2, name: '开发登录页' },
 ];
+const columns: ProColumns<Task>[] = [{ title: '任务名称', dataIndex: 'name' }];
 
-const Demo = () => {
-  const ref = useRef<ProFormInstance>();
-  const [collapsed, setCollapsed] = useState(false);
+export default () => {
+  const formRef = useRef<ProFormInstance>();
 
   return (
-    <ProTable<TableListItem>
-      columns={columns}
-      request={() =>
-        Promise.resolve({
-          data: [
-            {
-              key: 1,
-              name: '用户认证服务',
-              createdAt: 1705286400000,
-            },
-          ],
-          total: 1,
-          success: true,
-        })
-      }
-      rowKey="key"
-      pagination={{
-        showSizeChanger: true,
-      }}
-      search={{
-        collapsed,
-        onCollapse: setCollapsed,
-      }}
-      formRef={ref}
-      toolBarRender={() => [
-        <Button
-          key="set"
-          onClick={() => {
-            if (ref.current) {
-              ref.current.setFieldsValue({
-                name: '支付网关',
-              });
-            }
-          }}
-        >
-          赋值
-        </Button>,
-        <Button
-          key="submit"
-          onClick={() => {
-            if (ref.current) {
-              ref.current.submit();
-            }
-          }}
-        >
-          提交
-        </Button>,
-      ]}
-      options={false}
-      dateFormatter="string"
-      headerTitle="表单赋值"
-    />
+    <div style={{ padding: 24 }}>
+      <ProTable<Task>
+        columns={columns}
+        rowKey="id"
+        formRef={formRef}
+        options={false}
+        pagination={false}
+        headerTitle="formRef.current.setFieldsValue"
+        toolBarRender={() => [
+          <Button
+            key="fill"
+            onClick={() => formRef.current?.setFieldsValue({ name: '设计' })}
+          >
+            填入“设计”
+          </Button>,
+        ]}
+        request={async ({ name }) => {
+          const data = tasks.filter((task) =>
+            task.name.includes(String(name || '')),
+          );
+          return { data, total: data.length, success: true };
+        }}
+      />
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

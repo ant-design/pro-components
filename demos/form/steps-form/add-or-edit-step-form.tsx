@@ -1,94 +1,52 @@
-// Mainly handles the scenarios of creating and editing
 import type { ProFormInstance } from '@ant-design/pro-components';
-import {
-  ProFormDateRangePicker,
-  ProFormSelect,
-  ProFormText,
-  StepsForm,
-} from '@ant-design/pro-components';
-import type { Dayjs } from 'dayjs';
-import React, { useEffect, useRef } from 'react';
+import { ProFormText, StepsForm } from '@ant-design/pro-components';
+import { useEffect, useRef, useState } from 'react';
 
-import { FIXED_BASE_DATE } from '../../mockData';
+type Values = {
+  projectName: string;
+  approvalNote: string;
+};
 
-type FormValue = {
-  jobInfo: {
-    name: string;
-    type: number;
-  };
-  syncTableInfo: {
-    timeRange: [Dayjs, Dayjs];
-    title: string;
-  };
-};
-const formValue: FormValue = {
-  jobInfo: {
-    name: 'normal job',
-    type: 1,
-  },
-  syncTableInfo: {
-    timeRange: [FIXED_BASE_DATE.subtract(1, 'm'), FIXED_BASE_DATE],
-    title: 'example table title',
-  },
-};
-const waitTime = (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(formValue);
-    }, time);
-  });
-};
-const jobType = [
-  {
-    value: 1,
-    label: 'State-owned enterprise',
-  },
-  {
-    value: 2,
-    label: 'Private enterprise',
-  },
-];
-const EditExample = () => {
+export default () => {
   const formMapRef = useRef<
-    React.MutableRefObject<ProFormInstance<any> | undefined>[]
+    React.MutableRefObject<ProFormInstance<Values> | undefined>[]
   >([]);
+  const [loaded, setLoaded] = useState(false);
+  const [result, setResult] = useState('');
+
   useEffect(() => {
-    waitTime(1000).then(() => {
-      // In the editing scenario, you need to use formMapRef to loop through and set formData
-      formMapRef?.current?.forEach((formInstanceRef) => {
-        formInstanceRef?.current?.setFieldsValue(formValue);
-      });
-    });
+    const timer = setTimeout(() => {
+      const firstStep = formMapRef.current[0]?.current;
+      if (firstStep && !firstStep.getFieldValue('projectName')) {
+        firstStep.setFieldsValue({ projectName: '青禾项目' });
+      }
+      setLoaded(true);
+    }, 500);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <StepsForm
-      formMapRef={formMapRef}
-      onFinish={() => {
-
-        return Promise.resolve(true);
-      }}
-    >
-      <StepsForm.StepForm name="add-or-edit-step-form-step1" title="Job Information">
-        <ProFormText label="Name" name={['jobInfo', 'name']} />
-        <ProFormSelect
-          label="Job Type"
-          name={['jobInfo', 'type']}
-          options={jobType}
-        />
-      </StepsForm.StepForm>
-      <StepsForm.StepForm name="add-or-edit-step-form-step2" title={'Sync Table Information'}>
-        <ProFormDateRangePicker
-          label="Time Range"
-          name={['syncTableInfo', 'timeRange']}
-        />
-        <ProFormText label="Title" name={['syncTableInfo', 'title']} />
-      </StepsForm.StepForm>
-    </StepsForm>
+    <div style={{ padding: 24 }}>
+      <p>{loaded ? '编辑数据已回填到第一步。' : '正在加载编辑数据…'}</p>
+      <StepsForm<Values>
+        formMapRef={formMapRef}
+        onFinish={async (values) => {
+          setResult(JSON.stringify(values, null, 2));
+          return true;
+        }}
+      >
+        <StepsForm.StepForm name="project" title="项目">
+          <ProFormText
+            name="projectName"
+            label="项目名称"
+            rules={[{ required: true, message: '请输入项目名称' }]}
+          />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="approval" title="审批">
+          <ProFormText name="approvalNote" label="审批备注" />
+        </StepsForm.StepForm>
+      </StepsForm>
+      {result && <pre aria-label="提交结果">{result}</pre>}
+    </div>
   );
 };
-export default () => (
-  <div style={{ padding: 24 }}>
-    <EditExample />
-  </div>
-);

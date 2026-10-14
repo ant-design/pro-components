@@ -62,14 +62,14 @@ The most important part of SchemaForm is the Schema type definition. We use the 
 | `proFieldProps`       | `proFieldProps`                                                                | `props` set on `ProField`, internal property                                                                                                                                                                                                                                                     |
 | `renderText`          | `(text: any, record: Entity, index: number, action: ProCoreActionType) => any` | The modified data will be consumed by the rendering component defined by valueType                                                                                                                                                                                                               |
 | `render`              | `(dom,entity,index, action, schema) => React.ReactNode`                        | Custom read-only mode dom. The `render` method only manages read-only mode. Edit mode needs to use `formItemRender`                                                                                                                                                                              |
-| `formItemRender`      | `(schema,config,form,action) => React.ReactNode`                              | Custom edit mode, returns a ReactNode, automatically wraps value and onChange. ~~Returning false, null, undefined will not hide the form item~~ Please use dependency component to control rendering of columns                                                                                  |
+| `formItemRender`      | `(schema,config,form,action) => React.ReactNode`                               | Custom edit mode, returns a ReactNode, automatically wraps value and onChange. ~~Returning false, null, undefined will not hide the form item~~ Please use dependency component to control rendering of columns                                                                                  |
 | `request`             | `(params,props) => Promise<{label,value}[]>`                                   | Request network data remotely, generally used for selection components                                                                                                                                                                                                                           |
 | `params`              | `Record<string, any>`                                                          | Extra parameters passed to `request`. The component does not process them, but changes will cause `request` to re-request data                                                                                                                                                                   |
 | `dependencies`        | `NamePath[]`                                                                   | When dependent values change, trigger formItemRender, fieldProps, formItemProps to re-execute, and inject values into params [Example](#dependency-linkage)                                                                                                                                      |
 | `hideInDescriptions`  | `boolean`                                                                      | Hide in descriptions                                                                                                                                                                                                                                                                             |
 | `hideInForm`          | `boolean`                                                                      | Hide in Form                                                                                                                                                                                                                                                                                     |
 | `hideInTable`         | `boolean`                                                                      | Hide in Table                                                                                                                                                                                                                                                                                    |
-| `search`              | `boolean` \| `{ transform: (value: any) => any }`                              | Set `false` to hide in the Table query form; object config provides `transform` for converting submitted keys                                                                                                                                                                                     |
+| `search`              | `boolean` \| `{ transform: (value: any) => any }`                              | Set `false` to hide in the Table query form; object config provides `transform` for converting submitted keys                                                                                                                                                                                    |
 | `columns`             | `ProFormColumnsType[] \| (values) => ProFormColumnsType[]`                     | Nested items. When valueType is dependency, please use `(values) => ProFormColumnsType[]`. Other cases use `ProFormColumnsType[]`                                                                                                                                                                |
 | `colProps`            | [ColProps](https://ant.design/components/grid/#Col)                            | Passed to Col when grid mode is enabled                                                                                                                                                                                                                                                          |
 | `rowProps`            | [RowProps](https://ant.design/components/grid/#Row)                            | Passed to Row when grid mode is enabled                                                                                                                                                                                                                                                          |
@@ -128,25 +128,55 @@ The most important part of SchemaForm is the Schema type definition. We use the 
 
 ### Basic Form (Form)
 
-The most basic usage of SchemaForm, generating standard form pages through JSON configuration. Supports defining form items via `columns` and switching layouts via `layoutType`.
+Use `layoutType="Form"` for a basic form. Each `columns` item defines a field with `title`, `dataIndex`, and `valueType`.
 
 <code src="../../demos/form/schema-form/schema.tsx" title="Basic Schema Form"></code>
 
-### Modal & Drawer Form
+### Field composition and grid
 
-By setting `layoutType` to `ModalForm` or `DrawerForm`, you can quickly convert forms into modal or drawer modes without manually managing `open` state.
+`valueType="group"` puts fields together; `formSet` collects fields into one array value; `formList` adds repeatable rows.
 
-<code src="../../demos/form/schema-form/modal-and-drawer-form.tsx" title="ModalForm and DrawerForm"></code>
+<code src="../../demos/form/schema-form/schema-group.tsx" title="Schema group"></code>
+
+<code src="../../demos/form/schema-form/schema-form-set.tsx" title="Schema formSet"></code>
+
+<code src="../../demos/form/schema-form/schema-form-list.tsx" title="Schema formList"></code>
+
+Use `grid` with `colProps` for responsive columns.
+
+<code src="../../demos/form/schema-form/schema-grid.tsx" title="Schema grid"></code>
+
+### Value conversion
+
+`convertValue` prepares an initial value for the field; `transform` converts a submitted value.
+
+<code src="../../demos/form/schema-form/schema-convert-value.tsx" title="convertValue"></code>
+
+<code src="../../demos/form/schema-form/schema-transform.tsx" title="transform"></code>
+
+### Modal Form
+
+Use `layoutType="ModalForm"` and `trigger` to open a form in a modal.
+
+<code src="../../demos/form/schema-form/schema-modal.tsx" title="Schema ModalForm"></code>
+
+### Drawer Form
+
+Use `layoutType="DrawerForm"` and `trigger` to open a form in a drawer.
+
+<code src="../../demos/form/schema-form/schema-drawer.tsx" title="Schema DrawerForm"></code>
 
 ### Step Form (StepsForm)
 
 By setting `layoutType` to `StepsForm` or `StepForm`, you can generate step forms. In this case, `columns` should be a 2D array, where each array element represents the configuration of form items for a step.
 
-<code src="../../demos/form/schema-form/steps-form.tsx" title="JSON Generate Step Form"></code>
+`layoutType="StepsForm"` and a two-dimensional `columns` array generate one form step per array entry.
+
+<code src="../../demos/form/schema-form/steps-form.tsx" title="Schema-generated StepsForm"></code>
 
 ### Embedded Mode (Embed)
 
-By setting `layoutType` to `Embed`, you can generate only form items without the Form container. This is useful when you need to embed SchemaForm into an existing ProForm or other containers.
+`layoutType="Embed"` generates fields without a second Form container. The regular field and the schema field below submit through the same `ProForm`; fill both to inspect the combined values.
 
 <code src="../../demos/form/schema-form/embed.tsx" title="Embed in ProForm"></code>
 
@@ -156,7 +186,9 @@ By setting `layoutType` to `Embed`, you can generate only form items without the
 
 Using `valueType: 'dependency'` can achieve complex form linkages. When dependent fields change, the current item update is automatically triggered.
 
-<code src="../../demos/form/schema-form/dependency.tsx" title="Use ProFormDependency"></code>
+Select a discount type and `valueType: 'dependency'` shows the corresponding amount or rate field. Switch types and submit to inspect the current values.
+
+<code src="../../demos/form/schema-form/dependency.tsx" title="dependency: show a field by discount type"></code>
 
 ### High Performance Mode
 
@@ -165,20 +197,42 @@ For large forms, you can use `shouldUpdate` and `dependencies` for fine-grained 
 - **dependencies**: Specify dependent fields, update only when dependent fields change.
 - **shouldUpdate**: Custom update logic, return false to prevent update.
 
-<code src="../../demos/form/schema-form/dependencies.tsx" title="Combine shouldUpdate=false and dependencies to trigger update"></code>
+With `shouldUpdate={false}`, the status column still reacts to mode changes through `dependencies: ['mode']`.
 
-<code src="../../demos/form/schema-form/dynamic-rerender.tsx" title="Dynamic control of re-rendering"></code>
+<code src="../../demos/form/schema-form/dependencies.tsx" title="dependencies: update a dependent field"></code>
+
+A custom `shouldUpdate` regenerates Schema form items only when the mode changes, enabling or disabling the status field.
+
+<code src="../../demos/form/schema-form/dynamic-rerender.tsx" title="shouldUpdate: update when one field changes"></code>
 
 ### List Configuration (FormList)
 
 Supports `valueType: 'formList'` to generate dynamically addable/removable list forms.
 
-<code src="../../demos/form/schema-form/form-list-required.tsx" title="FormList Required Validation" debug></code>
+The `formList` rule requires at least one item, and the nested column requires a name. Submit an empty list, then add a member and submit again.
+
+<code src="../../demos/form/schema-form/form-list-required.tsx" title="Required formList validation"></code>
 
 ### valueType mapping
 
-<code src="../../demos/form/schema-form/value-type.tsx" title="Schema built-in valueTypes"></code>
+`valueType: 'select'` and `valueEnum` render a status selector.
+
+<code src="../../demos/form/schema-form/value-type.tsx" title="Schema select field"></code>
+
+`valueType: 'date'` renders a date picker.
+
+<code src="../../demos/form/schema-form/value-type-date.tsx" title="Schema date field"></code>
+
+`valueType: 'digit'` renders a number input.
+
+<code src="../../demos/form/schema-form/value-type-digit.tsx" title="Schema digit field"></code>
 
 ### Custom valueType
 
-<code src="../../demos/form/schema-form/customization-value-type.tsx" title="Custom valueType in SchemaForm"></code>
+Register an editable tag type through `ProProvider.valueTypeMap.tags.formItemRender`. Enter a tag, press Enter, and submit to inspect the array value.
+
+<code src="../../demos/form/schema-form/customization-value-type.tsx" title="formItemRender: custom tag input"></code>
+
+Define a read-only link through `ProProvider.valueTypeMap.documentationLink.render`.
+
+<code src="../../demos/form/schema-form/customization-value-type-render.tsx" title="render: custom read-only link"></code>

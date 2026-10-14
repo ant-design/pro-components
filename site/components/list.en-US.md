@@ -17,7 +17,8 @@ When you need a standard list presentation, or need to flexibly switch between l
 
 ### Issue regression scenarios
 
-<code src="../../demos/list/issue-regression-gallery.tsx" background="var(--main-bg-color)" title="Display controls and live pagination state"></code>
+<code src="../../demos/list/grid-item-render.tsx" title="Grid cards: ProList.grid and itemRender"></code>
+<code src="../../demos/list/action-page-info.tsx" title="Live pagination state: actionRef.pageInfo"></code>
 
 ### Basic usage
 
@@ -31,11 +32,25 @@ Use `columns` with the `listSlot` property to share the same column configuratio
 
 ### Card list (columns + listSlot)
 
+`grid` sets responsive card columns, while `columns.listSlot` places fields into the title and description.
+
 <code src="../../demos/list/card-columns.tsx" background="var(--main-bg-color)"></code>
 
 ### Grid config
 
-<code src="../../demos/list/grid.tsx" background="var(--main-bg-color)"></code>
+Set `grid.xs`, `grid.sm`, and `grid.md` for the column count at each breakpoint.
+
+<code src="../../demos/list/grid.tsx" background="var(--main-bg-color)" title="Responsive grid columns"></code>
+
+`grid.gutter` controls the spacing between cards.
+
+<code src="../../demos/list/grid-gutter.tsx" background="var(--main-bg-color)" title="Grid gutter"></code>
+
+`itemCardProps.bordered` controls the card border; `ghost` controls the list background.
+
+<code src="../../demos/list/grid-card-border.tsx" background="var(--main-bg-color)" title="Borderless cards"></code>
+
+<code src="../../demos/list/grid-ghost.tsx" background="var(--main-bg-color)" title="Ghost list"></code>
 
 ### Table/List view switching
 
@@ -53,11 +68,21 @@ Use the same `columns` for both ProTable and ProList. Switch between table and l
 
 ### Edit list
 
-<code src="../../demos/list/editable.tsx" background="var(--main-bg-color)"></code>
+`editable` enables list editing, and `startEditable` opens a selected item. The updated `dataSource` appears below the list after saving.
 
-### List with toolbar
+<code src="../../demos/list/editable.tsx" background="var(--main-bg-color)" title="editable: edit a list item"></code>
 
-<code src="../../demos/list/toolbar.tsx" background="var(--main-bg-color)"></code>
+### Toolbar menu: toolbar.menu
+
+<code src="../../demos/list/toolbar.tsx" background="var(--main-bg-color)" title="Switch task scope"></code>
+
+### Toolbar search: toolbar.search
+
+<code src="../../demos/list/toolbar-search.tsx" background="var(--main-bg-color)" title="Search by keyword"></code>
+
+### Toolbar actions: toolbar.actions
+
+<code src="../../demos/list/toolbar-actions.tsx" background="var(--main-bg-color)" title="Add a task"></code>
 
 ### Expandable list
 
@@ -65,35 +90,71 @@ Use the same `columns` for both ProTable and ProList. Switch between table and l
 
 ### List with row selection
 
+`rowSelection` controls the selected items and shows the current count.
+
 <code src="../../demos/list/selection.tsx" background="var(--main-bg-color)"></code>
 
 ### Search list
 
+`search` displays the query form, while `request` filters local sample data by owner.
+
 <code src="../../demos/list/search.tsx" background="var(--main-bg-color)"></code>
 
-### List with filtering and asynchronous requests
+### Light status filter: search.filterType and request
 
 <code src="../../demos/list/filter.tsx" background="var(--main-bg-color)"></code>
 
-### Size and divider
+### List size
+
+`size` controls item spacing.
 
 <code src="../../demos/list/size.tsx" background="var(--main-bg-color)"></code>
 
-### Vertical style
+### Item layout
+
+`itemLayout` switches between horizontal and vertical item layouts.
 
 <code src="../../demos/list/layout.tsx" background="var(--main-bg-color)"></code>
 
-### Some preset modes
+### List appearance
+
+`variant` switches between outlined, filled, and borderless styles.
+
+<code src="../../demos/list/variant.tsx" background="var(--main-bg-color)"></code>
+
+### Custom class prefix: ConfigProvider.prefixCls
+
+<code src="../../demos/list/config-provider.tsx" background="var(--main-bg-color)"></code>
+
+### Item dividers
+
+`split` controls dividers between items.
+
+<code src="../../demos/list/split.tsx" background="var(--main-bg-color)"></code>
+
+### Pinned item: type=top
 
 <code src="../../demos/list/special.tsx" background="var(--main-bg-color)"></code>
 
+### Inline title: type=inline
+
+<code src="../../demos/list/special-inline.tsx" background="var(--main-bg-color)"></code>
+
+### New item animation: type=new
+
+<code src="../../demos/list/special-new.tsx" background="var(--main-bg-color)"></code>
+
 ### Pagination
+
+`pagination.pageSize` shows three projects per page.
 
 <code src="../../demos/list/pagination.tsx" background="var(--main-bg-color)"></code>
 
 ### Custom list item (itemRender)
 
 Use `itemRender` to customize each item's rendering. The third argument `defaultDom` is the default list item element (`React.ReactElement`); you can wrap it or replace it.
+
+`itemRender` replaces the complete list item with a custom card.
 
 <code src="../../demos/list/custom-render.tsx" background="var(--main-bg-color)"></code>
 
@@ -146,9 +207,9 @@ For other APIs, refer to [ProTable](/en-US/components/table).
 | tooltip            | Tooltip next to the title                                                                                                                                                                            | `string \| LabelTooltipType`                                                                                                                                                                                 | -                      |
 | loading            | Whether loading                                                                                                                                                                                      | `boolean` \| `{ spinning?: boolean }`                                                                                                                                                                        | `false`                |
 | split              | Whether to show a split line                                                                                                                                                                         | `boolean`                                                                                                                                                                                                    | `true`                 |
-| variant            | List appearance variant                                                                                                                                                                              | `'outlined'` \| `'borderless'` \| `'filled'`                                                                                                                                                                  | `'borderless'`         |
-| showActions        | When to show the actions area. `'hover'` shows actions when hovering or focusing the list item                                                                                                      | `'hover'` \| `'always'`                                                                                                                                                                                       | `'always'`             |
-| showExtra          | When to show the extra area (the `aside` slot). `'hover'` shows it only when hovering the list item. Not supported in CardList mode                                                                  | `'hover'` \| `'always'`                                                                                                                                                                                       | `'always'`             |
+| variant            | List appearance variant                                                                                                                                                                              | `'outlined'` \| `'borderless'` \| `'filled'`                                                                                                                                                                 | `'borderless'`         |
+| showActions        | When to show the actions area. `'hover'` shows actions when hovering or focusing the list item                                                                                                       | `'hover'` \| `'always'`                                                                                                                                                                                      | `'always'`             |
+| showExtra          | When to show the extra area (the `aside` slot). `'hover'` shows it only when hovering the list item. Not supported in CardList mode                                                                  | `'hover'` \| `'always'`                                                                                                                                                                                      | `'always'`             |
 | footer             | List footer                                                                                                                                                                                          | `ReactNode`                                                                                                                                                                                                  | -                      |
 | grid               | Grid configuration, enables card mode when set                                                                                                                                                       | `ListGridType`                                                                                                                                                                                               | -                      |
 | itemLayout         | List item layout direction                                                                                                                                                                           | `'horizontal'` \| `'vertical'`                                                                                                                                                                               | `'horizontal'`         |
@@ -181,14 +242,14 @@ For other APIs, refer to [ProTable](/en-US/components/table).
 
 Sometimes you need to manually trigger ProList's reload and other operations. Use actionRef, which works identically to [ProTable ActionRef](/en-US/components/table#actionref).
 
-| Method         | Description                                                    | Type                                 |
-| -------------- | -------------------------------------------------------------- | ------------------------------------ |
+| Method         | Description                                                    | Type                                          |
+| -------------- | -------------------------------------------------------------- | --------------------------------------------- |
 | reload         | Reload the list, pass true to reset page index                 | `(resetPageIndex?: boolean) => Promise<void>` |
 | reloadAndRest  | Reload and clear, page index is also reset, excluding the form | `() => Promise<void>`                         |
-| reset          | Reset to default values, including the form                    | `() => void`                         |
-| clearSelected  | Clear selected items                                           | `() => void`                         |
-| startEditable  | Start editing a row                                            | `(rowKey: Key) => boolean`           |
-| cancelEditable | Cancel editing a row                                           | `(rowKey: Key) => boolean`           |
+| reset          | Reset to default values, including the form                    | `() => void`                                  |
+| clearSelected  | Clear selected items                                           | `() => void`                                  |
+| startEditable  | Start editing a row                                            | `(rowKey: Key) => boolean`                    |
+| cancelEditable | Cancel editing a row                                           | `(rowKey: Key) => boolean`                    |
 
 ```tsx | pure
 const ref = useRef<ActionType>();
@@ -280,7 +341,7 @@ Metas uses object keys to map list item parts (title, avatar, description, etc.)
 | Property       | Description                                                                                          | Type                                                                                     | Default  |
 | -------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | -------- |
 | dataIndex      | The path corresponding to the data in the data item, supports querying nested paths through an array | `string` \| `string[]`                                                                   | -        |
-| title         | Title                                                                                               | `ReactNode`                                                                               | -        |
+| title          | Title                                                                                                | `ReactNode`                                                                              | -        |
 | valueType      | Value type, same as ProTable, generates different renderers                                          | [`valueType`](/en-US/components/schema#valuetype)                                        | `'text'` |
 | render         | Custom render function                                                                               | `(text: ReactNode, record: T, index: number) => ReactNode \| ReactNode[]`                | -        |
 | valueEnum      | Enum of values, automatically converts the value as a key to display the corresponding content       | [valueEnum](/en-US/components/schema-form#valueenum)                                     | -        |
@@ -358,11 +419,11 @@ ProList generates a search form based on fields with `search` configured in colu
 #### Migration Reference
 
 | metas syntax                                            | columns syntax                                                       |
-|---------------------------------------------------------| -------------------------------------------------------------------- |
+| ------------------------------------------------------- | -------------------------------------------------------------------- |
 | `title: { dataIndex: 'name' }`                          | `{ dataIndex: 'name', listSlot: 'title' }`                           |
 | `avatar: { dataIndex: 'img' }`                          | `{ dataIndex: 'img', listSlot: 'avatar' }`                           |
 | `description: { dataIndex: 'desc' }`                    | `{ dataIndex: 'desc', listSlot: 'description' }`                     |
-| `content: {}`                                           | `{ dataIndex: 'content', listSlot: 'content' }`  |
+| `content: {}`                                           | `{ dataIndex: 'content', listSlot: 'content' }`                      |
 | `extra: { render: ... }`                                | `{ listSlot: 'aside', render: ... }`                                 |
 | `status: { title: 'Status', valueType: 'select', ... }` | `{ title: 'Status', dataIndex: 'status', valueType: 'select', ... }` |
 

@@ -1,202 +1,60 @@
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { Button, Space } from 'antd';
+import { useState } from 'react';
 
-const Demo = () => (
-  <div
-    style={{
-      height: '100vh',
-    }}
-  >
-    <ProLayout
-      location={{
-        pathname: '/config/template/new',
-      }}
-      route={{
-        routes: [
-          {
-            path: '/config',
-            name: '配置中心',
-            routes: [
-              {
-                path: 'product',
-                name: '产品配置',
-                indexRoute: {
-                  component: 'ConfigProduct/index',
-                },
-                routes: [
-                  {
-                    path: 'new',
-                    component: 'ConfigProduct/NewConfig',
-                  },
-                  {
-                    path: 'edit/:productKey',
-                    component: 'ConfigProduct/NewConfig',
-                  },
-                  {
-                    path: 'detail/:productKey',
-                    component: 'ConfigProduct/Detail',
-                  },
-                ],
-              },
-              {
-                path: 'productManage',
-                name: '产品管理',
-                indexRoute: {
-                  component: 'ConfigProductAll/index',
-                },
-                routes: [
-                  {
-                    path: 'detail/:productKey',
-                    component: 'ConfigProductAll/Detail',
-                  },
-                ],
-              },
-              {
-                path: 'template',
-                name: '产品模板管理',
-                indexRoute: {
-                  component: 'ConfigTemplate/index',
-                },
-                routes: [
-                  {
-                    path: 'new',
-                    component: 'ConfigTemplate/NewConfig',
-                  },
-                  {
-                    path: 'edit/:templateKey',
-                    component: 'ConfigTemplate/NewConfig',
-                  },
-                  {
-                    path: 'detail/:templateKey',
-                    component: 'ConfigTemplate/Detail',
-                  },
-                ],
-              },
-              {
-                path: 'configItem',
-                name: '配置项模板管理',
-                indexRoute: {
-                  component: 'ConfigItem/index',
-                },
-                routes: [
-                  {
-                    path: 'new',
-                    component: 'ConfigItem/NewConfig',
-                  },
-                  {
-                    path: 'edit/:productKey',
-                    component: 'ConfigItem/NewConfig',
-                  },
-                  {
-                    path: 'detail/:productKey',
-                    component: 'ConfigItem/Detail',
-                  },
-                ],
-              },
-              {
-                path: 'meta',
-                name: '元数据管理',
-                component: 'ConfigMeta',
-              },
-            ],
-          },
-          {
-            path: 'asset',
-            name: '资产',
-            routes: [
-              {
-                path: 'query',
-                name: '资产查询',
-                component: 'Asset',
-              },
-              {
-                path: 'collateral',
-                name: '抵押查询',
-                component: 'Collateral',
-              },
-            ],
-          },
-          {
-            path: 'bill',
-            name: '账单',
-            routes: [
-              {
-                path: 'billNo',
-                name: '账单编号',
-                component: 'BillNo',
-              },
-              {
-                path: 'bill',
-                name: '账单查询',
-                component: 'Bill',
-              },
-              {
-                path: 'billItem',
-                name: '账单条目',
-                component: 'BillItem',
-              },
-            ],
-          },
-          {
-            path: 'cif',
-            name: 'CIF',
-            routes: [
-              {
-                path: 'bankAccount',
-                name: '绑卡信息',
-                component: 'CifBankAccount',
-              },
-              {
-                path: 'userGroup',
-                name: '查询 Group',
-                component: 'CifUserGroup',
-              },
-              {
-                path: 'userId',
-                name: '查询 ID',
-                component: 'CifUserId',
-              },
-              {
-                path: 'newInstitution',
-                name: '新增机构',
-                indexRoute: {
-                  component: 'CifNewInstitution/index',
-                },
-                routes: [
-                  {
-                    path: 'new',
-                    component: 'CifNewInstitution/ApplyNew',
-                  },
-                  {
-                    path: 'bind/:id',
-                    component: 'CifNewInstitution/BindAccount',
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            path: 'tools',
-            name: '小工具',
-            routes: [
-              {
-                path: 'ttsql',
-                name: 'MySQL转BlinkTT流表',
-                component: 'ToolTT',
-              },
-            ],
-          },
-        ],
-      }}
-    >
-      <PageContainer content="欢迎使用">
-        <div>Hello World</div>
-      </PageContainer>
-    </ProLayout>
-  </div>
-);
+const route = {
+  path: '/',
+  routes: [
+    {
+      path: '/products',
+      name: '产品管理',
+      routes: [
+        {
+          path: '/products/list',
+          name: '产品列表',
+          routes: [
+            { path: '/products/list/new', component: 'ProductNew' },
+            { path: '/products/list/detail', component: 'ProductDetail' },
+          ],
+        },
+      ],
+    },
+  ],
+};
 
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);
+export default () => {
+  const [pathname, setPathname] = useState('/products/list/new');
+
+  return (
+    <div style={{ height: 560, overflow: 'auto' }}>
+      <ProLayout
+        title="产品管理"
+        route={route}
+        location={{ pathname }}
+        menuItemRender={(item, dom) => (
+          <a
+            href={item.path}
+            onClick={(event) => {
+              event.preventDefault();
+              setPathname(item.path || '/products/list');
+            }}
+          >
+            {dom}
+          </a>
+        )}
+      >
+        <PageContainer title="多个路由共用一个菜单项">
+          <Space wrap>
+            <Button onClick={() => setPathname('/products/list/new')}>
+              新建页
+            </Button>
+            <Button onClick={() => setPathname('/products/list/detail')}>
+              详情页
+            </Button>
+          </Space>
+          <p role="status">当前路径：{pathname}</p>
+        </PageContainer>
+      </ProLayout>
+    </div>
+  );
+};

@@ -77,7 +77,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
   const formInstance = Form.useFormInstance();
 
   const [, forceUpdate] = useState<[]>([]);
-  const [formDomsDeps, updatedFormDoms] = useState<[]>(() => []);
+  const [formDomsVersion, updatedFormDoms] = useState(0);
 
   const formRef = useReactiveRef<ProFormInstance | undefined>(
     props.form || formInstance || form,
@@ -222,7 +222,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
         (typeof shouldUpdate === 'function' &&
           shouldUpdate(values, oldValuesRef.current))
       ) {
-        updatedFormDoms([]);
+        updatedFormDoms((version) => version + 1);
       }
       oldValuesRef.current = values;
       handlingValuesChangeRef.current = true;
@@ -239,7 +239,14 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     // like StepsForm's columns but not only for StepsForm
     if (columns.length && Array.isArray(columns[0])) return;
     return genItems(columns as ProFormColumnsType<T, ValueType>[]);
-  }, [columns, restProps?.open, action, type, formDomsDeps, formRef.current]);
+  }, [
+    columns,
+    restProps?.open,
+    action,
+    type,
+    formDomsVersion,
+    formRef.current,
+  ]);
 
   /**
    * Append layoutType component specific props

@@ -1,57 +1,20 @@
 import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
-import { Descriptions } from 'antd';
-import defaultProps from './_defaultProps';
-
-const content = (
-  <Descriptions size="small" column={2}>
-    <Descriptions.Item label="创建人">书琰</Descriptions.Item>
-    <Descriptions.Item label="联系方式">
-      <a>421421</a>
-    </Descriptions.Item>
-    <Descriptions.Item label="创建时间">2017-01-10</Descriptions.Item>
-    <Descriptions.Item label="更新时间">2017-10-10</Descriptions.Item>
-    <Descriptions.Item label="备注">
-      中国浙江省杭州市西湖区古翠路
-    </Descriptions.Item>
-  </Descriptions>
-);
-
-const Demo = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-      }}
-    >
-      <ProLayout
-        {...defaultProps}
-        location={{
-          pathname: '/welcome',
-        }}
-      >
-        <PageContainer fixedHeader content={content}>
-          <ProCard
-            direction="column"
-            ghost
-            gutter={[0, 16]}
-            style={{
-              height: '200vh',
-            }}
-          >
-            <ProCard style={{ height: 200 }} />
-            <ProCard gutter={16} ghost style={{ height: 200 }}>
-              <ProCard colSpan={16} />
-              <ProCard colSpan={8} />
-            </ProCard>
-          </ProCard>
-        </PageContainer>
-      </ProLayout>
-    </div>
-  );
-};
 
 export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
+  <div style={{ minHeight: 480 }}>
+    <ProLayout
+      location={{ pathname: '/dashboard' }}
+      route={{ routes: [{ path: '/dashboard', name: '工作台' }] }}
+    >
+      <PageContainer title="透明卡片容器">
+        <div style={{ background: '#e8edf3', padding: 16 }}>
+          <ProCard ghost>
+            <ProCard title="服务状态" variant="outlined">
+              正常运行。灰色背景透过父级卡片显示。
+            </ProCard>
+          </ProCard>
+        </div>
+      </PageContainer>
+    </ProLayout>
   </div>
 );

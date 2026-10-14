@@ -1,89 +1,39 @@
-import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
 import { ProList } from '@ant-design/pro-components';
-import { Button, Space, Tag } from 'antd';
-import React from 'react';
+import { Segmented } from 'antd';
+import { useState } from 'react';
 
-const IconText = ({ icon, text }: { icon: any; text: string }) => (
-  <span>
-    {React.createElement(icon, { style: { marginInlineEnd: 8 } })}
-    {text}
-  </span>
-);
-
-const dataSource = [
-  {
-    title: '智慧零售平台',
-  },
-  {
-    title: 'Ant Design',
-  },
-  {
-    title: '云原生微服务框架',
-  },
-  {
-    title: '数据可视化引擎',
-  },
+type Project = { id: number; title: string; description: string };
+const projects: Project[] = [
+  { id: 1, title: '智慧零售平台', description: '面向门店的数字化经营方案' },
+  { id: 2, title: '数据可视化引擎', description: '帮助团队分析业务数据' },
 ];
 
-const Demo = () => {
+export default () => {
+  const [itemLayout, setItemLayout] = useState<'horizontal' | 'vertical'>(
+    'horizontal',
+  );
+
   return (
-    <ProList<{ title: string }>
-      toolBarRender={() => {
-        return [
-          <Button key="3" type="primary">
-            新建
-          </Button>,
-        ];
-      }}
-      itemLayout="vertical"
-      rowKey="id"
-      headerTitle="竖排样式"
-      dataSource={dataSource}
-      columns={[
-        { dataIndex: 'title', listSlot: 'title' },
-        {
-          listSlot: 'description',
-          render: () => (
-            <Space orientation="horizontal">
-              <Tag>技术专栏</Tag>
-              <Tag>设计语言</Tag>
-              <Tag>云原生</Tag>
-            </Space>
-          ),
-        },
-        {
-          listSlot: 'actions',
-          render: () => [
-            <IconText icon={StarOutlined} text="156" key="star" />,
-            <IconText icon={LikeOutlined} text="156" key="like" />,
-            <IconText icon={MessageOutlined} text="2" key="message" />,
-          ],
-        },
-        {
-          listSlot: 'aside',
-          render: () => (
-            <img
-              width={272}
-              alt="logo"
-              src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-            />
-          ),
-        },
-        {
-          listSlot: 'content',
-          render: () => (
-            <div>
-              面向企业级中后台的数据可视化解决方案，以最小的接入成本提供丰富的图表类型与交互能力，助力业务快速搭建数据看板与分析报表。
-            </div>
-          ),
-        },
-      ]}
-    />
+    <>
+      <Segmented
+        value={itemLayout}
+        onChange={(value) => setItemLayout(value as typeof itemLayout)}
+        options={[
+          { label: '水平', value: 'horizontal' },
+          { label: '垂直', value: 'vertical' },
+        ]}
+        style={{ marginBottom: 16 }}
+      />
+      <ProList<Project>
+        rowKey="id"
+        itemLayout={itemLayout}
+        dataSource={projects}
+        columns={[
+          { dataIndex: 'title', listSlot: 'title' },
+          { dataIndex: 'description', listSlot: 'description' },
+          { listSlot: 'content', render: () => '项目内容摘要' },
+        ]}
+      />
+    </>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

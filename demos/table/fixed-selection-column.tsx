@@ -1,90 +1,40 @@
-/**
- * title: 固定选择列
- * description: 选择列使用 `fixed: 'start'` 固定后，配合其他固定列横向滚动时，表头勾选框不应被相邻固定列遮挡。
- */
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import { Table, Tag } from 'antd';
+import { useState } from 'react';
 
-type IssueItem = {
-  key: number;
-  title: string;
-  labels: { name: string; color: string }[];
-  state: string;
-  createdAt: string;
-  rate: number;
-};
+type Task = { id: number; title: string; owner: string; description: string };
 
-const columns: ProColumns<IssueItem>[] = [
-  { title: '标题', dataIndex: 'title', width: 160, fixed: 'start' },
-  {
-    title: '状态',
-    dataIndex: 'state',
-    width: 100,
-    valueType: 'select',
-    valueEnum: {
-      open: { text: '未解决', status: 'Error' },
-      closed: { text: '已解决', status: 'Success' },
-    },
-  },
-  {
-    title: '标签',
-    dataIndex: 'labels',
-    width: 140,
-    search: false,
-    render: (_, record) => (
-      <span>
-        {record.labels.map(({ name, color }) => (
-          <Tag color={color} key={name}>
-            {name}
-          </Tag>
-        ))}
-      </span>
-    ),
-  },
-  {
-    title: '创建时间',
-    dataIndex: 'createdAt',
-    width: 160,
-    valueType: 'dateTime',
-  },
-  { title: '评分', dataIndex: 'rate', width: 160, valueType: 'rate' },
-  {
-    title: '更新时间',
-    dataIndex: 'createdAt',
-    width: 160,
-    valueType: 'dateTime',
-  },
-  {
-    title: '操作',
-    dataIndex: 'option',
-    valueType: 'option',
-    width: 120,
-    fixed: 'end',
-  },
+const tasks: Task[] = [
+  { id: 1, title: '设计首页', owner: '张三', description: '完成首页视觉稿' },
+  { id: 2, title: '开发登录页', owner: '李四', description: '实现登录流程' },
+  { id: 3, title: '编写文档', owner: '王五', description: '补充使用说明' },
+];
+const columns: ProColumns<Task>[] = [
+  { title: '任务名称', dataIndex: 'title', width: 160, fixed: 'start' },
+  { title: '负责人', dataIndex: 'owner', width: 200 },
+  { title: '任务描述', dataIndex: 'description', width: 320 },
 ];
 
-const dataSource: IssueItem[] = Array.from({ length: 8 }).map((_, i) => ({
-  key: i,
-  title: `Issue 标题 ${i + 1}`,
-  labels: [{ name: 'bug', color: 'error' }],
-  state: i % 2 === 0 ? 'open' : 'closed',
-  createdAt: '2026-09-26 10:00:00',
-  rate: 4,
-}));
+export default () => {
+  const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
 
-export default () => (
-  <ProTable<IssueItem>
-    columns={columns}
-    dataSource={dataSource}
-    rowKey="key"
-    search={false}
-    toolBarRender={false}
-    pagination={false}
-    scroll={{ x: 1200 }}
-    rowSelection={{
-      fixed: 'start',
-      selections: [Table.SELECTION_ALL, Table.SELECTION_INVERT],
-    }}
-  />
-);
+  return (
+    <div style={{ padding: 24 }}>
+      <ProTable<Task>
+        columns={columns}
+        dataSource={tasks}
+        rowKey="id"
+        search={false}
+        options={false}
+        pagination={false}
+        scroll={{ x: 740 }}
+        rowSelection={{
+          fixed: 'start',
+          selectedRowKeys: selectedKeys,
+          onChange: setSelectedKeys,
+        }}
+      />
+      <p>已选任务 ID：{selectedKeys.join(', ') || '无'}</p>
+    </div>
+  );
+};

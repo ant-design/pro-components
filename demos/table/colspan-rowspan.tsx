@@ -1,82 +1,38 @@
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import React from 'react';
 
-interface TableColumn {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
-  tags: string[];
-}
+type Row = {
+  key: string;
+  team: string;
+  member: string;
+  task: string;
+};
 
-const dataSource: TableColumn[] = [
-  {
-    key: '1',
-    name: '胡彦祖',
-    age: 42,
-    address: '西湖区湖底公园 1 号',
-    tags: ['前端', '资深'],
-  },
-  {
-    key: '2',
-    name: '李大钊',
-    age: 32,
-    address: '西湖区湖底公园 1 号',
-    tags: ['前端', '资深'],
-  },
-  {
-    key: '3',
-    name: '王五',
-    age: 32,
-    address: '西湖区湖底公园 2 号',
-    tags: ['后端'],
-  },
+const dataSource: Row[] = [
+  { key: '1', team: '前端组', member: '张三', task: '首页' },
+  { key: '2', team: '', member: '李四', task: '表单' },
+  { key: '3', team: '后端组', member: '王五', task: '接口' },
 ];
 
-const columns: ProColumns<TableColumn>[] = [
+const columns: ProColumns<Row>[] = [
   {
-    title: '姓名',
-    dataIndex: 'name',
-    key: 'name',
+    title: '团队',
+    dataIndex: 'team',
+    onCell: (_, index = 0) =>
+      index === 0 ? { rowSpan: 2 } : index === 1 ? { rowSpan: 0 } : {},
   },
-  {
-    title: '年龄',
-    dataIndex: 'age',
-    key: 'age',
-    // 合并单元格：返回 colSpan/rowSpan，为 0 时该单元格不渲染
-    onCell: (_, index = 0) => {
-      // 第一行年龄向下合并一格
-      if (index === 0) return { rowSpan: 2 };
-      if (index === 1) return { rowSpan: 0 };
-      return {};
-    },
-  },
-  {
-    title: '地址',
-    dataIndex: 'address',
-    key: 'address',
-    onCell: (_, index = 0) => {
-      // 地址列整体合并为一列
-      if (index === 0) return { rowSpan: 3 };
-      return { rowSpan: 0 };
-    },
-  },
-  {
-    title: '标签',
-    dataIndex: 'tags',
-    key: 'tags',
-    render: (_, record) => record.tags.join(' / '),
-  },
+  { title: '成员', dataIndex: 'member' },
+  { title: '任务', dataIndex: 'task' },
 ];
 
 export default () => (
-  <ProTable<TableColumn>
+  <ProTable<Row>
     columns={columns}
     dataSource={dataSource}
     rowKey="key"
     search={false}
     options={false}
     pagination={false}
+    scroll={{ x: 480 }}
   />
 );

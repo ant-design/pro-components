@@ -1,170 +1,41 @@
 import { MenuOutlined } from '@ant-design/icons';
-import type { ActionType, ProColumns } from '@ant-design/pro-components';
+import type { ProColumns } from '@ant-design/pro-components';
 import { DragSortTable } from '@ant-design/pro-components';
-import { message } from 'antd';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
-const data = [
-  {
-    key: 'key1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-  },
-  {
-    key: 'key2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-  },
-  {
-    key: 'key3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-  },
+type Task = { key: string; name: string };
+
+const columns: ProColumns<Task>[] = [
+  { title: '排序', dataIndex: 'sort', width: 110 },
+  { title: '任务', dataIndex: 'name' },
 ];
-const wait = async (delay = 1000) =>
-  new Promise((resolve) => setTimeout(() => resolve(void 0), delay));
 
-let remoteData = data.map((item) => ({
-  ...item,
-  name: `[remote data] ${item.name}`,
-}));
-const request = async () => {
-  await wait(3000);
-  return {
-    data: remoteData,
-    total: remoteData.length,
-    success: true,
-  };
-};
+const initialRows: Task[] = [
+  { key: 'a', name: '设计' },
+  { key: 'b', name: '开发' },
+  { key: 'c', name: '测试' },
+];
 
-const Demo = () => {
-  const columns: ProColumns[] = [
-    {
-      title: '排序',
-      dataIndex: 'sort',
-      render: (dom, rowData, index) => {
-        return (
-          <span className="customRender">{`自定义Render[${rowData.name}-${index}]`}</span>
-        );
-      },
-    },
-    {
-      title: '姓名',
-      dataIndex: 'name',
-      className: 'drag-visible',
-    },
-    {
-      title: '年龄',
-      dataIndex: 'age',
-    },
-    {
-      title: '地址',
-      dataIndex: 'address',
-    },
-  ];
-  const columns2: ProColumns[] = [
-    {
-      title: '排序',
-      dataIndex: 'sort',
-    },
-    {
-      title: '姓名',
-      dataIndex: 'name',
-      className: 'drag-visible',
-    },
-    {
-      title: '年龄',
-      dataIndex: 'age',
-    },
-    {
-      title: '地址',
-      dataIndex: 'address',
-    },
-  ];
-  const actionRef = useRef<ActionType>();
-  const [dataSource1, setDatasource1] = useState(data);
-  const [dataSource2, setDatasource2] = useState(data);
-  const handleDragSortEnd1 = (
-    beforeIndex: number,
-    afterIndex: number,
-    newDataSource: any,
-  ) => {
-
-    setDatasource1(newDataSource);
-    message.success('修改列表排序成功');
-  };
-  const handleDragSortEnd2 = (
-    beforeIndex: number,
-    afterIndex: number,
-    newDataSource: any,
-  ) => {
-
-    setDatasource2(newDataSource);
-    message.success('修改列表排序成功');
-  };
-  const handleDragSortEnd3 = (
-    beforeIndex: number,
-    afterIndex: number,
-    newDataSource: any,
-  ) => {
-
-    // 模拟将排序后数据发送到服务器的场景
-    remoteData = newDataSource;
-    // 请求成功之后刷新列表
-    actionRef.current?.reload();
-    message.success('修改列表排序成功');
-  };
-
-  const dragHandleRender = (rowData: any, idx: any) => (
-    <>
-      <MenuOutlined style={{ cursor: 'grab', color: 'gold' }} />
-      &nbsp;{idx + 1} - {rowData.name}
-    </>
-  );
+export default () => {
+  const [rows, setRows] = useState(initialRows);
 
   return (
-    <>
-      <DragSortTable
-        headerTitle="拖拽排序(默认把手)"
+    <div style={{ padding: 12 }}>
+      <DragSortTable<Task>
+        rowKey="key"
         columns={columns}
-        rowKey="key"
-        search={false}
-        pagination={false}
-        dataSource={dataSource1}
+        dataSource={rows}
         dragSortKey="sort"
-        onDragSortEnd={handleDragSortEnd1}
-      />
-      <DragSortTable
-        headerTitle="拖拽排序(自定义把手)"
-        columns={columns2}
-        rowKey="key"
+        dragSortHandlerRender={(_row, index) => (
+          <span style={{ cursor: 'grab', whiteSpace: 'nowrap' }}>
+            <MenuOutlined /> 第 {index + 1} 项
+          </span>
+        )}
+        onDragSortEnd={(_before, _after, nextRows) => setRows(nextRows)}
         search={false}
+        options={false}
         pagination={false}
-        dataSource={dataSource2}
-        dragSortKey="sort"
-        dragSortHandlerRender={dragHandleRender}
-        onDragSortEnd={handleDragSortEnd2}
       />
-      <DragSortTable
-        actionRef={actionRef}
-        headerTitle="使用 request 获取数据源"
-        columns={columns2}
-        rowKey="key"
-        search={false}
-        pagination={false}
-        request={request}
-        dragSortKey="sort"
-        onDragSortEnd={handleDragSortEnd3}
-      />
-    </>
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

@@ -15,7 +15,7 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 ## Issue 回归场景
 
-<code src="../../demos/layout/issue-regression-gallery.tsx" iframe="560" title="移动端、导航主题与组件 token"></code>
+<code src="../../demos/layout/nav-theme.tsx" title="导航主题：ProLayout.navTheme" iframe="560"></code>
 
 ## API
 

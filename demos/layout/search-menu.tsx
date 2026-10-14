@@ -1,93 +1,46 @@
-import { PlusCircleFilled, SearchOutlined } from '@ant-design/icons';
-import type { MenuDataItem } from '@ant-design/pro-components';
-import { PageContainer, ProLayout } from '@ant-design/pro-components';
-import { Input, Space } from 'antd';
+import { ProLayout } from '@ant-design/pro-components';
+import { Input } from 'antd';
 import { useState } from 'react';
-import complexMenu from './complex-menu';
 
-const filterByMenuData = (
-  data: MenuDataItem[],
-  keyWord: string,
-): MenuDataItem[] =>
-  data
-    .map((item) => {
-      if (item.name?.includes(keyWord)) {
-        return { ...item };
-      }
-      const children = filterByMenuData(item.children || [], keyWord);
-      if (children.length > 0) {
-        return { ...item, children };
-      }
-      return undefined;
-    })
-    .filter((item) => item) as MenuDataItem[];
+const route = {
+  path: '/',
+  routes: [
+    { path: '/projects', name: '项目列表' },
+    { path: '/team', name: '团队成员' },
+    { path: '/reports', name: '项目报表' },
+    { path: '/settings', name: '系统设置' },
+  ],
+};
 
-const loopMenuItem = (menus: any[]): MenuDataItem[] =>
-  menus.map(({ icon: _icon, routes, ...item }) => ({
-    ...item,
-    children: routes && loopMenuItem(routes),
-  }));
+export default () => {
+  const [keyword, setKeyword] = useState('');
 
-const Demo = () => {
-  const [keyWord, setKeyWord] = useState('');
   return (
-    <div
-      style={{
-        height: '100vh',
-      }}
-    >
+    <div style={{ height: 560, overflow: 'auto' }}>
       <ProLayout
-        location={{
-          pathname: '/home/overview',
-        }}
-        menuExtraRender={({ collapsed }) =>
-          !collapsed && (
-            <Space
-              style={{
-                marginBlockStart: 16,
-              }}
-              align="center"
-            >
+        title="搜索菜单"
+        route={route}
+        location={{ pathname: '/projects' }}
+        menuExtraRender={(props) =>
+          props?.collapsed ? null : (
+            <div style={{ padding: 12 }}>
               <Input
-                style={{
-                  borderRadius: 4,
-                  backgroundColor: 'rgba(0,0,0,0.03)',
-                }}
-                prefix={
-                  <SearchOutlined
-                    style={{
-                      color: 'rgba(0, 0, 0, 0.15)',
-                    }}
-                  />
-                }
-                placeholder="搜索方案"
-                variant="borderless"
-                onPressEnter={(e) => {
-                  setKeyWord((e.target as HTMLInputElement).value);
-                }}
+                aria-label="搜索菜单"
+                placeholder="输入菜单名称"
+                value={keyword}
+                onChange={(event) => setKeyword(event.target.value)}
               />
-              <PlusCircleFilled
-                style={{
-                  color: 'var(--ant-primary-color)',
-                  fontSize: 24,
-                }}
-              />
-            </Space>
+            </div>
           )
         }
-        menuDataRender={() => loopMenuItem(complexMenu)}
-        postMenuData={(menus) => filterByMenuData(menus || [], keyWord)}
+        postMenuData={(menus) =>
+          (menus || []).filter((item) => item.name?.includes(keyword))
+        }
       >
-        <PageContainer content="欢迎使用">
-          <div>Hello World</div>
-        </PageContainer>
+        <div style={{ padding: 24 }}>
+          {keyword ? `当前搜索：${keyword}` : '在侧栏搜索菜单名称'}
+        </div>
       </ProLayout>
     </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);
