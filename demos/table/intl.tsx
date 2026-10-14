@@ -1,126 +1,57 @@
-import { PlusOutlined } from '@ant-design/icons';
-import type { ActionType, ProColumns } from '@ant-design/pro-components';
+import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import { Button, ConfigProvider, Select, Space } from 'antd';
-import caESIntl from 'antd/lib/locale/ca_ES';
-import enGBIntl from 'antd/lib/locale/en_GB';
-import enUSIntl from 'antd/lib/locale/en_US';
-import esESIntl from 'antd/lib/locale/es_ES';
-import frFRIntl from 'antd/lib/locale/fr_FR';
-import itITIntl from 'antd/lib/locale/it_IT';
-import jaJPIntl from 'antd/lib/locale/ja_JP';
-import msMYIntl from 'antd/lib/locale/ms_MY';
-import ptBRIntl from 'antd/lib/locale/pt_BR';
-import ruRUIntl from 'antd/lib/locale/ru_RU';
-import srRSIntl from 'antd/lib/locale/sr_RS';
-import thTHIntl from 'antd/lib/locale/th_TH';
-import viVNIntl from 'antd/lib/locale/vi_VN';
-import zhCNIntl from 'antd/lib/locale/zh_CN';
-import zhTWIntl from 'antd/lib/locale/zh_TW';
-import dayjs from 'dayjs';
-import { useRef, useState } from 'react';
+import { ConfigProvider, Select, Space } from 'antd';
+import enUS from 'antd/locale/en_US';
+import jaJP from 'antd/locale/ja_JP';
+import zhCN from 'antd/locale/zh_CN';
+import { useState } from 'react';
 
-const intlMap = {
-  zhCNIntl,
-  enUSIntl,
-  enGBIntl,
-  viVNIntl,
-  itITIntl,
-  jaJPIntl,
-  esESIntl,
-  caESIntl,
-  ruRUIntl,
-  srRSIntl,
-  msMYIntl,
-  zhTWIntl,
-  frFRIntl,
-  ptBRIntl,
-  thTHIntl,
-};
+type Service = { id: number; name: string };
+type Language = 'zh-CN' | 'en-US' | 'ja-JP';
 
-type GithubIssueItem = {
-  key: number;
-  name: string;
-  createdAt: number;
-};
-
-const columns: ProColumns<GithubIssueItem>[] = [
-  {
-    title: 'index',
-    dataIndex: 'index',
-    valueType: 'indexBorder',
-  },
-  {
-    title: 'Title',
-    dataIndex: 'name',
-  },
-  {
-    title: 'Money',
-    dataIndex: 'title',
-    width: 100,
-    order: 1,
-    valueType: 'money',
-    renderText: () => '128000',
-  },
+const locales = { 'zh-CN': zhCN, 'en-US': enUS, 'ja-JP': jaJP };
+const services: Service[] = [
+  { id: 1, name: '用户服务' },
+  { id: 2, name: '订单服务' },
+];
+const columns: ProColumns<Service>[] = [
+  { title: '服务名称', dataIndex: 'name' },
 ];
 
-const Demo = () => {
-  const actionRef = useRef<ActionType>();
-  const [intl, setIntl] = useState('zhCNIntl');
+export default () => {
+  const [language, setLanguage] = useState<Language>('zh-CN');
+
   return (
-    <ConfigProvider locale={intlMap[intl as 'zhCNIntl']}>
-      <ProTable<GithubIssueItem>
-        columns={columns}
-        actionRef={actionRef}
-        request={async () => {
-          return {
-            data: [
-              {
-                key: 1,
-                name: '企业版云服务套餐',
-                createdAt: 1705286400000,
-              },
-            ],
-            total: 1,
-            success: true,
-          };
-        }}
-        rowKey="key"
-        rowSelection={{}}
-        search={{
-          labelWidth: 'auto',
-        }}
-        dateFormatter="string"
-        headerTitle={
-          <Space>
-            <span>国际化示例</span>
-            <Select<string>
-              variant="borderless"
-              value={intl}
-              onChange={(value) => {
-                dayjs.locale(intlMap[value as 'zhCNIntl'].locale);
-                setIntl(value);
-              }}
-              options={Object.keys(intlMap).map((value) => ({
-                value,
-                label: value,
-              }))}
-            />
-          </Space>
-        }
-        toolBarRender={() => [
-          <Button key="new" type="primary">
-            <PlusOutlined />
-            新建
-          </Button>,
-        ]}
-      />
-    </ConfigProvider>
+    <div style={{ padding: 24 }}>
+      <ConfigProvider locale={locales[language]}>
+        <ProTable<Service>
+          columns={columns}
+          rowKey="id"
+          options={false}
+          pagination={false}
+          headerTitle={
+            <Space wrap>
+              <span>ConfigProvider.locale</span>
+              <Select<Language>
+                aria-label="选择语言"
+                value={language}
+                onChange={setLanguage}
+                options={[
+                  { value: 'zh-CN', label: '简体中文' },
+                  { value: 'en-US', label: 'English' },
+                  { value: 'ja-JP', label: '日本語' },
+                ]}
+              />
+            </Space>
+          }
+          request={async ({ name }) => {
+            const data = services.filter((item) =>
+              item.name.includes(String(name || '')),
+            );
+            return { data, total: data.length, success: true };
+          }}
+        />
+      </ConfigProvider>
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

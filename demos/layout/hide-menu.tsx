@@ -1,35 +1,17 @@
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
-import defaultProps from './_defaultProps';
-
-const Demo = () => (
-  <ProLayout
-    {...defaultProps}
-    style={{
-      height: '100vh',
-    }}
-    location={{
-      pathname: '/welcome',
-    }}
-    menuRender={(props, dom) => (
-      <div
-        style={{
-          background: '#fff',
-          boxShadow: '2px 0 6px rgba(0, 21, 41, 0.35)',
-          overflow: 'hidden',
-          height: '100%',
-          width: props.collapsed ? 0 : props.siderWidth || 256,
-        }}
-      >
-        {dom}
-      </div>
-    )}
-  >
-    <PageContainer content="欢迎使用">Hello World</PageContainer>
-  </ProLayout>
-);
 
 export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
+  <div style={{ minHeight: 480 }}>
+    <ProLayout
+      location={{ pathname: '/dashboard' }}
+      route={{ routes: [{ path: '/dashboard', name: '工作台' }] }}
+      menuRender={(_, menu) => (
+        <div style={{ borderRight: '3px solid #1677ff' }}>{menu}</div>
+      )}
+    >
+      <PageContainer title="自定义菜单容器">
+        侧栏右侧的蓝色边框由 menuRender 添加。
+      </PageContainer>
+    </ProLayout>
   </div>
 );

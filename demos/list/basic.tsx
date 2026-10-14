@@ -130,11 +130,6 @@ const columns: ProColumns<ProjectItem>[] = [
       </Space>
     ),
   },
-  {
-    title: '操作',
-    listSlot: 'actions',
-    render: () => [<a key="view">查看</a>, <a key="edit">编辑</a>],
-  },
 ];
 
 export default () => (
@@ -143,6 +138,5 @@ export default () => (
     dataSource={dataSource}
     rowKey="id"
     headerTitle="项目列表"
-    tooltip="这是一个基础的列表示例，展示了 ProList 的基本用法"
   />
 );

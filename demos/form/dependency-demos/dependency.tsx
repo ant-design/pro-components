@@ -1,116 +1,46 @@
-﻿import {
+import {
   ProForm,
   ProFormDependency,
-  ProFormList,
   ProFormSelect,
   ProFormText,
 } from '@ant-design/pro-components';
+import { useState } from 'react';
 
-const Demo = () => {
+type Contact = { channel: 'email' | 'phone'; address: string };
+
+export default () => {
+  const [submitted, setSubmitted] = useState<Contact>();
+
   return (
-    <ProForm name="dependency-demo">
-      <ProFormSelect
-        options={[
-          {
-            value: 'select',
-            label: '选择框',
-          },
-          {
-            value: 'input',
-            label: '输入框',
-          },
-        ]}
-        width="xs"
-        name="globalUseMode"
-        label="全局生效方式组件的类型"
-      />
-      <ProFormList
-        name={['default', 'users']}
-        label="用户信息"
-        initialValue={[
-          {
-            name: '1111',
-          },
-        ]}
-        alwaysShowItemLabel
+    <div style={{ padding: 24 }}>
+      <ProForm<Contact>
+        initialValues={{ channel: 'email' }}
+        onFinish={async (values) => {
+          setSubmitted(values);
+          return true;
+        }}
       >
-        <ProForm.Group key="group">
-          <ProFormSelect
-            options={[
-              {
-                value: 'select',
-                label: '选择框',
-              },
-              {
-                value: 'input',
-                label: '输入框',
-              },
-            ]}
-            width="xs"
-            name="useMode"
-            label="生效方式组件的类型"
-          />
-          <ProFormDependency name={['useMode']}>
-            {({ useMode }) => {
-              if (useMode === 'select') {
-                return (
-                  <ProFormSelect
-                    options={[
-                      {
-                        value: 'chapter',
-                        label: '盖章后生效',
-                      },
-                    ]}
-                    width="md"
-                    name="function"
-                    label="生效方式"
-                  />
-                );
+        <ProFormSelect
+          name="channel"
+          label="联系方式"
+          options={[
+            { label: '邮箱', value: 'email' },
+            { label: '手机', value: 'phone' },
+          ]}
+        />
+        <ProFormDependency name={['channel']}>
+          {({ channel }) => (
+            <ProFormText
+              name="address"
+              label={channel === 'phone' ? '手机号码' : '邮箱地址'}
+              placeholder={
+                channel === 'phone' ? '请输入手机号码' : '请输入邮箱地址'
               }
-              return (
-                <ProFormText width="md" name="function" label="生效方式" />
-              );
-            }}
-          </ProFormDependency>
-
-          <ProFormDependency
-            key="globalUseMode"
-            name={['globalUseMode']}
-            ignoreFormListField
-          >
-            {({ globalUseMode }) => {
-              if (globalUseMode === 'select') {
-                return (
-                  <ProFormSelect
-                    options={[
-                      {
-                        value: 'chapter',
-                        label: '盖章后生效',
-                      },
-                    ]}
-                    width="md"
-                    name="gfunction"
-                    label="外层联动生效方式"
-                  />
-                );
-              }
-              return (
-                <ProFormText
-                  width="md"
-                  name="gfunction"
-                  label="外层联动生效方式"
-                />
-              );
-            }}
-          </ProFormDependency>
-        </ProForm.Group>
-      </ProFormList>
-    </ProForm>
+            />
+          )}
+        </ProFormDependency>
+      </ProForm>
+      <p>提交结果：{submitted ? JSON.stringify(submitted) : '尚未提交'}</p>
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

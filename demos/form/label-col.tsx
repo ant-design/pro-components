@@ -1,54 +1,28 @@
-﻿import {
-  ProForm,
-  ProFormCheckbox,
-  ProFormRadio,
-  ProFormText,
-} from '@ant-design/pro-components';
-import { Button } from 'antd';
+import { ProForm, ProFormText } from '@ant-design/pro-components';
+import { Alert } from 'antd';
+import { useState } from 'react';
 
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
-};
-const tailLayout = {
-  wrapperCol: { offset: 8, span: 16 },
-};
+export default () => {
+  const [submitted, setSubmitted] = useState('');
 
-const Demo = () => {
   return (
-    <>
-      <ProForm
-        {...layout}
+    <div style={{ width: '100%', maxWidth: 520 }}>
+      <ProForm<{ name: string }>
         layout="horizontal"
-        submitter={false}
-        name="basic"
-        initialValues={{ remember: true }}
+        labelCol={{ xs: { span: 24 }, sm: { span: 8 } }}
+        wrapperCol={{ xs: { span: 24 }, sm: { span: 16 } }}
+        onFinish={async ({ name }) => {
+          setSubmitted(name);
+          return true;
+        }}
       >
-        <ProFormText label="Name" name="name" />
-
-        <ProFormText.Password
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: 'Please input your password!' }]}
+        <ProFormText
+          name="name"
+          label="客户名称"
+          rules={[{ required: true }]}
         />
-        <ProFormCheckbox name="remember" {...tailLayout}>
-          Remember me
-        </ProFormCheckbox>
-        <ProFormRadio name="remember" {...tailLayout}>
-          Remember me
-        </ProFormRadio>
-        <ProForm.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </ProForm.Item>
       </ProForm>
-    </>
+      {submitted && <Alert type="success" message={`已提交：${submitted}`} />}
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

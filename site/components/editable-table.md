@@ -12,45 +12,91 @@ atomId: EditableProTable
 
 ### 编辑模式切换
 
-通过 Segmented 切换 `editable.type`，在单行编辑（single）和多行编辑（multiple）之间一键切换。
+通过 Segmented 切换 `editable.type`。分别点击两行的“编辑”：`single` 只保留一行编辑，`multiple` 可同时编辑两行；保存后查看表格值。
 
-<code src="../../demos/table/enum-editable-type.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/table/enum-editable-type.tsx" background="var(--main-bg-color)" title="editable.type：单行与多行"></code>
 
 ### 可编辑表格
 
+`value` 和 `onChange` 控制表格数据；`editable.editableKeys` 控制正在编辑的行。
+
 <code src="../../demos/table/editable-table/basic.tsx"  background="var(--main-bg-color)"></code>
+
+### 新建行位置
+
+`recordCreatorProps.position` 控制新建按钮位于顶部或底部；设为 `false` 可隐藏按钮。
+
+<code src="../../demos/table/editable-table/record-creator-position.tsx" background="var(--main-bg-color)"></code>
 
 ### 单元格编辑
 
-<code src="../../demos/table/editable-table/cell-editor-table.tsx"  background="var(--main-bg-color)" ></code>
+`CellEditorTable` 双击单元格后编辑该值；修改会同步显示在下方的数据中。
+
+<code src="../../demos/table/editable-table/cell-editor-table.tsx" background="var(--main-bg-color)" title="CellEditorTable：单元格编辑"></code>
+
+`editable.editableKeys` 用 `${rowKey}:${dataIndex}` 只激活指定单元格；修改第一行姓名后点击保存查看结果。
 
 <code src="../../demos/table/editable-table/cell-editable-keys.tsx"  background="var(--main-bg-color)" ></code>
 
 ### 行编辑
 
-<code src="../../demos/table/editable-table/row-editor-table.tsx"  background="var(--main-bg-color)" ></code>
+`RowEditorTable` 双击行内单元格后，任务名称和负责人同时进入编辑；修改会同步显示在下方的数据中。
+
+<code src="../../demos/table/editable-table/row-editor-table.tsx" background="var(--main-bg-color)" title="RowEditorTable：行编辑"></code>
 
 ### 与 FormItem 配合
 
+通过 `name` 将 `EditableProTable` 绑定到父 `ProForm`。保存编辑行后提交表单，可看到更新后的数组。
+
 <code src="../../demos/table/editable-table/form-item.tsx"  background="var(--main-bg-color)" ></code>
+
+`controlled` 控制编辑过程中是否实时触发 `onChange`；关闭时在保存行后触发。
+
+<code src="../../demos/table/editable-table/controlled-form.tsx" title="controlled 实时更新"></code>
+
+`editableFormRef.current.getRowsData()` 读取当前编辑行数据。
+
+<code src="../../demos/table/editable-table/editable-form-ref-get-rows.tsx" title="读取编辑行数据"></code>
 
 ### 与编辑表格外的内容联动
 
+`EditableProTable` 以 `name` 写入父表单，`controlled` 让 `ProFormDependency` 在编辑工时时实时更新合计。
+
 <code src="../../demos/table/editable-table/form-linkage.tsx"  background="var(--main-bg-color)" ></code>
 
-### 有子列的表格增加
+### 向子级添加可编辑行
+
+`recordCreatorProps.parentKey` 指定新行所属的父节点。点击新增后可在表格和下方数据中看到子任务。
 
 <code src="../../demos/table/editable-table/children.tsx"  background="var(--main-bg-color)" ></code>
 
 ### 自定义可编辑表格
 
+`columns.formItemRender` 将标签列替换为自定义输入控件。
+
 <code src="../../demos/table/editable-table/custom.tsx"  background="var(--main-bg-color)" ></code>
 
-### 实时保存的编辑表格
+### 通过 actionRef 新建编辑行
+
+`actionRef.current.addEditRecord` 从表格外部新建并打开编辑行。
+
+<code src="../../demos/table/editable-table/action-ref-add.tsx" background="var(--main-bg-color)"></code>
+
+### 复制已有行
+
+`EditableProTable.RecordCreator` 使用已有记录创建新行，并为新行提供唯一 `id`。
+
+<code src="../../demos/table/editable-table/record-creator-copy.tsx" background="var(--main-bg-color)"></code>
+
+### 实时同步编辑值
+
+`editable.onValuesChange` 在输入时更新本地数据，表格下方即时显示当前值。
 
 <code src="../../demos/table/editable-table/real-time-editing.tsx"  background="var(--main-bg-color)" ></code>
 
-### 复杂的编辑表格
+### 标签页中的编辑表格
+
+`Tabs.items` 为每张表提供独立的 `EditableProTable`；`value` 和 `onChange` 保存当前标签页的字段说明。
 
 <code src="../../demos/table/editable-table/complex.tsx"  background="var(--main-bg-color)" ></code>
 
@@ -129,27 +175,27 @@ atomId: EditableProTable
 
 ### TableRowEditable
 
-| 属性                          | 描述                                                                                                    | 类型                                                                    | 默认值             |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ------------------ |
-| type                          | 可编辑表格的类型，单行编辑或者多行编辑                                                                  | `single` \| `multiple`                                                  | -                  |
-| form                          | 可编辑表格的 form 实例，使用 `Form.useForm` 生成后使用                                                  | `FormInstance`                                                          | -                  |
-| formProps                     | 可以配置 form 的属性，但是不支持 onFinish                                                               | [`FormProps`](https://procomponents.ant.design/components/form#proform) | -                  |
-| editableKeys                  | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey。支持 cell 粒度复合键 `` `${rowKey}:${dataIndex}` ``（如 `['1:name']` 只激活该单元格），行级 key 与 cell 键可混用；cell 编辑时 option 列不渲染保存/取消按钮 | `Key[]`                                                                 | -                  |
-| onChange                      | 行数据被修改的时候触发                                                                                  | `(editableKeys: Key[], editableRows: T[]) => void`                      | -                  |
-| onValuesChange                | 行数据被修改的时候触发                                                                                  | `(record: T, dataSource: T[]) => void`                                  | -                  |
-| onSave                        | 保存一行的时候触发                                                                                      | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | -                  |
-| saveText                      | 保存一行的文字                                                                                          | `React.ReactNode`                                                       | `保存`             |
-| onDelete                      | 删除一行的时候触发                                                                                      | `(key: Key, row: T) => Promise<any>`                                    | -                  |
-| deleteText                    | 删除一行的文字                                                                                          | `React.ReactNode`                                                       | `删除`             |
-| onCancel                      | 取消编辑一行时触发                                                                                      | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | -                  |
-| cancelText                    | 取消编辑一行的文字                                                                                      | `React.ReactNode`                                                       | `取消`             |
-| actionRender                  | 自定义编辑模式的操作栏                                                                                  | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]`                | -                  |
-| deletePopconfirmMessage       | 删除时弹出的确认框提示消息                                                                              | `ReactNode`                                                             | `删除此项？`       |
-| onlyOneLineEditorAlertMessage | 只能编辑一行的的提示                                                                                    | `ReactNode`                                                             | `只能同时编辑一行` |
-| onlyAddOneLineAlertMessage    | 只能同时新增一行的提示                                                                                  | `ReactNode`                                                             | `只能新增一行`     |
-| tableName                     | Table 上设置的 name，用于拼接 name 来获取数据                                                          | `NamePath`                                                              | -                  |
-| getRealIndex                  | 解决分页带来的 FormItem namePath 使用错误的 index 作为路径（[issue #7790](https://github.com/ant-design/pro-components/issues/7790)） | `(record: T) => number`                            | -                  |
-| dateFormatter                 | 与 ProTable `dateFormatter` 一致；合并到 dataSource 时把行内的 dayjs 转为 string 或 number              | `'string' \| 'number' \| false \| ((value, valueType) => string \| number)` | -            |
+| 属性                          | 描述                                                                                                                                                                                                                                                                | 类型                                                                        | 默认值             |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------------ |
+| type                          | 可编辑表格的类型，单行编辑或者多行编辑                                                                                                                                                                                                                              | `single` \| `multiple`                                                      | -                  |
+| form                          | 可编辑表格的 form 实例，使用 `Form.useForm` 生成后使用                                                                                                                                                                                                              | `FormInstance`                                                              | -                  |
+| formProps                     | 可以配置 form 的属性，但是不支持 onFinish                                                                                                                                                                                                                           | [`FormProps`](https://procomponents.ant.design/components/form#proform)     | -                  |
+| editableKeys                  | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey。支持 cell 粒度复合键 `` `${rowKey}:${dataIndex}` ``（如 `['1:name']` 只激活该单元格），行级 key 与 cell 键可混用；cell 编辑时 option 列不渲染保存/取消按钮 | `Key[]`                                                                     | -                  |
+| onChange                      | 行数据被修改的时候触发                                                                                                                                                                                                                                              | `(editableKeys: Key[], editableRows: T[]) => void`                          | -                  |
+| onValuesChange                | 行数据被修改的时候触发                                                                                                                                                                                                                                              | `(record: T, dataSource: T[]) => void`                                      | -                  |
+| onSave                        | 保存一行的时候触发                                                                                                                                                                                                                                                  | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>`     | -                  |
+| saveText                      | 保存一行的文字                                                                                                                                                                                                                                                      | `React.ReactNode`                                                           | `保存`             |
+| onDelete                      | 删除一行的时候触发                                                                                                                                                                                                                                                  | `(key: Key, row: T) => Promise<any>`                                        | -                  |
+| deleteText                    | 删除一行的文字                                                                                                                                                                                                                                                      | `React.ReactNode`                                                           | `删除`             |
+| onCancel                      | 取消编辑一行时触发                                                                                                                                                                                                                                                  | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>`     | -                  |
+| cancelText                    | 取消编辑一行的文字                                                                                                                                                                                                                                                  | `React.ReactNode`                                                           | `取消`             |
+| actionRender                  | 自定义编辑模式的操作栏                                                                                                                                                                                                                                              | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]`                    | -                  |
+| deletePopconfirmMessage       | 删除时弹出的确认框提示消息                                                                                                                                                                                                                                          | `ReactNode`                                                                 | `删除此项？`       |
+| onlyOneLineEditorAlertMessage | 只能编辑一行的的提示                                                                                                                                                                                                                                                | `ReactNode`                                                                 | `只能同时编辑一行` |
+| onlyAddOneLineAlertMessage    | 只能同时新增一行的提示                                                                                                                                                                                                                                              | `ReactNode`                                                                 | `只能新增一行`     |
+| tableName                     | Table 上设置的 name，用于拼接 name 来获取数据                                                                                                                                                                                                                       | `NamePath`                                                                  | -                  |
+| getRealIndex                  | 解决分页带来的 FormItem namePath 使用错误的 index 作为路径（[issue #7790](https://github.com/ant-design/pro-components/issues/7790)）                                                                                                                               | `(record: T) => number`                                                     | -                  |
+| dateFormatter                 | 与 ProTable `dateFormatter` 一致；合并到 dataSource 时把行内的 dayjs 转为 string 或 number                                                                                                                                                                          | `'string' \| 'number' \| false \| ((value, valueType) => string \| number)` | -                  |
 
 ### RecordCreatorProps
 

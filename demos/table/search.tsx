@@ -1,60 +1,25 @@
 import { ProTable } from '@ant-design/pro-components';
 
-type ServiceItem = {
-  key: number;
-  name: string;
-  createdAt: number;
-};
+type ServiceItem = { key: number; name: string };
 
-const SearchTable = () => (
-  <ProTable<ServiceItem>
-    columns={[
-      {
-        title: '序号',
-        dataIndex: 'index',
-        valueType: 'indexBorder',
-      },
-      {
-        title: '服务名称',
-        dataIndex: 'name',
-        search: false,
-      },
-    ]}
-    request={async (_params) => {
-
-      return {
-        data: [
-          {
-            key: 1,
-            name: '用户认证服务',
-            createdAt: 1705286400000,
-          },
-          {
-            key: 2,
-            name: '订单处理中心',
-            createdAt: 1705200000000,
-          },
-          {
-            key: 3,
-            name: '支付网关',
-            createdAt: 1705113600000,
-          },
-        ],
-        total: 3,
-        success: true,
-      };
-    }}
-    search={false}
-    rowKey="key"
-    options={{
-      search: true,
-    }}
-    headerTitle="快速搜索服务"
-  />
-);
+const services: ServiceItem[] = [
+  { key: 1, name: '用户认证服务' },
+  { key: 2, name: '订单处理中心' },
+  { key: 3, name: '支付网关' },
+];
 
 export default () => (
-  <div style={{ padding: 24 }}>
-    <SearchTable />
-  </div>
+  <ProTable<ServiceItem>
+    headerTitle="服务列表"
+    columns={[{ title: '服务名称', dataIndex: 'name' }]}
+    request={async ({ keyWords }) => {
+      const keyword = String(keyWords || '').trim();
+      const data = services.filter((item) => item.name.includes(keyword));
+      return { data, total: data.length, success: true };
+    }}
+    search={false}
+    options={{ search: { name: 'keyWords' } }}
+    pagination={false}
+    rowKey="key"
+  />
 );

@@ -15,8 +15,8 @@ import { Button, ConfigProvider, theme } from 'antd';
 import en_US from 'antd/lib/locale/en_US';
 import React, { useEffect, useState } from 'react';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
-import { waitForWaitTime } from '../util';
 import { BaseMenu } from '../../src/layout/components/SiderMenu/BaseMenu';
+import { waitForWaitTime } from '../util';
 import { bigDefaultProps } from './defaultProps';
 
 afterEach(() => {
@@ -342,7 +342,10 @@ describe('BasicLayout', () => {
               {
                 title: '前端应用框架',
                 icon: () => (
-                  <img src="https://img.alicdn.com/tfs/TB1zomHwxv1gK0jSZFFXXb0sXXa-200-200.png" alt="" />
+                  <img
+                    src="https://img.alicdn.com/tfs/TB1zomHwxv1gK0jSZFFXXb0sXXa-200-200.png"
+                    alt=""
+                  />
                 ),
                 url: 'https://umijs.org/zh-CN/docs',
               },
@@ -1813,14 +1816,12 @@ describe('BasicLayout', () => {
 
     await waitFor(() => {
       const sider = html.baseElement.querySelector('.ant-pro-sider');
-      const submenus = sider?.querySelectorAll(
-        'li.ant-menu-submenu',
-      );
+      const submenus = sider?.querySelectorAll('li.ant-menu-submenu');
       const submenuCount = submenus?.length ?? 0;
       expect(submenuCount).toBeGreaterThan(0);
-      expect(
-        sider?.querySelectorAll('li.ant-menu-submenu-open'),
-      ).toHaveLength(submenuCount);
+      expect(sider?.querySelectorAll('li.ant-menu-submenu-open')).toHaveLength(
+        submenuCount,
+      );
     });
   });
 
@@ -1857,10 +1858,48 @@ describe('BasicLayout', () => {
     );
 
     await waitFor(() => {
-      expect(
-        html.baseElement.querySelector('li.ant-menu-submenu'),
-      ).toHaveClass('ant-menu-submenu-open');
+      expect(html.baseElement.querySelector('li.ant-menu-submenu')).toHaveClass(
+        'ant-menu-submenu-open',
+      );
     });
+  });
+
+  it('restores all open groups after the sidebar expands with ignoreFlatMenu', async () => {
+    const TestBaseMenu = BaseMenu as React.ComponentType<any>;
+    const menuData = [
+      {
+        key: '/projects',
+        path: '/projects',
+        name: '项目',
+        children: [
+          { key: '/projects/active', path: '/projects/active', name: '进行中' },
+        ],
+      },
+      {
+        key: '/reports',
+        path: '/reports',
+        name: '报表',
+        children: [
+          { key: '/reports/daily', path: '/reports/daily', name: '日报' },
+        ],
+      },
+    ];
+    const props = {
+      prefixCls: 'ant-pro',
+      mode: 'inline' as const,
+      layout: 'side' as const,
+      matchMenuKeys: ['/projects', '/projects/active'],
+      menu: { defaultOpenAll: true, ignoreFlatMenu: true },
+      menuData,
+    };
+    const html = render(<TestBaseMenu {...props} collapsed={false} />);
+    const openGroupCount = () =>
+      html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length;
+
+    await waitFor(() => expect(openGroupCount()).toBe(2));
+    html.rerender(<TestBaseMenu {...props} collapsed />);
+    html.rerender(<TestBaseMenu {...props} collapsed={false} />);
+    await waitFor(() => expect(openGroupCount()).toBe(2));
   });
 
   it('🥩 ProLayout support menu.ignoreFlatMenu', async () => {

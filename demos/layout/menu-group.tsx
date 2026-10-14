@@ -1,145 +1,52 @@
-import {
-  CrownOutlined,
-  InfoCircleOutlined,
-  MergeCellsOutlined,
-  QuestionCircleOutlined,
-  TabletOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
-import { Button, Result } from 'antd';
+import { ProLayout } from '@ant-design/pro-components';
 import { useState } from 'react';
-import { demoOnMenuHeaderClick } from './_demoHandlers';
 
-const Demo = () => {
-  const [pathname, setPathname] = useState('/welcome');
+const route = {
+  path: '/',
+  routes: [
+    {
+      path: '/projects',
+      name: '项目',
+      routes: [
+        { path: '/projects/active', name: '进行中' },
+        { path: '/projects/archive', name: '已归档' },
+      ],
+    },
+    {
+      path: '/team',
+      name: '团队',
+      routes: [
+        { path: '/team/members', name: '成员' },
+        { path: '/team/roles', name: '角色' },
+      ],
+    },
+  ],
+};
+
+export default () => {
+  const [pathname, setPathname] = useState('/projects/active');
+
   return (
-    <div
-      id="test-pro-layout"
-      style={{
-        height: '100vh',
-      }}
-    >
+    <div style={{ height: 560, overflow: 'auto' }}>
       <ProLayout
-        fixSiderbar
-        route={{
-          path: '/',
-          routes: [
-            {
-              path: '/admin',
-              name: '管理页',
-              icon: <CrownOutlined />,
-              access: 'canAdmin',
-              component: './Admin',
-              routes: [
-                {
-                  path: '/admin/sub-page1',
-                  name: '一级页面',
-                  icon: <CrownOutlined />,
-                  component: './Welcome',
-                },
-                {
-                  path: '/admin/sub-page2',
-                  name: '二级页面',
-                  icon: <CrownOutlined />,
-                  component: './Welcome',
-                },
-                {
-                  path: '/admin/sub-page3',
-                  name: '三级页面',
-                  icon: <CrownOutlined />,
-                  component: './Welcome',
-                },
-              ],
-            },
-            {
-              name: '列表页',
-              icon: <TabletOutlined />,
-              path: '/list',
-              component: './ListTableList',
-              routes: [
-                {
-                  path: '/list/sub-page2',
-                  name: '二级列表页面',
-                  icon: <CrownOutlined />,
-                  component: './Welcome',
-                },
-                {
-                  path: '/list/sub-page3',
-                  name: '三级列表页面',
-                  icon: <CrownOutlined />,
-                  component: './Welcome',
-                },
-              ],
-            },
-          ],
-        }}
-        location={{
-          pathname,
-        }}
-        waterMarkProps={{
-          content: 'Pro Layout',
-        }}
-        avatarProps={{
-          icon: <UserOutlined />,
-          size: 'small',
-          title: '书琰',
-        }}
-        actionsRender={() => [
-          <InfoCircleOutlined key="InfoCircleOutlined" />,
-          <QuestionCircleOutlined key="QuestionCircleOutlined" />,
-          <MergeCellsOutlined key="MergeCellsOutlined" />,
-        ]}
-        menuFooterRender={(props) => {
-          if (props?.collapsed) return undefined;
-          return (
-            <p
-              style={{
-                textAlign: 'center',
-                color: 'rgba(0,0,0,0.6)',
-                paddingBlockStart: 12,
-              }}
-            >
-              Power by Ant Design
-            </p>
-          );
-        }}
-        onMenuHeaderClick={demoOnMenuHeaderClick}
+        title="子菜单导航"
+        siderMenuType="sub"
+        route={route}
+        location={{ pathname }}
         menuItemRender={(item, dom) => (
           <a
-            onClick={() => {
-              setPathname(item.path || '/welcome');
+            href={item.path}
+            onClick={(event) => {
+              event.preventDefault();
+              setPathname(item.path || '/projects/active');
             }}
           >
             {dom}
           </a>
         )}
       >
-        <PageContainer>
-          <ProCard
-            style={{
-              height: '120vh',
-              minHeight: 600,
-            }}
-          >
-            <Result
-              status="404"
-              style={{
-                height: '100%',
-              }}
-              title="Hello World"
-              subTitle="Sorry, you are not authorized to access this page."
-              extra={<Button type="primary">Back Home</Button>}
-            />
-          </ProCard>
-        </PageContainer>
+        <div style={{ padding: 24 }}>当前路径：{pathname}</div>
       </ProLayout>
     </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

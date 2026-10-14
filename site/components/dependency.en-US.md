@@ -37,17 +37,22 @@ The name parameter must be an array. If it is a nested structure, it can be conf
 
 ## Examples
 
-### Interdependent fields
+### Basic field dependency
 
-<code src="../../demos/form/dependency-demos/dependency.tsx" title="ProFormDependency"></code>
+`name={['channel']}` subscribes to the contact method. Switching between email and phone updates the label of the next field.
 
-### Inside ProFormList
+<code src="../../demos/form/dependency-demos/dependency.tsx" title="ProFormDependency: update a field label"></code>
 
-The examples below clarify evaluation order inside or outside lists:
+### Dependency scopes
 
-- `<ProFormDependency>` **not** nested in `<ProFormList>`: values come from global form paths (scenario 1)
-- Nested under `<ProFormList>`
-  - `ignoreFormListField={true}`: still read globals (scenario 2)
-  - `ignoreFormListField={false}`: scoped to row context (scenario 3)
+Outside `ProFormList`, `name` reads a global form field.
 
-<code src="../../demos/form/dependency-demos/dependency-2.tsx" title="Scoped dependencies"></code>
+<code src="../../demos/form/dependency-demos/dependency-2.tsx" title="Global field"></code>
+
+Inside `ProFormList`, `ignoreFormListField` keeps the lookup at the global scope.
+
+<code src="../../demos/form/dependency-demos/dependency-list-global.tsx" title="Global field inside a list"></code>
+
+Inside `ProFormList`, omit `ignoreFormListField` to read from the current row.
+
+<code src="../../demos/form/dependency-demos/dependency-list-local.tsx" title="Current list row"></code>

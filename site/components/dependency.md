@@ -37,17 +37,22 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ## 代码示例
 
-### 互相依赖表单
+### 基础字段联动
 
-<code src="../../demos/form/dependency-demos/dependency.tsx"></code>
+`name={['channel']}` 订阅联系方式字段；切换邮箱和手机时，下方输入项的标签随之更新。
+
+<code src="../../demos/form/dependency-demos/dependency.tsx" title="ProFormDependency：根据字段值更新标签"></code>
 
 ### 获取表单依赖值
 
-下面例子演示了不同情形下的依赖取值顺序：
+在列表外，`name` 读取表单的全局字段。
 
-- `<ProFormDependency>`**不在**`<ProFormList>`中：根据`name`声明的依赖项，从全局取值（情形 1）
-- `<ProFormDependency>`**在**`<ProFormList>`中
-  - `<ProFormDependency>`的`ignoreFormListField`为`true`：根据`name`声明的依赖项，从全局取值（情形 2）
-  - `<ProFormDependency>`的`ignoreFormListField`为`false`：根据`name`声明的依赖项，从局部取值（情形 3）
+<code src="../../demos/form/dependency-demos/dependency-2.tsx" title="全局依赖"></code>
 
-<code src="../../demos/form/dependency-demos/dependency-2.tsx"></code>
+在 `ProFormList` 内设置 `ignoreFormListField`，仍从全局字段取值。
+
+<code src="../../demos/form/dependency-demos/dependency-list-global.tsx" title="列表内读取全局字段"></code>
+
+在 `ProFormList` 内省略 `ignoreFormListField`，从当前列表项取值。
+
+<code src="../../demos/form/dependency-demos/dependency-list-local.tsx" title="列表内读取当前项"></code>

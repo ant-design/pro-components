@@ -15,11 +15,10 @@ ProList 基于 ProTable 实现，可以认为是 ProTable 的一个特例，将�
 
 ## 代码演示
 
-### 枚举属性切换
+### Issue 回归场景
 
-通过 Segmented 分段选择器切换 `itemLayout`、`variant`、`split` 属性。
-
-<code src="../../demos/list/enum-switch.tsx" background="var(--main-bg-color)" title="枚举属性切换"></code>
+<code src="../../demos/list/grid-item-render.tsx" title="网格卡片：ProList.grid 与 itemRender"></code>
+<code src="../../demos/list/action-page-info.tsx" title="实时分页状态：actionRef.pageInfo"></code>
 
 ### 基本使用
 
@@ -33,11 +32,25 @@ ProList 基于 ProTable 实现，可以认为是 ProTable 的一个特例，将�
 
 ### 卡片列表（columns + listSlot）
 
+`grid` 设置响应式卡片列数，`columns.listSlot` 将字段放入卡片标题和说明。
+
 <code src="../../demos/list/card-columns.tsx" background="var(--main-bg-color)"></code>
 
 ### 网格配置
 
-<code src="../../demos/list/grid.tsx" background="var(--main-bg-color)"></code>
+`grid.xs`、`grid.sm` 和 `grid.md` 设置不同宽度下的列数。
+
+<code src="../../demos/list/grid.tsx" background="var(--main-bg-color)" title="响应式网格列数"></code>
+
+`grid.gutter` 设置卡片间距。
+
+<code src="../../demos/list/grid-gutter.tsx" background="var(--main-bg-color)" title="网格间距"></code>
+
+`itemCardProps.bordered` 控制卡片边框，`ghost` 控制列表背景。
+
+<code src="../../demos/list/grid-card-border.tsx" background="var(--main-bg-color)" title="无边框卡片"></code>
+
+<code src="../../demos/list/grid-ghost.tsx" background="var(--main-bg-color)" title="幽灵模式"></code>
 
 ### 表格/列表一键切换
 
@@ -55,11 +68,21 @@ ProList 基于 ProTable 实现，可以认为是 ProTable 的一个特例，将�
 
 ### 编辑列表
 
-<code src="../../demos/list/editable.tsx" background="var(--main-bg-color)"></code>
+`editable` 启用列表编辑，`startEditable` 打开指定项；保存后下方显示更新后的 `dataSource`。
 
-### 带工具栏的列表
+<code src="../../demos/list/editable.tsx" background="var(--main-bg-color)" title="editable：编辑列表项"></code>
 
-<code src="../../demos/list/toolbar.tsx" background="var(--main-bg-color)"></code>
+### 工具栏菜单：toolbar.menu
+
+<code src="../../demos/list/toolbar.tsx" background="var(--main-bg-color)" title="切换任务范围"></code>
+
+### 工具栏搜索：toolbar.search
+
+<code src="../../demos/list/toolbar-search.tsx" background="var(--main-bg-color)" title="按关键字搜索"></code>
+
+### 工具栏操作：toolbar.actions
+
+<code src="../../demos/list/toolbar-actions.tsx" background="var(--main-bg-color)" title="新增任务"></code>
 
 ### 支持展开的列表
 
@@ -67,35 +90,71 @@ ProList 基于 ProTable 实现，可以认为是 ProTable 的一个特例，将�
 
 ### 支持选中的列表
 
+`rowSelection` 控制选中项，并实时显示选中数量。
+
 <code src="../../demos/list/selection.tsx" background="var(--main-bg-color)"></code>
 
 ### 查询列表
 
+`search` 显示查询表单，`request` 根据负责人筛选本地示例数据。
+
 <code src="../../demos/list/search.tsx" background="var(--main-bg-color)"></code>
 
-### 带筛选和异步请求的列表
+### 轻量状态筛选：search.filterType 与 request
 
 <code src="../../demos/list/filter.tsx" background="var(--main-bg-color)"></code>
 
-### 大小和分割线
+### 列表尺寸
+
+`size` 控制列表项的间距。
 
 <code src="../../demos/list/size.tsx" background="var(--main-bg-color)"></code>
 
-### 竖排样式
+### 列表项方向
+
+`itemLayout` 在水平与垂直布局之间切换。
 
 <code src="../../demos/list/layout.tsx" background="var(--main-bg-color)"></code>
 
-### 一些预设的模式
+### 列表外观
+
+`variant` 切换线框、填充和无边框样式。
+
+<code src="../../demos/list/variant.tsx" background="var(--main-bg-color)"></code>
+
+### 自定义样式前缀：ConfigProvider.prefixCls
+
+<code src="../../demos/list/config-provider.tsx" background="var(--main-bg-color)"></code>
+
+### 分割线
+
+`split` 控制列表项之间的分割线。
+
+<code src="../../demos/list/split.tsx" background="var(--main-bg-color)"></code>
+
+### 置顶样式：type=top
 
 <code src="../../demos/list/special.tsx" background="var(--main-bg-color)"></code>
 
+### 行内标题：type=inline
+
+<code src="../../demos/list/special-inline.tsx" background="var(--main-bg-color)"></code>
+
+### 新增动画：type=new
+
+<code src="../../demos/list/special-new.tsx" background="var(--main-bg-color)"></code>
+
 ### 翻页
+
+`pagination.pageSize` 每页显示三个项目。
 
 <code src="../../demos/list/pagination.tsx" background="var(--main-bg-color)"></code>
 
 ### 自定义列表项（itemRender）
 
 通过 `itemRender` 自定义每一项的渲染，可基于默认内容 `defaultDom`（`React.ReactElement`）进行包装或完全自定义。
+
+`itemRender` 自定义整个列表项的卡片内容。
 
 <code src="../../demos/list/custom-render.tsx" background="var(--main-bg-color)"></code>
 
@@ -143,12 +202,14 @@ ProList 基于 ProTable 封装，支持两种列配置方式：
 | onDataSourceChange | 数据发生改变时触发                                                                                                                                              | `(dataSource: T[]) => void`                                                                                                                                                                                  | -                  |
 | actionRef          | Table action 的引用，便于自定义触发                                                                                                                             | `React.Ref<ActionType \| undefined>`                                                                                                                                                                         | -                  |
 | formRef            | 可以获取到查询表单的 form 实例，用于一些灵活的配置                                                                                                              | `TableFormItem<T>['formRef']`                                                                                                                                                                                | -                  |
-| rowKey             | 行的 key，一般是行 id，未设置时依次尝试 `item.key`、行索引                                                                      | `keyof T` \| `(item: T) => React.Key`                                                                                                                                                                        | -                  |
+| rowKey             | 行的 key，一般是行 id，未设置时依次尝试 `item.key`、行索引                                                                                                      | `keyof T` \| `(item: T) => React.Key`                                                                                                                                                                        | -                  |
 | headerTitle        | 左上角的 title                                                                                                                                                  | `ReactNode`                                                                                                                                                                                                  | -                  |
 | tooltip            | 标题旁边的 tooltip                                                                                                                                              | `string \| LabelTooltipType`                                                                                                                                                                                 | -                  |
 | loading            | 是否加载中                                                                                                                                                      | `boolean` \| `{ spinning?: boolean }`                                                                                                                                                                        | `false`            |
 | split              | 是否有分割线                                                                                                                                                    | `boolean`                                                                                                                                                                                                    | `true`             |
-| variant            | 列表外观变体                                                                                                                                                    | `'outlined'` \| `'borderless'` \| `'filled'`                                                                                                                                                                  | `'borderless'`    |
+| variant            | 列表外观变体                                                                                                                                                    | `'outlined'` \| `'borderless'` \| `'filled'`                                                                                                                                                                 | `'borderless'`     |
+| showActions        | 何时展示操作区（actions），`'hover'` 时悬浮或聚焦列表项才显示                                                                                                   | `'hover'` \| `'always'`                                                                                                                                                                                      | `'always'`         |
+| showExtra          | 何时展示附属内容（aside 插槽映射的 extra 区域），`'hover'` 时悬浮列表项才显示，CardList 模式下不生效                                                            | `'hover'` \| `'always'`                                                                                                                                                                                      | `'always'`         |
 | footer             | 列表底部                                                                                                                                                        | `ReactNode`                                                                                                                                                                                                  | -                  |
 | grid               | 栅格配置，开启后以卡片模式渲染                                                                                                                                  | `ListGridType`                                                                                                                                                                                               | -                  |
 | itemLayout         | 列表项布局方向                                                                                                                                                  | `'horizontal'` \| `'vertical'`                                                                                                                                                                               | `'horizontal'`     |
@@ -181,14 +242,14 @@ ProList 基于 ProTable 封装，支持两种列配置方式：
 
 有时我们要手动触发 ProList 的 reload 等操作，可以使用 actionRef，用法与 [ProTable ActionRef](/components/table#actionref-手动触发) 完全一致。
 
-| 方法           | 描述                                 | 类型                                      |
-| -------------- | ------------------------------------ | ----------------------------------------- |
+| 方法           | 描述                                 | 类型                                          |
+| -------------- | ------------------------------------ | --------------------------------------------- |
 | reload         | 刷新列表，如果传入 true 则重置页码   | `(resetPageIndex?: boolean) => Promise<void>` |
-| reloadAndRest  | 刷新并清空，页码也会重置，不包括表单 | `() => Promise<void>`                     |
-| reset          | 重置到默认值，包括表单               | `() => void`                              |
-| clearSelected  | 清空选中项                           | `() => void`                              |
-| startEditable  | 开始编辑行                           | `(rowKey: Key) => boolean`           |
-| cancelEditable | 取消编辑行                           | `(rowKey: Key) => boolean`           |
+| reloadAndRest  | 刷新并清空，页码也会重置，不包括表单 | `() => Promise<void>`                         |
+| reset          | 重置到默认值，包括表单               | `() => void`                                  |
+| clearSelected  | 清空选中项                           | `() => void`                                  |
+| startEditable  | 开始编辑行                           | `(rowKey: Key) => boolean`                    |
+| cancelEditable | 取消编辑行                           | `(rowKey: Key) => boolean`                    |
 
 ```tsx | pure
 const ref = useRef<ActionType>();
@@ -358,12 +419,12 @@ ProList 会根据 columns 或 metas 中配置了 `search` 的字段来生成搜�
 #### 迁移对照表
 
 | metas 写法                                            | columns 写法                                                       |
-|-----------------------------------------------------| ------------------------------------------------------------------ |
-| `title: { dataIndex: 'name' }`                      | `{ dataIndex: 'name', listSlot: 'title' }`                         |
-| `avatar: { dataIndex: 'img' }`                      | `{ dataIndex: 'img', listSlot: 'avatar' }`                         |
-| `description: { dataIndex: 'desc' }`                | `{ dataIndex: 'desc', listSlot: 'description' }`                   |
-| `content: {}`                                       | `{ dataIndex: 'content', listSlot: 'content' }`  |
-| `extra: { render: ... }`                            | `{ listSlot: 'aside', render: ... }`                               |
+| ----------------------------------------------------- | ------------------------------------------------------------------ |
+| `title: { dataIndex: 'name' }`                        | `{ dataIndex: 'name', listSlot: 'title' }`                         |
+| `avatar: { dataIndex: 'img' }`                        | `{ dataIndex: 'img', listSlot: 'avatar' }`                         |
+| `description: { dataIndex: 'desc' }`                  | `{ dataIndex: 'desc', listSlot: 'description' }`                   |
+| `content: {}`                                         | `{ dataIndex: 'content', listSlot: 'content' }`                    |
+| `extra: { render: ... }`                              | `{ listSlot: 'aside', render: ... }`                               |
 | `status: { title: '状态', valueType: 'select', ... }` | `{ title: '状态', dataIndex: 'status', valueType: 'select', ... }` |
 
 #### 完整示例

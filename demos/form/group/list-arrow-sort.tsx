@@ -1,58 +1,31 @@
-﻿import {
-  ProForm,
-  ProFormGroup,
-  ProFormList,
-  ProFormText,
-} from '@ant-design/pro-components';
+import { ProForm, ProFormList, ProFormText } from '@ant-design/pro-components';
+import { useState } from 'react';
 
+export default () => {
+  const [result, setResult] = useState('');
 
-const Demo = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 16,
-      }}
-    >
+    <>
       <ProForm
-        name="list-arrowsort-demo"
-        onFinish={async (e) => console.log(e)}
+        initialValues={{
+          labels: [
+            { value: '第一项' },
+            { value: '第二项' },
+            { value: '第三项' },
+          ],
+        }}
+        onFinish={async ({ labels }) => {
+          setResult(
+            JSON.stringify(labels.map(({ value }: { value: string }) => value)),
+          );
+          return true;
+        }}
       >
-        <ProFormText name="name" label="姓名" />
-
-        <ProFormList
-          name="labels"
-          label="用户信息"
-          initialValue={[
-            {
-              value: '111',
-              label: '111',
-            },
-            {
-              value: '222',
-              label: '222',
-            },
-            {
-              value: '333',
-              label: '333',
-            },
-          ]}
-          arrowSort={true}
-          upIconProps={{ tooltipText: '' }}
-        >
-          <ProFormGroup key="group">
-            <ProFormText name="value" label="值" />
-            <ProFormText name="label" label="显示名称" />
-          </ProFormGroup>
+        <ProFormList name="labels" label="按箭头调整顺序" arrowSort>
+          <ProFormText name="value" label="名称" />
         </ProFormList>
       </ProForm>
-    </div>
+      {result && <div>提交顺序：{result}</div>}
+    </>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

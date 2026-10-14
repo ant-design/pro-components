@@ -35,19 +35,25 @@ When the chart is displayed alone in the card.
 ### Extra Indicators
 
 - The `footer` property is used to set the area for displaying additional indicators.
-- You can set the `layout` property of the `Statistic` component to `horizontal` to display the indicators horizontally.
+- Set `Statistic.layout="horizontal"` to display the extra metric in one row.
+
+<code src="../../demos/card/StatisticCard/footer.tsx" background="var(--main-bg-color)" title="Footer metric"></code>
 
 ### Total Score/Primary and Secondary Relationship
 
 <code src="../../demos/card/StatisticCard/total.tsx" background="var(--main-bg-color)" old></code>
 
-### Total Score/Performance Target
+### Responsive Performance Overview
 
-<code src="../../demos/card/StatisticCard/total-layout.tsx" background="var(--main-bg-color)" old></code>
+`RcResizeObserver` switches `ProCard.split` by container width so the two cards stack on narrow screens.
+
+<code src="../../demos/card/StatisticCard/total-layout.tsx" background="var(--main-bg-color)" title="Responsive performance overview"></code>
 
 ### Grouped Indicators
 
-You can nest indicator card components to group indicators, and use the `Divider` component to separate these indicators.
+Use `StatisticCard.Group` to group metrics and `Divider` to separate them.
+
+<code src="../../demos/card/StatisticCard/group.tsx" background="var(--main-bg-color)" title="Grouped metrics"></code>
 
 ### Grouped Indicators with Chart
 
@@ -73,9 +79,9 @@ You can set the `icon` property for each numerical statistic to display its icon
 
 ### Card Layout
 
-By using the card splitting capability of `ProCard`, you can achieve complex card layouts.
+Use `ProCard` with `direction="column"` and `split="horizontal"` to stack two `StatisticCard` components with a divider.
 
-<code src="../../demos/card/StatisticCard/layout.tsx" background="var(--main-bg-color)" old></code>
+<code src="../../demos/card/StatisticCard/layout.tsx" background="var(--main-bg-color)" title="Stacked statistic cards"></code>
 
 ### Chart on the Right
 

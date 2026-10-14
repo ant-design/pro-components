@@ -1,71 +1,33 @@
-import { UserOutlined } from '@ant-design/icons';
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
-import complexMenu from './complex-menu';
 
-const Demo = () => (
-  <div
-    style={{
-      height: '100vh',
-    }}
-  >
+const outerRoutes = [
+  { path: '/workspace', name: '工作空间' },
+  { path: '/settings', name: '设置' },
+];
+const innerRoutes = [
+  { path: '/workspace/overview', name: '概览' },
+  { path: '/workspace/members', name: '成员' },
+];
+
+export default () => (
+  <div style={{ minHeight: 480 }}>
     <ProLayout
-      location={{
-        pathname: '/home',
-      }}
+      title="示例系统"
+      location={{ pathname: '/workspace' }}
+      route={{ routes: outerRoutes }}
       fixSiderbar={false}
-      collapsedButtonRender={false}
-      collapsed={false}
-      iconfontUrl="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
-      route={{
-        routes: [
-          {
-            path: '/home',
-            name: '收藏',
-            icon: 'icon-shoucang1',
-          },
-          {
-            path: '/home/overview',
-            name: 'FaceBook',
-            icon: 'icon-facebook',
-          },
-          {
-            path: '/home/search',
-            name: 'Twitter',
-            icon: 'icon-twitter',
-          },
-        ],
-      }}
-      headerRender={false}
     >
       <ProLayout
-        location={{
-          pathname: '/home/overview',
-        }}
-        fixSiderbar={false}
-        route={{
-          routes: complexMenu,
-        }}
-        style={{
-          height: '400px',
-        }}
-        menu={{
-          hideMenuWhenCollapsed: true,
-        }}
-        avatarProps={{
-          icon: <UserOutlined />,
-        }}
-        menuHeaderRender={false}
+        title="工作空间"
+        layout="top"
+        location={{ pathname: '/workspace/overview' }}
+        route={{ routes: innerRoutes }}
+        style={{ minHeight: 360 }}
       >
-        <PageContainer content="欢迎使用">
-          <div>Hello World</div>
+        <PageContainer title="工作空间概览">
+          外层侧栏选择工作空间，内层顶栏显示当前空间的页面。
         </PageContainer>
       </ProLayout>
     </ProLayout>
-  </div>
-);
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
   </div>
 );

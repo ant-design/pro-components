@@ -1,74 +1,44 @@
-﻿import {
+import {
   ProForm,
-  ProFormDependency,
   ProFormList,
   ProFormSelect,
   ProFormText,
 } from '@ant-design/pro-components';
+import { useState } from 'react';
 
-const Demo = () => {
+type Values = { members: { name: string; greeting?: string }[] };
+
+export default () => {
+  const [submitted, setSubmitted] = useState<Values>();
+
   return (
-    <ProForm name="group-dependency-demo">
-      <ProFormList
-        name={['default', 'users']}
-        label="用户信息"
-        initialValue={[
-          {
-            name: '我是姓名',
-          },
-        ]}
-        itemContainerRender={(doms) => {
-          return <ProForm.Group>{doms}</ProForm.Group>;
+    <div style={{ padding: 24 }}>
+      <ProForm<Values>
+        onFinish={async (values) => {
+          setSubmitted(values);
+          return true;
         }}
       >
-        {(f, index, _action) => {
-
-          return (
-            <>
-              <ProFormText
-                initialValue={index}
-                name="rowKey"
-                label={`第 ${index} 配置`}
-              />
-              <ProFormText name="name" label="姓名" />
-              <ProFormDependency name={['name']}>
-                {({ name }) => {
-                  if (!name) {
-                    return (
-                      <span
-                        style={{
-                          lineHeight: '32px',
-                        }}
-                      >
-                        输入姓名展示
-                      </span>
-                    );
-                  }
-                  return <ProFormText name="remark" label="昵称详情" />;
-                }}
-              </ProFormDependency>
-              <ProFormSelect
-                name="addr"
-                width="md"
-                label="与 name 联动的选择器"
-                dependencies={['name']}
-                request={async (params) => [
-                  { label: params.name, value: 'all' },
-                  { label: 'Unresolved', value: 'open' },
-                  { label: 'Resolved', value: 'closed' },
-                  { label: 'Resolving', value: 'processing' },
-                ]}
-              />
-            </>
-          );
-        }}
-      </ProFormList>
-    </ProForm>
+        <ProFormList
+          name="members"
+          label="成员"
+          initialValue={[{ name: '张三' }]}
+          creatorButtonProps={false}
+          copyIconProps={false}
+          deleteIconProps={false}
+        >
+          <ProFormText name="name" label="姓名" />
+          <ProFormSelect
+            name="greeting"
+            label="称呼"
+            dependencies={['name']}
+            request={async ({ name }) =>
+              name ? [{ label: `向${name}问好`, value: `hi-${name}` }] : []
+            }
+          />
+        </ProFormList>
+      </ProForm>
+      <p>提交结果：{submitted ? JSON.stringify(submitted) : '尚未提交'}</p>
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

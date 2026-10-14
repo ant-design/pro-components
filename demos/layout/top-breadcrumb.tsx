@@ -4,71 +4,25 @@ import {
   ProLayout,
 } from '@ant-design/pro-components';
 
-const Demo = () => (
-  <div
-    style={{
-      height: '100vh',
-    }}
-  >
-    <ProLayout
-      location={{
-        pathname: '/admin/process/edit/123',
-      }}
-      layout="mix"
-      ErrorBoundary={false}
-      headerContentRender={() => <ProBreadcrumb />}
-      breadcrumbRender={(routers = []) => [
-        {
-          path: '/',
-          title: '主页',
-        },
-        {
-          path: '/',
-          title: '测试页',
-        },
-        ...routers,
-      ]}
-      menuDataRender={() => [
-        {
-          path: '/welcome',
-          name: '欢迎',
-        },
-        {
-          path: '/admin',
-          name: '管理',
-          children: [
-            {
-              name: '申请单列表',
-              path: '/admin/process',
-            },
-            {
-              name: '申请单详情',
-              path: '/admin/process/detail/:id',
-              hideInMenu: true,
-            },
-            {
-              name: '编辑申请单',
-              path: '/admin/process/edit/:id',
-              hideInMenu: true,
-            },
-            {
-              name: '添加申请单',
-              path: '/admin/process/add',
-              hideInMenu: true,
-            },
-          ],
-        },
-      ]}
-    >
-      <PageContainer content="欢迎使用" breadcrumbRender={false}>
-        <div>Hello World</div>
-      </PageContainer>
-    </ProLayout>
-  </div>
-);
+const routes = [
+  {
+    path: '/projects',
+    name: '项目',
+    routes: [{ path: '/projects/detail', name: '项目详情' }],
+  },
+];
 
 export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
+  <div style={{ minHeight: 480 }}>
+    <ProLayout
+      layout="mix"
+      location={{ pathname: '/projects/detail' }}
+      route={{ routes }}
+      headerContentRender={() => <ProBreadcrumb />}
+    >
+      <PageContainer title="项目详情" breadcrumbRender={false}>
+        面包屑由顶栏中的 ProBreadcrumb 显示。
+      </PageContainer>
+    </ProLayout>
   </div>
 );

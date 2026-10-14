@@ -1,35 +1,32 @@
-﻿import { BetaSchemaForm } from '@ant-design/pro-components';
-import { useEffect, useRef, useState } from 'react';
+import type { ProFormInstance } from '@ant-design/pro-components';
+import { BetaSchemaForm } from '@ant-design/pro-components';
+import { Button } from 'antd';
+import { useRef, useState } from 'react';
 
-const Demo = () => {
-  const targetRef = useRef();
+type Values = { projectName: string };
 
-  const [requestLibData, setRequestLibData] = useState(0);
-  useEffect(() => {
-    // 更新requestLibData，并引发reRender
-    setTimeout(() => {
-      setRequestLibData(1);
-    });
-  }, []);
+export default () => {
+  const formRef = useRef<ProFormInstance<Values>>();
+  const [result, setResult] = useState('');
+
   return (
-    <BetaSchemaForm
-      name="params-formref-demo"
-      request={async () => ({})}
-      params={{ requestLibData }}
-      columns={[
-        {
-          title: 'money',
-          dataIndex: 'money',
-          valueType: 'money',
-        },
-      ]}
-      formRef={targetRef}
-    />
+    <div style={{ padding: 24, maxWidth: 480 }}>
+      <BetaSchemaForm<Values>
+        formRef={formRef}
+        submitter={false}
+        initialValues={{ projectName: '青禾项目' }}
+        columns={[
+          { title: '项目名称', dataIndex: 'projectName', valueType: 'text' },
+        ]}
+      />
+      <Button
+        onClick={() =>
+          setResult(JSON.stringify(formRef.current?.getFieldsValue(), null, 2))
+        }
+      >
+        读取表单值
+      </Button>
+      {result && <pre aria-label="表单值">{result}</pre>}
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

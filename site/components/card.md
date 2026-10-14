@@ -18,19 +18,42 @@ atomId: ProCard
 - 需要进行卡片内切分布局时。
 - 需要卡片可折叠时。
 
+基础 ProCard 直接复用 antd Card 的皮肤和 token。未传 `variant` 时透传给 antd Card，跟随 `ConfigProvider` 的 `card.variant` / 全局 `variant`（与 antd Card 一致），**不会**在 ProCard 内写死默认值。`card.className` / `style` / `classNames` / `styles` 同样由底层 Card 合并。仅 `ghost`、`checked`、`boxShadow` 等走 legacy 皮时，边框才由 ProCard 自行解析 ConfigProvider。
+
 ## 代码演示
 
-### 枚举属性切换
+### 单项属性
 
-通过 Segmented 分段选择器一键切换 `size`、`variant`、`layout`、`type`、`direction`、`split`、`collapsible` 七个枚举属性。
+`size`、`variant`、`type` 和 `direction` 分别控制尺寸、外观、卡片类型及子卡片方向。
 
-<code src="../../demos/card/enum-switch.tsx" background="var(--main-bg-color)" title="枚举属性切换"></code>
+<code src="../../demos/card/size.tsx" title="size 尺寸"></code>
+<code src="../../demos/card/variant.tsx" title="variant 外观"></code>
+<code src="../../demos/card/card-type.tsx" title="type 卡片类型"></code>
+<code src="../../demos/card/direction.tsx" title="direction：横向排列"></code>
+
+<code src="../../demos/card/direction-column.tsx" title="direction：纵向排列"></code>
 
 <code src="../../demos/card/basic.tsx" background="var(--main-bg-color)" title="基础卡片" description="当单独使用时 `ProCard` 就是一个普通的卡片。"></code>
 
-<code src="../../demos/card/colspan.tsx" background="var(--main-bg-color)" title="栅格布局" description="当嵌套子卡片时, 组件会自动切换为 `flex` 弹性盒布局，你可以将 `direction`设置为`column`来指定 Flex 方向，你还可以通过配置 `ghost` 属性为 `true` 来去掉背景色和 padding 方便页内布局。"></code>
+数字形式的 `colSpan` 使用 24 栅格；两个 `colSpan={12}` 的子卡片各占一半。
 
-<code src="../../demos/card/responsive.tsx" background="var(--main-bg-color)" title="响应式" description="`colSpan` 支持 antd 定义的[栅格式响应布局](https://ant.design/components/grid-cn/#components-grid-demo-responsive)。预设六个响应尺寸：`xs` `sm` `md` `lg` `xl` `xxl`。如果要支持响应式，可以写成 `{ xs: 4, sm: 8, md: 10, lg: 12 }`。"></code>
+<code src="../../demos/card/colspan.tsx" background="var(--main-bg-color)" title="colSpan：固定栅格"></code>
+
+`colSpan={0}` 隐藏对应子卡片。点击按钮切换观察。
+
+<code src="../../demos/card/colspan-hidden.tsx" background="var(--main-bg-color)" title="colSpan：隐藏子卡片"></code>
+
+`colSpan` 支持响应式栅格，父卡片设置 `wrap` 后，窄屏时每张子卡片独占一行，较宽时三列并排。
+
+<code src="../../demos/card/responsive.tsx" background="var(--main-bg-color)" title="colSpan：响应式栅格"></code>
+
+`colSpan` 也可以使用像素宽度。
+
+<code src="../../demos/card/responsive-pixels.tsx" background="var(--main-bg-color)" title="colSpan：像素宽度"></code>
+
+`colSpan` 也可以使用百分比宽度。
+
+<code src="../../demos/card/responsive-percentage.tsx" background="var(--main-bg-color)" title="colSpan：百分比宽度"></code>
 
 ### 卡片切分
 
@@ -49,15 +72,23 @@ atomId: ProCard
 
 ### 复杂切分
 
-通过卡片切分能力我们可以实现更加复杂的数据展现形式。
+`split="vertical"` 在两个子卡片间显示竖向分隔线。
 
-<code src="../../demos/card/split.tsx" background="var(--main-bg-color)"  ></code>
+<code src="../../demos/card/split.tsx" background="var(--main-bg-color)" title="split：左右切分"></code>
+
+`direction="column"` 配合 `split="horizontal"` 显示横向分隔线。
+
+<code src="../../demos/card/split-horizontal.tsx" background="var(--main-bg-color)" title="split：上下切分"></code>
 
 ### ProCard.Group 分割线
 
-通过 `ProCard.Group` 的 `split` 属性可以为分组内的子卡片添加分割线，支持 `vertical`（垂直）和 `horizontal`（水平）两种方向。
+`ProCard.Group` 的 `split="vertical"` 在同一行的子卡片间显示竖线。
 
-<code src="../../demos/card/split-line.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/card/split-line.tsx" background="var(--main-bg-color)" title="ProCard.Group：竖线"></code>
+
+`split="horizontal"` 在纵向分组的子卡片间显示横线。
+
+<code src="../../demos/card/split-line-horizontal.tsx" background="var(--main-bg-color)" title="ProCard.Group：横线"></code>
 
 ### 栅格间隔
 
@@ -65,17 +96,21 @@ atomId: ProCard
 
 <code src="../../demos/card/gutter.tsx" background="var(--main-bg-color)"  ></code>
 
+响应式对象按断点调整 `gutter` 的水平间距。
+
+<code src="../../demos/card/gutter-responsive.tsx" title="响应式 gutter"></code>
+
 ### 多行卡片
 
 默认卡片布局不可换行，你可以配置 `wrap` 为 `true` 来让多个卡片之间可以换行，适用于多个卡片排版的情况。
 
 <code src="../../demos/card/multipleLine.tsx" background="var(--main-bg-color)"  ></code>
 
-### 分组展示
+### 分组分割线
 
-你可以嵌套卡片组件来将内容分组，以及 `Divider` 子组件来分隔这些内容。
+使用 `ProCard.Divider` 分隔分组中的卡片。容器变窄时，`orientation` 从纵向切换为横向。
 
-<code src="../../demos/card/divider.tsx" background="var(--main-bg-color)" ></code>
+<code src="../../demos/card/divider.tsx" background="var(--main-bg-color)" title="ProCard.Divider 分割线" ></code>
 
 ### 标题带分割线
 
@@ -85,12 +120,25 @@ atomId: ProCard
 
 ### 可折叠
 
-- 你可以使用 `collapsible` 来配置卡片是否可折叠，支持 `icon`（图标触发）和 `header`（标题触发）两种模式，通过 `defaultCollapsed` 属性配置是否默认折叠。
-- 或者你可以通过 `collapsed` 属性受控进行自定义。
+`collapsed` 由外部状态控制卡片展开与收起。
 
-<code src="../../demos/card/collapsible.tsx" background="var(--main-bg-color)" ></code>
+<code src="../../demos/card/collapsible.tsx" background="var(--main-bg-color)" title="collapsed：受控折叠"></code>
 
-<code src="../../demos/card/collapsible-mode.tsx" background="var(--main-bg-color)" title="折叠触发模式" description="collapsible 支持 icon（图标触发）和 header（标题触发）两种模式"></code>
+`onCollapse` 在折叠状态变化时返回新状态。
+
+<code src="../../demos/card/collapsible-callback.tsx" background="var(--main-bg-color)" title="onCollapse：显示折叠状态"></code>
+
+`collapsibleIconRender` 自定义折叠图标内容。
+
+<code src="../../demos/card/collapsible-custom-icon.tsx" background="var(--main-bg-color)" title="collapsibleIconRender：自定义图标"></code>
+
+`collapsible="icon"` 只能点击图标切换。
+
+<code src="../../demos/card/collapsible-mode.tsx" background="var(--main-bg-color)" title="collapsible：图标触发"></code>
+
+`collapsible="header"` 可点击标题切换。
+
+<code src="../../demos/card/collapsible-header-mode.tsx" background="var(--main-bg-color)" title="collapsible：标题触发"></code>
 
 ### 幽灵模式
 
@@ -100,9 +148,9 @@ atomId: ProCard
 
 ### 卡片组展开
 
-配合 `ghost` 幽灵模式和可折叠能力可以实现卡片组展开。
+配置 `collapsible` 让卡片组标题可以展开或收起内容。
 
-<code src="../../demos/card/group.tsx" background="var(--main-bg-color)"  ></code>
+<code src="../../demos/card/group.tsx" background="var(--main-bg-color)" title="collapsible 折叠卡片组" ></code>
 
 ### 内容居中
 
@@ -118,9 +166,13 @@ atomId: ProCard
 
 ### 操作项
 
-配置 `actions` 属性来配置卡片操作项。
+`actions` 数组配置多个操作按钮，点击后可看到当前操作。
 
 <code src="../../demos/card/actions.tsx" background="var(--main-bg-color)"  ></code>
+
+`actions` 也支持一个自定义操作节点。
+
+<code src="../../demos/card/actions-custom.tsx" background="var(--main-bg-color)" title="自定义操作区"></code>
 
 ### 无标题
 
@@ -130,7 +182,7 @@ atomId: ProCard
 
 ### 带边框
 
-配置 `variant` 属性控制卡片边框样式，`outlined` 为带边框，`borderless` 为无边框。
+配置 `variant` 属性控制卡片边框样式，`outlined` 为带边框，`borderless` 为无边框。未传时跟随 `ConfigProvider`（与 antd Card 一致）。
 
 <code src="../../demos/card/bordered.tsx" background="var(--main-bg-color)" title="带边框"></code>
 
@@ -164,53 +216,50 @@ atomId: ProCard
 
 ProCard 兼容 antd Card API，以下 props 与 antd Card 保持一致。
 
-| 参数                  | 说明                                                                                                                           | 类型                                                                | 默认值       | 版本   |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- | ------------ | ------ |
-| cover                 | 卡片封面                                                                                                                       | `React.ReactNode`                                                   | -            |        |
-| classNames            | 语义化 classNames，结构同 antd Card                                                                                           | `{ root?, header?, body?, extra?, title?, actions?, cover? }`       | -            |        |
-| title                 | 标题                                                                                                                           | `React.ReactNode`                                                   | -            |        |
-| subTitle              | 副标题                                                                                                                         | `React.ReactNode`                                                   | -            |        |
-| tooltip               | 标题说明                                                                                                                       | `string \| LabelTooltipType`                                        | -            |        |
-| extra                 | 右上角自定义区域                                                                                                               | `React.ReactNode`                                                   | -            |        |
-| layout                | 内容布局，支持垂直居中                                                                                                         | `default` \| `center`                                               | default      |        |
-| type                  | 卡片类型                                                                                                                       | `default` \| `inner`                                                | default      |        |
-| direction             | 指定 Flex 方向，仅在嵌套子卡片时有效，默认方向为 row 横向                                                                      | `column` \| `row`                                                   | row          |        |
-| wrap                  | 是否自动换行，仅在嵌套子卡片时有效                                                                                             | `boolean`                                                           | false        |        |
-| size                  | 卡片尺寸                                                                                                                       | `default` \| `small`                                                | default      |        |
-| loading               | 加载中，支持自定义 loading 样式                                                                                                | `boolean` \| `ReactNode`                                            | false        |        |
-| colSpan               | 栅格布局宽度，24 栅格，支持指定宽度 px 或百分比，支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}`, 仅在嵌套的子卡片上设置有效。 | `number \| string \| Partial<Record<Breakpoint, number \| string>>` | 24           |        |
-| colStyle              | 栅格样式                                                                                                                       | `CSSProperties`                                                     | -            |        |
-| gutter                | 栅格间距                                                                                                                       | `number \| Partial<Record<Breakpoint, number>> \| [number, number]` | 0            |        |
-| split                 | 拆分卡片的方式                                                                                                                 | `vertical` \| `horizontal`                                          | -            |        |
-| actions               | 操作按钮                                                                                                                       | `React.ReactNode[] \| React.ReactNode`                              | -            |        |
-| ghost                 | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。                                                                 | `boolean`                                                           | false        |        |
-| variant               | 卡片变体，与 antd Card variant 一致                                                                                            | `'outlined' \| 'borderless'`                                        | -            |        |
-| boxShadow             | 是否显示卡片阴影                                                                                                               | `boolean`                                                           | -            |        |
-| styles                | 语义化 styles，结构同 antd Card                                                                                                | `{ root?, header?, body?, extra?, title?, actions?, cover? }`       | -            |        |
-| headerBordered        | 页头是否有分割线                                                                                                               | `boolean`                                                           | false        |        |
-| hoverable             | 鼠标移过时可浮起                                                                                                               | `boolean`                                                           | false        |        |
-| collapsed             | 受控属性，是否折叠                                                                                                             | `boolean`                                                           | false        |        |
-| collapsible           | 配置是否可折叠，受控时无效                                                                                                     | `icon` \| `header` \| `boolean`                                     | false        |        |
-| collapsibleIconRender | 替换默认折叠图标                                                                                                               | `({ collapsed }: { collapsed: boolean }) => React.ReactNode`        | -            |        |
-| defaultCollapsed      | 默认折叠，受控时无效                                                                                                           | `boolean`                                                           | false        |        |
-| onCollapse            | 收起卡片的事件，受控时无效                                                                                                     | `(collapsed: boolean) => void`                                      | -            |        |
-| prefixCls             | 前缀                                                                                                                           | `string`                                                            | -            |        |
-| ref                   | ProCard 的 ref                                                                                                                 | `React.Ref<HTMLDivElement \| undefined>`                            | -            |        |
-| checked               | 是否展示选中样式                                                                                                               | `boolean`                                                           | false        |        |
-| onChecked             | 选中改变                                                                                                                       | `(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void`         | -            |        |
-| boxShadow             | card的阴影                                                                                                                     | `boolean`                                                           | false        |        |
-| tabs                  | 标签栏配置                                                                                                                     | 见下面 ProCardTabs                                                  | -            |        |
-| variant               | 卡片变体类型，与 antd Card 一致                                                                                                | `'outlined' \| 'borderless'`                                        | `'outlined'` | 5.24.0 |
-| styles                | 自定义样式，结构与 antd Card 一致                                                                                             | `{ root?, header?, body?, extra?, title?, actions?, cover?: CSSProperties }` | -            |        |
+| 参数                  | 说明                                                                                                                           | 类型                                                                | 默认值  | 版本 |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- | ------- | ---- |
+| cover                 | 卡片封面                                                                                                                       | `React.ReactNode`                                                   | -       |      |
+| classNames            | 语义化 classNames，结构同 antd Card                                                                                            | `{ root?, header?, body?, extra?, title?, actions?, cover? }`       | -       |      |
+| title                 | 标题                                                                                                                           | `React.ReactNode`                                                   | -       |      |
+| subTitle              | 副标题                                                                                                                         | `React.ReactNode`                                                   | -       |      |
+| tooltip               | 标题说明                                                                                                                       | `string \| LabelTooltipType`                                        | -       |      |
+| extra                 | 右上角自定义区域                                                                                                               | `React.ReactNode`                                                   | -       |      |
+| layout                | 内容布局，支持垂直居中                                                                                                         | `default` \| `center`                                               | default |      |
+| type                  | 卡片类型                                                                                                                       | `default` \| `inner`                                                | default |      |
+| direction             | 指定 Flex 方向，仅在嵌套子卡片时有效，默认方向为 row 横向                                                                      | `column` \| `row`                                                   | row     |      |
+| wrap                  | 是否自动换行，仅在嵌套子卡片时有效                                                                                             | `boolean`                                                           | false   |      |
+| size                  | 卡片尺寸                                                                                                                       | `default` \| `small`                                                | default |      |
+| loading               | 加载中，支持自定义 loading 样式                                                                                                | `boolean` \| `ReactNode`                                            | false   |      |
+| colSpan               | 栅格布局宽度，24 栅格，支持指定宽度 px 或百分比，支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}`, 仅在嵌套的子卡片上设置有效。 | `number \| string \| Partial<Record<Breakpoint, number \| string>>` | 24      |      |
+| colStyle              | 栅格样式                                                                                                                       | `CSSProperties`                                                     | -       |      |
+| gutter                | 栅格间距                                                                                                                       | `number \| Partial<Record<Breakpoint, number>> \| [number, number]` | 0       |      |
+| split                 | 拆分卡片的方式                                                                                                                 | `vertical` \| `horizontal`                                          | -       |      |
+| actions               | 操作按钮                                                                                                                       | `React.ReactNode[] \| React.ReactNode`                              | -       |      |
+| ghost                 | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。                                                                 | `boolean`                                                           | false   |      |
+| variant               | 卡片变体，与 antd Card 一致；未传时跟随 ConfigProvider（`card.variant` → 全局 `variant` → antd 默认）                          | `'outlined' \| 'borderless'`                                        | -       |      |
+| boxShadow             | 是否显示卡片阴影                                                                                                               | `boolean`                                                           | -       |      |
+| styles                | 语义化 styles，结构同 antd Card                                                                                                | `{ root?, header?, body?, extra?, title?, actions?, cover? }`       | -       |      |
+| headerBordered        | 页头是否有分割线                                                                                                               | `boolean`                                                           | false   |      |
+| hoverable             | 鼠标移过时可浮起                                                                                                               | `boolean`                                                           | false   |      |
+| collapsed             | 受控属性，是否折叠                                                                                                             | `boolean`                                                           | false   |      |
+| collapsible           | 配置是否可折叠，受控时无效                                                                                                     | `icon` \| `header` \| `boolean`                                     | false   |      |
+| collapsibleIconRender | 替换默认折叠图标                                                                                                               | `({ collapsed }: { collapsed: boolean }) => React.ReactNode`        | -       |      |
+| defaultCollapsed      | 默认折叠，受控时无效                                                                                                           | `boolean`                                                           | false   |      |
+| onCollapse            | 收起卡片的事件，受控时无效                                                                                                     | `(collapsed: boolean) => void`                                      | -       |      |
+| prefixCls             | 前缀                                                                                                                           | `string`                                                            | -       |      |
+| ref                   | ProCard 的 ref                                                                                                                 | `React.Ref<HTMLDivElement \| undefined>`                            | -       |      |
+| checked               | 是否展示选中样式                                                                                                               | `boolean`                                                           | false   |      |
+| onChecked             | 选中改变                                                                                                                       | `(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void`         | -       |      |
+| tabs                  | 标签栏配置                                                                                                                     | 见下面 ProCardTabs                                                  | -       |      |
 
 ### ProCardTabs
 
-| 参数      | 说明                                                      | 类型                           | 默认值 |
-| :-------- | :-------------------------------------------------------- | :----------------------------- | :----- |
-| activeKey | 当前选中项                                                | string                         | -      |
-| type      | 页签的基本样式，可选 `line`、`card`、 `editable-card` 类型，透传 antd Tabs | string              | `line` |
-| onChange  | 回调                                                      | `(activeKey: string) => void;` | -      |
-| items     | 基于 antd 拓展的页签的基本配置，必填                      | `ItemsProps`                   | -      |
+| 参数      | 说明                                                                       | 类型                           | 默认值 |
+| :-------- | :------------------------------------------------------------------------- | :----------------------------- | :----- |
+| activeKey | 当前选中项                                                                 | string                         | -      |
+| type      | 页签的基本样式，可选 `line`、`card`、 `editable-card` 类型，透传 antd Tabs | string                         | `line` |
+| onChange  | 回调                                                                       | `(activeKey: string) => void;` | -      |
+| items     | 基于 antd 拓展的页签的基本配置，必填                                       | `ItemsProps`                   | -      |
 
 - 更多属性见 antd [Tab](https://ant.design/components/tabs-cn/#Tabs) API 描述。
 
@@ -245,7 +294,7 @@ ProCard 兼容 antd Card API，以下 props 与 antd Card 保持一致。
 
 属性同 ProCard，会取消卡片内容边距，用于将多个卡片进行分组。
 
-| 参数      | 说明                 | 类型                           | 默认值   |
-| --------- | -------------------- | ------------------------------ | -------- |
-| split     | 子卡片之间的分割线方向 | `'vertical'` \| `'horizontal'` | -        |
-| direction | 子卡片排列方向       | `'row'` \| `'column'`          | `'row'`  |
+| 参数      | 说明                   | 类型                           | 默认值  |
+| --------- | ---------------------- | ------------------------------ | ------- |
+| split     | 子卡片之间的分割线方向 | `'vertical'` \| `'horizontal'` | -       |
+| direction | 子卡片排列方向         | `'row'` \| `'column'`          | `'row'` |

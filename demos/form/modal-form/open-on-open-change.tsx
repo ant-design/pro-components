@@ -1,199 +1,33 @@
-import { PlusOutlined } from '@ant-design/icons';
-import {
-  DrawerForm,
-  ModalForm,
-  ProForm,
-  ProFormDateRangePicker,
-  ProFormSelect,
-  ProFormText,
-} from '@ant-design/pro-components';
-import { Button, Space, message } from 'antd';
+import { ModalForm, ProFormText } from '@ant-design/pro-components';
+import { Button } from 'antd';
 import { useState } from 'react';
 
-const Demo = () => {
-  const [modalVisit, setModalVisit] = useState(false);
-  const [drawerVisit, setDrawerVisit] = useState(false);
+export default () => {
+  const [open, setOpen] = useState(false);
+  const [result, setResult] = useState('');
 
   return (
-    <>
-      <Space>
-        <Button
-          type="primary"
-          onClick={() => {
-            setModalVisit(true);
-          }}
-        >
-          <PlusOutlined />
-          Show Modal
-        </Button>
-        <Button
-          type="primary"
-          onClick={() => {
-            setDrawerVisit(true);
-          }}
-        >
-          <PlusOutlined />
-          Show Drawer
-        </Button>
-      </Space>
+    <div style={{ padding: 16 }}>
+      <Button type="primary" onClick={() => setOpen(true)}>
+        打开 Modal
+      </Button>
+      <p role="status">弹窗状态：{open ? '已打开' : '已关闭'}</p>
       <ModalForm
-        title="Create New Form"
-        open={modalVisit}
-        onFinish={async () => {
-          message.success('Submission successful');
+        title="受控 ModalForm"
+        open={open}
+        onOpenChange={setOpen}
+        onFinish={async (values) => {
+          setResult(JSON.stringify(values, null, 2));
           return true;
         }}
-        onOpenChange={setModalVisit}
       >
-        <ProForm.Group>
-          <ProFormText
-            width="md"
-            name="name"
-            label="Contract Customer Name"
-            tooltip="Up to 24 characters"
-            placeholder="Please enter a name"
-          />
-
-          <ProFormText
-            width="md"
-            name="company"
-            label="Our Company Name"
-            placeholder="Please enter a name"
-          />
-        </ProForm.Group>
-        <ProForm.Group>
-          <ProFormText
-            width="md"
-            name="contract"
-            label="Contract Name"
-            placeholder="Please enter a name"
-          />
-          <ProFormDateRangePicker
-            name="contractTime"
-            label="Contract Effective Time"
-          />
-        </ProForm.Group>
-        <ProForm.Group>
-          <ProFormSelect
-            options={[
-              {
-                value: 'chapter',
-                label: 'Effective after stamping',
-              },
-            ]}
-            width="xs"
-            name="useMode"
-            label="Contract Agreed Effective Method"
-          />
-          <ProFormSelect
-            width="xs"
-            options={[
-              {
-                value: 'time',
-                label: 'Terminate after performance',
-              },
-            ]}
-            name="unusedMode"
-            label="Contract Agreed Invalid Method"
-          />
-        </ProForm.Group>
-        <ProFormText width="sm" name="id" label="Main Contract Number" />
         <ProFormText
-          name="project"
-          disabled
-          label="Project Name"
-          initialValue="示例项目"
-        />
-        <ProFormText
-          width="xs"
-          name="mangerName"
-          disabled
-          label="Business Manager"
-          initialValue="书琰"
+          name="name"
+          label="项目名称"
+          rules={[{ required: true }]}
         />
       </ModalForm>
-      <DrawerForm
-        onOpenChange={setDrawerVisit}
-        title="Create New Form"
-        open={drawerVisit}
-        onFinish={async () => {
-          message.success('Submission successful');
-          return true;
-        }}
-      >
-        <ProForm.Group>
-          <ProFormText
-            width="md"
-            name="name"
-            label="Contract Customer Name"
-            tooltip="Up to 24 characters"
-            placeholder="Please enter a name"
-          />
-
-          <ProFormText
-            width="md"
-            name="company"
-            label="Our Company Name"
-            placeholder="Please enter a name"
-          />
-        </ProForm.Group>
-        <ProForm.Group>
-          <ProFormText
-            width="md"
-            name="contract"
-            label="Contract Name"
-            placeholder="Please enter a name"
-          />
-          <ProFormDateRangePicker
-            name="contractTime"
-            label="Contract Effective Time"
-          />
-        </ProForm.Group>
-        <ProForm.Group>
-          <ProFormSelect
-            options={[
-              {
-                value: 'chapter',
-                label: 'Effective after stamping',
-              },
-            ]}
-            width="xs"
-            name="useMode"
-            label="Contract Agreed Effective Method"
-          />
-          <ProFormSelect
-            width="xs"
-            options={[
-              {
-                value: 'time',
-                label: 'Terminate after performance',
-              },
-            ]}
-            name="unusedMode"
-            label="Contract Agreed Invalid Method"
-          />
-        </ProForm.Group>
-        <ProFormText width="sm" name="id" label="Main Contract Number" />
-        <ProFormText
-          name="project"
-          disabled
-          label="Project Name"
-          initialValue="示例项目"
-        />
-        <ProFormText
-          width="xs"
-          name="mangerName"
-          disabled
-          label="Business Manager"
-          initialValue="书琰"
-        />
-      </DrawerForm>
-    </>
+      {result && <pre style={{ overflowX: 'auto' }}>{result}</pre>}
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

@@ -1,239 +1,47 @@
-import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons';
-import type { ActionType, ProColumns } from '@ant-design/pro-components';
-import { ProTable, TableDropdown } from '@ant-design/pro-components';
-import { Button, Dropdown, message, Space, Tag } from 'antd';
-import { useRef } from 'react';
-import request from 'umi-request';
-export const waitTimePromise = async (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-    }, time);
-  });
-};
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
 
-export const waitTime = async (time: number = 100) => {
-  await waitTimePromise(time);
-};
+type Issue = { id: number; title: string; state: 'open' | 'closed' };
 
-type GithubIssueItem = {
-  url: string;
-  id: number;
-  number: number;
-  title: string;
-  labels: {
-    name: string;
-    color: string;
-  }[];
-  state: string;
-  comments: number;
-  created_at: string;
-  updated_at: string;
-  closed_at?: string;
-};
+const issues: Issue[] = [
+  { id: 1, title: '修复登录页样式', state: 'open' },
+  { id: 2, title: '更新组件文档', state: 'closed' },
+  { id: 3, title: '检查表格分页', state: 'open' },
+  { id: 4, title: '优化搜索体验', state: 'closed' },
+  { id: 5, title: '完善键盘操作', state: 'open' },
+  { id: 6, title: '补充响应式测试', state: 'closed' },
+];
 
-const columns: ProColumns<GithubIssueItem>[] = [
+const columns: ProColumns<Issue>[] = [
+  { title: '标题', dataIndex: 'title' },
   {
-    dataIndex: 'index',
-    valueType: 'indexBorder',
-    width: 48,
-  },
-  {
-    title: '标题',
-    dataIndex: 'title',
-    copyable: true,
-    ellipsis: true,
-    tooltip: '标题过长会自动收缩',
-    formItemProps: {
-      rules: [
-        {
-          required: true,
-          message: '此项为必填项',
-        },
-      ],
-    },
-  },
-  {
-    disable: true,
     title: '状态',
     dataIndex: 'state',
-    filters: true,
-    onFilter: true,
-    ellipsis: true,
     valueType: 'select',
     valueEnum: {
-      all: { text: '超长'.repeat(50) },
-      open: {
-        text: '未解决',
-        status: 'Error',
-      },
-      closed: {
-        text: '已解决',
-        status: 'Success',
-        disabled: true,
-      },
-      processing: {
-        text: '处理中',
-        status: 'Processing',
-      },
+      open: { text: '进行中', status: 'Processing' },
+      closed: { text: '已完成', status: 'Success' },
     },
-  },
-  {
-    disable: true,
-    title: '标签',
-    dataIndex: 'labels',
-    search: false,
-    formItemRender: (_, { defaultRender }) => {
-      return defaultRender(_);
-    },
-    render: (_, record) => (
-      <Space>
-        {record.labels.map(({ name, color }) => (
-          <Tag color={color} key={name}>
-            {name}
-          </Tag>
-        ))}
-      </Space>
-    ),
-  },
-  {
-    title: '创建时间',
-    key: 'showTime',
-    dataIndex: 'created_at',
-    valueType: 'date',
-    sorter: true,
-    search: false,
-  },
-  {
-    title: '创建时间',
-    dataIndex: 'created_at',
-    valueType: 'dateRange',
-    hideInTable: true,
-    search: {
-      transform: (value) => {
-        return {
-          startTime: value[0],
-          endTime: value[1],
-        };
-      },
-    },
-  },
-  {
-    title: '操作',
-    valueType: 'option',
-    key: 'option',
-    render: (text, record, _, action) => [
-      <a
-        key="editable"
-        onClick={() => {
-          action?.startEditable?.(record.id);
-        }}
-      >
-        编辑
-      </a>,
-      <a href={record.url} target="_blank" rel="noopener noreferrer" key="view">
-        查看
-      </a>,
-      <TableDropdown
-        key="actionGroup"
-        onSelect={() => action?.reload()}
-        menus={[
-          { key: 'copy', name: '复制' },
-          { key: 'delete', name: '删除' },
-        ]}
-      />,
-    ],
   },
 ];
 
-const Demo = () => {
-  const actionRef = useRef<ActionType>();
-  return (
-    <ProTable<GithubIssueItem>
-      columns={columns}
-      actionRef={actionRef}
-      cardBordered
-      request={async (params) => {
-        await waitTime(2000);
-        return request<{
-          data: GithubIssueItem[];
-        }>('https://proapi.azurewebsites.net/github/issues', {
-          params,
-        });
-      }}
-      editable={{
-        type: 'multiple',
-      }}
-      columnsState={{
-        persistenceKey: 'pro-table-singe-demos',
-        persistenceType: 'localStorage',
-        defaultValue: {
-          option: { fixed: 'right', disable: true },
-        },
-        onChange: () => {
-          message.info('列设置已更新');
-        },
-      }}
-      rowKey="id"
-      search={{
-        labelWidth: 'auto',
-      }}
-      options={{
-        setting: {
-          listsHeight: 400,
-        },
-      }}
-      form={{
-        syncToUrl: (values, type) => {
-          if (type === 'get') {
-            return {
-              ...values,
-              created_at: [values.startTime, values.endTime],
-            };
-          }
-          return values;
-        },
-      }}
-      pagination={{
-        pageSize: 5,
-        onChange: (page, pageSize) => {
-          message.info(`第 ${page} 页${pageSize ? `，每页 ${pageSize} 条` : ''}`);
-        },
-      }}
-      dateFormatter="string"
-      headerTitle="Issue 管理"
-      toolBarRender={() => [
-        <Button
-          key="button"
-          icon={<PlusOutlined />}
-          onClick={() => {
-            actionRef.current?.reload();
-          }}
-          type="primary"
-        >
-          新建
-        </Button>,
-        <Dropdown
-          key="menu"
-          menu={{
-            items: [
-              { label: '导入数据', key: 'import' },
-              { label: '导出数据', key: 'export' },
-              { label: '批量分配', key: 'assign' },
-            ],
-          }}
-        >
-          <Button>
-            <EllipsisOutlined />
-          </Button>
-        </Dropdown>,
-      ]}
-    />
-  );
-};
-
 export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
+  <ProTable<Issue>
+    rowKey="id"
+    headerTitle="按标题或状态查询"
+    columns={columns}
+    pagination={{ pageSize: 3 }}
+    request={async ({ title, state, current = 1, pageSize = 3 }) => {
+      const filtered = issues.filter(
+        (item) =>
+          (!title || item.title.includes(title)) &&
+          (!state || item.state === state),
+      );
+      return {
+        data: filtered.slice((current - 1) * pageSize, current * pageSize),
+        total: filtered.length,
+        success: true,
+      };
+    }}
+  />
 );

@@ -10,7 +10,9 @@ nav:
 
 ## Layout 自定义
 
-<code src="../../demos/layout/dynamic-settings.tsx"  background="var(--main-bg-color)" iframe="500" title="属性展示"></code>
+`SettingDrawer` 的 `settings` 与 `onSettingChange` 控制布局属性；页面显示当前设置。
+
+<code src="../../demos/layout/dynamic-settings.tsx" background="var(--main-bg-color)" iframe="600" title="动态布局设置"></code>
 
 ## 水印自定义
 

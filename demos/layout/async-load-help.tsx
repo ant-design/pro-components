@@ -146,7 +146,9 @@ const Demo = () => {
         >
           <div
             style={{
-              width: 400,
+              width: '100%',
+              maxWidth: 400,
+              overflowX: 'auto',
             }}
           >
             <ProHelpPanel defaultSelectedKey="1" height={448} />

@@ -1,103 +1,40 @@
-﻿import {
-  ProCard,
+import {
   ProForm,
   ProFormDependency,
-  ProFormGroup,
   ProFormList,
   ProFormSwitch,
   ProFormText,
 } from '@ant-design/pro-components';
+import { useState } from 'react';
 
+export default () => {
+  const [result, setResult] = useState('');
 
-const Demo = () => {
   return (
-    <ProForm
-      name="dependency-debug-demo"
-      onFinish={async (e) => console.log(e)}
-    >
-      <ProFormText name="name" label="姓名" />
-      <ProFormList
-        name="users"
-        label="用户信息"
-        initialValue={[
-          {
-            name: '1111',
-          },
-        ]}
-        itemRender={({ listDom, action }, { record }) => {
-          return (
-            <ProCard
-              variant="outlined"
-              extra={action}
-              title={record?.name}
-              style={{
-                marginBlockEnd: 8,
-              }}
-            >
-              {listDom}
-            </ProCard>
-          );
+    <div style={{ padding: 24 }}>
+      <ProForm
+        onFinish={async (values) => {
+          setResult(JSON.stringify(values, null, 2));
         }}
       >
-        <ProFormGroup>
-          <ProFormText name="name" label="姓名" />
-        </ProFormGroup>
         <ProFormList
-          name="labels"
-          label="用户信息"
+          name="users"
+          label="成员"
           initialValue={[
-            {
-              value: '333',
-              label: '333',
-            },
+            { name: '张三', enabled: false },
+            { name: '李四', enabled: true, note: '负责审核' },
           ]}
-          copyIconProps={{
-            tooltipText: '复制此项到末尾',
-          }}
-          deleteIconProps={{
-            tooltipText: '不需要这行了',
-          }}
         >
-          <ProFormGroup>
-            <ProFormSwitch name="is_show" label="显示名称" />
-          </ProFormGroup>
-          <ProFormDependency name={['is_show']}>
-            {({ is_show }) => {
-
-              if (!is_show) return null;
-              return (
-                <ProFormList
-                  name="labels"
-                  label="用户信息"
-                  initialValue={[
-                    {
-                      value: '333',
-                      label: '333',
-                    },
-                  ]}
-                  copyIconProps={{
-                    tooltipText: '复制此项到末尾',
-                  }}
-                  deleteIconProps={{
-                    tooltipText: '不需要这行了',
-                  }}
-                >
-                  <ProFormGroup>
-                    <ProFormText name="value" label="值" />
-                    <ProFormSwitch name="is_show" label="显示名称" />
-                  </ProFormGroup>
-                </ProFormList>
-              );
-            }}
+          <ProFormText name="name" label="姓名" />
+          <ProFormSwitch name="enabled" label="启用备注" />
+          <ProFormDependency name={['enabled']}>
+            {({ enabled }) =>
+              enabled ? <ProFormText name="note" label="备注" /> : null
+            }
           </ProFormDependency>
         </ProFormList>
-      </ProFormList>
-    </ProForm>
+      </ProForm>
+      {result && <pre aria-label="提交结果">{result}</pre>}
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

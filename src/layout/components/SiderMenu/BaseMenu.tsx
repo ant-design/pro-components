@@ -566,6 +566,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const defaultOpenKeysRef = useRef<string[]>([]);
 
   const [defaultOpenAll, setDefaultOpenAll] = useState(menu?.defaultOpenAll);
+  const wasCollapsedRef = useRef(props.collapsed);
   const allMenuOpenKeys = useMemo(
     () => getOpenKeysFromMenuData(menuData),
     [menuData],
@@ -651,6 +652,13 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
   useEffect(
     () => {
+      const justExpanded = wasCollapsedRef.current && !props.collapsed;
+      wasCollapsedRef.current = props.collapsed;
+      if (justExpanded && menu?.defaultOpenAll && menu?.ignoreFlatMenu) {
+        setDefaultOpenAll(true);
+        setOpenKeys(allMenuOpenKeys);
+        return;
+      }
       // if pathname can't match, use the nearest parent's key
       if (matchMenuKeys.join('-') !== (selectedKeys || []).join('-')) {
         setSelectedKeys(matchMenuKeys);

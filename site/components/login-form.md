@@ -11,11 +11,35 @@ LoginForm 和 LoginFormPage 是 ProForm 的变体，两者是为了适应常见�
 
 ## 登录表单
 
-<code src="../../demos/form/login-form/login-form.tsx" background="var(--main-bg-color)"></code>
+`LoginForm` 提供居中布局；`onFinish` 可处理账号密码提交。
+
+<code src="../../demos/form/login-form/login-form.tsx" background="var(--main-bg-color)" title="账号密码登录"></code>
+
+`ProFormCaptcha.onGetCaptcha` 演示获取示例验证码。
+
+<code src="../../demos/form/login-form/login-form-phone.tsx" background="var(--main-bg-color)" title="手机号验证码登录"></code>
+
+`actions` 在表单底部放置其他登录方式，点击后显示选择结果。
+
+<code src="../../demos/form/login-form/login-form-actions.tsx" background="var(--main-bg-color)" title="其他登录方式"></code>
+
+`ProFormText.Password.fieldProps.statusRender` 根据输入长度显示强度。
+
+<code src="../../demos/form/login-form/login-password-strength.tsx" background="var(--main-bg-color)" title="密码强度"></code>
 
 ## 页面级别的登录表单
 
-<code src="../../demos/form/login-form/login-form-page.tsx"  background="var(--main-bg-color)" iframe="887" title="页面级别的表单"></code>
+`LoginFormPage.backgroundImageUrl` 设置登录页背景图。
+
+<code src="../../demos/form/login-form/login-form-page.tsx" background="var(--main-bg-color)" iframe="760" title="图片背景登录页"></code>
+
+`backgroundVideoUrl` 设置视频背景。
+
+<code src="../../demos/form/login-form/login-form-page-video.tsx" background="var(--main-bg-color)" iframe="760" title="视频背景登录页"></code>
+
+`activityConfig` 展示活动标题、说明和操作按钮。
+
+<code src="../../demos/form/login-form/login-form-page-activity.tsx" background="var(--main-bg-color)" iframe="760" title="登录页活动区"></code>
 
 ## API
 

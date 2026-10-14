@@ -13,11 +13,35 @@ LoginForm and LoginFormPage are ProForm variants tailored for typical login comp
 
 ## Login form
 
-<code src="../../demos/form/login-form/login-form.tsx" background="var(--main-bg-color)" title="LoginForm"></code>
+`LoginForm` provides a centered layout; `onFinish` handles account submissions.
+
+<code src="../../demos/form/login-form/login-form.tsx" background="var(--main-bg-color)" title="Account login"></code>
+
+`ProFormCaptcha.onGetCaptcha` retrieves a sample verification code.
+
+<code src="../../demos/form/login-form/login-form-phone.tsx" background="var(--main-bg-color)" title="Phone verification login"></code>
+
+`actions` places alternative login methods beneath the form.
+
+<code src="../../demos/form/login-form/login-form-actions.tsx" background="var(--main-bg-color)" title="Alternative login actions"></code>
+
+`ProFormText.Password.fieldProps.statusRender` shows password strength as the user types.
+
+<code src="../../demos/form/login-form/login-password-strength.tsx" background="var(--main-bg-color)" title="Password strength"></code>
 
 ## Full-page login shell
 
-<code src="../../demos/form/login-form/login-form-page.tsx" background="var(--main-bg-color)" iframe="887" title="Full-page LoginForm"></code>
+`LoginFormPage.backgroundImageUrl` sets an image background.
+
+<code src="../../demos/form/login-form/login-form-page.tsx" background="var(--main-bg-color)" iframe="760" title="Image background login page"></code>
+
+`backgroundVideoUrl` sets a video background.
+
+<code src="../../demos/form/login-form/login-form-page-video.tsx" background="var(--main-bg-color)" iframe="760" title="Video background login page"></code>
+
+`activityConfig` displays a campaign title, description, and action.
+
+<code src="../../demos/form/login-form/login-form-page-activity.tsx" background="var(--main-bg-color)" iframe="760" title="Login activity area"></code>
 
 ### LoginForm
 

@@ -2,83 +2,44 @@ import {
   FormControlRender,
   pickControlPropsWithId,
 } from '@ant-design/pro-components';
-import { Button, Checkbox, Form } from 'antd';
-import React, { useEffect } from 'react';
+import { Button, Form } from 'antd';
+import { useState } from 'react';
 
-const App: React.FC = () => {
-  const [form] = Form.useForm();
-
-  useEffect(() => {
-    void form.validateFields();
-  }, []);
+export default () => {
+  const [submitted, setSubmitted] = useState('');
 
   return (
-    <Form name="form-control-render-demo" form={form} onFinish={console.log}>
-      <Form.Item
-        name={'text1'}
-        label="文本框（没错误边框）"
-        rules={[{ required: true }]}
+    <div style={{ maxWidth: 480, padding: 16 }}>
+      <Form
+        onFinish={(values) => setSubmitted(JSON.stringify(values, null, 2))}
       >
-        <textarea />
-      </Form.Item>
-      <Form.Item
-        name="text2"
-        label="文本框（添加自定义的错误边框）"
-        rules={[{ required: true }]}
-      >
-        <FormControlRender>
-          {(itemProps) => {
-            return (
+        <Form.Item
+          name="description"
+          label="说明"
+          rules={[{ required: true, message: '请输入说明' }]}
+        >
+          <FormControlRender>
+            {(itemProps) => (
               <textarea
-                style={{
-                  borderColor: itemProps.status === 'error' ? 'red' : undefined,
-                }}
                 {...pickControlPropsWithId(itemProps)}
-              />
-            );
-          }}
-        </FormControlRender>
-      </Form.Item>
-      <Form.Item
-        valuePropName="checked"
-        name="check"
-        label="复选框"
-        rules={[{ required: true }]}
-      >
-        <Checkbox>是否</Checkbox>
-      </Form.Item>
-      <Form.Item
-        valuePropName="checked"
-        name="check2"
-        label="复选框"
-        rules={[{ required: true }]}
-      >
-        <FormControlRender>
-          {(itemProps) => {
-            return (
-              <Checkbox
-                {...itemProps}
+                rows={4}
+                placeholder="输入说明后提交"
                 style={{
-                  color: itemProps.status === 'error' ? 'red' : undefined,
+                  width: '100%',
+                  borderColor:
+                    itemProps.status === 'error' ? '#ff4d4f' : undefined,
                 }}
-              >
-                是否
-              </Checkbox>
-            );
-          }}
-        </FormControlRender>
-      </Form.Item>
-      <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+              />
+            )}
+          </FormControlRender>
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" htmlType="submit">
+            提交
+          </Button>
+        </Form.Item>
+      </Form>
+      {submitted && <pre style={{ overflowX: 'auto' }}>{submitted}</pre>}
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <App />
-  </div>
-);

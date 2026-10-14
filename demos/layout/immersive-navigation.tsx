@@ -1,151 +1,60 @@
-import {
-  CrownOutlined,
-  LeftOutlined,
-  SmileOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-import { ProLayout } from '@ant-design/pro-components';
-import { Button, Result, Space, Tag } from 'antd';
+import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { Button } from 'antd';
 import { useState } from 'react';
-import { demoOnMenuHeaderClick } from './_demoHandlers';
 
-const defaultProps = {
+const projectRoute = {
   routes: [
-    {
-      path: '/admin/sub-page1',
-      name: '一级页面',
-      icon: <CrownOutlined />,
-      component: './Welcome',
-    },
-    {
-      path: '/admin/sub-page2',
-      name: '二级页面',
-      icon: <UserOutlined />,
-      component: './Welcome',
-    },
-    {
-      path: '/admin/sub-page3',
-      name: '三级页面',
-      icon: <SmileOutlined />,
-      component: './Welcome',
-    },
+    { path: '/projects/overview', name: '项目概览' },
+    { path: '/projects/tasks', name: '项目任务' },
   ],
 };
+const listRoute = { routes: [{ path: '/projects', name: '项目列表' }] };
 
-const defaultHomeProps = {
-  routes: [
-    {
-      path: '/',
-      name: '首页',
-      icon: <CrownOutlined />,
-      component: './Welcome',
-    },
-    {
-      path: '/admin/sub-page1',
-      name: '详情页',
-      icon: <SmileOutlined />,
-      component: './Welcome',
-    },
-  ],
-};
+export default () => {
+  const [pathname, setPathname] = useState('/projects/overview');
+  const inProject = pathname !== '/projects';
 
-const Demo = () => {
-  const [pathname, setPathname] = useState('/admin/sub-page1');
   return (
-    <>
+    <div style={{ height: 560, overflow: 'auto' }}>
       <ProLayout
-        route={pathname === '/' ? defaultHomeProps : defaultProps}
-        location={{
-          pathname,
-        }}
-        logoStyle={{
-          backgroundColor: '#eee',
-        }}
-        menuHeaderRender={(logo, title, props) => {
-          if (pathname === '/') {
-            return (
-              <a>
-                {logo}
-                {title}
-              </a>
-            );
-          }
-          if (props?.collapsed) {
-            return (
-              <Space>
-                <LeftOutlined
-                  style={{
-                    fontSize: 24,
-                  }}
-                />
-              </Space>
-            );
-          }
-          return (
-            <Space orientation="vertical">
-              <Button
-                size="small"
-                icon={<LeftOutlined />}
-                onClick={() => {
-                  setPathname('/');
-                }}
-              >
-                返回应用列表
-              </Button>
-              <b>alipay_dev_gzone</b>
-              <span>Creation Time 2017-01-10</span>
-              <Tag color="warning">运行中</Tag>
-            </Space>
-          );
-        }}
-        fixSiderbar
-        headerRender={() => {
-          return null;
-        }}
-        onMenuHeaderClick={demoOnMenuHeaderClick}
+        key={inProject ? 'project' : 'list'}
+        title="项目导航"
+        route={inProject ? projectRoute : listRoute}
+        location={{ pathname }}
+        menuHeaderRender={() =>
+          inProject ? (
+            <Button type="link" onClick={() => setPathname('/projects')}>
+              ← 返回项目列表
+            </Button>
+          ) : (
+            <strong style={{ paddingInline: 16 }}>项目列表</strong>
+          )
+        }
         menuItemRender={(item, dom) => (
           <a
-            onClick={() => {
-              setPathname(item.path || '/welcome');
+            href={item.path}
+            onClick={(event) => {
+              event.preventDefault();
+              setPathname(item.path || '/projects');
             }}
           >
             {dom}
           </a>
         )}
-        avatarProps={{
-          icon: <UserOutlined />,
-        }}
       >
-        <div
-          style={{
-            height: '120vh',
-            minHeight: 600,
-          }}
-        >
-          <Result
-            status="404"
-            style={{
-              height: '100%',
-              background: '#fff',
-            }}
-            icon={
-              <img
-                src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*aPIBS5gRPu4AAAAAAAAAAAAAARQnAQ"
-                alt="404"
-              />
-            }
-            title="Hello World"
-            subTitle="Sorry, you are not authorized to access this page."
-            extra={<Button type="primary">Back Home</Button>}
-          />
-        </div>
+        <PageContainer title={inProject ? '示例项目' : '项目列表'}>
+          <div style={{ minHeight: 280, padding: 24, background: '#fff' }}>
+            <p role="status">当前路径：{pathname}</p>
+            <Button
+              onClick={() =>
+                setPathname(inProject ? '/projects' : '/projects/overview')
+              }
+            >
+              {inProject ? '返回项目列表' : '进入示例项目'}
+            </Button>
+          </div>
+        </PageContainer>
       </ProLayout>
-    </>
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

@@ -1,75 +1,23 @@
-import { SmileOutlined } from '@ant-design/icons';
-import {
-  LightWrapper,
-  ProForm,
-  ProFormCheckbox,
-  ProFormField,
-  ProFormRadio,
-  ProFormSlider,
-  ProFormSwitch,
-  ProFormText,
-  ProFormUploadButton,
-  ProFormUploadDragger,
-  StepsForm,
-} from '@ant-design/pro-components';
-import { ConfigProvider, Input, message } from 'antd';
-import enUS from 'antd/lib/locale/en_US';
+import { ProForm, ProFormDatePicker } from '@ant-design/pro-components';
+import { ConfigProvider } from 'antd';
+import enUS from 'antd/locale/en_US';
+import { useState } from 'react';
 
-const Demo = () => (
-  <ConfigProvider locale={enUS}>
-    <StepsForm>
-      <StepsForm.StepForm title="新建">
-        <ProFormText name="name" />
-      </StepsForm.StepForm>
-    </StepsForm>
+export default () => {
+  const [result, setResult] = useState('');
 
-    <ProForm
-      name="validate_other"
-      initialValues={{
-        'input-number': 3,
-        'checkbox-group': ['A', 'B'],
-        rate: 3.5,
-        range: 5,
-        name: 'demo_user',
-      }}
-      onFinish={async () => {
-        message.success('Submitted');
-      }}
-    >
-      <ProFormUploadButton
-        name="upload"
-        icon={<SmileOutlined />}
-        label="Upload"
-        title="点击上传"
-        action="/upload.do"
-        extra="longgggggggggggggggggggggggggggggggggg"
-      />
-      <ProFormRadio name="test" />
-      <ProFormCheckbox name="test2" />
-      <ProFormSwitch width="lg" label="是否打开" />
-      <ProFormUploadDragger
-        title="拖动上传"
-        icon={<SmileOutlined />}
-        description="支持 text"
-        label="Dragger"
-        name="dragger"
-        fieldProps={{
-          showUploadList: true,
-        }}
-      />
-      <LightWrapper valuePropName="value">test</LightWrapper>
-      <LightWrapper valuePropName="value">test</LightWrapper>
-      <ProFormSlider name="range" label="范围" />
-      <ProFormField>test</ProFormField>
-      <ProFormField>
-        <Input />
-      </ProFormField>
-    </ProForm>
-  </ConfigProvider>
-);
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);
+  return (
+    <div style={{ padding: 24 }}>
+      <ConfigProvider locale={enUS}>
+        <ProForm
+          onFinish={async (values) => {
+            setResult(JSON.stringify(values, null, 2));
+          }}
+        >
+          <ProFormDatePicker name="date" label="Select a date" />
+        </ProForm>
+      </ConfigProvider>
+      {result && <pre aria-label="提交结果">{result}</pre>}
+    </div>
+  );
+};

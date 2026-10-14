@@ -1,32 +1,10 @@
-﻿import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@ant-design/pro-components';
 
-const Demo = () => {
-  return (
-    <>
-      <ProCard title="水平方向子卡片">
-        <ProCard.Group
-          title="水平排列"
-          tooltip="direction: row"
-          direction="row"
-        >
-          <ProCard title="卡片 1">内容 1</ProCard>
-          <ProCard title="卡片 2">内容 2</ProCard>
-          <ProCard title="卡片 3">内容 3</ProCard>
-        </ProCard.Group>
-      </ProCard>
-      <ProCard title="垂直方向子卡片" style={{ marginBlockStart: 24 }}>
-        <ProCard.Group
-          title="垂直排列"
-          tooltip="direction: column"
-          direction="column"
-        >
-          <ProCard title="卡片 1">内容 1</ProCard>
-          <ProCard title="卡片 2">内容 2</ProCard>
-          <ProCard title="卡片 3">内容 3</ProCard>
-        </ProCard.Group>
-      </ProCard>
-    </>
-  );
-};
-
-export default Demo;
+export default () => (
+  <div style={{ padding: 16 }}>
+    <ProCard.Group title="横向排列" direction="row">
+      <ProCard title="设计">已完成</ProCard>
+      <ProCard title="开发">进行中</ProCard>
+    </ProCard.Group>
+  </div>
+);

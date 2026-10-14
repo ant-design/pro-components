@@ -16,11 +16,11 @@ ProComponents was developed to reduce the cost of implementing CRUD in the middl
 - [ProDescriptions](/components/descriptions) provides the ability to use the same configuration as a table
 - [ProSkeleton](/components/skeleton) Page level skeleton screen
 
-## Form layout toggle
+## Basic ProForm
 
-The main feature of ProForm is that it has a lot of pre-defined layouts, so if you need to switch you just need to change the Layout of the outer wrapper, here is a demo.
+ProForm provides form submission with an async onFinish callback. Other layouts are shown in the ProForm Playground.
 
-<code src="../../demos/form/layout-change.tsx"></code>
+<code src="../../demos/form/playground/form-basic.tsx" title="Basic form: ProForm.onFinish"></code>
 
 ## Configuring Use with the Web Request Library
 

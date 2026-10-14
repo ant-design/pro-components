@@ -1,127 +1,40 @@
-import type { ProColumns, ProFormInstance } from '@ant-design/pro-components';
+import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import { useRef, useState } from 'react';
+import dayjs from 'dayjs';
+import { useState } from 'react';
 
-export type TableListItem = {
-  key: number;
-  name: string;
-  createdAt: string;
-};
+type Service = { key: number; createdAt: string };
 
-const columns: ProColumns<TableListItem>[] = [
+const columns: ProColumns<Service>[] = [
   {
-    title: '服务名称',
-    dataIndex: 'name',
-    initialValue: '用户认证服务',
-  },
-  {
-    title: '部署时间',
+    title: '部署日期',
     dataIndex: 'createdAt',
     valueType: 'date',
-    initialValue: '2024-01-15',
+    initialValue: dayjs('2024-01-15'),
   },
 ];
 
-const mockData = {
-  key: 1,
-  name: '用户认证服务',
-  createdAt: '2024-01-15',
-};
-
-const Demo = () => {
-  const ref = useRef<ProFormInstance>();
-  const [collapsed, setCollapsed] = useState(false);
+export default () => {
+  const [date, setDate] = useState<unknown>();
 
   return (
-    <>
-      <ProTable<TableListItem>
-        style={{
-          margin: '16px',
-        }}
+    <div style={{ padding: 24 }}>
+      <ProTable<Service>
         columns={columns}
-        request={(_params) => {
-
-          return Promise.resolve({
-            data: [mockData],
-            total: 1,
-            success: true,
-          });
-        }}
         rowKey="key"
-        pagination={{
-          showSizeChanger: true,
-        }}
-        search={{
-          collapsed,
-          onCollapse: setCollapsed,
-        }}
-        formRef={ref}
         options={false}
+        pagination={false}
         dateFormatter="string"
-        headerTitle="日期格式化为字符串"
-      />
-
-      <ProTable<TableListItem>
-        style={{
-          margin: '16px',
-        }}
-        columns={columns}
-        request={(_params) => {
-
+        headerTitle="dateFormatter: string"
+        request={(params) => {
+          setDate(params.createdAt);
           return Promise.resolve({
-            data: [mockData],
-            total: 1,
+            data: [{ key: 1, createdAt: '2024-01-15' }],
             success: true,
           });
         }}
-        rowKey="key"
-        pagination={{
-          showSizeChanger: true,
-        }}
-        search={{
-          collapsed,
-          onCollapse: setCollapsed,
-        }}
-        formRef={ref}
-        options={false}
-        dateFormatter="number"
-        headerTitle="日期格式化为数字"
       />
-      <ProTable<TableListItem>
-        style={{
-          margin: '16px',
-        }}
-        columns={columns}
-        request={(_params) => {
-
-          return Promise.resolve({
-            data: [mockData],
-            total: 1,
-            success: true,
-          });
-        }}
-        rowKey="key"
-        pagination={{
-          showSizeChanger: true,
-        }}
-        search={{
-          collapsed,
-          onCollapse: setCollapsed,
-        }}
-        formRef={ref}
-        options={false}
-        dateFormatter={(value, _valueType) => {
-
-          return value.format('YYYY-MM-DD HH:mm:ss');
-        }}
-        headerTitle="使用自定义函数进行日期格式化"
-      />
-    </>
+      <p>request 收到的部署日期：{JSON.stringify(date)}</p>
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

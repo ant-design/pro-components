@@ -1,40 +1,25 @@
 import { ProForm, ProFormSelect } from '@ant-design/pro-components';
-import { message } from 'antd';
+import { useState } from 'react';
 
-const Demo = () => {
+export default () => {
+  const [result, setResult] = useState('');
+
   return (
-    <ProForm
-      name="label-in-value-demo"
-      onFinish={async () => {
-        message.success('提交成功');
-      }}
-    >
-      <ProFormSelect
-        options={[
-          {
-            value: 'chapter',
-            label: '盖章后生效',
-          },
-        ]}
-        width="sm"
-        name="useMode"
-        label="合同约定生效方式"
-        fieldProps={{
-          labelInValue: true,
+    <div style={{ padding: 24 }}>
+      <ProForm
+        onFinish={async (values) => {
+          setResult(JSON.stringify(values, null, 2));
         }}
-        rules={[
-          {
-            required: true,
-            message: '请选择',
-          },
-        ]}
-      />
-    </ProForm>
+      >
+        <ProFormSelect
+          name="useMode"
+          label="合同生效方式"
+          options={[{ value: 'chapter', label: '盖章后生效' }]}
+          fieldProps={{ labelInValue: true }}
+          rules={[{ required: true, message: '请选择生效方式' }]}
+        />
+      </ProForm>
+      {result && <pre aria-label="提交结果">{result}</pre>}
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

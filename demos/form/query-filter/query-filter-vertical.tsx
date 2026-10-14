@@ -1,50 +1,20 @@
-import {
-  ProFormCheckbox,
-  ProFormDatePicker,
-  ProFormRadio,
-  ProFormText,
-  QueryFilter,
-} from '@ant-design/pro-components';
+import { ProFormText, QueryFilter } from '@ant-design/pro-components';
+import { useState } from 'react';
 
-const Demo = () => {
+export default () => {
+  const [result, setResult] = useState('');
+
   return (
-    <QueryFilter layout="vertical">
-      <ProFormText name="name" label="这是一个超级超级长的名称" />
-      <ProFormDatePicker name="birth" label="创建时间" />
-      <ProFormText name="sex" label="应用状态" />
-      <ProFormRadio.Group
-        name="freq"
-        label="查询频度"
-        options={[
-          {
-            value: 'weekly',
-            label: '每周',
-          },
-          {
-            value: 'quarterly',
-            label: '每季度',
-          },
-          {
-            value: 'monthly',
-            label: '每月',
-          },
-          {
-            value: 'yearly',
-            label: '每年',
-          },
-        ]}
-      />
-      <ProFormCheckbox.Group
-        name="checkbox"
-        label="行业分布"
-        options={['农业', '制造业', '互联网']}
-      />
-    </QueryFilter>
+    <div style={{ padding: 24 }}>
+      <QueryFilter
+        layout="vertical"
+        onFinish={async (values) => {
+          setResult(JSON.stringify(values, null, 2));
+        }}
+      >
+        <ProFormText name="name" label="应用名称" />
+      </QueryFilter>
+      {result && <pre aria-label="查询结果">{result}</pre>}
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

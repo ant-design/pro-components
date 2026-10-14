@@ -1,21 +1,9 @@
 import { ProCard } from '@ant-design/pro-components';
 
-const Demo = () => {
-  return (
-    <ProCard
-      title="Title"
-      extra="extra"
-      tooltip="This is a tooltip"
-      style={{ maxWidth: 300 }}
-      headerBordered
-    >
-      Content
-    </ProCard>
-  );
-};
-
 export default () => (
   <div style={{ padding: 24 }}>
-    <Demo />
+    <ProCard title="用户认证服务" headerBordered style={{ maxWidth: 360 }}>
+      标题下方有分割线，内容区域显示服务状态：正常。
+    </ProCard>
   </div>
 );

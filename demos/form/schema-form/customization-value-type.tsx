@@ -1,180 +1,83 @@
 import type { ProFormColumnsType } from '@ant-design/pro-components';
 import { BetaSchemaForm, ProProvider } from '@ant-design/pro-components';
-import type { InputRef } from 'antd';
-import { Input, Space, Tag } from 'antd';
-import React, { useContext, useRef, useState } from 'react';
+import { Input, Tag } from 'antd';
+import { useContext, useState } from 'react';
 
-import { DEMO_VALUE_ENUM } from '../../mockData';
+type FormValues = { tags?: string[] };
 
-const _valueEnum = {
-  0: 'close',
-  1: 'running',
-  2: 'online',
-  3: 'error',
-};
-
-export type TableListItem = {
-  key: number;
-  name: string;
-  status: {
-    label: string | number;
-    value: number;
-  }[];
-};
-
-const TagList: React.FC<{
-  value?: {
-    key: string;
-    label: string;
-  }[];
-  onChange?: (
-    value: {
-      key: string;
-      label: string;
-    }[],
-  ) => void;
-}> = ({ value, onChange }) => {
-  const ref = useRef<InputRef | null>(null);
-  const [newTags, setNewTags] = useState<
-    {
-      key: string;
-      label: string;
-    }[]
-  >([]);
-  const [inputValue, setInputValue] = useState<string>('');
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
-
-  const handleInputConfirm = () => {
-    let tempsTags = [...(value || [])];
-    if (
-      inputValue &&
-      tempsTags.filter((tag) => tag.label === inputValue).length === 0
-    ) {
-      tempsTags = [
-        ...tempsTags,
-        { key: `new-${tempsTags.length}`, label: inputValue },
-      ];
-    }
-    onChange?.(tempsTags);
-    setNewTags([]);
-    setInputValue('');
-  };
-
-  return (
-    <Space>
-      {(value || []).concat(newTags).map((item) => (
-        <Tag key={item.key}>{item.label}</Tag>
-      ))}
-      <Input
-        ref={ref}
-        type="text"
-        size="small"
-        style={{ width: 78 }}
-        value={inputValue}
-        onChange={handleInputChange}
-        onBlur={handleInputConfirm}
-        onPressEnter={handleInputConfirm}
-      />
-    </Space>
-  );
-};
-
-const columns: ProFormColumnsType<TableListItem, 'link' | 'tags'>[] = [
+const columns: ProFormColumnsType<FormValues, 'tags'>[] = [
   {
     title: '标签',
-    valueType: 'group',
-    columns: [
-      {
-        title: '只读链接',
-        readonly: true,
-        dataIndex: 'name',
-        valueType: 'link',
-      },
-      {
-        title: '链接',
-        dataIndex: 'name',
-        valueType: 'link',
-      },
-    ],
-  },
-  {
-    title: '路径',
-    valueType: 'group',
-    columns: [
-      {
-        title: '标签',
-        dataIndex: 'status',
-        key: 'status',
-        valueType: 'tags',
-      },
-      {
-        title: '只读标签',
-        readonly: true,
-        dataIndex: 'status',
-        key: 'status',
-        valueType: 'tags',
-      },
-    ],
+    dataIndex: 'tags',
+    valueType: 'tags',
   },
 ];
 
-const Demo = () => {
-  const values = useContext(ProProvider);
+const TagEditor = ({
+  value = [],
+  onChange,
+}: {
+  value?: string[];
+  onChange?: (value: string[]) => void;
+}) => {
+  const [draft, setDraft] = useState('');
+
+  const addTag = () => {
+    const tag = draft.trim();
+    if (tag && !value.includes(tag)) onChange?.([...value, tag]);
+    setDraft('');
+  };
+
+  return (
+    <div style={{ display: 'grid', gap: 8 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
+        {value.map((tag) => (
+          <Tag key={tag}>{tag}</Tag>
+        ))}
+      </div>
+      <Input
+        value={draft}
+        onChange={(event) => setDraft(event.target.value)}
+        onPressEnter={(event) => {
+          event.preventDefault();
+          addTag();
+        }}
+        onBlur={addTag}
+        placeholder="输入标签后按回车"
+      />
+    </div>
+  );
+};
+
+export default () => {
+  const provider = useContext(ProProvider);
+  const [submitted, setSubmitted] = useState('');
+
   return (
     <ProProvider.Provider
       value={{
-        ...values,
+        ...provider,
         valueTypeMap: {
-          link: {
-            render: (text) => <a>{text}</a>,
-            formItemRender: (text, props) => (
-              <Input placeholder="请输入链接" {...props?.fieldProps} />
-            ),
-          },
+          ...provider.valueTypeMap,
           tags: {
-            render: (text) => {
-              return (
-                <>
-                  {[text].flat(1).map((item) => (
-                    <Tag key={item.value}>{item.label}</Tag>
-                  ))}
-                </>
-              );
-            },
-            formItemRender: (text, props) => (
-              <TagList {...props} {...props?.fieldProps} />
+            formItemRender: (_text, props) => (
+              <TagEditor {...props?.fieldProps} />
             ),
           },
         },
       }}
     >
-      <BetaSchemaForm<TableListItem, 'link' | 'tags'>
-        initialValues={{
-          key: 1,
-          name: '用户认证服务',
-          status: [
-            {
-              value: 1,
-              label: DEMO_VALUE_ENUM[1],
-            },
-            {
-              value: 2,
-              label: DEMO_VALUE_ENUM[2],
-            },
-          ],
-        }}
-        columns={columns}
-        title="自定义 valueType"
-      />
+      <div style={{ maxWidth: 480, padding: 16 }}>
+        <BetaSchemaForm<FormValues, 'tags'>
+          layoutType="Form"
+          columns={columns}
+          initialValues={{ tags: ['待处理'] }}
+          onFinish={async (values) =>
+            setSubmitted(JSON.stringify(values, null, 2))
+          }
+        />
+        {submitted && <pre style={{ overflowX: 'auto' }}>{submitted}</pre>}
+      </div>
     </ProProvider.Provider>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

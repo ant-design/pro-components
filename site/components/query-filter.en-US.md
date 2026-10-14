@@ -10,35 +10,125 @@ QueryFilter and LightFilter solve the problem of using the form with other compo
 
 ### Query Filter
 
-<code src="../../demos/form/query-filter/query-filter.tsx" title="Basic Usage"></code>
+`QueryFilter.onFinish` submits the filter fields and shows the values below the form.
 
-<code src="../../demos/form/query-filter/_query-filter-test.tsx" title="Basic Usage (debug)" debug></code>
+<code src="../../demos/form/query-filter/query-filter.tsx" title="Basic QueryFilter submission"></code>
 
-### Collapsed by default
+### Expanded by default
 
-<code src="../../demos/form/query-filter/query-filter-collapsed.tsx" title="QueryFilter — collapsed by default"></code>
+Set `defaultCollapsed={false}` to show every field initially; users can still collapse the filter.
+
+<code src="../../demos/form/query-filter/query-filter-collapsed.tsx" title="defaultCollapsed: expanded by default"></code>
 
 ### Vertical layout
 
-<code src="../../demos/form/query-filter/query-filter-vertical.tsx" title="QueryFilter — vertical layout"></code>
+Set `layout="vertical"` to place labels above inputs.
+
+<code src="../../demos/form/query-filter/query-filter-vertical.tsx" title="layout: vertical"></code>
 
 ### Search field
 
-<code src="../../demos/form/query-filter/search-filter.tsx" background="var(--main-bg-color)" title="QueryFilter — search input"></code>
+Use `split` with `layout="vertical"` to separate the two filter rows. Submit to see their values.
+
+<code src="../../demos/form/query-filter/search-filter.tsx" background="var(--main-bg-color)" title="QueryFilter: vertical dividers"></code>
 
 ### Default visible field count
 
-<code src="../../demos/form/query-filter/query-filter-default-form-items-number.tsx" background="var(--main-bg-color)" title="QueryFilter — default visible items (defaultFormItemsNumber)"></code>
+`defaultFormItemsNumber={3}` shows three fields while collapsed.
 
-<code src="../../demos/form/query-filter/query-filter-default-cols-number.tsx" background="var(--main-bg-color)" title="QueryFilter — default columns when collapsed"></code>
+<code src="../../demos/form/query-filter/query-filter-default-form-items-number.tsx" background="var(--main-bg-color)" title="defaultFormItemsNumber: three fields"></code>
+
+`defaultColsNumber={2}` shows two fields while collapsed; expand to see the rest.
+
+<code src="../../demos/form/query-filter/query-filter-default-cols-number.tsx" background="var(--main-bg-color)" title="defaultColsNumber: two fields"></code>
 
 ## Light Filter
 
-<code src="../../demos/form/query-filter/light-filter.tsx" title="LightFilter — Basic"></code>
+#### `LightFilter.select`
+
+<code src="../../demos/form/query-filter/light-filter.tsx" title="LightFilter — Single-select filter"></code>
+
+#### `LightFilter.select mode="multiple"`
+
+<code src="../../demos/form/query-filter/light-filter-multi-select.tsx" title="LightFilter — Multi-select filter"></code>
+
+#### `LightFilter.checkboxGroup`
+
+<code src="../../demos/form/query-filter/light-filter-checkbox.tsx" title="LightFilter — Checkbox group"></code>
+
+#### `LightFilter.treeSelect`
+
+<code src="../../demos/form/query-filter/light-filter-tree-select.tsx" title="LightFilter — Tree selector"></code>
+
+#### `LightFilter.cascader`
+
+<code src="../../demos/form/query-filter/light-filter-cascader.tsx" title="LightFilter — Cascader"></code>
+
+#### `LightFilter.switch`
+
+<code src="../../demos/form/query-filter/light-filter-switch.tsx" title="LightFilter — Switch"></code>
+
+#### `LightFilter.digit`
+
+<code src="../../demos/form/query-filter/light-filter-digit.tsx" title="LightFilter — Numeric filter"></code>
+
+#### `LightFilter.slider`
+
+<code src="../../demos/form/query-filter/light-filter-slider.tsx" title="LightFilter — Slider"></code>
+
+#### `LightFilter.slider range`
+
+<code src="../../demos/form/query-filter/light-filter-slider-range.tsx" title="LightFilter — Slider range"></code>
+
+#### `LightFilter.input`
+
+<code src="../../demos/form/query-filter/light-filter-input.tsx" title="LightFilter — Text filter"></code>
+
+#### `LightFilter.date`
+
+<code src="../../demos/form/query-filter/light-filter-date.tsx" title="LightFilter — Date"></code>
+
+#### `LightFilter.dateRange`
+
+<code src="../../demos/form/query-filter/light-filter-date-range.tsx" title="LightFilter — Date range"></code>
+
+#### `LightFilter.dateTime`
+
+<code src="../../demos/form/query-filter/light-filter-date-time.tsx" title="LightFilter — Date and time"></code>
+
+#### `LightFilter.dateTimeRange`
+
+<code src="../../demos/form/query-filter/light-filter-date-time-range.tsx" title="LightFilter — Date-time range"></code>
+
+#### `LightFilter.time`
+
+<code src="../../demos/form/query-filter/light-filter-time.tsx" title="LightFilter — Time"></code>
+
+#### `LightFilter.timePickerRange`
+
+<code src="../../demos/form/query-filter/light-filter-time-range.tsx" title="LightFilter — Time range"></code>
+
+#### `LightFilter.fieldSet`
+
+<code src="../../demos/form/query-filter/light-filter-field-set.tsx" title="LightFilter — Grouped fields"></code>
+
+#### `secondary`
+
+<code src="../../demos/form/query-filter/light-filter-secondary.tsx" title="LightFilter — Secondary filter"></code>
+
+#### `size`
+
+<code src="../../demos/form/query-filter/light-filter-size.tsx" title="LightFilter — Filter size"></code>
+
+#### `variant`
+
+<code src="../../demos/form/query-filter/light-filter-variant.tsx" title="LightFilter — Filter variant"></code>
 
 ### Custom footer
 
 <code src="../../demos/form/query-filter/light-filter-footer.tsx" title="LightFilter — custom footer"></code>
+
+<code src="../../demos/form/query-filter/light-filter-footer-hidden.tsx" title="LightFilter — hidden footer"></code>
 
 <code src="../../demos/form/query-filter/light-filter-bordered.tsx" title="LightFilter — border mode"></code>
 
@@ -65,7 +155,7 @@ QueryFilter supports the following properties in addition to the API inherited f
 | collapsed              | Whether or not to collapse out-of-bounds form items for controlled mode                                                                                                | `boolean`                                                                                 | -       |
 | defaultCollapsed       | Whether or not to collapse out-of-order form items in default state                                                                                                    | `boolean`                                                                                 | `true`  |
 | onCollapse             | Callback when toggling the collapsed state of the form                                                                                                                 | `(collapsed)=>void`                                                                       | -       |
-| collapseRender         | Render of the collapse button, set `false` to hide                                                                                                                     | `((collapsed, props, intl, hiddenNum?) => ReactNode) \| false`                             | -       |
+| collapseRender         | Render of the collapse button, set `false` to hide                                                                                                                     | `((collapsed, props, intl, hiddenNum?) => ReactNode) \| false`                            | -       |
 | layout                 | Layout mode, `vertical` renders label above control                                                                                                                    | `'horizontal' \| 'vertical' \| 'inline'`                                                  | -       |
 | submitterColSpanProps  | Props of the col where the submit button is located (must include `span`)                                                                                              | `Omit<ColProps, 'span'> & { span: number }`                                               | -       |
 | defaultColsNumber      | The default number of form controls displayed in a collapsed state. Only one row of controls is displayed at most, and when exceeded, a collapse/hide button is shown. | `number`                                                                                  | -       |
@@ -76,7 +166,7 @@ QueryFilter supports the following properties in addition to the API inherited f
 | searchText             | Text of the search button                                                                                                                                              | `string`                                                                                  | -       |
 | resetText              | Text of the reset button                                                                                                                                               | `string`                                                                                  | -       |
 | searchGutter           | Gutter of the query form grid                                                                                                                                          | `RowProps['gutter']`                                                                      | -       |
-| optionRender           | Render of the footer actions, set `false` to hide                                                                                                                      | `((searchConfig, props, dom) => ReactNode[]) \| false`                                     | -       |
+| optionRender           | Render of the footer actions, set `false` to hide                                                                                                                      | `((searchConfig, props, dom) => ReactNode[]) \| false`                                    | -       |
 | ignoreRules            | Ignore the rules of Form.Item                                                                                                                                          | `boolean`                                                                                 | -       |
 | showHiddenNum          | Whether to show the number of hidden items when collapsed                                                                                                              | `boolean`                                                                                 | `false` |
 | preserve               | If set to false, the form data will be lost after being put away                                                                                                       | `boolean`                                                                                 | `true`  |
@@ -90,7 +180,7 @@ Note that the values of the breakpoints are the size of the form container and n
 
 Breakpoints use antd design tokens (xs=576, sm=768, md=992, lg=1200, xl=1600 by default):
 
-| container-width breakpoint  | single-row display form single-column count (including action area) | default layout |
+| container-width breakpoint | single-row display form single-column count (including action area) | default layout |
 | -------------------------- | ------------------------------------------------------------------- | -------------- |
 | `≧ 1600px`                 | 4 columns                                                           | `horizontal`   |
 | `≧ 768px && < 1600px`      | 3 columns                                                           | `horizontal`   |
@@ -99,7 +189,7 @@ Breakpoints use antd design tokens (xs=576, sm=768, md=992, lg=1200, xl=1600 by 
 
 ##### Rules when forcing top and bottom layout
 
-| container width breakpoint  | single row display table single column count (including operation area) |
+| container width breakpoint | single row display table single column count (including operation area) |
 | -------------------------- | ----------------------------------------------------------------------- |
 | `≧ 1600px`                 | 4 columns                                                               |
 | `≧ 992px && < 1600px`      | 3 columns                                                               |
@@ -110,12 +200,12 @@ Breakpoints use antd design tokens (xs=576, sm=768, md=992, lg=1200, xl=1600 by 
 
 LightFilter supports the following properties in addition to the API inherited from ProForm.
 
-| Parameters    | Description                                                                          | Type                                                                                                                        | Default                      |
-| ------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| collapse      | Whether to collapse all fields by default                                            | `boolean`                                                                                                                   | `false`                      |
-| collapseLabel | Label of collapsed area                                                              | `ReactNode`                                                                                                                 | `MoreFilter <DownOutlined/>` |
-| variant       | Visual variant                                                                       | `'outlined' \| 'filled' \| 'borderless'`                                                                                    | `'borderless'`               |
-| ignoreRules   | Whether to ignore rules (rules are usually not recommended in LightFilter scenarios) | `boolean`                                                                                                                   | -                            |
-| footerRender  | Footer content. Set to `false` to remove default footer buttons                      | `((onConfirm?: (e?: React.MouseEvent) => void, onClear?: (e?: React.MouseEvent) => void) => JSX.Element \| false) \| false` | -                            |
-| popoverProps  | Pass-through props to inner Popover (collapsed overlay), e.g. `classNames`           | `Omit<PopoverProps, 'children' \| 'content' \| 'trigger' \| 'open' \| 'onOpenChange' \| 'placement'>`                       | -                            |
-| placement     | The position where the selection box pops up; passed to Popover, Popover default applies when unset | `TooltipPlacement`                                                                                                  | -                            |
+| Parameters    | Description                                                                                         | Type                                                                                                                        | Default                      |
+| ------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| collapse      | Whether to collapse all fields by default                                                           | `boolean`                                                                                                                   | `false`                      |
+| collapseLabel | Label of collapsed area                                                                             | `ReactNode`                                                                                                                 | `MoreFilter <DownOutlined/>` |
+| variant       | Visual variant                                                                                      | `'outlined' \| 'filled' \| 'borderless'`                                                                                    | `'borderless'`               |
+| ignoreRules   | Whether to ignore rules (rules are usually not recommended in LightFilter scenarios)                | `boolean`                                                                                                                   | -                            |
+| footerRender  | Footer content. Set to `false` to remove default footer buttons                                     | `((onConfirm?: (e?: React.MouseEvent) => void, onClear?: (e?: React.MouseEvent) => void) => JSX.Element \| false) \| false` | -                            |
+| popoverProps  | Pass-through props to inner Popover (collapsed overlay), e.g. `classNames`                          | `Omit<PopoverProps, 'children' \| 'content' \| 'trigger' \| 'open' \| 'onOpenChange' \| 'placement'>`                       | -                            |
+| placement     | The position where the selection box pops up; passed to Popover, Popover default applies when unset | `TooltipPlacement`                                                                                                          | -                            |

@@ -1,188 +1,33 @@
-import type { ActionType } from '@ant-design/pro-components';
 import { ProList } from '@ant-design/pro-components';
-import { Badge, Button } from 'antd';
-import React, { useRef, useState } from 'react';
+import { useState } from 'react';
 
-const dataSource = [
-  {
-    name: '实验名称1',
-    desc: '系统性的沉淀B端知识体系',
-    content: [
-      {
-        label: '模型数',
-        value: 2903,
-      },
-      {
-        label: '指标数',
-        value: 3720,
-      },
-      {
-        label: '实验状态',
-        value: '成功',
-        status: 'success',
-      },
-    ],
-  },
-  {
-    name: '实验名称2',
-    desc: '系统性的沉淀B端知识体系',
-    content: [
-      {
-        label: '模型数',
-        value: 2904,
-      },
-      {
-        label: '指标数',
-        value: 3721,
-      },
-      {
-        label: '实验状态',
-        value: '成功',
-        status: 'success',
-      },
-    ],
-  },
-  {
-    name: '实验名称3',
-    desc: '系统性的沉淀B端知识体系',
-    content: [
-      {
-        label: '模型数',
-        value: 2905,
-      },
-      {
-        label: '指标数',
-        value: 3722,
-      },
-      {
-        label: '实验状态',
-        value: '成功',
-        status: 'success',
-      },
-    ],
-  },
+type Task = { id: number; title: string; owner: 'me' | 'team' };
+
+const tasks: Task[] = [
+  { id: 1, title: '检查首页', owner: 'me' },
+  { id: 2, title: '更新组件文档', owner: 'team' },
+  { id: 3, title: '修复移动端布局', owner: 'me' },
 ];
 
-const renderBadge = (count: number, active = false) => {
-  return (
-    <Badge
-      count={count}
-      style={{
-        marginBlockStart: -2,
-        marginInlineStart: 4,
-        color: active ? '#1890FF' : '#999',
-        backgroundColor: active ? '#E6F7FF' : '#eee',
-      }}
-    />
-  );
-};
+export default () => {
+  const [activeKey, setActiveKey] = useState('all');
 
-const Demo = () => {
-  const [activeKey, setActiveKey] = useState<React.Key | undefined>('tab1');
-  const action = useRef<ActionType>();
   return (
-    <ProList<any>
-      rowKey="name"
-      actionRef={action}
-      dataSource={dataSource}
-      editable={{}}
-      columns={[
-        {
-          dataIndex: 'name',
-          listSlot: 'title',
-          valueType: 'select',
-          fieldProps: {
-            showSearch: true,
-            placement: 'bottomRight',
-            options: [{ label: '实验名称1', value: '实验名称1' }],
-          },
-        },
-        { dataIndex: 'desc', listSlot: 'description' },
-        {
-          dataIndex: 'content',
-          listSlot: 'content',
-          render: (text) => (
-            <div
-              key="label"
-              style={{ display: 'flex', justifyContent: 'space-around' }}
-            >
-              {(text as any[]).map((t) => (
-                <div key={t.label}>
-                  <div>{t.label}</div>
-                  <div>
-                    {t.status === 'success' && (
-                      <span
-                        style={{
-                          display: 'inline-block',
-                          width: 8,
-                          height: 8,
-                          borderRadius: '50%',
-                          backgroundColor: '#52c41a',
-                          marginInlineEnd: 8,
-                        }}
-                      />
-                    )}
-                    {t.value}
-                  </div>
-                </div>
-              ))}
-            </div>
-          ),
-        },
-        {
-          listSlot: 'actions',
-          render: (text, row) => [
-            <a
-              key="edit"
-              onClick={() => action.current?.startEditable(row.name)}
-            >
-              编辑
-            </a>,
-            <a key="copy">复制</a>,
-            <a key="delete">删除</a>,
-          ],
-        },
-      ]}
+    <ProList<Task>
+      rowKey="id"
+      columns={[{ title: '任务', dataIndex: 'title', listSlot: 'title' }]}
+      dataSource={tasks.filter((task) => activeKey === 'all' || task.owner === activeKey)}
+      pagination={false}
       toolbar={{
         menu: {
           activeKey,
           items: [
-            {
-              key: 'tab1',
-              label: (
-                <span>全部实验室{renderBadge(99, activeKey === 'tab1')}</span>
-              ),
-            },
-            {
-              key: 'tab2',
-              label: (
-                <span>
-                  我创建的实验室{renderBadge(32, activeKey === 'tab2')}
-                </span>
-              ),
-            },
+            { key: 'all', label: '全部任务' },
+            { key: 'me', label: '我的任务' },
           ],
-          onChange(key) {
-            setActiveKey(key);
-          },
+          onChange: (key) => setActiveKey(String(key)),
         },
-        search: {
-          onSearch: (value: string) => {
-            alert(value);
-          },
-        },
-        actions: [
-          <Button type="primary" key="primary">
-            新建实验
-          </Button>,
-        ],
       }}
     />
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

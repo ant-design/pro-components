@@ -1,118 +1,23 @@
 import type { ProFormInstance } from '@ant-design/pro-components';
 import { ModalForm, ProFormText } from '@ant-design/pro-components';
-import { Button, Space, message } from 'antd';
-import { useRef, useState } from 'react';
+import { Button } from 'antd';
+import { useRef } from 'react';
 
-const waitTime = (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-    }, time);
-  });
-};
-
-const Demo = () => {
-  const restFormRef = useRef<ProFormInstance>();
+export default () => {
   const formRef = useRef<ProFormInstance>();
-  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   return (
-    <Space>
-      <ModalForm
-        title="Create New Form"
-        formRef={restFormRef}
-        open={modalVisible}
-        trigger={
-          <Button
-            type="primary"
-            onClick={() => {
-              setModalVisible(true);
-            }}
-          >
-            Reset via formRef
-          </Button>
-        }
-        onOpenChange={setModalVisible}
-        submitter={{
-          searchConfig: {
-            resetText: 'Reset',
-          },
-          resetButtonProps: {
-            onClick: () => {
-              restFormRef.current?.resetFields();
-              //   setModalVisible(false);
-            },
-          },
-        }}
-        onFinish={async () => {
-          await waitTime(2000);
-
-          message.success('Submission successful');
-          return true;
-        }}
-      >
-        <ProFormText
-          width="md"
-          name="name"
-          label="Contract Customer Name"
-          tooltip="Up to 24 characters"
-          placeholder="Please enter a name"
-        />
-
-        <ProFormText
-          width="md"
-          name="company"
-          label="Our Company Name"
-          placeholder="Please enter a name"
-        />
-      </ModalForm>
-      <ModalForm
-        title="Create New Form"
-        formRef={formRef}
-        trigger={<Button type="primary">Reset via custom footer button</Button>}
-        submitter={{
-          render: (props, defaultDoms) => {
-            return [
-              ...defaultDoms,
-              <Button
-                key="extra-reset"
-                onClick={() => {
-                  props.reset();
-                }}
-              >
-                Reset
-              </Button>,
-            ];
-          },
-        }}
-        onFinish={async () => {
-          await waitTime(2000);
-
-          message.success('Submission successful');
-          return true;
-        }}
-      >
-        <ProFormText
-          width="md"
-          name="name"
-          label="Contract Customer Name"
-          tooltip="Up to 24 characters"
-          placeholder="Please enter a name"
-        />
-
-        <ProFormText
-          width="md"
-          name="company"
-          label="Our Company Name"
-          placeholder="Please enter a name"
-        />
-      </ModalForm>
-    </Space>
+    <ModalForm
+      title="使用 formRef 重置"
+      trigger={<Button type="primary">打开表单</Button>}
+      formRef={formRef}
+      submitter={{
+        searchConfig: { resetText: '重置字段' },
+        resetButtonProps: { onClick: () => formRef.current?.resetFields() },
+      }}
+      onFinish={async () => true}
+    >
+      <ProFormText name="name" label="客户名称" initialValue="青禾科技" />
+    </ModalForm>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

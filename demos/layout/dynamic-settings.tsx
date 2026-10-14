@@ -1,170 +1,34 @@
-import { LikeOutlined, UserOutlined } from '@ant-design/icons';
 import type { ProSettings } from '@ant-design/pro-components';
-import {
-  PageContainer,
-  ProLayout,
-  SettingDrawer,
-} from '@ant-design/pro-components';
-import { Button, Descriptions, Result, Space, Statistic } from 'antd';
+import { ProLayout, SettingDrawer } from '@ant-design/pro-components';
 import { useState } from 'react';
-import defaultProps from './_defaultProps';
-import { demoOnMenuHeaderClick } from './_demoHandlers';
 
-const content = (
-  <Descriptions size="small" column={2}>
-    <Descriptions.Item label="创建人">书琰</Descriptions.Item>
-    <Descriptions.Item label="联系方式">
-      <span>421421</span>
-    </Descriptions.Item>
-    <Descriptions.Item label="创建时间">2017-01-10</Descriptions.Item>
-    <Descriptions.Item label="更新时间">2017-10-10</Descriptions.Item>
-    <Descriptions.Item label="备注">
-      中国浙江省杭州市西湖区古翠路
-    </Descriptions.Item>
-  </Descriptions>
-);
-
-const Demo = () => {
-  const [settings, setSettings] = useState<Partial<ProSettings> | undefined>({
-    fixSiderbar: true,
+export default () => {
+  const [settings, setSettings] = useState<Partial<ProSettings>>({
+    layout: 'side',
   });
-  const [pathname, setPathname] = useState('/welcome');
+
   return (
-    <div
-      id="test-pro-layout"
-      style={{
-        height: '100vh',
-      }}
-    >
+    <div id="setting-drawer-demo" style={{ height: 560, overflow: 'auto' }}>
       <ProLayout
-        {...defaultProps}
-        location={{
-          pathname,
-        }}
-        waterMarkProps={{
-          content: 'Pro Layout',
-        }}
-        menuFooterRender={(props) => {
-          return (
-            <a
-              style={{
-                lineHeight: '48rpx',
-                display: 'flex',
-                height: 48,
-                color: 'rgba(255, 255, 255, 0.65)',
-                alignItems: 'center',
-              }}
-              href="https://preview.pro.ant.design/dashboard/analysis"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img
-                alt="pro-logo"
-                src="https://procomponents.ant.design/favicon.ico"
-                style={{
-                  width: 16,
-                  height: 16,
-                  margin: '0 16px',
-                  marginInlineEnd: 10,
-                }}
-              />
-              {!props?.collapsed && 'Preview Pro'}
-            </a>
-          );
-        }}
-        onMenuHeaderClick={demoOnMenuHeaderClick}
-        menuItemRender={(item, dom) => (
-          <div
-            role="button"
-            tabIndex={0}
-            onClick={() => {
-              setPathname(item.path || '/welcome');
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                setPathname(item.path || '/welcome');
-              }
-            }}
-          >
-            {dom}
-          </div>
-        )}
-        avatarProps={{
-          icon: <UserOutlined />,
-        }}
+        title="动态布局设置"
+        route={{ routes: [{ path: '/demo', name: '示例页' }] }}
+        location={{ pathname: '/demo' }}
         {...settings}
       >
-        <PageContainer
-          content={content}
-          tabList={[
-            {
-              tab: '基本信息',
-              key: 'base',
-            },
-            {
-              tab: '详细信息',
-              key: 'info',
-            },
-          ]}
-          extraContent={
-            <Space size={24}>
-              <Statistic
-                title="Feedback"
-                value={1128}
-                prefix={<LikeOutlined />}
-              />
-              <Statistic title="Unmerged" value={93} suffix="/ 100" />
-            </Space>
-          }
-          extra={[
-            <Button key="3">操作</Button>,
-            <Button key="2">操作</Button>,
-            <Button key="1" type="primary">
-              主操作
-            </Button>,
-          ]}
-          footer={[
-            <Button key="3">重置</Button>,
-            <Button key="2" type="primary">
-              提交
-            </Button>,
-          ]}
-        >
-          <div
-            style={{
-              height: '120vh',
-              minHeight: 600,
-            }}
-          >
-            <Result
-              status="404"
-              style={{
-                height: '100%',
-                background: '#fff',
-              }}
-              title="Hello World"
-              subTitle="Sorry, you are not authorized to access this page."
-              extra={<Button type="primary">Back Home</Button>}
-            />
-          </div>
-        </PageContainer>
+        <div style={{ minHeight: 320, padding: 24 }}>
+          <h2>SettingDrawer</h2>
+          <p>从右侧设置抽屉调整布局。</p>
+          <pre style={{ whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>
+            {JSON.stringify(settings, null, 2)}
+          </pre>
+        </div>
       </ProLayout>
       <SettingDrawer
-        pathname={pathname}
-        getContainer={() => document.getElementById('test-pro-layout')}
         settings={settings}
-        onSettingChange={(changeSetting) => {
-          setSettings(changeSetting);
-        }}
+        onSettingChange={setSettings}
+        getContainer={() => document.getElementById('setting-drawer-demo')}
         disableUrlParams
       />
     </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

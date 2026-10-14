@@ -1,160 +1,90 @@
-/* eslint-disable no-console */ import { PlusOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import { Button, Input, Select } from 'antd';
-import React, { useEffect, useState } from 'react';
+import type { FormInstance } from 'antd';
+import { Form, Input, Select } from 'antd';
+import { useEffect, useState } from 'react';
 
-type ServiceItem = {
-  key: number;
-  name: string;
-  createdAt: number;
-};
+type Service = { id: number; name: string };
 
-const MySelect: React.FC<{
-  state: {
-    type: number;
-  };
-  value?: string;
-  onChange?: (value: string) => void;
-}> = (props) => {
-  const { state } = props;
-
-  const [innerOptions, setOptions] = useState<
-    {
-      label: React.ReactNode;
-      value: number;
-    }[]
-  >([]);
+const PeriodDetail = ({ form }: { form: FormInstance }) => {
+  const period = Form.useWatch('period', form) || 'month';
+  const value = Form.useWatch('detail', form);
 
   useEffect(() => {
-    const { type } = state || {};
-    if (type === 2) {
-      setOptions([
-        { label: '星期一', value: 1 },
-        { label: '星期二', value: 2 },
-      ]);
-    } else {
-      setOptions([
-        { label: '一月', value: 1 },
-        { label: '二月', value: 2 },
-      ]);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [JSON.stringify(state)]);
+    form.setFieldValue('detail', undefined);
+  }, [form, period]);
+
+  if (period === 'custom') {
+    return (
+      <Input
+        value={value}
+        onChange={(event) => form.setFieldValue('detail', event.target.value)}
+        placeholder="输入自定义周期"
+      />
+    );
+  }
 
   return (
     <Select
-      options={innerOptions}
-      value={props.value}
-      onChange={props.onChange}
+      value={value}
+      onChange={(selected) => form.setFieldValue('detail', selected)}
+      placeholder="选择周期值"
+      options={
+        period === 'week'
+          ? [
+              { label: '星期一', value: 'week-1' },
+              { label: '星期二', value: 'week-2' },
+            ]
+          : [
+              { label: '一月', value: 'month-1' },
+              { label: '二月', value: 'month-2' },
+            ]
+      }
     />
   );
 };
 
-const Demo = () => {
-  const columns: ProColumns<ServiceItem>[] = [
-    {
-      title: '序号',
-      dataIndex: 'index',
-      valueType: 'indexBorder',
-    },
-    {
-      title: '服务名称',
-      dataIndex: 'name',
-    },
-    {
-      title: '动态表单',
-      key: 'direction',
-      hideInTable: true,
-      dataIndex: 'direction',
-      formItemRender: (
-        item,
-        { type, defaultRender: _defaultRender, ...rest },
-        form,
-      ) => {
-        if (type === 'form') {
-          return null;
-        }
-        const stateType = form.getFieldValue('state');
-        if (stateType === 3) {
-          return <Input />;
-        }
-        if (stateType === 4) {
-          return null;
-        }
-        return (
-          <MySelect
-            {...rest}
-            state={{
-              type: stateType,
-            }}
-          />
-        );
-      },
-    },
-    {
-      title: '查询周期',
-      dataIndex: 'state',
-      initialValue: 1,
-      valueType: 'select',
-      request: async () => [
-        { label: '按月', value: 1 },
-        { label: '按周', value: 2 },
-        { label: '自定义', value: 3 },
-        { label: '不展示', value: 4 },
-      ],
-    },
-  ];
+export default () => {
+  const [query, setQuery] = useState('');
 
   return (
-    <ProTable<ServiceItem>
-      columns={columns}
-      request={async (_params) => {
-
-        return {
-          data: [
-            {
-              key: 1,
-              name: '用户认证服务',
-              createdAt: 1705286400000,
-              state: 'closed',
+    <div style={{ maxWidth: '100%', padding: 16 }}>
+      <ProTable<Service>
+        rowKey="id"
+        columns={[
+          { title: '服务', dataIndex: 'name', search: false },
+          {
+            title: '查询周期',
+            dataIndex: 'period',
+            hideInTable: true,
+            valueType: 'select',
+            initialValue: 'month',
+            valueEnum: {
+              month: '按月',
+              week: '按周',
+              custom: '自定义',
             },
-          ],
-          total: 1,
+          },
+          {
+            title: '周期值',
+            dataIndex: 'detail',
+            hideInTable: true,
+            formItemRender: (_, __, form) => <PeriodDetail form={form} />,
+          },
+        ]}
+        request={async () => ({
+          data: [{ id: 1, name: '用户认证服务' }],
           success: true,
-        };
-      }}
-      rowKey="key"
-      tableLayout="fixed"
-      dateFormatter="string"
-      headerTitle="动态联动搜索栏"
-      search={{
-        defaultCollapsed: false,
-        optionRender: (searchConfig, formProps, dom) => [
-          ...dom.reverse(),
-          <Button
-            key="export"
-            onClick={() => {
-              const _values = searchConfig?.form?.getFieldsValue();
-
-            }}
-          >
-            导出
-          </Button>,
-        ],
-      }}
-      toolBarRender={() => [
-        <Button key="new" type="primary">
-          <PlusOutlined />
-          新建
-        </Button>,
-      ]}
-    />
+        })}
+        onSubmit={(values) => setQuery(JSON.stringify(values, null, 2))}
+        search={{ defaultCollapsed: false }}
+        options={false}
+        pagination={false}
+      />
+      {query && (
+        <pre style={{ whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>
+          {query}
+        </pre>
+      )}
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

@@ -22,7 +22,7 @@ return <Skeleton type="list" />;
 
 <code src="../../demos/skeleton/list.tsx" title="列表页面" ></code>
 
-<code src="../../demos/skeleton/list.static.tsx" title="静态列表" debug></code>
+<code src="../../demos/skeleton/list.static.tsx" title="list：显示两个统计占位"></code>
 
 <code src="../../demos/skeleton/result.tsx" title="结果页"></code>
 

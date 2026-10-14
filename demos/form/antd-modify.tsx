@@ -1,66 +1,49 @@
-import {
-  WithControlPropsType,
-  useControlModel,
-} from '@ant-design/pro-components';
-import { Button, Form, Input, message, Select } from 'antd';
-import React from 'react';
+import type { WithControlPropsType } from '@ant-design/pro-components';
+import { useControlModel } from '@ant-design/pro-components';
+import { Button, Form, InputNumber, Select, Space } from 'antd';
+import { useState } from 'react';
 
-export function PriceInput(
-  props: WithControlPropsType<{
-    // other props...
-  }>,
-) {
+type Currency = 'rmb' | 'dollar';
+type Price = { number: number; currency: Currency };
+type Values = { price: Price };
+
+function PriceInput(props: WithControlPropsType<{}>) {
   const model = useControlModel(props, ['number', 'currency']);
 
   return (
-    <span>
-      <Input type="text" {...model.number} style={{ width: 100 }} />
-      <Select {...model.currency} style={{ width: 80, margin: '0 8px' }}>
-        <Select.Option value="rmb">RMB</Select.Option>
-        <Select.Option value="dollar">Dollar</Select.Option>
-      </Select>
-    </span>
+    <Space wrap>
+      <InputNumber<number> aria-label="金额" min={0} {...model.number} />
+      <Select<Currency>
+        aria-label="币种"
+        {...model.currency}
+        style={{ width: 120 }}
+        options={[
+          { label: '人民币', value: 'rmb' },
+          { label: '美元', value: 'dollar' },
+        ]}
+      />
+    </Space>
   );
 }
 
-const App: React.FC = () => {
-  const onFinish = () => {
-    message.success('表单已提交');
-  };
-
-  const checkPrice = (_: any, value: { number: number }) => {
-    if (value.number > 0) {
-      return Promise.resolve();
-    }
-    return Promise.reject(new Error('Price must be greater than zero!'));
-  };
+export default () => {
+  const [submitted, setSubmitted] = useState<Values>();
 
   return (
-    <Form
-      name="customized_form_controls_modify"
-      layout="inline"
-      onFinish={onFinish}
-      initialValues={{
-        price: {
-          number: 0,
-          currency: 'rmb',
-        },
-      }}
-    >
-      <Form.Item name="price" label="Price" rules={[{ validator: checkPrice }]}>
-        <PriceInput />
-      </Form.Item>
-      <Form.Item>
+    <div style={{ padding: 24 }}>
+      <Form<Values>
+        layout="vertical"
+        initialValues={{ price: { number: 100, currency: 'rmb' } }}
+        onFinish={setSubmitted}
+      >
+        <Form.Item name="price" label="价格">
+          <PriceInput />
+        </Form.Item>
         <Button type="primary" htmlType="submit">
-          Submit
+          提交
         </Button>
-      </Form.Item>
-    </Form>
+      </Form>
+      <p>提交结果：{submitted ? JSON.stringify(submitted) : '尚未提交'}</p>
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <App />
-  </div>
-);

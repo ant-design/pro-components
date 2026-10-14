@@ -1,58 +1,28 @@
-import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
+import { useCallback, useState } from 'react';
 
-import { createTableDataSource, DEMO_CREATOR_VALUE_ENUM } from '../mockData';
+type Task = { id: number; title: string };
 
-type TableListItem = {
-  key: number;
-  name: string;
-  containers: number;
-  creator: string;
+export default () => {
+  const [loads, setLoads] = useState(0);
+  const request = useCallback(async () => {
+    setLoads((count) => count + 1);
+    return {
+      data: [{ id: 1, title: '点击右上角刷新按钮重新加载' }],
+      total: 1,
+      success: true,
+    };
+  }, []);
+
+  return (
+    <ProTable<Task>
+      rowKey="id"
+      headerTitle={`无查询表单，已加载 ${loads} 次`}
+      search={false}
+      options={{ reload: true, setting: false, density: false }}
+      pagination={false}
+      columns={[{ title: '任务', dataIndex: 'title' }]}
+      request={request}
+    />
+  );
 };
-
-const tableListDataSource = createTableDataSource({
-  count: 5,
-}) as TableListItem[];
-
-const columns: ProColumns<TableListItem>[] = [
-  {
-    title: '应用名称',
-    dataIndex: 'name',
-    render: (_) => <a>{_}</a>,
-  },
-  {
-    title: '容器数量',
-    dataIndex: 'containers',
-    align: 'right',
-    sorter: (a, b) => a.containers - b.containers,
-  },
-  {
-    title: '创建者',
-    dataIndex: 'creator',
-    valueType: 'select',
-    valueEnum: DEMO_CREATOR_VALUE_ENUM,
-  },
-  {
-    title: '操作',
-    key: 'option',
-    width: 120,
-    valueType: 'option',
-    render: () => [<a key="link">链路</a>, <a key="warn">报警</a>],
-  },
-];
-
-export default () => (
-  <ProTable<TableListItem>
-    columns={columns}
-    request={() =>
-      Promise.resolve({
-        data: tableListDataSource,
-        total: tableListDataSource.length,
-        success: true,
-      })
-    }
-    rowKey="key"
-    search={false}
-    options={{ reload: true, setting: true }}
-  />
-);

@@ -1,31 +1,25 @@
-﻿import type { ProFormColumnsType } from '@ant-design/pro-components';
-import { BetaSchemaForm, ProForm } from '@ant-design/pro-components';
+import type { ProFormColumnsType } from '@ant-design/pro-components';
+import { BetaSchemaForm } from '@ant-design/pro-components';
+import { useState } from 'react';
 
-const valueEnum = {
-  money: { text: '按金额' },
-  discount: { text: '按折扣' },
+type Discount = {
+  type?: 'money' | 'rate';
+  amount?: number;
+  rate?: number;
 };
 
-type DataItem = {
-  name: string;
-  state: string;
-};
-
-const columns: ProFormColumnsType<DataItem>[] = [
+const columns: ProFormColumnsType<Discount>[] = [
   {
     title: '优惠方式',
     dataIndex: 'type',
-    formItemProps: {
-      rules: [
-        {
-          required: true,
-          message: '此项为必填项',
-        },
-      ],
-    },
     valueType: 'select',
-    valueEnum,
-    width: 'm',
+    valueEnum: {
+      money: { text: '按金额' },
+      rate: { text: '按折扣率' },
+    },
+    formItemProps: {
+      rules: [{ required: true, message: '请选择优惠方式' }],
+    },
   },
   {
     valueType: 'dependency',
@@ -34,64 +28,42 @@ const columns: ProFormColumnsType<DataItem>[] = [
       if (type === 'money') {
         return [
           {
-            dataIndex: 'money',
             title: '优惠金额',
-            width: 'm',
-            valueType: 'money',
+            dataIndex: 'amount',
+            valueType: 'digit',
+            formItemProps: { preserve: false },
           },
         ];
       }
-
-      if (type === 'discount') {
+      if (type === 'rate') {
         return [
           {
-            dataIndex: 'discount',
-            title: '折扣',
+            title: '折扣率',
+            dataIndex: 'rate',
             valueType: 'digit',
-            width: 'm',
-            fieldProps: {
-              precision: 2,
-            },
+            fieldProps: { min: 0, max: 100 },
+            formItemProps: { preserve: false },
           },
         ];
       }
-
       return [];
     },
   },
 ];
 
-const Demo = () => {
+export default () => {
+  const [submitted, setSubmitted] = useState('');
+
   return (
-    <>
-      <h1>普通json表单</h1>
-      <BetaSchemaForm<DataItem>
-        onFinish={async () => {
-
-        }}
+    <div style={{ maxWidth: 480, padding: 16 }}>
+      <BetaSchemaForm<Discount>
+        layoutType="Form"
         columns={columns}
+        onFinish={async (values) =>
+          setSubmitted(JSON.stringify(values, null, 2))
+        }
       />
-      <h1>嵌套json表单</h1>
-      <ProForm
-        name="schema-form-dependency-demo"
-        initialValues={{
-          type: 'money',
-        }}
-      >
-        <BetaSchemaForm<DataItem>
-          layoutType="Embed"
-          onFinish={async () => {
-
-          }}
-          columns={columns}
-        />
-      </ProForm>
-    </>
+      {submitted && <pre style={{ overflowX: 'auto' }}>{submitted}</pre>}
+    </div>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

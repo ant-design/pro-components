@@ -35,19 +35,25 @@ atomId: StatisticCard
 ### 额外指标
 
 - `footer` 用于设置额外的指标展示区域。
-- 你可以设置 `Statistic` 组件的布局方式`layout` 为 `horizontal` 来展示横向指标。
+- 你可以设置 `Statistic` 组件的布局方式 `layout="horizontal"` 来展示横向指标。
+
+<code src="../../demos/card/StatisticCard/footer.tsx" background="var(--main-bg-color)" title="footer 额外指标"></code>
 
 ### 总分 / 主次关系
 
 <code src="../../demos/card/StatisticCard/total.tsx" background="var(--main-bg-color)" oldtitle="总分/主次关系" ></code>
 
-### 总分 / 业绩目标
+### 响应式业绩总览
 
-<code src="../../demos/card/StatisticCard/total-layout.tsx" background="var(--main-bg-color)" oldtitle="总分/业绩目标" ></code>
+`RcResizeObserver` 根据容器宽度切换 `ProCard.split`，两张卡在窄屏纵向排列。
+
+<code src="../../demos/card/StatisticCard/total-layout.tsx" background="var(--main-bg-color)" title="响应式业绩总览"></code>
 
 ### 分组指标
 
-你可以嵌套指标卡组件来将指标分组，以及 `Divider` 子组件来分隔这些指标。
+你可以用 `StatisticCard.Group` 将指标分组，使用 `Divider` 分隔。
+
+<code src="../../demos/card/StatisticCard/group.tsx" background="var(--main-bg-color)" title="分组指标"></code>
 
 ### 分组指标带图表
 
@@ -73,9 +79,9 @@ atomId: StatisticCard
 
 ### 卡片布局
 
-配合 `ProCard` 的卡片切分能力可以实现复杂的卡片布局。
+用 `ProCard` 的 `direction="column"` 与 `split="horizontal"` 将两张 `StatisticCard` 组合为上下分栏。
 
-<code src="../../demos/card/StatisticCard/layout.tsx" background="var(--main-bg-color)" old></code>
+<code src="../../demos/card/StatisticCard/layout.tsx" background="var(--main-bg-color)" title="统计卡片上下分栏"></code>
 
 ### 图表在右
 

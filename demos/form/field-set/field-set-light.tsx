@@ -4,56 +4,35 @@ import {
   ProFormSelect,
   ProFormText,
 } from '@ant-design/pro-components';
+import { useState } from 'react';
 
-export function App() {
+export default () => {
+  const [result, setResult] = useState('');
+
   return (
-    <div className="App">
+    <div style={{ padding: 24 }}>
       <LightFilter
-        initialValues={{
-          name: [
-            {
-              label: '包含',
-              value: 'Like',
-            },
-            '123',
-          ],
+        onFinish={async (values) => {
+          setResult(JSON.stringify(values, null, 2));
         }}
-        placement={'bottomLeft'}
       >
         <ProFormFieldSet
-          label="筛选"
-          name={'name'}
-          transform={(value: any) => {
-            return {
-              filter: [
-                {
-                  operator: value[0],
-                  value: value[1],
-                },
-              ],
-            };
-          }}
+          name="condition"
+          label="筛选条件"
+          transform={([operator, keyword]) => ({
+            filter: { operator, keyword },
+          })}
         >
           <ProFormSelect
-            fieldProps={{
-              labelInValue: true,
-            }}
-            valueEnum={{
-              Like: '包合',
-              NotLike: '不包合',
-              Eq: '等于',
-              NotEq: '不等于',
-            }}
+            options={[
+              { value: 'contains', label: '包含' },
+              { value: 'equals', label: '等于' },
+            ]}
           />
-          <ProFormText placeholder="请输入" />
+          <ProFormText placeholder="输入关键词" />
         </ProFormFieldSet>
       </LightFilter>
+      {result && <pre aria-label="筛选结果">{result}</pre>}
     </div>
   );
-}
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <App />
-  </div>
-);
+};

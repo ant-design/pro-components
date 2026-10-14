@@ -1,101 +1,38 @@
-/**
- * columns API 配合可编辑列表
- */
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProList } from '@ant-design/pro-components';
-import { Space, Tag } from 'antd';
 import { useState } from 'react';
 
-const defaultData = [
-  {
-    id: '1',
-    name: '智慧零售平台',
-    image:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-    desc: '我是一条测试的描述',
-  },
-  {
-    id: '2',
-    name: 'Ant Design',
-    image:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-    desc: '我是一条测试的描述',
-  },
-  {
-    id: '3',
-    name: '云原生微服务框架',
-    image:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-    desc: '我是一条测试的描述',
-  },
-];
+type Task = { id: number; title: string; description: string };
 
-type DataItem = (typeof defaultData)[number];
-
-const columns: ProColumns<DataItem>[] = [
+const columns: ProColumns<Task>[] = [
+  { title: '任务', dataIndex: 'title', listSlot: 'title' },
+  { title: '说明', dataIndex: 'description', listSlot: 'description' },
   {
-    title: '名称',
-    dataIndex: 'name',
-    listSlot: 'title',
-  },
-  {
-    dataIndex: 'image',
-    listSlot: 'avatar',
-    editable: false,
-  },
-  {
-    title: '描述',
-    dataIndex: 'desc',
-    listSlot: 'description',
-  },
-  {
-    listSlot: 'subTitle',
-    search: false,
-    editable: false,
-    render: () => (
-      <Space size={8}>
-        <Tag color="blue">Ant Design</Tag>
-        <Tag color="#5BD8A6">可视化</Tag>
-      </Space>
-    ),
-  },
-  {
+    title: '操作',
     listSlot: 'actions',
-    search: false,
-    render: (_, row, __, action) => [
-      <a
-        onClick={() => {
-          action?.startEditable(row.id);
-        }}
-        key="edit"
-      >
+    render: (_, task, __, action) => [
+      <a key="edit" onClick={() => action?.startEditable(task.id)}>
         编辑
       </a>,
     ],
   },
 ];
 
-const Demo = () => {
-  const [dataSource, setDataSource] = useState<DataItem[]>(defaultData);
+export default () => {
+  const [tasks, setTasks] = useState<Task[]>([
+    { id: 1, title: '检查首页', description: '确认布局适配' },
+    { id: 2, title: '更新文档', description: '补充 API 说明' },
+  ]);
+
   return (
-    <ProList<DataItem>
+    <ProList<Task>
       rowKey="id"
-      headerTitle="可编辑列表（columns API）"
-      dataSource={dataSource}
-      editable={{
-        onSave: async (key, record, originRow) => {
-          console.log(key, record, originRow);
-          return true;
-        },
-      }}
-      onDataSourceChange={setDataSource}
+      headerTitle="编辑列表项"
       columns={columns}
+      dataSource={tasks}
+      onDataSourceChange={setTasks}
+      editable={{ onSave: async () => true }}
+      pagination={false}
     />
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);

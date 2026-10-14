@@ -12,47 +12,93 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 ### Edit mode switch
 
-Use a segmented control to toggle `editable.type` between inline single-row editing (`single`) and multi-row editing (`multiple`).
+Switch `editable.type` with the segmented control. Edit both rows: `single` keeps one row in edit mode, while `multiple` allows both. Save to inspect the table value.
 
-<code src="../../demos/table/enum-editable-type.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/table/enum-editable-type.tsx" background="var(--main-bg-color)" title="editable.type: single and multiple rows"></code>
 
 ### Editable Table
 
+`value` and `onChange` control table data; `editable.editableKeys` controls the rows being edited.
+
 <code src="../../demos/table/editable-table/basic.tsx" background="var(--main-bg-color)" title="Basic editable table"></code>
+
+### New row position
+
+`recordCreatorProps.position` places the create button at the top or bottom. Set the prop to `false` to hide it.
+
+<code src="../../demos/table/editable-table/record-creator-position.tsx" background="var(--main-bg-color)" title="New row position"></code>
 
 ### Cell editing
 
-<code src="../../demos/table/editable-table/cell-editor-table.tsx" background="var(--main-bg-color)" title="Cell editor"></code>
+Double-click a cell in `CellEditorTable` to edit its value. Changes appear in the data below.
+
+<code src="../../demos/table/editable-table/cell-editor-table.tsx" background="var(--main-bg-color)" title="CellEditorTable: edit a cell"></code>
+
+Use `${rowKey}:${dataIndex}` in `editable.editableKeys` to activate only one cell. Edit the first name and save to see the updated value.
 
 <code src="../../demos/table/editable-table/cell-editable-keys.tsx" background="var(--main-bg-color)" title="Cell-level editableKeys"></code>
 
 ### Row editing
 
-<code src="../../demos/table/editable-table/row-editor-table.tsx" background="var(--main-bg-color)" title="Row editor"></code>
+Double-click a cell in `RowEditorTable` to edit both the task name and owner in that row. Changes appear in the data below.
+
+<code src="../../demos/table/editable-table/row-editor-table.tsx" background="var(--main-bg-color)" title="RowEditorTable: edit a row"></code>
 
 ### With Form.Item
 
+Bind `EditableProTable` to its parent `ProForm` with `name`. Save an edited row and submit the form to see the updated array.
+
 <code src="../../demos/table/editable-table/form-item.tsx" background="var(--main-bg-color)" title="Editable table inside Form.Item"></code>
+
+`controlled` determines whether edits call `onChange` immediately or after the row is saved.
+
+<code src="../../demos/table/editable-table/controlled-form.tsx" title="Live controlled updates"></code>
+
+`editableFormRef.current.getRowsData()` reads the rows being edited.
+
+<code src="../../demos/table/editable-table/editable-form-ref-get-rows.tsx" title="Read editable row data"></code>
 
 ### Linked with outer form fields
 
-<code src="../../demos/table/editable-table/form-linkage.tsx" background="var(--main-bg-color)" title="Linkage outside the table"></code>
+`EditableProTable` writes to the parent form through `name`. With `controlled`, `ProFormDependency` updates the total as hours are edited.
+
+<code src="../../demos/table/editable-table/form-linkage.tsx" background="var(--main-bg-color)" title="Live total outside the table"></code>
 
 ### Table with grouped child columns
 
-<code src="../../demos/table/editable-table/children.tsx" background="var(--main-bg-color)" title="Nested column headers"></code>
+`recordCreatorProps.parentKey` places a new editable row under the selected parent. The nested data appears below the table.
+
+<code src="../../demos/table/editable-table/children.tsx" background="var(--main-bg-color)" title="Add a child row"></code>
 
 ### Custom editable table
 
+`columns.formItemRender` replaces the label cell with a custom input control.
+
 <code src="../../demos/table/editable-table/custom.tsx" background="var(--main-bg-color)" title="Custom editable table"></code>
 
-### Real-time persisted editing
+### Add an editable row through actionRef
 
-<code src="../../demos/table/editable-table/real-time-editing.tsx" background="var(--main-bg-color)" title="Save while editing"></code>
+`actionRef.current.addEditRecord` creates a row from outside the table and opens it for editing.
 
-### Advanced sample
+<code src="../../demos/table/editable-table/action-ref-add.tsx" background="var(--main-bg-color)" title="Add an editable row"></code>
 
-<code src="../../demos/table/editable-table/complex.tsx" background="var(--main-bg-color)" title="Complex editable scenarios"></code>
+### Copy an existing row
+
+`EditableProTable.RecordCreator` creates a row from an existing record with a unique `id`.
+
+<code src="../../demos/table/editable-table/record-creator-copy.tsx" background="var(--main-bg-color)" title="Copy a row"></code>
+
+### Live edit state
+
+`editable.onValuesChange` updates local data as you type; the current values appear below the table.
+
+<code src="../../demos/table/editable-table/real-time-editing.tsx" background="var(--main-bg-color)" title="Update while editing"></code>
+
+### Editable tables in tabs
+
+`Tabs.items` hosts one `EditableProTable` per table. `value` and `onChange` keep each tab's field descriptions in local state.
+
+<code src="../../demos/table/editable-table/complex.tsx" background="var(--main-bg-color)" title="Editable tables in tabs"></code>
 
 ## EditableProTable
 
@@ -129,27 +175,27 @@ Compared with the ProForm form, the editable form adds the following three metho
 
 ### editable edit line configuration
 
-| Property                      | Description                                                                                                                                                                            | Type                                                                     | Default Value                                  |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------- |
-| type                          | Type of editable table, single or multiple                                                                                                                                             | `single` \| `multiple`                                                   | -                                              |
-| form                          | Form instance of editable form, use `Form.useForm` to generate and use                                                                                                                 | `FormInstance`                                                           | -                                              |
-| formProps                     | form properties can be configured, but onFinish is not supported                                                                                                                       | [\`FormProps'](https://procomponents.ant.design/components/form#proform) | -                                              |
-| editableKeys                  | Row being edited, controlled attributes. The default`key` will use the configuration of `rowKey`,if there is no configuration, it will use the`index`, it is recommended to use rowKey. Supports cell-level composite keys `` `${rowKey}:${dataIndex}` `` (e.g. `['1:name']` activates only that cell); row keys and cell keys can be mixed. In cell mode the option column does not render save/cancel buttons | `Key[]`                                                                  | -                                              |
-| onChange                      | Triggered when row data is modified                                                                                                                                                    | `(editableKeys: Key[], editableRows: T[]) => void`                       | -                                              |
-| onValuesChange                | Triggered when row values change                                                                                                                                                       | `(record: T, dataSource: T[]) => void`                                   | -                                              |
-| onSave                        | Triggered when a row is saved                                                                                                                                                          | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>`  | -                                              |
-| saveText                      | Text for saving a row                                                                                                                                                                  | `React.ReactNode`                                                        | `Save`                                         |
-| onDelete                      | Triggered when a row is deleted                                                                                                                                                        | `(key: Key, row: T) => Promise<any>`                                     | -                                              |
-| deleteText                    | Text for deleting a row                                                                                                                                                                | `React.ReactNode`                                                        | `Delete`                                       |
-| onCancel                      | Triggered when cancel editing a line                                                                                                                                                   | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>`  | -                                              |
-| cancelText                    | Text for canceling the editing of a row                                                                                                                                                | `React.ReactNode`                                                        | `Cancel`                                       |
-| actionRender                  | Custom edit mode action bar                                                                                                                                                            | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]`                 | -                                              |
-| deletePopconfirmMessage       | The pop-up confirmation box prompt message when deleting                                                                                                                               | `ReactNode`                                                              | `Delete this line?`                            |
-| onlyOneLineEditorAlertMessage | Only one line can be edited                                                                                                                                                            | `ReactNode`                                                              | `Only one line can be edited at the same time` |
-| onlyAddOneLineAlertMessage    | Only one line can be added at the same time                                                                                                                                            | `ReactNode`                                                              | `Only add one line`                            |
-| tableName                     | The name set on the Table, used to splice names to get data                                                                                                                            | `NamePath`                                                               | -                                              |
-| getRealIndex                  | Fix FormItem namePath using the wrong index as path caused by pagination ([issue #7790](https://github.com/ant-design/pro-components/issues/7790))                                      | `(record: T) => number`                                                  | -                                              |
-| dateFormatter                 | Same as ProTable `dateFormatter`; converts in-row dayjs to string or number when merging into dataSource                                                                                | `'string' \| 'number' \| false \| ((value, valueType) => string \| number)` | -                                           |
+| Property                      | Description                                                                                                                                                                                                                                                                                                                                                                                                     | Type                                                                        | Default Value                                  |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------- |
+| type                          | Type of editable table, single or multiple                                                                                                                                                                                                                                                                                                                                                                      | `single` \| `multiple`                                                      | -                                              |
+| form                          | Form instance of editable form, use `Form.useForm` to generate and use                                                                                                                                                                                                                                                                                                                                          | `FormInstance`                                                              | -                                              |
+| formProps                     | form properties can be configured, but onFinish is not supported                                                                                                                                                                                                                                                                                                                                                | [\`FormProps'](https://procomponents.ant.design/components/form#proform)    | -                                              |
+| editableKeys                  | Row being edited, controlled attributes. The default`key` will use the configuration of `rowKey`,if there is no configuration, it will use the`index`, it is recommended to use rowKey. Supports cell-level composite keys `` `${rowKey}:${dataIndex}` `` (e.g. `['1:name']` activates only that cell); row keys and cell keys can be mixed. In cell mode the option column does not render save/cancel buttons | `Key[]`                                                                     | -                                              |
+| onChange                      | Triggered when row data is modified                                                                                                                                                                                                                                                                                                                                                                             | `(editableKeys: Key[], editableRows: T[]) => void`                          | -                                              |
+| onValuesChange                | Triggered when row values change                                                                                                                                                                                                                                                                                                                                                                                | `(record: T, dataSource: T[]) => void`                                      | -                                              |
+| onSave                        | Triggered when a row is saved                                                                                                                                                                                                                                                                                                                                                                                   | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>`     | -                                              |
+| saveText                      | Text for saving a row                                                                                                                                                                                                                                                                                                                                                                                           | `React.ReactNode`                                                           | `Save`                                         |
+| onDelete                      | Triggered when a row is deleted                                                                                                                                                                                                                                                                                                                                                                                 | `(key: Key, row: T) => Promise<any>`                                        | -                                              |
+| deleteText                    | Text for deleting a row                                                                                                                                                                                                                                                                                                                                                                                         | `React.ReactNode`                                                           | `Delete`                                       |
+| onCancel                      | Triggered when cancel editing a line                                                                                                                                                                                                                                                                                                                                                                            | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>`     | -                                              |
+| cancelText                    | Text for canceling the editing of a row                                                                                                                                                                                                                                                                                                                                                                         | `React.ReactNode`                                                           | `Cancel`                                       |
+| actionRender                  | Custom edit mode action bar                                                                                                                                                                                                                                                                                                                                                                                     | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]`                    | -                                              |
+| deletePopconfirmMessage       | The pop-up confirmation box prompt message when deleting                                                                                                                                                                                                                                                                                                                                                        | `ReactNode`                                                                 | `Delete this line?`                            |
+| onlyOneLineEditorAlertMessage | Only one line can be edited                                                                                                                                                                                                                                                                                                                                                                                     | `ReactNode`                                                                 | `Only one line can be edited at the same time` |
+| onlyAddOneLineAlertMessage    | Only one line can be added at the same time                                                                                                                                                                                                                                                                                                                                                                     | `ReactNode`                                                                 | `Only add one line`                            |
+| tableName                     | The name set on the Table, used to splice names to get data                                                                                                                                                                                                                                                                                                                                                     | `NamePath`                                                                  | -                                              |
+| getRealIndex                  | Fix FormItem namePath using the wrong index as path caused by pagination ([issue #7790](https://github.com/ant-design/pro-components/issues/7790))                                                                                                                                                                                                                                                              | `(record: T) => number`                                                     | -                                              |
+| dateFormatter                 | Same as ProTable `dateFormatter`; converts in-row dayjs to string or number when merging into dataSource                                                                                                                                                                                                                                                                                                        | `'string' \| 'number' \| false \| ((value, valueType) => string \| number)` | -                                              |
 
 ### recordCreatorProps New button configuration
 

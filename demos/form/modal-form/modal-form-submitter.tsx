@@ -1,149 +1,41 @@
-﻿import { ModalForm, ProFormText } from '@ant-design/pro-components';
-import { Button, Space, message } from 'antd';
+import { ModalForm, ProFormText } from '@ant-design/pro-components';
+import { Alert, Button } from 'antd';
+import { useState } from 'react';
 
-const waitTime = (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-    }, time);
-  });
-};
+export default () => {
+  const [saved, setSaved] = useState('');
 
-const Demo = () => {
   return (
-    <Space>
-      <ModalForm
-        title="Create New Form"
-        trigger={<Button type="primary">Custom Footer Buttons</Button>}
+    <>
+      <ModalForm<{ name: string }>
+        title="自定义提交区"
+        trigger={<Button type="primary">打开表单</Button>}
         submitter={{
-          render: (props, defaultDoms) => {
-            return [
-              ...defaultDoms,
-              <Button
-                key="ok"
-                onClick={() => {
-                  props.submit();
-                }}
-              >
-                ok
-              </Button>,
-            ];
-          },
+          render: (props, defaultButtons) => [
+            ...defaultButtons,
+            <Button key="extra" onClick={() => props.submit()}>
+              额外提交
+            </Button>,
+          ],
         }}
-        onFinish={async () => {
-          await waitTime(2000);
-
-          message.success('Submission successful');
+        onFinish={async ({ name }) => {
+          setSaved(name);
           return true;
         }}
       >
         <ProFormText
-          width="md"
           name="name"
-          label="Contract Customer Name"
-          tooltip="Up to 24 characters"
-          placeholder="Please enter a name"
-        />
-
-        <ProFormText
-          width="md"
-          name="company"
-          label="Our Company Name"
-          placeholder="Please enter a name"
+          label="客户名称"
+          rules={[{ required: true }]}
         />
       </ModalForm>
-      <ModalForm
-        title="Create New Form"
-        trigger={<Button type="primary">Custom Text</Button>}
-        submitter={{
-          searchConfig: {
-            submitText: 'Confirm',
-            resetText: 'Cancel',
-          },
-        }}
-        onFinish={async () => {
-          await waitTime(2000);
-
-          message.success('Submission successful');
-          return true;
-        }}
-      >
-        <ProFormText
-          width="md"
-          name="name"
-          label="Contract Customer Name"
-          tooltip="Up to 24 characters"
-          placeholder="Please enter a name"
+      {saved && (
+        <Alert
+          type="success"
+          message={`已提交：${saved}`}
+          style={{ marginTop: 16 }}
         />
-
-        <ProFormText
-          width="md"
-          name="company"
-          label="Our Company Name"
-          placeholder="Please enter a name"
-        />
-      </ModalForm>
-      <ModalForm
-        title="Create New Form"
-        trigger={<Button type="primary">Hide or Modify Button Style</Button>}
-        submitter={{
-          resetButtonProps: {
-            type: 'dashed',
-          },
-          submitButtonProps: {
-            style: {
-              display: 'none',
-            },
-          },
-        }}
-        onFinish={async () => {
-          await waitTime(2000);
-
-          message.success('Submission successful');
-          return true;
-        }}
-      >
-        <ProFormText
-          width="md"
-          name="name"
-          label="Contract Customer Name"
-          tooltip="Up to 24 characters"
-          placeholder="Please enter a name"
-        />
-
-        <ProFormText
-          width="md"
-          name="company"
-          label="Our Company Name"
-          placeholder="Please enter a name"
-        />
-      </ModalForm>
-      <ModalForm
-        title="Hide Footer"
-        trigger={<Button type="primary">Hide Footer</Button>}
-        submitter={false}
-      >
-        <ProFormText
-          width="md"
-          name="name"
-          label="Contract Customer Name"
-          tooltip="Up to 24 characters"
-          placeholder="Please enter a name"
-        />
-
-        <ProFormText
-          width="md"
-          name="company"
-          label="Our Company Name"
-          placeholder="Please enter a name"
-        />
-      </ModalForm>
-    </Space>
+      )}
+    </>
   );
 };
-
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);
