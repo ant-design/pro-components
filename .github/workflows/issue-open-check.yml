@@ -4,31 +4,27 @@ on:
   issues:
     types: [opened, edited]
 
+permissions:
+  issues: write
+
 jobs:
   check-issue:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/issues-helper@v2.2.0
-        id: check
-        with:
-          actions: 'check-issue'
-          issue-number: ${{ github.event.issue.number }}
-          title-excludes: '🐛[BUG], 👑 [需求], 🧐[问题]'
-
-      - if: steps.check.outputs.check-result == 'false'
-        uses: actions-cool/issues-helper@v2.2.0
-        with:
-          actions: 'create-comment, close-issue'
-          issue-number: ${{ github.event.issue.number }}
-          body: |
-            当前 Issue 未检测到标题，请规范填写，谢谢！
-
-            The title of the current issue is not detected, please fill in according to the specifications, thank you!
-
-      - if: steps.check.outputs.check-result == 'true'
-        uses: actions-cool/issues-similarity-analysis@v1.1.0
-        with:
-          filter-threshold: 0.6
-          title-excludes: '🐛[BUG], 👑 [需求], 🧐[问题]'
-          comment-title: '### 以下的 Issues 可能会帮助到你 / The following issues may help you'
-          show-footer: false
+      - name: Check issue title
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node <<'NODE'
+          const { readFileSync } = require('node:fs');
+          const { execFileSync } = require('node:child_process');
+          const event = JSON.parse(readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+          const title = ['🐛[BUG]', '👑 [需求]', '🧐[问题]']
+            .reduce((value, prefix) => value.replace(prefix, ''), event.issue.title)
+            .trim();
+          if (title) process.exit(0);
+          const endpoint = `repos/${process.env.GITHUB_REPOSITORY}/issues/${event.issue.number}`;
+          const body = '当前 Issue 未检测到标题，请规范填写，谢谢！\n\nThe title of the current issue is not detected, please fill in according to the specifications, thank you!\n';
+          execFileSync('gh', ['api', '--method', 'POST', `${endpoint}/comments`, '--raw-field', `body=${body}`], { stdio: 'inherit' });
+          execFileSync('gh', ['api', '--method', 'PATCH', endpoint, '--raw-field', 'state=closed'], { stdio: 'inherit' });
+          NODE
