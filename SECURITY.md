@@ -15,8 +15,10 @@ agent automation may execute immediately after checkout.
 For a confirmed repository compromise, maintainers must:
 
 1. Remove the malicious content with an auditable revert and preserve evidence.
-2. Rotate GitHub, npm, CI, and maintainer credentials that could have been
-   exposed, and revoke active sessions and tokens.
+2. Before revoking or rotating credentials, safely contain affected systems
+   and rebuild them or verify that persistence has been removed. From a trusted
+   clean environment, rotate GitHub, npm, CI, and maintainer credentials that
+   could have been exposed, and revoke active sessions and tokens.
 3. Audit branch protection, deploy keys, GitHub Apps, workflow runs, npm
    maintainers, provenance, and every release produced during the exposure
    window.

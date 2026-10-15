@@ -8,6 +8,7 @@ const repositoryRoot = path.resolve(
 );
 
 const forbiddenFiles = [
+  '.claude/settings.json',
   '.vscode/tasks.json',
   '.vscode/setup.js',
   '.vscode/setup.cjs',
