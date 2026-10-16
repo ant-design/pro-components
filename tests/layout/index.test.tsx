@@ -1864,6 +1864,56 @@ describe('BasicLayout', () => {
     });
   });
 
+  it('keeps controlled top-menu updates outside the BaseMenu render', async () => {
+    const onOpenChange = vi.fn();
+    const Demo = () => {
+      const [openKeys, setOpenKeys] = useState<string[]>([]);
+      return (
+        <ProLayout
+          layout="top"
+          location={{ pathname: '/project' }}
+          menuDataRender={() => [
+            {
+              key: '/project',
+              path: '/project',
+              name: 'Project',
+              children: [
+                {
+                  key: '/project/overview',
+                  path: '/project/overview',
+                  name: 'Overview',
+                },
+              ],
+            },
+          ]}
+          menuProps={{
+            openKeys,
+            onOpenChange: (nextOpenKeys) => {
+              onOpenChange(nextOpenKeys);
+              setOpenKeys(nextOpenKeys);
+            },
+          }}
+        />
+      );
+    };
+    const consoleError = vi
+      .spyOn(console, 'error')
+      .mockImplementation(() => undefined);
+
+    try {
+      render(<Demo />);
+
+      await waitFor(() => {
+        expect(onOpenChange).toHaveBeenCalledWith(['/project']);
+      });
+      expect(consoleError.mock.calls.flat().join('\n')).not.toContain(
+        'Cannot update a component',
+      );
+    } finally {
+      consoleError.mockRestore();
+    }
+  });
+
   it('restores all open groups after the sidebar expands with ignoreFlatMenu', async () => {
     const TestBaseMenu = BaseMenu as React.ComponentType<any>;
     const menuData = [
