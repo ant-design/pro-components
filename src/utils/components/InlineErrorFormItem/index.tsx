@@ -62,7 +62,7 @@ const InlineErrorFormItemPopover: React.FC<{
   input: React.ReactNode;
 }> = ({ popoverProps, input }) => {
   const { status, errors = [], warnings = [] } = Form.Item.useStatus();
-  const [, setOpen] = useState<boolean | undefined>(false);
+  const [open, setOpen] = useState(false);
   // 校验中保持上一次的消息，避免 loading 抖动
   const [messages, setMessages] = useState<{
     errors: React.ReactNode[];
@@ -86,13 +86,9 @@ const InlineErrorFormItemPopover: React.FC<{
       (displayedMessages.warnings?.length ?? 0) >=
     1;
 
-  // 错误消失时重置 open 状态，确保下次错误能正常弹出
-  const prevHasMessages = React.useRef(false);
+  // Open new validation messages automatically and reset after they clear.
   useEffect(() => {
-    if (!hasMessages && prevHasMessages.current) {
-      setOpen(false);
-    }
-    prevHasMessages.current = hasMessages;
+    setOpen(hasMessages);
   }, [hasMessages]);
 
   const renderMessageContent = () => (
@@ -116,13 +112,9 @@ const InlineErrorFormItemPopover: React.FC<{
     </>
   );
 
-  // 无错误时禁用 Popover，避免空内容弹出
-  if (!hasMessages) {
-    return <>{input}</>;
-  }
-
   // 只有自定义组件（非原生 DOM 元素）才需要包装，确保 rc-trigger 事件正确注入
-  const shouldWrap = React.isValidElement(input) && typeof input.type !== 'string';
+  const shouldWrap =
+    React.isValidElement(input) && typeof input.type !== 'string';
 
   return (
     <>
@@ -132,7 +124,6 @@ const InlineErrorFormItemPopover: React.FC<{
           这里以 input 本体作为 trigger。 */}
       <Popover
         key="popover"
-        defaultOpen={true}
         trigger={popoverProps?.trigger || ['hover']}
         placement={popoverProps?.placement || 'topLeft'}
         getPopupContainer={popoverProps?.getPopupContainer}
@@ -158,9 +149,16 @@ const InlineErrorFormItemPopover: React.FC<{
           </div>,
         )}
         {...popoverProps}
+        open={hasMessages && (popoverProps?.open ?? open)}
+        onOpenChange={(nextOpen) => {
+          setOpen(nextOpen);
+          popoverProps?.onOpenChange?.(nextOpen);
+        }}
       >
         {shouldWrap ? (
-          <span style={{ display: 'inline-block', width: '100%' }}>{input}</span>
+          <span style={{ display: 'inline-block', width: '100%' }}>
+            {input}
+          </span>
         ) : (
           input
         )}
@@ -190,7 +188,10 @@ const InlineErrorPopoverShell = React.forwardRef<
     : children;
 
   return (
-    <InlineErrorFormItemPopover popoverProps={popoverProps} input={fieldChild} />
+    <InlineErrorFormItemPopover
+      popoverProps={popoverProps}
+      input={fieldChild}
+    />
   );
 });
 InlineErrorPopoverShell.displayName = 'InlineErrorPopoverShell';
