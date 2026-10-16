@@ -586,20 +586,11 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         | ((string | number)[] | false)
         | ((prev: (string | number)[] | false) => (string | number)[] | false),
     ) => {
-      setOpenKeysInner((prev) => {
-        const next =
-          typeof updater === 'function'
-            ? (
-                updater as (
-                  p: (string | number)[] | false,
-                ) => (string | number)[] | false
-              )(prev)
-            : updater;
-        (onOpenChange as (keys?: (string | number)[] | false) => void)?.(next);
-        return next;
-      });
+      const next = typeof updater === 'function' ? updater(openKeys) : updater;
+      setOpenKeysInner(next);
+      (onOpenChange as (keys?: (string | number)[] | false) => void)?.(next);
     },
-    [onOpenChange],
+    [onOpenChange, openKeys],
   );
 
   const [selectedKeys, setSelectedKeysInner] = useControlledState<
