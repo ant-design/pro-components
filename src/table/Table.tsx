@@ -984,6 +984,7 @@ const ProTable = <
   const paginationPageSize = isPaginationEnabled
     ? pagination?.pageSize
     : undefined;
+  const paginationTotal = isPaginationEnabled ? pagination?.total : undefined;
   const mergePageData = useMemo<readonly T[]>(() => {
     if (effectiveMergeDescriptors.length === 0) return [];
     // 捕获数据为排序/筛选后的全量数据,作为分页源;服务端 request 分页或
@@ -995,6 +996,16 @@ const ProTable = <
     if (request || !isPaginationEnabled) return source;
     const current = paginationCurrent ?? 1;
     const pageSize = paginationPageSize ?? 20;
+    // 与 antd pageData 语义对齐:数据量小于 total 且不超过 pageSize 时,
+    // 视为调用方已按当前页提供数据(无 request 的手动服务端分页),不再切片,
+    // 避免把当前页切空导致同值单元格丢失合并
+    if (
+      paginationTotal !== undefined &&
+      source.length < paginationTotal &&
+      source.length <= pageSize
+    ) {
+      return source;
+    }
     return source.slice((current - 1) * pageSize, current * pageSize);
   }, [
     effectiveMergeDescriptors,
@@ -1005,6 +1016,7 @@ const ProTable = <
     isPaginationEnabled,
     paginationCurrent,
     paginationPageSize,
+    paginationTotal,
   ]);
 
   const rowSpanMap = useMemo(

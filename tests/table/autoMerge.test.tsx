@@ -277,6 +277,41 @@ describe('ProTable autoMerge 同值单元格纵向自动合并 (#9770)', () => {
     });
   });
 
+  it('手动服务端分页(无 request,dataSource 为当前页)时不重复切片,同值正常合并', async () => {
+    // 用户自行分页:不传 request,dataSource 只含当前页数据,pagination 带 total。
+    // antd 对 dataSource.length < total 且 <= pageSize 的数据视为当前页直接渲染,
+    // 合并计算必须保持相同语义,不能再按页码切片(否则切空、合并丢失)
+    const pageData: Row[] = [
+      { key: '3', city: '上海', name: '赵六' },
+      { key: '4', city: '上海', name: '王五' },
+    ];
+    const { container } = render(
+      <ProTable<Row>
+        rowKey="key"
+        search={false}
+        options={false}
+        pagination={{ current: 2, pageSize: 2, total: 4 }}
+        dataSource={pageData}
+        columns={[
+          { title: '城市', dataIndex: 'city', autoMerge: true },
+          { title: '姓名', dataIndex: 'name' },
+        ]}
+      />,
+    );
+
+    await waitFor(() => {
+      const rows = getBodyRows(container);
+      expect(rows.length).toBe(2);
+      // 当前页两条上海应合并:首行 rowspan=2,第二行城市单元格隐藏
+      const row1Cells = rows[0].querySelectorAll('td');
+      expect(row1Cells[0].textContent).toBe('上海');
+      expect(row1Cells[0].getAttribute('rowspan')).toBe('2');
+      const row2Cells = rows[1].querySelectorAll('td');
+      expect(row2Cells.length).toBe(1);
+      expect(row2Cells[0].textContent).toBe('王五');
+    });
+  });
+
   it('前端排序后自动重新计算合并信息', async () => {
     const columns: ProColumns<Row>[] = [
       {
