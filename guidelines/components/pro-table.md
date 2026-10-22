@@ -23,6 +23,7 @@
 - `headerTitle`: Title of the table.
 - `toolBarRender`: Render custom actions in the toolbar.
 - `actionRef`: Ref to trigger table actions like `reload()`.
+- `mergeFields`: `string[]`. Field keys (`dataIndex`) whose consecutive equal-valued cells merge vertically on the current page (Excel-style). Array order defines the multi-level merge order. Recomputed automatically after sort/filter/pagination. Not effective for tree data (children rows conflict with row-spanned cells); rows being edited in an editable table are excluded from merging. See `demos/table/auto-merge.tsx`.
 
 **ProColumns Configuration**:
 
@@ -34,6 +35,7 @@
 - `search`: Configure search behavior (transform, etc.).
 - `render`: Custom render function.
 - `valueEnum`: Map of values for `select` type.
+- `autoMerge`: `boolean`. Merge consecutive equal-valued cells of this column vertically on the current page. A user `onCell` returning an explicit `rowSpan` takes precedence over the computed value. Combines with table-level `mergeFields` (whose order wins). Same tree-data / editable-row limitations as `mergeFields`.
 
 **Usage Pattern**:
 

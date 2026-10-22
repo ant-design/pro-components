@@ -75,6 +75,15 @@ import {
   genProColumnToColumn,
   type TableColumnContext,
 } from './utils/genProColumnToColumn';
+import {
+  calcRowSpanMap,
+  resolveMergeFieldDescriptors,
+  wrapColumnsWithRowSpan,
+  type MergeFieldDescriptor,
+} from './utils/mergeCellSpan';
+
+/** 空合并字段描述符：共享引用，避免树形数据跳过时 memo 引用抖动 */
+const EMPTY_MERGE_FIELD_DESCRIPTORS: MergeFieldDescriptor<any>[] = [];
 
 const tableGridContextValue = {
   grid: false,
@@ -338,6 +347,7 @@ const ProTable = <
     revalidateOnFocus = false,
     searchFormRender,
     onScroll,
+    mergeFields,
     ...rest
   } = props;
   const { wrapSSR, hashId } = useStyle(props.defaultClassName);
@@ -917,6 +927,109 @@ const ProTable = <
     props.expandable?.childrenColumnName,
   ]);
 
+  // ---------- 同值单元格纵向自动合并（autoMerge / mergeFields，#9770） start ----------
+  /** 有序的合并字段描述符：mergeFields 顺序优先，autoMerge 列按列顺序补充 */
+  const mergeFieldDescriptors = useMemo(
+    () => resolveMergeFieldDescriptors<T>(propsColumns, mergeFields),
+    [propsColumns, mergeFields],
+  );
+
+  /**
+   * 树形数据（children）展开时子行 td 与父行跨行合并单元格冲突会导致列错位，
+   * 与 antd 原生 rowSpan 的限制一致：检测到树形数据时跳过自动合并
+   */
+  const hasTreeDataForMerge = useMemo(
+    () =>
+      mergeFieldDescriptors.length > 0 &&
+      (action.dataSource || []).some(
+        (row) =>
+          row?.[props.expandable?.childrenColumnName ?? 'children']?.length > 0,
+      ),
+    [
+      mergeFieldDescriptors,
+      action.dataSource,
+      props.expandable?.childrenColumnName,
+    ],
+  );
+
+  if (process.env.NODE_ENV !== 'production' && hasTreeDataForMerge) {
+    noteOnce(
+      false,
+      '`autoMerge`/`mergeFields` 暂不支持树形数据（children）：展开子行与跨行合并单元格会冲突导致列错位，已跳过自动合并。请在 dataSource 层拆分子表或移除合并配置。',
+    );
+  }
+
+  /** 实际生效的合并字段：树形数据下为空数组（跳过合并） */
+  const effectiveMergeDescriptors = hasTreeDataForMerge
+    ? EMPTY_MERGE_FIELD_DESCRIPTORS
+    : mergeFieldDescriptors;
+
+  /**
+   * antd Table onChange 回调的 extra.currentDataSource 是排序/筛选/分页后的
+   * 真实渲染页数据。前端排序/筛选不会改变 action.dataSource，需借此重算合并
+   * 信息；用 base 引用标记捕获时对应的数据快照，数据源更新后自动失效回退。
+   * 注意 base 必须用 action.dataSource（受控 state，引用稳定）——pagination
+   * 开启时 mergedDataSource 每次 render 都是新引用，会导致捕获永久失效
+   */
+  const [capturedPageData, setCapturedPageData] = useState<{
+    data: readonly T[];
+    base: readonly T[] | undefined;
+  } | null>(null);
+
+  /** 参与合并计算的当前页数据：只合并当前页内连续同值 */
+  const isPaginationEnabled = pagination !== false;
+  const paginationCurrent = isPaginationEnabled ? pagination?.current : undefined;
+  const paginationPageSize = isPaginationEnabled
+    ? pagination?.pageSize
+    : undefined;
+  const mergePageData = useMemo<readonly T[]>(() => {
+    if (effectiveMergeDescriptors.length === 0) return [];
+    if (capturedPageData && capturedPageData.base === action.dataSource) {
+      return capturedPageData.data;
+    }
+    // 服务端 request 分页时数据即当前页；前端分页按页码切片
+    if (request || !isPaginationEnabled) return mergedDataSource;
+    const current = paginationCurrent ?? 1;
+    const pageSize = paginationPageSize ?? 20;
+    return mergedDataSource.slice((current - 1) * pageSize, current * pageSize);
+  }, [
+    effectiveMergeDescriptors,
+    capturedPageData,
+    action.dataSource,
+    mergedDataSource,
+    request,
+    isPaginationEnabled,
+    paginationCurrent,
+    paginationPageSize,
+  ]);
+
+  const rowSpanMap = useMemo(
+    () =>
+      calcRowSpanMap<T>(
+        mergePageData,
+        effectiveMergeDescriptors,
+        // 可编辑表格：编辑中的行作为合并组断点，自身不参与合并，
+        // 避免编辑行的单元格被 rowSpan=0 隐藏导致输入框不可见
+        editableConfig
+          ? (record, index) =>
+              editableUtils.isEditable(record, index).isEditable
+          : undefined,
+      ),
+    [
+      mergePageData,
+      effectiveMergeDescriptors,
+      editableConfig,
+      editableUtils.editableKeys?.join(','),
+    ],
+  );
+
+  /** 注入 rowSpan 后的列：未开启合并时直接透传 tableColumn，零开销 */
+  const tableColumnWithRowSpan = useMemo(() => {
+    if (effectiveMergeDescriptors.length === 0) return tableColumn;
+    return wrapColumnsWithRowSpan<T>(tableColumn, rowSpanMap);
+  }, [tableColumn, rowSpanMap, effectiveMergeDescriptors]);
+  // ---------- 同值单元格纵向自动合并 end ----------
+
   const columns = useMemo(() => {
     const loopFilter = (column: any[]): any[] => {
       return column
@@ -936,8 +1049,8 @@ const ProTable = <
         })
         .filter(Boolean);
     };
-    return loopFilter(tableColumn);
-  }, [counter.columnsMap, tableColumn]);
+    return loopFilter(tableColumnWithRowSpan);
+  }, [counter.columnsMap, tableColumnWithRowSpan]);
 
   const useFilterColumns = useMemo(() => {
     const _columns: any[] = flattenColumns(columns);
@@ -969,13 +1082,29 @@ const ProTable = <
     ) => {
       rest.onChange?.(changePagination, filters, sorter, extra);
 
+      // 仅开启自动合并时才捕获排序/筛选/分页后的真实渲染页数据（#9770）；
+      // base 用引用稳定的 action.dataSource，数据源更新后捕获自动失效
+      if (effectiveMergeDescriptors.length > 0 && extra?.currentDataSource) {
+        setCapturedPageData({
+          data: extra.currentDataSource,
+          base: action.dataSource,
+        });
+      }
+
       const serverFilter = getServerFilterResult(filters, useFilterColumns);
       onFilterChange(omitUndefined(serverFilter));
 
       const serverSorter = getServerSorterResult(sorter);
       onSortChange(omitUndefined(serverSorter));
     },
-    [onFilterChange, onSortChange, rest.onChange, useFilterColumns],
+    [
+      onFilterChange,
+      onSortChange,
+      rest.onChange,
+      useFilterColumns,
+      effectiveMergeDescriptors,
+      action.dataSource,
+    ],
   );
 
   /** 拆分 memo：仅当对应维度变化时更新引用；合并结果仍受 `...rest` 引用变化影响（父组件每次 render 常为新的 rest 对象） */
@@ -1033,7 +1162,10 @@ const ProTable = <
           style={{ display: 'contents' }}
           onScrollCapture={(e) => {
             // 只转发水平滚动（rc-table 内部已处理纵向场景）
-            if ((e.target as HTMLElement).scrollWidth > (e.target as HTMLElement).clientWidth) {
+            if (
+              (e.target as HTMLElement).scrollWidth >
+              (e.target as HTMLElement).clientWidth
+            ) {
               onScroll?.(e as unknown as React.UIEvent<HTMLDivElement>);
             }
           }}
@@ -1094,7 +1226,7 @@ const ProTable = <
     return useCardForTable || useCardForList;
   }, [cardProps, props.name, type, notNeedCardDom]);
 
-  const resolvedCardProps = cardProps === false ? {} : cardProps ?? {};
+  const resolvedCardProps = cardProps === false ? {} : (cardProps ?? {});
 
   const tableAreaDom = useCard ? (
     <ProCard
