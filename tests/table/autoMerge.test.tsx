@@ -231,6 +231,52 @@ describe('ProTable autoMerge 同值单元格纵向自动合并 (#9770)', () => {
     });
   });
 
+  it('前端分页:相同城市跨页时不延续合并,每页独立计算且单元格不隐藏', async () => {
+    // 3 个上海跨页:第 3 个上海落在第 2 页,不能与第 1 页的上海组合并
+    const data: Row[] = [
+      { key: '1', city: '上海', name: '张三' },
+      { key: '2', city: '上海', name: '李四' },
+      { key: '3', city: '上海', name: '赵六' },
+      { key: '4', city: '北京', name: '王五' },
+    ];
+    const { container } = render(
+      <ProTable<Row>
+        rowKey="key"
+        search={false}
+        options={false}
+        pagination={{ pageSize: 2 }}
+        dataSource={data}
+        columns={[
+          { title: '城市', dataIndex: 'city', autoMerge: true },
+          { title: '姓名', dataIndex: 'name' },
+        ]}
+      />,
+    );
+
+    await waitFor(() => {
+      const rows = getBodyRows(container);
+      expect(rows.length).toBe(2);
+      expect(rows[0].querySelector('td')!.getAttribute('rowspan')).toBe('2');
+    });
+
+    await userEvent.click(container.querySelector('.ant-pagination-item-2')!);
+
+    await waitFor(() => {
+      const rows = getBodyRows(container);
+      expect(rows.length).toBe(2);
+      // 第 2 页首个上海是上一页合并组的延续,但必须独立完整渲染:
+      // 城市单元格不能被隐藏(rowspan=0),否则该列出现空白
+      const row1Cells = rows[0].querySelectorAll('td');
+      expect(row1Cells.length).toBe(2);
+      expect(row1Cells[0].textContent).toBe('上海');
+      expect(row1Cells[0].getAttribute('rowspan')).not.toBe('0');
+      // 北京同样正常渲染
+      const row2Cells = rows[1].querySelectorAll('td');
+      expect(row2Cells.length).toBe(2);
+      expect(row2Cells[0].textContent).toBe('北京');
+    });
+  });
+
   it('前端排序后自动重新计算合并信息', async () => {
     const columns: ProColumns<Row>[] = [
       {

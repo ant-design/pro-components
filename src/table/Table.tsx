@@ -965,11 +965,13 @@ const ProTable = <
     : mergeFieldDescriptors;
 
   /**
-   * antd Table onChange 回调的 extra.currentDataSource 是排序/筛选/分页后的
-   * 真实渲染页数据。前端排序/筛选不会改变 action.dataSource，需借此重算合并
-   * 信息；用 base 引用标记捕获时对应的数据快照，数据源更新后自动失效回退。
-   * 注意 base 必须用 action.dataSource（受控 state，引用稳定）——pagination
-   * 开启时 mergedDataSource 每次 render 都是新引用，会导致捕获永久失效
+   * antd Table onChange 回调的 extra.currentDataSource 是排序/筛选后的真实
+   * 渲染数据。注意:antd 内部为 getFilterData(getSortData(rawData)),不含分页
+   * 切片,因此命中捕获后仍需沿用前端分页切片逻辑。
+   * 前端排序/筛选不会改变 action.dataSource,需借此重算合并信息;用 base 引用
+   * 标记捕获时对应的数据快照,数据源更新后自动失效回退。
+   * 注意 base 必须用 action.dataSource(受控 state,引用稳定)——pagination
+   * 开启时 mergedDataSource 每次 render 都是新引用,会导致捕获永久失效
    */
   const [capturedPageData, setCapturedPageData] = useState<{
     data: readonly T[];
@@ -984,14 +986,16 @@ const ProTable = <
     : undefined;
   const mergePageData = useMemo<readonly T[]>(() => {
     if (effectiveMergeDescriptors.length === 0) return [];
-    if (capturedPageData && capturedPageData.base === action.dataSource) {
-      return capturedPageData.data;
-    }
-    // 服务端 request 分页时数据即当前页；前端分页按页码切片
-    if (request || !isPaginationEnabled) return mergedDataSource;
+    // 捕获数据为排序/筛选后的全量数据,作为分页源;服务端 request 分页或
+    // 未开启分页时直接使用,前端分页再按页码切片
+    const source =
+      capturedPageData && capturedPageData.base === action.dataSource
+        ? capturedPageData.data
+        : mergedDataSource;
+    if (request || !isPaginationEnabled) return source;
     const current = paginationCurrent ?? 1;
     const pageSize = paginationPageSize ?? 20;
-    return mergedDataSource.slice((current - 1) * pageSize, current * pageSize);
+    return source.slice((current - 1) * pageSize, current * pageSize);
   }, [
     effectiveMergeDescriptors,
     capturedPageData,
@@ -1082,8 +1086,9 @@ const ProTable = <
     ) => {
       rest.onChange?.(changePagination, filters, sorter, extra);
 
-      // 仅开启自动合并时才捕获排序/筛选/分页后的真实渲染页数据（#9770）；
-      // base 用引用稳定的 action.dataSource，数据源更新后捕获自动失效
+      // 仅开启自动合并时才捕获排序/筛选后的真实渲染数据（#9770,注意 antd 的
+      // currentDataSource 不含分页切片,合并计算侧会再按当前页切片）;
+      // base 用引用稳定的 action.dataSource,数据源更新后捕获自动失效
       if (effectiveMergeDescriptors.length > 0 && extra?.currentDataSource) {
         setCapturedPageData({
           data: extra.currentDataSource,
