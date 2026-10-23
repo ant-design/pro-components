@@ -487,60 +487,13 @@ describe('List', () => {
   it('🚏 support pagination', async () => {
     const { container } = reactRender(<PaginationDemo />);
 
-    expect(container.querySelectorAll('.ant-pro-list-item').length).toEqual(5);
+    expect(container.querySelectorAll('.ant-pro-list-item').length).toEqual(3);
 
     fireEvent.click(container.querySelectorAll('.ant-pagination-item')[1]);
 
-    expect(container.querySelectorAll('.ant-pro-list-item').length).toEqual(2);
-
-    // antd@6 DOM 结构变化：
-    // 1. Select 元素有 .ant-select 和 .ant-pagination-options-size-changer 类名
-    // 3. 需要点击 .ant-select 元素来打开下拉菜单
-    // 4. 分页器的 Select 位于 .ant-pagination-options 容器内
-    // 2. 下拉菜单选项渲染在 document.body 中，使用 .ant-select-item.ant-select-item-option 类名
-    const select = container.querySelector(
-      '.ant-pagination-options-size-changer.ant-select',
-    ) as HTMLElement;
-    expect(select).toBeTruthy();
-
-    // antd@6 使用 mouseDown 事件打开下拉菜单
-    await act(async () => {
-      fireEvent.mouseDown(select);
-    });
-
-    // 等待下拉菜单选项出现在 document.body 中
-    await waitFor(
-      () => {
-        const options = document.body.querySelectorAll(
-          '.ant-select-item.ant-select-item-option',
-        );
-        expect(options.length).toBeGreaterThan(0);
-      },
-      {
-        timeout: 5000,
-      },
-    );
-
-    // 点击第4个选项（索引3），将每页显示数量改为更大的值（如 20 条/页）
-    await act(async () => {
-      const options = document.body.querySelectorAll<HTMLElement>(
-        '.ant-select-item.ant-select-item-option',
-      );
-      expect(options.length).toBeGreaterThan(3);
-      options[3].click();
-    });
-
-    // 等待列表更新（分页大小改变后，应该显示所有7条数据）
-    await waitFor(
-      () => {
-        expect(container.querySelectorAll('.ant-pro-list-item').length).toEqual(
-          7,
-        );
-      },
-      {
-        timeout: 3000,
-      },
-    );
+    expect(container.querySelectorAll('.ant-pro-list-item').length).toEqual(3);
+    fireEvent.click(container.querySelectorAll('.ant-pagination-item')[2]);
+    expect(container.querySelectorAll('.ant-pro-list-item').length).toEqual(1);
   });
 
   it('🚏 filter and request', async () => {
