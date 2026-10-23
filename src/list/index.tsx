@@ -261,6 +261,7 @@ function InternalProList<
         rowClassName={rowClassName}
         locale={locale}
         hashId={hashId}
+        scroll={props.scroll}
       />
     ),
   );

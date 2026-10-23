@@ -4,8 +4,9 @@ import isObject from 'es-toolkit/compat/isObject';
 import React from 'react';
 
 export type ProEllipsisTooltip = {
+  /** @deprecated 请使用 tooltip 控制提示。 */
   showTitle?: boolean;
-  tooltip?: TooltipProps;
+  tooltip?: boolean | TooltipProps;
 };
 
 export type ProEllipsis = ProEllipsisTooltip | boolean;
@@ -82,6 +83,9 @@ const genEllipsis = (
   const ellipsis = getEllipsis(item);
   if (!ellipsis) {
     return false;
+  }
+  if (isObject(ellipsis) && ellipsis.tooltip === false) {
+    return { tooltip: false };
   }
   /** 有些 valueType 需要设置copy的为string */
   const needTranText = isNeedTranText(item);

@@ -26,8 +26,7 @@ export const getTopNavMenuPopupBg = (token: {
       colorBgMenuElevated?: string;
     };
   };
-}) =>
-  token.layout?.header?.colorBgMenuElevated || token.colorBgElevated;
+}) => token.layout?.header?.colorBgMenuElevated || token.colorBgElevated;
 
 const TopNavHeader: React.FC<TopNavHeaderProps> = (
   props: TopNavHeaderProps,
@@ -81,9 +80,6 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
               horizontalItemSelectedBg:
                 token.layout?.header?.colorBgMenuItemSelected ||
                 token?.colorBgTextHover,
-              activeBarWidth: 0,
-              activeBarHeight: 0,
-              activeBarBorderWidth: 0,
               itemColor:
                 token.layout?.header?.colorTextMenu ||
                 token?.colorTextSecondary,
@@ -182,10 +178,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
             </div>
           </div>
         )}
-        <div
-          style={{ flex: 1 }}
-          className={clsx(`${prefixCls}-menu`, hashId)}
-        >
+        <div style={{ flex: 1 }} className={clsx(`${prefixCls}-menu`, hashId)}>
           {contentDom}
         </div>
         {(actionsRender || props.avatarProps) && (

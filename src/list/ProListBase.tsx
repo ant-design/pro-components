@@ -6,10 +6,7 @@ import { ConfigProvider, Empty, Pagination, Spin } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
 import type { PaginationConfig } from '../utils/antdTypes';
-import {
-  getResponsiveValue,
-  useResponsiveScreens,
-} from '../utils/responsive';
+import { getResponsiveValue, useResponsiveScreens } from '../utils/responsive';
 
 export type ColumnCount = number;
 export type ColumnType =
@@ -34,6 +31,8 @@ export interface ListProps<T = any> {
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
+  /** 限制列表内容区域高度并启用滚动；分页、工具栏不参与滚动。 */
+  scroll?: { x?: string | number | true; y?: string | number };
   children?: React.ReactNode;
   dataSource?: T[];
   extra?: React.ReactNode;
@@ -227,6 +226,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps>(
       className,
       rootClassName,
       style,
+      scroll,
       children,
       itemLayout,
       loadMore,
@@ -506,7 +506,26 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps>(
           <Spin spinning={isLoading}>
             {showPaginationTop && paginationNode}
             {header && <div className={`${prefixCls}-header`}>{header}</div>}
-            {childrenContent}
+            {scroll ? (
+              <div
+                className={`${prefixCls}-scroll`}
+                style={{
+                  maxHeight: scroll.y,
+                  overflowY: scroll.y === undefined ? undefined : 'auto',
+                  overflowX: scroll.x === undefined ? undefined : 'auto',
+                }}
+              >
+                <div
+                  style={{
+                    minWidth: scroll.x === true ? 'max-content' : scroll.x,
+                  }}
+                >
+                  {childrenContent}
+                </div>
+              </div>
+            ) : (
+              childrenContent
+            )}
             {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
             {loadMore}
             {showPaginationBottom && paginationNode}
