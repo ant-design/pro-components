@@ -342,7 +342,7 @@ describe('Table ColumnSetting', () => {
     expect(container.innerHTML).not.toContain('[object Object]');
   });
 
-  it('🐛 固定选择列的表头 z-index 规则应使用 v6 的 cell-fix-start 类名', () => {
+  it('🐛 固定选择列的表头 z-index 规则应由 antd 提供，pro-components 不再重复注入', () => {
     const { container } = render(
       <ProTable
         search={false}
@@ -364,7 +364,18 @@ describe('Table ColumnSetting', () => {
     );
     expect(selectionTh?.className).toContain('ant-table-cell-fix-start');
 
-    // 选择列 z-index 规则应正确注入，避免表头勾选框被相邻固定列遮挡
-    expect(document.head.textContent).toContain('calc(var(--z-offset, 0) + 2)');
+    // antd >= 6.6.7 自带选择列 z-index 规则，避免表头勾选框被相邻固定列遮挡。
+    // antd < 6.6.7 的规则命中了 v6 已不再输出的 cell-fix-left 类名，属 antd 侧问题，
+    // 需要由使用方自行升级 antd。
+    const styleText = document.head.textContent ?? '';
+    expect(styleText).toContain(
+      'table tr th.ant-table-selection-column.ant-table-cell-fix-start',
+    );
+    expect(styleText).toContain('calc(var(--z-offset, 0) + 2)');
+
+    // pro-components 不应再维护一份重复规则，避免与 antd 实现漂移
+    expect(styleText).not.toContain(
+      '.ant-pro-table table tr th.ant-table-selection-column',
+    );
   });
 });
