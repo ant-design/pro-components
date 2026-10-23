@@ -18,7 +18,11 @@ export type MergeFieldDescriptor<T> = {
 };
 
 /** 字段标识 -> （记录 -> 该行 rowSpan） */
-export type RowSpanMap<T> = Map<string, Map<T, number>>;
+type FieldSpans<T> = Map<T, number> & {
+  records?: readonly T[];
+  byIndex?: number[];
+};
+export type RowSpanMap<T> = Map<string, FieldSpans<T>>;
 
 type DataIndex = Key | readonly Key[];
 
@@ -154,7 +158,13 @@ export function wrapColumnsWithRowSpan<T>(
         const cellProps = prevOnCell ? prevOnCell(record, index) : undefined;
         // 用户手动 onCell 显式返回 rowSpan 时优先于自动合并结果
         if (cellProps && cellProps.rowSpan !== undefined) return cellProps;
-        return { ...cellProps, rowSpan: spans.get(record) ?? 1 };
+        // 同一个对象实例可以在数据源中出现多次，此时对象 Map 只能保留
+        // 最后一次的 span。用当前页下标区分位置，并核对记录以避开展开行。
+        const span =
+          index !== undefined && spans.records?.[index] === record
+            ? spans.byIndex?.[index]
+            : spans.get(record);
+        return { ...cellProps, rowSpan: span ?? 1 };
       },
     };
   });
@@ -177,7 +187,12 @@ export function calcRowSpanMap<T>(
   isRowMergeBoundary?: (record: T, index: number) => boolean,
 ): RowSpanMap<T> {
   const spanMap: RowSpanMap<T> = new Map(
-    fields.map((field) => [field.key, new Map<T, number>()]),
+    fields.map((field) => {
+      const spans: FieldSpans<T> = new Map<T, number>();
+      spans.records = pageData;
+      spans.byIndex = [];
+      return [field.key, spans];
+    }),
   );
   const rowCount = pageData.length;
   if (rowCount === 0 || fields.length === 0) return spanMap;
@@ -198,8 +213,10 @@ export function calcRowSpanMap<T>(
     const spans = spanMap.get(fields[fieldIndex].key)!;
     const start = groupStart[fieldIndex];
     spans.set(pageData[start], endExclusive - start);
+    spans.byIndex![start] = endExclusive - start;
     for (let i = start + 1; i < endExclusive; i += 1) {
       spans.set(pageData[i], 0);
+      spans.byIndex![i] = 0;
     }
   };
 

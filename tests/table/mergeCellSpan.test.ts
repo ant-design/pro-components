@@ -204,4 +204,16 @@ describe('wrapColumnsWithRowSpan', () => {
     const orphanRow = { city: '上海' };
     expect(wrapped.onCell!(orphanRow as any, 0)).toMatchObject({ rowSpan: 1 });
   });
+
+  it('同一记录对象重复出现时按行位置计算 rowSpan', () => {
+    const shared = { city: '上海' };
+    const repeatedRows = [shared, shared, { city: '北京' }];
+    const repeatedMap = calcRowSpanMap(repeatedRows, [cityField]);
+    const [wrapped] = wrapColumnsWithRowSpan(
+      [{ dataIndex: 'city' }],
+      repeatedMap,
+    );
+    expect(wrapped.onCell!(shared, 0)).toMatchObject({ rowSpan: 2 });
+    expect(wrapped.onCell!(shared, 1)).toMatchObject({ rowSpan: 0 });
+  });
 });
