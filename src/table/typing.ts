@@ -135,6 +135,19 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     /** @name 是否拷贝 */
     copyable?: boolean;
 
+    /**
+     * @name 同值单元格纵向自动合并
+     *
+     * 开启后，当前页内该列连续相同值的单元格自动合并（类似 Excel 单元格合并），
+     * 组首行 rowSpan 为组长度，组内后续行不渲染。排序、筛选、分页切换后自动重算。
+     * 与表级 mergeFields 同时存在时，mergeFields 的字段顺序优先，autoMerge 列按
+     * 列顺序补充。用户手动 onCell 显式返回的 rowSpan 优先于自动合并结果。
+     *
+     * 注意：树形数据（children）下自动合并不生效（展开子行与跨行单元格冲突）；
+     * 可编辑表格中编辑中的行不参与合并。
+     */
+    autoMerge?: boolean;
+
     /** 获取时将数据转化为编辑组件接收的格式 */
     convertValue?: SearchConvertKeyFn;
 
@@ -249,6 +262,20 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
    * @name 列配置能力，支持一个数组
    */
   columns?: ProColumns<DataSource, ValueType>[];
+  /**
+   * @name 同值单元格纵向自动合并的字段列表
+   *
+   * 批量指定需要自动合并的字段（对应列的 dataIndex，嵌套路径以点号连接），
+   * 数组顺序即多级合并顺序：先按第一个字段合并，再在其组内按后续字段合并。
+   * 与列配置 autoMerge 同时存在时，mergeFields 顺序优先，autoMerge 列按列顺序
+   * 补充。只合并当前页内连续同值，排序、筛选、分页切换后自动重算。
+   *
+   * 注意：树形数据（children）下自动合并不生效（展开子行与跨行单元格冲突）；
+   * 可编辑表格中编辑中的行不参与合并。
+   *
+   * @example mergeFields={['city', 'area']}
+   */
+  mergeFields?: string[];
   /**
    * @name ListToolBar 的属性
    */
