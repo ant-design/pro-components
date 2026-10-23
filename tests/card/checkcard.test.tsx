@@ -270,4 +270,45 @@ describe('CheckCard', () => {
       )?.innerHTML,
     ).toBe('0');
   });
+
+  it('should apply styles.cover to the cover element (#9773)', () => {
+    const wrapper = render(
+      <CheckCard
+        cover="https://example.com/demo.png"
+        styles={{ cover: { padding: 0 } }}
+      />,
+    );
+
+    const cover = wrapper.baseElement.querySelector<HTMLDivElement>(
+      '.ant-pro-checkcard-cover',
+    );
+    expect(cover).toBeTruthy();
+    // 内联样式覆盖默认的 4px padding，issue 场景即去掉 cover 默认内边距
+    expect(cover!.style.padding).toBe('0px');
+  });
+
+  it('should keep default cover rendering without styles.cover', () => {
+    const wrapper = render(<CheckCard cover="https://example.com/demo.png" />);
+
+    const cover = wrapper.baseElement.querySelector<HTMLDivElement>(
+      '.ant-pro-checkcard-cover',
+    );
+    expect(cover).toBeTruthy();
+    // 不传 styles.cover 时不应产生内联 padding，默认 padding 由类名样式提供
+    expect(cover!.style.padding).toBe('');
+  });
+
+  it('should apply styles.body to the body element (#9773)', () => {
+    const wrapper = render(
+      <CheckCard title="Card" styles={{ body: { padding: 12 } }}>
+        content
+      </CheckCard>,
+    );
+
+    const body = wrapper.baseElement.querySelector<HTMLDivElement>(
+      '.ant-pro-checkcard-body',
+    );
+    expect(body).toBeTruthy();
+    expect(body!.style.padding).toBe('12px');
+  });
 });

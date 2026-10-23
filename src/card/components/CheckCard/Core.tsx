@@ -150,6 +150,7 @@ interface CheckCardProps {
    */
   styles?: {
     body?: React.CSSProperties;
+    cover?: React.CSSProperties;
   };
   /**
    * The action area in the bottom right corner.
@@ -233,7 +234,7 @@ const CheckCard: React.FC<CheckCardProps> = (props) => {
    */
   const renderCover = (cls: string, coverDom: string | React.ReactNode) => {
     return (
-      <div className={clsx(`${cls}-cover`, hashId)}>
+      <div className={clsx(`${cls}-cover`, hashId)} style={props.styles?.cover}>
         {typeof coverDom === 'string' ? (
           <img src={coverDom} alt="checkcard" />
         ) : (
@@ -356,6 +357,7 @@ const CheckCard: React.FC<CheckCardProps> = (props) => {
     extra,
     hashId,
     prefixCls,
+    props.styles?.cover,
     props.subTitle,
     title,
   ]);
