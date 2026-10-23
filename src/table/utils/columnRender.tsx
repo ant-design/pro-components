@@ -36,9 +36,7 @@ type ColumnRenderInterface<T> = {
 export const renderColumnsTitle = (item: ProColumns<any>) => {
   const { title } = item;
   const ellipsis =
-    typeof item?.ellipsis === 'boolean'
-      ? item?.ellipsis
-      : item?.ellipsis?.showTitle;
+    typeof item?.ellipsis === 'boolean' ? item?.ellipsis : !!item?.ellipsis;
   if (title && typeof title === 'function') {
     return title(item, 'table', null);
   }

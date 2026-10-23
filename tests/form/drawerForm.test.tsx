@@ -6,6 +6,19 @@ import { describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
 describe('DrawerForm', () => {
+  it('placement 控制底部按钮对齐方式', async () => {
+    const wrapper = render(
+      <DrawerForm open placement="start">
+        <ProFormText name="name" />
+      </DrawerForm>,
+    );
+    await waitFor(() => {
+      const footer = wrapper.baseElement.querySelector(
+        '.ant-drawer-footer > div',
+      ) as HTMLElement;
+      expect(footer?.style.justifyContent).toBe('flex-start');
+    });
+  });
   it('📦 trigger will simulate onOpenChange', async () => {
     const fn = vi.fn();
     const wrapper = render(
@@ -675,12 +688,7 @@ describe('DrawerForm', () => {
   it('supports antd 6 size and resizable props', async () => {
     const onResize = vi.fn();
     const html = render(
-      <DrawerForm
-        open
-        size="50vw"
-        resizable={{ onResize }}
-        submitter={false}
-      >
+      <DrawerForm open size="50vw" resizable={{ onResize }} submitter={false}>
         <ProFormText name="name" />
       </DrawerForm>,
     );

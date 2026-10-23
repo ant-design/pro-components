@@ -50,6 +50,9 @@ export type DrawerFormProps<
     /** @name 抽屉的配置 */
     drawerProps?: Omit<DrawerProps, 'open'>;
 
+    /** @name 底部操作按钮的位置，默认靠末尾。 */
+    placement?: 'start' | 'end';
+
     /** @name 抽屉的标题 */
     title?: DrawerProps['title'];
 
@@ -73,6 +76,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   children,
   trigger,
   drawerProps,
+  placement = 'end',
   onFinish,
   submitTimeout,
   title,
@@ -217,7 +221,11 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
           rest.submitter !== false && (
             <div
               ref={footerDomRef}
-              style={{ display: 'flex', justifyContent: 'flex-end' }}
+              style={{
+                display: 'flex',
+                justifyContent:
+                  placement === 'start' ? 'flex-start' : 'flex-end',
+              }}
             />
           )
         }

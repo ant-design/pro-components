@@ -27,6 +27,23 @@ afterEach(() => {
 });
 
 describe('List', () => {
+  it('scroll.y 限制列表内容区域高度', async () => {
+    const { container } = reactRender(
+      <ProList
+        scroll={{ y: 100 }}
+        dataSource={[{ key: 'one', name: '第一行' }]}
+        columns={[{ dataIndex: 'name', listSlot: 'title' }]}
+      />,
+    );
+    await waitFor(() => {
+      const scroll = container.querySelector(
+        '.ant-pro-list-scroll',
+      ) as HTMLElement;
+      expect(scroll).toBeTruthy();
+      expect(scroll.style.maxHeight).toBe('100px');
+      expect(scroll.style.overflowY).toBe('auto');
+    });
+  });
   it('🚏 base use', async () => {
     const { container } = reactRender(
       <ProList
@@ -692,12 +709,8 @@ describe('List', () => {
     // rowClassName 函数应根据 index 返回不同 className
     // 共 2 行：第 0 行带 even，第 1 行带 odd
     expect(container.querySelectorAll('.ant-pro-list-row').length).toBe(2);
-    expect(
-      container.querySelectorAll('.ant-pro-list-row.even').length,
-    ).toBe(1);
-    expect(
-      container.querySelectorAll('.ant-pro-list-row.odd').length,
-    ).toBe(1);
+    expect(container.querySelectorAll('.ant-pro-list-row.even').length).toBe(1);
+    expect(container.querySelectorAll('.ant-pro-list-row.odd').length).toBe(1);
   });
 
   it('🚏 ProList support itemHeaderRender', async () => {

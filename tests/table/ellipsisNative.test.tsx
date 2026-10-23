@@ -60,6 +60,24 @@ describe('ProTable ellipsis rendering paths (#9664)', () => {
     ).toBeTruthy();
   });
 
+  it('ellipsis.tooltip=false 保持省略且不显示提示', async () => {
+    const { container } = render(
+      <ProTable
+        search={false}
+        toolBarRender={false}
+        columns={[
+          { title: 'Name', dataIndex: 'name', ellipsis: { tooltip: false } },
+        ]}
+        dataSource={dataSource}
+        rowKey="key"
+      />,
+    );
+    await waitFor(() => {
+      expect(container.querySelector('.ant-typography-ellipsis')).toBeTruthy();
+    });
+    expect(container.querySelector('td .ant-tooltip')).toBeFalsy();
+  });
+
   it('📦 ellipsis + copyable 组合保持 Typography 渲染（复制图标）', async () => {
     const { container } = render(
       <ProTable
