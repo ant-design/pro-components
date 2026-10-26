@@ -148,6 +148,7 @@ DrawerForm combines Drawer and ProForm to reduce tedious state management.
 | open          | whether to open                                                                                                                                  | `boolean`                        | -       |
 | onOpenChange  | trigger when open changes                                                                                                                        | `(open:boolean)=>void`           | -       |
 | drawerProps   | Drawer's props, used in the same way as [antd](https://ant.design/components/drawer/). Note: 'open' is not supported, please use the global open | `Omit<DrawerProps, 'open'>`      | -       |
+| placement     | Alignment of the footer action buttons: `start` or `end`. Use `drawerProps.placement` to set the drawer's opening direction | `'start' \| 'end'` | `end` |
 | title         | The title of the drawer                                                                                                                          | `DrawerProps['title']`           | -       |
 | size          | Size of the drawer                                                                                                                               | `DrawerProps['size']`            | -       |
 | width         | Width of the drawer, deprecated, please use `size`                                                                                               | `DrawerProps['size']`            | -       |

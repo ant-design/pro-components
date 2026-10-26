@@ -147,6 +147,7 @@ DrawerForm 组合了 Drawer 和 ProForm 可以减少繁琐的状态管理。
 | open          | 是否打开                                                                                                                             | `boolean`                        | -       |
 | onOpenChange  | open 改变时触发                                                                                                                      | `(open: boolean) => void`        | -       |
 | drawerProps   | Drawer 的 props，使用方式与 [antd](https://ant.design/components/drawer-cn/) 相同。注意：不支持传入 `open`，请使用顶层的 `open` 控制 | `Omit<DrawerProps, 'open'>`      | -       |
+| placement     | 底部操作按钮的对齐位置，`start` 为起始侧，`end` 为末尾侧；抽屉弹出方向请通过 `drawerProps.placement` 设置 | `'start' \| 'end'` | `end` |
 | title         | 抽屉的标题                                                                                                                           | `DrawerProps['title']`           | -       |
 | size          | 抽屉的尺寸                                                                                                                           | `DrawerProps['size']`            | -       |
 | width         | 抽屉的宽度，已废弃，请使用 `size`                                                                                                    | `DrawerProps['size']`            | -       |
