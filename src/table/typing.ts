@@ -144,7 +144,8 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
      * 列顺序补充。用户手动 onCell 显式返回的 rowSpan 优先于自动合并结果。
      *
      * 注意：树形数据（children）下自动合并不生效（展开子行与跨行单元格冲突）；
-     * 可编辑表格中编辑中的行不参与合并。
+     * 可编辑表格中编辑中的行不参与合并；开启合并时表格默认启用全边框
+     * （显式传入 bordered 时优先）。
      */
     autoMerge?: boolean;
 
@@ -271,7 +272,8 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
    * 补充。只合并当前页内连续同值，排序、筛选、分页切换后自动重算。
    *
    * 注意：树形数据（children）下自动合并不生效（展开子行与跨行单元格冲突）；
-   * 可编辑表格中编辑中的行不参与合并。
+   * 可编辑表格中编辑中的行不参与合并；开启合并时表格默认启用全边框
+   * （显式传入 bordered 时优先）。
    *
    * @example mergeFields={['city', 'area']}
    */

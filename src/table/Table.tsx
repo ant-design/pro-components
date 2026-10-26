@@ -348,6 +348,7 @@ const ProTable = <
     searchFormRender,
     onScroll,
     mergeFields,
+    bordered: propsBordered,
     ...rest
   } = props;
   const { wrapSSR, hashId } = useStyle(props.defaultClassName);
@@ -965,6 +966,13 @@ const ProTable = <
     : mergeFieldDescriptors;
 
   /**
+   * 开启自动合并时默认启用全边框（合并区域无边框时视觉不完整，#9770）；
+   * 显式传入 bordered（含 false）时尊重用户配置
+   */
+  const mergedBordered =
+    propsBordered ?? (effectiveMergeDescriptors.length > 0 ? true : undefined);
+
+  /**
    * antd Table onChange 回调的 extra.currentDataSource 是排序/筛选后的真实
    * 渲染数据。注意:antd 内部为 getFilterData(getSortData(rawData)),不含分页
    * 切片,因此命中捕获后仍需沿用前端分页切片逻辑。
@@ -1130,8 +1138,9 @@ const ProTable = <
       size: counter.tableSize,
       className: tableClassName,
       style: tableStyle,
+      bordered: mergedBordered,
     }),
-    [counter.tableSize, tableClassName, tableStyle],
+    [counter.tableSize, tableClassName, tableStyle, mergedBordered],
   );
 
   const tableDataProps = useMemo(

@@ -277,6 +277,56 @@ describe('ProTable autoMerge 同值单元格纵向自动合并 (#9770)', () => {
     });
   });
 
+  it('开启自动合并时默认启用全边框,显式 bordered={false} 时尊重用户配置', async () => {
+    const baseProps = {
+      rowKey: 'key' as const,
+      search: false as const,
+      options: false as const,
+      pagination: false as const,
+      dataSource: baseData,
+      columns: [
+        { title: '城市', dataIndex: 'city', autoMerge: true },
+        { title: '姓名', dataIndex: 'name' },
+      ] as ProColumns<Row>[],
+    };
+
+    // 未传 bordered:合并场景下默认全边框(跨行格无边框视觉上不完整)
+    const { container, unmount } = render(<ProTable<Row> {...baseProps} />);
+    await waitFor(() => {
+      expect(container.querySelector('.ant-table-bordered')).toBeTruthy();
+    });
+    unmount();
+
+    // 显式 bordered={false}:尊重用户,不强制开启
+    const { container: container2 } = render(
+      <ProTable<Row> {...baseProps} bordered={false} />,
+    );
+    await waitFor(() => {
+      expect(getBodyRows(container2).length).toBe(3);
+    });
+    expect(container2.querySelector('.ant-table-bordered')).toBeFalsy();
+  });
+
+  it('未开启合并时 bordered 保持 antd 默认行为(不默认开启)', async () => {
+    const { container } = render(
+      <ProTable<Row>
+        rowKey="key"
+        search={false}
+        options={false}
+        pagination={false}
+        dataSource={baseData}
+        columns={[
+          { title: '城市', dataIndex: 'city' },
+          { title: '姓名', dataIndex: 'name' },
+        ]}
+      />,
+    );
+    await waitFor(() => {
+      expect(getBodyRows(container).length).toBe(3);
+    });
+    expect(container.querySelector('.ant-table-bordered')).toBeFalsy();
+  });
+
   it('手动服务端分页(无 request,dataSource 为当前页)时不重复切片,同值正常合并', async () => {
     // 用户自行分页:不传 request,dataSource 只含当前页数据,pagination 带 total。
     // antd 对 dataSource.length < total 且 <= pageSize 的数据视为当前页直接渲染,
