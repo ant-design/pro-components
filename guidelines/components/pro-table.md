@@ -23,7 +23,7 @@
 - `headerTitle`: Title of the table.
 - `toolBarRender`: Render custom actions in the toolbar.
 - `actionRef`: Ref to trigger table actions like `reload()`.
-- `mergeFields`: `string[]`. Field keys (`dataIndex`) whose consecutive equal-valued cells merge vertically on the current page (Excel-style). Array order defines the multi-level merge order. Recomputed automatically after sort/filter/pagination. Not effective for tree data (children rows conflict with row-spanned cells); rows being edited in an editable table are excluded from merging. See `demos/table/auto-merge.tsx`.
+- `mergeFields`: `string[]`. Field keys (`dataIndex`) whose consecutive equal-valued cells merge vertically on the current page (Excel-style). Array order defines the multi-level merge order. Recomputed automatically after sort/filter/pagination. Consider enabling `bordered` for complete visual boundaries of merged regions (bordered stays orthogonal to merging and is not turned on automatically). Limitation: when local sorting/filtering is active and the data source is replaced by paging or a refresh, auto-merge is skipped for that page and resumes once a later table change captures the new data. Not effective for tree data (children rows conflict with row-spanned cells); rows being edited in an editable table are excluded from merging. See `demos/table/auto-merge.tsx`.
 
 **ProColumns Configuration**:
 

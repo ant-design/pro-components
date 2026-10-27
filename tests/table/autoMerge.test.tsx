@@ -277,6 +277,57 @@ describe('ProTable autoMerge 同值单元格纵向自动合并 (#9770)', () => {
     });
   });
 
+  it('开启合并且未显式传 bordered 时保持 antd 默认无边框,合并不改变边框行为', async () => {
+    const baseProps = {
+      rowKey: 'key' as const,
+      search: false as const,
+      options: false as const,
+      pagination: false as const,
+      dataSource: baseData,
+      columns: [
+        { title: '城市', dataIndex: 'city', autoMerge: true },
+        { title: '姓名', dataIndex: 'name' },
+      ] as ProColumns<Row>[],
+    };
+
+    // 未传 bordered:bordered 是 antd 的核心视觉属性,与合并逻辑正交,
+    // 开启合并不应悄悄反转 antd 默认值
+    const { container, unmount } = render(<ProTable<Row> {...baseProps} />);
+    await waitFor(() => {
+      expect(getBodyRows(container).length).toBe(3);
+    });
+    expect(container.querySelector('.ant-table-bordered')).toBeFalsy();
+    unmount();
+
+    // 显式 bordered={true}:正常透传生效
+    const { container: container2 } = render(
+      <ProTable<Row> {...baseProps} bordered={true} />,
+    );
+    await waitFor(() => {
+      expect(container2.querySelector('.ant-table-bordered')).toBeTruthy();
+    });
+  });
+
+  it('未开启合并时 bordered 保持 antd 默认行为(不默认开启)', async () => {
+    const { container } = render(
+      <ProTable<Row>
+        rowKey="key"
+        search={false}
+        options={false}
+        pagination={false}
+        dataSource={baseData}
+        columns={[
+          { title: '城市', dataIndex: 'city' },
+          { title: '姓名', dataIndex: 'name' },
+        ]}
+      />,
+    );
+    await waitFor(() => {
+      expect(getBodyRows(container).length).toBe(3);
+    });
+    expect(container.querySelector('.ant-table-bordered')).toBeFalsy();
+  });
+
   it('手动服务端分页(无 request,dataSource 为当前页)时不重复切片,同值正常合并', async () => {
     // 用户自行分页:不传 request,dataSource 只含当前页数据,pagination 带 total。
     // antd 对 dataSource.length < total 且 <= pageSize 的数据视为当前页直接渲染,
@@ -572,9 +623,252 @@ describe('ProTable autoMerge 同值单元格纵向自动合并 (#9770)', () => {
       const row2Cells = rows[1].querySelectorAll('td');
       expect(row2Cells.length).toBe(2);
       // 第一行因组合并被打断,也不再跨行
+      expect(rows[0].querySelector('td')!.getAttribute('rowspan')).not.toBe(
+        '2',
+      );
+    });
+  });
+
+  it('本地排序激活时数据刷新:顺序无法保证则跳过该页合并,不错误隐藏单元格', async () => {
+    const nameSorter = (a: Row, b: Row) => (a.name < b.name ? -1 : 1);
+    const columns: ProColumns<Row>[] = [
+      { title: '城市', dataIndex: 'city', autoMerge: true },
+      { title: '姓名', dataIndex: 'name', sorter: nameSorter },
+    ];
+    const data1: Row[] = [
+      { key: '1', city: '上海', name: 'a1' },
+      { key: '2', city: '北京', name: 'a2' },
+      { key: '3', city: '上海', name: 'a3' },
+    ];
+    const { container, rerender } = render(
+      <ProTable<Row>
+        rowKey="key"
+        search={false}
+        options={false}
+        pagination={false}
+        dataSource={data1}
+        columns={columns}
+      />,
+    );
+
+    // 激活本地排序(升序)
+    await userEvent.click(
+      container.querySelector('.ant-table-column-sorter-up')!,
+    );
+    await waitFor(() => {
+      expect(getBodyRows(container).length).toBe(3);
+    });
+
+    // 数据刷新:新数据原始顺序 [上海a, 上海z, 北京m](上海相邻),
+    // 但排序后显示顺序为 [上海a, 北京m, 上海z](上海不相邻)。
+    // 若按已过期的原始顺序计算,row1 上海 rowspan=2 会盖住 row2 的北京单元格
+    const data2: Row[] = [
+      { key: '4', city: '上海', name: 'a' },
+      { key: '5', city: '上海', name: 'z' },
+      { key: '6', city: '北京', name: 'm' },
+    ];
+    rerender(
+      <ProTable<Row>
+        rowKey="key"
+        search={false}
+        options={false}
+        pagination={false}
+        dataSource={data2}
+        columns={columns}
+      />,
+    );
+
+    await waitFor(() => {
+      const rows = getBodyRows(container);
+      // 排序仍生效:第二行应是北京
+      expect(rows[1].querySelector('td')!.textContent).toBe('北京');
+      // 顺序无法保证 → 跳过本页合并:所有单元格完整渲染,无跨行
+      rows.forEach((row) => {
+        expect(row.querySelectorAll('td').length).toBe(2);
+      });
+      expect(container.querySelector('[rowspan="2"]')).toBeNull();
+    });
+  });
+
+  it('request 服务端翻页后按新页数据计算合并', async () => {
+    const page1: Row[] = [
+      { key: '1', city: '北京', name: '张三' },
+      { key: '2', city: '北京', name: '李四' },
+    ];
+    const page2: Row[] = [
+      { key: '3', city: '上海', name: '王五' },
+      { key: '4', city: '上海', name: '赵六' },
+    ];
+    const { container } = render(
+      <ProTable<Row, { current?: number }>
+        rowKey="key"
+        search={false}
+        options={false}
+        pagination={{ pageSize: 2 }}
+        request={async (params) => ({
+          data: params.current === 2 ? page2 : page1,
+          success: true,
+          total: 4,
+        })}
+        columns={[
+          { title: '城市', dataIndex: 'city', autoMerge: true },
+          { title: '姓名', dataIndex: 'name' },
+        ]}
+      />,
+    );
+
+    await waitFor(() => {
+      const rows = getBodyRows(container);
+      expect(rows.length).toBe(2);
+      expect(rows[0].querySelector('td')!.textContent).toBe('北京');
+      expect(rows[0].querySelector('td')!.getAttribute('rowspan')).toBe('2');
+    });
+
+    await userEvent.click(container.querySelector('.ant-pagination-item-2')!);
+
+    await waitFor(() => {
+      const rows = getBodyRows(container);
+      expect(rows.length).toBe(2);
+      // 第二页两个上海正常合并,不残留第一页的合并信息
+      expect(rows[0].querySelector('td')!.textContent).toBe('上海');
+      expect(rows[0].querySelector('td')!.getAttribute('rowspan')).toBe('2');
+      expect(rows[1].querySelectorAll('td').length).toBe(1);
+    });
+  });
+
+  it('可编辑表格本地排序激活时编辑保存回流数据,跳过该页合并', async () => {
+    const nameSorter = (a: Row, b: Row) => (a.name < b.name ? -1 : 1);
+    const columns: ProColumns<Row>[] = [
+      { title: '城市', dataIndex: 'city', autoMerge: true },
+      { title: '姓名', dataIndex: 'name', sorter: nameSorter },
+    ];
+    // 故意让初始顺序与排序后不同,确保排序激活可观察
+    const data1: Row[] = [
+      { key: '1', city: '北京', name: 'a2' },
+      { key: '2', city: '上海', name: 'a1' },
+    ];
+    const { container, rerender } = render(
+      <EditableProTable<Row>
+        rowKey="key"
+        search={false}
+        options={false}
+        pagination={false}
+        recordCreatorProps={false}
+        value={data1}
+        editable={{ editableKeys: ['2'], type: 'multiple' }}
+        columns={columns}
+      />,
+    );
+
+    // 激活本地排序(升序):显示顺序变为 [上海a1, 北京a2]
+    await userEvent.click(
+      container.querySelector('.ant-table-column-sorter-up')!,
+    );
+    await waitFor(() => {
       expect(
-        rows[0].querySelector('td')!.getAttribute('rowspan'),
-      ).not.toBe('2');
+        container.querySelector('.ant-table-column-sorter-up'),
+      ).toHaveClass('active');
+    });
+
+    // 编辑保存后回流新数据:原始顺序 [上海a, 上海z, 北京m](上海相邻),
+    // 排序激活下显示顺序为 [上海a, 北京m, 上海z](上海不相邻)。
+    // 若按已过期的原始顺序计算,row1 上海 rowspan=2 会盖住 row2 的北京单元格
+    const data2: Row[] = [
+      { key: '1', city: '上海', name: 'a' },
+      { key: '2', city: '上海', name: 'z' },
+      { key: '3', city: '北京', name: 'm' },
+    ];
+    rerender(
+      <EditableProTable<Row>
+        rowKey="key"
+        search={false}
+        options={false}
+        pagination={false}
+        recordCreatorProps={false}
+        value={data2}
+        editable={{ editableKeys: [], type: 'multiple' }}
+        columns={columns}
+      />,
+    );
+
+    await waitFor(() => {
+      const rows = getBodyRows(container);
+      expect(rows.length).toBe(3);
+      // 跳过合并:不出现跨行单元格,排序后的北京行完整渲染
+      expect(container.querySelector('[rowspan="2"]')).toBeNull();
+      const cityCells = Array.from(rows).map(
+        (row) => row.querySelector('td')!.textContent,
+      );
+      expect(cityCells).toContain('北京');
+    });
+  });
+
+  it('本地 sorter 配置 defaultSortOrder 时首帧即排序,合并按保护逻辑跳过', async () => {
+    // 原始顺序上海相邻;defaultSortOrder 升序后显示顺序为 [北京a, 上海b, 上海c]。
+    // 该排序不经 onChange 即生效,若按源数据顺序计算会把 北京 单元格盖住
+    const data: Row[] = [
+      { key: '1', city: '上海', name: 'b' },
+      { key: '2', city: '上海', name: 'c' },
+      { key: '3', city: '北京', name: 'a' },
+    ];
+    const { container } = render(
+      <ProTable<Row>
+        rowKey="key"
+        search={false}
+        options={false}
+        pagination={false}
+        dataSource={data}
+        columns={[
+          { title: '城市', dataIndex: 'city', autoMerge: true },
+          {
+            title: '姓名',
+            dataIndex: 'name',
+            sorter: (a, b) => (a.name < b.name ? -1 : 1),
+            defaultSortOrder: 'ascend',
+          },
+        ]}
+      />,
+    );
+
+    await waitFor(() => {
+      const rows = getBodyRows(container);
+      expect(rows.length).toBe(3);
+      // 排序首帧即生效:首行是北京
+      expect(rows[0].querySelector('td')!.textContent).toBe('北京');
+      // 顺序无法由快照保证 → 跳过合并:所有单元格完整渲染,无跨行
+      rows.forEach((row) => {
+        expect(row.querySelectorAll('td').length).toBe(2);
+      });
+      expect(container.querySelector('[rowspan="2"]')).toBeNull();
+    });
+  });
+
+  it('本地 sorter 的 sortOrder 为 null 时视为未启用排序,合并正常进行', async () => {
+    const { container } = render(
+      <ProTable<Row>
+        rowKey="key"
+        search={false}
+        options={false}
+        pagination={false}
+        dataSource={baseData}
+        columns={[
+          { title: '城市', dataIndex: 'city', autoMerge: true },
+          {
+            title: '姓名',
+            dataIndex: 'name',
+            sorter: (a, b) => (a.name < b.name ? -1 : 1),
+            sortOrder: null,
+          },
+        ]}
+      />,
+    );
+
+    await waitFor(() => {
+      const rows = getBodyRows(container);
+      expect(rows.length).toBe(3);
+      // sortOrder 为 null 不参与保护:上海正常合并
+      expect(rows[0].querySelector('td')!.getAttribute('rowspan')).toBe('2');
+      expect(rows[1].querySelectorAll('td').length).toBe(1);
     });
   });
 });
