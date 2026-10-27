@@ -66,6 +66,7 @@ import {
   getServerFilterResult,
   getServerSorterResult,
   isBordered,
+  isLocalFilter,
   isLocalSorter,
   mergePagination,
   parseServerDefaultColumnConfig,
@@ -998,6 +999,34 @@ const ProTable = <
    */
   const [hasActiveLocalOrder, setHasActiveLocalOrder] = useState(false);
 
+  /**
+   * 列配置层面即生效的本地排序/筛选（受控 sortOrder、defaultSortOrder、
+   * 受控 filteredValue、defaultFilteredValue）：不经 onChange 就在首帧改变
+   * 显示顺序或行集合，需并入合并保护条件。sortOrder 为 null 视为未启用排序
+   */
+  const hasLocalOrderFromColumns = useMemo(
+    () =>
+      flattenColumns(propsColumns).some((column) => {
+        if (!column) return false;
+        if (
+          column.sorter &&
+          isLocalSorter(column.sorter as any) &&
+          (column.sortOrder ?? column.defaultSortOrder) != null
+        ) {
+          return true;
+        }
+        return !!(
+          isLocalFilter(column.filters, column.onFilter) &&
+          ((column.filteredValue ?? column.defaultFilteredValue)?.length ?? 0) >
+            0
+        );
+      }),
+    [propsColumns],
+  );
+
+  /** 合并保护条件:onChange 感知到的 + 列配置即生效的本地排序/筛选 */
+  const hasLocalOrderActive = hasActiveLocalOrder || hasLocalOrderFromColumns;
+
   /** 参与合并计算的当前页数据：只合并当前页内连续同值 */
   const isPaginationEnabled = pagination !== false;
   const paginationCurrent = isPaginationEnabled ? pagination?.current : undefined;
@@ -1010,7 +1039,7 @@ const ProTable = <
     const captureValid =
       !!capturedPageData && capturedPageData.base === action.dataSource;
     // 捕获失效且本地排序/筛选激活：源数据顺序与显示顺序不一致，跳过本页合并
-    if (!captureValid && hasActiveLocalOrder) return [];
+    if (!captureValid && hasLocalOrderActive) return [];
     // 捕获数据为排序/筛选后的全量数据,作为分页源;服务端 request 分页或
     // 未开启分页时直接使用,前端分页再按页码切片
     const source = captureValid ? capturedPageData.data : mergedDataSource;
@@ -1038,7 +1067,7 @@ const ProTable = <
     paginationCurrent,
     paginationPageSize,
     paginationTotal,
-    hasActiveLocalOrder,
+    hasLocalOrderActive,
   ]);
 
   const rowSpanMap = useMemo(

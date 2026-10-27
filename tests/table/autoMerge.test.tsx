@@ -802,5 +802,74 @@ describe('ProTable autoMerge 同值单元格纵向自动合并 (#9770)', () => {
       expect(cityCells).toContain('北京');
     });
   });
+
+  it('本地 sorter 配置 defaultSortOrder 时首帧即排序,合并按保护逻辑跳过', async () => {
+    // 原始顺序上海相邻;defaultSortOrder 升序后显示顺序为 [北京a, 上海b, 上海c]。
+    // 该排序不经 onChange 即生效,若按源数据顺序计算会把 北京 单元格盖住
+    const data: Row[] = [
+      { key: '1', city: '上海', name: 'b' },
+      { key: '2', city: '上海', name: 'c' },
+      { key: '3', city: '北京', name: 'a' },
+    ];
+    const { container } = render(
+      <ProTable<Row>
+        rowKey="key"
+        search={false}
+        options={false}
+        pagination={false}
+        dataSource={data}
+        columns={[
+          { title: '城市', dataIndex: 'city', autoMerge: true },
+          {
+            title: '姓名',
+            dataIndex: 'name',
+            sorter: (a, b) => (a.name < b.name ? -1 : 1),
+            defaultSortOrder: 'ascend',
+          },
+        ]}
+      />,
+    );
+
+    await waitFor(() => {
+      const rows = getBodyRows(container);
+      expect(rows.length).toBe(3);
+      // 排序首帧即生效:首行是北京
+      expect(rows[0].querySelector('td')!.textContent).toBe('北京');
+      // 顺序无法由快照保证 → 跳过合并:所有单元格完整渲染,无跨行
+      rows.forEach((row) => {
+        expect(row.querySelectorAll('td').length).toBe(2);
+      });
+      expect(container.querySelector('[rowspan="2"]')).toBeNull();
+    });
+  });
+
+  it('本地 sorter 的 sortOrder 为 null 时视为未启用排序,合并正常进行', async () => {
+    const { container } = render(
+      <ProTable<Row>
+        rowKey="key"
+        search={false}
+        options={false}
+        pagination={false}
+        dataSource={baseData}
+        columns={[
+          { title: '城市', dataIndex: 'city', autoMerge: true },
+          {
+            title: '姓名',
+            dataIndex: 'name',
+            sorter: (a, b) => (a.name < b.name ? -1 : 1),
+            sortOrder: null,
+          },
+        ]}
+      />,
+    );
+
+    await waitFor(() => {
+      const rows = getBodyRows(container);
+      expect(rows.length).toBe(3);
+      // sortOrder 为 null 不参与保护:上海正常合并
+      expect(rows[0].querySelector('td')!.getAttribute('rowspan')).toBe('2');
+      expect(rows[1].querySelectorAll('td').length).toBe(1);
+    });
+  });
 });
 
