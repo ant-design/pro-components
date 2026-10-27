@@ -66,6 +66,7 @@ import {
   getServerFilterResult,
   getServerSorterResult,
   isBordered,
+  isLocalSorter,
   mergePagination,
   parseServerDefaultColumnConfig,
   useActionType,
@@ -986,6 +987,13 @@ const ProTable = <
     base: readonly T[] | undefined;
   } | null>(null);
 
+  /**
+   * 是否存在激活的本地排序/筛选（antd 在客户端改变行顺序或行集合）。
+   * 捕获失效（数据刷新）且本地排序/筛选激活时，显示顺序与源数据顺序不一致，
+   * 无法保证合并正确，此时跳过该页合并而不是按过期顺序计算 rowSpan
+   */
+  const [hasActiveLocalOrder, setHasActiveLocalOrder] = useState(false);
+
   /** 参与合并计算的当前页数据：只合并当前页内连续同值 */
   const isPaginationEnabled = pagination !== false;
   const paginationCurrent = isPaginationEnabled ? pagination?.current : undefined;
@@ -995,12 +1003,13 @@ const ProTable = <
   const paginationTotal = isPaginationEnabled ? pagination?.total : undefined;
   const mergePageData = useMemo<readonly T[]>(() => {
     if (effectiveMergeDescriptors.length === 0) return [];
+    const captureValid =
+      !!capturedPageData && capturedPageData.base === action.dataSource;
+    // 捕获失效且本地排序/筛选激活：源数据顺序与显示顺序不一致，跳过本页合并
+    if (!captureValid && hasActiveLocalOrder) return [];
     // 捕获数据为排序/筛选后的全量数据,作为分页源;服务端 request 分页或
     // 未开启分页时直接使用,前端分页再按页码切片
-    const source =
-      capturedPageData && capturedPageData.base === action.dataSource
-        ? capturedPageData.data
-        : mergedDataSource;
+    const source = captureValid ? capturedPageData.data : mergedDataSource;
     if (request || !isPaginationEnabled) return source;
     const current = paginationCurrent ?? 1;
     const pageSize = paginationPageSize ?? 20;
@@ -1025,6 +1034,7 @@ const ProTable = <
     paginationCurrent,
     paginationPageSize,
     paginationTotal,
+    hasActiveLocalOrder,
   ]);
 
   const rowSpanMap = useMemo(
@@ -1106,6 +1116,8 @@ const ProTable = <
     ) => {
       rest.onChange?.(changePagination, filters, sorter, extra);
 
+      const serverFilter = getServerFilterResult(filters, useFilterColumns);
+
       // 仅开启自动合并时才捕获排序/筛选后的真实渲染数据（#9770,注意 antd 的
       // currentDataSource 不含分页切片,合并计算侧会再按当前页切片）;
       // base 用引用稳定的 action.dataSource,数据源更新后捕获自动失效
@@ -1114,9 +1126,25 @@ const ProTable = <
           data: extra.currentDataSource,
           base: action.dataSource,
         });
+
+        // 记录是否存在激活的本地排序/筛选:捕获失效(数据刷新)时源数据顺序
+        // 与显示顺序不一致,合并计算将跳过该页(见 mergePageData)
+        const sorterList = Array.isArray(sorter) ? sorter : [sorter];
+        const localSortActive = sorterList.some(
+          (item) =>
+            item?.order != null &&
+            item?.column?.sorter != null &&
+            isLocalSorter(item.column.sorter as any),
+        );
+        const localFilterActive = Object.entries(filters).some(
+          ([key, value]) =>
+            value != null &&
+            (!Array.isArray(value) || value.length > 0) &&
+            !(key in serverFilter),
+        );
+        setHasActiveLocalOrder(localSortActive || localFilterActive);
       }
 
-      const serverFilter = getServerFilterResult(filters, useFilterColumns);
       onFilterChange(omitUndefined(serverFilter));
 
       const serverSorter = getServerSorterResult(sorter);
