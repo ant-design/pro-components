@@ -349,7 +349,6 @@ const ProTable = <
     searchFormRender,
     onScroll,
     mergeFields,
-    bordered: propsBordered,
     ...rest
   } = props;
   const { wrapSSR, hashId } = useStyle(props.defaultClassName);
@@ -966,12 +965,17 @@ const ProTable = <
     ? EMPTY_MERGE_FIELD_DESCRIPTORS
     : mergeFieldDescriptors;
 
-  /**
-   * 开启自动合并时默认启用全边框（合并区域无边框时视觉不完整，#9770）；
-   * 显式传入 bordered（含 false）时尊重用户配置
-   */
-  const mergedBordered =
-    propsBordered ?? (effectiveMergeDescriptors.length > 0 ? true : undefined);
+  // bordered 与合并逻辑正交,不默认开启;仅在 dev 环境给出推荐提示(#9770)
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    effectiveMergeDescriptors.length > 0 &&
+    props.bordered === undefined
+  ) {
+    noteOnce(
+      false,
+      '已开启单元格自动合并(autoMerge/mergeFields)。合并区域无边框时视觉边界不完整,建议同时开启 `bordered` 全边框;如不需要可忽略本提示。',
+    );
+  }
 
   /**
    * antd Table onChange 回调的 extra.currentDataSource 是排序/筛选后的真实
@@ -1166,9 +1170,8 @@ const ProTable = <
       size: counter.tableSize,
       className: tableClassName,
       style: tableStyle,
-      bordered: mergedBordered,
     }),
-    [counter.tableSize, tableClassName, tableStyle, mergedBordered],
+    [counter.tableSize, tableClassName, tableStyle],
   );
 
   const tableDataProps = useMemo(

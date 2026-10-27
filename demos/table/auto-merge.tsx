@@ -33,8 +33,8 @@ const columns: ProColumns<Row>[] = [
  * 只合并当前页内连续同值，排序、筛选、分页切换后自动重算；
  * 手动 onCell 显式返回的 rowSpan 优先于自动合并结果。
  *
- * 开启合并后表格默认启用全边框（合并区域无边框时视觉不完整），
- * 显式传入 bordered={false} 可关闭，见第三个示例。
+ * bordered 与合并逻辑正交、不默认开启；合并场景建议开启全边框，
+ * 合并区域视觉边界更完整（见前两个示例），第三个示例为无边框效果。
  */
 export default () => (
   <>
@@ -47,7 +47,8 @@ export default () => (
       search={false}
       options={false}
       pagination={false}
-      headerTitle="列配置 autoMerge（合并时默认开启全边框）"
+      bordered
+      headerTitle="列配置 autoMerge（建议开启全边框）"
     />
     <Divider />
     <ProTable<Row>
@@ -58,7 +59,8 @@ export default () => (
       search={false}
       options={false}
       pagination={false}
-      headerTitle="mergeFields 多级合并"
+      bordered
+      headerTitle="mergeFields 多级合并（建议开启全边框）"
     />
     <Divider />
     <ProTable<Row>
@@ -69,8 +71,7 @@ export default () => (
       search={false}
       options={false}
       pagination={false}
-      bordered={false}
-      headerTitle="显式 bordered={false}：关闭默认全边框"
+      headerTitle="未开启 bordered 的合并（antd 默认无边框）"
     />
   </>
 );

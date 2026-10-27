@@ -277,7 +277,7 @@ describe('ProTable autoMerge 同值单元格纵向自动合并 (#9770)', () => {
     });
   });
 
-  it('开启自动合并时默认启用全边框,显式 bordered={false} 时尊重用户配置', async () => {
+  it('开启合并且未显式传 bordered 时保持 antd 默认无边框,合并不改变边框行为', async () => {
     const baseProps = {
       rowKey: 'key' as const,
       search: false as const,
@@ -290,21 +290,22 @@ describe('ProTable autoMerge 同值单元格纵向自动合并 (#9770)', () => {
       ] as ProColumns<Row>[],
     };
 
-    // 未传 bordered:合并场景下默认全边框(跨行格无边框视觉上不完整)
+    // 未传 bordered:bordered 是 antd 的核心视觉属性,与合并逻辑正交,
+    // 开启合并不应悄悄反转 antd 默认值
     const { container, unmount } = render(<ProTable<Row> {...baseProps} />);
     await waitFor(() => {
-      expect(container.querySelector('.ant-table-bordered')).toBeTruthy();
+      expect(getBodyRows(container).length).toBe(3);
     });
+    expect(container.querySelector('.ant-table-bordered')).toBeFalsy();
     unmount();
 
-    // 显式 bordered={false}:尊重用户,不强制开启
+    // 显式 bordered={true}:正常透传生效
     const { container: container2 } = render(
-      <ProTable<Row> {...baseProps} bordered={false} />,
+      <ProTable<Row> {...baseProps} bordered={true} />,
     );
     await waitFor(() => {
-      expect(getBodyRows(container2).length).toBe(3);
+      expect(container2.querySelector('.ant-table-bordered')).toBeTruthy();
     });
-    expect(container2.querySelector('.ant-table-bordered')).toBeFalsy();
   });
 
   it('未开启合并时 bordered 保持 antd 默认行为(不默认开启)', async () => {
