@@ -249,6 +249,11 @@ function ListView<RecordType extends AnyObject>(
       index,
     ) as React.ReactNode;
 
+    // #9779: getCheckboxProps 返回 disabled 的行在卡片模式下同样不可选中
+    const checkboxDisabled = React.isValidElement(checkboxDom)
+      ? !!(checkboxDom.props as any)?.disabled
+      : false;
+
     const { isEditable, recordKey } =
       actionRef.current?.isEditable(item, index) || {};
 
@@ -259,6 +264,7 @@ function ListView<RecordType extends AnyObject>(
       ? {
           ...gridCardStaticProps,
           checked: isChecked,
+          disabled: checkboxDisabled || !!gridCardStaticProps.disabled,
           onChange: React.isValidElement(checkboxDom)
             ? (changeChecked: boolean) =>
                 ((checkboxDom as React.JSX.Element)?.props as any)?.onChange({
