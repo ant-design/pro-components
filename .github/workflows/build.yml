@@ -25,4 +25,5 @@ jobs:
       - run: pnpm run build
         env:
           PRO_COMPONENTS_CI: CI
+      - run: pnpm exec rspress build
       - run: pnpm run lint
