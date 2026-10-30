@@ -58,6 +58,11 @@
       "import": "./es/layout/index.js",
       "require": "./lib/layout/index.js"
     },
+    "./static-style-extract": {
+      "types": "./es/static-style-extract.d.ts",
+      "import": "./es/static-style-extract.js",
+      "require": "./lib/static-style-extract.js"
+    },
     "./card": {
       "types": "./es/card/index.d.ts",
       "import": "./es/card/index.js",

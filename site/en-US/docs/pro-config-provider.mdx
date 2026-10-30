@@ -31,6 +31,43 @@ export default () => (
 
 Nested `ProConfigProvider` instances inherit their parent configuration and merge `token` values. The nearest explicit setting takes precedence.
 
+## Zero runtime styles (antd 6)
+
+When the outer `ConfigProvider` sets `theme.zeroRuntime: true`, ProComponents also stops registering component styles in the browser. Generate and import static CSS before enabling it:
+
+```tsx | pure
+// scripts/extract-pro-style.tsx, run during the Node build
+import { writeFileSync } from 'node:fs';
+import { extractProStyle } from '@ant-design/pro-components/static-style-extract';
+import { ProCard } from '@ant-design/pro-components';
+import { ConfigProvider } from 'antd';
+
+const css = extractProStyle(
+  <ConfigProvider theme={{ hashed: false }}>
+    <ProCard title="Example">Content</ProCard>
+  </ConfigProvider>,
+);
+writeFileSync('src/pro-components.css', css);
+```
+
+Run this script before the application build, for example with `npx tsx scripts/extract-pro-style.tsx`.
+
+```tsx | pure
+// Application entry
+import 'antd/dist/antd.css';
+import './pro-components.css';
+import { ProCard } from '@ant-design/pro-components';
+import { ConfigProvider } from 'antd';
+
+export default () => (
+  <ConfigProvider theme={{ hashed: false, zeroRuntime: true }}>
+    <ProCard title="Example">Content</ProCard>
+  </ConfigProvider>
+);
+```
+
+Keep `zeroRuntime` disabled while extracting and use the same theme, tokens, `hashed`, and `prefixCls` settings as the application. The output includes Pro and antd styles from the rendered tree, so render the components and states your application uses. Themes with different structural styles need their corresponding static CSS. As in antd, `zeroRuntime` is chosen on the first mount; changing this flag requires remounting the styled subtree.
+
 ## Custom value types
 
 `valueTypeMap` registers read and edit renderers for ProField based components such as ProTable, ProDescriptions, and ProFormField.
