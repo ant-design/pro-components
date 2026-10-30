@@ -76,6 +76,8 @@ export default defineConfig({
   outDir: 'dist',
   // 生产构建输出静态站点（对齐 dumi exportStatic）
   ssg: true,
+  // Export Markdown pages and llms.txt alongside the static HTML site.
+  llms: true,
   plugins: [
     // 组件 demo 预览：```tsx file="<root>/demos/xxx.tsx" preview
     pluginPreview({ previewLanguages: ['tsx', 'jsx'], previewCodeTransform }),

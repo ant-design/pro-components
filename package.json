@@ -234,6 +234,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-draggable": "~4.4.6",
+    "react-render-to-markdown": "18.3.2",
     "react-router": "7.18.4",
     "react-router-dom": "7.18.4",
     "react-markdown": "^10.1.0",
