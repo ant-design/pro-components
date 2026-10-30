@@ -226,7 +226,13 @@ const FormRender = <T, U = any>({
           });
           /** 如果是手动模式不需要提交 */
           if (manualRequest) return;
-          onSubmit?.(values, true);
+          // #9781:首屏查询也要执行字段的 transform。
+          // onInit 的 values 只做了日期格式化（formatValue），没有执行 transform，
+          // 导致首屏请求参数和用户手动搜索的参数结构不一致。
+          // 这里改用 getFieldsFormatValue —— 和手动提交（onFinish）走同一条管线；
+          // 传 true 是为了保留首屏原本的取值范围（getFieldsValue(true)），
+          // 只额外补上 transform 这一步。
+          onSubmit?.(form?.getFieldsFormatValue?.(true) ?? values, true);
         }
       }}
       onReset={(values: T) => {

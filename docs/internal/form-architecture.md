@@ -32,6 +32,13 @@ URL (syncToUrl)    → urlSearch / urlParamsMergeInitialValues → 与 initialVa
 - 因此 `conversionMomentValue` 需要拿到 `transformKeyRef`（transform 配置树），按 namePath 判断当前字段是否配置了 `transform`；
   没有配置 `transform` 的空字符串字段依然不会出现在提交结果里。
 
+`transformKey` 管线在 ProTable 查询表单上的两个入口（#9781）：
+
+- 手动搜索（`onFinish`）→ `getFieldsFormatValue()` → 走完整的 `transformKey` 管线（含 `transform`）。
+- 首屏自动查询（`onInit`）→ 历史上只用了 `formatValue`（仅日期格式化），不执行 `transform`，
+  导致首屏请求参数和手动搜索的参数结构不一致。现在首屏同样使用 `getFieldsFormatValue(true)`，
+  取值范围与原来一致（`getFieldsValue(true)`），只额外补上 `transform` 这一步。
+
 ## BaseForm 中副作用（useEffect / useImperativeHandle）清单
 
 ### `BaseFormComponents`（与 `BaseForm.tsx` 同文件，Form 子树内）
