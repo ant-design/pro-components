@@ -1,4 +1,5 @@
 import path from 'path';
+import fs from 'node:fs';
 
 import { pluginPreview } from '@rspress/plugin-preview';
 import { pluginSitemap } from '@rspress/plugin-sitemap';
@@ -6,6 +7,30 @@ import { defineConfig } from '@rspress/core';
 import { pluginGoogleAnalytics } from 'rsbuild-plugin-google-analytics';
 
 const SITE_URL = 'https://procomponents.ant.design';
+
+// Preview demos are copied into node_modules/.rspress/virtual-demo. Resolve
+// their relative imports against the original file before that copy happens.
+const demoSourcePaths = new Map<string, string>();
+const collectDemoSources = (dir: string) => {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const filePath = path.join(dir, entry.name);
+    if (entry.isDirectory()) collectDemoSources(filePath);
+    else if (/\.[jt]sx?$/.test(entry.name)) {
+      demoSourcePaths.set(fs.readFileSync(filePath, 'utf8'), filePath);
+    }
+  }
+};
+collectDemoSources(path.join(__dirname, 'demos'));
+
+const previewCodeTransform = ({ code }: { code: string }) => {
+  const sourcePath = demoSourcePaths.get(code);
+  if (!sourcePath) return code;
+  return code.replace(
+    /(\bfrom\s*|\bimport\s*\(|\brequire\s*\()\s*(['"])(\.[^'"]+)\2/g,
+    (_match, prefix: string, quote: string, specifier: string) =>
+      `${prefix}${quote}${path.resolve(path.dirname(sourcePath), specifier).replaceAll('\\', '/')}${quote}`,
+  );
+};
 
 // plugin-preview 会把代码块内容拷贝到 node_modules/.rspress/virtual-demo/，
 // demos/ 里以下相对导入在虚拟模块中无法解析，需在构建层显式别名。
@@ -53,7 +78,7 @@ export default defineConfig({
   ssg: true,
   plugins: [
     // 组件 demo 预览：```tsx file="<root>/demos/xxx.tsx" preview
-    pluginPreview({ previewLanguages: ['tsx', 'jsx'] }),
+    pluginPreview({ previewLanguages: ['tsx', 'jsx'], previewCodeTransform }),
     pluginSitemap({ siteUrl: SITE_URL }),
   ],
   head: [

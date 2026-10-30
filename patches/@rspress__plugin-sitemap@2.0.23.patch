@@ -1,0 +1,12 @@
+diff --git a/dist/index.js b/dist/index.js
+index 0000000..1111111 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -29,6 +29,6 @@ const generateNode = (sitemap)=>{
+     return result;
+ };
+ const generateXml = (sitemaps)=>{
+-    logger.info(`Generate sitemap.xml for ${sitemaps.length} pages.`);
++    console.info(`Generate sitemap.xml for ${sitemaps.length} pages.`);
+     return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemaps.reduce((node, sitemap)=>node + generateNode(sitemap), '')}</urlset>`;
+ };
