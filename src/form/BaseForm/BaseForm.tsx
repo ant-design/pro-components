@@ -153,6 +153,10 @@ export type CommonFormProps<
    *
    * @default true
    * @param 要不要值中的 Null 和 undefined
+   * @description
+   * 空字符串不会在 transform 之前被过滤,transform 依然能拿到 `''`,
+   * 便于把「用户清空字段」转换成 null / 业务标记值。
+   * 没有配置 transform 的空字符串字段,依然不会出现在提交结果里。
    */
   omitNil?: boolean;
   /**
@@ -747,6 +751,9 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
           fieldsValueType.current,
           paramsOmitNil,
           parentKey,
+          // #9780:把 transform 配置树传给清洗环节,
+          // 配置了 transform 的字段即使是空字符串也要保留,交给 transform 决定最终提交什么。
+          transformKeyRef.current,
         ),
         transformKeyRef.current,
         // #8044:键转换环节同样尊重 omitNil,false 时保留 null 字段

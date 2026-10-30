@@ -25,6 +25,13 @@ URL (syncToUrl)    → urlSearch / urlParamsMergeInitialValues → 与 initialVa
 1. `conversionMomentValue`（日期、`fieldsValueType`、`dateFormatter`）
 2. `transformKeySubmitValue`（`transformKeyRef` 中各字段 `transform`）
 
+空字符串与 `transform` 的执行顺序（#9780）：
+
+- `omitNil` 只过滤 `null` / `undefined`。空字符串默认也会被丢弃，但**配置了 `transform` 的字段会保留空字符串**，
+  这样 `transform` 才能拿到 `''`，把「用户清空字段」转换成 `null` / 业务标记值。
+- 因此 `conversionMomentValue` 需要拿到 `transformKeyRef`（transform 配置树），按 namePath 判断当前字段是否配置了 `transform`；
+  没有配置 `transform` 的空字符串字段依然不会出现在提交结果里。
+
 ## BaseForm 中副作用（useEffect / useImperativeHandle）清单
 
 ### `BaseFormComponents`（与 `BaseForm.tsx` 同文件，Form 子树内）

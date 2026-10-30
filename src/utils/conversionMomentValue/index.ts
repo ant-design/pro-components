@@ -129,12 +129,37 @@ export const convertMoment = (
 };
 
 /**
+ * transform 配置树（嵌套对象结构，namePathSet 生成）。
+ * 用于判断某个字段是否配置了 transform。
+ */
+export type TransformMapType = Record<string, any>;
+
+/**
+ * 判断某个字段路径上是否配置了 transform 函数。
+ *
+ * transform 配置树的层级与表单 namePath 对齐，例如 `{ user: { name: fn } }`、
+ * `{ items: [{ code: fn }] }`。
+ *
+ * @param transformMap - transform 配置树
+ * @param namePath - 字段路径
+ * @returns 是否配置了 transform
+ */
+const hasTransformAtPath = (
+  transformMap: TransformMapType | undefined,
+  namePath: (string | number)[],
+): boolean => {
+  if (!transformMap) return false;
+  return typeof get(transformMap, namePath) === 'function';
+};
+
+/**
  * 这里主要是来转化一下数据 将 dayjs 转化为 string 将 all 默认删除
  * @param  {T} value
  * @param  {DateFormatter} dateFormatter
  * @param  {Record<string} valueTypeMap
  * @param omitNil
  * @param parentKey
+ * @param transformMap 配置了 transform 的字段，空字符串需要保留给 transform 处理（#9780）
  */
 export const conversionMomentValue = <T extends {} = any>(
   value: T,
@@ -149,6 +174,7 @@ export const conversionMomentValue = <T extends {} = any>(
   >,
   omitNil?: boolean,
   parentKey?: NamePath,
+  transformMap?: TransformMapType,
 ): T => {
   const tmpValue = {} as Record<string, any> as T;
   if (typeof window === 'undefined') return value;
@@ -180,8 +206,14 @@ export const conversionMomentValue = <T extends {} = any>(
     if (isNil(itemValue) && omitNil) {
       return;
     }
-    // 如果 omitNil 为 true，也过滤掉空字符串
-    if (omitNil && itemValue === '') {
+    // #9780:omitNil 只过滤 Null / undefined,空字符串默认也会被过滤。
+    // 但配置了 transform 的字段必须保留空字符串,否则用户无法用 transform
+    // 把「清空字段」转换成 null / 业务标记值 —— 字段在到达 transform 之前就被删掉了。
+    if (
+      omitNil &&
+      itemValue === '' &&
+      !hasTransformAtPath(transformMap, namePath)
+    ) {
       return;
     }
     const currentDateFormatter = dateFormatter ?? 'string';
@@ -227,6 +259,7 @@ export const conversionMomentValue = <T extends {} = any>(
         valueTypeMap,
         omitNil,
         namePath,
+        transformMap,
       );
       return;
     }
@@ -257,6 +290,7 @@ export const conversionMomentValue = <T extends {} = any>(
           valueTypeMap,
           omitNil,
           [valueKey, `${index}`].flat(1),
+          transformMap,
         );
       });
       return;
