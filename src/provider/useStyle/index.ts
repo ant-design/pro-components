@@ -1,13 +1,22 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import { useStyleRegister } from '@ant-design/cssinjs';
+import { StyleContext, useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { GlobalToken } from 'antd';
 import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
 import type React from 'react';
-import { useContext, useEffect, useMemo, useRef } from 'react';
+import {
+  useContext,
+  useEffect,
+  useInsertionEffect,
+  useMemo,
+  useRef,
+} from 'react';
 import { ProConfigContext as ProProvider } from '../context';
 import type { ProAliasToken } from '../typing/aliasToken';
 export type { ProAliasToken } from '../typing/aliasToken';
+
+// Style tags can be shared by separate cssinjs caches in the same container.
+const liveStyleConsumers = new WeakMap<object, Map<string, number>>();
 
 /**
  * 把一个颜色设置一下透明度
@@ -172,7 +181,12 @@ export function useStyle(
 
   const styleVersion = useMonotonicVersion(styleKey);
 
-  const stylePath = [componentName, styleKey, styleVersion].filter(Boolean);
+  const stylePath = useMemo(
+    () => [componentName, styleKey, styleVersion].filter(Boolean),
+    [componentName, styleKey, styleVersion],
+  );
+
+  const { cache, container, layer: enableLayer } = useContext(StyleContext);
 
   useStyleRegister(
     {
@@ -186,6 +200,35 @@ export function useStyle(
     } as any,
     () => styleFn(token as ProAliasToken),
   );
+
+  // cssinjs drops unused cache entries, but normally leaves their DOM styles
+  // behind. Remove only this Pro style once the last mounted consumer releases
+  // its cache entry. A microtask also covers a remount in the same React commit.
+  const cachePath = useMemo(
+    () => ['style', '', ...(enableLayer ? ['layer'] : []), ...stylePath],
+    [enableLayer, stylePath],
+  );
+  const styleId = cache.get(cachePath)?.[1]?.[1] as string | undefined;
+  useInsertionEffect(() => {
+    if (!styleId || typeof document === 'undefined') return;
+    const root = container ?? document;
+    let consumers = liveStyleConsumers.get(root);
+    if (!consumers) {
+      consumers = new Map();
+      liveStyleConsumers.set(root, consumers);
+    }
+    consumers.set(styleId, (consumers.get(styleId) ?? 0) + 1);
+    return () => {
+      consumers.set(styleId, (consumers.get(styleId) ?? 1) - 1);
+      Promise.resolve().then(() => {
+        if (consumers.get(styleId) !== 0 || cache.get(cachePath)) return;
+        consumers.delete(styleId);
+        root.querySelectorAll('style[data-css-hash]').forEach((style) => {
+          if (style.getAttribute('data-css-hash') === styleId) style.remove();
+        });
+      });
+    };
+  }, [cache, cachePath, container, styleId]);
 
   return {
     /**
