@@ -1,3 +1,4 @@
+import { StyleProvider, createCache } from '@ant-design/cssinjs';
 import { ProConfigProvider, useStyle } from '@ant-design/pro-components';
 import { act, render } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
@@ -49,5 +50,37 @@ describe('Pro style cleanup', () => {
     second.unmount();
     await Promise.resolve();
     expect(activeStyles()).toHaveLength(0);
+  });
+
+  it('keeps a style shared by separate cssinjs caches', async () => {
+    const first = render(
+      <StyleProvider cache={createCache()}>
+        <Theme color="#ff0000" />
+      </StyleProvider>,
+    );
+    const second = render(
+      <StyleProvider cache={createCache()}>
+        <Theme color="#ff0000" />
+      </StyleProvider>,
+    );
+    expect(activeStyles()).toHaveLength(1);
+    first.unmount();
+    await Promise.resolve();
+    expect(activeStyles()).toHaveLength(1);
+    second.unmount();
+    await Promise.resolve();
+    expect(activeStyles()).toHaveLength(0);
+  });
+
+  it('keeps the style when a consumer is replaced in one commit', async () => {
+    const view = render(<Theme key="old" color="#ff0000" />);
+    await act(async () => {
+      view.rerender(<Theme key="new" color="#ff0000" />);
+      await Promise.resolve();
+    });
+    expect(activeStyles()).toHaveLength(1);
+    expect(activeStyles()[0].textContent).toContain('#ff0000');
+    view.unmount();
+    await Promise.resolve();
   });
 });

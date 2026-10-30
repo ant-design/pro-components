@@ -15,6 +15,9 @@ import { ProConfigContext as ProProvider } from '../context';
 import type { ProAliasToken } from '../typing/aliasToken';
 export type { ProAliasToken } from '../typing/aliasToken';
 
+// Style tags can be shared by separate cssinjs caches in the same container.
+const liveStyleConsumers = new WeakMap<object, Map<string, number>>();
+
 /**
  * 把一个颜色设置一下透明度
  * @example (#fff, 0.5) => rgba(255, 255, 255, 0.5)
@@ -208,10 +211,18 @@ export function useStyle(
   const styleId = cache.get(cachePath)?.[1]?.[1] as string | undefined;
   useInsertionEffect(() => {
     if (!styleId || typeof document === 'undefined') return;
+    const root = container ?? document;
+    let consumers = liveStyleConsumers.get(root);
+    if (!consumers) {
+      consumers = new Map();
+      liveStyleConsumers.set(root, consumers);
+    }
+    consumers.set(styleId, (consumers.get(styleId) ?? 0) + 1);
     return () => {
+      consumers.set(styleId, (consumers.get(styleId) ?? 1) - 1);
       Promise.resolve().then(() => {
-        if (cache.get(cachePath)) return;
-        const root = container ?? document;
+        if (consumers.get(styleId) !== 0 || cache.get(cachePath)) return;
+        consumers.delete(styleId);
         root.querySelectorAll('style[data-css-hash]').forEach((style) => {
           if (style.getAttribute('data-css-hash') === styleId) style.remove();
         });
