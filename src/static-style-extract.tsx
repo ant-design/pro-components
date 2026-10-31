@@ -10,5 +10,5 @@ import { renderToString } from 'react-dom/server';
 export function extractProStyle(node: React.ReactElement): string {
   const cache = createCache();
   renderToString(<StyleProvider cache={cache}>{node}</StyleProvider>);
-  return extractStyle(cache, { plain: true, types: ['style'] });
+  return extractStyle(cache, { plain: true });
 }

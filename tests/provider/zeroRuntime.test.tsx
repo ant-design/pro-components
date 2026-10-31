@@ -56,6 +56,15 @@ describe('Pro zeroRuntime', () => {
     expect(css).toContain('.ant-pro-card');
   });
 
+  it('includes custom theme CSS variables for the first paint', () => {
+    const css = extractProStyle(
+      <ConfigProvider theme={{ hashed: false, token: { colorPrimary: '#123456' } }}>
+        <ProCard title="Example">Content</ProCard>
+      </ConfigProvider>,
+    );
+    expect(css).toContain('--ant-color-primary:#123456');
+  });
+
   it('extracts Layout, Form, and Table styles', () => {
     const css = extractProStyle(
       <ConfigProvider theme={{ hashed: false }}>
