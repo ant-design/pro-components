@@ -140,6 +140,9 @@ export function useStyle(
     iconPrefixCls,
     theme: antdThemeConfig,
   } = useContext(AntdConfigProvider.ConfigContext);
+  // Match antd's zeroRuntime behavior: choose the hook path on the first mount.
+  // Changing this flag later requires remounting the styled subtree.
+  const zeroRuntime = useMemo(() => !!antdThemeConfig?.zeroRuntime, []);
 
   // #8929: 透传 antd 组件级 token（theme.components.*）进 pro token。
   // antd 的 theme.useToken() 只返回全局 token，Pro 组件（如 ProCard 标题
@@ -170,14 +173,17 @@ export function useStyle(
   // Register styles (side effect only in v2)
   // Keep path sensitive to both antd theme and Pro token updates.
   const proTokenKey = useMemo(() => {
+    if (zeroRuntime) return '';
     return getProTokenKey(token as ProAliasToken);
-  }, [token]);
+  }, [token, zeroRuntime]);
 
   // 让 style path 对 "dark -> light 切回旧 key" 保持单调递增，
   // 避免回到历史 key 时触发 antd cssinjs 的样式顺序错乱。
-  const styleKey = [hashId, (theme as any).id, token.themeId, proTokenKey]
-    .filter(Boolean)
-    .join('-');
+  const styleKey = zeroRuntime
+    ? ''
+    : [hashId, (theme as any).id, token.themeId, proTokenKey]
+        .filter(Boolean)
+        .join('-');
 
   const styleVersion = useMonotonicVersion(styleKey);
 
@@ -188,6 +194,15 @@ export function useStyle(
 
   const { cache, container, layer: enableLayer } = useContext(StyleContext);
 
+  if (zeroRuntime) {
+    return {
+      wrapSSR: (node: React.ReactElement) => node,
+      hashId: hashed ? hashId : '',
+    };
+  }
+
+  // The branch above is fixed for this hook instance, as in antd's style hooks.
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useStyleRegister(
     {
       theme: theme as any,
@@ -204,11 +219,13 @@ export function useStyle(
   // cssinjs drops unused cache entries, but normally leaves their DOM styles
   // behind. Remove only this Pro style once the last mounted consumer releases
   // its cache entry. A microtask also covers a remount in the same React commit.
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const cachePath = useMemo(
     () => ['style', '', ...(enableLayer ? ['layer'] : []), ...stylePath],
     [enableLayer, stylePath],
   );
   const styleId = cache.get(cachePath)?.[1]?.[1] as string | undefined;
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useInsertionEffect(() => {
     if (!styleId || typeof document === 'undefined') return;
     const root = container ?? document;

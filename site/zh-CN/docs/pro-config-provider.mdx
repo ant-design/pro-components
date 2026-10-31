@@ -31,6 +31,43 @@ export default () => (
 
 嵌套的 `ProConfigProvider` 会继承外层配置，并合并 `token`。离组件最近的显式配置优先。
 
+## 零运行时样式（antd 6）
+
+外层 `ConfigProvider` 设置 `theme.zeroRuntime: true` 后，ProComponents 也会停止在浏览器中注册组件样式。使用前先在构建时生成并引入静态 CSS：
+
+```tsx | pure
+// scripts/extract-pro-style.tsx，在 Node 构建流程中执行
+import { writeFileSync } from 'node:fs';
+import { extractProStyle } from '@ant-design/pro-components/static-style-extract';
+import { ProCard } from '@ant-design/pro-components';
+import { ConfigProvider } from 'antd';
+
+const css = extractProStyle(
+  <ConfigProvider theme={{ hashed: false }}>
+    <ProCard title="Example">Content</ProCard>
+  </ConfigProvider>,
+);
+writeFileSync('src/pro-components.css', css);
+```
+
+先在应用构建前运行该脚本，例如 `npx tsx scripts/extract-pro-style.tsx`。
+
+```tsx | pure
+// 应用入口
+import 'antd/dist/antd.css';
+import './pro-components.css';
+import { ProCard } from '@ant-design/pro-components';
+import { ConfigProvider } from 'antd';
+
+export default () => (
+  <ConfigProvider theme={{ hashed: false, zeroRuntime: true }}>
+    <ProCard title="Example">Content</ProCard>
+  </ConfigProvider>
+);
+```
+
+提取时保持 `zeroRuntime` 关闭，并使用与应用相同的主题、Token、`hashed` 和 `prefixCls`。提取结果包含所渲染子树的 Pro 与 antd 样式；需要渲染应用实际使用的组件及其状态。切换到结构样式不同的主题时，需要提供对应的静态 CSS。`zeroRuntime` 与 antd 一样在组件首次挂载时确定，运行中更改这个开关需要重新挂载组件树。
+
 ## 自定义 valueType
 
 `valueTypeMap` 可以为 ProTable、ProDescriptions、ProFormField 等基于 ProField 的组件注册展示态和编辑态渲染器。
