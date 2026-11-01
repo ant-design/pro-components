@@ -6,7 +6,50 @@ outline: true
 
 # Changelog
 
-## Unreleased {#unreleased}
+## [3.1.15-9] - 2026-11-01 {#v3-1-15-9}
+
+### 🆕 新特性
+
+- ProConfigProvider
+  - 🆕 支持 antd `theme.zeroRuntime`：Pro 组件样式改为构建期静态提取、运行时零注册；新增子路径导出 `@ant-design/pro-components/static-style-extract`（`extractProStyle`），按同主题/前缀渲染代表组件树收集静态 CSS [#9785](https://github.com/ant-design/pro-components/pull/9785)
+- CheckCard
+  - 🆕 `styles` 新增 `cover`，支持自定义封面样式 [#9773](https://github.com/ant-design/pro-components/pull/9773)
+
+### 🐛 问题修复
+
+- ProForm
+  - 🐞 `omitNil` 不再在 transform 之前丢弃空字符串：配置了 `transform` 的字段在用户清空后 transform 能拿到 `''`，可自行转换为 null / 业务标记值；未配置 transform 的字段仍照旧过滤 [#9780](https://github.com/ant-design/pro-components/issues/9780) [3c893a38e](https://github.com/ant-design/pro-components/commit/3c893a38e)
+- ProTable
+  - 🐞 首屏自动请求改走与手动搜索一致的完整管线（含 `search.transform`），`initialValue` + `transform` 字段的首屏与手动搜索参数结构保持一致 [#9781](https://github.com/ant-design/pro-components/issues/9781) [8d5aae64d](https://github.com/ant-design/pro-components/commit/8d5aae64d)
+  - 🐞 自动合并：本地排序/筛选激活（含受控 `sortOrder` / `defaultSortOrder` / `filteredValue` / `defaultFilteredValue`）且数据刷新导致快照失效时，跳过该页合并而不是按过期顺序计算 rowSpan，下一次表格变更后自动恢复 [d468909f0](https://github.com/ant-design/pro-components/commit/d468909f0)
+  - 💄 自动合并不再默认注入 `bordered`（尊重 antd 默认值，与合并逻辑正交），dev 环境对「开启合并且未显式 bordered」给出推荐提示，`bordered` 完全交还用户控制 [d468909f0](https://github.com/ant-design/pro-components/commit/d468909f0)
+- ProList
+  - 🐞 `rowSelection.getCheckboxProps` 返回的行级属性（`disabled` / `aria-label` 等）透传到 Checkbox / Radio，行为对齐 antd Table；`disabled` 行整卡点击同样不可选中；在 `getCheckboxProps` 中设置 `checked` / `defaultChecked` 时给出告警（选中态由 `selectedRowKeys` 控制）[#9779](https://github.com/ant-design/pro-components/issues/9779) [ac9d05497](https://github.com/ant-design/pro-components/commit/ac9d05497)
+- ProLayout
+  - 🐞 恢复顶部菜单 `activeBarWidth` / `activeBarHeight` / `activeBarBorderWidth` 置 0 的默认 token 覆盖，修复 #9772 引入的 antd 原生下划线与 Pro 高亮混用的视觉回归 [#9778](https://github.com/ant-design/pro-components/issues/9778) [b42b6ee99](https://github.com/ant-design/pro-components/commit/b42b6ee99)
+- ProConfigProvider
+  - 🐞 主题切换后清理不再使用的 Pro 样式节点（引用计数 + 跨 cssinjs cache 共享保护），避免旧主题样式残留 [ed81ea13f](https://github.com/ant-design/pro-components/commit/ed81ea13f)
+
+### 📖 文档
+
+- 📖 文档站支持 Rspress Markdown 与 llms 导出 [#9783](https://github.com/ant-design/pro-components/pull/9783)
+- 📖 修复 Vercel 文档部署（patch `@rspress/plugin-sitemap` 并补充 `vercel.json`）[#9782](https://github.com/ant-design/pro-components/pull/9782)
+- 📖 补充自动合并场景文档与 demo：列配置 `autoMerge`、表级 `mergeFields` 多级合并、显式 `bordered={false}` 对比，及本地排序/筛选下的跳过与恢复限制说明 [#9777](https://github.com/ant-design/pro-components/pull/9777)
+- 📖 ModalForm 文档补充 `placement` API [#9775](https://github.com/ant-design/pro-components/pull/9775)
+- 📖 澄清 ProTable `ellipsis` 内容省略行为描述 [#9776](https://github.com/ant-design/pro-components/pull/9776)
+
+### ✅ 测试
+
+- ProForm
+  - ✅ 补充空字符串 transform 与 `omitNil` 组合的回归用例 [3c893a38e](https://github.com/ant-design/pro-components/commit/3c893a38e)
+- ProTable
+  - ✅ 补充首屏请求 transform 一致性、自动合并本地排序/筛选保护与 bordered 行为的回归用例 [8d5aae64d](https://github.com/ant-design/pro-components/commit/8d5aae64d) [d468909f0](https://github.com/ant-design/pro-components/commit/d468909f0)
+- ProList
+  - ✅ 补充 `rowSelection.getCheckboxProps` 透传的回归用例 [ac9d05497](https://github.com/ant-design/pro-components/commit/ac9d05497)
+- ProConfigProvider
+  - ✅ 补充 zeroRuntime 静态样式提取与无用样式清理的回归用例 [#9785](https://github.com/ant-design/pro-components/pull/9785) [#9784](https://github.com/ant-design/pro-components/pull/9784)
+
+## [3.1.15-8] - 2026-10-23 {#v3-1-15-8}
 
 ### 🗑 破坏性变更
 

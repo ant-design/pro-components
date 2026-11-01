@@ -6,7 +6,50 @@ outline: true
 
 # Changelog
 
-## Unreleased {#unreleased}
+## [3.1.15-9] - 2026-11-01 {#v3-1-15-9}
+
+### 🆕 Features
+
+- ProConfigProvider
+  - 🆕 Support antd `theme.zeroRuntime`: Pro component styles are extracted at build time with zero runtime registration; new subpath export `@ant-design/pro-components/static-style-extract` (`extractProStyle`) renders a representative component tree with the same theme/prefix and collects the static CSS [#9785](https://github.com/ant-design/pro-components/pull/9785)
+- CheckCard
+  - 🆕 `styles` now supports `cover` for customizing the cover style [#9773](https://github.com/ant-design/pro-components/pull/9773)
+
+### 🐛 Bug Fixes
+
+- ProForm
+  - 🐞 `omitNil` no longer drops empty strings before transforms run: fields with a `transform` now receive `''` after the user clears the input and can convert it to null / a business marker value; fields without a transform are still filtered as before [#9780](https://github.com/ant-design/pro-components/issues/9780) [3c893a38e](https://github.com/ant-design/pro-components/commit/3c893a38e)
+- ProTable
+  - 🐞 The initial automatic request now goes through the same pipeline as a manual search (including `search.transform`), so fields with `initialValue` + `transform` produce consistent parameter shapes on first load and manual searches [#9781](https://github.com/ant-design/pro-components/issues/9781) [8d5aae64d](https://github.com/ant-design/pro-components/commit/8d5aae64d)
+  - 🐞 Auto merge: when local sort/filter is active (including controlled `sortOrder` / `defaultSortOrder` / `filteredValue` / `defaultFilteredValue`) and a data refresh invalidates the captured snapshot, skip merging for that page instead of computing rowSpan from a stale order; merging resumes after the next table change [d468909f0](https://github.com/ant-design/pro-components/commit/d468909f0)
+  - 💄 Auto merge no longer injects `bordered` by default (respects the antd default, orthogonal to merging); dev builds show a recommendation note when merging is enabled without an explicit `bordered`, which stays fully user-controlled [d468909f0](https://github.com/ant-design/pro-components/commit/d468909f0)
+- ProList
+  - 🐞 Row-level props returned by `rowSelection.getCheckboxProps` (`disabled` / `aria-label`, etc.) are now passed through to the Checkbox / Radio, matching antd Table; rows disabled this way cannot be selected via whole-card clicks either; setting `checked` / `defaultChecked` inside `getCheckboxProps` triggers a warning (selection state is controlled by `selectedRowKeys`) [#9779](https://github.com/ant-design/pro-components/issues/9779) [ac9d05497](https://github.com/ant-design/pro-components/commit/ac9d05497)
+- ProLayout
+  - 🐞 Restore the default token overrides that zero out `activeBarWidth` / `activeBarHeight` / `activeBarBorderWidth` on top navigation menus, fixing the visual regression from #9772 where antd's native underline mixed with the Pro highlight [#9778](https://github.com/ant-design/pro-components/issues/9778) [b42b6ee99](https://github.com/ant-design/pro-components/commit/b42b6ee99)
+- ProConfigProvider
+  - 🐞 Remove unused Pro style nodes after theme changes (reference counting + protection for styles shared across cssinjs caches) so stale theme styles no longer linger [ed81ea13f](https://github.com/ant-design/pro-components/commit/ed81ea13f)
+
+### 📖 Documentation
+
+- 📖 Support Rspress Markdown and llms exports on the docs site [#9783](https://github.com/ant-design/pro-components/pull/9783)
+- 📖 Restore the Vercel docs deployment (patch `@rspress/plugin-sitemap` and add `vercel.json`) [#9782](https://github.com/ant-design/pro-components/pull/9782)
+- 📖 Expand the auto merge docs and demo: column-level `autoMerge`, table-level `mergeFields` multi-column merging, an explicit `bordered={false}` comparison, and the skip/resume behavior under local sort/filter [#9777](https://github.com/ant-design/pro-components/pull/9777)
+- 📖 Document the ModalForm `placement` API [#9775](https://github.com/ant-design/pro-components/pull/9775)
+- 📖 Clarify the ProTable `ellipsis` content truncation behavior [#9776](https://github.com/ant-design/pro-components/pull/9776)
+
+### ✅ Tests
+
+- ProForm
+  - ✅ Add regression coverage for empty-string transforms combined with `omitNil` [3c893a38e](https://github.com/ant-design/pro-components/commit/3c893a38e)
+- ProTable
+  - ✅ Add regression coverage for initial-request transform consistency, auto merge protection under local sort/filter, and `bordered` behavior [8d5aae64d](https://github.com/ant-design/pro-components/commit/8d5aae64d) [d468909f0](https://github.com/ant-design/pro-components/commit/d468909f0)
+- ProList
+  - ✅ Add regression coverage for `rowSelection.getCheckboxProps` passthrough [ac9d05497](https://github.com/ant-design/pro-components/commit/ac9d05497)
+- ProConfigProvider
+  - ✅ Add regression coverage for zeroRuntime static style extraction and unused style cleanup [#9785](https://github.com/ant-design/pro-components/pull/9785) [#9784](https://github.com/ant-design/pro-components/pull/9784)
+
+## [3.1.15-8] - 2026-10-23 {#v3-1-15-8}
 
 ### 🗑 Breaking Changes
 
