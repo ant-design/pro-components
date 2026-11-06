@@ -83,6 +83,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     propsOpen,
     onOpenChange,
     formRef,
+    externalForm: rest.form,
     propsFormRef: rest.formRef,
     destroyOnHidden: modalProps?.destroyOnHidden,
     submitTimeout,
