@@ -18,7 +18,6 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       fontSize: token.fontSize,
       lineHeight: '30px',
       borderRadius: token.borderRadius,
-      cornerShape: 'squircle',
       cursor: 'pointer',
       '&:hover': {
         backgroundColor: token.colorBgTextHover,

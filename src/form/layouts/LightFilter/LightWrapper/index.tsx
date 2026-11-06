@@ -157,9 +157,14 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
         {(() => {
           const childElement = children as React.JSX.Element;
           const childProps = childElement.props as Record<string, any>;
+          // 弹层内的真实控件跟随解析后的 variant：字段显式设置 > LightWrapper 传入
+          // （LightFilter 链路已按 props > 全局 ConfigProvider.variant 合并）> borderless
           const mergedFieldProps = {
             ...childProps?.fieldProps,
-            variant: 'borderless' as const,
+            variant:
+              (childProps?.fieldProps?.variant as LightWrapperProps['variant']) ??
+              variant ??
+              ('borderless' as const),
             onChange: (...args: any[]) => {
               const e = args[0];
               setTempValue(e?.target ? e.target.value : e);
@@ -174,7 +179,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
               setTempValue(e?.target ? e.target.value : e);
               childProps?.onChange?.(e);
             },
-            variant: 'borderless' as const,
+            variant: childProps?.variant ?? variant ?? ('borderless' as const),
             // #9062 弹层展开时通知内部的 light 编辑组件切换到可编辑态：
             // 内部 FieldLabel 的点击被外层 FilterDropdown label 接管，
             // open 状态无法通过点击传递，无初值时编辑器永不渲染

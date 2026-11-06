@@ -152,14 +152,15 @@ const LightFilterContainer: React.FC<{
                 fieldProps: {
                   ...child.props.fieldProps,
                   placement: newPlacement,
-                  variant: 'borderless',
+                  // 字段显式设置的 fieldProps.variant 优先，其次容器解析出的 variant
+                  variant: child.props.fieldProps?.variant ?? variant,
                 },
                 proFieldProps: {
                   ...child.props.proFieldProps,
                   label: child.props.label,
                   variant,
                 },
-                variant,
+                variant: child.props.variant ?? variant,
               })}
             </div>
           );
@@ -230,7 +231,7 @@ const LightFilterContainer: React.FC<{
                       fieldProps: {
                         ...newFieldProps,
                         placement: newPlacement,
-                        variant,
+                        variant: fieldProps?.variant ?? variant,
                       },
                     })}
                   </div>
@@ -262,8 +263,18 @@ function LightFilterComponent<T = Record<string, any>>(
     ignoreRules,
     ...reset
   } = props;
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls, variant: globalVariant } =
+    useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
+  // 对齐 antd useVariant 的合并顺序（props > 组件级 config > 全局 variant > 默认）：
+  // 未显式设置时跟随 ConfigProvider 的全局 variant，light 体系兜底仍是 borderless
+  const mergedVariant =
+    variant ??
+    (globalVariant === 'outlined' ||
+    globalVariant === 'filled' ||
+    globalVariant === 'borderless'
+      ? globalVariant
+      : 'borderless');
   const [values, setValues] = useState<Record<string, any>>(() => {
     return { ...initialValues };
   });
@@ -308,7 +319,7 @@ function LightFilterComponent<T = Record<string, any>>(
             prefixCls={prefixCls}
             items={filterItems}
             size={size}
-            variant={variant || 'borderless'}
+            variant={mergedVariant}
             collapse={collapse}
             collapseLabel={collapseLabel}
             placement={placement}
