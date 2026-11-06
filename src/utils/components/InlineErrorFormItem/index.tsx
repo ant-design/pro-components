@@ -168,6 +168,37 @@ const InlineErrorFormItemPopover: React.FC<{
 };
 
 /**
+ * 合并 Form.Item 注入的控制属性与子元素自身的属性。
+ *
+ * Form.Item 只会把控制属性（value/onChange/id 等）注入到直接子元素，也就是这里的壳层；
+ * 壳层再 cloneElement 给真正的字段组件时，注入的 `onChange` 会直接覆盖字段组件自带的
+ * `onChange`，导致用户传进来的自定义回调被静默丢弃（值仍会写进表单，所以很难发现）。
+ *
+ * 这里对齐 antd 的 "keep user origin event handler" 语义：同名回调同时存在时依次调用
+ * （先注入的表单回调，再用户回调），其余属性仍以注入的为准。
+ */
+const mergeControlProps = (
+  controlProps: Record<string, any>,
+  childProps: Record<string, any>,
+) => {
+  const mergedProps: Record<string, any> = { ...controlProps };
+  Object.keys(controlProps).forEach((key) => {
+    const controlHandler = controlProps[key];
+    const childHandler = childProps[key];
+    if (
+      typeof controlHandler === 'function' &&
+      typeof childHandler === 'function'
+    ) {
+      mergedProps[key] = (...args: any[]) => {
+        controlHandler(...args);
+        childHandler(...args);
+      };
+    }
+  });
+  return mergedProps;
+};
+
+/**
  * Form.Item 的 children 壳层：接收 Form.Item cloneElement 注入的控制属性
  * （value/onChange/id/ref 等）透传给真正的字段组件，
  * 同时在校验子树内通过 Form.Item.useStatus 读取消息驱动 Popover。
@@ -181,10 +212,16 @@ const InlineErrorPopoverShell = React.forwardRef<
   } & Record<string, any>
 >(({ popoverProps, children, ...controlProps }, ref) => {
   const fieldChild = React.isValidElement(children)
-    ? React.cloneElement(children, {
-        ...controlProps,
-        ...(ref ? { ref } : {}),
-      } as any)
+    ? React.cloneElement(
+        children,
+        {
+          ...mergeControlProps(
+            controlProps,
+            (children.props || {}) as Record<string, any>,
+          ),
+          ...(ref ? { ref } : {}),
+        } as any,
+      )
     : children;
 
   return (
