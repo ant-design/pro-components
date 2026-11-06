@@ -139,6 +139,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     propsOpen,
     onOpenChange,
     formRef,
+    externalForm: rest.form,
     propsFormRef: rest.formRef,
     destroyOnHidden: drawerProps?.destroyOnHidden,
     submitTimeout,

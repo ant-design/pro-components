@@ -1,4 +1,5 @@
 import { merge, useControlledState } from '@rc-component/util';
+import type { FormInstance } from 'antd';
 import React, {
   useEffect,
   useImperativeHandle,
@@ -22,6 +23,12 @@ export type UseOverlayFormOptions<T> = {
   onOpenChange?: (open: boolean) => void;
   /** 内部 formRef（由 hook 创建并管理） */
   formRef: React.MutableRefObject<ProFormInstance | undefined>;
+  /**
+   * 外部传入的 form 实例（`form` prop）。
+   * destroyOnHidden 时 afterClose 在内容销毁之后才触发，此时内部 formRef 已被
+   * useImperativeHandle 置为 null，只有外部实例还能用来重置表单（#9789）。
+   */
+  externalForm?: FormInstance;
   /** 用户从外部传入的 formRef（用于 useImperativeHandle 暴露） */
   propsFormRef?: React.MutableRefObject<any> | React.RefObject<any>;
   /** 是否在关闭时销毁并重置表单 */
@@ -77,6 +84,7 @@ export function useOverlayForm<T = Record<string, any>>({
   propsOpen,
   onOpenChange,
   formRef,
+  externalForm,
   propsFormRef,
   destroyOnHidden,
   submitTimeout,
@@ -170,8 +178,12 @@ export function useOverlayForm<T = Record<string, any>>({
 
   // 重置表单（仅在 destroyOnHidden 时调用）
   const resetFields = useRefFunction(() => {
-    const form = formRef.current;
-    if (form && destroyOnHidden && typeof form.resetFields === 'function') {
+    if (!destroyOnHidden) return;
+    // destroyOnHidden 下 afterClose 在内容销毁之后触发，BaseForm 卸载时
+    // useImperativeHandle 会把内部 formRef.current 置为 null。外部传入的
+    // form 实例不随内容销毁，优先用它，否则表单值会残留到下一次打开（#9789）。
+    const form = externalForm ?? formRef.current;
+    if (form && typeof form.resetFields === 'function') {
       form.resetFields();
     }
   });
