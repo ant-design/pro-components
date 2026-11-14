@@ -34,6 +34,14 @@ export function normalizeSerializedDayjsLike(
   if (!value || typeof value !== 'object' || Array.isArray(value)) {
     return null;
   }
+  // A live Dayjs can keep its wall time in `$d` and its offset separately.
+  if (
+    dayjs.isDayjs(value) &&
+    typeof value.clone === 'function' &&
+    typeof value.isValid === 'function'
+  ) {
+    return null;
+  }
   const rec = value as Record<string, unknown>;
   if (hasOwn(rec, '$d')) {
     const raw = rec.$d;
