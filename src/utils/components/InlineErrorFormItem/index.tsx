@@ -1,6 +1,7 @@
 import { LoadingOutlined } from '@ant-design/icons';
+import { FieldContext } from '@rc-component/form';
 import type { NamePath } from '@rc-component/form/es/interface';
-import { get } from '@rc-component/util';
+import { get, toArray } from '@rc-component/util';
 import type { FormItemProps, PopoverProps } from 'antd';
 import { ConfigProvider, Form, Popover, theme } from 'antd';
 import { clsx } from 'clsx';
@@ -168,6 +169,39 @@ const InlineErrorFormItemPopover: React.FC<{
 };
 
 /**
+ * 合并 Form.Item 注入的控制属性与子元素自身的属性。
+ *
+ * Form.Item 只会把控制属性（value/onChange/id 等）注入到直接子元素，也就是这里的壳层；
+ * 壳层再 cloneElement 给真正的字段组件时，注入的 `onChange` 会直接覆盖字段组件自带的
+ * `onChange`，导致用户传进来的自定义回调被静默丢弃（值仍会写进表单，所以很难发现）。
+ *
+ * 这里对齐 antd 的 "keep user origin event handler" 语义，但只串联 Form.Item 真正
+ * 会注入的事件（trigger / validateTrigger）：其它同名的函数属性（例如可调用的
+ * `value`）仍按原规则被注入值覆盖，避免把受控值合并成一个返回 undefined 的函数。
+ */
+const mergeControlProps = (
+  controlProps: Record<string, any>,
+  childProps: Record<string, any>,
+  eventNames: string[],
+) => {
+  const mergedProps: Record<string, any> = { ...controlProps };
+  eventNames.forEach((name) => {
+    const controlHandler = controlProps[name];
+    const childHandler = childProps[name];
+    if (
+      typeof controlHandler === 'function' &&
+      typeof childHandler === 'function'
+    ) {
+      mergedProps[name] = (...args: any[]) => {
+        controlHandler(...args);
+        childHandler(...args);
+      };
+    }
+  });
+  return mergedProps;
+};
+
+/**
  * Form.Item 的 children 壳层：接收 Form.Item cloneElement 注入的控制属性
  * （value/onChange/id/ref 等）透传给真正的字段组件，
  * 同时在校验子树内通过 Form.Item.useStatus 读取消息驱动 Popover。
@@ -177,14 +211,23 @@ const InlineErrorPopoverShell = React.forwardRef<
   any,
   {
     popoverProps?: PopoverProps;
+    /** Form.Item 实际注入到子元素上的事件名（trigger + validateTrigger） */
+    eventNames?: string[];
     children?: React.ReactNode;
   } & Record<string, any>
->(({ popoverProps, children, ...controlProps }, ref) => {
+>(({ popoverProps, eventNames = [], children, ...controlProps }, ref) => {
   const fieldChild = React.isValidElement(children)
-    ? React.cloneElement(children, {
-        ...controlProps,
-        ...(ref ? { ref } : {}),
-      } as any)
+    ? React.cloneElement(
+        children,
+        {
+          ...mergeControlProps(
+            controlProps,
+            (children.props || {}) as Record<string, any>,
+            eventNames,
+          ),
+          ...(ref ? { ref } : {}),
+        } as any,
+      )
     : children;
 
   return (
@@ -203,6 +246,18 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
   popoverProps,
   ...rest
 }) => {
+  // 与 antd Form.Item 一致：trigger 默认 onChange，validateTrigger 可以继承 Form 的配置。
+  // 只有这些事件会被 Form.Item 注入到子元素上，也只需要串联这些。
+  const { validateTrigger: contextValidateTrigger } = useContext(FieldContext);
+  const mergedValidateTrigger =
+    rest.validateTrigger ?? contextValidateTrigger;
+  const eventNames = Array.from(
+    new Set([
+      ...toArray((rest as { trigger?: string | string[] }).trigger ?? 'onChange'),
+      ...toArray(mergedValidateTrigger),
+    ]),
+  );
+
   return (
     <Form.Item
       name={name}
@@ -218,7 +273,10 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
         ...rest?.style,
       }}
     >
-      <InlineErrorPopoverShell popoverProps={popoverProps}>
+      <InlineErrorPopoverShell
+        popoverProps={popoverProps}
+        eventNames={eventNames}
+      >
         {children}
       </InlineErrorPopoverShell>
     </Form.Item>
