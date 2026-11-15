@@ -8,7 +8,7 @@ import {
 } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import { useState } from 'react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 afterEach(cleanup);
 
@@ -202,5 +202,76 @@ describe('#9789 destroyOnHidden should clear the form of overlay forms', () => {
       expect(getInput(wrapper.baseElement as HTMLElement)).toBeTruthy();
     });
     expect(getInput(wrapper.baseElement as HTMLElement)?.value).toBe('B-value');
+  });
+
+  it('keeps resetting on repeated closes when forceRender keeps the form mounted', async () => {
+    const afterCloseSpy = vi.fn();
+    const Demo = () => {
+      const [form] = Form.useForm();
+      return (
+        <ModalForm
+          form={form}
+          modalProps={{
+            destroyOnHidden: true,
+            forceRender: true,
+            afterClose: afterCloseSpy,
+          }}
+          trigger={<Button>新建</Button>}
+        >
+          <ProFormText name="test" />
+        </ModalForm>
+      );
+    };
+
+    const wrapper = render(<Demo />);
+    const closeForceRendered = async (root: HTMLElement) => {
+      // 每轮重置计数：afterClose 触发后即停止派发，避免多余事件干扰后续轮次
+      afterCloseSpy.mockClear();
+      await act(async () => {
+        fireEvent.click(
+          Array.from(root.querySelectorAll('button')).find((btn) =>
+            (btn.textContent || '').includes('取 消'),
+          )!,
+        );
+      });
+      // forceRender 下内容不卸载，只驱动动画结束让 afterClose 执行。
+      for (let i = 0; i < 8 && afterCloseSpy.mock.calls.length === 0; i++) {
+        await act(async () => {
+          root
+            .querySelectorAll(
+              '.ant-modal-wrap, .ant-modal-mask, .ant-modal, [class*="leave"]',
+            )
+            .forEach((node) => {
+              node.dispatchEvent(new Event('transitionend', { bubbles: true }));
+              node.dispatchEvent(new Event('animationend', { bubbles: true }));
+            });
+          await new Promise((resolve) => setTimeout(resolve, 100));
+        });
+      }
+    };
+
+    // 循环外先打开一次：trigger 的 onClick 是切换语义，后续每轮由上一轮
+    // 结尾的重开衔接；循环入口不再点击打开，避免把已打开的弹层误关闭。
+    await act(async () => {
+      fireEvent.click(wrapper.getByText('新 建'));
+    });
+    for (const round of ['v1', 'v2']) {
+      const input = await waitFor(() => {
+        const el = getInput(wrapper.baseElement as HTMLElement);
+        expect(el).toBeTruthy();
+        return el!;
+      });
+      await act(async () => {
+        fireEvent.change(input, { target: { value: round } });
+      });
+      await closeForceRendered(wrapper.baseElement as HTMLElement);
+      await act(async () => {
+        fireEvent.click(wrapper.getByText('新 建'));
+      });
+      await waitFor(() => {
+        expect(getInput(wrapper.baseElement as HTMLElement)).toBeTruthy();
+      });
+      expect(getInput(wrapper.baseElement as HTMLElement)?.value).toBe('');
+    }
   });
 });

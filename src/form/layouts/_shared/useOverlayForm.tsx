@@ -181,11 +181,20 @@ export function useOverlayForm<T = Record<string, any>>({
   // 重置表单（仅在 destroyOnHidden 时调用）
   const resetFields = useRefFunction(() => {
     if (!destroyOnHidden) return;
-    // 只清理本次挂载绑定的实例：关闭时 formRef 已被置空，而 props 里的
-    // form 可能已经换成了下一次打开要用的实例（#9789）。
+    // 表单仍挂载（forceRender 下内容不卸载，或关闭动画尚未完成）：
+    // 直接重置当前实例，可重复执行，与既有行为保持一致。
+    const live = formRef.current;
+    if (live && typeof live.resetFields === 'function') {
+      live.resetFields();
+      return;
+    }
+    // 表单已卸载（destroyOnHidden 销毁，#9789）：formRef 已被置空，而 props
+    // 里的 form 可能已经换成了下一次打开要用的实例，用本次挂载记录的实例
+    // 完成清理；消费后清空，避免残留到下一次会话挂载前的关闭。
     const form = mountedFormRef.current;
     if (form && typeof form.resetFields === 'function') {
       form.resetFields();
+      mountedFormRef.current = undefined;
     }
   });
 
