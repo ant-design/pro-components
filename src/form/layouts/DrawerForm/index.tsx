@@ -261,7 +261,8 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
             rest?.onInit?.(_, form);
             formRef.current = form;
             // #8920 通知 useOverlayForm form 已挂载，flush 缓冲的 onOpenChange
-            onFormMount();
+            // 同时记录本次挂载绑定的实例，供关闭时重置（#9789）
+            onFormMount(form);
           }}
           submitter={submitterConfig}
           onFinish={async (values) => {
