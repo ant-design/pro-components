@@ -176,7 +176,7 @@ Every contribution, big or small, is celebrated. Join us in our mission to refin
 
 #### 📝 License
 
-Copyright © 2023 - present [AFX][ant-design-link] & [Ant Digital](https://antdigital.com). <br/> This project is [MIT](./LICENSE) licensed.
+Copyright © 2023 - present [AFX][ant-design-link] & [Ant Digital](https://antdigital.com). <br/> This project is [MIT](./LICENSE.md) licensed.
 
 <!-- LINK GROUP -->
 
@@ -198,7 +198,7 @@ Copyright © 2023 - present [AFX][ant-design-link] & [Ant Digital](https://antdi
 [github-forks-shield]: https://img.shields.io/github/forks/ant-design/pro-components?color=1677FF&labelColor=black&style=flat-square
 [github-issues-link]: https://github.com/ant-design/pro-components/issues
 [github-issues-shield]: https://img.shields.io/github/issues/ant-design/pro-components?color=1677FF&labelColor=black&style=flat-square
-[github-license-link]: https://github.com/ant-design/pro-components/blob/master/LICENSE
+[github-license-link]: https://github.com/ant-design/pro-components/blob/master/LICENSE.md
 [github-license-shield]: https://img.shields.io/github/license/ant-design/pro-components?color=1677FF&labelColor=black&style=flat-square
 [github-releasedate-link]: https://github.com/ant-design/pro-components/releases
 [github-releasedate-shield]: https://img.shields.io/github/release-date/ant-design/pro-components?color=1677FF&labelColor=black&style=flat-square
