@@ -40,7 +40,7 @@ export function FieldCascaderLightEdit(props: Props) {
     <Cascader
       ref={cascaderRef}
       open={open}
-      suffixIcon={loading ? <LoadingOutlined /> : undefined}
+      {...(loading ? { suffixIcon: <LoadingOutlined /> } : {})}
       placeholder={
         placeholder || intl.getMessage('tableForm.selectPlaceholder', '请选择')
       }
