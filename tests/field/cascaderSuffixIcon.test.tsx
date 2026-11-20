@@ -202,6 +202,81 @@ describe('#9788 Cascader idle suffixIcon omission', () => {
     loadingNull.unmount();
   });
 
+  const customSuffixCases = [
+    ['custom icon', 'icon'],
+    ['null', 'null'],
+  ] as const;
+
+  it.each(customSuffixCases)(
+    'on antd 6.7.0 ProFormCascader keeps caller suffixIcon (%s) while loading',
+    async (_label, kind) => {
+      antdVersionOverride.value = '6.7.0';
+      const suffixIcon =
+        kind === 'icon' ? (
+          <span data-testid="custom-suffix">custom</span>
+        ) : null;
+      const pendingRequest = vi.fn(() => new Promise<any[]>(() => {}));
+      const { container } = render(
+        <ProForm submitter={false}>
+          <ProFormCascader
+            name="area"
+            request={pendingRequest}
+            fieldProps={{ suffixIcon }}
+          />
+        </ProForm>,
+      );
+
+      await waitFor(() => {
+        expect(pendingRequest).toHaveBeenCalled();
+        const lastProps = getLastCascaderProps() as Record<string, unknown>;
+        expect(lastProps.suffixIcon).toBe(suffixIcon);
+        expect('suffix' in lastProps).toBe(false);
+      });
+      expect(container.querySelector('.anticon-loading')).toBeNull();
+      if (kind === 'icon') {
+        expect(
+          container.querySelector('[data-testid="custom-suffix"]'),
+        ).toBeTruthy();
+      }
+    },
+  );
+
+  it.each(customSuffixCases)(
+    'on antd 6.7.0 LightFilter.cascader keeps caller suffixIcon (%s) while loading',
+    async (_label, kind) => {
+      antdVersionOverride.value = '6.7.0';
+      const suffixIcon =
+        kind === 'icon' ? (
+          <span data-testid="custom-suffix">custom</span>
+        ) : null;
+      const pendingRequest = vi.fn(() => new Promise<any[]>(() => {}));
+      const { container } = render(
+        <LightFilter>
+          <LightFilter.cascader
+            name="area"
+            label="区域"
+            initialValue={['zhejiang', 'hangzhou']}
+            request={pendingRequest}
+            fieldProps={{ suffixIcon }}
+          />
+        </LightFilter>,
+      );
+
+      await waitFor(() => {
+        expect(pendingRequest).toHaveBeenCalled();
+        const lastProps = getLastCascaderProps() as Record<string, unknown>;
+        expect(lastProps.suffixIcon).toBe(suffixIcon);
+        expect('suffix' in lastProps).toBe(false);
+      });
+      expect(container.querySelector('.anticon-loading')).toBeNull();
+      if (kind === 'icon') {
+        expect(
+          container.querySelector('[data-testid="custom-suffix"]'),
+        ).toBeTruthy();
+      }
+    },
+  );
+
   it('omits suffixIcon when LightFilter.cascader is idle', () => {
     render(
       <LightFilter>

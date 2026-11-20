@@ -16,12 +16,21 @@ export const isAntdAtLeast = (
 
 /**
  * Props that show the loading icon in the Cascader suffix slot.
- * Returns an empty object when idle so antd keeps its default arrow.
+ * Returns an empty object when idle so antd keeps its default arrow,
+ * and when the caller sets its own `suffixIcon` or `suffix` (null included)
+ * so the caller's choice wins over the default loading icon.
  */
 export const getCascaderLoadingSuffixProps = (
   loading: boolean,
+  fieldProps?: Record<string, any>,
 ): Record<string, React.ReactNode> => {
   if (!loading) return {};
+  if (
+    fieldProps?.suffixIcon !== undefined ||
+    fieldProps?.suffix !== undefined
+  ) {
+    return {};
+  }
   return isAntdAtLeast(version, 6, 7)
     ? { suffix: <LoadingOutlined /> }
     : { suffixIcon: <LoadingOutlined /> };

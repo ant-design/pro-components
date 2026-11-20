@@ -40,7 +40,7 @@ export function FieldCascaderLightEdit(props: Props) {
     <Cascader
       ref={cascaderRef}
       open={open}
-      {...getCascaderLoadingSuffixProps(loading)}
+      {...getCascaderLoadingSuffixProps(loading, fieldProps)}
       placeholder={
         placeholder || intl.getMessage('tableForm.selectPlaceholder', '请选择')
       }
