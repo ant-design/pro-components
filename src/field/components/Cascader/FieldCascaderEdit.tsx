@@ -1,10 +1,10 @@
-﻿import { LoadingOutlined } from '@ant-design/icons';
-import type { CascaderProps, GetRef } from 'antd';
+﻿import type { CascaderProps, GetRef } from 'antd';
 import { Cascader } from 'antd';
 import { clsx } from 'clsx';
 import React from 'react';
 import type { IntlType } from '../../../provider';
 import type { ProFieldFC } from '../../types';
+import { getCascaderLoadingSuffixProps } from './loadingSuffix';
 import type { GroupProps } from './types';
 
 type Props = Omit<Parameters<ProFieldFC<GroupProps>>[0], 'options'> & {
@@ -38,7 +38,7 @@ export function FieldCascaderEdit(props: Props) {
     <Cascader
       ref={cascaderRef}
       open={open}
-      {...(loading ? { suffixIcon: <LoadingOutlined /> } : {})}
+      {...getCascaderLoadingSuffixProps(loading)}
       placeholder={
         placeholder || intl.getMessage('tableForm.selectPlaceholder', '请选择')
       }

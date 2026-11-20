@@ -12,6 +12,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 const cascaderPropsSpy = vi.hoisted(() =>
   vi.fn<(props: CascaderProps<any>) => void>(),
 );
+const antdVersionOverride = vi.hoisted(() => ({
+  value: undefined as string | undefined,
+}));
 
 vi.mock('antd', async (importActual) => {
   const ReactMod = await import('react');
@@ -30,6 +33,9 @@ vi.mock('antd', async (importActual) => {
   return {
     ...antd,
     Cascader: WrappedCascader,
+    get version() {
+      return antdVersionOverride.value ?? antd.version;
+    },
   };
 });
 
@@ -53,6 +59,7 @@ describe('#9788 Cascader idle suffixIcon omission', () => {
 
   afterEach(() => {
     cleanup();
+    antdVersionOverride.value = undefined;
   });
 
   it('omits suffixIcon when idle and preserves default arrow and options', async () => {
@@ -65,6 +72,7 @@ describe('#9788 Cascader idle suffixIcon omission', () => {
     expect(cascaderPropsSpy).toHaveBeenCalled();
     const lastProps = getLastCascaderProps()!;
     expect('suffixIcon' in lastProps).toBe(false);
+    expect('suffix' in lastProps).toBe(false);
     expect(lastProps.options).toMatchObject(options);
     expect(container.querySelector('.ant-cascader')).toBeTruthy();
     expect(
@@ -75,24 +83,61 @@ describe('#9788 Cascader idle suffixIcon omission', () => {
     expect(await findByText('Zhejiang')).toBeTruthy();
   });
 
-  it('passes LoadingOutlined suffixIcon while request is pending', async () => {
-    render(
-      <ProForm submitter={false}>
-        <ProFormCascader
-          name="area"
-          request={() => new Promise<any[]>(() => {})}
-        />
-      </ProForm>,
-    );
+  const expectLoadingIcon = (node: unknown) => {
+    expect(React.isValidElement(node)).toBe(true);
+    expect((node as React.ReactElement).type).toBe(LoadingOutlined);
+  };
 
-    await waitFor(() => {
-      const lastProps = getLastCascaderProps();
-      expect(React.isValidElement(lastProps?.suffixIcon)).toBe(true);
-      expect((lastProps?.suffixIcon as React.ReactElement).type).toBe(
-        LoadingOutlined,
+  it.each([
+    ['6.6.7', 'suffixIcon', 'suffix'],
+    ['6.7.0', 'suffix', 'suffixIcon'],
+    ['7.0.0', 'suffix', 'suffixIcon'],
+  ] as const)(
+    'on antd %s passes the loading icon via %s while request is pending',
+    async (version, usedKey, absentKey) => {
+      antdVersionOverride.value = version;
+      render(
+        <ProForm submitter={false}>
+          <ProFormCascader
+            name="area"
+            request={() => new Promise<any[]>(() => {})}
+          />
+        </ProForm>,
       );
-    });
-  });
+
+      await waitFor(() => {
+        const lastProps = getLastCascaderProps() as Record<string, unknown>;
+        expectLoadingIcon(lastProps?.[usedKey]);
+        expect(absentKey in lastProps).toBe(false);
+      });
+    },
+  );
+
+  it.each([
+    ['6.6.7', 'suffixIcon', 'suffix'],
+    ['6.7.0', 'suffix', 'suffixIcon'],
+  ] as const)(
+    'on antd %s LightFilter.cascader passes the loading icon via %s while request is pending',
+    async (version, usedKey, absentKey) => {
+      antdVersionOverride.value = version;
+      render(
+        <LightFilter>
+          <LightFilter.cascader
+            name="area"
+            label="区域"
+            initialValue={['zhejiang', 'hangzhou']}
+            request={() => new Promise<any[]>(() => {})}
+          />
+        </LightFilter>,
+      );
+
+      await waitFor(() => {
+        const lastProps = getLastCascaderProps() as Record<string, unknown>;
+        expectLoadingIcon(lastProps?.[usedKey]);
+        expect(absentKey in lastProps).toBe(false);
+      });
+    },
+  );
 
   it('respects caller fieldProps.suffixIcon (including null) when idle and loading', async () => {
     const customIcon = <span data-testid="custom-suffix">custom</span>;
@@ -171,5 +216,6 @@ describe('#9788 Cascader idle suffixIcon omission', () => {
 
     expect(cascaderPropsSpy).toHaveBeenCalled();
     expect('suffixIcon' in getLastCascaderProps()!).toBe(false);
+    expect('suffix' in getLastCascaderProps()!).toBe(false);
   });
 });
