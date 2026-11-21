@@ -72,8 +72,8 @@ const ProDescriptions = <
 
   const valueTypeMap = useMemo(
     () => ({
-      ...proContext.valueTypeMap,
       ...ValueTypeToComponent,
+      ...proContext.valueTypeMap,
     }),
     [proContext.valueTypeMap],
   );
