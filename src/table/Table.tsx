@@ -1401,7 +1401,7 @@ const ProviderTableContainer = <
   // Keep this context value stable across parent/keepalive renders. Recreating
   // the map invalidates every ProField consumer in an already mounted table.
   const mergedValueTypeMap = useMemo(
-    () => ({ ...context.valueTypeMap, ...ValueTypeToComponent }),
+    () => ({ ...ValueTypeToComponent, ...context.valueTypeMap }),
     [context.valueTypeMap],
   );
   return (

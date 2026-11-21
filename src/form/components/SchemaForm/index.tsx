@@ -270,7 +270,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
 
   return (
     <ProConfigProvider
-      valueTypeMap={{ ...context.valueTypeMap, ...ValueTypeToComponent }}
+      valueTypeMap={{ ...ValueTypeToComponent, ...context.valueTypeMap }}
     >
       <FormRenderComponents
         {...specificProps}
