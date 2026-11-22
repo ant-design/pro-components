@@ -1,6 +1,7 @@
 import React, { useCallback, useContext, useMemo } from 'react';
 import { FieldRangePicker } from '../../../field/FieldLoaders';
-import { ProConfigProvider } from '../../../provider';
+import { withValueTypeOverride } from '../../../field/ValueTypeToComponent';
+import { ProConfigProvider, ProProvider } from '../../../provider';
 import { dateArrayFormatter } from '../../../utils';
 import type { RangePickerProps } from '../../../utils/antdTypes';
 import FieldContext from '../../FieldContext';
@@ -97,14 +98,15 @@ export const BaseDateRanger: React.FC<
       },
       [mergedFieldProps, valueType],
     );
+    const proContext = useContext(ProProvider);
     const valueTypeMap = useMemo(
-      () => ({
-        [valueType]: {
-          render: renderFieldRangePicker,
-          formItemRender: renderFieldRangePicker,
-        },
-      }),
-      [valueType, renderFieldRangePicker],
+      () =>
+        withValueTypeOverride(
+          proContext.valueTypeMap,
+          valueType,
+          renderFieldRangePicker,
+        ),
+      [proContext.valueTypeMap, valueType, renderFieldRangePicker],
     );
 
     return (

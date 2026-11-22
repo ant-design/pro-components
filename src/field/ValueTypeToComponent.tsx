@@ -342,4 +342,25 @@ export function mergeWithBuiltinValueTypeMap(
   return merged;
 }
 
+export function withValueTypeOverride(
+  valueTypeMap: Record<string, ProRenderFieldPropsType> | undefined,
+  valueType: string,
+  fallback: NonNullable<ProRenderFieldPropsType['render']>,
+): Record<string, ProRenderFieldPropsType> {
+  const builtin: ProRenderFieldPropsType | undefined = (
+    ValueTypeToComponentMap as Record<string, ProRenderFieldPropsType>
+  )[valueType];
+  const entry = valueTypeMap?.[valueType];
+  const render =
+    entry?.render && entry.render !== builtin?.render ? entry.render : fallback;
+  const formItemRender =
+    entry?.formItemRender && entry.formItemRender !== builtin?.formItemRender
+      ? entry.formItemRender
+      : fallback;
+  return {
+    ...valueTypeMap,
+    [valueType]: { ...entry, render, formItemRender },
+  };
+}
+
 export default ValueTypeToComponentMap;

@@ -1,6 +1,7 @@
 import React, { useCallback, useContext, useMemo } from 'react';
 import { FieldDatePicker } from '../../../field/FieldLoaders';
-import { ProConfigProvider } from '../../../provider';
+import { withValueTypeOverride } from '../../../field/ValueTypeToComponent';
+import { ProConfigProvider, ProProvider } from '../../../provider';
 import FieldContext from '../../FieldContext';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
@@ -43,13 +44,7 @@ export const BaseDatePicker: React.FC<
 
         let format: string;
         let picker:
-          | 'time'
-          | 'date'
-          | 'week'
-          | 'month'
-          | 'quarter'
-          | 'year'
-          | undefined;
+          'time' | 'date' | 'week' | 'month' | 'quarter' | 'year' | undefined;
 
         switch (valueType) {
           case 'dateTime':
@@ -88,14 +83,15 @@ export const BaseDatePicker: React.FC<
       },
       [mergedFieldProps, valueType],
     );
+    const proContext = useContext(ProProvider);
     const valueTypeMap = useMemo(
-      () => ({
-        [valueType]: {
-          render: renderFieldDatePicker,
-          formItemRender: renderFieldDatePicker,
-        },
-      }),
-      [valueType, renderFieldDatePicker],
+      () =>
+        withValueTypeOverride(
+          proContext.valueTypeMap,
+          valueType,
+          renderFieldDatePicker,
+        ),
+      [proContext.valueTypeMap, valueType, renderFieldDatePicker],
     );
 
     return (
