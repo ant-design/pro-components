@@ -322,4 +322,24 @@ const ValueTypeToComponentMap: Record<
   )),
 };
 
+export function mergeWithBuiltinValueTypeMap(
+  valueTypeMap?: Record<string, ProRenderFieldPropsType>,
+): Record<string, ProRenderFieldPropsType> {
+  const builtin: Record<string, ProRenderFieldPropsType> =
+    ValueTypeToComponentMap;
+  const merged: Record<string, ProRenderFieldPropsType> = { ...builtin };
+  Object.entries(valueTypeMap || {}).forEach(([key, config]) => {
+    const base = builtin[key];
+    merged[key] = base
+      ? {
+          ...base,
+          ...config,
+          render: config?.render ?? base.render,
+          formItemRender: config?.formItemRender ?? base.formItemRender,
+        }
+      : config;
+  });
+  return merged;
+}
+
 export default ValueTypeToComponentMap;

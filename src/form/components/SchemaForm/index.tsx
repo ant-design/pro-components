@@ -7,7 +7,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import ValueTypeToComponent from '../../../field/ValueTypeToComponent';
+import { mergeWithBuiltinValueTypeMap } from '../../../field/ValueTypeToComponent';
 import ProConfigContext, { ProConfigProvider } from '../../../provider';
 import {
   LabelIconTip,
@@ -270,7 +270,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
 
   return (
     <ProConfigProvider
-      valueTypeMap={{ ...ValueTypeToComponent, ...context.valueTypeMap }}
+      valueTypeMap={mergeWithBuiltinValueTypeMap(context.valueTypeMap)}
     >
       <FormRenderComponents
         {...specificProps}

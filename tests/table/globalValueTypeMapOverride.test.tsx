@@ -74,4 +74,24 @@ describe('#9793 global valueTypeMap overrides built-in valueType', () => {
       expect(wrapper.getByText('CUSTOM_DATE_TIME_INPUT')).toBeTruthy();
     });
   });
+
+  it('keeps the built-in edit renderer when only render is overridden', async () => {
+    const wrapper = render(
+      <ProConfigProvider
+        valueTypeMap={{
+          dateTime: { render: () => <span>CUSTOM_DATE_TIME</span> },
+        }}
+      >
+        <BetaSchemaForm
+          columns={[
+            { dataIndex: 'createdAt', title: 'Created', valueType: 'dateTime' },
+          ]}
+        />
+      </ProConfigProvider>,
+    );
+
+    await waitFor(() => {
+      expect(wrapper.container.querySelector('.ant-picker')).toBeTruthy();
+    });
+  });
 });
