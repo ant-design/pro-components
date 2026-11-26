@@ -676,9 +676,6 @@ export const DeleteEditableAction: React.FC<
       key="delete"
       title={deletePopconfirmMessage || '确定要删除这条记录吗？'}
       onConfirm={onConfirm}
-      getPopupContainer={(triggerNode) =>
-        triggerNode.parentElement || document.body
-      }
     >
       <a>
         {loading ? (

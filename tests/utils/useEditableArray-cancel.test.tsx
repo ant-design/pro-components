@@ -887,7 +887,7 @@ describe('useEditableArray - Cancel Operation', () => {
       vi.runAllTimers();
     });
 
-    const confirm = wrapper.container.querySelector<HTMLElement>(
+    const confirm = wrapper.baseElement.querySelector<HTMLElement>(
       '.ant-popconfirm .ant-btn-primary',
     );
     expect(confirm).toBeTruthy();

@@ -1775,7 +1775,7 @@ describe('EditorProTable', () => {
       });
       await waitForWaitTime(200);
       // 确认删除
-      const confirmBtn = wrapper.container.querySelector(
+      const confirmBtn = wrapper.baseElement.querySelector(
         '.ant-popconfirm .ant-btn-primary',
       );
       if (confirmBtn) {
@@ -1840,7 +1840,7 @@ describe('EditorProTable', () => {
         fireEvent.click(deleteBtn as HTMLElement);
       });
       await waitForWaitTime(200);
-      const confirmBtn = wrapper.container.querySelector(
+      const confirmBtn = wrapper.baseElement.querySelector(
         '.ant-popconfirm .ant-btn-primary',
       );
       if (confirmBtn) {
@@ -1903,7 +1903,7 @@ describe('EditorProTable', () => {
       });
       await waitForWaitTime(100);
 
-      const popconfirm = wrapper.container.querySelector('.ant-popconfirm');
+      const popconfirm = wrapper.baseElement.querySelector('.ant-popconfirm');
       expect(popconfirm).toBeTruthy();
       if (popconfirm) {
         expect(popconfirm.textContent).toContain('确定要删除这条记录吗？');
@@ -2372,7 +2372,7 @@ describe('EditorProTable', () => {
       });
       await waitForWaitTime(200);
 
-      const confirmBtn = wrapper.container.querySelector(
+      const confirmBtn = wrapper.baseElement.querySelector(
         '.ant-popconfirm .ant-btn-primary',
       );
       if (confirmBtn) {
@@ -2716,7 +2716,7 @@ describe('EditorProTable', () => {
 
       await waitFor(
         () => {
-          const confirmBtn = wrapper.container.querySelector(
+          const confirmBtn = wrapper.baseElement.querySelector(
             '.ant-popconfirm .ant-btn-primary',
           );
           if (confirmBtn) {
@@ -2727,7 +2727,7 @@ describe('EditorProTable', () => {
         { timeout: 1000 },
       );
 
-      const confirmBtn = wrapper.container.querySelector(
+      const confirmBtn = wrapper.baseElement.querySelector(
         '.ant-popconfirm .ant-btn-primary',
       );
       if (confirmBtn) {
