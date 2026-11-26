@@ -35,7 +35,7 @@ function extractRegisteredProStyle(
   layer: boolean,
 ): string {
   const effectStyles: Record<string, boolean> = {};
-  const effectCss: string[] = [];
+  const effectCss: Array<{ key: string; css: string }> = [];
   const css = Array.from(cache.cache.entries())
     .filter(([key]) => key.startsWith('style%'))
     .sort(([, first], [, second]) => (first[1]?.[4] ?? 0) - (second[1]?.[4] ?? 0))
@@ -48,18 +48,25 @@ function extractRegisteredProStyle(
         if (effectStyles[effectKey]) return;
         effectStyles[effectKey] = true;
         const rawEffect = String(effect);
-        effectCss.push(layer ? rawEffect : unwrapProLayer(rawEffect));
+        effectCss.push({
+          key: effectKey,
+          css: layer ? rawEffect : unwrapProLayer(rawEffect),
+        });
       });
       if (plain) return [outputStyle];
-      const attrs = `data-rc-order="prependQueue" data-rc-priority="${order}" data-css-hash="${styleId}"`;
+      const baseAttrs = `data-rc-order="prependQueue" data-rc-priority="${order}"`;
       const effects = effectCss.map(
-        (effect) => `<style ${attrs}>${effect}</style>`,
+        ({ key: effectKey, css: effect }) =>
+          `<style ${baseAttrs} data-css-hash="${styleId}-${effectKey}">${effect}</style>`,
       );
       effectCss.length = 0;
-      return [...effects, `<style ${attrs}>${outputStyle}</style>`];
+      return [
+        ...effects,
+        `<style ${baseAttrs} data-css-hash="${styleId}">${outputStyle}</style>`,
+      ];
     })
     .join('');
-  return css + effectCss.join('');
+  return css + effectCss.map((item) => item.css).join('');
 }
 
 export type ExtractAllProStyleOptions = {
@@ -126,7 +133,7 @@ export function extractAllProStyle(
     }
     return [<React.Fragment key={name}>{render()}</React.Fragment>];
   });
-  const tree = wrap(
+  const tree = (
     <ConfigProvider
       prefixCls={prefixCls}
       theme={{
@@ -136,8 +143,8 @@ export function extractAllProStyle(
         zeroRuntime: false,
       }}
     >
-      <ProConfigProvider>{nodes}</ProConfigProvider>
-    </ConfigProvider>,
+      <ProConfigProvider>{wrap(<>{nodes}</>)}</ProConfigProvider>
+    </ConfigProvider>
   );
   const cache = createCache();
   renderToString(

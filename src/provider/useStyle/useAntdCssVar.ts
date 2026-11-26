@@ -1,6 +1,6 @@
 import type { GlobalToken } from 'antd';
 import { ConfigProvider, theme as antdTheme } from 'antd';
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import { createStyleCalc } from './calc';
 
 /**
@@ -14,9 +14,13 @@ export function useAntdCssVar(token: GlobalToken) {
   const tokenContext = antdTheme.useToken();
   const prefix = cssVar?.prefix ?? getPrefixCls();
   const enabled = cssVar !== undefined;
+  const calc = useMemo(
+    () => (enabled ? createStyleCalc(prefix) : undefined),
+    [enabled, prefix],
+  );
   return {
     token: enabled ? tokenContext.cssVar : token,
     prefix: enabled ? prefix : undefined,
-    calc: enabled ? createStyleCalc(prefix) : undefined,
+    calc,
   };
 }

@@ -1,5 +1,9 @@
 // @vitest-environment node
-import { ProCard, ProConfigProvider } from '@ant-design/pro-components';
+import {
+  ProCard,
+  ProConfigProvider,
+  useStyle,
+} from '@ant-design/pro-components';
 import { ConfigProvider, theme } from 'antd';
 import { describe, expect, it } from 'vitest';
 import {
@@ -85,6 +89,28 @@ describe('full ProComponents static style extraction', () => {
     expect(css).not.toContain('.topiam-pro-layout-bg-list');
     expect(css).not.toContain('.ant-pro-');
     expect(css).not.toContain('var(--ant-');
+  });
+
+  it('preserves explicit ProConfigProvider tokens provided by wrap', () => {
+    const CustomStyledWidget = () => {
+      const { wrapSSR } = useStyle('CustomWrapTokenWidget', (token) => ({
+        '.custom-wrap-token-widget': {
+          fontSize: token.fontSize,
+        },
+      }));
+      return wrapSSR(<div className="custom-wrap-token-widget" />);
+    };
+    const css = extractAllProStyle({
+      prefixCls: 'topiam',
+      includes: ['CustomWrapTokenWidget'],
+      customizeRender: {
+        CustomWrapTokenWidget: () => <CustomStyledWidget />,
+      },
+      wrap: (node) => (
+        <ProConfigProvider token={{ fontSize: 42 }}>{node}</ProConfigProvider>
+      ),
+    });
+    expect(css).toMatch(/\.custom-wrap-token-widget\{[^}]*font-size:42px/);
   });
 
   it('preserves variable references under dark and compact algorithms', () => {

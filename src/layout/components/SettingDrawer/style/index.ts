@@ -79,9 +79,9 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
             '&::after': { backgroundColor: 'rgba(0, 0, 0, 0.85)' },
           },
           '&-light': {
-            backgroundColor: token.colorBgContainer,
-            '&::before': { backgroundColor: token.colorBgContainer },
-            '&::after': { backgroundColor: token.colorBgContainer },
+            backgroundColor: token.colorWhite,
+            '&::before': { backgroundColor: token.colorWhite },
+            '&::after': { backgroundColor: token.colorWhite },
           },
 
           '&-dark,&-side': {
