@@ -53,11 +53,12 @@ describe('full ProComponents static style extraction', () => {
       '.ant-pro-checkcard',
       '.ant-pro-list',
       '.ant-pro-help',
-      '.ant-pro-field-readonly',
+      '.ant-pro-field-readonly-textarea',
     ]) {
       expect(css).toContain(selector);
     }
     expect(css).toContain('color-mix(in srgb, var(--ant-color-text-base)');
+    expect(css).not.toMatch(/@media[^{]*(?:min|max)-width:\s*\d+\)/);
     expect(css).not.toMatch(/NaN|undefined|\[object Object\]|var\([^)]*\)px/);
   });
 

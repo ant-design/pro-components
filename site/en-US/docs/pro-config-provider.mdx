@@ -82,8 +82,10 @@ writeFileSync('src/pro-components.css', css);
 ```
 
 Run this script before the application build, for example with
-`npx tsx scripts/extract-pro-style.tsx`. Use
-`<ConfigProvider prefixCls="topiam" theme={{ hashed: false, cssVar: { prefix: 'topiam' }, zeroRuntime: true }}>`
+`npx tsx scripts/extract-pro-style.tsx`, and import the generated
+`src/pro-components.css` in your application entry (alongside your extracted
+antd CSS). Use
+`<ConfigProvider prefixCls="topiam" theme={{ hashed: false, cssVar: { prefix: 'topiam' }, token: { colorPrimary: '#123456' }, zeroRuntime: true }}>`
 in the application so classes, variables, and theme settings match the
 extraction.
 

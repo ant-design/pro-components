@@ -38,10 +38,7 @@ function extractRegisteredProStyle(
   const effectCss: string[] = [];
   const css = Array.from(cache.cache.entries())
     .filter(([key]) => key.startsWith('style%'))
-    .sort(([, first], [, second]) => {
-      const orderDiff = (first[1]?.[4] ?? 0) - (second[1]?.[4] ?? 0);
-      return orderDiff || first[0] - second[0];
-    })
+    .sort(([, first], [, second]) => (first[1]?.[4] ?? 0) - (second[1]?.[4] ?? 0))
     .flatMap(([, value]) => {
       const [styleStr, styleId, effectStyle, clientOnly, order] =
         value[1] || [];

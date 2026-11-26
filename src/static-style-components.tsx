@@ -3,6 +3,7 @@ import type React from 'react';
 import { CheckCard, ProCard, Statistic, StatisticCard } from './card';
 import { ProDescriptions } from './descriptions';
 import { ProField } from './field';
+import FieldTextAreaReadonly from './field/components/TextArea/readonly';
 import {
   BetaSchemaForm,
   DrawerForm,
@@ -396,6 +397,7 @@ export const proStyleRenderers: Record<string, ProStyleRender> = {
   ),
   ProField: () => (
     <>
+      <FieldTextAreaReadonly text="Line 1\nLine 2" mode="read" />
       {valueTypes.map((valueType) => (
         <ProField
           key={valueType}

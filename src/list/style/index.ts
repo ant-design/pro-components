@@ -23,7 +23,7 @@ const genProListResponsiveStyle: GenerateStyle<ProListToken> = (token) => {
     contentWidth?: number;
   };
   return {
-    [`@media screen and (max-width: ${screenMD})`]: {
+    [`@media screen and (max-width: ${screenMD}px)`]: {
       [token.componentCls]: {
         [`${token.proComponentsCls}-list-item`]: {
           [`${token.proComponentsCls}-list-item-action`]: {
@@ -39,7 +39,7 @@ const genProListResponsiveStyle: GenerateStyle<ProListToken> = (token) => {
         },
       },
     },
-    [`@media screen and (max-width: ${screenSM})`]: {
+    [`@media screen and (max-width: ${screenSM}px)`]: {
       [token.componentCls]: {
         [`${token.proComponentsCls}-list-item`]: {
           flexWrap: 'wrap',
