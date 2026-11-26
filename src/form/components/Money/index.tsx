@@ -5,6 +5,7 @@ import FieldMoney, {
 } from '../../../field/components/Money';
 import {
   mergeFormValueTypeMap,
+  toFieldCallbackProps,
   type ValueTypeRenderFallback,
 } from '../../../field/ValueTypeToComponent';
 import { ProConfigProvider, ProProvider } from '../../../provider';
@@ -44,8 +45,29 @@ export type ProFormMoneyProps = ProFormFieldItemProps<
  *
  * @param
  */
-const ProFormMoney: React.ForwardRefRenderFunction<any, ProFormMoneyProps> = (
-  { fieldProps, proFieldProps, locale, min, max, ...rest },
+type ProFormMoneyRenderProps = ProFormMoneyProps & {
+  render?: (text: any, props: any, dom: React.JSX.Element) => React.ReactNode;
+  formItemRender?: (
+    text: any,
+    props: any,
+    dom: React.JSX.Element,
+  ) => React.ReactNode;
+};
+
+const ProFormMoney: React.ForwardRefRenderFunction<
+  any,
+  ProFormMoneyRenderProps
+> = (
+  {
+    fieldProps,
+    proFieldProps,
+    locale,
+    min,
+    max,
+    render,
+    formItemRender,
+    ...rest
+  },
   ref,
 ) => {
   const proContext = useContext(ProProvider);
@@ -53,6 +75,22 @@ const ProFormMoney: React.ForwardRefRenderFunction<any, ProFormMoneyProps> = (
     () =>
       mergeFormValueTypeMap(proContext.valueTypeMap, FALLBACK_VALUE_TYPE_MAP),
     [proContext.valueTypeMap],
+  );
+  const fieldRender = useMemo(
+    () =>
+      render
+        ? (text: any, props: any, dom: React.JSX.Element) =>
+            render(text, toFieldCallbackProps(props), dom)
+        : undefined,
+    [render],
+  );
+  const fieldFormItemRender = useMemo(
+    () =>
+      formItemRender
+        ? (text: any, props: any, dom: React.JSX.Element) =>
+            formItemRender(text, toFieldCallbackProps(props), dom)
+        : undefined,
+    [formItemRender],
   );
   return (
     <ProConfigProvider valueTypeMap={valueTypeMap}>
@@ -72,6 +110,8 @@ const ProFormMoney: React.ForwardRefRenderFunction<any, ProFormMoneyProps> = (
         // locale 以顶层 props 透传给 FieldMoney，使 valueType 保持字符串形式，
         // 从而让全局 valueTypeMap 的自定义 render / formItemRender 能命中。
         proFieldProps={{ ...proFieldProps, locale } as typeof proFieldProps}
+        render={fieldRender as any}
+        formItemRender={fieldFormItemRender as any}
         {...rest}
       />
     </ProConfigProvider>

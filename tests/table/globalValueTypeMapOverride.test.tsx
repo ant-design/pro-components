@@ -358,3 +358,69 @@ describe('standalone form components nested in table/descriptions', () => {
     });
   });
 });
+
+describe.each([
+  {
+    name: 'ProFormMoney',
+    valueType: 'money',
+    Component: ProFormMoney as ComponentType<any>,
+  },
+  {
+    name: 'ProFormText',
+    valueType: 'text',
+    Component: ProFormText as ComponentType<any>,
+  },
+])('$name field-level renderer props', ({ valueType, Component }) => {
+  const overrideMap = {
+    [valueType]: {
+      render: () => <span>GLOBAL_READ</span>,
+      formItemRender: () => <span>GLOBAL_EDIT</span>,
+    },
+  };
+
+  it('keeps value on the field-level render callback', async () => {
+    const received: any[] = [];
+    const wrapper = render(
+      <ProConfigProvider valueTypeMap={overrideMap}>
+        <ProForm submitter={false} readonly initialValues={{ field: 44.33 }}>
+          <Component
+            name="field"
+            render={(text: any, props: any) => {
+              received.push(props);
+              return <span>FIELD_READ</span>;
+            }}
+          />
+        </ProForm>
+      </ProConfigProvider>,
+    );
+
+    await waitFor(() => {
+      expect(wrapper.getByText('FIELD_READ')).toBeTruthy();
+    });
+    expect(received[0].mode).toBe('read');
+    expect(received[0].value).toBe(44.33);
+  });
+
+  it('keeps value on the field-level formItemRender callback', async () => {
+    const received: any[] = [];
+    const wrapper = render(
+      <ProConfigProvider valueTypeMap={overrideMap}>
+        <ProForm submitter={false} initialValues={{ field: 44.33 }}>
+          <Component
+            name="field"
+            formItemRender={(text: any, props: any) => {
+              received.push(props);
+              return <span>FIELD_EDIT</span>;
+            }}
+          />
+        </ProForm>
+      </ProConfigProvider>,
+    );
+
+    await waitFor(() => {
+      expect(wrapper.getByText('FIELD_EDIT')).toBeTruthy();
+    });
+    expect(received[0].mode).toBe('edit');
+    expect(received[0].value).toBe(44.33);
+  });
+});

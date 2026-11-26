@@ -6,6 +6,7 @@ import { FieldText } from '../../../field';
 import { FieldPassword } from '../../../field/FieldLoaders';
 import {
   mergeFormValueTypeMap,
+  toFieldCallbackProps,
   type ValueTypeRenderFallback,
 } from '../../../field/ValueTypeToComponent';
 import { ProConfigProvider, ProProvider } from '../../../provider';
@@ -36,11 +37,22 @@ const PASSWORD_FALLBACK_VALUE_TYPE_MAP: Record<
  *
  * @param
  */
-const ProFormText: React.FC<ProFormFieldItemProps<InputProps, InputRef>> = ({
+type ProFormTextRenderProps = ProFormFieldItemProps<InputProps, InputRef> & {
+  render?: (text: any, props: any, dom: React.JSX.Element) => React.ReactNode;
+  formItemRender?: (
+    text: any,
+    props: any,
+    dom: React.JSX.Element,
+  ) => React.ReactNode;
+};
+
+const ProFormText: React.FC<ProFormTextRenderProps> = ({
   fieldProps,
   proFieldProps,
+  render,
+  formItemRender,
   ...rest
-}: ProFormFieldItemProps<InputProps, InputRef>) => {
+}: ProFormTextRenderProps) => {
   const proContext = useContext(ProProvider);
   const valueTypeMap = useMemo(
     () =>
@@ -49,6 +61,22 @@ const ProFormText: React.FC<ProFormFieldItemProps<InputProps, InputRef>> = ({
         TEXT_FALLBACK_VALUE_TYPE_MAP,
       ),
     [proContext.valueTypeMap],
+  );
+  const fieldRender = useMemo(
+    () =>
+      render
+        ? (text: any, props: any, dom: React.JSX.Element) =>
+            render(text, toFieldCallbackProps(props), dom)
+        : undefined,
+    [render],
+  );
+  const fieldFormItemRender = useMemo(
+    () =>
+      formItemRender
+        ? (text: any, props: any, dom: React.JSX.Element) =>
+            formItemRender(text, toFieldCallbackProps(props), dom)
+        : undefined,
+    [formItemRender],
   );
   return (
     <ProConfigProvider valueTypeMap={valueTypeMap}>
@@ -61,6 +89,8 @@ const ProFormText: React.FC<ProFormFieldItemProps<InputProps, InputRef>> = ({
           } as const
         }
         proFieldProps={proFieldProps}
+        render={fieldRender as any}
+        formItemRender={fieldFormItemRender as any}
         {...rest}
       />
     </ProConfigProvider>

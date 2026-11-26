@@ -391,4 +391,16 @@ export function withValueTypeOverride(
   });
 }
 
+/**
+ * 字符串 valueType 命中 valueTypeMap 后，AllProField 传给字段级
+ * render / formItemRender 的参数是 { text, fieldProps, mode, ... }；
+ * 内部 Field 控件期望的仍是 { mode, ...fieldProps }。只还原字段级回调的
+ * 参数形状，全局映射回调的协议保持不变。
+ */
+export function toFieldCallbackProps(props: any) {
+  return props && typeof props === 'object' && 'fieldProps' in props
+    ? { mode: props.mode, ...props.fieldProps }
+    : props;
+}
+
 export default ValueTypeToComponentMap;
