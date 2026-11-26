@@ -1,12 +1,15 @@
 import type { InputNumberProps } from 'antd';
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
 import { FieldDigit } from '../../../field/FieldLoaders';
-import { ProConfigProvider } from '../../../provider';
-import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
+import {
+  mergeFormValueTypeMap,
+  type ValueTypeRenderFallback,
+} from '../../../field/ValueTypeToComponent';
+import { ProConfigProvider, ProProvider } from '../../../provider';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
 
-const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
+const FALLBACK_VALUE_TYPE_MAP: Record<string, ValueTypeRenderFallback> = {
   digit: {
     render: (text, props) => (
       <FieldDigit
@@ -45,8 +48,14 @@ const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (
   { fieldProps, min, proFieldProps, max, ...rest },
   ref,
 ) => {
+  const proContext = useContext(ProProvider);
+  const valueTypeMap = useMemo(
+    () =>
+      mergeFormValueTypeMap(proContext.valueTypeMap, FALLBACK_VALUE_TYPE_MAP),
+    [proContext.valueTypeMap],
+  );
   return (
-    <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
+    <ProConfigProvider valueTypeMap={valueTypeMap}>
       <ProFormField
         valueType="digit"
         fieldProps={{

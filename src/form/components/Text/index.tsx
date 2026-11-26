@@ -1,14 +1,36 @@
 import { omit, useControlledState } from '@rc-component/util';
 import type { InputRef } from 'antd';
 import { Form, Popover, PopoverProps, type InputProps } from 'antd';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useContext, useMemo, useState } from 'react';
+import { FieldText } from '../../../field';
 import { FieldPassword } from '../../../field/FieldLoaders';
-import { ProConfigProvider } from '../../../provider';
+import {
+  mergeFormValueTypeMap,
+  type ValueTypeRenderFallback,
+} from '../../../field/ValueTypeToComponent';
+import { ProConfigProvider, ProProvider } from '../../../provider';
 import type { PasswordProps } from '../../../utils/antdTypes';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
 
 const valueType = 'text' as const;
+const TEXT_FALLBACK_VALUE_TYPE_MAP: Record<string, ValueTypeRenderFallback> = {
+  text: {
+    render: (text, props) => <FieldText {...props} text={text as string} />,
+    formItemRender: (text, props) => (
+      <FieldText {...props} text={text as string} />
+    ),
+  },
+};
+const PASSWORD_FALLBACK_VALUE_TYPE_MAP: Record<
+  string,
+  ValueTypeRenderFallback
+> = {
+  password: {
+    render: (text, props) => <FieldPassword {...props} text={text} />,
+    formItemRender: (text, props) => <FieldPassword {...props} text={text} />,
+  },
+};
 /**
  * 文本组件
  *
@@ -19,18 +41,29 @@ const ProFormText: React.FC<ProFormFieldItemProps<InputProps, InputRef>> = ({
   proFieldProps,
   ...rest
 }: ProFormFieldItemProps<InputProps, InputRef>) => {
+  const proContext = useContext(ProProvider);
+  const valueTypeMap = useMemo(
+    () =>
+      mergeFormValueTypeMap(
+        proContext.valueTypeMap,
+        TEXT_FALLBACK_VALUE_TYPE_MAP,
+      ),
+    [proContext.valueTypeMap],
+  );
   return (
-    <ProField
-      valueType={valueType}
-      fieldProps={fieldProps}
-      fieldConfig={
-        {
-          valueType,
-        } as const
-      }
-      proFieldProps={proFieldProps}
-      {...rest}
-    />
+    <ProConfigProvider valueTypeMap={valueTypeMap}>
+      <ProField
+        valueType={valueType}
+        fieldProps={fieldProps}
+        fieldConfig={
+          {
+            valueType,
+          } as const
+        }
+        proFieldProps={proFieldProps}
+        {...rest}
+      />
+    </ProConfigProvider>
   );
 };
 
@@ -123,19 +156,19 @@ const Password: React.FC<
   ...rest
 }: ProFormFieldItemProps<PasswordProps & PassWordStrengthProps, InputRef>) => {
   const [open, setOpen] = useState<boolean>(false);
+  const proContext = useContext(ProProvider);
+  const valueTypeMap = useMemo(
+    () =>
+      mergeFormValueTypeMap(
+        proContext.valueTypeMap,
+        PASSWORD_FALLBACK_VALUE_TYPE_MAP,
+      ),
+    [proContext.valueTypeMap],
+  );
 
   if (fieldProps?.statusRender && rest.name) {
     return (
-      <ProConfigProvider
-        valueTypeMap={{
-          password: {
-            render: (text, props) => <FieldPassword {...props} text={text} />,
-            formItemRender: (text, props) => (
-              <FieldPassword {...props} text={text} />
-            ),
-          },
-        }}
-      >
+      <ProConfigProvider valueTypeMap={valueTypeMap}>
         <PassWordStrength
           name={rest.name}
           statusRender={fieldProps?.statusRender}
@@ -177,16 +210,7 @@ const Password: React.FC<
   }
 
   return (
-    <ProConfigProvider
-      valueTypeMap={{
-        password: {
-          render: (text, props) => <FieldPassword {...props} text={text} />,
-          formItemRender: (text, props) => (
-            <FieldPassword {...props} text={text} />
-          ),
-        },
-      }}
-    >
+    <ProConfigProvider valueTypeMap={valueTypeMap}>
       <ProField
         valueType="password"
         fieldProps={fieldProps}

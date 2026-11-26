@@ -1,10 +1,21 @@
 import type { SliderRangeProps, SliderSingleProps } from 'antd';
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
 import { FieldSlider } from '../../../field/FieldLoaders';
-import { ProConfigProvider } from '../../../provider';
+import {
+  mergeFormValueTypeMap,
+  type ValueTypeRenderFallback,
+} from '../../../field/ValueTypeToComponent';
+import { ProConfigProvider, ProProvider } from '../../../provider';
 import type { SliderBaseProps } from '../../../utils/antdTypes';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
+
+const FALLBACK_VALUE_TYPE_MAP: Record<string, ValueTypeRenderFallback> = {
+  slider: {
+    render: (text, props) => <FieldSlider {...props} text={text} />,
+    formItemRender: (text, props) => <FieldSlider {...props} text={text} />,
+  },
+};
 
 export type ProFormSliderProps = ProFormFieldItemProps<
   SliderSingleProps | SliderRangeProps,
@@ -37,17 +48,14 @@ const ProFormSlider = React.forwardRef<any, ProFormSliderProps>(
     },
     ref,
   ) => {
+    const proContext = useContext(ProProvider);
+    const valueTypeMap = useMemo(
+      () =>
+        mergeFormValueTypeMap(proContext.valueTypeMap, FALLBACK_VALUE_TYPE_MAP),
+      [proContext.valueTypeMap],
+    );
     return (
-      <ProConfigProvider
-        valueTypeMap={{
-          slider: {
-            render: (text, props) => <FieldSlider {...props} text={text} />,
-            formItemRender: (text, props) => (
-              <FieldSlider {...props} text={text} />
-            ),
-          },
-        }}
-      >
+      <ProConfigProvider valueTypeMap={valueTypeMap}>
         <ProField
           valueType="slider"
           fieldProps={{

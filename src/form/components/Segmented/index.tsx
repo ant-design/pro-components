@@ -1,8 +1,11 @@
 ﻿import type { SegmentedProps } from 'antd';
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
 import { FieldSegmented } from '../../../field/FieldLoaders';
-import { ProConfigProvider } from '../../../provider';
-import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
+import {
+  mergeFormValueTypeMap,
+  type ValueTypeRenderFallback,
+} from '../../../field/ValueTypeToComponent';
+import { ProConfigProvider, ProProvider } from '../../../provider';
 import type {
   ProFormFieldItemProps,
   ProFormFieldRemoteProps,
@@ -15,7 +18,7 @@ import ProFormField from '../Field';
  * @param
  */
 
-const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
+const FALLBACK_VALUE_TYPE_MAP: Record<string, ValueTypeRenderFallback> = {
   segmented: {
     render: (text, props) => <FieldSegmented {...props} text={text} />,
     formItemRender: (text, props) => <FieldSegmented {...props} text={text} />,
@@ -26,8 +29,14 @@ const ProFormSegmented: React.ForwardRefRenderFunction<
   any,
   ProFormFieldItemProps<SegmentedProps> & ProFormFieldRemoteProps
 > = ({ fieldProps, request, params, proFieldProps, ...rest }, ref) => {
+  const proContext = useContext(ProProvider);
+  const valueTypeMap = useMemo(
+    () =>
+      mergeFormValueTypeMap(proContext.valueTypeMap, FALLBACK_VALUE_TYPE_MAP),
+    [proContext.valueTypeMap],
+  );
   return (
-    <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
+    <ProConfigProvider valueTypeMap={valueTypeMap}>
       <ProFormField
         valueType="segmented"
         fieldProps={fieldProps}

@@ -1,12 +1,15 @@
 import type { SwitchProps } from 'antd';
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
 import { FieldSwitch } from '../../../field/FieldLoaders';
-import { ProConfigProvider } from '../../../provider';
-import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
+import {
+  mergeFormValueTypeMap,
+  type ValueTypeRenderFallback,
+} from '../../../field/ValueTypeToComponent';
+import { ProConfigProvider, ProProvider } from '../../../provider';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
 
-const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
+const FALLBACK_VALUE_TYPE_MAP: Record<string, ValueTypeRenderFallback> = {
   switch: {
     render: (text, props) => <FieldSwitch {...props} text={text} />,
     formItemRender: (text, props) => <FieldSwitch {...props} text={text} />,
@@ -30,8 +33,14 @@ const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
     { fieldProps, unCheckedChildren, checkedChildren, proFieldProps, ...rest },
     ref: any,
   ) => {
+    const proContext = useContext(ProProvider);
+    const valueTypeMap = useMemo(
+      () =>
+        mergeFormValueTypeMap(proContext.valueTypeMap, FALLBACK_VALUE_TYPE_MAP),
+      [proContext.valueTypeMap],
+    );
     return (
-      <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
+      <ProConfigProvider valueTypeMap={valueTypeMap}>
         <ProField
           valueType="switch"
           fieldProps={{

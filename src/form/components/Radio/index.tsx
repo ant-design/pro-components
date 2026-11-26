@@ -1,10 +1,13 @@
 import { omit } from '@rc-component/util';
 import type { RadioGroupProps, RadioProps } from 'antd';
 import { Radio } from 'antd';
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
 import { FieldRadio } from '../../../field/FieldLoaders';
-import { ProConfigProvider } from '../../../provider';
-import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
+import {
+  mergeFormValueTypeMap,
+  type ValueTypeRenderFallback,
+} from '../../../field/ValueTypeToComponent';
+import { ProConfigProvider, ProProvider } from '../../../provider';
 import { runFunction } from '../../../utils';
 import type {
   ProFormFieldItemProps,
@@ -13,7 +16,7 @@ import type {
 import ProField from '../Field';
 import { createProFormField } from '../FormItem/createProFormField';
 
-const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
+const FALLBACK_VALUE_TYPE_MAP: Record<string, ValueTypeRenderFallback> = {
   radio: {
     render: (text, props) => <FieldRadio {...props} text={text} />,
     formItemRender: (text, props) => <FieldRadio {...props} text={text} />,
@@ -50,8 +53,14 @@ const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
     },
     ref: any,
   ) => {
+    const proContext = useContext(ProProvider);
+    const valueTypeMap = useMemo(
+      () =>
+        mergeFormValueTypeMap(proContext.valueTypeMap, FALLBACK_VALUE_TYPE_MAP),
+      [proContext.valueTypeMap],
+    );
     return (
-      <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
+      <ProConfigProvider valueTypeMap={valueTypeMap}>
         <ProField
           valueType={radioType === 'button' ? 'radioButton' : 'radio'}
           ref={ref}
@@ -87,7 +96,7 @@ const ProFormRadioComponents: React.FC<ProFormFieldItemProps<RadioProps>> =
     );
   });
 
-const ProFormRadio = createProFormField<ProFormFieldItemProps<RadioProps>>?.(
+const ProFormRadio = (createProFormField<ProFormFieldItemProps<RadioProps>>)?.(
   ProFormRadioComponents,
   {
     valuePropName: 'checked',

@@ -1,9 +1,34 @@
 import type { InputNumberProps } from 'antd';
-import React from 'react';
-import FieldMoney, { type FieldMoneyProps } from '../../../field/components/Money';
-import { ProConfigProvider } from '../../../provider';
+import React, { useContext, useMemo } from 'react';
+import FieldMoney, {
+  type FieldMoneyProps,
+} from '../../../field/components/Money';
+import {
+  mergeFormValueTypeMap,
+  type ValueTypeRenderFallback,
+} from '../../../field/ValueTypeToComponent';
+import { ProConfigProvider, ProProvider } from '../../../provider';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
+
+const FALLBACK_VALUE_TYPE_MAP: Record<string, ValueTypeRenderFallback> = {
+  money: {
+    render: (text, props) => (
+      <FieldMoney
+        {...props}
+        placeholder={props.placeholder as string}
+        text={text}
+      />
+    ),
+    formItemRender: (text, props) => (
+      <FieldMoney
+        {...props}
+        placeholder={props.placeholder as string}
+        text={text}
+      />
+    ),
+  },
+};
 
 export type ProFormMoneyProps = ProFormFieldItemProps<
   Omit<FieldMoneyProps, 'valueType' | 'text'> & InputNumberProps<number>
@@ -23,32 +48,16 @@ const ProFormMoney: React.ForwardRefRenderFunction<any, ProFormMoneyProps> = (
   { fieldProps, proFieldProps, locale, min, max, ...rest },
   ref,
 ) => {
+  const proContext = useContext(ProProvider);
+  const valueTypeMap = useMemo(
+    () =>
+      mergeFormValueTypeMap(proContext.valueTypeMap, FALLBACK_VALUE_TYPE_MAP),
+    [proContext.valueTypeMap],
+  );
   return (
-    <ProConfigProvider
-      valueTypeMap={{
-        money: {
-          render: (text, props) => (
-            <FieldMoney
-              {...props}
-              placeholder={props.placeholder as string}
-              text={text}
-            />
-          ),
-          formItemRender: (text, props) => (
-            <FieldMoney
-              {...props}
-              placeholder={props.placeholder as string}
-              text={text}
-            />
-          ),
-        },
-      }}
-    >
+    <ProConfigProvider valueTypeMap={valueTypeMap}>
       <ProFormField
-        valueType={{
-          type: 'money',
-          locale,
-        }}
+        valueType="money"
         fieldProps={{
           min,
           max,
@@ -60,7 +69,9 @@ const ProFormMoney: React.ForwardRefRenderFunction<any, ProFormMoneyProps> = (
             width: '100%',
           },
         }}
-        proFieldProps={proFieldProps}
+        // locale 以顶层 props 透传给 FieldMoney，使 valueType 保持字符串形式，
+        // 从而让全局 valueTypeMap 的自定义 render / formItemRender 能命中。
+        proFieldProps={{ ...proFieldProps, locale } as typeof proFieldProps}
         {...rest}
       />
     </ProConfigProvider>

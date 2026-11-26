@@ -342,25 +342,53 @@ export function mergeWithBuiltinValueTypeMap(
   return merged;
 }
 
+export type ValueTypeRenderFallback = {
+  render: NonNullable<ProRenderFieldPropsType['render']>;
+  formItemRender: NonNullable<ProRenderFieldPropsType['formItemRender']>;
+};
+
+/**
+ * Merge the component's own renderers with overrides from the outer
+ * `ProProvider.valueTypeMap`, key by key.
+ *
+ * An entry that is identical to the built-in renderer is not a user override:
+ * it is what `ProTable` / `ProDescriptions` / `BetaSchemaForm` inject for every
+ * built-in valueType. In that case the component keeps its own renderer so
+ * behaviours such as `format`, `picker` or `mergedFieldProps` are not lost.
+ */
+export function mergeFormValueTypeMap(
+  valueTypeMap: Record<string, ProRenderFieldPropsType> | undefined,
+  fallbacks: Record<string, ValueTypeRenderFallback>,
+): Record<string, ProRenderFieldPropsType> {
+  const builtin: Record<string, ProRenderFieldPropsType> =
+    ValueTypeToComponentMap;
+  const merged: Record<string, ProRenderFieldPropsType> = { ...valueTypeMap };
+
+  Object.entries(fallbacks).forEach(([key, fallback]) => {
+    const entry = valueTypeMap?.[key];
+    const base = builtin[key];
+    const render =
+      entry?.render && entry.render !== base?.render
+        ? entry.render
+        : fallback.render;
+    const formItemRender =
+      entry?.formItemRender && entry.formItemRender !== base?.formItemRender
+        ? entry.formItemRender
+        : fallback.formItemRender;
+    merged[key] = { ...entry, render, formItemRender };
+  });
+
+  return merged;
+}
+
 export function withValueTypeOverride(
   valueTypeMap: Record<string, ProRenderFieldPropsType> | undefined,
   valueType: string,
   fallback: NonNullable<ProRenderFieldPropsType['render']>,
 ): Record<string, ProRenderFieldPropsType> {
-  const builtin: ProRenderFieldPropsType | undefined = (
-    ValueTypeToComponentMap as Record<string, ProRenderFieldPropsType>
-  )[valueType];
-  const entry = valueTypeMap?.[valueType];
-  const render =
-    entry?.render && entry.render !== builtin?.render ? entry.render : fallback;
-  const formItemRender =
-    entry?.formItemRender && entry.formItemRender !== builtin?.formItemRender
-      ? entry.formItemRender
-      : fallback;
-  return {
-    ...valueTypeMap,
-    [valueType]: { ...entry, render, formItemRender },
-  };
+  return mergeFormValueTypeMap(valueTypeMap, {
+    [valueType]: { render: fallback, formItemRender: fallback },
+  });
 }
 
 export default ValueTypeToComponentMap;

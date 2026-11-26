@@ -6,9 +6,16 @@ import {
   ProFormDatePicker,
   ProFormDateTimePicker,
   ProFormDateTimeRangePicker,
+  ProFormDigit,
+  ProFormMoney,
+  ProFormSelect,
+  ProFormText,
+  ProFormTimePicker,
+  ProFormTimeRangePicker,
   ProTable,
 } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
+import type { ComponentType } from 'react';
 import { afterEach, describe, expect, it } from 'vitest';
 
 const valueTypeMap = {
@@ -182,6 +189,172 @@ describe('#9793 global valueTypeMap overrides built-in valueType', () => {
 
     await waitFor(() => {
       expect(wrapper.container.querySelector('.ant-picker')).toBeTruthy();
+    });
+  });
+});
+
+type FormCase = {
+  label: string;
+  valueType: string;
+  Component: ComponentType<any>;
+  initialValue: any;
+  builtinSelector: string;
+  extraProps?: Record<string, any>;
+};
+
+const standaloneFormCases: FormCase[] = [
+  {
+    label: 'ProFormTimePicker',
+    valueType: 'time',
+    Component: ProFormTimePicker,
+    initialValue: '12:30:00',
+    builtinSelector: '.ant-picker',
+  },
+  {
+    label: 'ProFormTimeRangePicker',
+    valueType: 'timeRange',
+    Component: ProFormTimeRangePicker,
+    initialValue: ['12:00:00', '13:00:00'],
+    builtinSelector: '.ant-picker',
+  },
+  {
+    label: 'ProFormMoney',
+    valueType: 'money',
+    Component: ProFormMoney,
+    initialValue: 123.45,
+    builtinSelector: 'input',
+  },
+  {
+    label: 'ProFormDigit',
+    valueType: 'digit',
+    Component: ProFormDigit,
+    initialValue: 42,
+    builtinSelector: '.ant-input-number',
+  },
+  {
+    label: 'ProFormSelect',
+    valueType: 'select',
+    Component: ProFormSelect,
+    initialValue: 'a',
+    builtinSelector: '.ant-select',
+    extraProps: { options: [{ label: 'A', value: 'a' }] },
+  },
+  {
+    label: 'ProFormText',
+    valueType: 'text',
+    Component: ProFormText,
+    initialValue: 'hello',
+    builtinSelector: 'input.ant-input',
+  },
+];
+
+describe.each(standaloneFormCases)(
+  '$label global valueTypeMap override',
+  ({ valueType, Component, initialValue, builtinSelector, extraProps }) => {
+    const overrideMap = {
+      [valueType]: {
+        render: () => <span>GLOBAL_READ</span>,
+        formItemRender: () => <span>GLOBAL_EDIT</span>,
+      },
+    };
+
+    it('uses the global formItemRender in edit mode', async () => {
+      const wrapper = render(
+        <ProConfigProvider valueTypeMap={overrideMap}>
+          <ProForm submitter={false} initialValues={{ field: initialValue }}>
+            <Component name="field" {...extraProps} />
+          </ProForm>
+        </ProConfigProvider>,
+      );
+
+      await waitFor(() => {
+        expect(wrapper.getByText('GLOBAL_EDIT')).toBeTruthy();
+      });
+    });
+
+    it('uses the global render in read mode', async () => {
+      const wrapper = render(
+        <ProConfigProvider valueTypeMap={overrideMap}>
+          <ProForm
+            submitter={false}
+            readonly
+            initialValues={{ field: initialValue }}
+          >
+            <Component name="field" {...extraProps} />
+          </ProForm>
+        </ProConfigProvider>,
+      );
+
+      await waitFor(() => {
+        expect(wrapper.getByText('GLOBAL_READ')).toBeTruthy();
+      });
+    });
+
+    it('keeps the built-in control when only render is overridden', async () => {
+      const wrapper = render(
+        <ProConfigProvider
+          valueTypeMap={{
+            [valueType]: { render: () => <span>GLOBAL_READ</span> },
+          }}
+        >
+          <ProForm submitter={false}>
+            <Component name="field" {...extraProps} />
+          </ProForm>
+        </ProConfigProvider>,
+      );
+
+      await waitFor(() => {
+        expect(wrapper.queryByText('GLOBAL_READ')).toBeNull();
+        expect(wrapper.container.querySelector(builtinSelector)).toBeTruthy();
+      });
+    });
+  },
+);
+
+describe('standalone form components nested in table/descriptions', () => {
+  it('keeps ProFormMoney locale handling inside ProDescriptions', async () => {
+    const wrapper = render(
+      <ProDescriptions
+        dataSource={{}}
+        columns={[]}
+        title={
+          <ProForm submitter={false} initialValues={{ amount: 44.33 }}>
+            <ProFormMoney name="amount" locale="en-US" />
+          </ProForm>
+        }
+      />,
+    );
+
+    await waitFor(() => {
+      const input = wrapper.container.querySelector(
+        'input[id$="_amount"]',
+      ) as HTMLInputElement;
+      expect(input?.value).toContain('$ 44.33');
+    });
+  });
+
+  it('keeps ProFormDigit and ProFormSelect defaults inside ProTable', async () => {
+    const wrapper = render(
+      <ProTable
+        rowKey="id"
+        columns={[]}
+        dataSource={[]}
+        pagination={false}
+        toolBarRender={() => [
+          <ProForm submitter={false} key="form">
+            <ProFormDigit name="count" />
+            <ProFormSelect
+              name="choice"
+              options={[{ label: 'A', value: 'a' }]}
+            />
+          </ProForm>,
+        ]}
+      />,
+    );
+
+    await waitFor(() => {
+      expect(wrapper.container.querySelector('.ant-input-number')).toBeTruthy();
+      expect(wrapper.container.querySelector('.ant-select')).toBeTruthy();
     });
   });
 });
