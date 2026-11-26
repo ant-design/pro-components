@@ -6,6 +6,34 @@ outline: true
 
 # Changelog
 
+## [3.1.16-0] - 2026-11-26 {#v3-1-16-0}
+
+### 🐛 问题修复
+
+- ProConfigProvider
+  - 🐞 全局 `valueTypeMap` 恢复覆盖内置 valueType 的能力：此前 `ProTable` / `ProDescriptions` / `BetaSchemaForm` 合并时内置渲染器总压过用户注册项，独立 `ProForm*` 组件（Text / TextArea / Select / Digit / Money / DatePicker / TimePicker 等）和日期选择器还会用自身硬编码的 map 整体替换外层配置，文档中「注册或覆盖」的说明对内置类型实际失效；现改为按 key 合并，用户条目优先、缺失的 `render` / `formItemRender` 回落到内置实现，与内置实现相同的条目不再被误判为覆写（保留组件自身的 `format` / `picker` / `mergedFieldProps` 逻辑）；`ProFormMoney` 保留字符串 `valueType` 查询以便命中全局覆写，`locale` 优先级为顶层 `locale` > `proFieldProps.locale` > 全局 intl；无公开 API 移除 [#9798](https://github.com/ant-design/pro-components/pull/9798) [#9793](https://github.com/ant-design/pro-components/issues/9793) [3a70c1653](https://github.com/ant-design/pro-components/commit/3a70c1653)
+- ProField / ProForm
+  - 🐞 日期、时间及范围选择器保留 Dayjs 的时区信息：`parseValueToDay` 遇到真实 Dayjs 实例时不再按序列化对象重建，跨夏令时的 offset 原样保留，展示与提交都使用原始时刻；序列化 Dayjs 对象仍照旧还原，非法 Dayjs 返回 null [#9795](https://github.com/ant-design/pro-components/pull/9795) [fe565e061](https://github.com/ant-design/pro-components/commit/fe565e061)
+- ProForm
+  - 🐞 `ModalForm` / `DrawerForm` 在 `destroyOnHidden` 配合外部 `form` 实例时，关闭后表单不再重置：`afterClose` 在内容销毁之后触发，此时 `BaseForm` 已卸载、内部 formRef 为 null，重置被静默跳过，再次打开会残留上次输入；现在使用本次挂载实际绑定的实例完成清理，不读取可能已被父组件替换的最新 `form` prop；表单仍挂载（`forceRender` 或关闭动画未结束）时直接重置当前实例，重复重置行为与既有版本一致 [#9792](https://github.com/ant-design/pro-components/pull/9792) [#9789](https://github.com/ant-design/pro-components/issues/9789) [9402065d6](https://github.com/ant-design/pro-components/commit/9402065d6)
+  - 🐞 `LightFilter` 跟随全局 `variant`：按 antd 的解析顺序 props > 字段级 `variant` > `ConfigProvider` 全局 `variant` > borderless 兜底，默认值不变；popover 内控件不再硬编码 borderless，显式 `fieldProps.variant` 仍然优先；移除 `FieldLabel` 中一次性的 `cornerShape: 'squircle'`，胶囊控件与普通控件在相同 `borderRadius` token 下共用圆角形状 [f96282d68](https://github.com/ant-design/pro-components/commit/f96282d68)
+- ProTable
+  - 🐞 可编辑单元格同时配置 `formItemRender` 与 `formItemProps.rules`（走 popover 分支）时，自定义控件自身的 `onChange` / `onBlur` 等回调不再被 Form.Item 注入的处理器静默覆盖：按 antd「保留用户回调」的语义，把 Form.Item 实际注入的事件（`trigger` + `validateTrigger`，含从 Form 继承的配置）与控件自身回调串联，其它同名函数属性（如可调用的 `value`）仍按原规则由注入值覆盖，避免合并出返回 `undefined` 的函数 [#9791](https://github.com/ant-design/pro-components/pull/9791) [399dcdf51](https://github.com/ant-design/pro-components/commit/399dcdf51)
+  - 🐞 可编辑表格删除操作的 Popconfirm 不再硬编码 `getPopupContainer`，恢复跟随 `ConfigProvider.getPopupContainer` 与 antd 默认挂载位置 [ba6475b38](https://github.com/ant-design/pro-components/commit/ba6475b38)
+
+### 📖 文档
+
+- 📖 修复 README 中失效的 LICENSE 链接（`LICENSE.md`）[#9796](https://github.com/ant-design/pro-components/pull/9796)
+
+### ✅ 测试
+
+- ProField / ProForm
+  - ✅ 补充日期选择器 Dayjs 时区保留（含跨 DST 的多个 offset）、`destroyOnHidden` 外部 form 重置（含 `forceRender` 重复关闭）与 `LightFilter` variant 解析的回归用例 [fe565e061](https://github.com/ant-design/pro-components/commit/fe565e061) [9402065d6](https://github.com/ant-design/pro-components/commit/9402065d6) [f96282d68](https://github.com/ant-design/pro-components/commit/f96282d68)
+- ProTable
+  - ✅ 补充自定义 `formItemRender` 控件回调串联的回归用例，并同步 Popconfirm 挂载到 body 后的断言 [399dcdf51](https://github.com/ant-design/pro-components/commit/399dcdf51) [ba6475b38](https://github.com/ant-design/pro-components/commit/ba6475b38)
+- ProConfigProvider
+  - ✅ 补充内置 valueType 全局覆盖的回归用例，覆盖 ProTable / ProDescriptions / BetaSchemaForm、日期与时间选择器、Money / Digit / Select / Text，以及部分覆写与嵌套场景 [3a70c1653](https://github.com/ant-design/pro-components/commit/3a70c1653)
+
 ## [3.1.15-9] - 2026-11-01 {#v3-1-15-9}
 
 ### 🆕 新特性

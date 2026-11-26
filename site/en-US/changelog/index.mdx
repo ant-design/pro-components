@@ -6,6 +6,34 @@ outline: true
 
 # Changelog
 
+## [3.1.16-0] - 2026-11-26 {#v3-1-16-0}
+
+### 🐛 Bug Fixes
+
+- ProConfigProvider
+  - 🐞 Global `valueTypeMap` can override built-in value types again: `ProTable` / `ProDescriptions` / `BetaSchemaForm` merged the maps in an order that always let built-in renderers win over user entries, and standalone `ProForm*` components (Text / TextArea / Select / Digit / Money / DatePicker / TimePicker, etc.) plus the date pickers replaced the outer map with their own hardcoded map, so the documented register-or-override capability did not work for built-ins; the map is now merged per key — user entries win, a missing `render` / `formItemRender` falls back to the built-in implementation, and an entry identical to the built-in one is no longer treated as an override (so component-specific logic such as `format` / `picker` / `mergedFieldProps` is preserved); `ProFormMoney` keeps the string `valueType` lookup so global overrides can match, with locale precedence of top-level `locale` > `proFieldProps.locale` > global intl; no public API is removed [#9798](https://github.com/ant-design/pro-components/pull/9798) [#9793](https://github.com/ant-design/pro-components/issues/9793) [3a70c1653](https://github.com/ant-design/pro-components/commit/3a70c1653)
+- ProField / ProForm
+  - 🐞 Date, time and range pickers preserve Dayjs time zones: `parseValueToDay` no longer rebuilds live Dayjs instances as serialized objects, so offsets survive across DST and both display and submit keep the original instant; serialized Dayjs objects are still restored as before and an invalid Dayjs returns null [#9795](https://github.com/ant-design/pro-components/pull/9795) [fe565e061](https://github.com/ant-design/pro-components/commit/fe565e061)
+- ProForm
+  - 🐞 With `destroyOnHidden` and an external `form` instance, `ModalForm` / `DrawerForm` no longer reset the form on close: `afterClose` runs after the content is destroyed, so `BaseForm` is unmounted and its internal formRef is null, which silently skipped the reset and leaked the previous input into the next open; the reset now uses the instance bound during this mount instead of reading the latest `form` prop, which the parent may already have replaced; when the form is still mounted (`forceRender` or the closing animation has not finished) the current instance is reset directly, keeping repeated resets consistent with previous versions [#9792](https://github.com/ant-design/pro-components/pull/9792) [#9789](https://github.com/ant-design/pro-components/issues/9789) [9402065d6](https://github.com/ant-design/pro-components/commit/9402065d6)
+  - 🐞 `LightFilter` follows the global `variant`: resolution follows antd's order — props > field-level `variant` > `ConfigProvider` global `variant` > borderless fallback, with the default unchanged; controls inside the popover no longer hardcode borderless and an explicit `fieldProps.variant` still wins; the one-off `cornerShape: 'squircle'` in `FieldLabel` is removed so capsules share the same corner shape as regular controls at the same `borderRadius` token [f96282d68](https://github.com/ant-design/pro-components/commit/f96282d68)
+- ProTable
+  - 🐞 Editable cells that configure both `formItemRender` and `formItemProps.rules` (the popover branch) no longer lose the custom control's own `onChange` / `onBlur` callbacks to handlers injected by Form.Item without any warning: Form.Item-injected events (`trigger` + `validateTrigger`, including configs inherited from Form) are chained with the control's own handlers using antd's keep-user-handler semantics, while other same-name function props (such as a callable `value`) are still overwritten by injected values as before, avoiding a merged function that returns `undefined` [#9791](https://github.com/ant-design/pro-components/pull/9791) [399dcdf51](https://github.com/ant-design/pro-components/commit/399dcdf51)
+  - 🐞 The delete Popconfirm in editable tables no longer hardcodes `getPopupContainer`, following `ConfigProvider.getPopupContainer` and the antd default mount point again [ba6475b38](https://github.com/ant-design/pro-components/commit/ba6475b38)
+
+### 📖 Documentation
+
+- 📖 Fix broken LICENSE links in the README (`LICENSE.md`) [#9796](https://github.com/ant-design/pro-components/pull/9796)
+
+### ✅ Tests
+
+- ProField / ProForm
+  - ✅ Add regression coverage for Dayjs timezone preservation in date pickers (multiple offsets across DST), `destroyOnHidden` with an external form (including repeated closes under `forceRender`), and `LightFilter` variant resolution [fe565e061](https://github.com/ant-design/pro-components/commit/fe565e061) [9402065d6](https://github.com/ant-design/pro-components/commit/9402065d6) [f96282d68](https://github.com/ant-design/pro-components/commit/f96282d68)
+- ProTable
+  - ✅ Add regression coverage for chaining custom `formItemRender` control callbacks and update the Popconfirm assertions after it mounts to body [399dcdf51](https://github.com/ant-design/pro-components/commit/399dcdf51) [ba6475b38](https://github.com/ant-design/pro-components/commit/ba6475b38)
+- ProConfigProvider
+  - ✅ Add regression coverage for global overrides of built-in value types across ProTable / ProDescriptions / BetaSchemaForm, the date and time pickers, Money / Digit / Select / Text, including partial overrides and nested cases [3a70c1653](https://github.com/ant-design/pro-components/commit/3a70c1653)
+
 ## [3.1.15-9] - 2026-11-01 {#v3-1-15-9}
 
 ### 🆕 Features
