@@ -68,10 +68,12 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
         alignItems: 'center',
         paddingInline: 6,
         paddingBlock: 6,
-        lineHeight: `${Math.max(
-          (token.layout?.header?.heightLayoutHeader || 56) - 12,
-          40,
-        )}px`,
+        lineHeight: token.calc
+          ? `max(${token
+              .calc(token.layout?.header?.heightLayoutHeader || 56)
+              .sub(12)
+              .equal({ unit: true })}, 40px)`
+          : `${Math.max((token.layout?.header?.heightLayoutHeader || 56) - 12, 40)}px`,
       },
     },
   };

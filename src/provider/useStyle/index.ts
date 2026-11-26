@@ -13,6 +13,7 @@ import {
 } from 'react';
 import { ProConfigContext as ProProvider } from '../context';
 import type { ProAliasToken } from '../typing/aliasToken';
+import { useAntdCssVar } from './useAntdCssVar';
 export type { ProAliasToken } from '../typing/aliasToken';
 
 // Style tags can be shared by separate cssinjs caches in the same container.
@@ -35,6 +36,11 @@ export { setAlpha } from '../utils/setAlpha';
  * @returns hexColor {string}
  */
 export const lighten = (baseColor: string, brightness: number) => {
+  if (baseColor.includes('var(')) {
+    const percentage =
+      Math.round(Math.min(100, Math.max(0, brightness)) * 1e6) / 1e6;
+    return `color-mix(in srgb, ${baseColor}, white ${percentage}%)`;
+  }
   const instance = new TinyColor(baseColor);
   return instance.lighten(brightness).toHexString();
 };
@@ -130,7 +136,11 @@ export function useStyle(
   componentName: string,
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ) {
-  const { token: contextToken, hashed } = useContext(ProProvider);
+  const {
+    token: contextToken,
+    styleToken: contextStyleToken,
+    hashed,
+  } = useContext(ProProvider);
 
   const { token: antdToken, hashId, theme } = antdTheme.useToken();
 
@@ -148,9 +158,11 @@ export function useStyle(
   // antd 的 theme.useToken() 只返回全局 token，Pro 组件（如 ProCard 标题
   // 消费 components.Card.headerFontSize）需要在这里补齐组件 token 才能生效。
   const componentTokens = antdThemeConfig?.components;
+  const cssVarStyle = useAntdCssVar(antdToken);
   const token = useMemo(() => {
     const resolvedToken = {
-      ...(contextToken.layout ? contextToken : antdToken),
+      ...(contextStyleToken ??
+        (contextToken.layout ? contextToken : cssVarStyle.token)),
     } as ProAliasToken;
     const mergedComponentTokens: Record<string, unknown> = {};
     if (componentTokens) {
@@ -168,14 +180,29 @@ export function useStyle(
       antCls: `.${getPrefixCls()}`,
       iconCls: `.${iconPrefixCls}`,
     };
-  }, [contextToken, antdToken, componentTokens, getPrefixCls, iconPrefixCls]);
+  }, [
+    contextToken,
+    contextStyleToken,
+    antdToken,
+    cssVarStyle.token,
+    componentTokens,
+    getPrefixCls,
+    iconPrefixCls,
+  ]);
+  const finalToken = useMemo(
+    () => ({
+      ...token,
+      calc: cssVarStyle.calc,
+    }),
+    [token, cssVarStyle.calc],
+  );
 
   // Register styles (side effect only in v2)
   // Keep path sensitive to both antd theme and Pro token updates.
   const proTokenKey = useMemo(() => {
     if (zeroRuntime) return '';
-    return getProTokenKey(token as ProAliasToken);
-  }, [token, zeroRuntime]);
+    return getProTokenKey(finalToken as ProAliasToken);
+  }, [finalToken, zeroRuntime]);
 
   // 让 style path 对 "dark -> light 切回旧 key" 保持单调递增，
   // 避免回到历史 key 时触发 antd cssinjs 的样式顺序错乱。
@@ -206,14 +233,14 @@ export function useStyle(
   useStyleRegister(
     {
       theme: theme as any,
-      token,
+      token: finalToken,
       path: stylePath,
       nonce: csp?.nonce,
       layer: {
         name: 'antd-pro',
       },
     } as any,
-    () => styleFn(token as ProAliasToken),
+    () => styleFn(finalToken as ProAliasToken),
   );
 
   // cssinjs drops unused cache entries, but normally leaves their DOM styles

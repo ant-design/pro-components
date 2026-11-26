@@ -1,6 +1,7 @@
 ﻿import { Keyframes } from '@ant-design/cssinjs';
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
+import { addUnit } from '../../../provider/useStyle/calc';
 
 export interface ProHelpToken extends ProAliasToken {
   componentCls: string;
@@ -32,7 +33,7 @@ const genProHelpStyle: GenerateStyle<ProHelpToken> = (token) => {
     [`${token.componentCls}-left-panel`]: {
       overflow: 'auto',
       boxSizing: 'border-box',
-      borderInlineEnd: `${token?.lineWidth}px solid ${token?.colorBorderSecondary}`,
+      borderInlineEnd: `${addUnit(token.lineWidth, token.calc)} solid ${token.colorBorderSecondary}`,
       minHeight: '648px',
       minWidth: 190,
       maxWidth: 190,

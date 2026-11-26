@@ -3,12 +3,14 @@ title: ProConfigProvider
 order: 3
 ---
 
-
 # ProConfigProvider
 
-`ProConfigProvider` 为其子树中的 ProComponents 提供统一配置。常见用途包括覆盖主题 Token、切换深色主题、注册自定义 `valueType` 和配置国际化。
+`ProConfigProvider`
+为其子树中的 ProComponents 提供统一配置。常见用途包括覆盖主题 Token、切换深色主题、注册自定义
+`valueType` 和配置国际化。
 
-应用仍应使用 antd 的 `ConfigProvider` 配置 antd 组件。`ProConfigProvider` 会读取外层 antd 配置，并把相关主题和语言信息传给 ProComponents。
+应用仍应使用 antd 的 `ConfigProvider` 配置 antd 组件。`ProConfigProvider`
+会读取外层 antd 配置，并把相关主题和语言信息传给 ProComponents。
 
 ## 基础用法
 
@@ -29,48 +31,74 @@ export default () => (
 );
 ```
 
-嵌套的 `ProConfigProvider` 会继承外层配置，并合并 `token`。离组件最近的显式配置优先。
+嵌套的 `ProConfigProvider` 会继承外层配置，并合并
+`token`。离组件最近的显式配置优先。
 
 ## 零运行时样式（antd 6）
 
-外层 `ConfigProvider` 设置 `theme.zeroRuntime: true` 后，ProComponents 也会停止在浏览器中注册组件样式。使用前先在构建时生成并引入静态 CSS：
+外层 `ConfigProvider` 设置 `theme.zeroRuntime: true`
+后，ProComponents 也会停止在浏览器中注册组件样式。默认 `ant`
+前缀和默认主题可直接引入官方产物：
 
 ```tsx | pure
-// scripts/extract-pro-style.tsx，在 Node 构建流程中执行
-import { writeFileSync } from 'node:fs';
-import { extractProStyle } from '@ant-design/pro-components/static-style-extract';
-import { ProCard } from '@ant-design/pro-components';
-import { ConfigProvider } from 'antd';
-
-const css = extractProStyle(
-  <ConfigProvider theme={{ hashed: false }}>
-    <ProCard title="Example">Content</ProCard>
-  </ConfigProvider>,
-);
-writeFileSync('src/pro-components.css', css);
-```
-
-先在应用构建前运行该脚本，例如 `npx tsx scripts/extract-pro-style.tsx`。
-
-```tsx | pure
-// 应用入口
+// 应用入口，在组件样式之前引入
 import 'antd/dist/antd.css';
-import './pro-components.css';
+import '@ant-design/pro-components/dist/pro-components.css';
+// 生产环境也可以引入 pro-components.min.css
 import { ProCard } from '@ant-design/pro-components';
 import { ConfigProvider } from 'antd';
 
 export default () => (
-  <ConfigProvider theme={{ hashed: false, zeroRuntime: true }}>
+  <ConfigProvider theme={{ hashed: false, cssVar: {}, zeroRuntime: true }}>
     <ProCard title="Example">Content</ProCard>
   </ConfigProvider>
 );
 ```
 
-提取时保持 `zeroRuntime` 关闭，并使用与应用相同的主题、Token、`hashed` 和 `prefixCls`。提取结果包含所渲染子树的 Pro 与 antd 样式；需要渲染应用实际使用的组件及其状态。切换到结构样式不同的主题时，需要提供对应的静态 CSS。`zeroRuntime` 与 antd 一样在组件首次挂载时确定，运行中更改这个开关需要重新挂载组件树。
+官方 CSS 使用 antd 6 cssVar，颜色、边框、透明度派生色及布局背景会随 `--ant-*`
+变量切换。请保持静态 CSS 与应用的 `hashed: false`
+配置一致，并单独引入 antd 官方样式。
+
+自定义前缀或主题时，在 Node 构建流程中使用全量抽取。`prefixCls`
+会同时作为默认 CSS 变量前缀，`zeroRuntime` 仅在抽取子树中临时关闭：
+
+```tsx | pure
+// scripts/extract-pro-style.tsx
+import { writeFileSync } from 'node:fs';
+import { extractAllProStyle } from '@ant-design/pro-components/static-style-extract';
+
+const css = extractAllProStyle({
+  prefixCls: 'topiam',
+  customTheme: {
+    cssVar: { prefix: 'topiam' },
+    token: { colorPrimary: '#123456' },
+    zeroRuntime: true,
+  },
+});
+writeFileSync('src/pro-components.css', css);
+```
+
+先在应用构建前运行该脚本，例如
+`npx tsx scripts/extract-pro-style.tsx`。应用中使用
+`<ConfigProvider prefixCls="topiam" theme={{ hashed: false, cssVar: { prefix: 'topiam' }, zeroRuntime: true }}>`，使类名、变量及主题配置与抽取时一致。
+
+`extractAllProStyle`
+默认覆盖内置 Layout、Table、Form、Descriptions、Card、List、Field、Skeleton 和常用控件的 SSR 可渲染状态。可用
+`includes` / `excludes` 筛选稳定组件名；`customizeRender`
+可覆盖某个内置场景或补充业务特有状态，`wrap` 可添加应用 Provider，返回默认是无
+`<style>`
+标签的纯 CSS（`plain: true`）。SSR 不会执行交互和 effect，业务自定义 valueType、异步字段或交互后才出现的状态应通过
+`customizeRender` 补充。
+
+原有的 `extractProStyle(node)`
+保持兼容：它只抽取调用方提供的组件树，不会自动关闭
+`zeroRuntime`。切换结构不同的主题时，需要提供对应的静态 CSS；`zeroRuntime`
+在组件首次挂载时确定，运行中更改需要重新挂载组件树。
 
 ## 自定义 valueType
 
-`valueTypeMap` 可以为 ProTable、ProDescriptions、ProFormField 等基于 ProField 的组件注册展示态和编辑态渲染器。
+`valueTypeMap`
+可以为 ProTable、ProDescriptions、ProFormField 等基于 ProField 的组件注册展示态和编辑态渲染器。
 
 ```tsx | pure
 import { ProConfigProvider, ProTable } from '@ant-design/pro-components';
@@ -94,7 +122,8 @@ export default () => (
 );
 ```
 
-自定义字符串不在内置 `ProFieldValueType` 联合类型中，因此示例在 column 上使用了局部类型断言。
+自定义字符串不在内置 `ProFieldValueType`
+联合类型中，因此示例在 column 上使用了局部类型断言。
 
 ## API
 
@@ -113,6 +142,8 @@ export default () => (
 ## 使用建议
 
 - 主题和语言的应用级配置放在根节点；仅在局部需要不同样式或渲染器时嵌套 Provider。
-- `hashed={false}` 适合需要稳定类名的调试或特殊集成场景。生产环境通常保留默认值，以减少样式冲突。
-- `autoClearCache` 适合测试、微应用或需要在卸载时隔离请求缓存的子树。普通应用无需设置。
+- `hashed={false}`
+  适合需要稳定类名的调试或特殊集成场景。生产环境通常保留默认值，以减少样式冲突。
+- `autoClearCache`
+  适合测试、微应用或需要在卸载时隔离请求缓存的子树。普通应用无需设置。
 - `needDeps` 供组件库内部使用，业务代码无需设置。

@@ -45,6 +45,9 @@ export type ConfigContextPropsType = {
   intl?: IntlType;
   valueTypeMap?: Record<string, ProRenderFieldPropsType>;
   token: ProAliasToken;
+  /** CSS-variable view used only by the style hooks. */
+  styleToken?: ProAliasToken;
+  cssVarPrefix?: string;
   hashId?: string;
   hashed?: boolean;
   dark?: boolean;

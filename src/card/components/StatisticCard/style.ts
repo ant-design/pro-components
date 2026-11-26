@@ -1,5 +1,6 @@
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
+import { addUnit } from '../../../provider/useStyle/calc';
 
 export interface StatisticCardToken extends ProAliasToken {
   componentCls: string;
@@ -31,7 +32,7 @@ const genProStyle: GenerateStyle<StatisticCardToken> = (token) => {
       '&-footer': {
         marginBlockStart: token.marginXS,
         paddingBlockStart: token.padding,
-        borderBlockStart: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+        borderBlockStart: `${addUnit(token.lineWidth, token.calc)} ${token.lineType} ${token.colorSplit}`,
       },
     },
   };

@@ -51,6 +51,34 @@ const packageJson = JSON.parse(
 if (!packageJson.sideEffects?.includes('**/initDayjs.*')) {
   fail('package.json must preserve the Day.js plugin initialization module.');
 }
+for (const field of [
+  './dist/pro-components.css',
+  './dist/pro-components.min.css',
+]) {
+  if (packageJson.exports?.[field] !== field) {
+    fail(`package.json must export ${field}.`);
+  }
+  const css = fs.readFileSync(path.join(root, field), 'utf8');
+  if (!css.includes('.ant-pro-table-search')) {
+    fail(`${field} is missing ProTable styles.`);
+  }
+  if (!css.includes('var(--ant-color-bg-container)')) {
+    fail(`${field} does not preserve antd CSS variables.`);
+  }
+  if (
+    /@layer antd(?:-pro)?\{/.test(css) ||
+    /\.ant-btn\{/.test(css) ||
+    /--[\w-]+:[^;]*(#[\da-f]{3,8}|rgba?\()/i.test(css)
+  ) {
+    fail(
+      `${field} must not include @layer wrappers, antd styles, or theme token declarations.`,
+    );
+  }
+  if (/NaN|undefined|\[object Object\]|var\([^)]*\)px/.test(css)) {
+    fail(`${field} contains invalid interpolated values.`);
+  }
+}
+
 for (const field of ['main', 'module', 'types', 'unpkg']) {
   const outputFile = path.join(root, packageJson[field]);
   if (!fs.existsSync(outputFile)) {

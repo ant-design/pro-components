@@ -1,5 +1,6 @@
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
+import { addUnit } from '../../../provider/useStyle/calc';
 
 interface ProCardActionsToken extends ProAliasToken {
   antCls: string;
@@ -21,7 +22,7 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
       display: 'flex',
       gap: token.marginXS,
       background: token.colorBgContainer,
-      borderBlockStart: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+      borderBlockStart: `${addUnit(token.lineWidth, token.calc)} ${token.lineType} ${token.colorSplit}`,
       minHeight: 42,
       [`& > *`]: {
         alignItems: 'center',
@@ -83,7 +84,7 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
         },
 
         '&:not(:last-child)': {
-          borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+          borderInlineEnd: `${addUnit(token.lineWidth, token.calc)} ${token.lineType} ${token.colorSplit}`,
         },
       },
     },

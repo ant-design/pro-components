@@ -1,4 +1,5 @@
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import { addUnit } from '../../../provider/useStyle/calc';
 import { resetComponent, useStyle as useAntdStyle } from '../../../utils';
 
 interface ProCardToken extends ProAliasToken {
@@ -44,10 +45,10 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
 
       // 分割线样式：col 之间的分割线
       [` ${componentCls}-col${componentCls}-split-vertical`]: {
-        borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+        borderInlineEnd: `${addUnit(token.lineWidth, token.calc)} ${token.lineType} ${token.colorSplit}`,
       },
       [` ${componentCls}-col${componentCls}-split-horizontal`]: {
-        borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+        borderBlockEnd: `${addUnit(token.lineWidth, token.calc)} ${token.lineType} ${token.colorSplit}`,
       },
 
       // Divider 分割线组件样式
@@ -68,7 +69,7 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       },
 
       [`&${componentCls}-legacy${componentCls}-border`]: {
-        border: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
+        border: `${addUnit(token.lineWidth, token.calc)} ${token.lineType} ${token.colorBorderSecondary}`,
       },
 
       [`&${componentCls}-legacy${componentCls}-hoverable`]: {
@@ -181,12 +182,12 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         paddingInline: token.paddingLG,
         paddingBlock: token.padding,
         paddingBlockEnd: 0,
-        borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
+        borderRadius: `${addUnit(token.borderRadiusLG, token.calc)} ${addUnit(token.borderRadiusLG, token.calc)} 0 0`,
         '&-border': {
           '&': {
             paddingBlockEnd: token.padding,
           },
-          borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
+          borderBlockEnd: `${addUnit(token.lineWidth, token.calc)} ${token.lineType} ${token.colorBorderSecondary}`,
         },
 
         '&-collapsible': {
@@ -230,7 +231,7 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
 
       [`&${componentCls}-legacy > ${componentCls}-cover`]: {
         overflow: 'hidden',
-        borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
+        borderRadius: `${addUnit(token.borderRadiusLG, token.calc)} ${addUnit(token.borderRadiusLG, token.calc)} 0 0`,
         '& > *': {
           width: '100%',
           display: 'block',
@@ -246,7 +247,7 @@ export const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         height: '100%',
         paddingInline: token.paddingLG,
         paddingBlock: token.padding,
-        borderRadius: `0 0 ${token.borderRadiusLG}px ${token.borderRadiusLG}px`,
+        borderRadius: `0 0 ${addUnit(token.borderRadiusLG, token.calc)} ${addUnit(token.borderRadiusLG, token.calc)}`,
         '&-center': {
           display: 'flex',
           alignItems: 'center',

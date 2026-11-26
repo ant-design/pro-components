@@ -58,6 +58,8 @@
       "import": "./es/layout/index.js",
       "require": "./lib/layout/index.js"
     },
+    "./dist/pro-components.css": "./dist/pro-components.css",
+    "./dist/pro-components.min.css": "./dist/pro-components.min.css",
     "./static-style-extract": {
       "types": "./es/static-style-extract.d.ts",
       "import": "./es/static-style-extract.js",
@@ -114,7 +116,7 @@
     "guidelines"
   ],
   "scripts": {
-    "build": "rslib build --config rslib.config.mts",
+    "build": "rslib build --config rslib.config.mts && node ./scripts/buildStaticStyle.mjs",
     "analyze:bundle": "node ./scripts/performance/measureBundleSize.mjs",
     "benchmark:selection": "node ./scripts/performance/selectionBenchmark.mjs",
     "changelog": "node ./scripts/changelogs.mjs",

@@ -16,6 +16,7 @@ import type { ProAliasToken } from './typing/aliasToken';
 import type { ProRenderFieldPropsType } from './typing/config';
 import type { DeepPartial, ProTokenType } from './typing/layoutToken';
 import { getLayoutDesignToken } from './typing/layoutToken';
+import { useAntdCssVar } from './useStyle/useAntdCssVar';
 import {
   omitUndefined,
   resolveIntl,
@@ -88,6 +89,8 @@ const ConfigProviderContainer: React.FC<ProConfigProviderProps> = (props) => {
     AntdConfigProvider.ConfigContext,
   );
   const tokenContext = antdTheme.useToken?.();
+  const cssVarMeta = useContext(antdTheme._internalContext).cssVar;
+  const cssVarPrefix = cssVarMeta?.prefix ?? getPrefixCls();
   const proProvide = useContext(ProConfigContext);
   const resolvedPrefixCls =
     prefixCls ??
@@ -97,23 +100,30 @@ const ConfigProviderContainer: React.FC<ProConfigProviderProps> = (props) => {
     ? `.${resolvedPrefixCls}`
     : `.${getPrefixCls()}-pro`;
   const antCls = '.' + getPrefixCls();
-  const finalToken = useMemo(() => {
-    const layout = getLayoutDesignToken(propsToken || {}, tokenContext.token);
-    // Props token also feeds regular Pro components, not only layout tokens.
-    return shallowMergeOneLevel<ProAliasToken>(
+  const createToken = useMemo(
+    () => (antdToken: typeof tokenContext.token) => {
+      const layout = getLayoutDesignToken(propsToken || {}, antdToken);
+      // Props token also feeds regular Pro components, not only layout tokens.
+      return shallowMergeOneLevel<ProAliasToken>(
+        proProvide.token,
+        antdToken,
+        propsToken,
+        { proComponentsCls, antCls, themeId: tokenContext.theme.id, layout },
+      );
+    },
+    [
       proProvide.token,
-      tokenContext.token,
       propsToken,
-      { proComponentsCls, antCls, themeId: tokenContext.theme.id, layout },
-    );
-  }, [
-    proProvide.token,
-    tokenContext.token,
-    propsToken,
-    proComponentsCls,
-    antCls,
-    tokenContext.theme.id,
-  ]);
+      proComponentsCls,
+      antCls,
+      tokenContext.theme.id,
+    ],
+  );
+
+  const finalToken = useMemo(
+    () => createToken(tokenContext.token),
+    [createToken, tokenContext.token],
+  );
 
   const [, nativeHashId] = useCacheToken<ProAliasToken>(
     tokenContext.theme as unknown as Theme<any, any>,
@@ -123,6 +133,11 @@ const ConfigProviderContainer: React.FC<ProConfigProviderProps> = (props) => {
       override: finalToken,
       cssVar: { key: 'pro' },
     },
+  );
+  const { token: antdStyleToken, calc } = useAntdCssVar(tokenContext.token);
+  const styleToken = useMemo(
+    () => ({ ...createToken(antdStyleToken), calc }),
+    [createToken, antdStyleToken, calc],
   );
 
   const hashed = resolveProConfigHashed(
@@ -143,6 +158,8 @@ const ConfigProviderContainer: React.FC<ProConfigProviderProps> = (props) => {
       intl: resolveIntl(intl, proProvide.intl, locale?.locale),
       valueTypeMap: valueTypeMap || proProvide.valueTypeMap,
       token: finalToken,
+      styleToken,
+      cssVarPrefix: calc ? cssVarPrefix : undefined,
       theme: tokenContext.theme as unknown as Theme<any, any>,
       hashed,
       hashId,
@@ -155,13 +172,21 @@ const ConfigProviderContainer: React.FC<ProConfigProviderProps> = (props) => {
     locale?.locale,
     valueTypeMap,
     finalToken,
+    styleToken,
+    calc,
+    cssVarPrefix,
     tokenContext.theme,
     hashed,
     hashId,
     resolvedPrefixCls,
   ]);
 
-  const themeConfig = { ...restConfig.theme, hashId, hashed };
+  const themeConfig = {
+    ...restConfig.theme,
+    cssVar: cssVarMeta ? { ...cssVarMeta, prefix: cssVarPrefix } : undefined,
+    hashId,
+    hashed,
+  };
   const configProviderDom = (
     <AntdConfigProvider {...restConfig} theme={themeConfig}>
       <ProConfigContext.Provider value={proConfigContextValue}>

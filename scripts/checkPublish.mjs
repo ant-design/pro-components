@@ -42,7 +42,10 @@ if (fs.existsSync(esDir)) {
   for (const entry of entries) {
     const targets = typeof entry === 'string' ? [entry] : Object.values(entry);
     for (const t of targets) {
-      const file = path.join(repoRoot, t.replace(/^\.\//, ''));
+      const file = path.join(
+        repoRoot,
+        t.replace(/^\.\//, '').replace(/\/\*$/, ''),
+      );
       if (!fs.existsSync(file)) {
         fail(`exports 指向缺失：${t}`);
         missing++;

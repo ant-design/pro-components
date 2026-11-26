@@ -1,4 +1,5 @@
 import type { GlobalToken } from 'antd';
+import type { StyleCalc } from '../useStyle/calc';
 import type { ProTokenType } from './layoutToken';
 
 export type ProAliasToken = GlobalToken &
@@ -12,4 +13,6 @@ export type ProAliasToken = GlobalToken &
     antCls: string;
     /** Ant Design icon class prefix. */
     iconCls: string;
+    /** CSS-aware arithmetic, present only in antd cssVar mode. */
+    calc?: StyleCalc;
   };

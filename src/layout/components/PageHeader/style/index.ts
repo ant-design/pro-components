@@ -1,9 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle, ProAliasToken } from '../../../../provider';
-import {
-  resetComponent,
-  useStyle as useAntdStyle,
-} from '../../../../utils';
+import { addUnit } from '../../../../provider/useStyle/calc';
+import { resetComponent, useStyle as useAntdStyle } from '../../../../utils';
 export interface PageHeaderToken extends ProAliasToken {
   componentCls: string;
   pageHeaderPadding: number;
@@ -27,8 +25,13 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
     [token.componentCls]: {
       ...resetComponent?.(token),
       position: 'relative',
-      backgroundColor: token.colorWhite,
-      paddingBlock: token.pageHeaderPaddingVertical + 2,
+      backgroundColor: token.colorBgContainer,
+      paddingBlock: token.calc
+        ? token
+            .calc(token.pageHeaderPaddingVertical)
+            .add(2)
+            .equal({ unit: true })
+        : token.pageHeaderPaddingVertical + 2,
       paddingInline: token.pageHeaderPadding,
       '&&-ghost': {
         backgroundColor: token.pageHeaderBgGhost,
@@ -72,7 +75,9 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
         '&-left': {
           display: 'flex',
           alignItems: 'center',
-          marginBlock: token.marginXS / 2,
+          marginBlock: token.calc
+            ? token.calc(token.marginXS).div(2).equal({ unit: true })
+            : token.marginXS / 2,
           marginInlineEnd: 0,
           marginInlineStart: 0,
           overflow: 'hidden',
@@ -83,7 +88,7 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
           color: token.colorTextHeading,
           fontWeight: 600,
           fontSize: token.pageHeaderFontSizeHeaderTitle,
-          lineHeight: token.controlHeight + 'px',
+          lineHeight: addUnit(token.controlHeight, token.calc),
           ...textOverflowEllipsis(),
           [`${token.componentCls}-rlt &`]: {
             marginInlineEnd: 0,
@@ -116,7 +121,9 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
           },
         },
         '&-extra': {
-          marginBlock: token.marginXS / 2,
+          marginBlock: token.calc
+            ? token.calc(token.marginXS).div(2).equal({ unit: true })
+            : token.marginXS / 2,
           marginInlineEnd: 0,
           marginInlineStart: 0,
           whiteSpace: 'nowrap',

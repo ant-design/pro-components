@@ -105,7 +105,7 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
         },
       },
     },
-    [`@media (max-width: ${token.screenMDMin}px)`]: {
+    [`@media (max-width: ${token.screenMDMin})`]: {
       [token.componentCls]: {
         flexDirection: 'column-reverse',
         background: 'none !important',
@@ -126,7 +126,7 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
         },
       },
     },
-    [`@media (min-width: ${token.screenMDMin}px)`]: {
+    [`@media (min-width: ${token.screenMDMin})`]: {
       [token.componentCls]: {
         '&-left': {
           backgroundRepeat: 'no-repeat',
@@ -135,7 +135,7 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
         },
       },
     },
-    [`@media (max-width: ${token.screenSM}px)`]: {
+    [`@media (max-width: ${token.screenSM})`]: {
       [token.componentCls]: {
         '&-main': { width: '95%', maxWidth: '328px' },
       },
