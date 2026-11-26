@@ -5,7 +5,7 @@ import FieldMoney, {
 } from '../../../field/components/Money';
 import {
   mergeFormValueTypeMap,
-  toFieldCallbackProps,
+  withFieldCallbackProps,
   type ValueTypeRenderFallback,
 } from '../../../field/ValueTypeToComponent';
 import { ProConfigProvider, ProProvider } from '../../../provider';
@@ -45,13 +45,18 @@ export type ProFormMoneyProps = ProFormFieldItemProps<
  *
  * @param
  */
+type MoneyFieldRenderer = (
+  text: any,
+  props: any,
+  dom: React.JSX.Element,
+) => React.ReactNode;
 type ProFormMoneyRenderProps = ProFormMoneyProps & {
-  render?: (text: any, props: any, dom: React.JSX.Element) => React.ReactNode;
-  formItemRender?: (
-    text: any,
-    props: any,
-    dom: React.JSX.Element,
-  ) => React.ReactNode;
+  render?: MoneyFieldRenderer;
+  formItemRender?: MoneyFieldRenderer;
+};
+type MoneyProFieldCallbacks = {
+  render?: MoneyFieldRenderer;
+  formItemRender?: MoneyFieldRenderer;
 };
 
 const ProFormMoney: React.ForwardRefRenderFunction<
@@ -76,22 +81,21 @@ const ProFormMoney: React.ForwardRefRenderFunction<
       mergeFormValueTypeMap(proContext.valueTypeMap, FALLBACK_VALUE_TYPE_MAP),
     [proContext.valueTypeMap],
   );
-  const fieldRender = useMemo(
-    () =>
-      render
-        ? (text: any, props: any, dom: React.JSX.Element) =>
-            render(text, toFieldCallbackProps(props), dom)
-        : undefined,
-    [render],
-  );
+  const fieldRender = useMemo(() => withFieldCallbackProps(render), [render]);
   const fieldFormItemRender = useMemo(
-    () =>
-      formItemRender
-        ? (text: any, props: any, dom: React.JSX.Element) =>
-            formItemRender(text, toFieldCallbackProps(props), dom)
-        : undefined,
+    () => withFieldCallbackProps(formItemRender),
     [formItemRender],
   );
+  const wrappedProFieldProps = useMemo(() => {
+    const { render: proRender, formItemRender: proFormItemRender } =
+      (proFieldProps || {}) as MoneyProFieldCallbacks;
+    const next: Record<string, any> = { ...proFieldProps, locale };
+    if (proRender) next.render = withFieldCallbackProps(proRender);
+    if (proFormItemRender) {
+      next.formItemRender = withFieldCallbackProps(proFormItemRender);
+    }
+    return next;
+  }, [proFieldProps, locale]);
   return (
     <ProConfigProvider valueTypeMap={valueTypeMap}>
       <ProFormField
@@ -109,7 +113,7 @@ const ProFormMoney: React.ForwardRefRenderFunction<
         }}
         // locale 以顶层 props 透传给 FieldMoney，使 valueType 保持字符串形式，
         // 从而让全局 valueTypeMap 的自定义 render / formItemRender 能命中。
-        proFieldProps={{ ...proFieldProps, locale } as typeof proFieldProps}
+        proFieldProps={wrappedProFieldProps as typeof proFieldProps}
         render={fieldRender as any}
         formItemRender={fieldFormItemRender as any}
         {...rest}

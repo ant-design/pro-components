@@ -6,7 +6,7 @@ import { FieldText } from '../../../field';
 import { FieldPassword } from '../../../field/FieldLoaders';
 import {
   mergeFormValueTypeMap,
-  toFieldCallbackProps,
+  withFieldCallbackProps,
   type ValueTypeRenderFallback,
 } from '../../../field/ValueTypeToComponent';
 import { ProConfigProvider, ProProvider } from '../../../provider';
@@ -37,13 +37,18 @@ const PASSWORD_FALLBACK_VALUE_TYPE_MAP: Record<
  *
  * @param
  */
+type TextFieldRenderer = (
+  text: any,
+  props: any,
+  dom: React.JSX.Element,
+) => React.ReactNode;
 type ProFormTextRenderProps = ProFormFieldItemProps<InputProps, InputRef> & {
-  render?: (text: any, props: any, dom: React.JSX.Element) => React.ReactNode;
-  formItemRender?: (
-    text: any,
-    props: any,
-    dom: React.JSX.Element,
-  ) => React.ReactNode;
+  render?: TextFieldRenderer;
+  formItemRender?: TextFieldRenderer;
+};
+type TextProFieldCallbacks = {
+  render?: TextFieldRenderer;
+  formItemRender?: TextFieldRenderer;
 };
 
 const ProFormText: React.FC<ProFormTextRenderProps> = ({
@@ -62,22 +67,22 @@ const ProFormText: React.FC<ProFormTextRenderProps> = ({
       ),
     [proContext.valueTypeMap],
   );
-  const fieldRender = useMemo(
-    () =>
-      render
-        ? (text: any, props: any, dom: React.JSX.Element) =>
-            render(text, toFieldCallbackProps(props), dom)
-        : undefined,
-    [render],
-  );
+  const fieldRender = useMemo(() => withFieldCallbackProps(render), [render]);
   const fieldFormItemRender = useMemo(
-    () =>
-      formItemRender
-        ? (text: any, props: any, dom: React.JSX.Element) =>
-            formItemRender(text, toFieldCallbackProps(props), dom)
-        : undefined,
+    () => withFieldCallbackProps(formItemRender),
     [formItemRender],
   );
+  const wrappedProFieldProps = useMemo(() => {
+    if (!proFieldProps) return proFieldProps;
+    const { render: proRender, formItemRender: proFormItemRender } =
+      proFieldProps as TextProFieldCallbacks;
+    const next: Record<string, any> = { ...proFieldProps };
+    if (proRender) next.render = withFieldCallbackProps(proRender);
+    if (proFormItemRender) {
+      next.formItemRender = withFieldCallbackProps(proFormItemRender);
+    }
+    return next;
+  }, [proFieldProps]);
   return (
     <ProConfigProvider valueTypeMap={valueTypeMap}>
       <ProField
@@ -88,7 +93,7 @@ const ProFormText: React.FC<ProFormTextRenderProps> = ({
             valueType,
           } as const
         }
-        proFieldProps={proFieldProps}
+        proFieldProps={wrappedProFieldProps as typeof proFieldProps}
         render={fieldRender as any}
         formItemRender={fieldFormItemRender as any}
         {...rest}

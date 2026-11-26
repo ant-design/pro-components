@@ -403,4 +403,16 @@ export function toFieldCallbackProps(props: any) {
     : props;
 }
 
+type FieldLevelRenderer = (text: any, props: any, dom: any) => ReactNode;
+
+/** 包装字段级回调，空值分支的原有参数结构由 toFieldCallbackProps 原样透传。 */
+export function withFieldCallbackProps(
+  callback: FieldLevelRenderer | undefined,
+) {
+  return callback
+    ? (text: any, props: any, dom: any) =>
+        callback(text, toFieldCallbackProps(props), dom)
+    : undefined;
+}
+
 export default ValueTypeToComponentMap;

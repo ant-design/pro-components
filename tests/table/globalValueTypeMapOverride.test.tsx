@@ -423,4 +423,62 @@ describe.each([
     expect(received[0].mode).toBe('edit');
     expect(received[0].value).toBe(44.33);
   });
+
+  it('keeps flat props on callbacks passed through proFieldProps', async () => {
+    const readProps: any[] = [];
+    const editProps: any[] = [];
+    const emptyProps: any[] = [];
+    const wrapper = render(
+      <ProConfigProvider valueTypeMap={overrideMap}>
+        <ProForm submitter={false} readonly initialValues={{ field: 44.33 }}>
+          <Component
+            name="field"
+            proFieldProps={{
+              render: (text: any, props: any) => {
+                readProps.push(props);
+                return <span>PRO_READ</span>;
+              },
+            }}
+          />
+        </ProForm>
+        <ProForm submitter={false} initialValues={{ field: 44.33 }}>
+          <Component
+            name="field"
+            proFieldProps={{
+              formItemRender: (text: any, props: any) => {
+                editProps.push(props);
+                return <span>PRO_EDIT</span>;
+              },
+            }}
+          />
+        </ProForm>
+        <ProForm submitter={false} readonly initialValues={{ field: '' }}>
+          <Component
+            name="field"
+            proFieldProps={{
+              render: (text: any, props: any) => {
+                emptyProps.push(props);
+                return <span>PRO_EMPTY</span>;
+              },
+            }}
+          />
+        </ProForm>
+      </ProConfigProvider>,
+    );
+
+    await waitFor(() => {
+      expect(wrapper.getByText('PRO_READ')).toBeTruthy();
+      expect(wrapper.getByText('PRO_EDIT')).toBeTruthy();
+      expect(wrapper.getByText('PRO_EMPTY')).toBeTruthy();
+    });
+    expect(readProps[0].mode).toBe('read');
+    expect(readProps[0].value).toBe(44.33);
+    expect('fieldProps' in readProps[0]).toBe(false);
+    expect(editProps[0].mode).toBe('edit');
+    expect(editProps[0].value).toBe(44.33);
+    expect('fieldProps' in editProps[0]).toBe(false);
+    expect(emptyProps[0].mode).toBe('read');
+    expect(emptyProps[0].value).toBe('');
+    expect('fieldProps' in emptyProps[0]).toBe(false);
+  });
 });
