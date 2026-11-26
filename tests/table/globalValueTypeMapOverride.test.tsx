@@ -333,6 +333,43 @@ describe('standalone form components nested in table/descriptions', () => {
     });
   });
 
+  it('preserves proFieldProps.locale when no top-level locale is given', async () => {
+    const wrapper = render(
+      <ProForm submitter={false} initialValues={{ amount: 44.33 }}>
+        <ProFormMoney
+          name="amount"
+          proFieldProps={{ locale: 'en-US' } as any}
+        />
+      </ProForm>,
+    );
+
+    await waitFor(() => {
+      const input = wrapper.container.querySelector(
+        'input[id$="_amount"]',
+      ) as HTMLInputElement;
+      expect(input?.value).toContain('$ 44.33');
+    });
+  });
+
+  it('lets an explicit top-level locale win over proFieldProps.locale', async () => {
+    const wrapper = render(
+      <ProForm submitter={false} initialValues={{ amount: 44.33 }}>
+        <ProFormMoney
+          name="amount"
+          locale="ru-RU"
+          proFieldProps={{ locale: 'en-US' } as any}
+        />
+      </ProForm>,
+    );
+
+    await waitFor(() => {
+      const input = wrapper.container.querySelector(
+        'input[id$="_amount"]',
+      ) as HTMLInputElement;
+      expect(input?.value).toContain('₽');
+    });
+  });
+
   it('keeps ProFormDigit and ProFormSelect defaults inside ProTable', async () => {
     const wrapper = render(
       <ProTable

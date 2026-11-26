@@ -89,7 +89,8 @@ const ProFormMoney: React.ForwardRefRenderFunction<
   const wrappedProFieldProps = useMemo(() => {
     const { render: proRender, formItemRender: proFormItemRender } =
       (proFieldProps || {}) as MoneyProFieldCallbacks;
-    const next: Record<string, any> = { ...proFieldProps, locale };
+    const next: Record<string, any> = { ...proFieldProps };
+    if (locale !== undefined) next.locale = locale;
     if (proRender) next.render = withFieldCallbackProps(proRender);
     if (proFormItemRender) {
       next.formItemRender = withFieldCallbackProps(proFormItemRender);
@@ -111,7 +112,7 @@ const ProFormMoney: React.ForwardRefRenderFunction<
             width: '100%',
           },
         }}
-        // locale 以顶层 props 透传给 FieldMoney，使 valueType 保持字符串形式，
+        // locale 经 proFieldProps 顶层透传给 FieldMoney，使 valueType 保持字符串形式，
         // 从而让全局 valueTypeMap 的自定义 render / formItemRender 能命中。
         proFieldProps={wrappedProFieldProps as typeof proFieldProps}
         render={fieldRender as any}
