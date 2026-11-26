@@ -1,8 +1,11 @@
 import type { RefSelectProps, SelectProps } from 'antd';
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { FieldSelect } from '../../../field/FieldLoaders';
-import { ProConfigProvider } from '../../../provider';
-import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
+import {
+  mergeFormValueTypeMap,
+  type ValueTypeRenderFallback,
+} from '../../../field/ValueTypeToComponent';
+import { ProConfigProvider, ProProvider } from '../../../provider';
 import { runFunction } from '../../../utils';
 import type {
   BaseOptionType,
@@ -15,7 +18,7 @@ import type {
 } from '../../typing';
 import ProFormField from '../Field';
 
-const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
+const FALLBACK_VALUE_TYPE_MAP: Record<string, ValueTypeRenderFallback> = {
   select: {
     render: (text, props) => <FieldSelect {...props} text={text} />,
     formItemRender: (text, props) => <FieldSelect {...props} text={text} />,
@@ -89,8 +92,14 @@ const ProFormSelectComponents = <T, OptionType extends BaseOptionType = any>(
   ref: any,
 ) => {
   const context = useContext(FieldContext);
+  const proContext = useContext(ProProvider);
+  const valueTypeMap = useMemo(
+    () =>
+      mergeFormValueTypeMap(proContext.valueTypeMap, FALLBACK_VALUE_TYPE_MAP),
+    [proContext.valueTypeMap],
+  );
   return (
-    <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
+    <ProConfigProvider valueTypeMap={valueTypeMap}>
       <ProFormField<any>
         valueEnum={runFunction(valueEnum)}
         request={request}
@@ -150,8 +159,14 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
         finalMode === 'single' ? undefined : (finalMode as 'multiple' | 'tags'), // 确保mode正确设置
     };
     const context = useContext(FieldContext);
+    const proContext = useContext(ProProvider);
+    const valueTypeMap = useMemo(
+      () =>
+        mergeFormValueTypeMap(proContext.valueTypeMap, FALLBACK_VALUE_TYPE_MAP),
+      [proContext.valueTypeMap],
+    );
     return (
-      <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
+      <ProConfigProvider valueTypeMap={valueTypeMap}>
         <ProFormField<any>
           valueEnum={runFunction(valueEnum)}
           request={request}

@@ -322,4 +322,97 @@ const ValueTypeToComponentMap: Record<
   )),
 };
 
+export function mergeWithBuiltinValueTypeMap(
+  valueTypeMap?: Record<string, ProRenderFieldPropsType>,
+): Record<string, ProRenderFieldPropsType> {
+  const builtin: Record<string, ProRenderFieldPropsType> =
+    ValueTypeToComponentMap;
+  const merged: Record<string, ProRenderFieldPropsType> = { ...builtin };
+  Object.entries(valueTypeMap || {}).forEach(([key, config]) => {
+    const base = builtin[key];
+    merged[key] = base
+      ? {
+          ...base,
+          ...config,
+          render: config?.render ?? base.render,
+          formItemRender: config?.formItemRender ?? base.formItemRender,
+        }
+      : config;
+  });
+  return merged;
+}
+
+export type ValueTypeRenderFallback = {
+  render: NonNullable<ProRenderFieldPropsType['render']>;
+  formItemRender: NonNullable<ProRenderFieldPropsType['formItemRender']>;
+};
+
+/**
+ * Merge the component's own renderers with overrides from the outer
+ * `ProProvider.valueTypeMap`, key by key.
+ *
+ * An entry that is identical to the built-in renderer is not a user override:
+ * it is what `ProTable` / `ProDescriptions` / `BetaSchemaForm` inject for every
+ * built-in valueType. In that case the component keeps its own renderer so
+ * behaviours such as `format`, `picker` or `mergedFieldProps` are not lost.
+ */
+export function mergeFormValueTypeMap(
+  valueTypeMap: Record<string, ProRenderFieldPropsType> | undefined,
+  fallbacks: Record<string, ValueTypeRenderFallback>,
+): Record<string, ProRenderFieldPropsType> {
+  const builtin: Record<string, ProRenderFieldPropsType> =
+    ValueTypeToComponentMap;
+  const merged: Record<string, ProRenderFieldPropsType> = { ...valueTypeMap };
+
+  Object.entries(fallbacks).forEach(([key, fallback]) => {
+    const entry = valueTypeMap?.[key];
+    const base = builtin[key];
+    const render =
+      entry?.render && entry.render !== base?.render
+        ? entry.render
+        : fallback.render;
+    const formItemRender =
+      entry?.formItemRender && entry.formItemRender !== base?.formItemRender
+        ? entry.formItemRender
+        : fallback.formItemRender;
+    merged[key] = { ...entry, render, formItemRender };
+  });
+
+  return merged;
+}
+
+export function withValueTypeOverride(
+  valueTypeMap: Record<string, ProRenderFieldPropsType> | undefined,
+  valueType: string,
+  fallback: NonNullable<ProRenderFieldPropsType['render']>,
+): Record<string, ProRenderFieldPropsType> {
+  return mergeFormValueTypeMap(valueTypeMap, {
+    [valueType]: { render: fallback, formItemRender: fallback },
+  });
+}
+
+/**
+ * 字符串 valueType 命中 valueTypeMap 后，AllProField 传给字段级
+ * render / formItemRender 的参数是 { text, fieldProps, mode, ... }；
+ * 内部 Field 控件期望的仍是 { mode, ...fieldProps }。只还原字段级回调的
+ * 参数形状，全局映射回调的协议保持不变。
+ */
+export function toFieldCallbackProps(props: any) {
+  return props && typeof props === 'object' && 'fieldProps' in props
+    ? { mode: props.mode, ...props.fieldProps }
+    : props;
+}
+
+type FieldLevelRenderer = (text: any, props: any, dom: any) => ReactNode;
+
+/** 包装字段级回调，空值分支的原有参数结构由 toFieldCallbackProps 原样透传。 */
+export function withFieldCallbackProps(
+  callback: FieldLevelRenderer | undefined,
+) {
+  return callback
+    ? (text: any, props: any, dom: any) =>
+        callback(text, toFieldCallbackProps(props), dom)
+    : undefined;
+}
+
 export default ValueTypeToComponentMap;

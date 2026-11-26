@@ -1,20 +1,21 @@
 import type { DatePickerProps } from 'antd';
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { FieldTimePicker } from '../../../field/FieldLoaders';
-import { ProConfigProvider } from '../../../provider';
-import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
+import {
+  mergeFormValueTypeMap,
+  type ValueTypeRenderFallback,
+} from '../../../field/ValueTypeToComponent';
+import { ProConfigProvider, ProProvider } from '../../../provider';
 import FieldContext from '../../FieldContext';
 import type { ProFormFieldItemProps } from '../../typing';
 import { ProFormTimeRangePicker } from '../DateRangePicker/TimeRangePicker';
 import ProField from '../Field';
 
 const valueType = 'time' as const;
-const valueTypeMap: Record<string, ProRenderFieldPropsType> = {
+const FALLBACK_VALUE_TYPE_MAP: Record<string, ValueTypeRenderFallback> = {
   [valueType]: {
     render: (text, props) => <FieldTimePicker {...props} text={text} />,
-    formItemRender: (text, props) => (
-      <FieldTimePicker {...props} text={text} />
-    ),
+    formItemRender: (text, props) => <FieldTimePicker {...props} text={text} />,
   },
 };
 
@@ -29,6 +30,12 @@ const ProFormTimePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = ({
   ...rest
 }) => {
   const context = useContext(FieldContext);
+  const proContext = useContext(ProProvider);
+  const valueTypeMap = useMemo(
+    () =>
+      mergeFormValueTypeMap(proContext.valueTypeMap, FALLBACK_VALUE_TYPE_MAP),
+    [proContext.valueTypeMap],
+  );
   return (
     <ProConfigProvider valueTypeMap={valueTypeMap}>
       <ProField

@@ -1,9 +1,35 @@
 import type { InputNumberProps } from 'antd';
-import React from 'react';
-import FieldMoney, { type FieldMoneyProps } from '../../../field/components/Money';
-import { ProConfigProvider } from '../../../provider';
+import React, { useContext, useMemo } from 'react';
+import FieldMoney, {
+  type FieldMoneyProps,
+} from '../../../field/components/Money';
+import {
+  mergeFormValueTypeMap,
+  withFieldCallbackProps,
+  type ValueTypeRenderFallback,
+} from '../../../field/ValueTypeToComponent';
+import { ProConfigProvider, ProProvider } from '../../../provider';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
+
+const FALLBACK_VALUE_TYPE_MAP: Record<string, ValueTypeRenderFallback> = {
+  money: {
+    render: (text, props) => (
+      <FieldMoney
+        {...props}
+        placeholder={props.placeholder as string}
+        text={text}
+      />
+    ),
+    formItemRender: (text, props) => (
+      <FieldMoney
+        {...props}
+        placeholder={props.placeholder as string}
+        text={text}
+      />
+    ),
+  },
+};
 
 export type ProFormMoneyProps = ProFormFieldItemProps<
   Omit<FieldMoneyProps, 'valueType' | 'text'> & InputNumberProps<number>
@@ -19,36 +45,62 @@ export type ProFormMoneyProps = ProFormFieldItemProps<
  *
  * @param
  */
-const ProFormMoney: React.ForwardRefRenderFunction<any, ProFormMoneyProps> = (
-  { fieldProps, proFieldProps, locale, min, max, ...rest },
+type MoneyFieldRenderer = (
+  text: any,
+  props: any,
+  dom: React.JSX.Element,
+) => React.ReactNode;
+type ProFormMoneyRenderProps = ProFormMoneyProps & {
+  render?: MoneyFieldRenderer;
+  formItemRender?: MoneyFieldRenderer;
+};
+type MoneyProFieldCallbacks = {
+  render?: MoneyFieldRenderer;
+  formItemRender?: MoneyFieldRenderer;
+};
+
+const ProFormMoney: React.ForwardRefRenderFunction<
+  any,
+  ProFormMoneyRenderProps
+> = (
+  {
+    fieldProps,
+    proFieldProps,
+    locale,
+    min,
+    max,
+    render,
+    formItemRender,
+    ...rest
+  },
   ref,
 ) => {
+  const proContext = useContext(ProProvider);
+  const valueTypeMap = useMemo(
+    () =>
+      mergeFormValueTypeMap(proContext.valueTypeMap, FALLBACK_VALUE_TYPE_MAP),
+    [proContext.valueTypeMap],
+  );
+  const fieldRender = useMemo(() => withFieldCallbackProps(render), [render]);
+  const fieldFormItemRender = useMemo(
+    () => withFieldCallbackProps(formItemRender),
+    [formItemRender],
+  );
+  const wrappedProFieldProps = useMemo(() => {
+    const { render: proRender, formItemRender: proFormItemRender } =
+      (proFieldProps || {}) as MoneyProFieldCallbacks;
+    const next: Record<string, any> = { ...proFieldProps };
+    if (locale !== undefined) next.locale = locale;
+    if (proRender) next.render = withFieldCallbackProps(proRender);
+    if (proFormItemRender) {
+      next.formItemRender = withFieldCallbackProps(proFormItemRender);
+    }
+    return next;
+  }, [proFieldProps, locale]);
   return (
-    <ProConfigProvider
-      valueTypeMap={{
-        money: {
-          render: (text, props) => (
-            <FieldMoney
-              {...props}
-              placeholder={props.placeholder as string}
-              text={text}
-            />
-          ),
-          formItemRender: (text, props) => (
-            <FieldMoney
-              {...props}
-              placeholder={props.placeholder as string}
-              text={text}
-            />
-          ),
-        },
-      }}
-    >
+    <ProConfigProvider valueTypeMap={valueTypeMap}>
       <ProFormField
-        valueType={{
-          type: 'money',
-          locale,
-        }}
+        valueType="money"
         fieldProps={{
           min,
           max,
@@ -60,7 +112,11 @@ const ProFormMoney: React.ForwardRefRenderFunction<any, ProFormMoneyProps> = (
             width: '100%',
           },
         }}
-        proFieldProps={proFieldProps}
+        // locale 经 proFieldProps 顶层透传给 FieldMoney，使 valueType 保持字符串形式，
+        // 从而让全局 valueTypeMap 的自定义 render / formItemRender 能命中。
+        proFieldProps={wrappedProFieldProps as typeof proFieldProps}
+        render={fieldRender as any}
+        formItemRender={fieldFormItemRender as any}
         {...rest}
       />
     </ProConfigProvider>

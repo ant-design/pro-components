@@ -1,6 +1,6 @@
 import { ConfigProvider, Descriptions, Space } from 'antd';
 import { useContext, useEffect, useMemo } from 'react';
-import ValueTypeToComponent from '../field/ValueTypeToComponent';
+import { mergeWithBuiltinValueTypeMap } from '../field/ValueTypeToComponent';
 import ProForm from '../form';
 import ProConfigContext, { ProConfigProvider } from '../provider';
 import ProSkeleton from '../skeleton';
@@ -71,10 +71,7 @@ const ProDescriptions = <
   });
 
   const valueTypeMap = useMemo(
-    () => ({
-      ...proContext.valueTypeMap,
-      ...ValueTypeToComponent,
-    }),
+    () => mergeWithBuiltinValueTypeMap(proContext.valueTypeMap),
     [proContext.valueTypeMap],
   );
 

@@ -1,10 +1,13 @@
 import { omit } from '@rc-component/util';
 import type { CheckboxProps, CheckboxRef } from 'antd';
 import { Checkbox } from 'antd';
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
 import { FieldCheckbox } from '../../../field/FieldLoaders';
-import { ProConfigProvider } from '../../../provider';
-import type { ProRenderFieldPropsType } from '../../../provider/typing/config';
+import {
+  mergeFormValueTypeMap,
+  type ValueTypeRenderFallback,
+} from '../../../field/ValueTypeToComponent';
+import { ProConfigProvider, ProProvider } from '../../../provider';
 import { runFunction } from '../../../utils';
 import type { CheckboxGroupProps } from '../../../utils/antdTypes';
 import type {
@@ -14,7 +17,7 @@ import type {
 import ProFormField from '../Field';
 import { createProFormField } from '../FormItem/createProFormField';
 
-const FORM_VALUE_TYPE_MAP: Record<string, ProRenderFieldPropsType> = {
+const FALLBACK_VALUE_TYPE_MAP: Record<string, ValueTypeRenderFallback> = {
   checkbox: {
     render: (text, props) => <FieldCheckbox {...props} text={text} />,
     formItemRender: (text, props) => <FieldCheckbox {...props} text={text} />,
@@ -30,21 +33,29 @@ export type ProFormCheckboxGroupProps = ProFormFieldItemProps<
 } & ProFormFieldRemoteProps;
 
 const CheckboxGroup: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
-  ({ options, fieldProps, proFieldProps, valueEnum, ...rest }, ref) => (
-    <ProConfigProvider valueTypeMap={FORM_VALUE_TYPE_MAP}>
-      <ProFormField
-        ref={ref}
-        valueType="checkbox"
-        valueEnum={runFunction<[any]>(valueEnum, undefined)}
-        fieldProps={{
-          options,
-          ...fieldProps,
-        }}
-        proFieldProps={proFieldProps}
-        {...rest}
-      />
-    </ProConfigProvider>
-  ),
+  ({ options, fieldProps, proFieldProps, valueEnum, ...rest }, ref) => {
+    const proContext = useContext(ProProvider);
+    const valueTypeMap = useMemo(
+      () =>
+        mergeFormValueTypeMap(proContext.valueTypeMap, FALLBACK_VALUE_TYPE_MAP),
+      [proContext.valueTypeMap],
+    );
+    return (
+      <ProConfigProvider valueTypeMap={valueTypeMap}>
+        <ProFormField
+          ref={ref}
+          valueType="checkbox"
+          valueEnum={runFunction<[any]>(valueEnum, undefined)}
+          fieldProps={{
+            options,
+            ...fieldProps,
+          }}
+          proFieldProps={proFieldProps}
+          {...rest}
+        />
+      </ProConfigProvider>
+    );
+  },
 );
 
 export type ProFormCheckboxProps = ProFormFieldItemProps<CheckboxProps>;
@@ -71,7 +82,7 @@ const ProFormCheckboxComponents: React.FC<ProFormCheckboxProps> =
     },
   );
 
-const ProFormCheckbox = createProFormField<ProFormCheckboxProps>?.(
+const ProFormCheckbox = (createProFormField<ProFormCheckboxProps>)?.(
   ProFormCheckboxComponents,
   {
     valuePropName: 'checked',

@@ -4,10 +4,11 @@ import React, {
   useCallback,
   useContext,
   useImperativeHandle,
+  useMemo,
   useRef,
   useState,
 } from 'react';
-import ValueTypeToComponent from '../../../field/ValueTypeToComponent';
+import { mergeWithBuiltinValueTypeMap } from '../../../field/ValueTypeToComponent';
 import ProConfigContext, { ProConfigProvider } from '../../../provider';
 import {
   LabelIconTip,
@@ -267,11 +268,15 @@ function BetaSchemaForm<T, ValueType = 'text'>(
   }, [formRef.current]);
 
   const context = useContext(ProConfigContext);
+  // Keep the merged map stable so nested ProField consumers are not remounted
+  // on every parent render (same as ProTable / ProDescriptions).
+  const valueTypeMap = useMemo(
+    () => mergeWithBuiltinValueTypeMap(context.valueTypeMap),
+    [context.valueTypeMap],
+  );
 
   return (
-    <ProConfigProvider
-      valueTypeMap={{ ...context.valueTypeMap, ...ValueTypeToComponent }}
-    >
+    <ProConfigProvider valueTypeMap={valueTypeMap}>
       <FormRenderComponents
         {...specificProps}
         {...restProps}

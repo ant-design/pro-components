@@ -26,7 +26,7 @@ import React, {
 } from 'react';
 import type { ActionType } from '.';
 import ProCard from '../card';
-import ValueTypeToComponent from '../field/ValueTypeToComponent';
+import { mergeWithBuiltinValueTypeMap } from '../field/ValueTypeToComponent';
 import ProForm, { GridContext } from '../form';
 import type { ParamsType } from '../provider';
 import ProConfigContext, {
@@ -1401,7 +1401,7 @@ const ProviderTableContainer = <
   // Keep this context value stable across parent/keepalive renders. Recreating
   // the map invalidates every ProField consumer in an already mounted table.
   const mergedValueTypeMap = useMemo(
-    () => ({ ...context.valueTypeMap, ...ValueTypeToComponent }),
+    () => mergeWithBuiltinValueTypeMap(context.valueTypeMap),
     [context.valueTypeMap],
   );
   return (
