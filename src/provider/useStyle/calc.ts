@@ -23,7 +23,7 @@ const unitless: Record<string, boolean> = {
  * their original numeric interpolation, while CSS themes emit calc() safely.
  */
 export const createStyleCalc = (cssVarPrefix?: string) => {
-  if (!cssVarPrefix) return undefined;
+  if (cssVarPrefix === undefined) return undefined;
   Object.keys(unitless).forEach((key) => {
     unitlessCssVar.add(token2CSSVar(key, cssVarPrefix));
   });

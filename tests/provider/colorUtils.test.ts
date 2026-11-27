@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { lighten } from '../../src/provider/useStyle';
+import { createStyleCalc } from '../../src/provider/useStyle/calc';
 import { setAlpha } from '../../src/provider/utils/setAlpha';
 
 describe('theme color utilities', () => {
@@ -32,6 +33,15 @@ describe('theme color utilities', () => {
     );
     expect(lighten('var(--ant-color-text)', 101)).toBe(
       'color-mix(in srgb, var(--ant-color-text), white 100%)',
+    );
+  });
+
+  it('creates CSS calc for empty-string prefix and returns undefined only for undefined', () => {
+    expect(createStyleCalc(undefined)).toBeUndefined();
+    const unprefixedCalc = createStyleCalc('');
+    expect(unprefixedCalc).toBeDefined();
+    expect(unprefixedCalc!('var(--padding)').add(4).equal()).toBe(
+      'calc(var(--padding) + 4px)',
     );
   });
 });
