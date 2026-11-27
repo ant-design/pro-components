@@ -171,6 +171,10 @@ export function useProFormFieldShell<P extends ProFormFieldItemProps = any>(
     [defaultFormItemProps, formItemProps, messageVariables, contextValue.skipFieldRules],
   );
 
+  // Form.Item 的 valuePropName 可能是 checked 等自定义值；内层 Field 也需要
+  // 使用同一个 key 读取只读文本，否则会被默认的 value 覆盖。
+  const fieldValuePropName = otherProps.valuePropName ?? valuePropName;
+
   const { prefixName } = useContext(RcFieldContext);
 
   const proFieldKey = useDeepCompareMemo(() => {
@@ -262,6 +266,7 @@ export function useProFormFieldShell<P extends ProFormFieldItemProps = any>(
       <Field
         key={props.proFormFieldKey || props.name}
         {...(fieldComponentProps as P)}
+        valuePropName={fieldValuePropName}
         readonly={readonly}
         fieldProps={fieldFieldProps}
         proFieldProps={fieldProFieldProps}
@@ -273,6 +278,7 @@ export function useProFormFieldShell<P extends ProFormFieldItemProps = any>(
     fieldProFieldProps,
     fieldFieldProps,
     fieldComponentProps,
+    fieldValuePropName,
     mergedFieldRef,
     readonly,
     props.name,
