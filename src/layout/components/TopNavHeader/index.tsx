@@ -45,6 +45,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
   const { dark } = useContext(ProProvider);
 
   const prefixCls = `${props.prefixCls || getPrefixCls('pro')}-top-nav-header`;
+  const layoutPrefixCls = props.prefixCls || getPrefixCls('pro');
 
   const { wrapSSR, hashId } = useStyle(prefixCls);
   let renderKey: HeaderRenderKey | undefined = undefined;
@@ -115,6 +116,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
         <BaseMenu
           theme={dark ? 'dark' : 'light'}
           {...props}
+          prefixCls={layoutPrefixCls}
           className={clsx(`${prefixCls}-base-menu`, hashId)}
           {...props.menuProps}
           style={{
@@ -148,6 +150,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
     dark,
     props,
     prefixCls,
+    layoutPrefixCls,
     hashId,
     headerContentRender,
   ]);
@@ -171,7 +174,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
             className={clsx(`${prefixCls}-main-left ${hashId}`)}
             onClick={onMenuHeaderClick}
           >
-            <AppsLogoComponents {...props} />
+            <AppsLogoComponents {...props} prefixCls={layoutPrefixCls} />
             <div
               className={clsx(`${prefixCls}-logo`, hashId)}
               key="logo"

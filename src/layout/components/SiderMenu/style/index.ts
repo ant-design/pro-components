@@ -176,7 +176,13 @@ export const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           },
         },
         '&-hide-menu-collapsed': {
-          insetInlineStart: `-${token.proLayoutCollapsedWidth - 12}px`,
+          insetInlineStart: token.calc
+            ? token
+                .calc(token.proLayoutCollapsedWidth)
+                .sub(12)
+                .mul(-1)
+                .equal({ unit: true })
+            : `-${token.proLayoutCollapsedWidth - 12}px`,
           position: 'absolute',
         },
 

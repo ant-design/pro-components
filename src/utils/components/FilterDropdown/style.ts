@@ -1,5 +1,6 @@
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
+import { addUnit } from '../../../provider/useStyle/calc';
 
 export interface ProToken extends ProAliasToken {
   componentCls: string;
@@ -14,7 +15,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       height: token.controlHeight,
       paddingBlock: 0,
       paddingInline: token.paddingSM,
-      border: `${token.lineWidth}px solid ${token.colorBorder}`,
+      border: `${addUnit(token.lineWidth, token.calc)} solid ${token.colorBorder}`,
       borderRadius: token.borderRadius,
       boxSizing: 'border-box',
     },

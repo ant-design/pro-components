@@ -1,5 +1,6 @@
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
+import { addUnit } from '../../../provider/useStyle/calc';
 
 export interface ProToken extends ProAliasToken {
   componentCls: string;
@@ -50,7 +51,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         display: 'flex',
         height: token.controlHeight,
         marginBlockEnd: token.marginLG,
-        lineHeight: token.controlHeight + 'px',
+        lineHeight: addUnit(token.controlHeight, token.calc),
         '&-small': {
           height: token.controlHeightSM,
           lineHeight: token.controlHeightSM,

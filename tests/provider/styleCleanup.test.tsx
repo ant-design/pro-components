@@ -24,6 +24,11 @@ const activeStyles = () =>
     (style) => style.textContent?.includes('.pro-theme-cleanup-test'),
   );
 
+const themeStyleText = () =>
+  Array.from(document.querySelectorAll('style[data-css-hash]'))
+    .map((style) => style.textContent)
+    .join('');
+
 describe('Pro style cleanup', () => {
   it('removes unused styles after repeated theme changes', async () => {
     const view = render(<Theme color="#ff0000" />);
@@ -33,7 +38,10 @@ describe('Pro style cleanup', () => {
         await Promise.resolve();
       });
       expect(activeStyles()).toHaveLength(1);
-      expect(activeStyles()[0].textContent).toContain(color);
+      expect(activeStyles()[0].textContent).toContain(
+        'color:var(--ant-color-primary)',
+      );
+      expect(themeStyleText()).toContain(`--ant-color-primary:${color}`);
     }
     view.unmount();
     await Promise.resolve();
@@ -79,7 +87,10 @@ describe('Pro style cleanup', () => {
       await Promise.resolve();
     });
     expect(activeStyles()).toHaveLength(1);
-    expect(activeStyles()[0].textContent).toContain('#ff0000');
+    expect(activeStyles()[0].textContent).toContain(
+      'color:var(--ant-color-primary)',
+    );
+    expect(themeStyleText()).toContain('--ant-color-primary:#ff0000');
     view.unmount();
     await Promise.resolve();
   });

@@ -1,5 +1,6 @@
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
+import { addUnit } from '../../../provider/useStyle/calc';
 
 export interface ProToken extends ProAliasToken {
   componentCls: string;
@@ -94,7 +95,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         height: '32px',
         paddingBlock: 0,
         paddingInline: 8,
-        border: `${token.lineWidth}px solid ${token.colorBorder}`,
+        border: `${addUnit(token.lineWidth, token.calc)} solid ${token.colorBorder}`,
         borderRadius: token.borderRadius,
         '&-active': {
           backgroundColor: 'none',
@@ -109,18 +110,18 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       '&-filled': {
         height: '32px',
         backgroundColor: token.colorBgTextHover,
-        border: `${token.lineWidth}px solid transparent`,
+        border: `${addUnit(token.lineWidth, token.calc)} solid transparent`,
         '&:hover': {
-          border: `${token.lineWidth}px solid ${token.colorPrimary}`,
+          border: `${addUnit(token.lineWidth, token.calc)} solid ${token.colorPrimary}`,
           backgroundColor: token.colorBgTextHover,
         },
       },
       '&-underlined': {
         height: '32px',
         borderRadius: 0,
-        borderBottom: `${token.lineWidth}px solid ${token.colorSplit}`,
+        borderBottom: `${addUnit(token.lineWidth, token.calc)} solid ${token.colorSplit}`,
         '&:hover': {
-          borderBottom: `${token.lineWidth}px solid ${token.colorPrimary}`,
+          borderBottom: `${addUnit(token.lineWidth, token.calc)} solid ${token.colorPrimary}`,
           backgroundColor: token.colorBgTextHover,
         },
       },

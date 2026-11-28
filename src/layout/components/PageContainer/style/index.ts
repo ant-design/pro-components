@@ -32,7 +32,7 @@ const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
             backgroundColor:
               token.layout?.pageContainer?.colorBgPageContainerFixed,
             transition: 'background-color 0.3s',
-            boxShadow: '0 2px 8px #f0f1f2',
+            boxShadow: token.boxShadowTertiary,
           },
         },
       },

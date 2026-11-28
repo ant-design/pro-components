@@ -1,6 +1,7 @@
 import { Keyframes } from '@ant-design/cssinjs';
 import type { GenerateStyle, ProAliasToken } from '../../provider';
 import { setAlpha, useStyle as useAntdStyle } from '../../provider';
+import { addUnit } from '../../provider/useStyle/calc';
 
 export interface ProListToken extends ProAliasToken {
   componentCls: string;
@@ -119,11 +120,11 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         backgroundColor: token.colorFillQuaternary,
         borderRadius: token.borderRadius,
         [`${token.componentCls}-toolbar`]: {
-          borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+          borderBlockEnd: `${addUnit(token.lineWidth, token.calc)} ${token.lineType} ${token.colorSplit}`,
         },
       },
       '&-outlined': {
-        border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+        border: `${addUnit(token.lineWidth, token.calc)} ${token.lineType} ${token.colorSplit}`,
         borderRadius: token.borderRadius,
       },
       '&-borderless': {
@@ -159,7 +160,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
       '&-split': {
         [`${token.componentCls}-row`]: {
-          borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+          borderBlockEnd: `${addUnit(token.lineWidth, token.calc)} ${token.lineType} ${token.colorSplit}`,
           '&:last-child': {
             borderBlockEnd: 'none',
           },
@@ -439,7 +440,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             "url('https://gw.alipayobjects.com/zos/antfincdn/DehQfMbOJb/icon.svg')",
           backgroundRepeat: 'no-repeat',
           backgroundPosition: '0 0',
-          backgroundSize: `${token.fontSizeSM}px ${token.fontSizeSM}px`,
+          backgroundSize: `${addUnit(token.fontSizeSM, token.calc)} ${addUnit(token.fontSizeSM, token.calc)}`,
         },
         '&-show-action-hover': {
           [`${token.proComponentsCls}-list-item-action,
