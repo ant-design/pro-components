@@ -260,6 +260,48 @@ describe('utils', () => {
     expect(html.status).toEqual(null);
   });
 
+  it('📅 merge keeps Date and dayjs instances intact', () => {
+    const date = new Date(86400000);
+    const day = dayjs('2024-02-02');
+    const html = merge<{
+      createdAt: dayjs.Dayjs;
+      at: Date;
+    }>(
+      {},
+      { createdAt: dayjs('2024-01-01'), at: new Date(0) },
+      { createdAt: day, at: date },
+    );
+    expect(html.createdAt).toBe(day);
+    expect(html.createdAt.format('YYYY-MM-DD')).toBe('2024-02-02');
+    expect(html.at).toBe(date);
+    expect(html.at.getTime()).toBe(86400000);
+  });
+
+  it('📅 merge does not spread class instances into plain objects', () => {
+    const map = new Map([['a', 1]]);
+    const html = merge<{
+      value: Map<string, number>;
+      plain: Record<string, any>;
+    }>(
+      {},
+      { value: { a: 1 }, plain: dayjs('2024-01-01') },
+      { value: map, plain: { a: 1 } },
+    );
+    expect(html.value).toBe(map);
+    expect(html.plain).toEqual({ a: 1 });
+  });
+
+  it('📅 merge still merges plain objects and replaces arrays', () => {
+    const html = merge<Record<string, any>>(
+      {},
+      { nested: { a: 1, b: 2 }, list: [1, 2], bare: Object.create(null) },
+      { nested: { b: 3, c: 4 }, list: [3], bare: { a: 1 } },
+    );
+    expect(html.nested).toEqual({ a: 1, b: 3, c: 4 });
+    expect(html.list).toEqual([3]);
+    expect(html.bare).toEqual({ a: 1 });
+  });
+
   it('📅 conversionSubmitValue string', async () => {
     const html = conversionSubmitValue(
       {
