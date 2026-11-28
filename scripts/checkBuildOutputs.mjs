@@ -72,6 +72,16 @@ if (!cjsEntry.includes('require("./card/index.js")')) {
   );
 }
 
+for (const outputDirectory of ['es', 'lib']) {
+  const schemaForm = fs.readFileSync(
+    path.join(root, outputDirectory, 'form/components/SchemaForm/index.js'),
+    'utf8',
+  );
+  if (/['"]\.\/typing\.js['"]/.test(schemaForm)) {
+    fail(`${outputDirectory} SchemaForm must not import types at runtime.`);
+  }
+}
+
 const umdEntry = fs.readFileSync(path.join(root, packageJson.unpkg), 'utf8');
 for (const dependency of ['react', 'react-dom', 'antd', 'dayjs']) {
   if (!umdEntry.includes(`require("${dependency}")`)) {
