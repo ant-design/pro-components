@@ -665,4 +665,15 @@ describe('transformKeySubmitValue', () => {
       ),
     ).toEqual({ keyword: 'test', createdFrom: '2026-11-01' });
   });
+
+  it('skips transforms for nil values inside lists when transformNil is false (#9802)', () => {
+    const name = vi.fn((value: string) => value.toUpperCase());
+    const values = { users: [{ name: null, age: 1 }, { name: 'ann' }] };
+
+    expect(
+      transformKeySubmitValue(values, { users: { name } }, false, false),
+    ).toEqual({ users: [{ name: null, age: 1 }, { name: 'ANN' }] });
+    expect(name).toHaveBeenCalledTimes(1);
+    expect(name).toHaveBeenCalledWith('ann', ['users', '1', 'name'], values);
+  });
 });

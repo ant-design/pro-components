@@ -121,11 +121,12 @@ function separateTransformFormats(
  *
  * @param result - 要转换的数据对象
  * @param dotPathTransforms - 点号路径转换配置
+ * @param transformNil - when false, transform is not called for null / undefined values (#9802)
  */
 function processDotPathTransforms(
   result: any,
   dotPathTransforms: Record<string, SearchTransformKeyFn>,
-  transformNil = true,
+  transformNil: boolean,
 ): void {
   // 用 Object.keys 替代 for...in：
   //  - for...in 会遍历到原型链上的 enumerable 属性（虽然这里上游已经过滤过，但守门更稳）
@@ -258,8 +259,8 @@ function processNestedObjectTransforms(
   currentTransforms: any,
   rootLevelMerges: any[],
   rootAllValues: any,
-  omitNil?: boolean,
-  transformNil = true,
+  omitNil: boolean | undefined,
+  transformNil: boolean,
 ): any {
   const isArrayValues = Array.isArray(currentValues);
   const currentResult: any = isArrayValues ? [] : {};
