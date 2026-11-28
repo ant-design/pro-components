@@ -171,6 +171,10 @@ export function useProFormFieldShell<P extends ProFormFieldItemProps = any>(
     [defaultFormItemProps, formItemProps, messageVariables, contextValue.skipFieldRules],
   );
 
+  // Form.Item 的 valuePropName 可能是 checked 等自定义值；内层 Field 只读文本
+  // 和 light 模式的 label 取值也要用同一个 key，否则会退回默认的 value。
+  const fieldValuePropName = otherProps.valuePropName ?? valuePropName;
+
   const { prefixName } = useContext(RcFieldContext);
 
   const proFieldKey = useDeepCompareMemo(() => {
@@ -262,6 +266,7 @@ export function useProFormFieldShell<P extends ProFormFieldItemProps = any>(
       <Field
         key={props.proFormFieldKey || props.name}
         {...(fieldComponentProps as P)}
+        valuePropName={fieldValuePropName}
         readonly={readonly}
         fieldProps={fieldFieldProps}
         proFieldProps={fieldProFieldProps}
@@ -273,6 +278,7 @@ export function useProFormFieldShell<P extends ProFormFieldItemProps = any>(
     fieldProFieldProps,
     fieldFieldProps,
     fieldComponentProps,
+    fieldValuePropName,
     mergedFieldRef,
     readonly,
     props.name,
@@ -295,7 +301,7 @@ export function useProFormFieldShell<P extends ProFormFieldItemProps = any>(
         <ProFormItem
           label={undefined}
           tooltip={false}
-          valuePropName={valuePropName}
+          valuePropName={fieldValuePropName}
           key={formItemKey}
           {...restOtherProps}
           help={help}
@@ -312,7 +318,7 @@ export function useProFormFieldShell<P extends ProFormFieldItemProps = any>(
       const lightPopoverProps: ProFormFieldLightPopoverRenderProps = {
         field: field as React.ReactElement,
         label,
-        valuePropName,
+        valuePropName: fieldValuePropName,
         restOtherProps,
         help,
         ignoreFormItem,
@@ -371,6 +377,7 @@ export function useProFormFieldShell<P extends ProFormFieldItemProps = any>(
     label,
     tooltip,
     valuePropName,
+    fieldValuePropName,
     props.proFormFieldKey,
     otherProps,
     ignoreFormItem,
