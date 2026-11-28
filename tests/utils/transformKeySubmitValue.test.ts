@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { transformKeySubmitValue } from '../../src/utils/transformKeySubmitValue';
 
 describe('transformKeySubmitValue', () => {
@@ -633,5 +633,60 @@ describe('transformKeySubmitValue', () => {
       displayName: 'John',
       handler: expect.any(Function),
     });
+  });
+
+  it('skips transforms for nil values when transformNil is false (#9802)', () => {
+    const created = vi.fn((value: string[]) => ({
+      createdFrom: value[0],
+    }));
+    const updated = vi.fn((value: string) => ({ updatedAt: value }));
+    const values = {
+      keyword: 'test',
+      created: undefined,
+      range: { updated: null },
+    };
+    const transforms = { created, 'range.updated': updated };
+
+    expect(transformKeySubmitValue(values, transforms, false, false)).toEqual({
+      keyword: 'test',
+      created: undefined,
+      range: { updated: null },
+    });
+    expect(created).not.toHaveBeenCalled();
+    expect(updated).not.toHaveBeenCalled();
+
+    // Values that are set are still transformed
+    expect(
+      transformKeySubmitValue(
+        { keyword: 'test', created: ['2026-11-01', '2026-11-02'] },
+        { created },
+        false,
+        false,
+      ),
+    ).toEqual({ keyword: 'test', createdFrom: '2026-11-01' });
+  });
+
+  it('skips transforms for nil values inside lists when transformNil is false (#9802)', () => {
+    const name = vi.fn((value: string) => value.toUpperCase());
+    const values = { users: [{ name: null, age: 1 }, { name: 'ann' }] };
+
+    expect(
+      transformKeySubmitValue(values, { users: { name } }, false, false),
+    ).toEqual({ users: [{ name: null, age: 1 }, { name: 'ANN' }] });
+    expect(name).toHaveBeenCalledTimes(1);
+    expect(name).toHaveBeenCalledWith('ann', ['users', '1', 'name'], values);
+  });
+
+  it('skips transforms for nil values inside nested objects when transformNil is false (#9802)', () => {
+    const updated = vi.fn((value: string) => value.toUpperCase());
+    const keyword = vi.fn((value: string) => value.toUpperCase());
+    const values = { range: { updated: null, keyword: 'test' } };
+
+    expect(
+      transformKeySubmitValue(values, { range: { updated, keyword } }, false, false),
+    ).toEqual({ range: { updated: null, keyword: 'TEST' } });
+    expect(updated).not.toHaveBeenCalled();
+    expect(keyword).toHaveBeenCalledTimes(1);
+    expect(keyword).toHaveBeenCalledWith('test', ['range', 'keyword'], values);
   });
 });

@@ -527,7 +527,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     grid: _grid,
     rowProps: _rowProps,
     colProps: _colProps,
-    omitNil: _omitNil = true,
+    omitNil = true,
     request,
     params,
     initialValues,
@@ -739,7 +739,12 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
 
   /** 使用 callback 的类型 */
   const transformKey = useRefFunction(
-    (values: any, paramsOmitNil: boolean, parentKey?: NamePath) => {
+    (
+      values: any,
+      paramsOmitNil: boolean,
+      parentKey?: NamePath,
+      transformNil?: boolean,
+    ) => {
       if (!values || typeof values !== 'object') {
         return values;
       }
@@ -758,6 +763,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
         transformKeyRef.current,
         // #8044:键转换环节同样尊重 omitNil,false 时保留 null 字段
         paramsOmitNil,
+        transformNil,
       );
     },
   );
@@ -1039,9 +1045,12 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
               // 组合 urlParamsMergeInitialValues 和 initialValues
               initialValues={requestInitialValues}
               onValuesChange={(changedValues, values) => {
+                // Empty fields stay in the values, but their transform only runs
+                // when it would on submit: with omitNil they are dropped before
+                // transform, so transform never gets null / undefined (#9802).
                 propRest?.onValuesChange?.(
-                  transformKey(changedValues, false),
-                  transformKey(values, false),
+                  transformKey(changedValues, false, undefined, !omitNil),
+                  transformKey(values, false, undefined, !omitNil),
                 );
               }}
               className={props.className}

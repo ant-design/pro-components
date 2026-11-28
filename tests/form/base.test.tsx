@@ -7,6 +7,7 @@ import {
   ProFormCheckbox,
   ProFormColorPicker,
   ProFormDatePicker,
+  ProFormDateRangePicker,
   ProFormDateTimePicker,
   ProFormDateTimeRangePicker,
   ProFormDependency,
@@ -1218,6 +1219,60 @@ describe('ProForm', () => {
     expect(onValuesChange).toHaveBeenLastCalledWith(
       { name: '' },
       { name: '' },
+    );
+    wrapper.unmount();
+  });
+
+  it('🐛 onValuesChange should not call transform for an empty field when omitNil is enabled (#9802)', async () => {
+    const onValuesChange = vi.fn();
+    const transform = vi.fn((value: string[]) => ({
+      createdFrom: value[0],
+      createdTo: value[1],
+    }));
+    const wrapper = render(
+      <ProForm onValuesChange={onValuesChange}>
+        <ProFormText name="keyword" fieldProps={{ id: 'keywordInput' }} />
+        <ProFormDateRangePicker name="created" transform={transform} />
+      </ProForm>,
+    );
+    await wrapper.findByText('提 交');
+
+    const input = wrapper.baseElement.querySelector<HTMLInputElement>(
+      'input#keywordInput',
+    )!;
+    fireEvent.change(input, { target: { value: 'test' } });
+
+    expect(transform).not.toHaveBeenCalled();
+    expect(onValuesChange).toHaveBeenLastCalledWith(
+      { keyword: 'test' },
+      { keyword: 'test', created: undefined },
+    );
+    expect('created' in onValuesChange.mock.lastCall![1]).toBe(true);
+    wrapper.unmount();
+  });
+
+  it('🐛 onValuesChange still passes empty values to transform when omitNil is false', async () => {
+    const onValuesChange = vi.fn();
+    const transform = vi.fn((value?: string[]) => ({
+      createdFrom: value?.[0],
+    }));
+    const wrapper = render(
+      <ProForm onValuesChange={onValuesChange} omitNil={false}>
+        <ProFormText name="keyword" fieldProps={{ id: 'keywordInput' }} />
+        <ProFormDateRangePicker name="created" transform={transform} />
+      </ProForm>,
+    );
+    await wrapper.findByText('提 交');
+
+    const input = wrapper.baseElement.querySelector<HTMLInputElement>(
+      'input#keywordInput',
+    )!;
+    fireEvent.change(input, { target: { value: 'test' } });
+
+    expect(transform).toHaveBeenCalledWith(
+      undefined,
+      ['created'],
+      expect.anything(),
     );
     wrapper.unmount();
   });
