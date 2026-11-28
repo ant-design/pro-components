@@ -149,4 +149,47 @@ describe('B9 readonly mode regressions', () => {
     expect(getByText('自定义值')).toBeTruthy();
     expect(queryByText('-')).toBeNull();
   });
+
+  it('form-level readonly ProFormSwitch renders checked value', async () => {
+    const { getByText, queryByText } = render(
+      <ProForm
+        readonly
+        submitter={false}
+        initialValues={{ enabled: true, disabled: false }}
+      >
+        <ProFormSwitch
+          name="enabled"
+          label="开启项"
+          checkedChildren="启用"
+          unCheckedChildren="禁用"
+        />
+        <ProFormSwitch
+          name="disabled"
+          label="关闭项"
+          checkedChildren="启用"
+          unCheckedChildren="禁用"
+        />
+      </ProForm>,
+    );
+    await waitForWaitTime(300);
+    expect(getByText('启用')).toBeTruthy();
+    expect(getByText('禁用')).toBeTruthy();
+    expect(queryByText('-')).toBeNull();
+  });
+
+  it('readonly respects valuePropName from formItemProps', async () => {
+    const { getByText, queryByText } = render(
+      <ProForm submitter={false} initialValues={{ custom: '表单配置值' }}>
+        <ProFormText
+          name="custom"
+          label="自定义字段"
+          readonly
+          formItemProps={{ valuePropName: 'textValue' }}
+        />
+      </ProForm>,
+    );
+    await waitForWaitTime(300);
+    expect(getByText('表单配置值')).toBeTruthy();
+    expect(queryByText('-')).toBeNull();
+  });
 });

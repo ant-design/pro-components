@@ -95,6 +95,30 @@ describe('LightFilter', () => {
     expect(fieldLabel?.textContent).toContain('initial value');
   });
 
+  it(' 🪕 should read label value by valuePropName from formItemProps', async () => {
+    const { container } = render(
+      <LightFilter initialValues={{ name1: '配置值' }}>
+        <LightFilter.input
+          name="name1"
+          label="名称"
+          formItemProps={{ valuePropName: 'textValue' }}
+        />
+      </LightFilter>,
+    );
+
+    await waitFor(() => {
+      expect(
+        container.querySelector('.ant-pro-form-light-filter'),
+      ).toBeTruthy();
+    });
+
+    const fieldLabel = await waitFor(() => {
+      return container.querySelector('.ant-pro-core-field-label');
+    });
+    expect(fieldLabel).toBeTruthy();
+    expect(fieldLabel?.textContent).toContain('配置值');
+  });
+
   it(' 🪕 should support variant', async () => {
     const onValuesChange = vi.fn();
 
