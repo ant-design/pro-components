@@ -37,7 +37,7 @@ import type {
 } from './typing';
 import { renderValueType } from './valueType';
 
-export * from './typing';
+export type * from './typing';
 
 const FormLayoutType = {
   DrawerForm,
