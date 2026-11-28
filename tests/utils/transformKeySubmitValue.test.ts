@@ -676,4 +676,17 @@ describe('transformKeySubmitValue', () => {
     expect(name).toHaveBeenCalledTimes(1);
     expect(name).toHaveBeenCalledWith('ann', ['users', '1', 'name'], values);
   });
+
+  it('skips transforms for nil values inside nested objects when transformNil is false (#9802)', () => {
+    const updated = vi.fn((value: string) => value.toUpperCase());
+    const keyword = vi.fn((value: string) => value.toUpperCase());
+    const values = { range: { updated: null, keyword: 'test' } };
+
+    expect(
+      transformKeySubmitValue(values, { range: { updated, keyword } }, false, false),
+    ).toEqual({ range: { updated: null, keyword: 'TEST' } });
+    expect(updated).not.toHaveBeenCalled();
+    expect(keyword).toHaveBeenCalledTimes(1);
+    expect(keyword).toHaveBeenCalledWith('test', ['range', 'keyword'], values);
+  });
 });
