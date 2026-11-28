@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { transformKeySubmitValue } from '../../src/utils/transformKeySubmitValue';
 
 describe('transformKeySubmitValue', () => {
@@ -633,5 +633,36 @@ describe('transformKeySubmitValue', () => {
       displayName: 'John',
       handler: expect.any(Function),
     });
+  });
+
+  it('skips transforms for nil values when transformNil is false (#9802)', () => {
+    const created = vi.fn((value: string[]) => ({
+      createdFrom: value[0],
+    }));
+    const updated = vi.fn((value: string) => ({ updatedAt: value }));
+    const values = {
+      keyword: 'test',
+      created: undefined,
+      range: { updated: null },
+    };
+    const transforms = { created, 'range.updated': updated };
+
+    expect(transformKeySubmitValue(values, transforms, false, false)).toEqual({
+      keyword: 'test',
+      created: undefined,
+      range: { updated: null },
+    });
+    expect(created).not.toHaveBeenCalled();
+    expect(updated).not.toHaveBeenCalled();
+
+    // Values that are set are still transformed
+    expect(
+      transformKeySubmitValue(
+        { keyword: 'test', created: ['2026-11-01', '2026-11-02'] },
+        { created },
+        false,
+        false,
+      ),
+    ).toEqual({ keyword: 'test', createdFrom: '2026-11-01' });
   });
 });

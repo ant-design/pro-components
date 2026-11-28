@@ -957,6 +957,40 @@ describe('BasicTable Search', () => {
     });
   });
 
+  it('🐛 #9802 does not call search.transform for an empty field while typing in another one', async () => {
+    const transform = vi.fn((value: string[]) => ({
+      createdFrom: value[0],
+      createdTo: value[1],
+    }));
+    const { container } = render(
+      <ProTable
+        columns={[
+          { title: 'Keyword', dataIndex: 'keyword' },
+          {
+            title: 'Created At',
+            dataIndex: 'created',
+            hideInTable: true,
+            valueType: 'dateRange',
+            search: { transform },
+          },
+        ]}
+        request={async () => ({ data: [], success: true, total: 0 })}
+        rowKey="id"
+      />,
+    );
+
+    const input = await waitFor(() => {
+      const el = container.querySelector<HTMLInputElement>('[id$="_keyword"]');
+      expect(el).toBeTruthy();
+      return el!;
+    });
+
+    expect(() => {
+      fireEvent.change(input, { target: { value: 'ProComponents' } });
+    }).not.toThrow();
+    expect(transform).not.toHaveBeenCalled();
+  });
+
   it('🎏 replaces the search form when filterType changes (#9613)', async () => {
     const Demo = () => {
       const [filterType, setFilterType] = React.useState<'query' | 'light'>(

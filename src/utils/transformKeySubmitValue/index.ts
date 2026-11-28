@@ -125,6 +125,7 @@ function separateTransformFormats(
 function processDotPathTransforms(
   result: any,
   dotPathTransforms: Record<string, SearchTransformKeyFn>,
+  transformNil = true,
 ): void {
   // 用 Object.keys 替代 for...in：
   //  - for...in 会遍历到原型链上的 enumerable 属性（虽然这里上游已经过滤过，但守门更稳）
@@ -140,6 +141,7 @@ function processDotPathTransforms(
     // 获取要转换的值
     const currentValue = get(result, pathArray);
     if (currentValue === undefined) continue;
+    if (!transformNil && isNil(currentValue)) continue;
 
     // 执行转换
     const transformed = transform(currentValue, pathArray.map(String), result);
@@ -243,6 +245,7 @@ function isInArrayPath(rootValues: any, parentsKey: React.Key[]): boolean {
  * @param rootAllValues - 根级表单对象（与 `SearchTransformKeyFn` 第三参一致），整次转换过程中保持不变引用
  * @param omitNil - false 时保留值为 null / undefined 的字段（#8044），
  *   默认 true 保持历史协议"ignore null"
+ * @param transformNil - when false, transform is not called for null / undefined values (#9802)
  * @returns 处理后的结果
  *
  * 设计说明：旧实现带有 `visited: Set<any>` 用于防止循环引用，但 `transformKeySubmitValue`
@@ -256,6 +259,7 @@ function processNestedObjectTransforms(
   rootLevelMerges: any[],
   rootAllValues: any,
   omitNil?: boolean,
+  transformNil = true,
 ): any {
   const isArrayValues = Array.isArray(currentValues);
   const currentResult: any = isArrayValues ? [] : {};
@@ -287,7 +291,11 @@ function processNestedObjectTransforms(
       );
     }
 
-    if (transformFunction && typeof transformFunction === 'function') {
+    if (
+      transformFunction &&
+      typeof transformFunction === 'function' &&
+      (transformNil || !isNil(itemValue))
+    ) {
       const namePath = nextParentsKey.map((k) => String(k));
       const transformed = transformFunction(
         itemValue,
@@ -344,6 +352,7 @@ function processNestedObjectTransforms(
           rootLevelMerges,
           rootAllValues,
           omitNil,
+          transformNil,
         );
       });
       currentResult[entityKey] = nestedArray;
@@ -359,6 +368,7 @@ function processNestedObjectTransforms(
           rootLevelMerges,
           rootAllValues,
           omitNil,
+          transformNil,
         );
         // 检查是否有任何子属性被转换为对象（会被添加到 rootLevelMerges）
         // 如果 nested 为空或只包含被转换的属性，我们不保留这个对象
@@ -377,6 +387,7 @@ function processNestedObjectTransforms(
           rootLevelMerges,
           rootAllValues,
           omitNil,
+          transformNil,
         );
         currentResult[entityKey] = nested;
       }
@@ -405,6 +416,8 @@ function processNestedObjectTransforms(
  * @param dataFormatMapRaw - 转换配置映射
  * @param omitNil - false 时保留值为 null / undefined 的字段（#8044），
  *   默认保持历史协议"ignore null"
+ * @param transformNil - when false, transform is not called for null / undefined values;
+ *   the field is kept or dropped by omitNil instead (#9802). Defaults to true
  * @returns 转换后的值对象
  */
 export const transformKeySubmitValue = <T extends object = any>(
@@ -414,6 +427,7 @@ export const transformKeySubmitValue = <T extends object = any>(
     SearchTransformKeyFn | undefined | DataFormatMapType
   >,
   omitNil?: boolean,
+  transformNil = true,
 ): T => {
   // 过滤掉空值的转换配置
   const dataFormatMap = filterNilTransforms(dataFormatMapRaw);
@@ -443,7 +457,7 @@ export const transformKeySubmitValue = <T extends object = any>(
     separateTransformFormats(dataFormatMapRaw);
 
   // 处理点号路径格式的转换（如 'users.0.name'）
-  processDotPathTransforms(result, dotPathTransforms);
+  processDotPathTransforms(result, dotPathTransforms, transformNil);
 
   // 收集所有「应在 root 上合并」的 transform 返回对象
   const rootLevelMerges: any[] = [];
@@ -457,6 +471,7 @@ export const transformKeySubmitValue = <T extends object = any>(
       rootLevelMerges,
       result,
       omitNil,
+      transformNil,
     );
   }
 
